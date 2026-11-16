@@ -44,6 +44,8 @@ namespace NakamaFarsi.Sdk
 
         public event Action<IApiNotification> NotificationReceived;
 
+        public event Action<IApiChannelMessage> ChannelMessageReceived;
+
         public Task ConnectAsync()
         {
             lock (_gate)
@@ -115,6 +117,7 @@ namespace NakamaFarsi.Sdk
             socket.Closed += reason => OnClosed(socket, generation, reason);
             socket.ReceivedError += e => _logger.Warn("Socket error: " + e.Message);
             socket.ReceivedNotification += n => _dispatcher.Post(() => NotificationReceived?.Invoke(n));
+            socket.ReceivedChannelMessage += m => _dispatcher.Post(() => ChannelMessageReceived?.Invoke(m));
             try
             {
                 await socket.ConnectAsync(session, true, ConnectTimeoutSeconds, LangTag).ConfigureAwait(false);

@@ -5,6 +5,7 @@ using Nakama;
 using NakamaFarsi.Sdk.Analytics;
 using NakamaFarsi.Sdk.Auth;
 using NakamaFarsi.Sdk.Payments;
+using NakamaFarsi.Sdk.Social;
 using NakamaFarsi.Sdk.Generated;
 using Newtonsoft.Json;
 
@@ -42,6 +43,8 @@ namespace NakamaFarsi.Sdk
             Rpcs = new NakamaFarsiRpcs(this);
             Phone = new PhoneLogin(this);
             Payments = new PaymentClient(this);
+            Chat = new ChatClient(this);
+            Notifications = new NotificationClient(this);
             Session.SessionChanged += changed =>
             {
                 if (options.UseSocket && Socket.Socket != null)
@@ -68,6 +71,10 @@ namespace NakamaFarsi.Sdk
         public PhoneLogin Phone { get; }
 
         public PaymentClient Payments { get; }
+
+        public ChatClient Chat { get; }
+
+        public NotificationClient Notifications { get; }
 
         public IKeyValueStore Store { get; }
 
