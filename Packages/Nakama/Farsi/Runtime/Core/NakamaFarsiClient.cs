@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Nakama;
 using NakamaFarsi.Sdk.Analytics;
 using NakamaFarsi.Sdk.Auth;
+using NakamaFarsi.Sdk.Payments;
 using NakamaFarsi.Sdk.Generated;
 using Newtonsoft.Json;
 
@@ -40,6 +41,7 @@ namespace NakamaFarsi.Sdk
             Rpc = new RpcClient(options, Session, httpTransport ?? new HttpRpcTransport(Client, () => options.HttpKey), socketTransport ?? new SocketRpcTransport(Socket), Errors, Logger);
             Rpcs = new NakamaFarsiRpcs(this);
             Phone = new PhoneLogin(this);
+            Payments = new PaymentClient(this);
             Session.SessionChanged += changed =>
             {
                 if (options.UseSocket && Socket.Socket != null)
@@ -64,6 +66,8 @@ namespace NakamaFarsi.Sdk
         public NakamaFarsiRpcs Rpcs { get; }
 
         public PhoneLogin Phone { get; }
+
+        public PaymentClient Payments { get; }
 
         public IKeyValueStore Store { get; }
 

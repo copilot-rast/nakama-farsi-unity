@@ -286,3 +286,5 @@ $RECYCLE.BIN/
 
 Packages/Nakama/Farsi/Tests~/**/bin/
 Packages/Nakama/Farsi/Tests~/**/obj/
+Packages/Nakama/Farsi/Tests~/*/bin/
+Packages/Nakama/Farsi/Tests~/*/obj/

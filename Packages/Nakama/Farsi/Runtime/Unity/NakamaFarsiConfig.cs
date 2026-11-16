@@ -15,6 +15,7 @@ namespace NakamaFarsi.Sdk.Unity
         [SerializeField, Min(1)] private int timeoutSeconds = 15;
         [SerializeField] private bool useSocket = true;
         [SerializeField, Tooltip("Analytics sessions; needs the analytics module on the server")] private bool autoStartSession = false;
+        [SerializeField, Tooltip("Deep link the payment gateway returns to, for example mygame://payment; empty = any return to the app")] private string paymentDeepLink = "";
         [SerializeField] private bool logging = true;
         [SerializeField] private bool loggingInReleaseBuilds = false;
 
@@ -31,6 +32,8 @@ namespace NakamaFarsi.Sdk.Unity
         public bool UseSocket { get => useSocket; set => useSocket = value; }
 
         public bool AutoStartSession { get => autoStartSession; set => autoStartSession = value; }
+
+        public string PaymentDeepLink { get => paymentDeepLink; set => paymentDeepLink = value; }
 
         public bool LoggingEnabled => logging && (Debug.isDebugBuild || loggingInReleaseBuilds);
 

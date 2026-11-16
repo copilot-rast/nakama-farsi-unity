@@ -52,9 +52,29 @@ namespace NakamaFarsi.Sdk
 
         public int RetryDelayMilliseconds { get; set; } = 500;
 
+        public static readonly System.Collections.Generic.Dictionary<string, int> HttpOnlyRpcs = new System.Collections.Generic.Dictionary<string, int>
+        {
+            ["economy_purchase_start"] = 30,
+            ["economy_purchase_submit"] = 30,
+            ["economy_purchase_status"] = 0,
+            ["economy_purchase_review"] = 30,
+        };
+
         public async Task<string> CallRpcAsync(string id, string payload, RpcCallOptions options = null, CancellationToken ct = default)
         {
             options = options ?? RpcCallOptions.Write;
+            if (HttpOnlyRpcs.TryGetValue(id, out var httpTimeout) && !options.HttpOnly)
+            {
+                options = new RpcCallOptions
+                {
+                    ReadOnly = options.ReadOnly,
+                    Idempotent = options.Idempotent,
+                    AllowAnonymous = options.AllowAnonymous,
+                    HttpOnly = true,
+                    TimeoutSeconds = Math.Max(options.TimeoutSeconds, httpTimeout),
+                };
+            }
+
             payload = string.IsNullOrEmpty(payload) ? "{}" : payload;
             var refreshed = false;
             while (true)

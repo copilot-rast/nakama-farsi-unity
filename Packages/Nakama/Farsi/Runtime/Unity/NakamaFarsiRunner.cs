@@ -23,6 +23,7 @@ namespace NakamaFarsi.Sdk.Unity
                 throw new ArgumentNullException(nameof(config));
             }
 
+            NakamaFarsiGateway.DeepLinkPrefix = config.PaymentDeepLink ?? string.Empty;
             return Initialize(config.ToOptions(), config.AutoStartSession, analytics);
         }
 
