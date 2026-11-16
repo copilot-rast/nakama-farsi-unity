@@ -40,6 +40,7 @@ var wrapperFormat = map[string]string{
 	"rpcSized":  "code",
 	"chanceRPC": "json",
 	"RPC":       "envelope",
+	"wrapRPC":   "envelope",
 }
 
 func loadPkg(root string, m Module) (*pkg, error) {

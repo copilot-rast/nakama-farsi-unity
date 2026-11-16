@@ -44,7 +44,8 @@
   "ALREADY_CLAIMED": {
     "status": 409,
     "modules": [
-      "economy"
+      "economy",
+      "publication"
     ]
   },
   "ALREADY_EXISTS": {
@@ -468,6 +469,12 @@
     "status": 409,
     "modules": [
       "economy"
+    ]
+  },
+  "EMAIL_TAKEN": {
+    "status": 409,
+    "modules": [
+      "publication"
     ]
   },
   "END_IN_PAST": {
@@ -897,6 +904,12 @@
       "economy"
     ]
   },
+  "INVALID_DISPLAY_NAME": {
+    "status": 400,
+    "modules": [
+      "publication"
+    ]
+  },
   "INVALID_DURATION": {
     "status": 400,
     "modules": [
@@ -1047,7 +1060,8 @@
   "INVALID_KIND": {
     "status": 400,
     "modules": [
-      "base"
+      "base",
+      "publication"
     ]
   },
   "INVALID_LANGUAGE": {
@@ -1239,6 +1253,12 @@
     "status": 400,
     "modules": [
       "base"
+    ]
+  },
+  "INVALID_PASSWORD": {
+    "status": 400,
+    "modules": [
+      "publication"
     ]
   },
   "INVALID_PATH": {
@@ -1638,7 +1658,8 @@
   "INVALID_USERNAME": {
     "status": 400,
     "modules": [
-      "base"
+      "base",
+      "publication"
     ]
   },
   "INVALID_USER_ID": {
@@ -1982,10 +2003,17 @@
       "economy"
     ]
   },
+  "MESSAGE_HAS_NO_PRIZE": {
+    "status": 409,
+    "modules": [
+      "publication"
+    ]
+  },
   "MESSAGE_NOT_FOUND": {
     "status": 404,
     "modules": [
-      "base"
+      "base",
+      "publication"
     ]
   },
   "MESSAGE_TOO_LONG": {
@@ -2347,6 +2375,12 @@
       "publication"
     ]
   },
+  "PHONE_TAKEN": {
+    "status": 409,
+    "modules": [
+      "publication"
+    ]
+  },
   "PLAYERS_MAX_BELOW_MIN": {
     "status": 400,
     "modules": [
@@ -2389,6 +2423,12 @@
       "economy"
     ]
   },
+  "PRIZES_UNAVAILABLE": {
+    "status": 503,
+    "modules": [
+      "publication"
+    ]
+  },
   "PRIZE_ALREADY_CLAIMED": {
     "status": 409,
     "modules": [
@@ -2407,6 +2447,12 @@
       "economy"
     ]
   },
+  "PRIZE_IN_APP_ONLY": {
+    "status": 400,
+    "modules": [
+      "publication"
+    ]
+  },
   "PRIZE_LIST_REQUIRED": {
     "status": 400,
     "modules": [
@@ -2416,7 +2462,8 @@
   "PRIZE_NOT_FOUND": {
     "status": 400,
     "modules": [
-      "economy"
+      "economy",
+      "publication"
     ]
   },
   "PRIZE_NOT_REPEATABLE": {
@@ -3157,6 +3204,12 @@
       "economy"
     ]
   },
+  "TOO_MANY": {
+    "status": 400,
+    "modules": [
+      "base"
+    ]
+  },
   "TOO_MANY_ACTIONS": {
     "status": 400,
     "modules": [
@@ -3441,7 +3494,8 @@
   "USERNAME_TAKEN": {
     "status": 409,
     "modules": [
-      "base"
+      "base",
+      "publication"
     ]
   },
   "USERNAME_TOO_LONG": {

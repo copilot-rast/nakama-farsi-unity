@@ -16,6 +16,56 @@
   },
   "rpcs": [
     {
+      "id": "base_account_delete",
+      "module": "base",
+      "handler": "rpcAccountDelete",
+      "source": "integrations/base/serverrules.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {
+          "confirm": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "deleted": {
+            "type": "boolean"
+          },
+          "dueAt": {},
+          "graceDays": {}
+        },
+        "type": "object"
+      },
+      "errors": []
+    },
+    {
+      "id": "base_account_delete_cancel",
+      "module": "base",
+      "handler": "rpcAccountDeleteCancel",
+      "source": "integrations/base/serverrules.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {},
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "cancelled": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "errors": []
+    },
+    {
       "id": "base_account_get",
       "module": "base",
       "handler": "rpcAccountGet",
@@ -116,26 +166,13 @@
     {
       "id": "base_app_version",
       "module": "base",
-      "handler": "rpcAppVersion",
-      "source": "integrations/base/versions.go",
+      "handler": "appVersionWithMaintenance",
+      "source": "integrations/base/serverrules.go",
       "auth": "session",
       "errorFormat": "envelope",
       "codeModeFormat": "code",
       "request": {
-        "properties": {
-          "lang": {
-            "type": "string"
-          },
-          "platform": {
-            "type": "string"
-          },
-          "store": {
-            "type": "string"
-          },
-          "version": {
-            "type": "string"
-          }
-        },
+        "properties": {},
         "type": "object"
       },
       "response": {
@@ -1375,6 +1412,51 @@
       "errors": []
     },
     {
+      "id": "base_server_status",
+      "module": "base",
+      "handler": "rpcServerStatus",
+      "source": "integrations/base/serverrules.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {
+          "lang": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "accountDelete": {
+            "properties": {
+              "enabled": {},
+              "graceDays": {},
+              "mode": {}
+            },
+            "type": "object"
+          },
+          "deletionDueAt": {},
+          "maintenance": {
+            "properties": {
+              "bypass": {
+                "type": "boolean"
+              },
+              "message": {
+                "type": "string"
+              },
+              "on": {},
+              "until": {}
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "errors": []
+    },
+    {
       "id": "base_set_country",
       "module": "base",
       "handler": "rpcSetCountry",
@@ -2308,6 +2390,261 @@
       "errors": [
         "INVALID_USER_ID"
       ]
+    },
+    {
+      "id": "combatrace_config",
+      "module": "combatrace",
+      "handler": "rpcConfig",
+      "source": "integrations/combatrace/race.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {},
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "game": {},
+          "leaderboardId": {},
+          "rooms": {
+            "items": {
+              "properties": {},
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "settings": {
+            "properties": {
+              "maxCars": {
+                "type": "integer"
+              },
+              "maxKmh": {
+                "type": "number"
+              },
+              "maxRaceSeconds": {
+                "type": "integer"
+              },
+              "minRaceSeconds": {
+                "type": "integer"
+              },
+              "oilForWin": {
+                "type": "integer"
+              },
+              "pitsByPosition": {
+                "items": {
+                  "type": "integer"
+                },
+                "type": "array"
+              },
+              "ticketMinutes": {
+                "type": "integer"
+              },
+              "trophiesByPosition": {
+                "items": {
+                  "type": "integer"
+                },
+                "type": "array"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "errors": []
+    },
+    {
+      "id": "combatrace_history",
+      "module": "combatrace",
+      "handler": "rpcHistory",
+      "source": "integrations/combatrace/race.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "limit": {
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "items": {
+            "items": {
+              "properties": {
+                "endedAt": {},
+                "mode": {
+                  "type": "string"
+                },
+                "reason": {
+                  "type": "string"
+                },
+                "rewards": {},
+                "room": {
+                  "type": "string"
+                },
+                "startedAt": {},
+                "status": {
+                  "type": "string"
+                },
+                "ticket": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "trophies": {
+            "type": "number"
+          }
+        },
+        "type": "object"
+      },
+      "errors": []
+    },
+    {
+      "id": "combatrace_match_begin",
+      "module": "combatrace",
+      "handler": "rpcMatchBegin",
+      "source": "integrations/combatrace/race.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "mode": {
+            "type": "string"
+          },
+          "room": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "entry": {},
+          "expiresAt": {},
+          "mode": {
+            "type": "string"
+          },
+          "resumed": {
+            "type": "boolean"
+          },
+          "room": {
+            "type": "string"
+          },
+          "settings": {
+            "properties": {
+              "maxCars": {
+                "type": "integer"
+              },
+              "maxKmh": {
+                "type": "number"
+              },
+              "maxRaceSeconds": {
+                "type": "integer"
+              },
+              "minRaceSeconds": {
+                "type": "integer"
+              },
+              "oilForWin": {
+                "type": "integer"
+              },
+              "pitsByPosition": {
+                "items": {
+                  "type": "integer"
+                },
+                "type": "array"
+              },
+              "ticketMinutes": {
+                "type": "integer"
+              },
+              "trophiesByPosition": {
+                "items": {
+                  "type": "integer"
+                },
+                "type": "array"
+              }
+            },
+            "type": "object"
+          },
+          "ticket": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": []
+    },
+    {
+      "id": "combatrace_match_end",
+      "module": "combatrace",
+      "handler": "rpcMatchEnd",
+      "source": "integrations/combatrace/race.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "cars": {
+            "nullable": true,
+            "type": "integer"
+          },
+          "maxKmh": {
+            "nullable": true,
+            "type": "number"
+          },
+          "position": {
+            "nullable": true,
+            "type": "integer"
+          },
+          "ticket": {
+            "type": "string"
+          },
+          "timeMs": {
+            "nullable": true,
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "accepted": {
+            "type": "boolean"
+          },
+          "payouts": {},
+          "position": {
+            "type": "integer"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "rewards": {
+            "properties": {
+              "oil": {
+                "type": "integer"
+              },
+              "pits": {
+                "type": "integer"
+              },
+              "trophies": {
+                "type": "integer"
+              }
+            },
+            "type": "object"
+          },
+          "ticket": {
+            "type": "string"
+          },
+          "trophies": {
+            "type": "number"
+          }
+        },
+        "type": "object"
+      },
+      "errors": []
     },
     {
       "id": "economy_achievement_claim",
@@ -8822,6 +9159,8 @@
                   },
                   "type": "object"
                 },
+                "claimed": {},
+                "claimedAt": {},
                 "createdAt": {},
                 "id": {
                   "type": "string"
@@ -8831,6 +9170,21 @@
                 },
                 "opened": {
                   "type": "boolean"
+                },
+                "prize": {
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "items": {},
+                    "key": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
                 },
                 "seen": {
                   "type": "boolean"
@@ -8853,6 +9207,45 @@
         "type": "object"
       },
       "errors": []
+    },
+    {
+      "id": "publication_inbox_claim",
+      "module": "publication",
+      "handler": "rpcInboxClaim",
+      "source": "integrations/publication/mail.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {
+          "lang": {
+            "type": "string"
+          },
+          "notificationId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "claimed": {
+            "type": "boolean"
+          },
+          "notificationId": {
+            "type": "string"
+          },
+          "prizes": {}
+        },
+        "type": "object"
+      },
+      "errors": [
+        "ALREADY_CLAIMED",
+        "INVALID_ID",
+        "MESSAGE_HAS_NO_PRIZE",
+        "MESSAGE_NOT_FOUND",
+        "PRIZES_UNAVAILABLE"
+      ]
     },
     {
       "id": "publication_inbox_seen",
