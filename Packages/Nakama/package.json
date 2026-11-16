@@ -27,8 +27,13 @@
     "samples": [
         {
             "displayName": "Quick Start",
-            "description": "Device login, socket, a first RPC.",
+            "description": "Device login, socket, first reads, phone login.",
             "path": "Samples~/QuickStart"
+        },
+        {
+            "displayName": "Payments",
+            "description": "Catalog, coins, Cafe Bazaar or Myket (test store in sandbox) and ZarinPal with the return to the game.",
+            "path": "Samples~/Payments"
         }
     ]
 }
