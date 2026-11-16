@@ -283,3 +283,6 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/linux,macos,windows,intellij+all,sublimetext,dotnetcore,unity
+
+Packages/Nakama/Farsi/Tests~/**/bin/
+Packages/Nakama/Farsi/Tests~/**/obj/

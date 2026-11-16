@@ -1,0 +1,19 @@
+{
+    "name": "NakamaFarsi.Sdk",
+    "rootNamespace": "NakamaFarsi.Sdk",
+    "references": [
+        "NakamaRuntime"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "Newtonsoft.Json.dll",
+        "Nakama.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
