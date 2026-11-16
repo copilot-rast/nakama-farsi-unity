@@ -1191,6 +1191,7 @@
                 "description": {
                   "type": "string"
                 },
+                "expiresAt": {},
                 "iconUrl": {
                   "type": "string"
                 },
@@ -3222,6 +3223,7 @@
                 "categoryKey": {
                   "type": "string"
                 },
+                "coinOriginal": {},
                 "coinPrice": {
                   "nullable": true,
                   "properties": {
@@ -3301,6 +3303,10 @@
                   },
                   "type": "object"
                 },
+                "storeFinalToman": {},
+                "tagDiscountPercent": {
+                  "type": "integer"
+                },
                 "tags": {
                   "items": {
                     "type": "string"
@@ -3370,6 +3376,10 @@
               "canPlay": {
                 "type": "boolean"
               },
+              "dailyLimit": {
+                "nullable": true,
+                "type": "integer"
+              },
               "description": {
                 "type": "string"
               },
@@ -3383,8 +3393,14 @@
               "key": {
                 "type": "string"
               },
+              "kind": {
+                "type": "string"
+              },
               "lastPlayAt": {
                 "type": "string"
+              },
+              "limitReached": {
+                "type": "boolean"
               },
               "metadata": {},
               "name": {
@@ -3397,6 +3413,15 @@
                 "type": "integer"
               },
               "plays": {
+                "type": "integer"
+              },
+              "playsLeft": {
+                "type": "integer"
+              },
+              "playsLeftToday": {
+                "type": "integer"
+              },
+              "playsToday": {
                 "type": "integer"
               },
               "price": {
@@ -3448,7 +3473,14 @@
               "prizeType": {
                 "type": "string"
               },
+              "showOdds": {
+                "type": "boolean"
+              },
               "sort": {
+                "type": "integer"
+              },
+              "totalLimit": {
+                "nullable": true,
                 "type": "integer"
               }
             },
@@ -3491,6 +3523,10 @@
                 "canPlay": {
                   "type": "boolean"
                 },
+                "dailyLimit": {
+                  "nullable": true,
+                  "type": "integer"
+                },
                 "description": {
                   "type": "string"
                 },
@@ -3504,8 +3540,14 @@
                 "key": {
                   "type": "string"
                 },
+                "kind": {
+                  "type": "string"
+                },
                 "lastPlayAt": {
                   "type": "string"
+                },
+                "limitReached": {
+                  "type": "boolean"
                 },
                 "metadata": {},
                 "name": {
@@ -3518,6 +3560,15 @@
                   "type": "integer"
                 },
                 "plays": {
+                  "type": "integer"
+                },
+                "playsLeft": {
+                  "type": "integer"
+                },
+                "playsLeftToday": {
+                  "type": "integer"
+                },
+                "playsToday": {
                   "type": "integer"
                 },
                 "price": {
@@ -3569,7 +3620,14 @@
                 "prizeType": {
                   "type": "string"
                 },
+                "showOdds": {
+                  "type": "boolean"
+                },
                 "sort": {
+                  "type": "integer"
+                },
+                "totalLimit": {
+                  "nullable": true,
                   "type": "integer"
                 }
               },
@@ -3761,6 +3819,9 @@
             },
             "type": "object"
           },
+          "kind": {
+            "type": "string"
+          },
           "lang": {
             "type": "string"
           },
@@ -3774,6 +3835,8 @@
             "type": "integer"
           },
           "playId": {},
+          "playsLeft": {},
+          "playsLeftToday": {},
           "prize": {
             "properties": {
               "id": {
@@ -3854,6 +3917,9 @@
             },
             "type": "object"
           },
+          "kind": {
+            "type": "string"
+          },
           "lang": {
             "type": "string"
           },
@@ -3867,6 +3933,8 @@
             "type": "integer"
           },
           "playId": {},
+          "playsLeft": {},
+          "playsLeftToday": {},
           "prize": {
             "properties": {
               "id": {
@@ -10835,6 +10903,3110 @@
       "errors": [
         "INVALID_TAG",
         "TOO_MANY_REQUESTS"
+      ]
+    },
+    {
+      "id": "quiz_answer",
+      "module": "quiz",
+      "handler": "rpcAnswer",
+      "source": "integrations/quiz/player.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {
+          "lang": {
+            "type": "string"
+          },
+          "optionId": {
+            "nullable": true,
+            "type": "integer"
+          },
+          "optionIds": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array"
+          },
+          "questionId": {
+            "type": "string"
+          },
+          "sessionId": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "Answered": {
+            "format": "date-time",
+            "nullable": true,
+            "type": "string"
+          },
+          "Idx": {
+            "type": "integer"
+          },
+          "Option": {
+            "nullable": true,
+            "type": "integer"
+          },
+          "Outcome": {
+            "type": "string"
+          },
+          "QuestionID": {
+            "type": "string"
+          },
+          "Round": {
+            "type": "integer"
+          },
+          "Seconds": {
+            "type": "number"
+          },
+          "Served": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "UserID": {
+            "type": "string"
+          },
+          "result": {}
+        },
+        "type": "object"
+      },
+      "errors": [
+        "QUIZ_BUSY",
+        "QUIZ_SESSION_CLOSED"
+      ]
+    },
+    {
+      "id": "quiz_answer_all",
+      "module": "quiz",
+      "handler": "rpcAnswerAll",
+      "source": "integrations/quiz/player.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {
+          "answers": {
+            "items": {
+              "properties": {
+                "lang": {
+                  "type": "string"
+                },
+                "optionId": {
+                  "nullable": true,
+                  "type": "integer"
+                },
+                "optionIds": {
+                  "items": {
+                    "type": "integer"
+                  },
+                  "type": "array"
+                },
+                "questionId": {
+                  "type": "string"
+                },
+                "sessionId": {
+                  "type": "string"
+                },
+                "text": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "sessionId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "answers": {
+            "items": {
+              "properties": {
+                "error": {},
+                "questionId": {}
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "result": {},
+          "sessionId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "QUIZ_BUSY",
+        "QUIZ_SESSION_CLOSED",
+        "QUIZ_SESSION_NOT_FOUND",
+        "QUIZ_SESSION_REQUIRED",
+        "QUIZ_TOO_MANY_ANSWERS"
+      ]
+    },
+    {
+      "id": "quiz_duel_accept",
+      "module": "quiz",
+      "handler": "rpcDuelAccept",
+      "source": "integrations/quiz/duel_player.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {},
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "createdAt": {
+            "type": "string"
+          },
+          "duelId": {},
+          "entryFee": {},
+          "expiresAt": {},
+          "finishedAt": {},
+          "invitedByYou": {
+            "type": "boolean"
+          },
+          "mode": {},
+          "opponent": {},
+          "questionSeconds": {},
+          "questionsPerRound": {},
+          "reason": {},
+          "result": {},
+          "roundList": {
+            "items": {
+              "properties": {
+                "category": {
+                  "properties": {
+                    "color": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "iconUrl": {
+                      "type": "string"
+                    },
+                    "key": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "opponent": {
+                  "type": "null"
+                },
+                "opponentCorrect": {
+                  "type": "null"
+                },
+                "picker": {
+                  "type": "string"
+                },
+                "round": {
+                  "type": "string"
+                },
+                "you": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "youCorrect": {
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "rounds": {},
+          "serverTime": {
+            "type": "string"
+          },
+          "status": {},
+          "step": {
+            "properties": {
+              "category": {
+                "properties": {
+                  "color": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "iconUrl": {
+                    "type": "string"
+                  },
+                  "key": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "kind": {
+                "type": "string"
+              },
+              "offers": {
+                "items": {
+                  "properties": {
+                    "color": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "iconUrl": {
+                      "type": "string"
+                    },
+                    "key": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "round": {}
+            },
+            "type": "object"
+          },
+          "turn": {},
+          "turnDeadline": {},
+          "updatedAt": {
+            "type": "string"
+          },
+          "winner": {},
+          "you": {}
+        },
+        "type": "object"
+      },
+      "errors": [
+        "QUIZ_BUSY",
+        "QUIZ_DUEL_ACTIVE_LIMIT",
+        "QUIZ_DUEL_NOT_ENOUGH_CURRENCY",
+        "QUIZ_DUEL_NOT_FOUND",
+        "QUIZ_DUEL_NOT_INVITED",
+        "QUIZ_DUEL_NO_CATEGORIES"
+      ]
+    },
+    {
+      "id": "quiz_duel_answer",
+      "module": "quiz",
+      "handler": "rpcDuelAnswer",
+      "source": "integrations/quiz/duel_player.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {},
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "duel": {
+            "properties": {
+              "createdAt": {
+                "type": "string"
+              },
+              "duelId": {
+                "type": "string"
+              },
+              "entryFee": {},
+              "expiresAt": {
+                "type": "string"
+              },
+              "finishedAt": {
+                "type": "string"
+              },
+              "invitedByYou": {
+                "type": "boolean"
+              },
+              "mode": {
+                "type": "string"
+              },
+              "opponent": {
+                "properties": {
+                  "avatarUrl": {},
+                  "displayName": {},
+                  "score": {},
+                  "userId": {
+                    "type": "string"
+                  },
+                  "username": {}
+                },
+                "type": "object"
+              },
+              "questionSeconds": {
+                "type": "integer"
+              },
+              "questionsPerRound": {},
+              "reason": {
+                "type": "string"
+              },
+              "result": {},
+              "roundList": {
+                "items": {
+                  "properties": {
+                    "category": {
+                      "properties": {
+                        "color": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
+                        },
+                        "iconUrl": {
+                          "type": "string"
+                        },
+                        "key": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "opponent": {
+                      "type": "null"
+                    },
+                    "opponentCorrect": {
+                      "type": "null"
+                    },
+                    "picker": {
+                      "type": "string"
+                    },
+                    "round": {
+                      "type": "string"
+                    },
+                    "you": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "youCorrect": {
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "rounds": {
+                "type": "integer"
+              },
+              "serverTime": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "step": {
+                "properties": {
+                  "category": {
+                    "properties": {
+                      "color": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "iconUrl": {
+                        "type": "string"
+                      },
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "kind": {
+                    "type": "string"
+                  },
+                  "offers": {
+                    "items": {
+                      "properties": {
+                        "color": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
+                        },
+                        "iconUrl": {
+                          "type": "string"
+                        },
+                        "key": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "round": {}
+                },
+                "type": "object"
+              },
+              "turn": {},
+              "turnDeadline": {
+                "type": "string"
+              },
+              "updatedAt": {
+                "type": "string"
+              },
+              "winner": {
+                "type": "string"
+              },
+              "you": {
+                "properties": {
+                  "avatarUrl": {},
+                  "displayName": {},
+                  "score": {},
+                  "userId": {
+                    "type": "string"
+                  },
+                  "username": {}
+                },
+                "type": "object"
+              }
+            },
+            "type": "object"
+          },
+          "explanation": {
+            "type": "string"
+          },
+          "next": {
+            "properties": {
+              "deadlineAt": {
+                "type": "string"
+              },
+              "duelId": {
+                "type": "string"
+              },
+              "index": {
+                "type": "integer"
+              },
+              "mediaUrl": {},
+              "options": {
+                "items": {
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "mediaUrl": {
+                      "type": "string"
+                    },
+                    "text": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "questionId": {},
+              "round": {
+                "type": "integer"
+              },
+              "seconds": {
+                "type": "integer"
+              },
+              "servedAt": {
+                "type": "string"
+              },
+              "serverTime": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string"
+              },
+              "total": {
+                "type": "integer"
+              }
+            },
+            "type": "object"
+          },
+          "roundDone": {
+            "type": "boolean"
+          },
+          "roundTotal": {
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "QUIZ_BUSY",
+        "QUIZ_DUEL_NOT_FOUND",
+        "QUIZ_DUEL_NO_CATEGORIES",
+        "QUIZ_DUEL_OVER",
+        "QUIZ_DUEL_QUESTION_NOT_SERVED",
+        "QUIZ_OPTION_NOT_FOUND",
+        "QUIZ_QUESTION_NOT_FOUND"
+      ]
+    },
+    {
+      "id": "quiz_duel_categories",
+      "module": "quiz",
+      "handler": "rpcDuelCategories",
+      "source": "integrations/quiz/duel_player.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {
+          "lang": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "categories": {
+            "items": {
+              "properties": {
+                "color": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "iconUrl": {
+                  "type": "string"
+                },
+                "key": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "playable": {
+                  "type": "boolean"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "enabled": {},
+          "lang": {
+            "type": "string"
+          },
+          "rules": {
+            "properties": {
+              "categoryChoices": {},
+              "dailyStarts": {},
+              "drawPrize": {},
+              "entryFee": {},
+              "friendsOnly": {},
+              "inviteHours": {},
+              "losePrize": {},
+              "maxActive": {},
+              "perCorrect": {},
+              "questionSeconds": {},
+              "questionsPerRound": {},
+              "rounds": {},
+              "turnHours": {},
+              "waitingHours": {},
+              "winPrize": {}
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "errors": []
+    },
+    {
+      "id": "quiz_duel_decline",
+      "module": "quiz",
+      "handler": "rpcDuelDecline",
+      "source": "integrations/quiz/duel_player.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {},
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "createdAt": {
+            "type": "string"
+          },
+          "duelId": {},
+          "entryFee": {},
+          "expiresAt": {},
+          "finishedAt": {},
+          "invitedByYou": {
+            "type": "boolean"
+          },
+          "mode": {},
+          "opponent": {},
+          "questionSeconds": {},
+          "questionsPerRound": {},
+          "reason": {},
+          "result": {},
+          "roundList": {
+            "items": {
+              "properties": {
+                "category": {
+                  "properties": {
+                    "color": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "iconUrl": {
+                      "type": "string"
+                    },
+                    "key": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "opponent": {
+                  "type": "null"
+                },
+                "opponentCorrect": {
+                  "type": "null"
+                },
+                "picker": {
+                  "type": "string"
+                },
+                "round": {
+                  "type": "string"
+                },
+                "you": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "youCorrect": {
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "rounds": {},
+          "serverTime": {
+            "type": "string"
+          },
+          "status": {},
+          "step": {
+            "properties": {
+              "category": {
+                "properties": {
+                  "color": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "iconUrl": {
+                    "type": "string"
+                  },
+                  "key": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "kind": {
+                "type": "string"
+              },
+              "offers": {
+                "items": {
+                  "properties": {
+                    "color": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "iconUrl": {
+                      "type": "string"
+                    },
+                    "key": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "round": {}
+            },
+            "type": "object"
+          },
+          "turn": {},
+          "turnDeadline": {},
+          "updatedAt": {
+            "type": "string"
+          },
+          "winner": {},
+          "you": {}
+        },
+        "type": "object"
+      },
+      "errors": [
+        "QUIZ_BUSY",
+        "QUIZ_DUEL_NOT_FOUND",
+        "QUIZ_DUEL_NOT_INVITED"
+      ]
+    },
+    {
+      "id": "quiz_duel_forfeit",
+      "module": "quiz",
+      "handler": "rpcDuelForfeit",
+      "source": "integrations/quiz/duel_player.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {},
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "createdAt": {
+            "type": "string"
+          },
+          "duelId": {},
+          "entryFee": {},
+          "expiresAt": {},
+          "finishedAt": {},
+          "invitedByYou": {
+            "type": "boolean"
+          },
+          "mode": {},
+          "opponent": {},
+          "questionSeconds": {},
+          "questionsPerRound": {},
+          "reason": {},
+          "result": {},
+          "roundList": {
+            "items": {
+              "properties": {
+                "category": {
+                  "properties": {
+                    "color": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "iconUrl": {
+                      "type": "string"
+                    },
+                    "key": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "opponent": {
+                  "type": "null"
+                },
+                "opponentCorrect": {
+                  "type": "null"
+                },
+                "picker": {
+                  "type": "string"
+                },
+                "round": {
+                  "type": "string"
+                },
+                "you": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "youCorrect": {
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "rounds": {},
+          "serverTime": {
+            "type": "string"
+          },
+          "status": {},
+          "step": {
+            "properties": {
+              "category": {
+                "properties": {
+                  "color": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "iconUrl": {
+                    "type": "string"
+                  },
+                  "key": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "kind": {
+                "type": "string"
+              },
+              "offers": {
+                "items": {
+                  "properties": {
+                    "color": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "iconUrl": {
+                      "type": "string"
+                    },
+                    "key": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "round": {}
+            },
+            "type": "object"
+          },
+          "turn": {},
+          "turnDeadline": {},
+          "updatedAt": {
+            "type": "string"
+          },
+          "winner": {},
+          "you": {}
+        },
+        "type": "object"
+      },
+      "errors": [
+        "QUIZ_BUSY",
+        "QUIZ_DUEL_NOT_FOUND",
+        "QUIZ_DUEL_OVER"
+      ]
+    },
+    {
+      "id": "quiz_duel_get",
+      "module": "quiz",
+      "handler": "rpcDuelGet",
+      "source": "integrations/quiz/duel_player.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {},
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "createdAt": {
+            "type": "string"
+          },
+          "duelId": {},
+          "entryFee": {},
+          "expiresAt": {},
+          "finishedAt": {},
+          "invitedByYou": {
+            "type": "boolean"
+          },
+          "mode": {},
+          "opponent": {},
+          "questionSeconds": {},
+          "questionsPerRound": {},
+          "reason": {},
+          "result": {},
+          "roundList": {
+            "items": {
+              "properties": {
+                "category": {
+                  "properties": {
+                    "color": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "iconUrl": {
+                      "type": "string"
+                    },
+                    "key": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "opponent": {
+                  "type": "null"
+                },
+                "opponentCorrect": {
+                  "type": "null"
+                },
+                "picker": {
+                  "type": "string"
+                },
+                "round": {
+                  "type": "string"
+                },
+                "you": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "youCorrect": {
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "rounds": {},
+          "serverTime": {
+            "type": "string"
+          },
+          "status": {},
+          "step": {
+            "properties": {
+              "category": {
+                "properties": {
+                  "color": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "iconUrl": {
+                    "type": "string"
+                  },
+                  "key": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "kind": {
+                "type": "string"
+              },
+              "offers": {
+                "items": {
+                  "properties": {
+                    "color": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "iconUrl": {
+                      "type": "string"
+                    },
+                    "key": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "round": {}
+            },
+            "type": "object"
+          },
+          "turn": {},
+          "turnDeadline": {},
+          "updatedAt": {
+            "type": "string"
+          },
+          "winner": {},
+          "you": {}
+        },
+        "type": "object"
+      },
+      "errors": [
+        "QUIZ_DUEL_NOT_FOUND"
+      ]
+    },
+    {
+      "id": "quiz_duel_list",
+      "module": "quiz",
+      "handler": "rpcDuelList",
+      "source": "integrations/quiz/duel_player.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {
+          "cursor": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "integer"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "duels": {
+            "items": {
+              "properties": {
+                "createdAt": {
+                  "type": "string"
+                },
+                "duelId": {
+                  "type": "string"
+                },
+                "entryFee": {},
+                "expiresAt": {},
+                "finishedAt": {},
+                "invitedByYou": {
+                  "type": "boolean"
+                },
+                "mode": {
+                  "type": "string"
+                },
+                "opponent": {},
+                "questionSeconds": {},
+                "questionsPerRound": {},
+                "reason": {
+                  "type": "string"
+                },
+                "result": {},
+                "roundList": {
+                  "items": {
+                    "properties": {
+                      "category": {
+                        "properties": {
+                          "color": {
+                            "type": "string"
+                          },
+                          "description": {
+                            "type": "string"
+                          },
+                          "iconUrl": {
+                            "type": "string"
+                          },
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "opponent": {
+                        "type": "null"
+                      },
+                      "opponentCorrect": {
+                        "type": "null"
+                      },
+                      "picker": {
+                        "type": "string"
+                      },
+                      "round": {
+                        "type": "string"
+                      },
+                      "you": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "youCorrect": {
+                        "type": "integer"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "rounds": {},
+                "serverTime": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "step": {
+                  "properties": {
+                    "category": {
+                      "properties": {
+                        "color": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
+                        },
+                        "iconUrl": {
+                          "type": "string"
+                        },
+                        "key": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "kind": {
+                      "type": "string"
+                    },
+                    "offers": {
+                      "items": {
+                        "properties": {
+                          "color": {
+                            "type": "string"
+                          },
+                          "description": {
+                            "type": "string"
+                          },
+                          "iconUrl": {
+                            "type": "string"
+                          },
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "round": {}
+                  },
+                  "type": "object"
+                },
+                "turn": {},
+                "turnDeadline": {},
+                "updatedAt": {
+                  "type": "string"
+                },
+                "winner": {},
+                "you": {}
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "nextCursor": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "QUIZ_DUEL_INVALID_STATUS"
+      ]
+    },
+    {
+      "id": "quiz_duel_pick_category",
+      "module": "quiz",
+      "handler": "rpcDuelPick",
+      "source": "integrations/quiz/duel_player.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {},
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "createdAt": {
+            "type": "string"
+          },
+          "duelId": {},
+          "entryFee": {},
+          "expiresAt": {},
+          "finishedAt": {},
+          "invitedByYou": {
+            "type": "boolean"
+          },
+          "mode": {},
+          "opponent": {},
+          "questionSeconds": {},
+          "questionsPerRound": {},
+          "reason": {},
+          "result": {},
+          "roundList": {
+            "items": {
+              "properties": {
+                "category": {
+                  "properties": {
+                    "color": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "iconUrl": {
+                      "type": "string"
+                    },
+                    "key": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "opponent": {
+                  "type": "null"
+                },
+                "opponentCorrect": {
+                  "type": "null"
+                },
+                "picker": {
+                  "type": "string"
+                },
+                "round": {
+                  "type": "string"
+                },
+                "you": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "youCorrect": {
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "rounds": {},
+          "serverTime": {
+            "type": "string"
+          },
+          "status": {},
+          "step": {
+            "properties": {
+              "category": {
+                "properties": {
+                  "color": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "iconUrl": {
+                    "type": "string"
+                  },
+                  "key": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "kind": {
+                "type": "string"
+              },
+              "offers": {
+                "items": {
+                  "properties": {
+                    "color": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "iconUrl": {
+                      "type": "string"
+                    },
+                    "key": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "round": {}
+            },
+            "type": "object"
+          },
+          "turn": {},
+          "turnDeadline": {},
+          "updatedAt": {
+            "type": "string"
+          },
+          "winner": {},
+          "you": {}
+        },
+        "type": "object"
+      },
+      "errors": [
+        "QUIZ_BUSY",
+        "QUIZ_DUEL_CATEGORY_EMPTY",
+        "QUIZ_DUEL_CATEGORY_NOT_OFFERED",
+        "QUIZ_DUEL_NOT_FOUND",
+        "QUIZ_DUEL_NOT_PICKING",
+        "QUIZ_DUEL_NO_CATEGORIES"
+      ]
+    },
+    {
+      "id": "quiz_duel_question",
+      "module": "quiz",
+      "handler": "rpcDuelQuestion",
+      "source": "integrations/quiz/duel_player.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {},
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "duel": {
+            "properties": {
+              "createdAt": {
+                "type": "string"
+              },
+              "duelId": {
+                "type": "string"
+              },
+              "entryFee": {},
+              "expiresAt": {},
+              "finishedAt": {},
+              "invitedByYou": {
+                "type": "boolean"
+              },
+              "mode": {
+                "type": "string"
+              },
+              "opponent": {},
+              "questionSeconds": {},
+              "questionsPerRound": {},
+              "reason": {
+                "type": "string"
+              },
+              "result": {},
+              "roundList": {
+                "items": {
+                  "properties": {
+                    "category": {
+                      "properties": {
+                        "color": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
+                        },
+                        "iconUrl": {
+                          "type": "string"
+                        },
+                        "key": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "opponent": {
+                      "type": "null"
+                    },
+                    "opponentCorrect": {
+                      "type": "null"
+                    },
+                    "picker": {
+                      "type": "string"
+                    },
+                    "round": {
+                      "type": "string"
+                    },
+                    "you": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "youCorrect": {
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "rounds": {},
+              "serverTime": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "step": {
+                "properties": {
+                  "category": {
+                    "properties": {
+                      "color": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "iconUrl": {
+                        "type": "string"
+                      },
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "kind": {
+                    "type": "string"
+                  },
+                  "offers": {
+                    "items": {
+                      "properties": {
+                        "color": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
+                        },
+                        "iconUrl": {
+                          "type": "string"
+                        },
+                        "key": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "round": {}
+                },
+                "type": "object"
+              },
+              "turn": {},
+              "turnDeadline": {},
+              "updatedAt": {
+                "type": "string"
+              },
+              "winner": {},
+              "you": {}
+            },
+            "type": "object"
+          },
+          "question": {
+            "properties": {
+              "deadlineAt": {
+                "type": "string"
+              },
+              "duelId": {
+                "type": "string"
+              },
+              "index": {
+                "type": "integer"
+              },
+              "mediaUrl": {},
+              "options": {
+                "items": {
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "mediaUrl": {
+                      "type": "string"
+                    },
+                    "text": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "questionId": {},
+              "round": {
+                "type": "integer"
+              },
+              "seconds": {
+                "type": "integer"
+              },
+              "servedAt": {
+                "type": "string"
+              },
+              "serverTime": {
+                "type": "string"
+              },
+              "text": {},
+              "total": {
+                "type": "integer"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "QUIZ_BUSY",
+        "QUIZ_DUEL_NOT_FOUND",
+        "QUIZ_DUEL_NO_CATEGORIES",
+        "QUIZ_DUEL_PICK_FIRST",
+        "QUIZ_QUESTION_NOT_FOUND"
+      ]
+    },
+    {
+      "id": "quiz_duel_start",
+      "module": "quiz",
+      "handler": "rpcDuelStart",
+      "source": "integrations/quiz/duel_player.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {
+          "lang": {
+            "type": "string"
+          },
+          "mode": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "createdAt": {
+            "type": "string"
+          },
+          "duelId": {},
+          "entryFee": {},
+          "expiresAt": {},
+          "finishedAt": {},
+          "invitedByYou": {
+            "type": "boolean"
+          },
+          "mode": {},
+          "opponent": {},
+          "questionSeconds": {},
+          "questionsPerRound": {},
+          "reason": {},
+          "result": {},
+          "roundList": {
+            "items": {
+              "properties": {
+                "category": {
+                  "properties": {
+                    "color": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "iconUrl": {
+                      "type": "string"
+                    },
+                    "key": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "opponent": {
+                  "type": "null"
+                },
+                "opponentCorrect": {
+                  "type": "null"
+                },
+                "picker": {
+                  "type": "string"
+                },
+                "round": {
+                  "type": "string"
+                },
+                "you": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "youCorrect": {
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "rounds": {},
+          "serverTime": {
+            "type": "string"
+          },
+          "status": {},
+          "step": {
+            "properties": {
+              "category": {
+                "properties": {
+                  "color": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "iconUrl": {
+                    "type": "string"
+                  },
+                  "key": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "kind": {
+                "type": "string"
+              },
+              "offers": {
+                "items": {
+                  "properties": {
+                    "color": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "iconUrl": {
+                      "type": "string"
+                    },
+                    "key": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "round": {}
+            },
+            "type": "object"
+          },
+          "turn": {},
+          "turnDeadline": {},
+          "updatedAt": {
+            "type": "string"
+          },
+          "winner": {},
+          "you": {}
+        },
+        "type": "object"
+      },
+      "errors": [
+        "QUIZ_BUSY",
+        "QUIZ_DUEL_ACTIVE_LIMIT",
+        "QUIZ_DUEL_BLOCKED",
+        "QUIZ_DUEL_DAILY_LIMIT",
+        "QUIZ_DUEL_DISABLED",
+        "QUIZ_DUEL_INVALID_MODE",
+        "QUIZ_DUEL_NOT_ENOUGH_CURRENCY",
+        "QUIZ_DUEL_NOT_FOUND",
+        "QUIZ_DUEL_NOT_FRIENDS",
+        "QUIZ_DUEL_NO_CATEGORIES",
+        "QUIZ_DUEL_PLAYER_NOT_FOUND",
+        "QUIZ_DUEL_SELF"
+      ]
+    },
+    {
+      "id": "quiz_duel_stats",
+      "module": "quiz",
+      "handler": "rpcDuelStats",
+      "source": "integrations/quiz/duel_player.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {
+          "userId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "answered": {
+            "type": "integer"
+          },
+          "correct": {
+            "type": "integer"
+          },
+          "correctRate": {
+            "type": "number"
+          },
+          "draws": {
+            "type": "integer"
+          },
+          "losses": {
+            "type": "integer"
+          },
+          "open": {
+            "type": "integer"
+          },
+          "played": {
+            "type": "integer"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "wins": {
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "QUIZ_DUEL_PLAYER_NOT_FOUND"
+      ]
+    },
+    {
+      "id": "quiz_finish",
+      "module": "quiz",
+      "handler": "rpcFinish",
+      "source": "integrations/quiz/player.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {
+          "sessionId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {},
+      "errors": [
+        "QUIZ_BUSY",
+        "QUIZ_SESSION_CLOSED",
+        "QUIZ_SESSION_NOT_FOUND",
+        "QUIZ_SESSION_REQUIRED"
+      ]
+    },
+    {
+      "id": "quiz_hint_buy",
+      "module": "quiz",
+      "handler": "rpcHintBuy",
+      "source": "integrations/quiz/extras.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {
+          "hintId": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "sessionId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "Answered": {
+            "format": "date-time",
+            "nullable": true,
+            "type": "string"
+          },
+          "Idx": {
+            "type": "integer"
+          },
+          "Option": {
+            "nullable": true,
+            "type": "integer"
+          },
+          "Outcome": {
+            "type": "string"
+          },
+          "QuestionID": {
+            "type": "string"
+          },
+          "Round": {
+            "type": "integer"
+          },
+          "Seconds": {
+            "type": "number"
+          },
+          "Served": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "UserID": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "QUIZ_BUSY",
+        "QUIZ_HINT_LIMIT",
+        "QUIZ_HINT_NOT_FOUND",
+        "QUIZ_HINT_PRICE_INVALID",
+        "QUIZ_INSUFFICIENT_CURRENCY_FOR_HINT",
+        "QUIZ_QUESTION_NOT_IN_SESSION",
+        "QUIZ_SESSION_CLOSED",
+        "QUIZ_SESSION_NOT_FOUND",
+        "QUIZ_SESSION_REQUIRED"
+      ]
+    },
+    {
+      "id": "quiz_mission_start",
+      "module": "quiz",
+      "handler": "rpcMissionStart",
+      "source": "integrations/quiz/extras.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "completedAt": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "expiresAt": {
+            "type": "string"
+          },
+          "iconUrl": {
+            "type": "string"
+          },
+          "items": {
+            "items": {
+              "properties": {
+                "completed": {
+                  "type": "boolean"
+                },
+                "key": {},
+                "name": {
+                  "type": "string"
+                },
+                "playable": {
+                  "type": "boolean"
+                },
+                "sort": {}
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "key": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "metadata": {
+            "type": "object"
+          },
+          "missions": {
+            "items": {
+              "properties": {
+                "completedAt": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "expiresAt": {
+                  "type": "string"
+                },
+                "iconUrl": {
+                  "type": "string"
+                },
+                "items": {
+                  "items": {
+                    "properties": {
+                      "completed": {
+                        "type": "boolean"
+                      },
+                      "key": {},
+                      "name": {
+                        "type": "string"
+                      },
+                      "playable": {
+                        "type": "boolean"
+                      },
+                      "sort": {}
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "key": {
+                  "type": "string"
+                },
+                "kind": {
+                  "type": "string"
+                },
+                "metadata": {
+                  "type": "object"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "orderMode": {
+                  "type": "string"
+                },
+                "parentKey": {
+                  "type": "string"
+                },
+                "reward": {
+                  "properties": {
+                    "currencies": {},
+                    "prizeGroupKey": {
+                      "type": "string"
+                    },
+                    "prizeKey": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "rewarded": {
+                  "type": "boolean"
+                },
+                "sort": {
+                  "type": "integer"
+                },
+                "startedAt": {},
+                "timeOver": {
+                  "type": "boolean"
+                },
+                "timeSeconds": {
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "name": {
+            "type": "string"
+          },
+          "orderMode": {
+            "type": "string"
+          },
+          "parentKey": {
+            "type": "string"
+          },
+          "reward": {
+            "properties": {
+              "currencies": {},
+              "prizeGroupKey": {
+                "type": "string"
+              },
+              "prizeKey": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "rewarded": {
+            "type": "boolean"
+          },
+          "serverTime": {
+            "type": "string"
+          },
+          "sort": {
+            "type": "integer"
+          },
+          "startedAt": {},
+          "timeOver": {
+            "type": "boolean"
+          },
+          "timeSeconds": {
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "QUIZ_MISSION_NOT_FOUND"
+      ]
+    },
+    {
+      "id": "quiz_missions",
+      "module": "quiz",
+      "handler": "rpcMissions",
+      "source": "integrations/quiz/extras.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "completedAt": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "expiresAt": {
+            "type": "string"
+          },
+          "iconUrl": {
+            "type": "string"
+          },
+          "items": {
+            "items": {
+              "properties": {
+                "completed": {
+                  "type": "boolean"
+                },
+                "key": {},
+                "name": {
+                  "type": "string"
+                },
+                "playable": {
+                  "type": "boolean"
+                },
+                "sort": {}
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "key": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "metadata": {
+            "type": "object"
+          },
+          "missions": {
+            "items": {
+              "properties": {
+                "completedAt": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "expiresAt": {
+                  "type": "string"
+                },
+                "iconUrl": {
+                  "type": "string"
+                },
+                "items": {
+                  "items": {
+                    "properties": {
+                      "completed": {
+                        "type": "boolean"
+                      },
+                      "key": {},
+                      "name": {
+                        "type": "string"
+                      },
+                      "playable": {
+                        "type": "boolean"
+                      },
+                      "sort": {}
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "key": {
+                  "type": "string"
+                },
+                "kind": {
+                  "type": "string"
+                },
+                "metadata": {
+                  "type": "object"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "orderMode": {
+                  "type": "string"
+                },
+                "parentKey": {
+                  "type": "string"
+                },
+                "reward": {
+                  "properties": {
+                    "currencies": {},
+                    "prizeGroupKey": {
+                      "type": "string"
+                    },
+                    "prizeKey": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "rewarded": {
+                  "type": "boolean"
+                },
+                "sort": {
+                  "type": "integer"
+                },
+                "startedAt": {},
+                "timeOver": {
+                  "type": "boolean"
+                },
+                "timeSeconds": {
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "name": {
+            "type": "string"
+          },
+          "orderMode": {
+            "type": "string"
+          },
+          "parentKey": {
+            "type": "string"
+          },
+          "reward": {
+            "properties": {
+              "currencies": {},
+              "prizeGroupKey": {
+                "type": "string"
+              },
+              "prizeKey": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "rewarded": {
+            "type": "boolean"
+          },
+          "serverTime": {
+            "type": "string"
+          },
+          "sort": {
+            "type": "integer"
+          },
+          "startedAt": {},
+          "timeOver": {
+            "type": "boolean"
+          },
+          "timeSeconds": {
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "QUIZ_MISSION_NOT_FOUND"
+      ]
+    },
+    {
+      "id": "quiz_pack_random",
+      "module": "quiz",
+      "handler": "rpcRandom",
+      "source": "integrations/quiz/player.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {
+          "categories": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "forceNew": {
+            "type": "boolean"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "preferNew": {
+            "type": "boolean"
+          },
+          "tags": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "bestScore": {
+            "type": "number"
+          },
+          "campaignStageKey": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "difficulty": {
+            "type": "integer"
+          },
+          "iconUrl": {
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "language": {
+            "type": "string"
+          },
+          "lastScore": {
+            "type": "number"
+          },
+          "locked": {},
+          "metadata": {
+            "type": "object"
+          },
+          "missionKey": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "openSessionId": {
+            "type": "string"
+          },
+          "passCorrect": {
+            "type": "integer"
+          },
+          "passed": {
+            "type": "boolean"
+          },
+          "plays": {
+            "type": "integer"
+          },
+          "questionCount": {
+            "type": "integer"
+          },
+          "questionSeconds": {
+            "type": "integer"
+          },
+          "reward": {
+            "properties": {
+              "currencies": {},
+              "prizeGroupKey": {
+                "type": "string"
+              },
+              "prizeKey": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "rewarded": {
+            "type": "boolean"
+          },
+          "sort": {
+            "type": "integer"
+          },
+          "tags": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "timeSeconds": {
+            "type": "integer"
+          },
+          "wins": {
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "QUIZ_NO_PACK_FOUND"
+      ]
+    },
+    {
+      "id": "quiz_packs",
+      "module": "quiz",
+      "handler": "rpcPacks",
+      "source": "integrations/quiz/player.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {
+          "category": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "missionKey": {
+            "type": "string"
+          },
+          "tag": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "lang": {
+            "type": "string"
+          },
+          "packs": {
+            "items": {
+              "properties": {
+                "bestScore": {
+                  "type": "number"
+                },
+                "campaignStageKey": {
+                  "type": "string"
+                },
+                "category": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "difficulty": {
+                  "type": "integer"
+                },
+                "iconUrl": {
+                  "type": "string"
+                },
+                "key": {
+                  "type": "string"
+                },
+                "language": {
+                  "type": "string"
+                },
+                "lastScore": {
+                  "type": "number"
+                },
+                "locked": {},
+                "metadata": {
+                  "type": "object"
+                },
+                "missionKey": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "openSessionId": {
+                  "type": "string"
+                },
+                "passCorrect": {
+                  "type": "integer"
+                },
+                "passed": {
+                  "type": "boolean"
+                },
+                "plays": {
+                  "type": "integer"
+                },
+                "questionCount": {},
+                "questionSeconds": {
+                  "type": "integer"
+                },
+                "reward": {
+                  "properties": {
+                    "currencies": {},
+                    "prizeGroupKey": {
+                      "type": "string"
+                    },
+                    "prizeKey": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "rewarded": {
+                  "type": "boolean"
+                },
+                "sort": {
+                  "type": "integer"
+                },
+                "tags": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "timeSeconds": {
+                  "type": "integer"
+                },
+                "wins": {
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "serverTime": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": []
+    },
+    {
+      "id": "quiz_play",
+      "module": "quiz",
+      "handler": "rpcPlay",
+      "source": "integrations/quiz/player.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {
+          "lang": {
+            "type": "string"
+          },
+          "metadata": {
+            "type": "object"
+          },
+          "packKey": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "answered": {
+            "type": "integer"
+          },
+          "campaignAttemptId": {},
+          "correct": {
+            "type": "integer"
+          },
+          "current": {
+            "type": "integer"
+          },
+          "deadlineAt": {},
+          "delivery": {},
+          "expiresAt": {
+            "type": "string"
+          },
+          "packKey": {
+            "type": "string"
+          },
+          "passCorrect": {},
+          "questions": {
+            "items": {
+              "properties": {
+                "acceptedAnswers": {
+                  "additionalProperties": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "type": "object"
+                },
+                "answered": {
+                  "properties": {
+                    "optionIds": {
+                      "items": {
+                        "type": "integer"
+                      },
+                      "type": "array"
+                    },
+                    "outcome": {
+                      "type": "string"
+                    },
+                    "text": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "deadlineAt": {},
+                "difficulty": {
+                  "type": "integer"
+                },
+                "hints": {
+                  "items": {
+                    "properties": {
+                      "id": {},
+                      "name": {},
+                      "owned": {
+                        "type": "boolean"
+                      },
+                      "price": {}
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "index": {
+                  "type": "integer"
+                },
+                "mediaUrl": {
+                  "type": "string"
+                },
+                "options": {
+                  "items": {
+                    "properties": {
+                      "correct": {
+                        "type": "boolean"
+                      },
+                      "id": {},
+                      "mediaUrl": {},
+                      "text": {}
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "text": {},
+                "timeSeconds": {},
+                "type": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "resumed": {
+            "type": "boolean"
+          },
+          "serverTime": {
+            "type": "string"
+          },
+          "sessionId": {
+            "type": "string"
+          },
+          "startedAt": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "total": {
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "QUIZ_BUSY",
+        "QUIZ_DAILY_PLAY_LIMIT",
+        "QUIZ_METADATA_TOO_LARGE",
+        "QUIZ_PACK_ALREADY_PASSED",
+        "QUIZ_PACK_COOLDOWN",
+        "QUIZ_PACK_EMPTY",
+        "QUIZ_PACK_KEY_REQUIRED",
+        "QUIZ_PACK_NOT_FOUND",
+        "QUIZ_PACK_PLAY_LIMIT",
+        "QUIZ_SESSION_CLOSED"
+      ]
+    },
+    {
+      "id": "quiz_report_question",
+      "module": "quiz",
+      "handler": "rpcReportQuestion",
+      "source": "integrations/quiz/extras.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {
+          "note": {
+            "type": "string"
+          },
+          "questionId": {
+            "type": "string"
+          },
+          "reasonKey": {
+            "type": "string"
+          },
+          "sessionId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "duplicate": {
+            "type": "boolean"
+          },
+          "reportId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "QUIZ_BUSY",
+        "QUIZ_QUESTION_NOT_FOUND",
+        "QUIZ_REPORTS_CLOSED",
+        "QUIZ_REPORT_LIMIT",
+        "QUIZ_REPORT_NOTE_REQUIRED",
+        "QUIZ_REPORT_NOTE_TOO_LONG",
+        "QUIZ_REPORT_NOT_SEEN",
+        "QUIZ_REPORT_REASON_NOT_FOUND"
+      ]
+    },
+    {
+      "id": "quiz_report_reasons",
+      "module": "quiz",
+      "handler": "rpcReportReasons",
+      "source": "integrations/quiz/extras.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {
+          "lang": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "enabled": {},
+          "lang": {
+            "type": "string"
+          },
+          "reasons": {
+            "items": {
+              "properties": {
+                "key": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "errors": []
+    },
+    {
+      "id": "quiz_result_report",
+      "module": "quiz",
+      "handler": "rpcResultReport",
+      "source": "integrations/quiz/results.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {
+          "templateKey": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "body": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "missionKey": {},
+          "name": {},
+          "templateKey": {},
+          "values": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "QUIZ_REPORT_TEMPLATE_NOT_FOUND"
+      ]
+    },
+    {
+      "id": "quiz_session",
+      "module": "quiz",
+      "handler": "rpcSession",
+      "source": "integrations/quiz/player.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {
+          "lang": {
+            "type": "string"
+          },
+          "packKey": {
+            "type": "string"
+          },
+          "sessionId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "answered": {
+            "type": "integer"
+          },
+          "campaignAttemptId": {
+            "type": "string"
+          },
+          "correct": {
+            "type": "integer"
+          },
+          "current": {
+            "type": "integer"
+          },
+          "deadlineAt": {
+            "type": "string"
+          },
+          "delivery": {},
+          "expiresAt": {
+            "type": "string"
+          },
+          "packKey": {
+            "type": "string"
+          },
+          "passCorrect": {
+            "type": "integer"
+          },
+          "questions": {
+            "items": {
+              "properties": {
+                "acceptedAnswers": {
+                  "additionalProperties": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "type": "object"
+                },
+                "answered": {
+                  "properties": {
+                    "optionIds": {
+                      "items": {
+                        "type": "integer"
+                      },
+                      "type": "array"
+                    },
+                    "outcome": {
+                      "type": "string"
+                    },
+                    "text": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "deadlineAt": {
+                  "type": "string"
+                },
+                "difficulty": {
+                  "type": "integer"
+                },
+                "hints": {
+                  "items": {
+                    "properties": {
+                      "id": {},
+                      "name": {
+                        "type": "string"
+                      },
+                      "owned": {
+                        "type": "boolean"
+                      },
+                      "price": {}
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "index": {
+                  "type": "integer"
+                },
+                "mediaUrl": {
+                  "type": "string"
+                },
+                "options": {
+                  "items": {
+                    "properties": {
+                      "correct": {
+                        "type": "boolean"
+                      },
+                      "id": {},
+                      "mediaUrl": {},
+                      "text": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "text": {},
+                "timeSeconds": {},
+                "type": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "result": {
+            "properties": {},
+            "type": "object"
+          },
+          "serverTime": {
+            "type": "string"
+          },
+          "sessionId": {
+            "type": "string"
+          },
+          "startedAt": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "total": {
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "QUIZ_SESSION_NOT_FOUND",
+        "QUIZ_SESSION_REQUIRED"
+      ]
+    },
+    {
+      "id": "quiz_stats",
+      "module": "quiz",
+      "handler": "rpcStats",
+      "source": "integrations/quiz/extras.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {
+          "packKey": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "answers": {
+            "type": "integer"
+          },
+          "bestScore": {
+            "type": "number"
+          },
+          "correctAnswers": {
+            "type": "integer"
+          },
+          "lastScore": {
+            "type": "number"
+          },
+          "packKey": {
+            "type": "string"
+          },
+          "packsPassed": {
+            "type": "integer"
+          },
+          "plays": {
+            "type": "integer"
+          },
+          "wins": {
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "QUIZ_PACK_NOT_FOUND"
       ]
     },
     {

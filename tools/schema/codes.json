@@ -53,7 +53,8 @@
     "modules": [
       "base",
       "economy",
-      "publication"
+      "publication",
+      "quiz"
     ]
   },
   "ALREADY_OWNED": {
@@ -222,11 +223,23 @@
       "publication"
     ]
   },
+  "CHANCE_DAILY_LIMIT": {
+    "status": 429,
+    "modules": [
+      "economy"
+    ]
+  },
   "CHANCE_GAME_NOT_FOUND": {
     "status": 404,
     "modules": [
       "economy",
       "publication"
+    ]
+  },
+  "CHANCE_TOTAL_LIMIT": {
+    "status": 409,
+    "modules": [
+      "economy"
     ]
   },
   "CHAT_CLOSED": {
@@ -1331,7 +1344,8 @@
   "INVALID_PERCENT": {
     "status": 400,
     "modules": [
-      "base"
+      "base",
+      "economy"
     ]
   },
   "INVALID_PERIOD_DAYS": {
@@ -1798,7 +1812,8 @@
     "modules": [
       "base",
       "economy",
-      "publication"
+      "publication",
+      "quiz"
     ]
   },
   "ITEMS_NOT_FOUND": {
@@ -1871,7 +1886,8 @@
     "status": 409,
     "modules": [
       "base",
-      "publication"
+      "publication",
+      "quiz"
     ]
   },
   "KEY_IMMUTABLE": {
@@ -2724,6 +2740,354 @@
       "publication"
     ]
   },
+  "QUIZ_ANSWER_INVALID": {
+    "status": 400,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_BUSY": {
+    "status": 409,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_DAILY_PLAY_LIMIT": {
+    "status": 429,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_DUEL_ACTIVE_LIMIT": {
+    "status": 409,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_DUEL_BLOCKED": {
+    "status": 403,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_DUEL_CATEGORY_EMPTY": {
+    "status": 409,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_DUEL_CATEGORY_NOT_OFFERED": {
+    "status": 400,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_DUEL_DAILY_LIMIT": {
+    "status": 429,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_DUEL_DISABLED": {
+    "status": 503,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_DUEL_INVALID_MODE": {
+    "status": 400,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_DUEL_INVALID_STATUS": {
+    "status": 400,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_DUEL_NOT_ACCEPTED": {
+    "status": 409,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_DUEL_NOT_ENOUGH_CURRENCY": {
+    "status": 409,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_DUEL_NOT_FOUND": {
+    "status": 404,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_DUEL_NOT_FRIENDS": {
+    "status": 403,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_DUEL_NOT_INVITED": {
+    "status": 409,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_DUEL_NOT_PICKING": {
+    "status": 409,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_DUEL_NOT_YOUR_TURN": {
+    "status": 409,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_DUEL_NO_CATEGORIES": {
+    "status": 503,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_DUEL_OVER": {
+    "status": 409,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_DUEL_PICK_FIRST": {
+    "status": 409,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_DUEL_PLAYER_NOT_FOUND": {
+    "status": 404,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_DUEL_QUESTION_NOT_SERVED": {
+    "status": 409,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_DUEL_SELF": {
+    "status": 400,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_GAME_MISSION_LOCKED": {
+    "status": 403,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_GAME_TIME_OVER": {
+    "status": 409,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_HINT_LIMIT": {
+    "status": 409,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_HINT_NOT_FOUND": {
+    "status": 404,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_HINT_PRICE_INVALID": {
+    "status": 409,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_INSUFFICIENT_CURRENCY_FOR_HINT": {
+    "status": 400,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_METADATA_TOO_LARGE": {
+    "status": 400,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_MISSION_NOT_FOUND": {
+    "status": 404,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_MISSION_PACK_LOCKED": {
+    "status": 403,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_MISSION_TIME_OVER": {
+    "status": 409,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_NO_PACK_FOUND": {
+    "status": 404,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_OPTION_NOT_FOUND": {
+    "status": 400,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_PACK_ALREADY_PASSED": {
+    "status": 409,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_PACK_COOLDOWN": {
+    "status": 429,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_PACK_EMPTY": {
+    "status": 409,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_PACK_KEY_REQUIRED": {
+    "status": 400,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_PACK_NOT_FOUND": {
+    "status": 404,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_PACK_PLAY_LIMIT": {
+    "status": 409,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_QUESTION_NOT_CURRENT": {
+    "status": 409,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_QUESTION_NOT_FOUND": {
+    "status": 404,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_QUESTION_NOT_IN_SESSION": {
+    "status": 404,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_QUESTION_TIME_OVER": {
+    "status": 409,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_REPORTS_CLOSED": {
+    "status": 403,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_REPORT_LIMIT": {
+    "status": 429,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_REPORT_NOTE_REQUIRED": {
+    "status": 400,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_REPORT_NOTE_TOO_LONG": {
+    "status": 400,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_REPORT_NOT_SEEN": {
+    "status": 403,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_REPORT_REASON_NOT_FOUND": {
+    "status": 400,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_REPORT_TEMPLATE_NOT_FOUND": {
+    "status": 404,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_SESSION_CLOSED": {
+    "status": 409,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_SESSION_NOT_FOUND": {
+    "status": 404,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_SESSION_REQUIRED": {
+    "status": 400,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_TIME_OVER": {
+    "status": 409,
+    "modules": [
+      "quiz"
+    ]
+  },
+  "QUIZ_TOO_MANY_ANSWERS": {
+    "status": 400,
+    "modules": [
+      "quiz"
+    ]
+  },
   "RATE_LIMITED": {
     "status": 429,
     "modules": [
@@ -3174,6 +3538,12 @@
       "base",
       "economy",
       "publication"
+    ]
+  },
+  "TARGETS_REQUIRED": {
+    "status": 400,
+    "modules": [
+      "economy"
     ]
   },
   "TARGET_TAGS_REQUIRED": {
