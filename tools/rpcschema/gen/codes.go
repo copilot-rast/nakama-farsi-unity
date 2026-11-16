@@ -26,6 +26,8 @@ var DefaultModules = []Module{
 	{Name: "economy", Dir: "integrations/economy"},
 	{Name: "publication", Dir: "integrations/publication"},
 	{Name: "leaderboardx", Dir: "integrations/leaderboardx"},
+	{Name: "content", Dir: "integrations/content"},
+	{Name: "insights", Dir: "integrations/insights"},
 }
 
 type CodeInfo struct {

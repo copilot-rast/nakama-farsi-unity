@@ -2647,6 +2647,83 @@
       "errors": []
     },
     {
+      "id": "content_catalog",
+      "module": "content",
+      "handler": "rpcCatalog",
+      "source": "integrations/content/packs.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "appVersion": {
+            "type": "string"
+          },
+          "platform": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "appVersion": {
+            "type": "string"
+          },
+          "pack": {
+            "properties": {
+              "activatedAt": {
+                "format": "date-time",
+                "nullable": true,
+                "type": "string"
+              },
+              "baseUrl": {
+                "type": "string"
+              },
+              "catalogHash": {
+                "type": "string"
+              },
+              "catalogPath": {
+                "type": "string"
+              },
+              "catalogUrl": {
+                "type": "string"
+              },
+              "fileCount": {
+                "type": "integer"
+              },
+              "hashUrl": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "maxAppVersion": {
+                "type": "string"
+              },
+              "minAppVersion": {
+                "type": "string"
+              },
+              "platform": {
+                "type": "string"
+              },
+              "totalBytes": {
+                "type": "integer"
+              },
+              "version": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "platform": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": []
+    },
+    {
       "id": "economy_achievement_claim",
       "module": "economy",
       "handler": "rpcAchievementClaim",
@@ -8272,6 +8349,180 @@
         "TASK_GROUP_FINISHED",
         "TASK_GROUP_NOT_FOUND",
         "USER_NOT_FOUND"
+      ]
+    },
+    {
+      "id": "insights_config",
+      "module": "insights",
+      "handler": "rpcConfig",
+      "source": "integrations/insights/module.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {},
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "heatmap": {
+            "properties": {
+              "enabled": {},
+              "format": {
+                "type": "string"
+              },
+              "maps": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "maxBytes": {},
+              "maxPoints": {},
+              "unknownMaps": {}
+            },
+            "type": "object"
+          },
+          "sessions": {
+            "properties": {
+              "pingSeconds": {},
+              "source": {},
+              "timeoutSeconds": {}
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "errors": []
+    },
+    {
+      "id": "insights_heatmap",
+      "module": "insights",
+      "handler": "rpcHeatmap",
+      "source": "integrations/insights/heatmap.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "data": {
+            "type": "string"
+          },
+          "format": {
+            "type": "string"
+          },
+          "map": {
+            "type": "string"
+          },
+          "part": {
+            "type": "integer"
+          },
+          "points": {
+            "items": {
+              "items": {},
+              "type": "array"
+            },
+            "type": "array"
+          },
+          "uploadId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "accepted": {
+            "type": "integer"
+          },
+          "cells": {
+            "type": "integer"
+          },
+          "dropped": {
+            "type": "integer"
+          },
+          "duplicate": {
+            "type": "boolean"
+          },
+          "part": {
+            "type": "integer"
+          },
+          "players": {
+            "type": "integer"
+          },
+          "uploadId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "ANALYTICS_RATE_LIMITED",
+        "HEATMAP_DISABLED",
+        "HEATMAP_INVALID",
+        "HEATMAP_MAP_DISABLED",
+        "HEATMAP_MAP_UNKNOWN"
+      ]
+    },
+    {
+      "id": "insights_session",
+      "module": "insights",
+      "handler": "rpcSession",
+      "source": "integrations/insights/sessions.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "appVersion": {
+            "type": "string"
+          },
+          "device": {
+            "type": "string"
+          },
+          "event": {
+            "type": "string"
+          },
+          "os": {
+            "type": "string"
+          },
+          "platform": {
+            "type": "string"
+          },
+          "seconds": {
+            "nullable": true,
+            "type": "number"
+          },
+          "sessionId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "duplicate": {
+            "type": "boolean"
+          },
+          "ignored": {
+            "type": "boolean"
+          },
+          "seconds": {},
+          "sessionId": {
+            "type": "string"
+          },
+          "source": {},
+          "startedAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "ANALYTICS_INVALID_SESSION",
+        "ANALYTICS_RATE_LIMITED"
       ]
     },
     {

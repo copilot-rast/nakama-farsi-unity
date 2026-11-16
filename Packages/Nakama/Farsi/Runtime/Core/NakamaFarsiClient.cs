@@ -3,6 +3,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using Nakama;
 using NakamaFarsi.Sdk.Analytics;
+using NakamaFarsi.Sdk.Content;
+using NakamaFarsi.Sdk.Insights;
 using NakamaFarsi.Sdk.Auth;
 using NakamaFarsi.Sdk.Payments;
 using NakamaFarsi.Sdk.Social;
@@ -15,6 +17,8 @@ namespace NakamaFarsi.Sdk
     {
         private readonly IHttpGet _http;
         private AnalyticsClient _analytics;
+        private ContentClient _content;
+        private InsightsClient _insights;
 
         public NakamaFarsiClient(
             NakamaFarsiOptions options,
@@ -97,6 +101,10 @@ namespace NakamaFarsi.Sdk
         public bool IsLoggedIn => Session.IsLoggedIn;
 
         public AnalyticsClient Analytics => _analytics ?? UseAnalytics(new AnalyticsOptions());
+
+        public ContentClient Content => _content ?? (_content = new ContentClient(Rpcs));
+
+        public InsightsClient Insights => _insights ?? (_insights = new InsightsClient(Rpcs, Clock, Logger));
 
         public AnalyticsClient UseAnalytics(AnalyticsOptions options)
         {

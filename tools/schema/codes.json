@@ -86,6 +86,24 @@
       "economy"
     ]
   },
+  "ANALYTICS_INVALID_SESSION": {
+    "status": 400,
+    "modules": [
+      "insights"
+    ]
+  },
+  "ANALYTICS_RATE_LIMITED": {
+    "status": 429,
+    "modules": [
+      "insights"
+    ]
+  },
+  "APP_VERSION_REQUIRED": {
+    "status": 400,
+    "modules": [
+      "content"
+    ]
+  },
   "ATTACHMENTS_UNAVAILABLE": {
     "status": 503,
     "modules": [
@@ -288,6 +306,12 @@
     "modules": [
       "base",
       "publication"
+    ]
+  },
+  "CONTENT_INDEX_PRIVATE": {
+    "status": 403,
+    "modules": [
+      "content"
     ]
   },
   "COUNTRY_NOT_AVAILABLE": {
@@ -688,6 +712,36 @@
     "status": 400,
     "modules": [
       "economy"
+    ]
+  },
+  "HEATMAP_DISABLED": {
+    "status": 403,
+    "modules": [
+      "insights"
+    ]
+  },
+  "HEATMAP_INVALID": {
+    "status": 400,
+    "modules": [
+      "insights"
+    ]
+  },
+  "HEATMAP_MAP_DISABLED": {
+    "status": 403,
+    "modules": [
+      "insights"
+    ]
+  },
+  "HEATMAP_MAP_UNKNOWN": {
+    "status": 404,
+    "modules": [
+      "insights"
+    ]
+  },
+  "HEATMAP_TOO_LARGE": {
+    "status": 413,
+    "modules": [
+      "insights"
     ]
   },
   "IDS_REQUIRED": {
@@ -2297,6 +2351,108 @@
       "publication"
     ]
   },
+  "PACK_ACTIVE": {
+    "status": 409,
+    "modules": [
+      "content"
+    ]
+  },
+  "PACK_CATALOG_AMBIGUOUS": {
+    "status": 400,
+    "modules": [
+      "content"
+    ]
+  },
+  "PACK_CATALOG_MISSING": {
+    "status": 400,
+    "modules": [
+      "content"
+    ]
+  },
+  "PACK_FILES_MISSING": {
+    "status": 409,
+    "modules": [
+      "content"
+    ]
+  },
+  "PACK_FILE_HASH_MISMATCH": {
+    "status": 400,
+    "modules": [
+      "content"
+    ]
+  },
+  "PACK_FILE_TOO_LARGE": {
+    "status": 400,
+    "modules": [
+      "content"
+    ]
+  },
+  "PACK_FILE_UNKNOWN": {
+    "status": 404,
+    "modules": [
+      "content"
+    ]
+  },
+  "PACK_HASH_MISSING": {
+    "status": 400,
+    "modules": [
+      "content"
+    ]
+  },
+  "PACK_INVALID": {
+    "status": 400,
+    "modules": [
+      "content"
+    ]
+  },
+  "PACK_NOT_FOUND": {
+    "status": 404,
+    "modules": [
+      "content"
+    ]
+  },
+  "PACK_NOT_READY": {
+    "status": 409,
+    "modules": [
+      "content"
+    ]
+  },
+  "PACK_NOT_UPLOADING": {
+    "status": 409,
+    "modules": [
+      "content"
+    ]
+  },
+  "PACK_PART_INVALID": {
+    "status": 400,
+    "modules": [
+      "content"
+    ]
+  },
+  "PACK_PLATFORM_NOT_ALLOWED": {
+    "status": 400,
+    "modules": [
+      "content"
+    ]
+  },
+  "PACK_TOO_LARGE": {
+    "status": 400,
+    "modules": [
+      "content"
+    ]
+  },
+  "PACK_TOO_MANY_FILES": {
+    "status": 400,
+    "modules": [
+      "content"
+    ]
+  },
+  "PACK_VERSION_EXISTS": {
+    "status": 409,
+    "modules": [
+      "content"
+    ]
+  },
   "PARENT_COMMENT_NOT_FOUND": {
     "status": 400,
     "modules": [
@@ -2379,6 +2535,12 @@
     "status": 409,
     "modules": [
       "publication"
+    ]
+  },
+  "PLATFORM_REQUIRED": {
+    "status": 400,
+    "modules": [
+      "content"
     ]
   },
   "PLAYERS_MAX_BELOW_MIN": {

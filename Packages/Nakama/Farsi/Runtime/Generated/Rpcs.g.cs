@@ -13,7 +13,9 @@ namespace NakamaFarsi.Sdk.Generated
         {
             Base = new BaseRpcs(caller);
             Combatrace = new CombatraceRpcs(caller);
+            Content = new ContentRpcs(caller);
             Economy = new EconomyRpcs(caller);
+            Insights = new InsightsRpcs(caller);
             Leaderboardx = new LeaderboardxRpcs(caller);
             Publication = new PublicationRpcs(caller);
         }
@@ -22,7 +24,11 @@ namespace NakamaFarsi.Sdk.Generated
 
         public CombatraceRpcs Combatrace { get; }
 
+        public ContentRpcs Content { get; }
+
         public EconomyRpcs Economy { get; }
+
+        public InsightsRpcs Insights { get; }
 
         public LeaderboardxRpcs Leaderboardx { get; }
 
@@ -84,6 +90,7 @@ namespace NakamaFarsi.Sdk.Generated
         public const string CombatraceHistory = "combatrace_history";
         public const string CombatraceMatchBegin = "combatrace_match_begin";
         public const string CombatraceMatchEnd = "combatrace_match_end";
+        public const string ContentCatalog = "content_catalog";
         public const string EconomyAchievementClaim = "economy_achievement_claim";
         public const string EconomyAchievements = "economy_achievements";
         public const string EconomyAchievementsProfile = "economy_achievements_profile";
@@ -137,6 +144,9 @@ namespace NakamaFarsi.Sdk.Generated
         public const string EconomyTaskGroupCurrent = "economy_task_group_current";
         public const string EconomyTaskGroupNext = "economy_task_group_next";
         public const string EconomyTasksList = "economy_tasks_list";
+        public const string InsightsConfig = "insights_config";
+        public const string InsightsHeatmap = "insights_heatmap";
+        public const string InsightsSession = "insights_session";
         public const string LeaderboardxBoard = "leaderboardx_board";
         public const string LeaderboardxClaim = "leaderboardx_claim";
         public const string LeaderboardxHistory = "leaderboardx_history";
@@ -640,6 +650,24 @@ namespace NakamaFarsi.Sdk.Generated
         {
             request = request ?? new CombatraceMatchEndRequest();
             return RpcInvoke.CallAsync<CombatraceMatchEndResponse>(_c, RpcIds.CombatraceMatchEnd, request, WriteCall, ct);
+        }
+    }
+
+    public sealed partial class ContentRpcs
+    {
+        private static readonly RpcCallOptions ReadCall = new RpcCallOptions { ReadOnly = true };
+        private static readonly RpcCallOptions WriteCall = new RpcCallOptions();
+        private readonly IRpcCaller _c;
+
+        public ContentRpcs(IRpcCaller caller)
+        {
+            _c = caller;
+        }
+
+        public Task<ContentCatalogResponse> CatalogAsync(ContentCatalogRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new ContentCatalogRequest();
+            return RpcInvoke.CallAsync<ContentCatalogResponse>(_c, RpcIds.ContentCatalog, request, ReadCall, ct);
         }
     }
 
@@ -1150,6 +1178,36 @@ namespace NakamaFarsi.Sdk.Generated
             }
 
             return RpcInvoke.CallAsync<EconomyTasksListResponse>(_c, RpcIds.EconomyTasksList, request, ReadCall, ct);
+        }
+    }
+
+    public sealed partial class InsightsRpcs
+    {
+        private static readonly RpcCallOptions ReadCall = new RpcCallOptions { ReadOnly = true };
+        private static readonly RpcCallOptions WriteCall = new RpcCallOptions();
+        private readonly IRpcCaller _c;
+
+        public InsightsRpcs(IRpcCaller caller)
+        {
+            _c = caller;
+        }
+
+        public Task<InsightsConfigResponse> ConfigAsync(InsightsConfigRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new InsightsConfigRequest();
+            return RpcInvoke.CallAsync<InsightsConfigResponse>(_c, RpcIds.InsightsConfig, request, ReadCall, ct);
+        }
+
+        public Task<InsightsHeatmapResponse> HeatmapAsync(InsightsHeatmapRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new InsightsHeatmapRequest();
+            return RpcInvoke.CallAsync<InsightsHeatmapResponse>(_c, RpcIds.InsightsHeatmap, request, WriteCall, ct);
+        }
+
+        public Task<InsightsSessionResponse> SessionAsync(InsightsSessionRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new InsightsSessionRequest();
+            return RpcInvoke.CallAsync<InsightsSessionResponse>(_c, RpcIds.InsightsSession, request, WriteCall, ct);
         }
     }
 
@@ -3749,6 +3807,78 @@ namespace NakamaFarsi.Sdk.Generated
 
             [JsonProperty("trophies")]
             public long? Trophies { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class ContentCatalogRequest
+    {
+        [JsonProperty("appVersion")]
+        public string AppVersion { get; set; }
+
+        [JsonProperty("platform")]
+        public string Platform { get; set; }
+    }
+
+    public sealed class ContentCatalogResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("appVersion")]
+        public string AppVersion { get; set; }
+
+        [JsonProperty("pack")]
+        public PackData Pack { get; set; }
+
+        [JsonProperty("platform")]
+        public string Platform { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class PackData
+        {
+            [JsonProperty("activatedAt")]
+            public string ActivatedAt { get; set; }
+
+            [JsonProperty("baseUrl")]
+            public string BaseUrl { get; set; }
+
+            [JsonProperty("catalogHash")]
+            public string CatalogHash { get; set; }
+
+            [JsonProperty("catalogPath")]
+            public string CatalogPath { get; set; }
+
+            [JsonProperty("catalogUrl")]
+            public string CatalogUrl { get; set; }
+
+            [JsonProperty("fileCount")]
+            public long? FileCount { get; set; }
+
+            [JsonProperty("hashUrl")]
+            public string HashUrl { get; set; }
+
+            [JsonProperty("id")]
+            public string Id { get; set; }
+
+            [JsonProperty("maxAppVersion")]
+            public string MaxAppVersion { get; set; }
+
+            [JsonProperty("minAppVersion")]
+            public string MinAppVersion { get; set; }
+
+            [JsonProperty("platform")]
+            public string Platform { get; set; }
+
+            [JsonProperty("totalBytes")]
+            public long? TotalBytes { get; set; }
+
+            [JsonProperty("version")]
+            public string Version { get; set; }
 
             [JsonExtensionData]
             public IDictionary<string, JToken> Extra { get; set; }
@@ -9822,6 +9952,169 @@ namespace NakamaFarsi.Sdk.Generated
                 }
             }
         }
+    }
+
+    public sealed class InsightsConfigRequest
+    {
+    }
+
+    public sealed class InsightsConfigResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("heatmap")]
+        public HeatmapData Heatmap { get; set; }
+
+        [JsonProperty("sessions")]
+        public SessionsData Sessions { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class HeatmapData
+        {
+            [JsonProperty("enabled")]
+            public JToken Enabled { get; set; }
+
+            [JsonProperty("format")]
+            public string Format { get; set; }
+
+            [JsonProperty("maps")]
+            public List<string> Maps { get; set; }
+
+            [JsonProperty("maxBytes")]
+            public JToken MaxBytes { get; set; }
+
+            [JsonProperty("maxPoints")]
+            public JToken MaxPoints { get; set; }
+
+            [JsonProperty("unknownMaps")]
+            public JToken UnknownMaps { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class SessionsData
+        {
+            [JsonProperty("pingSeconds")]
+            public JToken PingSeconds { get; set; }
+
+            [JsonProperty("source")]
+            public JToken Source { get; set; }
+
+            [JsonProperty("timeoutSeconds")]
+            public JToken TimeoutSeconds { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class InsightsHeatmapRequest
+    {
+        [JsonProperty("data")]
+        public string Data { get; set; }
+
+        [JsonProperty("format")]
+        public string Format { get; set; }
+
+        [JsonProperty("map")]
+        public string Map { get; set; }
+
+        [JsonProperty("part")]
+        public long? Part { get; set; }
+
+        [JsonProperty("points")]
+        public List<List<JToken>> Points { get; set; }
+
+        [JsonProperty("uploadId")]
+        public string UploadId { get; set; }
+    }
+
+    public sealed class InsightsHeatmapResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("accepted")]
+        public long? Accepted { get; set; }
+
+        [JsonProperty("cells")]
+        public long? Cells { get; set; }
+
+        [JsonProperty("dropped")]
+        public long? Dropped { get; set; }
+
+        [JsonProperty("duplicate")]
+        public bool? Duplicate { get; set; }
+
+        [JsonProperty("part")]
+        public long? Part { get; set; }
+
+        [JsonProperty("players")]
+        public long? Players { get; set; }
+
+        [JsonProperty("uploadId")]
+        public string UploadId { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class InsightsSessionRequest
+    {
+        [JsonProperty("appVersion")]
+        public string AppVersion { get; set; }
+
+        [JsonProperty("device")]
+        public string Device { get; set; }
+
+        [JsonProperty("event")]
+        public string Event { get; set; }
+
+        [JsonProperty("os")]
+        public string Os { get; set; }
+
+        [JsonProperty("platform")]
+        public string Platform { get; set; }
+
+        [JsonProperty("seconds")]
+        public double? Seconds { get; set; }
+
+        [JsonProperty("sessionId")]
+        public string SessionId { get; set; }
+    }
+
+    public sealed class InsightsSessionResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("duplicate")]
+        public bool? Duplicate { get; set; }
+
+        [JsonProperty("ignored")]
+        public bool? Ignored { get; set; }
+
+        [JsonProperty("seconds")]
+        public JToken Seconds { get; set; }
+
+        [JsonProperty("sessionId")]
+        public string SessionId { get; set; }
+
+        [JsonProperty("source")]
+        public JToken Source { get; set; }
+
+        [JsonProperty("startedAt")]
+        public string StartedAt { get; set; }
+
+        [JsonProperty("status")]
+        public string Status { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
     }
 
     public sealed class LeaderboardxBoardRequest
