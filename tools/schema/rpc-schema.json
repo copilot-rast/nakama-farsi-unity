@@ -1834,8 +1834,8 @@
     {
       "id": "base_avatar",
       "module": "base",
-      "handler": "rpcAvatar",
-      "source": "integrations/base/avatar.go",
+      "handler": "rpcLegacyAvatar",
+      "source": "integrations/economy/avatars_legacy.go",
       "auth": "session",
       "errorFormat": "envelope",
       "codeModeFormat": "code",
@@ -1911,6 +1911,8 @@
                       "owned": {
                         "type": "boolean"
                       },
+                      "price": {},
+                      "product": {},
                       "value": {}
                     },
                     "type": "object"
@@ -1926,13 +1928,15 @@
         },
         "type": "object"
       },
-      "errors": []
+      "errors": [
+        "AVATAR_NOT_FOUND"
+      ]
     },
     {
       "id": "base_avatar_get",
       "module": "base",
-      "handler": "rpcAvatarGet",
-      "source": "integrations/base/avatar.go",
+      "handler": "rpcLegacyAvatarGet",
+      "source": "integrations/economy/avatars_legacy.go",
       "auth": "session",
       "errorFormat": "envelope",
       "codeModeFormat": "code",
@@ -1992,15 +1996,13 @@
         },
         "type": "object"
       },
-      "errors": [
-        "INVALID_USER_IDS"
-      ]
+      "errors": []
     },
     {
       "id": "base_avatar_save",
       "module": "base",
-      "handler": "rpcAvatarSave",
-      "source": "integrations/base/avatar.go",
+      "handler": "rpcLegacyAvatarSave",
+      "source": "integrations/economy/avatars_legacy.go",
       "auth": "session",
       "errorFormat": "envelope",
       "codeModeFormat": "code",
@@ -2054,7 +2056,9 @@
         },
         "type": "object"
       },
-      "errors": []
+      "errors": [
+        "AVATAR_NOT_FOUND"
+      ]
     },
     {
       "id": "base_brand",
@@ -5209,6 +5213,728 @@
       },
       "errors": [
         "USER_NOT_FOUND"
+      ]
+    },
+    {
+      "id": "economy_avatar_buy",
+      "module": "economy",
+      "handler": "rpcAvatarBuy",
+      "source": "integrations/economy/avatars.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {
+          "category": {
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "requestId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "item": {
+            "properties": {},
+            "type": "object"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "paid": {
+            "items": {
+              "properties": {
+                "amount": {
+                  "type": "integer"
+                },
+                "currencyKey": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "replayed": {
+            "type": "boolean"
+          },
+          "wallet": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "ALREADY_OWNED",
+        "AVATAR_ALREADY_OWNED",
+        "AVATAR_DISABLED",
+        "AVATAR_ITEM_FREE",
+        "AVATAR_ITEM_LOCKED",
+        "AVATAR_ITEM_NOT_FOUND",
+        "AVATAR_PRODUCT_REQUIRED",
+        "INSUFFICIENT_BALANCE",
+        "ITEM_NOT_FOUND",
+        "LEVEL_TOO_LOW",
+        "NOT_FOR_SALE",
+        "REQUEST_ID_REUSED",
+        "REQUIRES_ITEM"
+      ]
+    },
+    {
+      "id": "economy_avatar_catalog",
+      "module": "economy",
+      "handler": "rpcAvatarCatalog",
+      "source": "integrations/economy/avatars.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {
+          "avatarId": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "avatarId": {
+            "type": "string"
+          },
+          "categories": {
+            "items": {},
+            "type": "array"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "types": {
+            "items": {},
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "AVATAR_NOT_FOUND"
+      ]
+    },
+    {
+      "id": "economy_avatar_create",
+      "module": "economy",
+      "handler": "rpcAvatarCreate",
+      "source": "integrations/economy/avatars.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {
+          "activate": {
+            "type": "boolean"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "activeId": {
+            "type": "string"
+          },
+          "avatar": {},
+          "avatars": {
+            "items": {
+              "properties": {
+                "createdAt": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "isActive": {
+                  "type": "boolean"
+                },
+                "look": {},
+                "name": {
+                  "type": "string"
+                },
+                "type": {}
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "limit": {},
+          "nameMaxLength": {
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "AVATAR_DISABLED",
+        "AVATAR_LIMIT",
+        "AVATAR_TYPE_NOT_FOUND"
+      ]
+    },
+    {
+      "id": "economy_avatar_delete",
+      "module": "economy",
+      "handler": "rpcAvatarDelete",
+      "source": "integrations/economy/avatars.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "activeId": {
+            "type": "string"
+          },
+          "avatars": {
+            "items": {
+              "properties": {
+                "createdAt": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "isActive": {
+                  "type": "boolean"
+                },
+                "look": {
+                  "properties": {
+                    "items": {
+                      "additionalProperties": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "type": "object"
+                    },
+                    "layers": {
+                      "items": {
+                        "properties": {
+                          "category": {
+                            "type": "string"
+                          },
+                          "imageUrl": {
+                            "type": "string"
+                          },
+                          "item": {
+                            "type": "string"
+                          },
+                          "layer": {
+                            "type": "integer"
+                          },
+                          "value": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "type": {
+                  "properties": {
+                    "iconUrl": {},
+                    "imageUrl": {},
+                    "key": {},
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "limit": {
+            "properties": {
+              "canCreate": {
+                "type": "boolean"
+              },
+              "count": {
+                "type": "integer"
+              },
+              "max": {}
+            },
+            "type": "object"
+          },
+          "nameMaxLength": {
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "AVATAR_DISABLED",
+        "AVATAR_LAST",
+        "AVATAR_NOT_FOUND"
+      ]
+    },
+    {
+      "id": "economy_avatar_equip",
+      "module": "economy",
+      "handler": "rpcAvatarEquip",
+      "source": "integrations/economy/avatars.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {
+          "category": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "activeId": {
+            "type": "string"
+          },
+          "avatar": {},
+          "avatars": {
+            "items": {},
+            "type": "array"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "limit": {},
+          "nameMaxLength": {
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "AVATAR_CATEGORY_NOT_FOUND",
+        "AVATAR_CATEGORY_REQUIRED",
+        "AVATAR_DISABLED",
+        "AVATAR_ITEM_LOCKED",
+        "AVATAR_ITEM_NOT_FOUND",
+        "AVATAR_ITEM_NOT_OWNED",
+        "AVATAR_NOT_EQUIPPED",
+        "AVATAR_NOT_FOUND",
+        "AVATAR_SLOT_FULL",
+        "AVATAR_TYPE_NOT_ALLOWED"
+      ]
+    },
+    {
+      "id": "economy_avatar_list",
+      "module": "economy",
+      "handler": "rpcAvatarList",
+      "source": "integrations/economy/avatars.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {
+          "lang": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "activeId": {
+            "type": "string"
+          },
+          "avatars": {
+            "items": {
+              "properties": {
+                "createdAt": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "isActive": {
+                  "type": "boolean"
+                },
+                "look": {
+                  "properties": {
+                    "items": {
+                      "additionalProperties": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "type": "object"
+                    },
+                    "layers": {
+                      "items": {
+                        "properties": {
+                          "category": {
+                            "type": "string"
+                          },
+                          "imageUrl": {
+                            "type": "string"
+                          },
+                          "item": {
+                            "type": "string"
+                          },
+                          "layer": {
+                            "type": "integer"
+                          },
+                          "value": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "type": {
+                  "properties": {
+                    "iconUrl": {},
+                    "imageUrl": {},
+                    "key": {},
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "limit": {
+            "properties": {
+              "canCreate": {
+                "type": "boolean"
+              },
+              "count": {
+                "type": "integer"
+              },
+              "max": {
+                "type": "integer"
+              }
+            },
+            "type": "object"
+          },
+          "nameMaxLength": {
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "errors": []
+    },
+    {
+      "id": "economy_avatar_looks",
+      "module": "economy",
+      "handler": "rpcAvatarLooks",
+      "source": "integrations/economy/avatars.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {
+          "lang": {
+            "type": "string"
+          },
+          "userIds": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "avatars": {
+            "properties": {},
+            "type": "object"
+          },
+          "enabled": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "errors": []
+    },
+    {
+      "id": "economy_avatar_rename",
+      "module": "economy",
+      "handler": "rpcAvatarRename",
+      "source": "integrations/economy/avatars.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "activeId": {
+            "type": "string"
+          },
+          "avatar": {},
+          "avatars": {
+            "items": {
+              "properties": {
+                "createdAt": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "isActive": {
+                  "type": "boolean"
+                },
+                "look": {},
+                "name": {
+                  "type": "string"
+                },
+                "type": {}
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "limit": {},
+          "nameMaxLength": {
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "AVATAR_DISABLED"
+      ]
+    },
+    {
+      "id": "economy_avatar_set_active",
+      "module": "economy",
+      "handler": "rpcAvatarActivate",
+      "source": "integrations/economy/avatars.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "activeId": {
+            "type": "string"
+          },
+          "avatar": {},
+          "avatars": {
+            "items": {
+              "properties": {
+                "createdAt": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "isActive": {
+                  "type": "boolean"
+                },
+                "look": {},
+                "name": {
+                  "type": "string"
+                },
+                "type": {}
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "limit": {},
+          "nameMaxLength": {
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "AVATAR_DISABLED",
+        "AVATAR_NOT_FOUND"
+      ]
+    },
+    {
+      "id": "economy_avatar_unequip",
+      "module": "economy",
+      "handler": "rpcAvatarUnequip",
+      "source": "integrations/economy/avatars.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {
+          "category": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "activeId": {
+            "type": "string"
+          },
+          "avatar": {},
+          "avatars": {
+            "items": {},
+            "type": "array"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "limit": {},
+          "nameMaxLength": {
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "AVATAR_CATEGORY_NOT_FOUND",
+        "AVATAR_CATEGORY_REQUIRED",
+        "AVATAR_DISABLED",
+        "AVATAR_ITEM_LOCKED",
+        "AVATAR_ITEM_NOT_FOUND",
+        "AVATAR_ITEM_NOT_OWNED",
+        "AVATAR_NOT_EQUIPPED",
+        "AVATAR_NOT_FOUND",
+        "AVATAR_SLOT_FULL",
+        "AVATAR_TYPE_NOT_ALLOWED"
       ]
     },
     {

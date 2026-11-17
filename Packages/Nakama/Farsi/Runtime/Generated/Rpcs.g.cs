@@ -154,6 +154,16 @@ namespace NakamaFarsi.Sdk.Generated
         public const string EconomyAchievementClaim = "economy_achievement_claim";
         public const string EconomyAchievements = "economy_achievements";
         public const string EconomyAchievementsProfile = "economy_achievements_profile";
+        public const string EconomyAvatarBuy = "economy_avatar_buy";
+        public const string EconomyAvatarCatalog = "economy_avatar_catalog";
+        public const string EconomyAvatarCreate = "economy_avatar_create";
+        public const string EconomyAvatarDelete = "economy_avatar_delete";
+        public const string EconomyAvatarEquip = "economy_avatar_equip";
+        public const string EconomyAvatarList = "economy_avatar_list";
+        public const string EconomyAvatarLooks = "economy_avatar_looks";
+        public const string EconomyAvatarRename = "economy_avatar_rename";
+        public const string EconomyAvatarSetActive = "economy_avatar_set_active";
+        public const string EconomyAvatarUnequip = "economy_avatar_unequip";
         public const string EconomyBalances = "economy_balances";
         public const string EconomyCatalog = "economy_catalog";
         public const string EconomyChanceCanPlay = "economy_chance_can_play";
@@ -1140,6 +1150,116 @@ namespace NakamaFarsi.Sdk.Generated
             }
 
             return RpcInvoke.CallAsync<EconomyAchievementsProfileResponse>(_c, RpcIds.EconomyAchievementsProfile, request, ReadCall, ct);
+        }
+
+        public Task<EconomyAvatarBuyResponse> AvatarBuyAsync(EconomyAvatarBuyRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new EconomyAvatarBuyRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<EconomyAvatarBuyResponse>(_c, RpcIds.EconomyAvatarBuy, request, WriteCall, ct);
+        }
+
+        public Task<EconomyAvatarCatalogResponse> AvatarCatalogAsync(EconomyAvatarCatalogRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new EconomyAvatarCatalogRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<EconomyAvatarCatalogResponse>(_c, RpcIds.EconomyAvatarCatalog, request, ReadCall, ct);
+        }
+
+        public Task<EconomyAvatarCreateResponse> AvatarCreateAsync(EconomyAvatarCreateRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new EconomyAvatarCreateRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<EconomyAvatarCreateResponse>(_c, RpcIds.EconomyAvatarCreate, request, WriteCall, ct);
+        }
+
+        public Task<EconomyAvatarDeleteResponse> AvatarDeleteAsync(EconomyAvatarDeleteRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new EconomyAvatarDeleteRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<EconomyAvatarDeleteResponse>(_c, RpcIds.EconomyAvatarDelete, request, WriteCall, ct);
+        }
+
+        public Task<EconomyAvatarEquipResponse> AvatarEquipAsync(EconomyAvatarEquipRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new EconomyAvatarEquipRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<EconomyAvatarEquipResponse>(_c, RpcIds.EconomyAvatarEquip, request, WriteCall, ct);
+        }
+
+        public Task<EconomyAvatarListResponse> AvatarListAsync(EconomyAvatarListRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new EconomyAvatarListRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<EconomyAvatarListResponse>(_c, RpcIds.EconomyAvatarList, request, ReadCall, ct);
+        }
+
+        public Task<EconomyAvatarLooksResponse> AvatarLooksAsync(EconomyAvatarLooksRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new EconomyAvatarLooksRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<EconomyAvatarLooksResponse>(_c, RpcIds.EconomyAvatarLooks, request, WriteCall, ct);
+        }
+
+        public Task<EconomyAvatarRenameResponse> AvatarRenameAsync(EconomyAvatarRenameRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new EconomyAvatarRenameRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<EconomyAvatarRenameResponse>(_c, RpcIds.EconomyAvatarRename, request, WriteCall, ct);
+        }
+
+        public Task<EconomyAvatarSetActiveResponse> AvatarSetActiveAsync(EconomyAvatarSetActiveRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new EconomyAvatarSetActiveRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<EconomyAvatarSetActiveResponse>(_c, RpcIds.EconomyAvatarSetActive, request, WriteCall, ct);
+        }
+
+        public Task<EconomyAvatarUnequipResponse> AvatarUnequipAsync(EconomyAvatarUnequipRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new EconomyAvatarUnequipRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<EconomyAvatarUnequipResponse>(_c, RpcIds.EconomyAvatarUnequip, request, WriteCall, ct);
         }
 
         public Task<EconomyBalancesResponse> BalancesAsync(EconomyBalancesRequest request = null, CancellationToken ct = default)
@@ -4443,6 +4563,12 @@ namespace NakamaFarsi.Sdk.Generated
                 [JsonProperty("owned")]
                 public bool? Owned { get; set; }
 
+                [JsonProperty("price")]
+                public JToken Price { get; set; }
+
+                [JsonProperty("product")]
+                public JToken Product { get; set; }
+
                 [JsonProperty("value")]
                 public JToken Value { get; set; }
 
@@ -7361,6 +7487,651 @@ namespace NakamaFarsi.Sdk.Generated
             [JsonExtensionData]
             public IDictionary<string, JToken> Extra { get; set; }
         }
+    }
+
+    public sealed class EconomyAvatarBuyRequest
+    {
+        [JsonProperty("category")]
+        public string Category { get; set; }
+
+        [JsonProperty("key")]
+        public string Key { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("requestId")]
+        public string RequestId { get; set; }
+    }
+
+    public sealed class EconomyAvatarBuyResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("item")]
+        public JObject Item { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("paid")]
+        public List<PaidItem> Paid { get; set; }
+
+        [JsonProperty("replayed")]
+        public bool? Replayed { get; set; }
+
+        [JsonProperty("wallet")]
+        public JObject Wallet { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class PaidItem
+        {
+            [JsonProperty("amount")]
+            public long? Amount { get; set; }
+
+            [JsonProperty("currencyKey")]
+            public string CurrencyKey { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class EconomyAvatarCatalogRequest
+    {
+        [JsonProperty("avatarId")]
+        public string AvatarId { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+    }
+
+    public sealed class EconomyAvatarCatalogResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("avatarId")]
+        public string AvatarId { get; set; }
+
+        [JsonProperty("categories")]
+        public List<JToken> Categories { get; set; }
+
+        [JsonProperty("enabled")]
+        public bool? Enabled { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("types")]
+        public List<JToken> Types { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class EconomyAvatarCreateRequest
+    {
+        [JsonProperty("activate")]
+        public bool? Activate { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
+        [JsonProperty("type")]
+        public string Type { get; set; }
+    }
+
+    public sealed class EconomyAvatarCreateResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("activeId")]
+        public string ActiveId { get; set; }
+
+        [JsonProperty("avatar")]
+        public JToken Avatar { get; set; }
+
+        [JsonProperty("avatars")]
+        public List<AvatarsItem> Avatars { get; set; }
+
+        [JsonProperty("enabled")]
+        public bool? Enabled { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("limit")]
+        public JToken Limit { get; set; }
+
+        [JsonProperty("nameMaxLength")]
+        public long? NameMaxLength { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class AvatarsItem
+        {
+            [JsonProperty("createdAt")]
+            public string CreatedAt { get; set; }
+
+            [JsonProperty("id")]
+            public string Id { get; set; }
+
+            [JsonProperty("isActive")]
+            public bool? IsActive { get; set; }
+
+            [JsonProperty("look")]
+            public JToken Look { get; set; }
+
+            [JsonProperty("name")]
+            public string Name { get; set; }
+
+            [JsonProperty("type")]
+            public JToken Type { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class EconomyAvatarDeleteRequest
+    {
+        [JsonProperty("id")]
+        public string Id { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+    }
+
+    public sealed class EconomyAvatarDeleteResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("activeId")]
+        public string ActiveId { get; set; }
+
+        [JsonProperty("avatars")]
+        public List<AvatarsItem> Avatars { get; set; }
+
+        [JsonProperty("enabled")]
+        public bool? Enabled { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("limit")]
+        public LimitData Limit { get; set; }
+
+        [JsonProperty("nameMaxLength")]
+        public long? NameMaxLength { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class AvatarsItem
+        {
+            [JsonProperty("createdAt")]
+            public string CreatedAt { get; set; }
+
+            [JsonProperty("id")]
+            public string Id { get; set; }
+
+            [JsonProperty("isActive")]
+            public bool? IsActive { get; set; }
+
+            [JsonProperty("look")]
+            public LookData Look { get; set; }
+
+            [JsonProperty("name")]
+            public string Name { get; set; }
+
+            [JsonProperty("type")]
+            public TypeData Type { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+
+            public sealed class LookData
+            {
+                [JsonProperty("items")]
+                public JObject Items { get; set; }
+
+                [JsonProperty("layers")]
+                public List<LayersItem> Layers { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+
+                public sealed class LayersItem
+                {
+                    [JsonProperty("category")]
+                    public string Category { get; set; }
+
+                    [JsonProperty("imageUrl")]
+                    public string ImageUrl { get; set; }
+
+                    [JsonProperty("item")]
+                    public string Item { get; set; }
+
+                    [JsonProperty("layer")]
+                    public long? Layer { get; set; }
+
+                    [JsonProperty("value")]
+                    public string Value { get; set; }
+
+                    [JsonExtensionData]
+                    public IDictionary<string, JToken> Extra { get; set; }
+                }
+            }
+
+            public sealed class TypeData
+            {
+                [JsonProperty("iconUrl")]
+                public JToken IconUrl { get; set; }
+
+                [JsonProperty("imageUrl")]
+                public JToken ImageUrl { get; set; }
+
+                [JsonProperty("key")]
+                public JToken Key { get; set; }
+
+                [JsonProperty("name")]
+                public string Name { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+        }
+
+        public sealed class LimitData
+        {
+            [JsonProperty("canCreate")]
+            public bool? CanCreate { get; set; }
+
+            [JsonProperty("count")]
+            public long? Count { get; set; }
+
+            [JsonProperty("max")]
+            public JToken Max { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class EconomyAvatarEquipRequest
+    {
+        [JsonProperty("category")]
+        public string Category { get; set; }
+
+        [JsonProperty("id")]
+        public string Id { get; set; }
+
+        [JsonProperty("key")]
+        public string Key { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+    }
+
+    public sealed class EconomyAvatarEquipResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("activeId")]
+        public string ActiveId { get; set; }
+
+        [JsonProperty("avatar")]
+        public JToken Avatar { get; set; }
+
+        [JsonProperty("avatars")]
+        public List<JToken> Avatars { get; set; }
+
+        [JsonProperty("enabled")]
+        public bool? Enabled { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("limit")]
+        public JToken Limit { get; set; }
+
+        [JsonProperty("nameMaxLength")]
+        public long? NameMaxLength { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class EconomyAvatarListRequest
+    {
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+    }
+
+    public sealed class EconomyAvatarListResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("activeId")]
+        public string ActiveId { get; set; }
+
+        [JsonProperty("avatars")]
+        public List<AvatarsItem> Avatars { get; set; }
+
+        [JsonProperty("enabled")]
+        public bool? Enabled { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("limit")]
+        public LimitData Limit { get; set; }
+
+        [JsonProperty("nameMaxLength")]
+        public long? NameMaxLength { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class AvatarsItem
+        {
+            [JsonProperty("createdAt")]
+            public string CreatedAt { get; set; }
+
+            [JsonProperty("id")]
+            public string Id { get; set; }
+
+            [JsonProperty("isActive")]
+            public bool? IsActive { get; set; }
+
+            [JsonProperty("look")]
+            public LookData Look { get; set; }
+
+            [JsonProperty("name")]
+            public string Name { get; set; }
+
+            [JsonProperty("type")]
+            public TypeData Type { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+
+            public sealed class LookData
+            {
+                [JsonProperty("items")]
+                public JObject Items { get; set; }
+
+                [JsonProperty("layers")]
+                public List<LayersItem> Layers { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+
+                public sealed class LayersItem
+                {
+                    [JsonProperty("category")]
+                    public string Category { get; set; }
+
+                    [JsonProperty("imageUrl")]
+                    public string ImageUrl { get; set; }
+
+                    [JsonProperty("item")]
+                    public string Item { get; set; }
+
+                    [JsonProperty("layer")]
+                    public long? Layer { get; set; }
+
+                    [JsonProperty("value")]
+                    public string Value { get; set; }
+
+                    [JsonExtensionData]
+                    public IDictionary<string, JToken> Extra { get; set; }
+                }
+            }
+
+            public sealed class TypeData
+            {
+                [JsonProperty("iconUrl")]
+                public JToken IconUrl { get; set; }
+
+                [JsonProperty("imageUrl")]
+                public JToken ImageUrl { get; set; }
+
+                [JsonProperty("key")]
+                public JToken Key { get; set; }
+
+                [JsonProperty("name")]
+                public string Name { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+        }
+
+        public sealed class LimitData
+        {
+            [JsonProperty("canCreate")]
+            public bool? CanCreate { get; set; }
+
+            [JsonProperty("count")]
+            public long? Count { get; set; }
+
+            [JsonProperty("max")]
+            public long? Max { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class EconomyAvatarLooksRequest
+    {
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("userIds")]
+        public List<string> UserIds { get; set; }
+    }
+
+    public sealed class EconomyAvatarLooksResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("avatars")]
+        public JObject Avatars { get; set; }
+
+        [JsonProperty("enabled")]
+        public bool? Enabled { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class EconomyAvatarRenameRequest
+    {
+        [JsonProperty("id")]
+        public string Id { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("name")]
+        public string Name { get; set; }
+    }
+
+    public sealed class EconomyAvatarRenameResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("activeId")]
+        public string ActiveId { get; set; }
+
+        [JsonProperty("avatar")]
+        public JToken Avatar { get; set; }
+
+        [JsonProperty("avatars")]
+        public List<AvatarsItem> Avatars { get; set; }
+
+        [JsonProperty("enabled")]
+        public bool? Enabled { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("limit")]
+        public JToken Limit { get; set; }
+
+        [JsonProperty("nameMaxLength")]
+        public long? NameMaxLength { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class AvatarsItem
+        {
+            [JsonProperty("createdAt")]
+            public string CreatedAt { get; set; }
+
+            [JsonProperty("id")]
+            public string Id { get; set; }
+
+            [JsonProperty("isActive")]
+            public bool? IsActive { get; set; }
+
+            [JsonProperty("look")]
+            public JToken Look { get; set; }
+
+            [JsonProperty("name")]
+            public string Name { get; set; }
+
+            [JsonProperty("type")]
+            public JToken Type { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class EconomyAvatarSetActiveRequest
+    {
+        [JsonProperty("id")]
+        public string Id { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+    }
+
+    public sealed class EconomyAvatarSetActiveResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("activeId")]
+        public string ActiveId { get; set; }
+
+        [JsonProperty("avatar")]
+        public JToken Avatar { get; set; }
+
+        [JsonProperty("avatars")]
+        public List<AvatarsItem> Avatars { get; set; }
+
+        [JsonProperty("enabled")]
+        public bool? Enabled { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("limit")]
+        public JToken Limit { get; set; }
+
+        [JsonProperty("nameMaxLength")]
+        public long? NameMaxLength { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class AvatarsItem
+        {
+            [JsonProperty("createdAt")]
+            public string CreatedAt { get; set; }
+
+            [JsonProperty("id")]
+            public string Id { get; set; }
+
+            [JsonProperty("isActive")]
+            public bool? IsActive { get; set; }
+
+            [JsonProperty("look")]
+            public JToken Look { get; set; }
+
+            [JsonProperty("name")]
+            public string Name { get; set; }
+
+            [JsonProperty("type")]
+            public JToken Type { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class EconomyAvatarUnequipRequest
+    {
+        [JsonProperty("category")]
+        public string Category { get; set; }
+
+        [JsonProperty("id")]
+        public string Id { get; set; }
+
+        [JsonProperty("key")]
+        public string Key { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+    }
+
+    public sealed class EconomyAvatarUnequipResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("activeId")]
+        public string ActiveId { get; set; }
+
+        [JsonProperty("avatar")]
+        public JToken Avatar { get; set; }
+
+        [JsonProperty("avatars")]
+        public List<JToken> Avatars { get; set; }
+
+        [JsonProperty("enabled")]
+        public bool? Enabled { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("limit")]
+        public JToken Limit { get; set; }
+
+        [JsonProperty("nameMaxLength")]
+        public long? NameMaxLength { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
     }
 
     public sealed class EconomyBalancesRequest

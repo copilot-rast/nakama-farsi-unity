@@ -441,6 +441,108 @@
       "account"
     ]
   },
+  "AVATAR_ALREADY_OWNED": {
+    "status": 409,
+    "modules": [
+      "economy"
+    ]
+  },
+  "AVATAR_CATEGORY_NOT_FOUND": {
+    "status": 404,
+    "modules": [
+      "economy"
+    ]
+  },
+  "AVATAR_CATEGORY_REQUIRED": {
+    "status": 409,
+    "modules": [
+      "economy"
+    ]
+  },
+  "AVATAR_DISABLED": {
+    "status": 409,
+    "modules": [
+      "economy"
+    ]
+  },
+  "AVATAR_ITEM_FREE": {
+    "status": 409,
+    "modules": [
+      "economy"
+    ]
+  },
+  "AVATAR_ITEM_LOCKED": {
+    "status": 403,
+    "modules": [
+      "economy"
+    ]
+  },
+  "AVATAR_ITEM_NOT_FOUND": {
+    "status": 404,
+    "modules": [
+      "economy"
+    ]
+  },
+  "AVATAR_ITEM_NOT_OWNED": {
+    "status": 403,
+    "modules": [
+      "economy"
+    ]
+  },
+  "AVATAR_LAST": {
+    "status": 409,
+    "modules": [
+      "economy"
+    ]
+  },
+  "AVATAR_LIMIT": {
+    "status": 409,
+    "modules": [
+      "economy"
+    ]
+  },
+  "AVATAR_NOT_EQUIPPED": {
+    "status": 409,
+    "modules": [
+      "economy"
+    ]
+  },
+  "AVATAR_NOT_FOUND": {
+    "status": 404,
+    "modules": [
+      "economy"
+    ]
+  },
+  "AVATAR_PRICE_REQUIRED": {
+    "status": 400,
+    "modules": [
+      "economy"
+    ]
+  },
+  "AVATAR_PRODUCT_REQUIRED": {
+    "status": 409,
+    "modules": [
+      "economy"
+    ]
+  },
+  "AVATAR_SLOT_FULL": {
+    "status": 409,
+    "modules": [
+      "economy"
+    ]
+  },
+  "AVATAR_TYPE_NOT_ALLOWED": {
+    "status": 403,
+    "modules": [
+      "economy"
+    ]
+  },
+  "AVATAR_TYPE_NOT_FOUND": {
+    "status": 404,
+    "modules": [
+      "economy"
+    ]
+  },
   "BANNER_LIST_NOT_FOUND": {
     "status": 404,
     "modules": [
@@ -502,6 +604,12 @@
     "status": 400,
     "modules": [
       "publication"
+    ]
+  },
+  "CATEGORY_IMMUTABLE": {
+    "status": 400,
+    "modules": [
+      "economy"
     ]
   },
   "CATEGORY_KIND_MISMATCH": {
@@ -1964,6 +2072,12 @@
     ]
   },
   "INVALID_SKU": {
+    "status": 400,
+    "modules": [
+      "economy"
+    ]
+  },
+  "INVALID_SLOTS": {
     "status": 400,
     "modules": [
       "economy"
@@ -4855,6 +4969,12 @@
   },
   "TOO_MANY_TRIES": {
     "status": 429,
+    "modules": [
+      "economy"
+    ]
+  },
+  "TOO_MANY_TYPES": {
+    "status": 400,
     "modules": [
       "economy"
     ]
