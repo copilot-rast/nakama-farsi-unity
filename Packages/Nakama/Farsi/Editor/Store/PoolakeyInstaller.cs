@@ -21,8 +21,10 @@ namespace NakamaFarsi.Sdk.Editor
 
         static PoolakeyInstaller()
         {
+#if !POLICEPATROL_SDK
             EditorApplication.delayCall += OfferOnce;
             EditorApplication.delayCall += () => EnsureKotlinFix();
+#endif
         }
 
         public static string KotlinFixXml() =>

@@ -1,0 +1,22 @@
+{
+    "name": "PolicePatrol.Sdk",
+    "rootNamespace": "PolicePatrol.Sdk",
+    "references": [
+        "NakamaFarsi.Sdk",
+        "NakamaRuntime"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "Newtonsoft.Json.dll",
+        "Nakama.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "POLICEPATROL_SDK"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

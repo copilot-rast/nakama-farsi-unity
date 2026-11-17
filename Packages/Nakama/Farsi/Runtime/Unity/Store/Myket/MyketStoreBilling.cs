@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using NakamaFarsi.Sdk.Payments;
-using NakamaFarsi.Sdk.Payments;
 using UnityEngine;
 
 namespace NakamaFarsi.Sdk.Unity

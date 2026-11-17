@@ -91,12 +91,22 @@ A message refused by the server (daily quota, sticker not owned or not allowed i
 
 `client.Analytics` works with servers that have the analytics module. nakama-farsi does not have it yet, so the config's analytics session is off by default.
 
+## Police Patrol layer
+
+`PolicePatrol/` holds the Police Patrol API (`PolicePatrol.Sdk`, the same namespaces, classes and methods as `com.policepatrol.sdk` 0.5.x and 0.6.0) on top of this layer. Its assemblies compile only with the scripting symbol `POLICEPATROL_SDK`. The editor turns it on by itself when the project has `Resources/PolicePatrolSdkConfig.asset`, or from **Tools > Nakama Farsi > Police Patrol > Turn on**. Other games never see it.
+
+```sh
+cd Packages/Nakama/PolicePatrol/Tests~/PolicePatrol.Sdk.Tests && dotnet test   # NF_IT_URL=… for the guide flows on a server
+cd ../UnityCheck && dotnet build                                              # Unity code, editor tools, samples and the legacy guide samples (Guide/)
+```
+
 ## Regenerating the wrappers
 
 After RPCs change on the server:
 
 ```sh
 tools/generate.sh                      # reads the committed nakama-farsi dev branch next to this repository
+NF=../pp/backend REV=nakama MODULES="combatrace=integrations/combatrace,devkit=integrations/devkit,analytics=integrations/analytics,account=integrations/account,shopx=integrations/shopx,inventoryx=integrations/inventoryx,ledger=integrations/ledger,campaign=integrations/campaign,assets=integrations/assets,social=integrations/social,fairplay=integrations/fairplay,pp=integrations/pp" EXTRA="../combatrace/backend:dev:integrations/combatrace" tools/generate.sh   # what is committed: Police Patrol and CombatRace RPCs
 NF=../path/to/nakama-farsi REV=dev MODULES="flickkick=integrations/flickkick" tools/generate.sh
 python3 tools/write_meta.py Packages/Nakama Farsi
 ```
@@ -123,6 +133,7 @@ cd ../UnityEditorCompileCheck && dotnet build    # editor tools
 | `Farsi/Runtime/Payments` | purchase flow, store selection, test store |
 | `Farsi/Runtime/Social` | chat, notifications |
 | `Farsi/Runtime/Unity` | config asset, runner, Cafe Bazaar and Myket bridges, gateway return |
+| `PolicePatrol/` | Police Patrol layer (`POLICEPATROL_SDK`) |
 | `Farsi/Editor` | config menu, store install and switch tools |
 | `Samples~` | Quick Start, Payments |
 | `tools/` (repository root) | RPC schema scanner, wrapper generator, meta writer |

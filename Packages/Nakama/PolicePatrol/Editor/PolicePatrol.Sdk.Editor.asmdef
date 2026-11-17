@@ -1,0 +1,20 @@
+{
+    "name": "PolicePatrol.Sdk.Editor",
+    "rootNamespace": "PolicePatrol.Sdk.Editor",
+    "references": [
+        "PolicePatrol.Sdk"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "POLICEPATROL_SDK"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

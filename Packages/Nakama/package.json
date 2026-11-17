@@ -1,9 +1,9 @@
 {
     "name": "com.nakamafarsi.unity",
-    "version": "3.23.0-nf.1",
+    "version": "3.23.0-nf.2",
     "unity": "2022.3",
     "displayName": "Nakama Farsi",
-    "description": "Nakama Unity client (Heroic Labs) with the nakama-farsi layer built in: session and socket management, socket-first RPCs with HTTP fallback, typed wrappers for every nakama-farsi RPC, phone login, coins, web gateways, Cafe Bazaar and Myket billing, leaderboards, tasks, chat and stickers.",
+    "description": "Nakama Unity client (Heroic Labs) with the nakama-farsi layer built in: session and socket management, socket-first RPCs with HTTP fallback, typed wrappers for every nakama-farsi RPC, phone login, coins, web gateways, Cafe Bazaar and Myket billing, leaderboards, tasks, chat and stickers. Includes the Police Patrol layer (PolicePatrol.Sdk, the API of com.policepatrol.sdk 0.5.x/0.6.0), switched on by the POLICEPATROL_SDK symbol.",
     "keywords": [
         "app server",
         "client library",
@@ -13,7 +13,8 @@
         "realtime chat",
         "nakama-farsi",
         "bazaar",
-        "myket"
+        "myket",
+        "police patrol"
     ],
     "author": {
         "name": "Heroic Labs",
@@ -34,6 +35,26 @@
             "displayName": "Payments",
             "description": "Catalog, coins, Cafe Bazaar or Myket (test store in sandbox) and ZarinPal with the return to the game.",
             "path": "Samples~/Payments"
+        },
+        {
+            "displayName": "Police Patrol Quick Start",
+            "description": "Device login and a first authenticated call (PolicePatrolQuickStart).",
+            "path": "Samples~/PolicePatrolQuickStart"
+        },
+        {
+            "displayName": "Police Patrol Payments",
+            "description": "ZarrinPal checkout with the deep link return, and Bazaar / Myket billing with the developer payload.",
+            "path": "Samples~/PolicePatrolPayments"
+        },
+        {
+            "displayName": "Police Patrol Shop Demo",
+            "description": "One component, no scene setup: device login, balances, the shop list and a test store that buys against the server sandbox.",
+            "path": "Samples~/PolicePatrolShopDemo"
+        },
+        {
+            "displayName": "Police Patrol Analytics",
+            "description": "Context, design events with a hierarchy, progression and resource events, and legacy stats.",
+            "path": "Samples~/PolicePatrolAnalytics"
         }
     ]
 }
