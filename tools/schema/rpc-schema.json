@@ -1833,7 +1833,7 @@
     },
     {
       "id": "base_avatar",
-      "module": "base",
+      "module": "economy",
       "handler": "rpcLegacyAvatar",
       "source": "integrations/economy/avatars_legacy.go",
       "auth": "session",
@@ -1850,9 +1850,7 @@
       "response": {
         "properties": {
           "enabled": {},
-          "lang": {
-            "type": "string"
-          },
+          "lang": {},
           "look": {
             "properties": {
               "layers": {
@@ -1934,7 +1932,7 @@
     },
     {
       "id": "base_avatar_get",
-      "module": "base",
+      "module": "economy",
       "handler": "rpcLegacyAvatarGet",
       "source": "integrations/economy/avatars_legacy.go",
       "auth": "session",
@@ -2000,7 +1998,7 @@
     },
     {
       "id": "base_avatar_save",
-      "module": "base",
+      "module": "economy",
       "handler": "rpcLegacyAvatarSave",
       "source": "integrations/economy/avatars_legacy.go",
       "auth": "session",
@@ -4415,6 +4413,2190 @@
       ]
     },
     {
+      "id": "clan_create",
+      "module": "clan",
+      "handler": "rpcCreate",
+      "source": "integrations/clan/clans.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "avatarUrl": {
+            "nullable": true,
+            "type": "string"
+          },
+          "badge": {
+            "type": "object"
+          },
+          "color": {
+            "nullable": true,
+            "type": "string"
+          },
+          "country": {
+            "nullable": true,
+            "type": "string"
+          },
+          "coverKey": {
+            "nullable": true,
+            "type": "string"
+          },
+          "description": {
+            "nullable": true,
+            "type": "string"
+          },
+          "emblemKey": {
+            "nullable": true,
+            "type": "string"
+          },
+          "joinType": {
+            "nullable": true,
+            "type": "string"
+          },
+          "lang": {
+            "nullable": true,
+            "type": "string"
+          },
+          "minTrophies": {
+            "nullable": true,
+            "type": "integer"
+          },
+          "motto": {
+            "nullable": true,
+            "type": "string"
+          },
+          "name": {
+            "nullable": true,
+            "type": "string"
+          },
+          "requestId": {
+            "type": "string"
+          },
+          "tags": {
+            "items": {},
+            "nullable": true,
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "clan": {
+            "properties": {
+              "avatarUrl": {
+                "type": "string"
+              },
+              "badge": {
+                "type": "object"
+              },
+              "channel": {
+                "type": "string"
+              },
+              "clanId": {
+                "type": "string"
+              },
+              "color": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              },
+              "coverKey": {
+                "type": "string"
+              },
+              "coverUrl": {
+                "type": "string"
+              },
+              "createdAt": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "emblemKey": {
+                "type": "string"
+              },
+              "emblemUrl": {
+                "type": "string"
+              },
+              "joinType": {
+                "type": "string"
+              },
+              "lang": {
+                "type": "string"
+              },
+              "level": {
+                "type": "integer"
+              },
+              "levelXp": {
+                "type": "integer"
+              },
+              "maxMembers": {
+                "type": "integer"
+              },
+              "members": {
+                "type": "integer"
+              },
+              "minTrophies": {
+                "type": "integer"
+              },
+              "motto": {
+                "type": "string"
+              },
+              "myRole": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "nextChangeAt": {},
+              "nextLevelXp": {},
+              "pendingUploads": {},
+              "tag": {
+                "type": "string"
+              },
+              "tags": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "trophies": {
+                "type": "integer"
+              },
+              "warDraws": {
+                "type": "integer"
+              },
+              "warLosses": {
+                "type": "integer"
+              },
+              "warPoints": {
+                "type": "integer"
+              },
+              "warWins": {
+                "type": "integer"
+              },
+              "xp": {
+                "type": "integer"
+              }
+            },
+            "type": "object"
+          },
+          "role": {}
+        },
+        "type": "object"
+      },
+      "errors": [
+        "CLAN_ALREADY_MEMBER",
+        "CLAN_ART_LOCKED",
+        "CLAN_ART_NOT_FOUND",
+        "CLAN_AVATAR_USE_GALLERY",
+        "CLAN_CHANGE_COOLDOWN",
+        "CLAN_COLOR_INVALID",
+        "CLAN_COOLDOWN",
+        "CLAN_COUNTRY_INVALID",
+        "CLAN_CREATE_DISABLED",
+        "CLAN_DISABLED",
+        "CLAN_EMBLEM_REQUIRED",
+        "CLAN_ID_REQUIRED",
+        "CLAN_KICK_COOLDOWN",
+        "CLAN_LANG_INVALID",
+        "CLAN_MOTTO_TOO_LONG",
+        "CLAN_NAME_BLOCKED",
+        "CLAN_NAME_TAKEN",
+        "CLAN_NOT_ENOUGH_CURRENCY",
+        "CLAN_NOT_ENOUGH_TROPHIES",
+        "CLAN_TAG_INVALID",
+        "CLAN_TEXT_BLOCKED",
+        "CLAN_TOO_MANY_TAGS",
+        "INVALID_REQUEST_ID"
+      ]
+    },
+    {
+      "id": "clan_demote",
+      "module": "clan",
+      "handler": "rpcDemote",
+      "source": "integrations/clan/clans.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "clanId": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "clanId": {
+            "type": "string"
+          },
+          "from": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "CLAN_MEMBER_NOT_FOUND",
+        "CLAN_NOT_MEMBER",
+        "CLAN_ROLE_NOT_ALLOWED",
+        "CLAN_ROLE_TOO_LOW",
+        "INVALID_USER_ID"
+      ]
+    },
+    {
+      "id": "clan_get",
+      "module": "clan",
+      "handler": "rpcGet",
+      "source": "integrations/clan/views.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "clanId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "clan": {
+            "properties": {
+              "avatarUrl": {
+                "type": "string"
+              },
+              "badge": {
+                "type": "object"
+              },
+              "channel": {
+                "type": "string"
+              },
+              "clanId": {
+                "type": "string"
+              },
+              "color": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              },
+              "coverKey": {
+                "type": "string"
+              },
+              "coverUrl": {
+                "type": "string"
+              },
+              "createdAt": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "emblemKey": {
+                "type": "string"
+              },
+              "emblemUrl": {
+                "type": "string"
+              },
+              "joinType": {
+                "type": "string"
+              },
+              "lang": {
+                "type": "string"
+              },
+              "level": {
+                "type": "integer"
+              },
+              "levelXp": {
+                "type": "integer"
+              },
+              "maxMembers": {
+                "type": "integer"
+              },
+              "members": {
+                "type": "integer"
+              },
+              "minTrophies": {
+                "type": "integer"
+              },
+              "motto": {
+                "type": "string"
+              },
+              "myRole": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "nextChangeAt": {},
+              "nextLevelXp": {},
+              "pendingUploads": {},
+              "tag": {
+                "type": "string"
+              },
+              "tags": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "trophies": {
+                "type": "integer"
+              },
+              "warDraws": {
+                "type": "integer"
+              },
+              "warLosses": {
+                "type": "integer"
+              },
+              "warPoints": {
+                "type": "integer"
+              },
+              "warWins": {
+                "type": "integer"
+              },
+              "xp": {
+                "type": "integer"
+              }
+            },
+            "type": "object"
+          },
+          "invited": {
+            "type": "boolean"
+          },
+          "members": {
+            "items": {
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "requested": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "CLAN_ID_REQUIRED"
+      ]
+    },
+    {
+      "id": "clan_image_upload",
+      "module": "clan",
+      "handler": "rpcImageUpload",
+      "source": "integrations/clan/look.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "data": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "kind": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "uploadId": {
+            "type": "string"
+          },
+          "url": {}
+        },
+        "type": "object"
+      },
+      "errors": [
+        "CLAN_CHANGE_COOLDOWN",
+        "CLAN_ID_REQUIRED",
+        "CLAN_NAME_TAKEN",
+        "CLAN_NOT_ENOUGH_CURRENCY",
+        "CLAN_NOT_MEMBER",
+        "CLAN_ROLE_NOT_ALLOWED",
+        "CLAN_UPLOADS_DISABLED",
+        "CLAN_UPLOAD_INVALID",
+        "CLAN_UPLOAD_KIND_INVALID",
+        "CLAN_UPLOAD_TOO_LARGE",
+        "CLAN_UPLOAD_TYPE"
+      ]
+    },
+    {
+      "id": "clan_invite",
+      "module": "clan",
+      "handler": "rpcInvite",
+      "source": "integrations/clan/clans.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "clanId": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "clanId": {
+            "type": "string"
+          },
+          "expiresAt": {
+            "type": "string"
+          },
+          "invited": {
+            "type": "boolean"
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "CLAN_ALREADY_MEMBER",
+        "CLAN_CANNOT_INVITE_SELF",
+        "CLAN_ID_REQUIRED",
+        "CLAN_NOT_MEMBER",
+        "CLAN_ROLE_NOT_ALLOWED",
+        "INVALID_USER_ID",
+        "USER_NOT_FOUND"
+      ]
+    },
+    {
+      "id": "clan_invite_accept",
+      "module": "clan",
+      "handler": "rpcInviteAccept",
+      "source": "integrations/clan/clans.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "clanId": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "clan": {
+            "properties": {
+              "avatarUrl": {
+                "type": "string"
+              },
+              "badge": {
+                "type": "object"
+              },
+              "channel": {
+                "type": "string"
+              },
+              "clanId": {
+                "type": "string"
+              },
+              "color": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              },
+              "coverKey": {
+                "type": "string"
+              },
+              "coverUrl": {
+                "type": "string"
+              },
+              "createdAt": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "emblemKey": {
+                "type": "string"
+              },
+              "emblemUrl": {
+                "type": "string"
+              },
+              "joinType": {
+                "type": "string"
+              },
+              "lang": {
+                "type": "string"
+              },
+              "level": {
+                "type": "integer"
+              },
+              "levelXp": {
+                "type": "integer"
+              },
+              "maxMembers": {
+                "type": "integer"
+              },
+              "members": {
+                "type": "integer"
+              },
+              "minTrophies": {
+                "type": "integer"
+              },
+              "motto": {
+                "type": "string"
+              },
+              "myRole": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "nextChangeAt": {},
+              "nextLevelXp": {},
+              "pendingUploads": {},
+              "tag": {
+                "type": "string"
+              },
+              "tags": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "trophies": {
+                "type": "integer"
+              },
+              "warDraws": {
+                "type": "integer"
+              },
+              "warLosses": {
+                "type": "integer"
+              },
+              "warPoints": {
+                "type": "integer"
+              },
+              "warWins": {
+                "type": "integer"
+              },
+              "xp": {
+                "type": "integer"
+              }
+            },
+            "type": "object"
+          },
+          "clanId": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "CLAN_ALREADY_MEMBER",
+        "CLAN_COOLDOWN",
+        "CLAN_DISABLED",
+        "CLAN_FULL",
+        "CLAN_ID_REQUIRED",
+        "CLAN_INVITE_NOT_FOUND",
+        "CLAN_KICK_COOLDOWN"
+      ]
+    },
+    {
+      "id": "clan_invite_decline",
+      "module": "clan",
+      "handler": "rpcInviteDecline",
+      "source": "integrations/clan/clans.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "clanId": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "clanId": {
+            "type": "string"
+          },
+          "declined": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "CLAN_INVITE_NOT_FOUND"
+      ]
+    },
+    {
+      "id": "clan_invites",
+      "module": "clan",
+      "handler": "rpcInvites",
+      "source": "integrations/clan/clans.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {},
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "items": {
+            "items": {
+              "properties": {
+                "byUserId": {},
+                "clan": {
+                  "properties": {
+                    "avatarUrl": {
+                      "type": "string"
+                    },
+                    "badge": {
+                      "type": "object"
+                    },
+                    "channel": {
+                      "type": "string"
+                    },
+                    "clanId": {
+                      "type": "string"
+                    },
+                    "color": {
+                      "type": "string"
+                    },
+                    "country": {
+                      "type": "string"
+                    },
+                    "coverKey": {
+                      "type": "string"
+                    },
+                    "coverUrl": {
+                      "type": "string"
+                    },
+                    "createdAt": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "emblemKey": {
+                      "type": "string"
+                    },
+                    "emblemUrl": {
+                      "type": "string"
+                    },
+                    "joinType": {
+                      "type": "string"
+                    },
+                    "lang": {
+                      "type": "string"
+                    },
+                    "level": {
+                      "type": "integer"
+                    },
+                    "levelXp": {
+                      "type": "integer"
+                    },
+                    "maxMembers": {
+                      "type": "integer"
+                    },
+                    "members": {
+                      "type": "integer"
+                    },
+                    "minTrophies": {
+                      "type": "integer"
+                    },
+                    "motto": {
+                      "type": "string"
+                    },
+                    "myRole": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "nextChangeAt": {},
+                    "nextLevelXp": {},
+                    "pendingUploads": {},
+                    "tag": {
+                      "type": "string"
+                    },
+                    "tags": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "trophies": {
+                      "type": "integer"
+                    },
+                    "warDraws": {
+                      "type": "integer"
+                    },
+                    "warLosses": {
+                      "type": "integer"
+                    },
+                    "warPoints": {
+                      "type": "integer"
+                    },
+                    "warWins": {
+                      "type": "integer"
+                    },
+                    "xp": {
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                },
+                "expiresAt": {},
+                "invitedAt": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "CLAN_ID_REQUIRED"
+      ]
+    },
+    {
+      "id": "clan_join",
+      "module": "clan",
+      "handler": "rpcJoin",
+      "source": "integrations/clan/clans.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "clanId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "clan": {
+            "properties": {
+              "avatarUrl": {
+                "type": "string"
+              },
+              "badge": {
+                "type": "object"
+              },
+              "channel": {
+                "type": "string"
+              },
+              "clanId": {
+                "type": "string"
+              },
+              "color": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              },
+              "coverKey": {
+                "type": "string"
+              },
+              "coverUrl": {
+                "type": "string"
+              },
+              "createdAt": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "emblemKey": {
+                "type": "string"
+              },
+              "emblemUrl": {
+                "type": "string"
+              },
+              "joinType": {
+                "type": "string"
+              },
+              "lang": {
+                "type": "string"
+              },
+              "level": {
+                "type": "integer"
+              },
+              "levelXp": {
+                "type": "integer"
+              },
+              "maxMembers": {
+                "type": "integer"
+              },
+              "members": {
+                "type": "integer"
+              },
+              "minTrophies": {
+                "type": "integer"
+              },
+              "motto": {
+                "type": "string"
+              },
+              "myRole": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "nextChangeAt": {},
+              "nextLevelXp": {},
+              "pendingUploads": {},
+              "tag": {
+                "type": "string"
+              },
+              "tags": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "trophies": {
+                "type": "integer"
+              },
+              "warDraws": {
+                "type": "integer"
+              },
+              "warLosses": {
+                "type": "integer"
+              },
+              "warPoints": {
+                "type": "integer"
+              },
+              "warWins": {
+                "type": "integer"
+              },
+              "xp": {
+                "type": "integer"
+              }
+            },
+            "type": "object"
+          },
+          "clanId": {
+            "type": "string"
+          },
+          "replayed": {
+            "type": "boolean"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "CLAN_ALREADY_MEMBER",
+        "CLAN_COOLDOWN",
+        "CLAN_DISABLED",
+        "CLAN_FULL",
+        "CLAN_ID_REQUIRED",
+        "CLAN_INVITE_ONLY",
+        "CLAN_KICK_COOLDOWN",
+        "CLAN_NOT_ENOUGH_TROPHIES",
+        "CLAN_TOO_MANY_REQUESTS"
+      ]
+    },
+    {
+      "id": "clan_kick",
+      "module": "clan",
+      "handler": "rpcKick",
+      "source": "integrations/clan/clans.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "clanId": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "clanId": {
+            "type": "string"
+          },
+          "kicked": {
+            "type": "boolean"
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "CLAN_CANNOT_KICK_SELF",
+        "CLAN_MEMBER_NOT_FOUND",
+        "CLAN_NOT_MEMBER",
+        "CLAN_ROLE_NOT_ALLOWED",
+        "CLAN_ROLE_TOO_LOW",
+        "INVALID_USER_ID"
+      ]
+    },
+    {
+      "id": "clan_leave",
+      "module": "clan",
+      "handler": "rpcLeave",
+      "source": "integrations/clan/clans.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {},
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "clanId": {
+            "type": "string"
+          },
+          "deleted": {
+            "type": "boolean"
+          },
+          "left": {
+            "type": "boolean"
+          },
+          "newLeaderId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "CLAN_LEADER_MUST_TRANSFER",
+        "CLAN_LEAVE_COOLDOWN",
+        "CLAN_NOT_MEMBER"
+      ]
+    },
+    {
+      "id": "clan_levels",
+      "module": "clan",
+      "handler": "rpcLevels",
+      "source": "integrations/clan/views.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "lang": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "clan": {},
+          "levels": {
+            "items": {
+              "properties": {
+                "iconUrl": {},
+                "level": {},
+                "memberCap": {},
+                "name": {
+                  "type": "string"
+                },
+                "perks": {},
+                "prizeKey": {},
+                "reached": {
+                  "type": "boolean"
+                },
+                "xp": {}
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "memberDailyCap": {},
+          "sources": {
+            "items": {
+              "properties": {
+                "amount": {},
+                "event": {},
+                "perValue": {},
+                "type": {}
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "war": {
+            "properties": {
+              "draw": {},
+              "loss": {},
+              "win": {}
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "errors": []
+    },
+    {
+      "id": "clan_mine",
+      "module": "clan",
+      "handler": "rpcMine",
+      "source": "integrations/clan/views.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {},
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "clan": {
+            "type": "null"
+          },
+          "cooldownSeconds": {
+            "type": "integer"
+          },
+          "enabled": {},
+          "invites": {
+            "type": "integer"
+          },
+          "pendingRequests": {
+            "type": "integer"
+          },
+          "permissions": {
+            "properties": {
+              "accept": {
+                "type": "boolean"
+              },
+              "edit": {
+                "type": "boolean"
+              },
+              "invite": {
+                "type": "boolean"
+              },
+              "kick": {
+                "type": "boolean"
+              },
+              "promote": {
+                "type": "boolean"
+              },
+              "transfer": {
+                "type": "boolean"
+              },
+              "war": {
+                "type": "boolean"
+              }
+            },
+            "type": "object"
+          },
+          "requestedClanIds": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "role": {
+            "type": "null"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "CLAN_COOLDOWN",
+        "CLAN_ID_REQUIRED",
+        "CLAN_KICK_COOLDOWN"
+      ]
+    },
+    {
+      "id": "clan_options",
+      "module": "clan",
+      "handler": "rpcOptions",
+      "source": "integrations/clan/look.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "lang": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "changeCooldownMinutes": {},
+          "colors": {},
+          "countries": {
+            "items": {
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "covers": {
+            "items": {
+              "properties": {
+                "imageUrl": {},
+                "isDefault": {},
+                "key": {},
+                "locked": {
+                  "type": "boolean"
+                },
+                "minLevel": {},
+                "name": {
+                  "type": "string"
+                },
+                "owned": {
+                  "type": "boolean"
+                },
+                "price": {}
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "createCost": {},
+          "descriptionMax": {},
+          "editRoles": {},
+          "emblems": {
+            "items": {
+              "properties": {
+                "imageUrl": {},
+                "isDefault": {},
+                "key": {},
+                "locked": {
+                  "type": "boolean"
+                },
+                "minLevel": {},
+                "name": {
+                  "type": "string"
+                },
+                "owned": {
+                  "type": "boolean"
+                },
+                "price": {}
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "languages": {
+            "items": {
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "maxMinTrophies": {},
+          "maxTags": {},
+          "mottoMax": {},
+          "nameMax": {},
+          "nameMin": {},
+          "nextChangeAt": {},
+          "tags": {
+            "items": {
+              "properties": {
+                "key": {},
+                "name": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "uploads": {
+            "properties": {
+              "enabled": {},
+              "maxBytes": {},
+              "needsApproval": {},
+              "types": {}
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "errors": []
+    },
+    {
+      "id": "clan_promote",
+      "module": "clan",
+      "handler": "rpcPromote",
+      "source": "integrations/clan/clans.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "clanId": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "clanId": {
+            "type": "string"
+          },
+          "from": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "CLAN_MEMBER_NOT_FOUND",
+        "CLAN_NOT_MEMBER",
+        "CLAN_ROLE_NOT_ALLOWED",
+        "CLAN_ROLE_TOO_LOW",
+        "CLAN_TOO_MANY_CO_LEADERS",
+        "INVALID_USER_ID"
+      ]
+    },
+    {
+      "id": "clan_request_accept",
+      "module": "clan",
+      "handler": "rpcAccept",
+      "source": "integrations/clan/clans.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "clanId": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "accepted": {
+            "type": "boolean"
+          },
+          "clanId": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "CLAN_ALREADY_MEMBER",
+        "CLAN_FULL",
+        "CLAN_ID_REQUIRED",
+        "CLAN_NOT_MEMBER",
+        "CLAN_REQUEST_NOT_FOUND",
+        "CLAN_ROLE_NOT_ALLOWED",
+        "INVALID_USER_ID"
+      ]
+    },
+    {
+      "id": "clan_request_reject",
+      "module": "clan",
+      "handler": "rpcReject",
+      "source": "integrations/clan/clans.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "clanId": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "clanId": {
+            "type": "string"
+          },
+          "rejected": {
+            "type": "boolean"
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "CLAN_NOT_MEMBER",
+        "CLAN_REQUEST_NOT_FOUND",
+        "CLAN_ROLE_NOT_ALLOWED",
+        "INVALID_USER_ID"
+      ]
+    },
+    {
+      "id": "clan_requests",
+      "module": "clan",
+      "handler": "rpcRequests",
+      "source": "integrations/clan/clans.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {},
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "clanId": {
+            "type": "string"
+          },
+          "items": {
+            "items": {
+              "properties": {
+                "avatarUrl": {
+                  "type": "string"
+                },
+                "displayName": {
+                  "type": "string"
+                },
+                "requestedAt": {
+                  "type": "string"
+                },
+                "trophies": {
+                  "type": "integer"
+                },
+                "userId": {
+                  "type": "string"
+                },
+                "username": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "CLAN_NOT_MEMBER",
+        "CLAN_ROLE_NOT_ALLOWED"
+      ]
+    },
+    {
+      "id": "clan_search",
+      "module": "clan",
+      "handler": "rpcSearch",
+      "source": "integrations/clan/views.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "joinType": {
+            "type": "string"
+          },
+          "joinable": {
+            "type": "boolean"
+          },
+          "limit": {
+            "type": "integer"
+          },
+          "minMembers": {
+            "type": "integer"
+          },
+          "offset": {
+            "type": "integer"
+          },
+          "q": {
+            "type": "string"
+          },
+          "sort": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "items": {
+            "items": {
+              "properties": {
+                "avatarUrl": {
+                  "type": "string"
+                },
+                "badge": {
+                  "type": "object"
+                },
+                "channel": {
+                  "type": "string"
+                },
+                "clanId": {
+                  "type": "string"
+                },
+                "color": {
+                  "type": "string"
+                },
+                "country": {
+                  "type": "string"
+                },
+                "coverKey": {
+                  "type": "string"
+                },
+                "coverUrl": {
+                  "type": "string"
+                },
+                "createdAt": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "emblemKey": {
+                  "type": "string"
+                },
+                "emblemUrl": {
+                  "type": "string"
+                },
+                "joinType": {
+                  "type": "string"
+                },
+                "lang": {
+                  "type": "string"
+                },
+                "level": {
+                  "type": "integer"
+                },
+                "levelXp": {
+                  "type": "integer"
+                },
+                "maxMembers": {
+                  "type": "integer"
+                },
+                "members": {
+                  "type": "integer"
+                },
+                "minTrophies": {
+                  "type": "integer"
+                },
+                "motto": {
+                  "type": "string"
+                },
+                "myRole": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "nextChangeAt": {},
+                "nextLevelXp": {},
+                "pendingUploads": {},
+                "tag": {
+                  "type": "string"
+                },
+                "tags": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "trophies": {
+                  "type": "integer"
+                },
+                "warDraws": {
+                  "type": "integer"
+                },
+                "warLosses": {
+                  "type": "integer"
+                },
+                "warPoints": {
+                  "type": "integer"
+                },
+                "warWins": {
+                  "type": "integer"
+                },
+                "xp": {
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "more": {
+            "type": "boolean"
+          },
+          "nextOffset": {
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "CLAN_JOIN_TYPE_INVALID",
+        "CLAN_SORT_INVALID",
+        "INVALID_OFFSET"
+      ]
+    },
+    {
+      "id": "clan_transfer",
+      "module": "clan",
+      "handler": "rpcTransfer",
+      "source": "integrations/clan/clans.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "clanId": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "clanId": {
+            "type": "string"
+          },
+          "leaderId": {
+            "type": "string"
+          },
+          "role": {}
+        },
+        "type": "object"
+      },
+      "errors": [
+        "CLAN_ALREADY_LEADER",
+        "CLAN_MEMBER_NOT_FOUND",
+        "CLAN_NOT_MEMBER",
+        "CLAN_ROLE_NOT_ALLOWED",
+        "INVALID_USER_ID"
+      ]
+    },
+    {
+      "id": "clan_update",
+      "module": "clan",
+      "handler": "rpcUpdate",
+      "source": "integrations/clan/clans.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "avatarUrl": {
+            "nullable": true,
+            "type": "string"
+          },
+          "badge": {
+            "type": "object"
+          },
+          "color": {
+            "nullable": true,
+            "type": "string"
+          },
+          "country": {
+            "nullable": true,
+            "type": "string"
+          },
+          "coverKey": {
+            "nullable": true,
+            "type": "string"
+          },
+          "description": {
+            "nullable": true,
+            "type": "string"
+          },
+          "emblemKey": {
+            "nullable": true,
+            "type": "string"
+          },
+          "joinType": {
+            "nullable": true,
+            "type": "string"
+          },
+          "lang": {
+            "nullable": true,
+            "type": "string"
+          },
+          "minTrophies": {
+            "nullable": true,
+            "type": "integer"
+          },
+          "motto": {
+            "nullable": true,
+            "type": "string"
+          },
+          "name": {
+            "nullable": true,
+            "type": "string"
+          },
+          "tags": {
+            "items": {
+              "type": "string"
+            },
+            "nullable": true,
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "clan": {
+            "properties": {
+              "avatarUrl": {
+                "type": "string"
+              },
+              "badge": {
+                "type": "object"
+              },
+              "channel": {
+                "type": "string"
+              },
+              "clanId": {
+                "type": "string"
+              },
+              "color": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              },
+              "coverKey": {
+                "type": "string"
+              },
+              "coverUrl": {
+                "type": "string"
+              },
+              "createdAt": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "emblemKey": {
+                "type": "string"
+              },
+              "emblemUrl": {
+                "type": "string"
+              },
+              "joinType": {
+                "type": "string"
+              },
+              "lang": {
+                "type": "string"
+              },
+              "level": {
+                "type": "integer"
+              },
+              "levelXp": {
+                "type": "integer"
+              },
+              "maxMembers": {
+                "type": "integer"
+              },
+              "members": {
+                "type": "integer"
+              },
+              "minTrophies": {
+                "type": "integer"
+              },
+              "motto": {
+                "type": "string"
+              },
+              "myRole": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "nextChangeAt": {},
+              "nextLevelXp": {},
+              "pendingUploads": {},
+              "tag": {
+                "type": "string"
+              },
+              "tags": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "trophies": {
+                "type": "integer"
+              },
+              "warDraws": {
+                "type": "integer"
+              },
+              "warLosses": {
+                "type": "integer"
+              },
+              "warPoints": {
+                "type": "integer"
+              },
+              "warWins": {
+                "type": "integer"
+              },
+              "xp": {
+                "type": "integer"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "CLAN_ART_LOCKED",
+        "CLAN_AVATAR_USE_GALLERY",
+        "CLAN_CHANGE_COOLDOWN",
+        "CLAN_COLOR_INVALID",
+        "CLAN_COUNTRY_INVALID",
+        "CLAN_DISABLED",
+        "CLAN_EMBLEM_REQUIRED",
+        "CLAN_ID_REQUIRED",
+        "CLAN_LANG_INVALID",
+        "CLAN_MOTTO_TOO_LONG",
+        "CLAN_NAME_BLOCKED",
+        "CLAN_NAME_TAKEN",
+        "CLAN_NOT_ENOUGH_CURRENCY",
+        "CLAN_NOT_MEMBER",
+        "CLAN_ROLE_NOT_ALLOWED",
+        "CLAN_TAG_INVALID",
+        "CLAN_TEXT_BLOCKED",
+        "CLAN_TOO_MANY_TAGS"
+      ]
+    },
+    {
+      "id": "clan_war_current",
+      "module": "clan",
+      "handler": "rpcWarCurrent",
+      "source": "integrations/clan/war.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "lang": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "clanId": {
+            "type": "string"
+          },
+          "upcoming": {
+            "items": {
+              "properties": {
+                "canSignUp": {
+                  "type": "boolean"
+                },
+                "configKey": {
+                  "type": "string"
+                },
+                "endsAt": {
+                  "type": "string"
+                },
+                "mode": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "roundId": {
+                  "type": "string"
+                },
+                "signedUp": {
+                  "type": "boolean"
+                },
+                "signup": {
+                  "type": "string"
+                },
+                "signupAt": {
+                  "type": "string"
+                },
+                "signupOpen": {
+                  "type": "boolean"
+                },
+                "startsAt": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "wars": {
+            "items": {
+              "properties": {
+                "attacksPerMember": {},
+                "duel": {
+                  "properties": {
+                    "drawPoints": {},
+                    "winPoints": {}
+                  },
+                  "type": "object"
+                },
+                "endsAt": {
+                  "type": "string"
+                },
+                "inWar": {
+                  "type": "boolean"
+                },
+                "mode": {
+                  "type": "string"
+                },
+                "myAttacks": {
+                  "type": "integer"
+                },
+                "myAttacksLeft": {},
+                "name": {},
+                "outcome": {
+                  "type": "string"
+                },
+                "points": {
+                  "items": {
+                    "properties": {
+                      "event": {},
+                      "perValue": {},
+                      "points": {}
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "prizes": {
+                  "properties": {
+                    "draw": {},
+                    "lose": {},
+                    "to": {},
+                    "win": {}
+                  },
+                  "type": "object"
+                },
+                "roundId": {
+                  "type": "string"
+                },
+                "settledAt": {},
+                "startsAt": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "them": {},
+                "us": {},
+                "warId": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "CLAN_NOT_MEMBER"
+      ]
+    },
+    {
+      "id": "clan_war_history",
+      "module": "clan",
+      "handler": "rpcWarHistory",
+      "source": "integrations/clan/war.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "lang": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "clanId": {
+            "type": "string"
+          },
+          "items": {
+            "items": {
+              "properties": {
+                "mode": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "outcome": {
+                  "type": "string"
+                },
+                "rivalClanId": {
+                  "type": "string"
+                },
+                "rivalName": {
+                  "type": "string"
+                },
+                "rivalScore": {
+                  "type": "integer"
+                },
+                "rivalWins": {
+                  "type": "integer"
+                },
+                "score": {
+                  "type": "integer"
+                },
+                "settledAt": {
+                  "type": "string"
+                },
+                "warId": {
+                  "type": "string"
+                },
+                "wins": {
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "CLAN_NOT_MEMBER"
+      ]
+    },
+    {
+      "id": "clan_war_opponents",
+      "module": "clan",
+      "handler": "rpcWarOpponents",
+      "source": "integrations/clan/war.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "warId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "endsAt": {
+            "type": "string"
+          },
+          "items": {
+            "items": {
+              "properties": {
+                "attacks": {
+                  "type": "integer"
+                },
+                "attacksLeft": {},
+                "avatarUrl": {
+                  "type": "string"
+                },
+                "displayName": {
+                  "type": "string"
+                },
+                "playedByMe": {
+                  "type": "boolean"
+                },
+                "points": {
+                  "type": "integer"
+                },
+                "trophies": {
+                  "type": "integer"
+                },
+                "userId": {
+                  "type": "string"
+                },
+                "username": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "mode": {
+            "type": "string"
+          },
+          "rivalClanId": {
+            "type": "string"
+          },
+          "warId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "CLAN_WAR_NOT_ACTIVE"
+      ]
+    },
+    {
+      "id": "clan_war_signup",
+      "module": "clan",
+      "handler": "rpcWarSignup",
+      "source": "integrations/clan/war.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "roundId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "clanId": {
+            "type": "string"
+          },
+          "roundId": {
+            "type": "string"
+          },
+          "signedUp": {
+            "type": "boolean"
+          },
+          "startsAt": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "CLAN_NOT_MEMBER",
+        "CLAN_ROLE_NOT_ALLOWED",
+        "CLAN_WAR_LEVEL_TOO_LOW",
+        "CLAN_WAR_NOT_ENOUGH_MEMBERS",
+        "CLAN_WAR_ROUND_NOT_FOUND",
+        "CLAN_WAR_ROUND_REQUIRED",
+        "CLAN_WAR_SIGNUP_CLOSED"
+      ]
+    },
+    {
+      "id": "clan_xp_history",
+      "module": "clan",
+      "handler": "rpcXPHistory",
+      "source": "integrations/clan/views.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "limit": {
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "clanId": {
+            "type": "string"
+          },
+          "items": {
+            "items": {
+              "properties": {
+                "amount": {
+                  "type": "integer"
+                },
+                "createdAt": {
+                  "type": "string"
+                },
+                "source": {
+                  "type": "string"
+                },
+                "userId": {
+                  "type": "string"
+                },
+                "username": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "CLAN_NOT_MEMBER"
+      ]
+    },
+    {
       "id": "combatrace_config",
       "module": "combatrace",
       "handler": "rpcConfig",
@@ -5246,9 +7428,7 @@
             "properties": {},
             "type": "object"
           },
-          "lang": {
-            "type": "string"
-          },
+          "lang": {},
           "paid": {
             "items": {
               "properties": {
@@ -5319,12 +7499,8 @@
             "items": {},
             "type": "array"
           },
-          "enabled": {
-            "type": "boolean"
-          },
-          "lang": {
-            "type": "string"
-          },
+          "enabled": {},
+          "lang": {},
           "types": {
             "items": {},
             "type": "array"
@@ -6304,7 +8480,39 @@
                 "items": {
                   "properties": {
                     "chance": {},
-                    "group": {},
+                    "group": {
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "key": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "prizes": {
+                          "items": {
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "key": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string"
+                              },
+                              "share": {},
+                              "weight": {}
+                            },
+                            "type": "object"
+                          },
+                          "type": "array"
+                        }
+                      },
+                      "type": "object"
+                    },
                     "prize": {
                       "properties": {
                         "id": {
@@ -6451,7 +8659,39 @@
                   "items": {
                     "properties": {
                       "chance": {},
-                      "group": {},
+                      "group": {
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "prizes": {
+                            "items": {
+                              "properties": {
+                                "id": {
+                                  "type": "string"
+                                },
+                                "key": {
+                                  "type": "string"
+                                },
+                                "name": {
+                                  "type": "string"
+                                },
+                                "share": {},
+                                "weight": {}
+                              },
+                              "type": "object"
+                            },
+                            "type": "array"
+                          }
+                        },
+                        "type": "object"
+                      },
                       "prize": {
                         "properties": {
                           "id": {
@@ -12190,6 +14430,12 @@
             "nullable": true,
             "type": "integer"
           },
+          "clan": {
+            "type": "boolean"
+          },
+          "clanId": {
+            "type": "string"
+          },
           "cursor": {
             "type": "string"
           },
@@ -12212,6 +14458,26 @@
               "type": "object"
             },
             "type": "array"
+          },
+          "clan": {
+            "properties": {
+              "clanId": {
+                "type": "string"
+              },
+              "me": {
+                "type": "object"
+              },
+              "members": {
+                "type": "integer"
+              },
+              "top": {
+                "items": {
+                  "type": "object"
+                },
+                "type": "array"
+              }
+            },
+            "type": "object"
           },
           "clientSubmit": {
             "type": "boolean"
@@ -12289,6 +14555,9 @@
             },
             "type": "array"
           },
+          "scope": {
+            "type": "string"
+          },
           "sort": {
             "type": "integer"
           },
@@ -12322,6 +14591,7 @@
         "type": "object"
       },
       "errors": [
+        "CLAN_NOT_MEMBER",
         "LEADERBOARD_INVALID_CURSOR",
         "LEADERBOARD_KEY_REQUIRED",
         "LEADERBOARD_NOT_FOUND"
@@ -12559,6 +14829,9 @@
                   "type": "integer"
                 },
                 "rewards": {},
+                "scope": {
+                  "type": "string"
+                },
                 "sort": {
                   "type": "integer"
                 },
@@ -19703,6 +21976,249 @@
         "type": "object"
       },
       "errors": []
+    },
+    {
+      "id": "trophy_history",
+      "module": "trophy",
+      "handler": "rpcHistory",
+      "source": "integrations/trophy/player.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "limit": {
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "items": {
+            "items": {
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "errors": []
+    },
+    {
+      "id": "trophy_leagues",
+      "module": "trophy",
+      "handler": "rpcLeagues",
+      "source": "integrations/trophy/player.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "lang": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "best": {},
+          "leagues": {
+            "items": {
+              "properties": {
+                "color": {},
+                "current": {
+                  "type": "boolean"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "floor": {},
+                "iconUrl": {},
+                "key": {},
+                "maxTrophies": {},
+                "metadata": {},
+                "minTrophies": {},
+                "name": {
+                  "type": "string"
+                },
+                "prize": {},
+                "reached": {
+                  "type": "boolean"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "season": {
+            "properties": {
+              "endsAt": {},
+              "number": {},
+              "startedAt": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "trophies": {}
+        },
+        "type": "object"
+      },
+      "errors": []
+    },
+    {
+      "id": "trophy_me",
+      "module": "trophy",
+      "handler": "rpcMe",
+      "source": "integrations/trophy/player.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "lang": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "amounts": {
+            "properties": {
+              "draw": {},
+              "loss": {},
+              "scaled": {},
+              "win": {}
+            },
+            "type": "object"
+          },
+          "best": {
+            "type": "integer"
+          },
+          "draws": {
+            "type": "integer"
+          },
+          "enabled": {},
+          "league": {
+            "properties": {
+              "color": {
+                "type": "string"
+              },
+              "iconUrl": {
+                "type": "string"
+              },
+              "key": {
+                "type": "string"
+              },
+              "minTrophies": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "losses": {
+            "type": "integer"
+          },
+          "nextLeague": {
+            "type": "object"
+          },
+          "pendingPrizes": {
+            "type": "integer"
+          },
+          "season": {
+            "properties": {
+              "endsAt": {},
+              "number": {},
+              "startedAt": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "seasonBest": {
+            "type": "integer"
+          },
+          "trophies": {
+            "type": "integer"
+          },
+          "wins": {
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "errors": []
+    },
+    {
+      "id": "trophy_players",
+      "module": "trophy",
+      "handler": "rpcPlayers",
+      "source": "integrations/trophy/player.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "lang": {
+            "type": "string"
+          },
+          "userIds": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "players": {
+            "items": {
+              "properties": {
+                "best": {
+                  "type": "integer"
+                },
+                "league": {
+                  "properties": {
+                    "color": {
+                      "type": "string"
+                    },
+                    "iconUrl": {
+                      "type": "string"
+                    },
+                    "key": {
+                      "type": "string"
+                    },
+                    "minTrophies": {
+                      "type": "integer"
+                    },
+                    "name": {}
+                  },
+                  "type": "object"
+                },
+                "trophies": {
+                  "type": "integer"
+                },
+                "userId": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "INVALID_USER_ID",
+        "TROPHY_TOO_MANY_USERS",
+        "TROPHY_USERS_REQUIRED"
+      ]
     },
     {
       "id": "voice_token",

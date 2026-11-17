@@ -16,6 +16,7 @@ namespace NakamaFarsi.Sdk.Generated
             Assets = new AssetsRpcs(caller);
             Base = new BaseRpcs(caller);
             Campaign = new CampaignRpcs(caller);
+            Clan = new ClanRpcs(caller);
             Combatrace = new CombatraceRpcs(caller);
             Content = new ContentRpcs(caller);
             Devkit = new DevkitRpcs(caller);
@@ -29,6 +30,7 @@ namespace NakamaFarsi.Sdk.Generated
             Quiz = new QuizRpcs(caller);
             Shopx = new ShopxRpcs(caller);
             Social = new SocialRpcs(caller);
+            Trophy = new TrophyRpcs(caller);
         }
 
         public AccountRpcs Account { get; }
@@ -40,6 +42,8 @@ namespace NakamaFarsi.Sdk.Generated
         public BaseRpcs Base { get; }
 
         public CampaignRpcs Campaign { get; }
+
+        public ClanRpcs Clan { get; }
 
         public CombatraceRpcs Combatrace { get; }
 
@@ -66,6 +70,8 @@ namespace NakamaFarsi.Sdk.Generated
         public ShopxRpcs Shopx { get; }
 
         public SocialRpcs Social { get; }
+
+        public TrophyRpcs Trophy { get; }
     }
 
     public static class RpcIds
@@ -144,6 +150,32 @@ namespace NakamaFarsi.Sdk.Generated
         public const string CampaignAttemptStart = "campaign_attempt_start";
         public const string CampaignChapters = "campaign_chapters";
         public const string CampaignFreerideClaim = "campaign_freeride_claim";
+        public const string ClanCreate = "clan_create";
+        public const string ClanDemote = "clan_demote";
+        public const string ClanGet = "clan_get";
+        public const string ClanImageUpload = "clan_image_upload";
+        public const string ClanInvite = "clan_invite";
+        public const string ClanInviteAccept = "clan_invite_accept";
+        public const string ClanInviteDecline = "clan_invite_decline";
+        public const string ClanInvites = "clan_invites";
+        public const string ClanJoin = "clan_join";
+        public const string ClanKick = "clan_kick";
+        public const string ClanLeave = "clan_leave";
+        public const string ClanLevels = "clan_levels";
+        public const string ClanMine = "clan_mine";
+        public const string ClanOptions = "clan_options";
+        public const string ClanPromote = "clan_promote";
+        public const string ClanRequestAccept = "clan_request_accept";
+        public const string ClanRequestReject = "clan_request_reject";
+        public const string ClanRequests = "clan_requests";
+        public const string ClanSearch = "clan_search";
+        public const string ClanTransfer = "clan_transfer";
+        public const string ClanUpdate = "clan_update";
+        public const string ClanWarCurrent = "clan_war_current";
+        public const string ClanWarHistory = "clan_war_history";
+        public const string ClanWarOpponents = "clan_war_opponents";
+        public const string ClanWarSignup = "clan_war_signup";
+        public const string ClanXpHistory = "clan_xp_history";
         public const string CombatraceConfig = "combatrace_config";
         public const string CombatraceHistory = "combatrace_history";
         public const string CombatraceMatchBegin = "combatrace_match_begin";
@@ -307,6 +339,10 @@ namespace NakamaFarsi.Sdk.Generated
         public const string SocialReact = "social_react";
         public const string SocialSummary = "social_summary";
         public const string SocialUnfollow = "social_unfollow";
+        public const string TrophyHistory = "trophy_history";
+        public const string TrophyLeagues = "trophy_leagues";
+        public const string TrophyMe = "trophy_me";
+        public const string TrophyPlayers = "trophy_players";
         public const string VoiceToken = "voice_token";
     }
 
@@ -587,29 +623,6 @@ namespace NakamaFarsi.Sdk.Generated
             }
 
             return RpcInvoke.CallAsync<BaseAppVersionResponse>(_c, RpcIds.BaseAppVersion, request, ReadCall, ct);
-        }
-
-        public Task<BaseAvatarResponse> AvatarAsync(BaseAvatarRequest request = null, CancellationToken ct = default)
-        {
-            request = request ?? new BaseAvatarRequest();
-            if (request.Lang == null)
-            {
-                request.Lang = _c.Language;
-            }
-
-            return RpcInvoke.CallAsync<BaseAvatarResponse>(_c, RpcIds.BaseAvatar, request, ReadCall, ct);
-        }
-
-        public Task<BaseAvatarGetResponse> AvatarGetAsync(BaseAvatarGetRequest request = null, CancellationToken ct = default)
-        {
-            request = request ?? new BaseAvatarGetRequest();
-            return RpcInvoke.CallAsync<BaseAvatarGetResponse>(_c, RpcIds.BaseAvatarGet, request, ReadCall, ct);
-        }
-
-        public Task<BaseAvatarSaveResponse> AvatarSaveAsync(BaseAvatarSaveRequest request = null, CancellationToken ct = default)
-        {
-            request = request ?? new BaseAvatarSaveRequest();
-            return RpcInvoke.CallAsync<BaseAvatarSaveResponse>(_c, RpcIds.BaseAvatarSave, request, WriteCall, ct);
         }
 
         public Task<BaseBrandResponse> BrandAsync(BaseBrandRequest request = null, CancellationToken ct = default)
@@ -1025,6 +1038,204 @@ namespace NakamaFarsi.Sdk.Generated
         }
     }
 
+    public sealed partial class ClanRpcs
+    {
+        private static readonly RpcCallOptions ReadCall = new RpcCallOptions { ReadOnly = true };
+        private static readonly RpcCallOptions WriteCall = new RpcCallOptions();
+        private readonly IRpcCaller _c;
+
+        public ClanRpcs(IRpcCaller caller)
+        {
+            _c = caller;
+        }
+
+        public Task<ClanCreateResponse> CreateAsync(ClanCreateRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new ClanCreateRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<ClanCreateResponse>(_c, RpcIds.ClanCreate, request, WriteCall, ct);
+        }
+
+        public Task<ClanDemoteResponse> DemoteAsync(ClanDemoteRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new ClanDemoteRequest();
+            return RpcInvoke.CallAsync<ClanDemoteResponse>(_c, RpcIds.ClanDemote, request, WriteCall, ct);
+        }
+
+        public Task<ClanGetResponse> GetAsync(ClanGetRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new ClanGetRequest();
+            return RpcInvoke.CallAsync<ClanGetResponse>(_c, RpcIds.ClanGet, request, ReadCall, ct);
+        }
+
+        public Task<ClanImageUploadResponse> ImageUploadAsync(ClanImageUploadRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new ClanImageUploadRequest();
+            return RpcInvoke.CallAsync<ClanImageUploadResponse>(_c, RpcIds.ClanImageUpload, request, WriteCall, ct);
+        }
+
+        public Task<ClanInviteResponse> InviteAsync(ClanInviteRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new ClanInviteRequest();
+            return RpcInvoke.CallAsync<ClanInviteResponse>(_c, RpcIds.ClanInvite, request, WriteCall, ct);
+        }
+
+        public Task<ClanInviteAcceptResponse> InviteAcceptAsync(ClanInviteAcceptRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new ClanInviteAcceptRequest();
+            return RpcInvoke.CallAsync<ClanInviteAcceptResponse>(_c, RpcIds.ClanInviteAccept, request, WriteCall, ct);
+        }
+
+        public Task<ClanInviteDeclineResponse> InviteDeclineAsync(ClanInviteDeclineRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new ClanInviteDeclineRequest();
+            return RpcInvoke.CallAsync<ClanInviteDeclineResponse>(_c, RpcIds.ClanInviteDecline, request, WriteCall, ct);
+        }
+
+        public Task<ClanInvitesResponse> InvitesAsync(ClanInvitesRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new ClanInvitesRequest();
+            return RpcInvoke.CallAsync<ClanInvitesResponse>(_c, RpcIds.ClanInvites, request, WriteCall, ct);
+        }
+
+        public Task<ClanJoinResponse> JoinAsync(ClanJoinRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new ClanJoinRequest();
+            return RpcInvoke.CallAsync<ClanJoinResponse>(_c, RpcIds.ClanJoin, request, WriteCall, ct);
+        }
+
+        public Task<ClanKickResponse> KickAsync(ClanKickRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new ClanKickRequest();
+            return RpcInvoke.CallAsync<ClanKickResponse>(_c, RpcIds.ClanKick, request, WriteCall, ct);
+        }
+
+        public Task<ClanLeaveResponse> LeaveAsync(ClanLeaveRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new ClanLeaveRequest();
+            return RpcInvoke.CallAsync<ClanLeaveResponse>(_c, RpcIds.ClanLeave, request, WriteCall, ct);
+        }
+
+        public Task<ClanLevelsResponse> LevelsAsync(ClanLevelsRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new ClanLevelsRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<ClanLevelsResponse>(_c, RpcIds.ClanLevels, request, ReadCall, ct);
+        }
+
+        public Task<ClanMineResponse> MineAsync(ClanMineRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new ClanMineRequest();
+            return RpcInvoke.CallAsync<ClanMineResponse>(_c, RpcIds.ClanMine, request, ReadCall, ct);
+        }
+
+        public Task<ClanOptionsResponse> OptionsAsync(ClanOptionsRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new ClanOptionsRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<ClanOptionsResponse>(_c, RpcIds.ClanOptions, request, ReadCall, ct);
+        }
+
+        public Task<ClanPromoteResponse> PromoteAsync(ClanPromoteRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new ClanPromoteRequest();
+            return RpcInvoke.CallAsync<ClanPromoteResponse>(_c, RpcIds.ClanPromote, request, WriteCall, ct);
+        }
+
+        public Task<ClanRequestAcceptResponse> RequestAcceptAsync(ClanRequestAcceptRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new ClanRequestAcceptRequest();
+            return RpcInvoke.CallAsync<ClanRequestAcceptResponse>(_c, RpcIds.ClanRequestAccept, request, WriteCall, ct);
+        }
+
+        public Task<ClanRequestRejectResponse> RequestRejectAsync(ClanRequestRejectRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new ClanRequestRejectRequest();
+            return RpcInvoke.CallAsync<ClanRequestRejectResponse>(_c, RpcIds.ClanRequestReject, request, WriteCall, ct);
+        }
+
+        public Task<ClanRequestsResponse> RequestsAsync(ClanRequestsRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new ClanRequestsRequest();
+            return RpcInvoke.CallAsync<ClanRequestsResponse>(_c, RpcIds.ClanRequests, request, WriteCall, ct);
+        }
+
+        public Task<ClanSearchResponse> SearchAsync(ClanSearchRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new ClanSearchRequest();
+            return RpcInvoke.CallAsync<ClanSearchResponse>(_c, RpcIds.ClanSearch, request, WriteCall, ct);
+        }
+
+        public Task<ClanTransferResponse> TransferAsync(ClanTransferRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new ClanTransferRequest();
+            return RpcInvoke.CallAsync<ClanTransferResponse>(_c, RpcIds.ClanTransfer, request, WriteCall, ct);
+        }
+
+        public Task<ClanUpdateResponse> UpdateAsync(ClanUpdateRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new ClanUpdateRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<ClanUpdateResponse>(_c, RpcIds.ClanUpdate, request, WriteCall, ct);
+        }
+
+        public Task<ClanWarCurrentResponse> WarCurrentAsync(ClanWarCurrentRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new ClanWarCurrentRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<ClanWarCurrentResponse>(_c, RpcIds.ClanWarCurrent, request, ReadCall, ct);
+        }
+
+        public Task<ClanWarHistoryResponse> WarHistoryAsync(ClanWarHistoryRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new ClanWarHistoryRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<ClanWarHistoryResponse>(_c, RpcIds.ClanWarHistory, request, ReadCall, ct);
+        }
+
+        public Task<ClanWarOpponentsResponse> WarOpponentsAsync(ClanWarOpponentsRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new ClanWarOpponentsRequest();
+            return RpcInvoke.CallAsync<ClanWarOpponentsResponse>(_c, RpcIds.ClanWarOpponents, request, WriteCall, ct);
+        }
+
+        public Task<ClanWarSignupResponse> WarSignupAsync(ClanWarSignupRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new ClanWarSignupRequest();
+            return RpcInvoke.CallAsync<ClanWarSignupResponse>(_c, RpcIds.ClanWarSignup, request, WriteCall, ct);
+        }
+
+        public Task<ClanXpHistoryResponse> XpHistoryAsync(ClanXpHistoryRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new ClanXpHistoryRequest();
+            return RpcInvoke.CallAsync<ClanXpHistoryResponse>(_c, RpcIds.ClanXpHistory, request, ReadCall, ct);
+        }
+    }
+
     public sealed partial class CombatraceRpcs
     {
         private static readonly RpcCallOptions ReadCall = new RpcCallOptions { ReadOnly = true };
@@ -1117,6 +1328,29 @@ namespace NakamaFarsi.Sdk.Generated
         public EconomyRpcs(IRpcCaller caller)
         {
             _c = caller;
+        }
+
+        public Task<BaseAvatarResponse> BaseAvatarAsync(BaseAvatarRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new BaseAvatarRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<BaseAvatarResponse>(_c, RpcIds.BaseAvatar, request, ReadCall, ct);
+        }
+
+        public Task<BaseAvatarGetResponse> BaseAvatarGetAsync(BaseAvatarGetRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new BaseAvatarGetRequest();
+            return RpcInvoke.CallAsync<BaseAvatarGetResponse>(_c, RpcIds.BaseAvatarGet, request, ReadCall, ct);
+        }
+
+        public Task<BaseAvatarSaveResponse> BaseAvatarSaveAsync(BaseAvatarSaveRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new BaseAvatarSaveRequest();
+            return RpcInvoke.CallAsync<BaseAvatarSaveResponse>(_c, RpcIds.BaseAvatarSave, request, WriteCall, ct);
         }
 
         public Task<EconomyAchievementClaimResponse> AchievementClaimAsync(EconomyAchievementClaimRequest request = null, CancellationToken ct = default)
@@ -2746,6 +2980,57 @@ namespace NakamaFarsi.Sdk.Generated
             }
 
             return RpcInvoke.CallAsync<SocialUnfollowResponse>(_c, RpcIds.SocialUnfollow, request, WriteCall, ct);
+        }
+    }
+
+    public sealed partial class TrophyRpcs
+    {
+        private static readonly RpcCallOptions ReadCall = new RpcCallOptions { ReadOnly = true };
+        private static readonly RpcCallOptions WriteCall = new RpcCallOptions();
+        private readonly IRpcCaller _c;
+
+        public TrophyRpcs(IRpcCaller caller)
+        {
+            _c = caller;
+        }
+
+        public Task<TrophyHistoryResponse> HistoryAsync(TrophyHistoryRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new TrophyHistoryRequest();
+            return RpcInvoke.CallAsync<TrophyHistoryResponse>(_c, RpcIds.TrophyHistory, request, ReadCall, ct);
+        }
+
+        public Task<TrophyLeaguesResponse> LeaguesAsync(TrophyLeaguesRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new TrophyLeaguesRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<TrophyLeaguesResponse>(_c, RpcIds.TrophyLeagues, request, WriteCall, ct);
+        }
+
+        public Task<TrophyMeResponse> MeAsync(TrophyMeRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new TrophyMeRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<TrophyMeResponse>(_c, RpcIds.TrophyMe, request, ReadCall, ct);
+        }
+
+        public Task<TrophyPlayersResponse> PlayersAsync(TrophyPlayersRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new TrophyPlayersRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<TrophyPlayersResponse>(_c, RpcIds.TrophyPlayers, request, WriteCall, ct);
         }
     }
 
@@ -4470,7 +4755,7 @@ namespace NakamaFarsi.Sdk.Generated
         public JToken Enabled { get; set; }
 
         [JsonProperty("lang")]
-        public string Lang { get; set; }
+        public JToken Lang { get; set; }
 
         [JsonProperty("look")]
         public LookData Look { get; set; }
@@ -6735,6 +7020,2032 @@ namespace NakamaFarsi.Sdk.Generated
         public IDictionary<string, JToken> Extra { get; set; }
     }
 
+    public sealed class ClanCreateRequest
+    {
+        [JsonProperty("avatarUrl")]
+        public string AvatarUrl { get; set; }
+
+        [JsonProperty("badge")]
+        public JObject Badge { get; set; }
+
+        [JsonProperty("color")]
+        public string Color { get; set; }
+
+        [JsonProperty("country")]
+        public string Country { get; set; }
+
+        [JsonProperty("coverKey")]
+        public string CoverKey { get; set; }
+
+        [JsonProperty("description")]
+        public string Description { get; set; }
+
+        [JsonProperty("emblemKey")]
+        public string EmblemKey { get; set; }
+
+        [JsonProperty("joinType")]
+        public string JoinType { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("minTrophies")]
+        public long? MinTrophies { get; set; }
+
+        [JsonProperty("motto")]
+        public string Motto { get; set; }
+
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
+        [JsonProperty("requestId")]
+        public string RequestId { get; set; }
+
+        [JsonProperty("tags")]
+        public List<JToken> Tags { get; set; }
+    }
+
+    public sealed class ClanCreateResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("clan")]
+        public ClanData Clan { get; set; }
+
+        [JsonProperty("role")]
+        public JToken Role { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class ClanData
+        {
+            [JsonProperty("avatarUrl")]
+            public string AvatarUrl { get; set; }
+
+            [JsonProperty("badge")]
+            public JObject Badge { get; set; }
+
+            [JsonProperty("channel")]
+            public string Channel { get; set; }
+
+            [JsonProperty("clanId")]
+            public string ClanId { get; set; }
+
+            [JsonProperty("color")]
+            public string Color { get; set; }
+
+            [JsonProperty("country")]
+            public string Country { get; set; }
+
+            [JsonProperty("coverKey")]
+            public string CoverKey { get; set; }
+
+            [JsonProperty("coverUrl")]
+            public string CoverUrl { get; set; }
+
+            [JsonProperty("createdAt")]
+            public string CreatedAt { get; set; }
+
+            [JsonProperty("description")]
+            public string Description { get; set; }
+
+            [JsonProperty("emblemKey")]
+            public string EmblemKey { get; set; }
+
+            [JsonProperty("emblemUrl")]
+            public string EmblemUrl { get; set; }
+
+            [JsonProperty("joinType")]
+            public string JoinType { get; set; }
+
+            [JsonProperty("lang")]
+            public string Lang { get; set; }
+
+            [JsonProperty("level")]
+            public long? Level { get; set; }
+
+            [JsonProperty("levelXp")]
+            public long? LevelXp { get; set; }
+
+            [JsonProperty("maxMembers")]
+            public long? MaxMembers { get; set; }
+
+            [JsonProperty("members")]
+            public long? Members { get; set; }
+
+            [JsonProperty("minTrophies")]
+            public long? MinTrophies { get; set; }
+
+            [JsonProperty("motto")]
+            public string Motto { get; set; }
+
+            [JsonProperty("myRole")]
+            public string MyRole { get; set; }
+
+            [JsonProperty("name")]
+            public string Name { get; set; }
+
+            [JsonProperty("nextChangeAt")]
+            public JToken NextChangeAt { get; set; }
+
+            [JsonProperty("nextLevelXp")]
+            public JToken NextLevelXp { get; set; }
+
+            [JsonProperty("pendingUploads")]
+            public JToken PendingUploads { get; set; }
+
+            [JsonProperty("tag")]
+            public string Tag { get; set; }
+
+            [JsonProperty("tags")]
+            public List<string> Tags { get; set; }
+
+            [JsonProperty("trophies")]
+            public long? Trophies { get; set; }
+
+            [JsonProperty("warDraws")]
+            public long? WarDraws { get; set; }
+
+            [JsonProperty("warLosses")]
+            public long? WarLosses { get; set; }
+
+            [JsonProperty("warPoints")]
+            public long? WarPoints { get; set; }
+
+            [JsonProperty("warWins")]
+            public long? WarWins { get; set; }
+
+            [JsonProperty("xp")]
+            public long? Xp { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class ClanDemoteRequest
+    {
+        [JsonProperty("clanId")]
+        public string ClanId { get; set; }
+
+        [JsonProperty("userId")]
+        public string UserId { get; set; }
+    }
+
+    public sealed class ClanDemoteResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("clanId")]
+        public string ClanId { get; set; }
+
+        [JsonProperty("from")]
+        public string From { get; set; }
+
+        [JsonProperty("role")]
+        public string Role { get; set; }
+
+        [JsonProperty("userId")]
+        public string UserId { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class ClanGetRequest
+    {
+        [JsonProperty("clanId")]
+        public string ClanId { get; set; }
+    }
+
+    public sealed class ClanGetResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("clan")]
+        public ClanData Clan { get; set; }
+
+        [JsonProperty("invited")]
+        public bool? Invited { get; set; }
+
+        [JsonProperty("members")]
+        public List<JObject> Members { get; set; }
+
+        [JsonProperty("requested")]
+        public bool? Requested { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class ClanData
+        {
+            [JsonProperty("avatarUrl")]
+            public string AvatarUrl { get; set; }
+
+            [JsonProperty("badge")]
+            public JObject Badge { get; set; }
+
+            [JsonProperty("channel")]
+            public string Channel { get; set; }
+
+            [JsonProperty("clanId")]
+            public string ClanId { get; set; }
+
+            [JsonProperty("color")]
+            public string Color { get; set; }
+
+            [JsonProperty("country")]
+            public string Country { get; set; }
+
+            [JsonProperty("coverKey")]
+            public string CoverKey { get; set; }
+
+            [JsonProperty("coverUrl")]
+            public string CoverUrl { get; set; }
+
+            [JsonProperty("createdAt")]
+            public string CreatedAt { get; set; }
+
+            [JsonProperty("description")]
+            public string Description { get; set; }
+
+            [JsonProperty("emblemKey")]
+            public string EmblemKey { get; set; }
+
+            [JsonProperty("emblemUrl")]
+            public string EmblemUrl { get; set; }
+
+            [JsonProperty("joinType")]
+            public string JoinType { get; set; }
+
+            [JsonProperty("lang")]
+            public string Lang { get; set; }
+
+            [JsonProperty("level")]
+            public long? Level { get; set; }
+
+            [JsonProperty("levelXp")]
+            public long? LevelXp { get; set; }
+
+            [JsonProperty("maxMembers")]
+            public long? MaxMembers { get; set; }
+
+            [JsonProperty("members")]
+            public long? Members { get; set; }
+
+            [JsonProperty("minTrophies")]
+            public long? MinTrophies { get; set; }
+
+            [JsonProperty("motto")]
+            public string Motto { get; set; }
+
+            [JsonProperty("myRole")]
+            public string MyRole { get; set; }
+
+            [JsonProperty("name")]
+            public string Name { get; set; }
+
+            [JsonProperty("nextChangeAt")]
+            public JToken NextChangeAt { get; set; }
+
+            [JsonProperty("nextLevelXp")]
+            public JToken NextLevelXp { get; set; }
+
+            [JsonProperty("pendingUploads")]
+            public JToken PendingUploads { get; set; }
+
+            [JsonProperty("tag")]
+            public string Tag { get; set; }
+
+            [JsonProperty("tags")]
+            public List<string> Tags { get; set; }
+
+            [JsonProperty("trophies")]
+            public long? Trophies { get; set; }
+
+            [JsonProperty("warDraws")]
+            public long? WarDraws { get; set; }
+
+            [JsonProperty("warLosses")]
+            public long? WarLosses { get; set; }
+
+            [JsonProperty("warPoints")]
+            public long? WarPoints { get; set; }
+
+            [JsonProperty("warWins")]
+            public long? WarWins { get; set; }
+
+            [JsonProperty("xp")]
+            public long? Xp { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class ClanImageUploadRequest
+    {
+        [JsonProperty("data")]
+        public string Data { get; set; }
+
+        [JsonProperty("kind")]
+        public string Kind { get; set; }
+    }
+
+    public sealed class ClanImageUploadResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("kind")]
+        public string Kind { get; set; }
+
+        [JsonProperty("status")]
+        public string Status { get; set; }
+
+        [JsonProperty("uploadId")]
+        public string UploadId { get; set; }
+
+        [JsonProperty("url")]
+        public JToken Url { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class ClanInviteRequest
+    {
+        [JsonProperty("clanId")]
+        public string ClanId { get; set; }
+
+        [JsonProperty("userId")]
+        public string UserId { get; set; }
+    }
+
+    public sealed class ClanInviteResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("clanId")]
+        public string ClanId { get; set; }
+
+        [JsonProperty("expiresAt")]
+        public string ExpiresAt { get; set; }
+
+        [JsonProperty("invited")]
+        public bool? Invited { get; set; }
+
+        [JsonProperty("userId")]
+        public string UserId { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class ClanInviteAcceptRequest
+    {
+        [JsonProperty("clanId")]
+        public string ClanId { get; set; }
+
+        [JsonProperty("userId")]
+        public string UserId { get; set; }
+    }
+
+    public sealed class ClanInviteAcceptResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("clan")]
+        public ClanData Clan { get; set; }
+
+        [JsonProperty("clanId")]
+        public string ClanId { get; set; }
+
+        [JsonProperty("status")]
+        public string Status { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class ClanData
+        {
+            [JsonProperty("avatarUrl")]
+            public string AvatarUrl { get; set; }
+
+            [JsonProperty("badge")]
+            public JObject Badge { get; set; }
+
+            [JsonProperty("channel")]
+            public string Channel { get; set; }
+
+            [JsonProperty("clanId")]
+            public string ClanId { get; set; }
+
+            [JsonProperty("color")]
+            public string Color { get; set; }
+
+            [JsonProperty("country")]
+            public string Country { get; set; }
+
+            [JsonProperty("coverKey")]
+            public string CoverKey { get; set; }
+
+            [JsonProperty("coverUrl")]
+            public string CoverUrl { get; set; }
+
+            [JsonProperty("createdAt")]
+            public string CreatedAt { get; set; }
+
+            [JsonProperty("description")]
+            public string Description { get; set; }
+
+            [JsonProperty("emblemKey")]
+            public string EmblemKey { get; set; }
+
+            [JsonProperty("emblemUrl")]
+            public string EmblemUrl { get; set; }
+
+            [JsonProperty("joinType")]
+            public string JoinType { get; set; }
+
+            [JsonProperty("lang")]
+            public string Lang { get; set; }
+
+            [JsonProperty("level")]
+            public long? Level { get; set; }
+
+            [JsonProperty("levelXp")]
+            public long? LevelXp { get; set; }
+
+            [JsonProperty("maxMembers")]
+            public long? MaxMembers { get; set; }
+
+            [JsonProperty("members")]
+            public long? Members { get; set; }
+
+            [JsonProperty("minTrophies")]
+            public long? MinTrophies { get; set; }
+
+            [JsonProperty("motto")]
+            public string Motto { get; set; }
+
+            [JsonProperty("myRole")]
+            public string MyRole { get; set; }
+
+            [JsonProperty("name")]
+            public string Name { get; set; }
+
+            [JsonProperty("nextChangeAt")]
+            public JToken NextChangeAt { get; set; }
+
+            [JsonProperty("nextLevelXp")]
+            public JToken NextLevelXp { get; set; }
+
+            [JsonProperty("pendingUploads")]
+            public JToken PendingUploads { get; set; }
+
+            [JsonProperty("tag")]
+            public string Tag { get; set; }
+
+            [JsonProperty("tags")]
+            public List<string> Tags { get; set; }
+
+            [JsonProperty("trophies")]
+            public long? Trophies { get; set; }
+
+            [JsonProperty("warDraws")]
+            public long? WarDraws { get; set; }
+
+            [JsonProperty("warLosses")]
+            public long? WarLosses { get; set; }
+
+            [JsonProperty("warPoints")]
+            public long? WarPoints { get; set; }
+
+            [JsonProperty("warWins")]
+            public long? WarWins { get; set; }
+
+            [JsonProperty("xp")]
+            public long? Xp { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class ClanInviteDeclineRequest
+    {
+        [JsonProperty("clanId")]
+        public string ClanId { get; set; }
+
+        [JsonProperty("userId")]
+        public string UserId { get; set; }
+    }
+
+    public sealed class ClanInviteDeclineResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("clanId")]
+        public string ClanId { get; set; }
+
+        [JsonProperty("declined")]
+        public bool? Declined { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class ClanInvitesRequest
+    {
+    }
+
+    public sealed class ClanInvitesResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("items")]
+        public List<ItemsItem> Items { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class ItemsItem
+        {
+            [JsonProperty("byUserId")]
+            public JToken ByUserId { get; set; }
+
+            [JsonProperty("clan")]
+            public ClanData Clan { get; set; }
+
+            [JsonProperty("expiresAt")]
+            public JToken ExpiresAt { get; set; }
+
+            [JsonProperty("invitedAt")]
+            public string InvitedAt { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+
+            public sealed class ClanData
+            {
+                [JsonProperty("avatarUrl")]
+                public string AvatarUrl { get; set; }
+
+                [JsonProperty("badge")]
+                public JObject Badge { get; set; }
+
+                [JsonProperty("channel")]
+                public string Channel { get; set; }
+
+                [JsonProperty("clanId")]
+                public string ClanId { get; set; }
+
+                [JsonProperty("color")]
+                public string Color { get; set; }
+
+                [JsonProperty("country")]
+                public string Country { get; set; }
+
+                [JsonProperty("coverKey")]
+                public string CoverKey { get; set; }
+
+                [JsonProperty("coverUrl")]
+                public string CoverUrl { get; set; }
+
+                [JsonProperty("createdAt")]
+                public string CreatedAt { get; set; }
+
+                [JsonProperty("description")]
+                public string Description { get; set; }
+
+                [JsonProperty("emblemKey")]
+                public string EmblemKey { get; set; }
+
+                [JsonProperty("emblemUrl")]
+                public string EmblemUrl { get; set; }
+
+                [JsonProperty("joinType")]
+                public string JoinType { get; set; }
+
+                [JsonProperty("lang")]
+                public string Lang { get; set; }
+
+                [JsonProperty("level")]
+                public long? Level { get; set; }
+
+                [JsonProperty("levelXp")]
+                public long? LevelXp { get; set; }
+
+                [JsonProperty("maxMembers")]
+                public long? MaxMembers { get; set; }
+
+                [JsonProperty("members")]
+                public long? Members { get; set; }
+
+                [JsonProperty("minTrophies")]
+                public long? MinTrophies { get; set; }
+
+                [JsonProperty("motto")]
+                public string Motto { get; set; }
+
+                [JsonProperty("myRole")]
+                public string MyRole { get; set; }
+
+                [JsonProperty("name")]
+                public string Name { get; set; }
+
+                [JsonProperty("nextChangeAt")]
+                public JToken NextChangeAt { get; set; }
+
+                [JsonProperty("nextLevelXp")]
+                public JToken NextLevelXp { get; set; }
+
+                [JsonProperty("pendingUploads")]
+                public JToken PendingUploads { get; set; }
+
+                [JsonProperty("tag")]
+                public string Tag { get; set; }
+
+                [JsonProperty("tags")]
+                public List<string> Tags { get; set; }
+
+                [JsonProperty("trophies")]
+                public long? Trophies { get; set; }
+
+                [JsonProperty("warDraws")]
+                public long? WarDraws { get; set; }
+
+                [JsonProperty("warLosses")]
+                public long? WarLosses { get; set; }
+
+                [JsonProperty("warPoints")]
+                public long? WarPoints { get; set; }
+
+                [JsonProperty("warWins")]
+                public long? WarWins { get; set; }
+
+                [JsonProperty("xp")]
+                public long? Xp { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+        }
+    }
+
+    public sealed class ClanJoinRequest
+    {
+        [JsonProperty("clanId")]
+        public string ClanId { get; set; }
+    }
+
+    public sealed class ClanJoinResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("clan")]
+        public ClanData Clan { get; set; }
+
+        [JsonProperty("clanId")]
+        public string ClanId { get; set; }
+
+        [JsonProperty("replayed")]
+        public bool? Replayed { get; set; }
+
+        [JsonProperty("status")]
+        public string Status { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class ClanData
+        {
+            [JsonProperty("avatarUrl")]
+            public string AvatarUrl { get; set; }
+
+            [JsonProperty("badge")]
+            public JObject Badge { get; set; }
+
+            [JsonProperty("channel")]
+            public string Channel { get; set; }
+
+            [JsonProperty("clanId")]
+            public string ClanId { get; set; }
+
+            [JsonProperty("color")]
+            public string Color { get; set; }
+
+            [JsonProperty("country")]
+            public string Country { get; set; }
+
+            [JsonProperty("coverKey")]
+            public string CoverKey { get; set; }
+
+            [JsonProperty("coverUrl")]
+            public string CoverUrl { get; set; }
+
+            [JsonProperty("createdAt")]
+            public string CreatedAt { get; set; }
+
+            [JsonProperty("description")]
+            public string Description { get; set; }
+
+            [JsonProperty("emblemKey")]
+            public string EmblemKey { get; set; }
+
+            [JsonProperty("emblemUrl")]
+            public string EmblemUrl { get; set; }
+
+            [JsonProperty("joinType")]
+            public string JoinType { get; set; }
+
+            [JsonProperty("lang")]
+            public string Lang { get; set; }
+
+            [JsonProperty("level")]
+            public long? Level { get; set; }
+
+            [JsonProperty("levelXp")]
+            public long? LevelXp { get; set; }
+
+            [JsonProperty("maxMembers")]
+            public long? MaxMembers { get; set; }
+
+            [JsonProperty("members")]
+            public long? Members { get; set; }
+
+            [JsonProperty("minTrophies")]
+            public long? MinTrophies { get; set; }
+
+            [JsonProperty("motto")]
+            public string Motto { get; set; }
+
+            [JsonProperty("myRole")]
+            public string MyRole { get; set; }
+
+            [JsonProperty("name")]
+            public string Name { get; set; }
+
+            [JsonProperty("nextChangeAt")]
+            public JToken NextChangeAt { get; set; }
+
+            [JsonProperty("nextLevelXp")]
+            public JToken NextLevelXp { get; set; }
+
+            [JsonProperty("pendingUploads")]
+            public JToken PendingUploads { get; set; }
+
+            [JsonProperty("tag")]
+            public string Tag { get; set; }
+
+            [JsonProperty("tags")]
+            public List<string> Tags { get; set; }
+
+            [JsonProperty("trophies")]
+            public long? Trophies { get; set; }
+
+            [JsonProperty("warDraws")]
+            public long? WarDraws { get; set; }
+
+            [JsonProperty("warLosses")]
+            public long? WarLosses { get; set; }
+
+            [JsonProperty("warPoints")]
+            public long? WarPoints { get; set; }
+
+            [JsonProperty("warWins")]
+            public long? WarWins { get; set; }
+
+            [JsonProperty("xp")]
+            public long? Xp { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class ClanKickRequest
+    {
+        [JsonProperty("clanId")]
+        public string ClanId { get; set; }
+
+        [JsonProperty("userId")]
+        public string UserId { get; set; }
+    }
+
+    public sealed class ClanKickResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("clanId")]
+        public string ClanId { get; set; }
+
+        [JsonProperty("kicked")]
+        public bool? Kicked { get; set; }
+
+        [JsonProperty("userId")]
+        public string UserId { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class ClanLeaveRequest
+    {
+    }
+
+    public sealed class ClanLeaveResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("clanId")]
+        public string ClanId { get; set; }
+
+        [JsonProperty("deleted")]
+        public bool? Deleted { get; set; }
+
+        [JsonProperty("left")]
+        public bool? Left { get; set; }
+
+        [JsonProperty("newLeaderId")]
+        public string NewLeaderId { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class ClanLevelsRequest
+    {
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+    }
+
+    public sealed class ClanLevelsResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("clan")]
+        public JToken Clan { get; set; }
+
+        [JsonProperty("levels")]
+        public List<LevelsItem> Levels { get; set; }
+
+        [JsonProperty("memberDailyCap")]
+        public JToken MemberDailyCap { get; set; }
+
+        [JsonProperty("sources")]
+        public List<SourcesItem> Sources { get; set; }
+
+        [JsonProperty("war")]
+        public WarData War { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class LevelsItem
+        {
+            [JsonProperty("iconUrl")]
+            public JToken IconUrl { get; set; }
+
+            [JsonProperty("level")]
+            public JToken Level { get; set; }
+
+            [JsonProperty("memberCap")]
+            public JToken MemberCap { get; set; }
+
+            [JsonProperty("name")]
+            public string Name { get; set; }
+
+            [JsonProperty("perks")]
+            public JToken Perks { get; set; }
+
+            [JsonProperty("prizeKey")]
+            public JToken PrizeKey { get; set; }
+
+            [JsonProperty("reached")]
+            public bool? Reached { get; set; }
+
+            [JsonProperty("xp")]
+            public JToken Xp { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class SourcesItem
+        {
+            [JsonProperty("amount")]
+            public JToken Amount { get; set; }
+
+            [JsonProperty("event")]
+            public JToken Event { get; set; }
+
+            [JsonProperty("perValue")]
+            public JToken PerValue { get; set; }
+
+            [JsonProperty("type")]
+            public JToken Type { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class WarData
+        {
+            [JsonProperty("draw")]
+            public JToken Draw { get; set; }
+
+            [JsonProperty("loss")]
+            public JToken Loss { get; set; }
+
+            [JsonProperty("win")]
+            public JToken Win { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class ClanMineRequest
+    {
+    }
+
+    public sealed class ClanMineResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("clan")]
+        public JToken Clan { get; set; }
+
+        [JsonProperty("cooldownSeconds")]
+        public long? CooldownSeconds { get; set; }
+
+        [JsonProperty("enabled")]
+        public JToken Enabled { get; set; }
+
+        [JsonProperty("invites")]
+        public long? Invites { get; set; }
+
+        [JsonProperty("pendingRequests")]
+        public long? PendingRequests { get; set; }
+
+        [JsonProperty("permissions")]
+        public PermissionsData Permissions { get; set; }
+
+        [JsonProperty("requestedClanIds")]
+        public List<string> RequestedClanIds { get; set; }
+
+        [JsonProperty("role")]
+        public JToken Role { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class PermissionsData
+        {
+            [JsonProperty("accept")]
+            public bool? Accept { get; set; }
+
+            [JsonProperty("edit")]
+            public bool? Edit { get; set; }
+
+            [JsonProperty("invite")]
+            public bool? Invite { get; set; }
+
+            [JsonProperty("kick")]
+            public bool? Kick { get; set; }
+
+            [JsonProperty("promote")]
+            public bool? Promote { get; set; }
+
+            [JsonProperty("transfer")]
+            public bool? Transfer { get; set; }
+
+            [JsonProperty("war")]
+            public bool? War { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class ClanOptionsRequest
+    {
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+    }
+
+    public sealed class ClanOptionsResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("changeCooldownMinutes")]
+        public JToken ChangeCooldownMinutes { get; set; }
+
+        [JsonProperty("colors")]
+        public JToken Colors { get; set; }
+
+        [JsonProperty("countries")]
+        public List<CountriesItem> Countries { get; set; }
+
+        [JsonProperty("covers")]
+        public List<CoversItem> Covers { get; set; }
+
+        [JsonProperty("createCost")]
+        public JToken CreateCost { get; set; }
+
+        [JsonProperty("descriptionMax")]
+        public JToken DescriptionMax { get; set; }
+
+        [JsonProperty("editRoles")]
+        public JToken EditRoles { get; set; }
+
+        [JsonProperty("emblems")]
+        public List<EmblemsItem> Emblems { get; set; }
+
+        [JsonProperty("languages")]
+        public List<LanguagesItem> Languages { get; set; }
+
+        [JsonProperty("maxMinTrophies")]
+        public JToken MaxMinTrophies { get; set; }
+
+        [JsonProperty("maxTags")]
+        public JToken MaxTags { get; set; }
+
+        [JsonProperty("mottoMax")]
+        public JToken MottoMax { get; set; }
+
+        [JsonProperty("nameMax")]
+        public JToken NameMax { get; set; }
+
+        [JsonProperty("nameMin")]
+        public JToken NameMin { get; set; }
+
+        [JsonProperty("nextChangeAt")]
+        public JToken NextChangeAt { get; set; }
+
+        [JsonProperty("tags")]
+        public List<TagsItem> Tags { get; set; }
+
+        [JsonProperty("uploads")]
+        public UploadsData Uploads { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class CountriesItem
+        {
+            [JsonProperty("code")]
+            public string Code { get; set; }
+
+            [JsonProperty("name")]
+            public string Name { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class CoversItem
+        {
+            [JsonProperty("imageUrl")]
+            public JToken ImageUrl { get; set; }
+
+            [JsonProperty("isDefault")]
+            public JToken IsDefault { get; set; }
+
+            [JsonProperty("key")]
+            public JToken Key { get; set; }
+
+            [JsonProperty("locked")]
+            public bool? Locked { get; set; }
+
+            [JsonProperty("minLevel")]
+            public JToken MinLevel { get; set; }
+
+            [JsonProperty("name")]
+            public string Name { get; set; }
+
+            [JsonProperty("owned")]
+            public bool? Owned { get; set; }
+
+            [JsonProperty("price")]
+            public JToken Price { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class EmblemsItem
+        {
+            [JsonProperty("imageUrl")]
+            public JToken ImageUrl { get; set; }
+
+            [JsonProperty("isDefault")]
+            public JToken IsDefault { get; set; }
+
+            [JsonProperty("key")]
+            public JToken Key { get; set; }
+
+            [JsonProperty("locked")]
+            public bool? Locked { get; set; }
+
+            [JsonProperty("minLevel")]
+            public JToken MinLevel { get; set; }
+
+            [JsonProperty("name")]
+            public string Name { get; set; }
+
+            [JsonProperty("owned")]
+            public bool? Owned { get; set; }
+
+            [JsonProperty("price")]
+            public JToken Price { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class LanguagesItem
+        {
+            [JsonProperty("code")]
+            public string Code { get; set; }
+
+            [JsonProperty("name")]
+            public string Name { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class TagsItem
+        {
+            [JsonProperty("key")]
+            public JToken Key { get; set; }
+
+            [JsonProperty("name")]
+            public string Name { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class UploadsData
+        {
+            [JsonProperty("enabled")]
+            public JToken Enabled { get; set; }
+
+            [JsonProperty("maxBytes")]
+            public JToken MaxBytes { get; set; }
+
+            [JsonProperty("needsApproval")]
+            public JToken NeedsApproval { get; set; }
+
+            [JsonProperty("types")]
+            public JToken Types { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class ClanPromoteRequest
+    {
+        [JsonProperty("clanId")]
+        public string ClanId { get; set; }
+
+        [JsonProperty("userId")]
+        public string UserId { get; set; }
+    }
+
+    public sealed class ClanPromoteResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("clanId")]
+        public string ClanId { get; set; }
+
+        [JsonProperty("from")]
+        public string From { get; set; }
+
+        [JsonProperty("role")]
+        public string Role { get; set; }
+
+        [JsonProperty("userId")]
+        public string UserId { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class ClanRequestAcceptRequest
+    {
+        [JsonProperty("clanId")]
+        public string ClanId { get; set; }
+
+        [JsonProperty("userId")]
+        public string UserId { get; set; }
+    }
+
+    public sealed class ClanRequestAcceptResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("accepted")]
+        public bool? Accepted { get; set; }
+
+        [JsonProperty("clanId")]
+        public string ClanId { get; set; }
+
+        [JsonProperty("userId")]
+        public string UserId { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class ClanRequestRejectRequest
+    {
+        [JsonProperty("clanId")]
+        public string ClanId { get; set; }
+
+        [JsonProperty("userId")]
+        public string UserId { get; set; }
+    }
+
+    public sealed class ClanRequestRejectResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("clanId")]
+        public string ClanId { get; set; }
+
+        [JsonProperty("rejected")]
+        public bool? Rejected { get; set; }
+
+        [JsonProperty("userId")]
+        public string UserId { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class ClanRequestsRequest
+    {
+    }
+
+    public sealed class ClanRequestsResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("clanId")]
+        public string ClanId { get; set; }
+
+        [JsonProperty("items")]
+        public List<ItemsItem> Items { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class ItemsItem
+        {
+            [JsonProperty("avatarUrl")]
+            public string AvatarUrl { get; set; }
+
+            [JsonProperty("displayName")]
+            public string DisplayName { get; set; }
+
+            [JsonProperty("requestedAt")]
+            public string RequestedAt { get; set; }
+
+            [JsonProperty("trophies")]
+            public long? Trophies { get; set; }
+
+            [JsonProperty("userId")]
+            public string UserId { get; set; }
+
+            [JsonProperty("username")]
+            public string Username { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class ClanSearchRequest
+    {
+        [JsonProperty("joinType")]
+        public string JoinType { get; set; }
+
+        [JsonProperty("joinable")]
+        public bool? Joinable { get; set; }
+
+        [JsonProperty("limit")]
+        public long? Limit { get; set; }
+
+        [JsonProperty("minMembers")]
+        public long? MinMembers { get; set; }
+
+        [JsonProperty("offset")]
+        public long? Offset { get; set; }
+
+        [JsonProperty("q")]
+        public string Q { get; set; }
+
+        [JsonProperty("sort")]
+        public string Sort { get; set; }
+    }
+
+    public sealed class ClanSearchResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("items")]
+        public List<ItemsItem> Items { get; set; }
+
+        [JsonProperty("more")]
+        public bool? More { get; set; }
+
+        [JsonProperty("nextOffset")]
+        public long? NextOffset { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class ItemsItem
+        {
+            [JsonProperty("avatarUrl")]
+            public string AvatarUrl { get; set; }
+
+            [JsonProperty("badge")]
+            public JObject Badge { get; set; }
+
+            [JsonProperty("channel")]
+            public string Channel { get; set; }
+
+            [JsonProperty("clanId")]
+            public string ClanId { get; set; }
+
+            [JsonProperty("color")]
+            public string Color { get; set; }
+
+            [JsonProperty("country")]
+            public string Country { get; set; }
+
+            [JsonProperty("coverKey")]
+            public string CoverKey { get; set; }
+
+            [JsonProperty("coverUrl")]
+            public string CoverUrl { get; set; }
+
+            [JsonProperty("createdAt")]
+            public string CreatedAt { get; set; }
+
+            [JsonProperty("description")]
+            public string Description { get; set; }
+
+            [JsonProperty("emblemKey")]
+            public string EmblemKey { get; set; }
+
+            [JsonProperty("emblemUrl")]
+            public string EmblemUrl { get; set; }
+
+            [JsonProperty("joinType")]
+            public string JoinType { get; set; }
+
+            [JsonProperty("lang")]
+            public string Lang { get; set; }
+
+            [JsonProperty("level")]
+            public long? Level { get; set; }
+
+            [JsonProperty("levelXp")]
+            public long? LevelXp { get; set; }
+
+            [JsonProperty("maxMembers")]
+            public long? MaxMembers { get; set; }
+
+            [JsonProperty("members")]
+            public long? Members { get; set; }
+
+            [JsonProperty("minTrophies")]
+            public long? MinTrophies { get; set; }
+
+            [JsonProperty("motto")]
+            public string Motto { get; set; }
+
+            [JsonProperty("myRole")]
+            public string MyRole { get; set; }
+
+            [JsonProperty("name")]
+            public string Name { get; set; }
+
+            [JsonProperty("nextChangeAt")]
+            public JToken NextChangeAt { get; set; }
+
+            [JsonProperty("nextLevelXp")]
+            public JToken NextLevelXp { get; set; }
+
+            [JsonProperty("pendingUploads")]
+            public JToken PendingUploads { get; set; }
+
+            [JsonProperty("tag")]
+            public string Tag { get; set; }
+
+            [JsonProperty("tags")]
+            public List<string> Tags { get; set; }
+
+            [JsonProperty("trophies")]
+            public long? Trophies { get; set; }
+
+            [JsonProperty("warDraws")]
+            public long? WarDraws { get; set; }
+
+            [JsonProperty("warLosses")]
+            public long? WarLosses { get; set; }
+
+            [JsonProperty("warPoints")]
+            public long? WarPoints { get; set; }
+
+            [JsonProperty("warWins")]
+            public long? WarWins { get; set; }
+
+            [JsonProperty("xp")]
+            public long? Xp { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class ClanTransferRequest
+    {
+        [JsonProperty("clanId")]
+        public string ClanId { get; set; }
+
+        [JsonProperty("userId")]
+        public string UserId { get; set; }
+    }
+
+    public sealed class ClanTransferResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("clanId")]
+        public string ClanId { get; set; }
+
+        [JsonProperty("leaderId")]
+        public string LeaderId { get; set; }
+
+        [JsonProperty("role")]
+        public JToken Role { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class ClanUpdateRequest
+    {
+        [JsonProperty("avatarUrl")]
+        public string AvatarUrl { get; set; }
+
+        [JsonProperty("badge")]
+        public JObject Badge { get; set; }
+
+        [JsonProperty("color")]
+        public string Color { get; set; }
+
+        [JsonProperty("country")]
+        public string Country { get; set; }
+
+        [JsonProperty("coverKey")]
+        public string CoverKey { get; set; }
+
+        [JsonProperty("description")]
+        public string Description { get; set; }
+
+        [JsonProperty("emblemKey")]
+        public string EmblemKey { get; set; }
+
+        [JsonProperty("joinType")]
+        public string JoinType { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("minTrophies")]
+        public long? MinTrophies { get; set; }
+
+        [JsonProperty("motto")]
+        public string Motto { get; set; }
+
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
+        [JsonProperty("tags")]
+        public List<string> Tags { get; set; }
+    }
+
+    public sealed class ClanUpdateResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("clan")]
+        public ClanData Clan { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class ClanData
+        {
+            [JsonProperty("avatarUrl")]
+            public string AvatarUrl { get; set; }
+
+            [JsonProperty("badge")]
+            public JObject Badge { get; set; }
+
+            [JsonProperty("channel")]
+            public string Channel { get; set; }
+
+            [JsonProperty("clanId")]
+            public string ClanId { get; set; }
+
+            [JsonProperty("color")]
+            public string Color { get; set; }
+
+            [JsonProperty("country")]
+            public string Country { get; set; }
+
+            [JsonProperty("coverKey")]
+            public string CoverKey { get; set; }
+
+            [JsonProperty("coverUrl")]
+            public string CoverUrl { get; set; }
+
+            [JsonProperty("createdAt")]
+            public string CreatedAt { get; set; }
+
+            [JsonProperty("description")]
+            public string Description { get; set; }
+
+            [JsonProperty("emblemKey")]
+            public string EmblemKey { get; set; }
+
+            [JsonProperty("emblemUrl")]
+            public string EmblemUrl { get; set; }
+
+            [JsonProperty("joinType")]
+            public string JoinType { get; set; }
+
+            [JsonProperty("lang")]
+            public string Lang { get; set; }
+
+            [JsonProperty("level")]
+            public long? Level { get; set; }
+
+            [JsonProperty("levelXp")]
+            public long? LevelXp { get; set; }
+
+            [JsonProperty("maxMembers")]
+            public long? MaxMembers { get; set; }
+
+            [JsonProperty("members")]
+            public long? Members { get; set; }
+
+            [JsonProperty("minTrophies")]
+            public long? MinTrophies { get; set; }
+
+            [JsonProperty("motto")]
+            public string Motto { get; set; }
+
+            [JsonProperty("myRole")]
+            public string MyRole { get; set; }
+
+            [JsonProperty("name")]
+            public string Name { get; set; }
+
+            [JsonProperty("nextChangeAt")]
+            public JToken NextChangeAt { get; set; }
+
+            [JsonProperty("nextLevelXp")]
+            public JToken NextLevelXp { get; set; }
+
+            [JsonProperty("pendingUploads")]
+            public JToken PendingUploads { get; set; }
+
+            [JsonProperty("tag")]
+            public string Tag { get; set; }
+
+            [JsonProperty("tags")]
+            public List<string> Tags { get; set; }
+
+            [JsonProperty("trophies")]
+            public long? Trophies { get; set; }
+
+            [JsonProperty("warDraws")]
+            public long? WarDraws { get; set; }
+
+            [JsonProperty("warLosses")]
+            public long? WarLosses { get; set; }
+
+            [JsonProperty("warPoints")]
+            public long? WarPoints { get; set; }
+
+            [JsonProperty("warWins")]
+            public long? WarWins { get; set; }
+
+            [JsonProperty("xp")]
+            public long? Xp { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class ClanWarCurrentRequest
+    {
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+    }
+
+    public sealed class ClanWarCurrentResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("clanId")]
+        public string ClanId { get; set; }
+
+        [JsonProperty("upcoming")]
+        public List<UpcomingItem> Upcoming { get; set; }
+
+        [JsonProperty("wars")]
+        public List<WarsItem> Wars { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class UpcomingItem
+        {
+            [JsonProperty("canSignUp")]
+            public bool? CanSignUp { get; set; }
+
+            [JsonProperty("configKey")]
+            public string ConfigKey { get; set; }
+
+            [JsonProperty("endsAt")]
+            public string EndsAt { get; set; }
+
+            [JsonProperty("mode")]
+            public string Mode { get; set; }
+
+            [JsonProperty("name")]
+            public string Name { get; set; }
+
+            [JsonProperty("roundId")]
+            public string RoundId { get; set; }
+
+            [JsonProperty("signedUp")]
+            public bool? SignedUp { get; set; }
+
+            [JsonProperty("signup")]
+            public string Signup { get; set; }
+
+            [JsonProperty("signupAt")]
+            public string SignupAt { get; set; }
+
+            [JsonProperty("signupOpen")]
+            public bool? SignupOpen { get; set; }
+
+            [JsonProperty("startsAt")]
+            public string StartsAt { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class WarsItem
+        {
+            [JsonProperty("attacksPerMember")]
+            public JToken AttacksPerMember { get; set; }
+
+            [JsonProperty("duel")]
+            public DuelData Duel { get; set; }
+
+            [JsonProperty("endsAt")]
+            public string EndsAt { get; set; }
+
+            [JsonProperty("inWar")]
+            public bool? InWar { get; set; }
+
+            [JsonProperty("mode")]
+            public string Mode { get; set; }
+
+            [JsonProperty("myAttacks")]
+            public long? MyAttacks { get; set; }
+
+            [JsonProperty("myAttacksLeft")]
+            public JToken MyAttacksLeft { get; set; }
+
+            [JsonProperty("name")]
+            public JToken Name { get; set; }
+
+            [JsonProperty("outcome")]
+            public string Outcome { get; set; }
+
+            [JsonProperty("points")]
+            public List<PointsItem> Points { get; set; }
+
+            [JsonProperty("prizes")]
+            public PrizesData Prizes { get; set; }
+
+            [JsonProperty("roundId")]
+            public string RoundId { get; set; }
+
+            [JsonProperty("settledAt")]
+            public JToken SettledAt { get; set; }
+
+            [JsonProperty("startsAt")]
+            public string StartsAt { get; set; }
+
+            [JsonProperty("status")]
+            public string Status { get; set; }
+
+            [JsonProperty("them")]
+            public JToken Them { get; set; }
+
+            [JsonProperty("us")]
+            public JToken Us { get; set; }
+
+            [JsonProperty("warId")]
+            public string WarId { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+
+            public sealed class DuelData
+            {
+                [JsonProperty("drawPoints")]
+                public JToken DrawPoints { get; set; }
+
+                [JsonProperty("winPoints")]
+                public JToken WinPoints { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+
+            public sealed class PointsItem
+            {
+                [JsonProperty("event")]
+                public JToken Event { get; set; }
+
+                [JsonProperty("perValue")]
+                public JToken PerValue { get; set; }
+
+                [JsonProperty("points")]
+                public JToken Points { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+
+            public sealed class PrizesData
+            {
+                [JsonProperty("draw")]
+                public JToken Draw { get; set; }
+
+                [JsonProperty("lose")]
+                public JToken Lose { get; set; }
+
+                [JsonProperty("to")]
+                public JToken To { get; set; }
+
+                [JsonProperty("win")]
+                public JToken Win { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+        }
+    }
+
+    public sealed class ClanWarHistoryRequest
+    {
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("limit")]
+        public long? Limit { get; set; }
+    }
+
+    public sealed class ClanWarHistoryResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("clanId")]
+        public string ClanId { get; set; }
+
+        [JsonProperty("items")]
+        public List<ItemsItem> Items { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class ItemsItem
+        {
+            [JsonProperty("mode")]
+            public string Mode { get; set; }
+
+            [JsonProperty("name")]
+            public string Name { get; set; }
+
+            [JsonProperty("outcome")]
+            public string Outcome { get; set; }
+
+            [JsonProperty("rivalClanId")]
+            public string RivalClanId { get; set; }
+
+            [JsonProperty("rivalName")]
+            public string RivalName { get; set; }
+
+            [JsonProperty("rivalScore")]
+            public long? RivalScore { get; set; }
+
+            [JsonProperty("rivalWins")]
+            public long? RivalWins { get; set; }
+
+            [JsonProperty("score")]
+            public long? Score { get; set; }
+
+            [JsonProperty("settledAt")]
+            public string SettledAt { get; set; }
+
+            [JsonProperty("warId")]
+            public string WarId { get; set; }
+
+            [JsonProperty("wins")]
+            public long? Wins { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class ClanWarOpponentsRequest
+    {
+        [JsonProperty("warId")]
+        public string WarId { get; set; }
+    }
+
+    public sealed class ClanWarOpponentsResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("endsAt")]
+        public string EndsAt { get; set; }
+
+        [JsonProperty("items")]
+        public List<ItemsItem> Items { get; set; }
+
+        [JsonProperty("mode")]
+        public string Mode { get; set; }
+
+        [JsonProperty("rivalClanId")]
+        public string RivalClanId { get; set; }
+
+        [JsonProperty("warId")]
+        public string WarId { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class ItemsItem
+        {
+            [JsonProperty("attacks")]
+            public long? Attacks { get; set; }
+
+            [JsonProperty("attacksLeft")]
+            public JToken AttacksLeft { get; set; }
+
+            [JsonProperty("avatarUrl")]
+            public string AvatarUrl { get; set; }
+
+            [JsonProperty("displayName")]
+            public string DisplayName { get; set; }
+
+            [JsonProperty("playedByMe")]
+            public bool? PlayedByMe { get; set; }
+
+            [JsonProperty("points")]
+            public long? Points { get; set; }
+
+            [JsonProperty("trophies")]
+            public long? Trophies { get; set; }
+
+            [JsonProperty("userId")]
+            public string UserId { get; set; }
+
+            [JsonProperty("username")]
+            public string Username { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class ClanWarSignupRequest
+    {
+        [JsonProperty("roundId")]
+        public string RoundId { get; set; }
+    }
+
+    public sealed class ClanWarSignupResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("clanId")]
+        public string ClanId { get; set; }
+
+        [JsonProperty("roundId")]
+        public string RoundId { get; set; }
+
+        [JsonProperty("signedUp")]
+        public bool? SignedUp { get; set; }
+
+        [JsonProperty("startsAt")]
+        public string StartsAt { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class ClanXpHistoryRequest
+    {
+        [JsonProperty("limit")]
+        public long? Limit { get; set; }
+    }
+
+    public sealed class ClanXpHistoryResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("clanId")]
+        public string ClanId { get; set; }
+
+        [JsonProperty("items")]
+        public List<ItemsItem> Items { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class ItemsItem
+        {
+            [JsonProperty("amount")]
+            public long? Amount { get; set; }
+
+            [JsonProperty("createdAt")]
+            public string CreatedAt { get; set; }
+
+            [JsonProperty("source")]
+            public string Source { get; set; }
+
+            [JsonProperty("userId")]
+            public string UserId { get; set; }
+
+            [JsonProperty("username")]
+            public string Username { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
     public sealed class CombatraceConfigRequest
     {
     }
@@ -7513,7 +9824,7 @@ namespace NakamaFarsi.Sdk.Generated
         public JObject Item { get; set; }
 
         [JsonProperty("lang")]
-        public string Lang { get; set; }
+        public JToken Lang { get; set; }
 
         [JsonProperty("paid")]
         public List<PaidItem> Paid { get; set; }
@@ -7561,10 +9872,10 @@ namespace NakamaFarsi.Sdk.Generated
         public List<JToken> Categories { get; set; }
 
         [JsonProperty("enabled")]
-        public bool? Enabled { get; set; }
+        public JToken Enabled { get; set; }
 
         [JsonProperty("lang")]
-        public string Lang { get; set; }
+        public JToken Lang { get; set; }
 
         [JsonProperty("types")]
         public List<JToken> Types { get; set; }
@@ -8508,7 +10819,7 @@ namespace NakamaFarsi.Sdk.Generated
                 public JToken Chance { get; set; }
 
                 [JsonProperty("group")]
-                public JToken Group { get; set; }
+                public GroupData Group { get; set; }
 
                 [JsonProperty("prize")]
                 public PrizeData Prize { get; set; }
@@ -8521,6 +10832,45 @@ namespace NakamaFarsi.Sdk.Generated
 
                 [JsonExtensionData]
                 public IDictionary<string, JToken> Extra { get; set; }
+
+                public sealed class GroupData
+                {
+                    [JsonProperty("id")]
+                    public string Id { get; set; }
+
+                    [JsonProperty("key")]
+                    public string Key { get; set; }
+
+                    [JsonProperty("name")]
+                    public string Name { get; set; }
+
+                    [JsonProperty("prizes")]
+                    public List<PrizesItem> Prizes { get; set; }
+
+                    [JsonExtensionData]
+                    public IDictionary<string, JToken> Extra { get; set; }
+
+                    public sealed class PrizesItem
+                    {
+                        [JsonProperty("id")]
+                        public string Id { get; set; }
+
+                        [JsonProperty("key")]
+                        public string Key { get; set; }
+
+                        [JsonProperty("name")]
+                        public string Name { get; set; }
+
+                        [JsonProperty("share")]
+                        public JToken Share { get; set; }
+
+                        [JsonProperty("weight")]
+                        public JToken Weight { get; set; }
+
+                        [JsonExtensionData]
+                        public IDictionary<string, JToken> Extra { get; set; }
+                    }
+                }
 
                 public sealed class PrizeData
                 {
@@ -8664,7 +11014,7 @@ namespace NakamaFarsi.Sdk.Generated
                 public JToken Chance { get; set; }
 
                 [JsonProperty("group")]
-                public JToken Group { get; set; }
+                public GroupData Group { get; set; }
 
                 [JsonProperty("prize")]
                 public PrizeData Prize { get; set; }
@@ -8677,6 +11027,45 @@ namespace NakamaFarsi.Sdk.Generated
 
                 [JsonExtensionData]
                 public IDictionary<string, JToken> Extra { get; set; }
+
+                public sealed class GroupData
+                {
+                    [JsonProperty("id")]
+                    public string Id { get; set; }
+
+                    [JsonProperty("key")]
+                    public string Key { get; set; }
+
+                    [JsonProperty("name")]
+                    public string Name { get; set; }
+
+                    [JsonProperty("prizes")]
+                    public List<PrizesItem> Prizes { get; set; }
+
+                    [JsonExtensionData]
+                    public IDictionary<string, JToken> Extra { get; set; }
+
+                    public sealed class PrizesItem
+                    {
+                        [JsonProperty("id")]
+                        public string Id { get; set; }
+
+                        [JsonProperty("key")]
+                        public string Key { get; set; }
+
+                        [JsonProperty("name")]
+                        public string Name { get; set; }
+
+                        [JsonProperty("share")]
+                        public JToken Share { get; set; }
+
+                        [JsonProperty("weight")]
+                        public JToken Weight { get; set; }
+
+                        [JsonExtensionData]
+                        public IDictionary<string, JToken> Extra { get; set; }
+                    }
+                }
 
                 public sealed class PrizeData
                 {
@@ -14768,6 +17157,12 @@ namespace NakamaFarsi.Sdk.Generated
         [JsonProperty("around")]
         public long? Around { get; set; }
 
+        [JsonProperty("clan")]
+        public bool? Clan { get; set; }
+
+        [JsonProperty("clanId")]
+        public string ClanId { get; set; }
+
         [JsonProperty("cursor")]
         public string Cursor { get; set; }
 
@@ -14788,6 +17183,9 @@ namespace NakamaFarsi.Sdk.Generated
 
         [JsonProperty("around")]
         public List<JObject> Around { get; set; }
+
+        [JsonProperty("clan")]
+        public ClanData Clan { get; set; }
 
         [JsonProperty("clientSubmit")]
         public bool? ClientSubmit { get; set; }
@@ -14840,6 +17238,9 @@ namespace NakamaFarsi.Sdk.Generated
         [JsonProperty("rewards")]
         public List<JObject> Rewards { get; set; }
 
+        [JsonProperty("scope")]
+        public string Scope { get; set; }
+
         [JsonProperty("sort")]
         public long? Sort { get; set; }
 
@@ -14860,6 +17261,24 @@ namespace NakamaFarsi.Sdk.Generated
 
         [JsonExtensionData]
         public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class ClanData
+        {
+            [JsonProperty("clanId")]
+            public string ClanId { get; set; }
+
+            [JsonProperty("me")]
+            public JObject Me { get; set; }
+
+            [JsonProperty("members")]
+            public long? Members { get; set; }
+
+            [JsonProperty("top")]
+            public List<JObject> Top { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
 
         public sealed class MeData
         {
@@ -15135,6 +17554,9 @@ namespace NakamaFarsi.Sdk.Generated
 
             [JsonProperty("rewards")]
             public JToken Rewards { get; set; }
+
+            [JsonProperty("scope")]
+            public string Scope { get; set; }
 
             [JsonProperty("sort")]
             public long? Sort { get; set; }
@@ -22221,6 +24643,273 @@ namespace NakamaFarsi.Sdk.Generated
 
             [JsonExtensionData]
             public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class TrophyHistoryRequest
+    {
+        [JsonProperty("limit")]
+        public long? Limit { get; set; }
+    }
+
+    public sealed class TrophyHistoryResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("items")]
+        public List<JObject> Items { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class TrophyLeaguesRequest
+    {
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+    }
+
+    public sealed class TrophyLeaguesResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("best")]
+        public JToken Best { get; set; }
+
+        [JsonProperty("leagues")]
+        public List<LeaguesItem> Leagues { get; set; }
+
+        [JsonProperty("season")]
+        public SeasonData Season { get; set; }
+
+        [JsonProperty("trophies")]
+        public JToken Trophies { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class LeaguesItem
+        {
+            [JsonProperty("color")]
+            public JToken Color { get; set; }
+
+            [JsonProperty("current")]
+            public bool? Current { get; set; }
+
+            [JsonProperty("description")]
+            public string Description { get; set; }
+
+            [JsonProperty("floor")]
+            public JToken Floor { get; set; }
+
+            [JsonProperty("iconUrl")]
+            public JToken IconUrl { get; set; }
+
+            [JsonProperty("key")]
+            public JToken Key { get; set; }
+
+            [JsonProperty("maxTrophies")]
+            public JToken MaxTrophies { get; set; }
+
+            [JsonProperty("metadata")]
+            public JToken Metadata { get; set; }
+
+            [JsonProperty("minTrophies")]
+            public JToken MinTrophies { get; set; }
+
+            [JsonProperty("name")]
+            public string Name { get; set; }
+
+            [JsonProperty("prize")]
+            public JToken Prize { get; set; }
+
+            [JsonProperty("reached")]
+            public bool? Reached { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class SeasonData
+        {
+            [JsonProperty("endsAt")]
+            public JToken EndsAt { get; set; }
+
+            [JsonProperty("number")]
+            public JToken Number { get; set; }
+
+            [JsonProperty("startedAt")]
+            public string StartedAt { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class TrophyMeRequest
+    {
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+    }
+
+    public sealed class TrophyMeResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("amounts")]
+        public AmountsData Amounts { get; set; }
+
+        [JsonProperty("best")]
+        public long? Best { get; set; }
+
+        [JsonProperty("draws")]
+        public long? Draws { get; set; }
+
+        [JsonProperty("enabled")]
+        public JToken Enabled { get; set; }
+
+        [JsonProperty("league")]
+        public LeagueData League { get; set; }
+
+        [JsonProperty("losses")]
+        public long? Losses { get; set; }
+
+        [JsonProperty("nextLeague")]
+        public JObject NextLeague { get; set; }
+
+        [JsonProperty("pendingPrizes")]
+        public long? PendingPrizes { get; set; }
+
+        [JsonProperty("season")]
+        public SeasonData Season { get; set; }
+
+        [JsonProperty("seasonBest")]
+        public long? SeasonBest { get; set; }
+
+        [JsonProperty("trophies")]
+        public long? Trophies { get; set; }
+
+        [JsonProperty("wins")]
+        public long? Wins { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class AmountsData
+        {
+            [JsonProperty("draw")]
+            public JToken Draw { get; set; }
+
+            [JsonProperty("loss")]
+            public JToken Loss { get; set; }
+
+            [JsonProperty("scaled")]
+            public JToken Scaled { get; set; }
+
+            [JsonProperty("win")]
+            public JToken Win { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class LeagueData
+        {
+            [JsonProperty("color")]
+            public string Color { get; set; }
+
+            [JsonProperty("iconUrl")]
+            public string IconUrl { get; set; }
+
+            [JsonProperty("key")]
+            public string Key { get; set; }
+
+            [JsonProperty("minTrophies")]
+            public long? MinTrophies { get; set; }
+
+            [JsonProperty("name")]
+            public string Name { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class SeasonData
+        {
+            [JsonProperty("endsAt")]
+            public JToken EndsAt { get; set; }
+
+            [JsonProperty("number")]
+            public JToken Number { get; set; }
+
+            [JsonProperty("startedAt")]
+            public string StartedAt { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class TrophyPlayersRequest
+    {
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("userIds")]
+        public List<string> UserIds { get; set; }
+    }
+
+    public sealed class TrophyPlayersResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("players")]
+        public List<PlayersItem> Players { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class PlayersItem
+        {
+            [JsonProperty("best")]
+            public long? Best { get; set; }
+
+            [JsonProperty("league")]
+            public LeagueData League { get; set; }
+
+            [JsonProperty("trophies")]
+            public long? Trophies { get; set; }
+
+            [JsonProperty("userId")]
+            public string UserId { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+
+            public sealed class LeagueData
+            {
+                [JsonProperty("color")]
+                public string Color { get; set; }
+
+                [JsonProperty("iconUrl")]
+                public string IconUrl { get; set; }
+
+                [JsonProperty("key")]
+                public string Key { get; set; }
+
+                [JsonProperty("minTrophies")]
+                public long? MinTrophies { get; set; }
+
+                [JsonProperty("name")]
+                public JToken Name { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
         }
     }
 

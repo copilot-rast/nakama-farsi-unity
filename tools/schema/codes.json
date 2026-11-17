@@ -687,6 +687,343 @@
       "economy"
     ]
   },
+  "CLAN_ALREADY_LEADER": {
+    "status": 400,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_ALREADY_MEMBER": {
+    "status": 409,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_ART_LOCKED": {
+    "status": 403,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_ART_NOT_FOUND": {
+    "status": 404,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_AVATAR_INVALID": {
+    "status": 400,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_AVATAR_USE_GALLERY": {
+    "status": 400,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_BADGE_INVALID": {
+    "status": 400,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_CANNOT_INVITE_SELF": {
+    "status": 400,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_CANNOT_KICK_SELF": {
+    "status": 400,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_CHANGE_COOLDOWN": {
+    "status": 409,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_COLOR_INVALID": {
+    "status": 400,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_COOLDOWN": {
+    "status": 409,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_COUNTRY_INVALID": {
+    "status": 400,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_CREATE_DISABLED": {
+    "status": 403,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_DESCRIPTION_TOO_LONG": {
+    "status": 400,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_DISABLED": {
+    "status": 403,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_EMBLEM_REQUIRED": {
+    "status": 400,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_FULL": {
+    "status": 409,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_ID_REQUIRED": {
+    "status": 400,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_INVITE_NOT_FOUND": {
+    "status": 404,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_INVITE_ONLY": {
+    "status": 403,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_JOIN_TYPE_INVALID": {
+    "status": 400,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_KICK_COOLDOWN": {
+    "status": 409,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_LANG_INVALID": {
+    "status": 400,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_LEADER_MUST_TRANSFER": {
+    "status": 409,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_LEAVE_COOLDOWN": {
+    "status": 409,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_MEMBER_NOT_FOUND": {
+    "status": 404,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_MIN_TROPHIES_INVALID": {
+    "status": 400,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_MOTTO_TOO_LONG": {
+    "status": 400,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_NAME_BLOCKED": {
+    "status": 400,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_NAME_INVALID": {
+    "status": 400,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_NAME_TAKEN": {
+    "status": 409,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_NOT_ENOUGH_CURRENCY": {
+    "status": 409,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_NOT_ENOUGH_TROPHIES": {
+    "status": 403,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_NOT_FOUND": {
+    "status": 404,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_NOT_MEMBER": {
+    "status": 403,
+    "modules": [
+      "clan",
+      "leaderboardx"
+    ]
+  },
+  "CLAN_REQUEST_NOT_FOUND": {
+    "status": 404,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_ROLE_NOT_ALLOWED": {
+    "status": 403,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_ROLE_TOO_LOW": {
+    "status": 403,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_SORT_INVALID": {
+    "status": 400,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_TAG_INVALID": {
+    "status": 400,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_TEXT_BLOCKED": {
+    "status": 400,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_TOO_MANY_CO_LEADERS": {
+    "status": 409,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_TOO_MANY_REQUESTS": {
+    "status": 409,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_TOO_MANY_TAGS": {
+    "status": 400,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_UPLOADS_DISABLED": {
+    "status": 403,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_UPLOAD_INVALID": {
+    "status": 400,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_UPLOAD_KIND_INVALID": {
+    "status": 400,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_UPLOAD_TOO_LARGE": {
+    "status": 400,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_UPLOAD_TYPE": {
+    "status": 400,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_WAR_LEVEL_TOO_LOW": {
+    "status": 403,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_WAR_NOT_ACTIVE": {
+    "status": 404,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_WAR_NOT_ENOUGH_MEMBERS": {
+    "status": 403,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_WAR_ROUND_NOT_FOUND": {
+    "status": 404,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_WAR_ROUND_REQUIRED": {
+    "status": 400,
+    "modules": [
+      "clan"
+    ]
+  },
+  "CLAN_WAR_SIGNUP_CLOSED": {
+    "status": 409,
+    "modules": [
+      "clan"
+    ]
+  },
   "CODE_NOT_FOUND": {
     "status": 400,
     "modules": [
@@ -819,7 +1156,7 @@
   "DEFAULT_MUST_BE_FREE": {
     "status": 400,
     "modules": [
-      "base"
+      "economy"
     ]
   },
   "DEPARTMENT_NOT_FOUND": {
@@ -1658,7 +1995,7 @@
   "INVALID_LAYER": {
     "status": 400,
     "modules": [
-      "base"
+      "economy"
     ]
   },
   "INVALID_LAYOUT": {
@@ -1822,13 +2159,13 @@
       "publication"
     ]
   },
-  "INVALID_OP": {
+  "INVALID_OFFSET": {
     "status": 400,
     "modules": [
-      "base"
+      "clan"
     ]
   },
-  "INVALID_OPTIONS": {
+  "INVALID_OP": {
     "status": 400,
     "modules": [
       "base"
@@ -1994,6 +2331,7 @@
     "status": 400,
     "modules": [
       "campaign",
+      "clan",
       "economy",
       "leaderboardx"
     ]
@@ -2092,7 +2430,8 @@
   "INVALID_SORT": {
     "status": 400,
     "modules": [
-      "base"
+      "base",
+      "economy"
     ]
   },
   "INVALID_STATE": {
@@ -2258,13 +2597,15 @@
   "INVALID_USER_ID": {
     "status": 400,
     "modules": [
-      "base"
+      "base",
+      "clan",
+      "trophy"
     ]
   },
   "INVALID_USER_IDS": {
     "status": 400,
     "modules": [
-      "base"
+      "economy"
     ]
   },
   "INVALID_VALUE": {
@@ -2393,7 +2734,8 @@
   "ITEM_REQUIRED": {
     "status": 400,
     "modules": [
-      "base"
+      "base",
+      "economy"
     ]
   },
   "ITEM_TITLE_REQUIRED": {
@@ -2820,12 +3162,6 @@
       "economy"
     ]
   },
-  "ONE_DEFAULT": {
-    "status": 400,
-    "modules": [
-      "base"
-    ]
-  },
   "ONE_ROOM_PRIZE": {
     "status": 400,
     "modules": [
@@ -2841,7 +3177,7 @@
   "OPTION_LOOK_REQUIRED": {
     "status": 400,
     "modules": [
-      "base"
+      "economy"
     ]
   },
   "OTP_DISABLED": {
@@ -3929,7 +4265,7 @@
   "REQUIRED_NEEDS_FREE": {
     "status": 400,
     "modules": [
-      "base"
+      "economy"
     ]
   },
   "REQUIRES_ITEM": {
@@ -5010,6 +5346,18 @@
       "inventoryx"
     ]
   },
+  "TROPHY_TOO_MANY_USERS": {
+    "status": 400,
+    "modules": [
+      "trophy"
+    ]
+  },
+  "TROPHY_USERS_REQUIRED": {
+    "status": 400,
+    "modules": [
+      "trophy"
+    ]
+  },
   "TYPE_LOCKED": {
     "status": 409,
     "modules": [
@@ -5192,6 +5540,7 @@
     "status": 404,
     "modules": [
       "base",
+      "clan",
       "economy",
       "publication"
     ]
