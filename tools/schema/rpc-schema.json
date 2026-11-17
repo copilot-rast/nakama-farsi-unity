@@ -16,6 +16,1615 @@
   },
   "rpcs": [
     {
+      "id": "account_me",
+      "module": "account",
+      "handler": "rpcMe",
+      "source": "integrations/account/profile.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "lang": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "avatarUrl": {},
+          "createdAt": {
+            "type": "string"
+          },
+          "deviceId": {
+            "type": "string"
+          },
+          "deviceIds": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "displayName": {},
+          "hasEmail": {
+            "type": "boolean"
+          },
+          "id": {},
+          "isGuest": {
+            "type": "boolean"
+          },
+          "lang": {},
+          "linked": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "location": {},
+          "mute": {},
+          "pendingPhone": {},
+          "phone": {
+            "type": "string"
+          },
+          "phoneChange": {
+            "properties": {
+              "enabled": {},
+              "nextAt": {
+                "type": "string"
+              },
+              "requireOldCode": {}
+            },
+            "type": "object"
+          },
+          "phoneMasked": {
+            "type": "boolean"
+          },
+          "phoneVerified": {
+            "type": "boolean"
+          },
+          "phoneVerifiedAt": {
+            "type": "string"
+          },
+          "suspension": {},
+          "timezone": {},
+          "username": {}
+        },
+        "type": "object"
+      },
+      "errors": []
+    },
+    {
+      "id": "account_password_change",
+      "module": "account",
+      "handler": "rpcPasswordChange",
+      "source": "integrations/account/password.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {
+          "currentPassword": {
+            "type": "string"
+          },
+          "newPassword": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "ok": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "ACCOUNT_NOT_FOUND",
+        "AUTH_INVALID_CURRENT_PASSWORD",
+        "AUTH_USER_HAS_NO_PASSWORD",
+        "PASSWORD_CHANGED_MEANWHILE",
+        "PASSWORD_RATE_LIMITED"
+      ]
+    },
+    {
+      "id": "account_password_forgot",
+      "module": "account",
+      "handler": "rpcPasswordForgot",
+      "source": "integrations/account/password.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {
+          "country": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "codeLength": {},
+          "expiresIn": {},
+          "phone": {
+            "type": "string"
+          },
+          "purpose": {
+            "type": "string"
+          },
+          "requestId": {},
+          "resendAfter": {},
+          "sandbox": {},
+          "sent": {
+            "type": "boolean"
+          },
+          "stage": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "PASSWORD_RESET_DISABLED",
+        "PHONE_REQUIRED",
+        "PHONE_UNAVAILABLE"
+      ]
+    },
+    {
+      "id": "account_password_login",
+      "module": "account",
+      "handler": "rpcPasswordLogin",
+      "source": "integrations/account/password.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {
+          "country": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "expiresAt": {},
+          "loginKey": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "token": {},
+          "userId": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "ACCOUNT_DISABLED",
+        "AUTH_INVALID_CREDENTIALS",
+        "PASSWORD_LOGIN_DISABLED",
+        "PASSWORD_RATE_LIMITED",
+        "PASSWORD_REQUIRED",
+        "PHONE_NOT_REGISTERED",
+        "PHONE_REQUIRED",
+        "PHONE_UNAVAILABLE",
+        "SESSION_UNAVAILABLE"
+      ]
+    },
+    {
+      "id": "account_password_reset",
+      "module": "account",
+      "handler": "rpcPasswordReset",
+      "source": "integrations/account/password.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "newPassword": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "expiresAt": {},
+          "loginKey": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "token": {},
+          "userId": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "ACCOUNT_DISABLED",
+        "OTP_INVALID_CODE",
+        "PASSWORD_RESET_DISABLED",
+        "PHONE_NOT_REGISTERED",
+        "PHONE_REQUEST_CHANGED",
+        "PHONE_REQUIRED",
+        "PHONE_UNAVAILABLE",
+        "SESSION_UNAVAILABLE"
+      ]
+    },
+    {
+      "id": "account_password_set",
+      "module": "account",
+      "handler": "rpcPasswordSet",
+      "source": "integrations/account/password.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {
+          "newPassword": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "ok": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "ACCOUNT_NOT_FOUND",
+        "AUTH_USER_ALREADY_HAS_A_PASSWORD"
+      ]
+    },
+    {
+      "id": "account_phone_cancel",
+      "module": "account",
+      "handler": "rpcPhoneCancel",
+      "source": "integrations/account/phone.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {},
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "canceled": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "errors": []
+    },
+    {
+      "id": "account_phone_recover_request",
+      "module": "account",
+      "handler": "rpcRecoverRequest",
+      "source": "integrations/account/phone.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "country": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "codeLength": {},
+          "deviceMode": {},
+          "expiresIn": {},
+          "phone": {
+            "type": "string"
+          },
+          "purpose": {
+            "type": "string"
+          },
+          "requestId": {},
+          "resendAfter": {},
+          "sandbox": {},
+          "stage": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "ACCOUNT_DISABLED",
+        "PHONE_CHECK_RATE_LIMITED",
+        "PHONE_NOT_REGISTERED",
+        "PHONE_NUMBER_IS_SAME",
+        "PHONE_RECOVERY_DISABLED",
+        "PHONE_UNAVAILABLE",
+        "RECOVERY_ONLY_FOR_GUESTS"
+      ]
+    },
+    {
+      "id": "account_phone_recover_verify",
+      "module": "account",
+      "handler": "rpcRecoverVerify",
+      "source": "integrations/account/phone.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "deviceId": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "abandoned": {},
+          "deviceAction": {
+            "type": "string"
+          },
+          "devicesMoved": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "expiresAt": {},
+          "loginKey": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "token": {},
+          "userId": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "ACCOUNT_DISABLED",
+        "DEVICE_NOT_OWNED",
+        "PHONE_NOT_REGISTERED",
+        "PHONE_NO_PENDING_REQUEST",
+        "PHONE_REQUEST_CHANGED",
+        "PHONE_UNAVAILABLE",
+        "RECOVERY_ONLY_FOR_GUESTS",
+        "SESSION_UNAVAILABLE"
+      ]
+    },
+    {
+      "id": "account_phone_request",
+      "module": "account",
+      "handler": "rpcPhoneRequest",
+      "source": "integrations/account/phone.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "country": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "codeLength": {},
+          "expiresIn": {},
+          "phone": {
+            "type": "string"
+          },
+          "purpose": {
+            "type": "string"
+          },
+          "requestId": {},
+          "resendAfter": {},
+          "sandbox": {},
+          "stage": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "ACCOUNT_DISABLED",
+        "PHONE_CHANGE_DISABLED",
+        "PHONE_CHANGE_TOO_SOON",
+        "PHONE_CHECK_RATE_LIMITED",
+        "PHONE_NOT_REGISTERED",
+        "PHONE_NUMBER_IS_EXIST",
+        "PHONE_NUMBER_IS_SAME",
+        "PHONE_UNAVAILABLE"
+      ]
+    },
+    {
+      "id": "account_phone_verify",
+      "module": "account",
+      "handler": "rpcPhoneVerify",
+      "source": "integrations/account/phone.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "codeLength": {},
+          "done": {
+            "type": "boolean"
+          },
+          "expiresIn": {},
+          "phone": {
+            "type": "string"
+          },
+          "profile": {
+            "properties": {
+              "avatarUrl": {},
+              "createdAt": {},
+              "deviceId": {
+                "type": "string"
+              },
+              "deviceIds": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "displayName": {},
+              "hasEmail": {
+                "type": "boolean"
+              },
+              "id": {},
+              "isGuest": {},
+              "lang": {},
+              "linked": {},
+              "location": {},
+              "mute": {},
+              "pendingPhone": {},
+              "phone": {},
+              "phoneChange": {
+                "properties": {
+                  "enabled": {},
+                  "nextAt": {},
+                  "requireOldCode": {}
+                },
+                "type": "object"
+              },
+              "phoneMasked": {
+                "type": "boolean"
+              },
+              "phoneVerified": {
+                "type": "boolean"
+              },
+              "phoneVerifiedAt": {},
+              "suspension": {},
+              "timezone": {},
+              "username": {}
+            },
+            "type": "object"
+          },
+          "purpose": {
+            "type": "string"
+          },
+          "requestId": {},
+          "resendAfter": {},
+          "sandbox": {},
+          "stage": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "ACCOUNT_HAS_PHONE",
+        "PHONE_CHANGE_DISABLED",
+        "PHONE_CHANGE_TOO_SOON",
+        "PHONE_NO_PENDING_REQUEST",
+        "PHONE_NUMBER_IS_EXIST",
+        "PHONE_NUMBER_IS_SAME",
+        "PHONE_OLD_CODE_REQUIRED",
+        "PHONE_REQUEST_CHANGED",
+        "PHONE_UNAVAILABLE"
+      ]
+    },
+    {
+      "id": "account_rules",
+      "module": "account",
+      "handler": "rpcRules",
+      "source": "integrations/account/rules.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {},
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "displayNameMax": {},
+          "passwordDigit": {},
+          "passwordLetter": {},
+          "passwordMin": {},
+          "usernameCharset": {},
+          "usernameMax": {},
+          "usernameMin": {}
+        },
+        "type": "object"
+      },
+      "errors": []
+    },
+    {
+      "id": "account_username_check",
+      "module": "account",
+      "handler": "rpcUsernameCheck",
+      "source": "integrations/account/rules.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "username": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "code": {},
+          "ok": {
+            "type": "boolean"
+          },
+          "reason": {},
+          "username": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "USERNAME_REQUIRED",
+        "USERNAME_TAKEN"
+      ]
+    },
+    {
+      "id": "analytics_config",
+      "module": "analytics",
+      "handler": "rpcConfig",
+      "source": "integrations/analytics/module.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "lang": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "batchesPerMinute": {},
+          "claimMode": {},
+          "events": {
+            "items": {
+              "properties": {
+                "fields": {
+                  "items": {},
+                  "type": "array"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "eventsPerMinute": {},
+          "maxBatch": {},
+          "maxFields": {},
+          "maxStringLength": {},
+          "notificationCode": {},
+          "sendIntervalSeconds": {},
+          "stats": {
+            "items": {
+              "properties": {
+                "key": {
+                  "type": "string"
+                },
+                "kind": {
+                  "type": "string"
+                },
+                "sendIntervalSeconds": {
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "typed": {
+            "properties": {
+              "contextKeys": {
+                "items": {
+                  "properties": {
+                    "key": {
+                      "type": "string"
+                    },
+                    "values": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "designRoots": {
+                "items": {
+                  "properties": {
+                    "levels": {
+                      "items": {
+                        "properties": {
+                          "name": {
+                            "type": "string"
+                          },
+                          "values": {
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "root": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "dimensions": {
+                "items": {
+                  "properties": {
+                    "key": {
+                      "type": "string"
+                    },
+                    "values": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "enabled": {},
+              "maxContextKeys": {},
+              "maxDimensions": {},
+              "resourceCurrencies": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "resourceItemTypes": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "sessionTimeoutSeconds": {},
+              "unknownContext": {},
+              "unknownDesign": {},
+              "unknownDimension": {},
+              "unknownResource": {}
+            },
+            "type": "object"
+          },
+          "unknownEvents": {}
+        },
+        "type": "object"
+      },
+      "errors": []
+    },
+    {
+      "id": "analytics_stats",
+      "module": "analytics",
+      "handler": "rpcStats",
+      "source": "integrations/analytics/stats.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "keys": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "lang": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "items": {
+            "items": {
+              "properties": {
+                "best": {
+                  "type": "number"
+                },
+                "key": {
+                  "type": "string"
+                },
+                "kind": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "total": {
+                  "type": "number"
+                },
+                "updatedAt": {
+                  "format": "date-time",
+                  "nullable": true,
+                  "type": "string"
+                },
+                "value": {
+                  "type": "number"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "lang": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "ANALYTICS_TOO_MANY_KEYS"
+      ]
+    },
+    {
+      "id": "analytics_track",
+      "module": "analytics",
+      "handler": "rpcTrack",
+      "source": "integrations/analytics/ingest.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "appVersion": {
+            "type": "string"
+          },
+          "batchId": {
+            "type": "string"
+          },
+          "context": {
+            "type": "object"
+          },
+          "device": {
+            "nullable": true,
+            "properties": {
+              "build": {
+                "type": "string"
+              },
+              "manufacturer": {
+                "type": "string"
+              },
+              "model": {
+                "type": "string"
+              },
+              "os": {
+                "type": "string"
+              },
+              "platform": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "dimensions": {
+            "type": "object"
+          },
+          "events": {
+            "items": {
+              "properties": {
+                "amount": {},
+                "cartType": {
+                  "type": "string"
+                },
+                "context": {},
+                "currency": {
+                  "type": "string"
+                },
+                "fields": {
+                  "type": "object"
+                },
+                "flow": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "item": {
+                  "type": "string"
+                },
+                "itemType": {
+                  "type": "string"
+                },
+                "length": {},
+                "message": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "p1": {
+                  "type": "string"
+                },
+                "p2": {
+                  "type": "string"
+                },
+                "p3": {
+                  "type": "string"
+                },
+                "receipt": {
+                  "type": "string"
+                },
+                "score": {},
+                "severity": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "store": {
+                  "type": "string"
+                },
+                "time": {},
+                "type": {
+                  "type": "string"
+                },
+                "value": {}
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "platform": {
+            "type": "string"
+          },
+          "session": {
+            "nullable": true,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "num": {
+                "type": "integer"
+              },
+              "start": {}
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "nullable": true,
+        "properties": {
+          "batchId": {
+            "type": "string"
+          },
+          "duplicate": {
+            "type": "boolean"
+          },
+          "flagged": {
+            "type": "integer"
+          },
+          "received": {
+            "type": "integer"
+          },
+          "rejected": {
+            "type": "integer"
+          },
+          "results": {
+            "items": {
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "index": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "problems": {
+                  "items": {},
+                  "type": "array"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "stats": {
+            "items": {
+              "properties": {
+                "accepted": {
+                  "type": "number"
+                },
+                "key": {
+                  "type": "string"
+                },
+                "sent": {
+                  "type": "number"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "number"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "stored": {
+            "type": "integer"
+          },
+          "unlocked": {
+            "items": {
+              "properties": {
+                "claimMode": {
+                  "type": "string"
+                },
+                "groupKey": {
+                  "type": "string"
+                },
+                "iconUrl": {
+                  "type": "string"
+                },
+                "rewards": {},
+                "status": {
+                  "type": "string"
+                },
+                "step": {
+                  "type": "integer"
+                },
+                "stepCount": {
+                  "type": "integer"
+                },
+                "stepId": {
+                  "type": "string"
+                },
+                "stepName": {
+                  "type": "string"
+                },
+                "trophyKey": {
+                  "type": "string"
+                },
+                "trophyName": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "ANALYTICS_BATCH_EMPTY",
+        "ANALYTICS_BATCH_ID_REQUIRED",
+        "ANALYTICS_BATCH_TOO_LARGE",
+        "ANALYTICS_BUSY",
+        "ANALYTICS_INVALID_APP_INFO",
+        "ANALYTICS_INVALID_BATCH_ID",
+        "ANALYTICS_RATE_LIMITED"
+      ]
+    },
+    {
+      "id": "analytics_trophies",
+      "module": "analytics",
+      "handler": "rpcTrophies",
+      "source": "integrations/analytics/trophies.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "group": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "claimMode": {},
+          "groups": {
+            "items": {
+              "properties": {
+                "description": {
+                  "type": "string"
+                },
+                "iconUrl": {
+                  "type": "string"
+                },
+                "key": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "stepCount": {
+                  "type": "integer"
+                },
+                "trophies": {
+                  "items": {
+                    "properties": {
+                      "completed": {
+                        "type": "boolean"
+                      },
+                      "contextKey": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "iconUrl": {
+                        "type": "string"
+                      },
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "stepCount": {
+                        "type": "integer"
+                      },
+                      "steps": {
+                        "items": {},
+                        "type": "array"
+                      },
+                      "unlockOrder": {
+                        "type": "string"
+                      },
+                      "unlocked": {
+                        "type": "integer"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "unlocked": {
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "totals": {
+            "type": "object"
+          },
+          "unlockOrder": {},
+          "unlocked": {
+            "items": {
+              "properties": {
+                "claimMode": {
+                  "type": "string"
+                },
+                "groupKey": {
+                  "type": "string"
+                },
+                "iconUrl": {
+                  "type": "string"
+                },
+                "rewards": {
+                  "properties": {
+                    "currencies": {
+                      "additionalProperties": {
+                        "type": "integer"
+                      },
+                      "type": "object"
+                    },
+                    "prizeGroupKey": {
+                      "type": "string"
+                    },
+                    "prizeKey": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "step": {
+                  "type": "integer"
+                },
+                "stepCount": {
+                  "type": "integer"
+                },
+                "stepId": {
+                  "type": "string"
+                },
+                "stepName": {
+                  "type": "string"
+                },
+                "trophyKey": {
+                  "type": "string"
+                },
+                "trophyName": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "ANALYTICS_ALREADY_CLAIMED",
+        "ANALYTICS_GROUP_NOT_FOUND",
+        "ANALYTICS_REWARD_FAILED"
+      ]
+    },
+    {
+      "id": "analytics_trophy_claim",
+      "module": "analytics",
+      "handler": "rpcClaim",
+      "source": "integrations/analytics/trophies.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "lang": {
+            "type": "string"
+          },
+          "step": {
+            "type": "integer"
+          },
+          "stepId": {
+            "type": "string"
+          },
+          "trophy": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "rewards": {
+            "properties": {
+              "currencies": {
+                "additionalProperties": {
+                  "type": "integer"
+                },
+                "type": "object"
+              },
+              "prize": {
+                "type": "object"
+              },
+              "prizeGroupKey": {
+                "type": "string"
+              },
+              "prizeKey": {
+                "type": "string"
+              },
+              "prizes": {
+                "items": {
+                  "type": "object"
+                },
+                "type": "array"
+              }
+            },
+            "type": "object"
+          },
+          "status": {
+            "type": "string"
+          },
+          "step": {
+            "type": "integer"
+          },
+          "stepId": {
+            "type": "string"
+          },
+          "trophyKey": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "ANALYTICS_ALREADY_CLAIMED",
+        "ANALYTICS_BUSY",
+        "ANALYTICS_NOTHING_TO_CLAIM",
+        "ANALYTICS_REWARD_FAILED",
+        "ANALYTICS_STEP_LOCKED",
+        "ANALYTICS_STEP_NOT_FOUND"
+      ]
+    },
+    {
+      "id": "assets_content_index",
+      "module": "assets",
+      "handler": "rpcContentIndex",
+      "source": "integrations/assets/packs.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "appVersion": {
+            "type": "string"
+          },
+          "platform": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "appVersion": {
+            "type": "string"
+          },
+          "pack": {
+            "properties": {
+              "activatedAt": {
+                "format": "date-time",
+                "nullable": true,
+                "type": "string"
+              },
+              "baseUrl": {
+                "type": "string"
+              },
+              "catalogHash": {
+                "type": "string"
+              },
+              "catalogPath": {
+                "type": "string"
+              },
+              "catalogUrl": {
+                "type": "string"
+              },
+              "fileCount": {
+                "type": "integer"
+              },
+              "hashUrl": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "maxAppVersion": {
+                "type": "string"
+              },
+              "minAppVersion": {
+                "type": "string"
+              },
+              "platform": {
+                "type": "string"
+              },
+              "totalBytes": {
+                "type": "integer"
+              },
+              "version": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "platform": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": []
+    },
+    {
+      "id": "assets_fetch",
+      "module": "assets",
+      "handler": "rpcFetch",
+      "source": "integrations/assets/entries.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "folder": {
+            "type": "string"
+          },
+          "have": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "type": "object"
+          },
+          "ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "limit": {
+            "type": "integer"
+          },
+          "recursive": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "types": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "items": {
+            "items": {
+              "properties": {
+                "assetId": {
+                  "type": "string"
+                },
+                "createdAt": {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                "data": {},
+                "folder": {
+                  "type": "string"
+                },
+                "hash": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "size": {
+                  "type": "integer"
+                },
+                "sourceGuid": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "updatedAt": {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                "updatedBy": {
+                  "type": "string"
+                },
+                "version": {
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "missing": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "more": {
+            "type": "boolean"
+          },
+          "removed": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "total": {
+            "type": "integer"
+          },
+          "unchanged": {
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "ASSET_FETCH_TOO_MANY"
+      ]
+    },
+    {
+      "id": "assets_manifest",
+      "module": "assets",
+      "handler": "rpcManifest",
+      "source": "integrations/assets/entries.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "etag": {
+            "type": "string"
+          },
+          "folder": {
+            "type": "string"
+          },
+          "recursive": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "types": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "count": {
+            "type": "integer"
+          },
+          "etag": {
+            "type": "string"
+          },
+          "items": {
+            "items": {
+              "properties": {
+                "assetId": {
+                  "type": "string"
+                },
+                "folder": {
+                  "type": "string"
+                },
+                "hash": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "sourceGuid": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "version": {
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "notModified": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "errors": []
+    },
+    {
       "id": "base_account_delete",
       "module": "base",
       "handler": "rpcAccountDelete",
@@ -172,7 +1781,20 @@
       "errorFormat": "envelope",
       "codeModeFormat": "code",
       "request": {
-        "properties": {},
+        "properties": {
+          "lang": {
+            "type": "string"
+          },
+          "platform": {
+            "type": "string"
+          },
+          "store": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          }
+        },
         "type": "object"
       },
       "response": {
@@ -824,7 +2446,20 @@
       "errorFormat": "envelope",
       "codeModeFormat": "code",
       "request": {
-        "properties": {},
+        "properties": {
+          "ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "usernames": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
         "type": "object"
       },
       "response": {},
@@ -845,7 +2480,20 @@
       "errorFormat": "envelope",
       "codeModeFormat": "code",
       "request": {
-        "properties": {},
+        "properties": {
+          "ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "usernames": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
         "type": "object"
       },
       "response": {},
@@ -896,7 +2544,20 @@
       "errorFormat": "envelope",
       "codeModeFormat": "code",
       "request": {
-        "properties": {},
+        "properties": {
+          "ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "usernames": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
         "type": "object"
       },
       "response": {},
@@ -2393,6 +4054,363 @@
       ]
     },
     {
+      "id": "campaign_attempt_complete",
+      "module": "campaign",
+      "handler": "rpcComplete",
+      "source": "integrations/campaign/player.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "attemptId": {
+            "type": "string"
+          },
+          "elapsedSeconds": {
+            "nullable": true,
+            "type": "number"
+          },
+          "fields": {
+            "type": "object"
+          },
+          "healthPercent": {
+            "nullable": true,
+            "type": "number"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "stageKey": {
+            "type": "string"
+          },
+          "success": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "response": {},
+      "errors": [
+        "ATTEMPT_CLOSED",
+        "ATTEMPT_EXPIRED",
+        "ATTEMPT_NOT_FOUND",
+        "ATTEMPT_REQUIRED",
+        "INVALID_RESULT",
+        "STAGE_BUSY",
+        "STAGE_FINISHED_TOO_FAST",
+        "STAGE_LOCKED",
+        "STAGE_NOT_FOUND",
+        "STAGE_SERVER_OWNED",
+        "TOO_MANY_FIELDS"
+      ]
+    },
+    {
+      "id": "campaign_attempt_start",
+      "module": "campaign",
+      "handler": "rpcStart",
+      "source": "integrations/campaign/player.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "stageKey": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "attemptId": {
+            "type": "string"
+          },
+          "expiresAt": {
+            "type": "string"
+          },
+          "stageKey": {},
+          "startedAt": {
+            "type": "string"
+          },
+          "timeLimitSeconds": {}
+        },
+        "type": "object"
+      },
+      "errors": [
+        "STAGE_BUSY",
+        "STAGE_KEY_REQUIRED",
+        "STAGE_LOCKED",
+        "STAGE_NOT_FOUND"
+      ]
+    },
+    {
+      "id": "campaign_chapters",
+      "module": "campaign",
+      "handler": "rpcChapters",
+      "source": "integrations/campaign/player.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "chapter": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "chapters": {
+            "items": {
+              "properties": {
+                "address": {},
+                "description": {
+                  "type": "string"
+                },
+                "iconUrl": {},
+                "key": {},
+                "locks": {
+                  "items": {
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "table": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      },
+                      "value": {
+                        "type": "number"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "maxStars": {
+                  "type": "integer"
+                },
+                "metadata": {},
+                "milestones": {
+                  "items": {
+                    "properties": {
+                      "claimed": {
+                        "type": "boolean"
+                      },
+                      "percent": {},
+                      "prizeGroupKey": {},
+                      "prizeKey": {},
+                      "reached": {
+                        "type": "boolean"
+                      },
+                      "rewards": {
+                        "items": {
+                          "type": "object"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "sort": {},
+                "stages": {
+                  "items": {
+                    "properties": {
+                      "address": {},
+                      "bestSeconds": {},
+                      "bestStars": {},
+                      "claimed": {
+                        "items": {
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "claimedXp": {},
+                      "completedBy": {
+                        "properties": {
+                          "owner": {},
+                          "ref": {}
+                        },
+                        "type": "object"
+                      },
+                      "completions": {},
+                      "cooldownSeconds": {},
+                      "dailyRewardLimit": {},
+                      "description": {
+                        "type": "string"
+                      },
+                      "iconUrl": {},
+                      "key": {},
+                      "locks": {
+                        "items": {
+                          "properties": {
+                            "key": {
+                              "type": "string"
+                            },
+                            "table": {
+                              "type": "string"
+                            },
+                            "type": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "number"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "metadata": {},
+                      "mode": {},
+                      "name": {
+                        "type": "string"
+                      },
+                      "nextRewardAt": {
+                        "type": "string"
+                      },
+                      "rewardGroup": {},
+                      "rewards": {
+                        "items": {
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "rewardsLeftToday": {
+                        "nullable": true,
+                        "type": "integer"
+                      },
+                      "sort": {},
+                      "starMultipliers": {
+                        "items": {
+                          "type": "number"
+                        },
+                        "type": "array"
+                      },
+                      "tierPrizes": {},
+                      "timeLimitSeconds": {},
+                      "unlocked": {
+                        "type": "boolean"
+                      },
+                      "wins": {},
+                      "xp": {}
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "starPercent": {
+                  "type": "number"
+                },
+                "stars": {
+                  "type": "integer"
+                },
+                "unlocked": {
+                  "type": "boolean"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "freeride": {
+            "items": {
+              "properties": {
+                "cooldownSeconds": {},
+                "dailyRewardLimit": {},
+                "description": {
+                  "type": "string"
+                },
+                "iconUrl": {},
+                "key": {},
+                "minLevel": {},
+                "name": {
+                  "type": "string"
+                },
+                "nextRewardAt": {
+                  "type": "string"
+                },
+                "prizeGroupKey": {},
+                "prizeKey": {},
+                "rewardGroup": {},
+                "rewards": {
+                  "items": {
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "rewardsLeftToday": {
+                  "nullable": true,
+                  "type": "integer"
+                },
+                "xp": {}
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "level": {
+            "type": "integer"
+          },
+          "maxStars": {},
+          "serverTime": {
+            "type": "string"
+          },
+          "xp": {
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "errors": []
+    },
+    {
+      "id": "campaign_freeride_claim",
+      "module": "campaign",
+      "handler": "rpcFreerideClaim",
+      "source": "integrations/campaign/pay.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "requestId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {},
+        "type": "object"
+      },
+      "errors": [
+        "FREERIDE_KEY_REQUIRED",
+        "FREERIDE_NOT_FOUND",
+        "INVALID_REQUEST_ID",
+        "LEVEL_TOO_LOW",
+        "REQUEST_ID_REQUIRED",
+        "REWARD_LIMITED",
+        "STAGE_BUSY"
+      ]
+    },
+    {
       "id": "combatrace_config",
       "module": "combatrace",
       "handler": "rpcConfig",
@@ -2723,6 +4741,101 @@
         "type": "object"
       },
       "errors": []
+    },
+    {
+      "id": "devkit_error_catalog",
+      "module": "devkit",
+      "handler": "rpcErrorCatalog",
+      "source": "integrations/devkit/module.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "codes": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "lang": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "cacheSeconds": {
+            "type": "integer"
+          },
+          "errors": {
+            "additionalProperties": {
+              "properties": {
+                "message": {
+                  "type": "string"
+                },
+                "retryAfterSeconds": {
+                  "nullable": true,
+                  "type": "integer"
+                },
+                "status": {
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            },
+            "type": "object"
+          },
+          "fallbackLang": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "mode": {
+            "type": "string"
+          },
+          "moduleMode": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "TOO_MANY_CODES"
+      ]
+    },
+    {
+      "id": "devkit_rpc_schema",
+      "module": "devkit",
+      "handler": "rpcSchema",
+      "source": "integrations/devkit/module.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "module": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "rpcs": {
+            "items": {},
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "DEVKIT_SCHEMA_DISABLED",
+        "DEVKIT_UNKNOWN_MODULE"
+      ]
     },
     {
       "id": "economy_achievement_claim",
@@ -3332,7 +5445,17 @@
       "errorFormat": "envelope",
       "codeModeFormat": "json",
       "request": {
-        "properties": {},
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          }
+        },
         "type": "object"
       },
       "response": {
@@ -3363,7 +5486,17 @@
       "errorFormat": "envelope",
       "codeModeFormat": "json",
       "request": {
-        "properties": {},
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          }
+        },
         "type": "object"
       },
       "response": {
@@ -3766,7 +5899,17 @@
       "errorFormat": "envelope",
       "codeModeFormat": "json",
       "request": {
-        "properties": {},
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          }
+        },
         "type": "object"
       },
       "response": {
@@ -3797,7 +5940,17 @@
       "errorFormat": "envelope",
       "codeModeFormat": "json",
       "request": {
-        "properties": {},
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          }
+        },
         "type": "object"
       },
       "response": {
@@ -3895,7 +6048,17 @@
       "errorFormat": "envelope",
       "codeModeFormat": "json",
       "request": {
-        "properties": {},
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          }
+        },
         "type": "object"
       },
       "response": {
@@ -7607,77 +9770,133 @@
           },
           "task": {
             "properties": {
-              "consumes": {},
-              "excludesTags": {
+              "categoryKey": {
+                "type": "string"
+              },
+              "children": {
+                "items": {},
+                "type": "array"
+              },
+              "claimId": {
+                "type": "string"
+              },
+              "claimable": {
                 "type": "boolean"
               },
-              "items": {
-                "properties": {
-                  "consume": {},
-                  "list": {
-                    "items": {
-                      "properties": {
-                        "iconUrl": {},
-                        "key": {},
-                        "name": {},
-                        "owned": {
-                          "type": "boolean"
-                        }
-                      },
-                      "type": "object"
-                    },
-                    "type": "array"
-                  },
-                  "mode": {
-                    "type": "string"
-                  }
-                },
-                "type": "object"
+              "claimedAt": {},
+              "completedAt": {},
+              "completions": {},
+              "condition": {
+                "type": "string"
               },
-              "metas": {
+              "dependsOn": {
                 "items": {
                   "properties": {
-                    "consume": {},
-                    "have": {
-                      "type": "number"
+                    "done": {
+                      "type": "integer"
                     },
-                    "key": {
-                      "type": "string"
-                    },
+                    "id": {},
+                    "key": {},
                     "name": {
                       "type": "string"
-                    },
-                    "operator": {},
-                    "value": {}
+                    }
                   },
                   "type": "object"
                 },
                 "type": "array"
               },
-              "minLevel": {},
-              "paths": {},
-              "refund": {},
-              "tags": {
+              "description": {},
+              "error": {
+                "type": "string"
+              },
+              "expiresAt": {},
+              "grantMode": {
+                "type": "string"
+              },
+              "groupId": {
+                "type": "string"
+              },
+              "groupKey": {
+                "type": "string"
+              },
+              "iconUrl": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "isActive": {
+                "type": "boolean"
+              },
+              "key": {
+                "type": "string"
+              },
+              "maxCompletions": {
+                "type": "integer"
+              },
+              "metric": {
+                "type": "string"
+              },
+              "name": {},
+              "nextAt": {},
+              "parentId": {
+                "type": "string"
+              },
+              "parentKey": {},
+              "pending": {
+                "type": "integer"
+              },
+              "periodEndsAt": {},
+              "prize": {
                 "properties": {
-                  "list": {
-                    "items": {
-                      "properties": {
-                        "iconUrl": {},
-                        "key": {},
-                        "name": {},
-                        "owned": {
-                          "type": "boolean"
-                        }
-                      },
-                      "type": "object"
-                    },
-                    "type": "array"
+                  "id": {
+                    "type": "string"
                   },
-                  "mode": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "message": {
+                    "type": "string"
+                  },
+                  "name": {
                     "type": "string"
                   }
                 },
                 "type": "object"
+              },
+              "progress": {
+                "type": "number"
+              },
+              "reason": {
+                "type": "string"
+              },
+              "repeat": {
+                "type": "string"
+              },
+              "repeatMinutes": {
+                "type": "integer"
+              },
+              "scope": {},
+              "state": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "tags": {},
+              "target": {
+                "type": "number"
+              },
+              "value": {
+                "type": "number"
+              },
+              "valueMax": {
+                "nullable": true,
+                "type": "number"
+              },
+              "valueMin": {
+                "nullable": true,
+                "type": "number"
               }
             },
             "type": "object"
@@ -7883,77 +10102,133 @@
           },
           "task": {
             "properties": {
-              "consumes": {},
-              "excludesTags": {
+              "categoryKey": {
+                "type": "string"
+              },
+              "children": {
+                "items": {},
+                "type": "array"
+              },
+              "claimId": {
+                "type": "string"
+              },
+              "claimable": {
                 "type": "boolean"
               },
-              "items": {
-                "properties": {
-                  "consume": {},
-                  "list": {
-                    "items": {
-                      "properties": {
-                        "iconUrl": {},
-                        "key": {},
-                        "name": {},
-                        "owned": {
-                          "type": "boolean"
-                        }
-                      },
-                      "type": "object"
-                    },
-                    "type": "array"
-                  },
-                  "mode": {
-                    "type": "string"
-                  }
-                },
-                "type": "object"
+              "claimedAt": {},
+              "completedAt": {},
+              "completions": {},
+              "condition": {
+                "type": "string"
               },
-              "metas": {
+              "dependsOn": {
                 "items": {
                   "properties": {
-                    "consume": {},
-                    "have": {
-                      "type": "number"
+                    "done": {
+                      "type": "integer"
                     },
-                    "key": {
-                      "type": "string"
-                    },
+                    "id": {},
+                    "key": {},
                     "name": {
                       "type": "string"
-                    },
-                    "operator": {},
-                    "value": {}
+                    }
                   },
                   "type": "object"
                 },
                 "type": "array"
               },
-              "minLevel": {},
-              "paths": {},
-              "refund": {},
-              "tags": {
+              "description": {},
+              "error": {
+                "type": "string"
+              },
+              "expiresAt": {},
+              "grantMode": {
+                "type": "string"
+              },
+              "groupId": {
+                "type": "string"
+              },
+              "groupKey": {
+                "type": "string"
+              },
+              "iconUrl": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "isActive": {
+                "type": "boolean"
+              },
+              "key": {
+                "type": "string"
+              },
+              "maxCompletions": {
+                "type": "integer"
+              },
+              "metric": {
+                "type": "string"
+              },
+              "name": {},
+              "nextAt": {},
+              "parentId": {
+                "type": "string"
+              },
+              "parentKey": {},
+              "pending": {
+                "type": "integer"
+              },
+              "periodEndsAt": {},
+              "prize": {
                 "properties": {
-                  "list": {
-                    "items": {
-                      "properties": {
-                        "iconUrl": {},
-                        "key": {},
-                        "name": {},
-                        "owned": {
-                          "type": "boolean"
-                        }
-                      },
-                      "type": "object"
-                    },
-                    "type": "array"
+                  "id": {
+                    "type": "string"
                   },
-                  "mode": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "message": {
+                    "type": "string"
+                  },
+                  "name": {
                     "type": "string"
                   }
                 },
                 "type": "object"
+              },
+              "progress": {
+                "type": "number"
+              },
+              "reason": {
+                "type": "string"
+              },
+              "repeat": {
+                "type": "string"
+              },
+              "repeatMinutes": {
+                "type": "integer"
+              },
+              "scope": {},
+              "state": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "tags": {},
+              "target": {
+                "type": "number"
+              },
+              "value": {
+                "type": "number"
+              },
+              "valueMax": {
+                "nullable": true,
+                "type": "number"
+              },
+              "valueMin": {
+                "nullable": true,
+                "type": "number"
               }
             },
             "type": "object"
@@ -8233,77 +10508,133 @@
                 "tasks": {
                   "items": {
                     "properties": {
-                      "consumes": {},
-                      "excludesTags": {
+                      "categoryKey": {
+                        "type": "string"
+                      },
+                      "children": {
+                        "items": {},
+                        "type": "array"
+                      },
+                      "claimId": {
+                        "type": "string"
+                      },
+                      "claimable": {
                         "type": "boolean"
                       },
-                      "items": {
-                        "properties": {
-                          "consume": {},
-                          "list": {
-                            "items": {
-                              "properties": {
-                                "iconUrl": {},
-                                "key": {},
-                                "name": {},
-                                "owned": {
-                                  "type": "boolean"
-                                }
-                              },
-                              "type": "object"
-                            },
-                            "type": "array"
-                          },
-                          "mode": {
-                            "type": "string"
-                          }
-                        },
-                        "type": "object"
+                      "claimedAt": {},
+                      "completedAt": {},
+                      "completions": {},
+                      "condition": {
+                        "type": "string"
                       },
-                      "metas": {
+                      "dependsOn": {
                         "items": {
                           "properties": {
-                            "consume": {},
-                            "have": {
-                              "type": "number"
+                            "done": {
+                              "type": "integer"
                             },
-                            "key": {
-                              "type": "string"
-                            },
+                            "id": {},
+                            "key": {},
                             "name": {
                               "type": "string"
-                            },
-                            "operator": {},
-                            "value": {}
+                            }
                           },
                           "type": "object"
                         },
                         "type": "array"
                       },
-                      "minLevel": {},
-                      "paths": {},
-                      "refund": {},
-                      "tags": {
+                      "description": {},
+                      "error": {
+                        "type": "string"
+                      },
+                      "expiresAt": {},
+                      "grantMode": {
+                        "type": "string"
+                      },
+                      "groupId": {
+                        "type": "string"
+                      },
+                      "groupKey": {
+                        "type": "string"
+                      },
+                      "iconUrl": {
+                        "type": "string"
+                      },
+                      "id": {
+                        "type": "string"
+                      },
+                      "isActive": {
+                        "type": "boolean"
+                      },
+                      "key": {
+                        "type": "string"
+                      },
+                      "maxCompletions": {
+                        "type": "integer"
+                      },
+                      "metric": {
+                        "type": "string"
+                      },
+                      "name": {},
+                      "nextAt": {},
+                      "parentId": {
+                        "type": "string"
+                      },
+                      "parentKey": {},
+                      "pending": {
+                        "type": "integer"
+                      },
+                      "periodEndsAt": {},
+                      "prize": {
                         "properties": {
-                          "list": {
-                            "items": {
-                              "properties": {
-                                "iconUrl": {},
-                                "key": {},
-                                "name": {},
-                                "owned": {
-                                  "type": "boolean"
-                                }
-                              },
-                              "type": "object"
-                            },
-                            "type": "array"
+                          "id": {
+                            "type": "string"
                           },
-                          "mode": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "message": {
+                            "type": "string"
+                          },
+                          "name": {
                             "type": "string"
                           }
                         },
                         "type": "object"
+                      },
+                      "progress": {
+                        "type": "number"
+                      },
+                      "reason": {
+                        "type": "string"
+                      },
+                      "repeat": {
+                        "type": "string"
+                      },
+                      "repeatMinutes": {
+                        "type": "integer"
+                      },
+                      "scope": {},
+                      "state": {
+                        "type": "string"
+                      },
+                      "status": {
+                        "type": "string"
+                      },
+                      "tags": {},
+                      "target": {
+                        "type": "number"
+                      },
+                      "value": {
+                        "type": "number"
+                      },
+                      "valueMax": {
+                        "nullable": true,
+                        "type": "number"
+                      },
+                      "valueMin": {
+                        "nullable": true,
+                        "type": "number"
                       }
                     },
                     "type": "object"
@@ -8321,77 +10652,133 @@
           "items": {
             "items": {
               "properties": {
-                "consumes": {},
-                "excludesTags": {
+                "categoryKey": {
+                  "type": "string"
+                },
+                "children": {
+                  "items": {},
+                  "type": "array"
+                },
+                "claimId": {
+                  "type": "string"
+                },
+                "claimable": {
                   "type": "boolean"
                 },
-                "items": {
-                  "properties": {
-                    "consume": {},
-                    "list": {
-                      "items": {
-                        "properties": {
-                          "iconUrl": {},
-                          "key": {},
-                          "name": {},
-                          "owned": {
-                            "type": "boolean"
-                          }
-                        },
-                        "type": "object"
-                      },
-                      "type": "array"
-                    },
-                    "mode": {
-                      "type": "string"
-                    }
-                  },
-                  "type": "object"
+                "claimedAt": {},
+                "completedAt": {},
+                "completions": {},
+                "condition": {
+                  "type": "string"
                 },
-                "metas": {
+                "dependsOn": {
                   "items": {
                     "properties": {
-                      "consume": {},
-                      "have": {
-                        "type": "number"
+                      "done": {
+                        "type": "integer"
                       },
-                      "key": {
-                        "type": "string"
-                      },
+                      "id": {},
+                      "key": {},
                       "name": {
                         "type": "string"
-                      },
-                      "operator": {},
-                      "value": {}
+                      }
                     },
                     "type": "object"
                   },
                   "type": "array"
                 },
-                "minLevel": {},
-                "paths": {},
-                "refund": {},
-                "tags": {
+                "description": {},
+                "error": {
+                  "type": "string"
+                },
+                "expiresAt": {},
+                "grantMode": {
+                  "type": "string"
+                },
+                "groupId": {
+                  "type": "string"
+                },
+                "groupKey": {
+                  "type": "string"
+                },
+                "iconUrl": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "isActive": {
+                  "type": "boolean"
+                },
+                "key": {
+                  "type": "string"
+                },
+                "maxCompletions": {
+                  "type": "integer"
+                },
+                "metric": {
+                  "type": "string"
+                },
+                "name": {},
+                "nextAt": {},
+                "parentId": {
+                  "type": "string"
+                },
+                "parentKey": {},
+                "pending": {
+                  "type": "integer"
+                },
+                "periodEndsAt": {},
+                "prize": {
                   "properties": {
-                    "list": {
-                      "items": {
-                        "properties": {
-                          "iconUrl": {},
-                          "key": {},
-                          "name": {},
-                          "owned": {
-                            "type": "boolean"
-                          }
-                        },
-                        "type": "object"
-                      },
-                      "type": "array"
+                    "id": {
+                      "type": "string"
                     },
-                    "mode": {
+                    "key": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "name": {
                       "type": "string"
                     }
                   },
                   "type": "object"
+                },
+                "progress": {
+                  "type": "number"
+                },
+                "reason": {
+                  "type": "string"
+                },
+                "repeat": {
+                  "type": "string"
+                },
+                "repeatMinutes": {
+                  "type": "integer"
+                },
+                "scope": {},
+                "state": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "tags": {},
+                "target": {
+                  "type": "number"
+                },
+                "value": {
+                  "type": "number"
+                },
+                "valueMax": {
+                  "nullable": true,
+                  "type": "number"
+                },
+                "valueMin": {
+                  "nullable": true,
+                  "type": "number"
                 }
               },
               "type": "object"
@@ -8591,6 +10978,477 @@
       "errors": [
         "ANALYTICS_INVALID_SESSION",
         "ANALYTICS_RATE_LIMITED"
+      ]
+    },
+    {
+      "id": "inventoryx_items",
+      "module": "inventoryx",
+      "handler": "rpcItems",
+      "source": "integrations/inventoryx/module.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "keys": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "lang": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "items": {
+            "items": {
+              "properties": {
+                "attributes": {
+                  "properties": {},
+                  "type": "object"
+                },
+                "canUnlockEarly": {
+                  "type": "boolean"
+                },
+                "key": {},
+                "owned": {
+                  "type": "boolean"
+                },
+                "tracks": {
+                  "items": {
+                    "properties": {
+                      "base": {
+                        "type": "number"
+                      },
+                      "canUpgrade": {
+                        "type": "boolean"
+                      },
+                      "currencyKey": {
+                        "type": "string"
+                      },
+                      "key": {
+                        "type": "string"
+                      },
+                      "level": {},
+                      "maxLevel": {
+                        "type": "integer"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "nextMinPlayerLevel": {
+                        "type": "integer"
+                      },
+                      "nextPrice": {
+                        "properties": {
+                          "amount": {
+                            "type": "integer"
+                          },
+                          "currencyKey": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "nextRequires": {
+                        "items": {
+                          "properties": {
+                            "level": {},
+                            "met": {
+                              "type": "boolean"
+                            },
+                            "track": {}
+                          },
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "nextValue": {
+                        "type": "number"
+                      },
+                      "unit": {
+                        "type": "string"
+                      },
+                      "value": {}
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "unlockLevel": {},
+                "unlockPrices": {},
+                "unlocked": {
+                  "type": "boolean"
+                },
+                "unlockedEarly": {
+                  "type": "boolean"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "level": {}
+        },
+        "type": "object"
+      },
+      "errors": [
+        "TOO_MANY_KEYS"
+      ]
+    },
+    {
+      "id": "inventoryx_unlock",
+      "module": "inventoryx",
+      "handler": "rpcUnlock",
+      "source": "integrations/inventoryx/module.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "currencyKey": {
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "requestId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "action": {
+            "type": "string"
+          },
+          "item": {
+            "properties": {
+              "attributes": {
+                "properties": {},
+                "type": "object"
+              },
+              "canUnlockEarly": {
+                "type": "boolean"
+              },
+              "key": {
+                "type": "string"
+              },
+              "owned": {
+                "type": "boolean"
+              },
+              "tracks": {
+                "items": {
+                  "properties": {
+                    "base": {
+                      "type": "number"
+                    },
+                    "canUpgrade": {
+                      "type": "boolean"
+                    },
+                    "currencyKey": {
+                      "type": "string"
+                    },
+                    "key": {
+                      "type": "string"
+                    },
+                    "level": {},
+                    "maxLevel": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "nextMinPlayerLevel": {
+                      "type": "integer"
+                    },
+                    "nextPrice": {
+                      "properties": {
+                        "amount": {
+                          "type": "integer"
+                        },
+                        "currencyKey": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "nextRequires": {
+                      "items": {
+                        "properties": {
+                          "level": {},
+                          "met": {
+                            "type": "boolean"
+                          },
+                          "track": {}
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "nextValue": {},
+                    "unit": {
+                      "type": "string"
+                    },
+                    "value": {}
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "unlockPrices": {
+                "items": {
+                  "properties": {
+                    "amount": {
+                      "type": "integer"
+                    },
+                    "currencyKey": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "unlocked": {
+                "type": "boolean"
+              },
+              "unlockedEarly": {
+                "type": "boolean"
+              }
+            },
+            "type": "object"
+          },
+          "itemKey": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "owned": {
+            "type": "boolean"
+          },
+          "paid": {
+            "items": {
+              "properties": {
+                "amount": {
+                  "type": "integer"
+                },
+                "currencyKey": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "replayed": {
+            "type": "boolean"
+          },
+          "unlocked": {
+            "type": "boolean"
+          },
+          "wallet": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "ALREADY_OWNED",
+        "ALREADY_UNLOCKED",
+        "REQUIRES_ITEM",
+        "UNLOCK_NOT_AVAILABLE"
+      ]
+    },
+    {
+      "id": "inventoryx_upgrade",
+      "module": "inventoryx",
+      "handler": "rpcUpgrade",
+      "source": "integrations/inventoryx/module.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "fromLevel": {
+            "nullable": true,
+            "type": "integer"
+          },
+          "key": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "requestId": {
+            "type": "string"
+          },
+          "track": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "action": {
+            "type": "string"
+          },
+          "item": {
+            "properties": {
+              "attributes": {
+                "properties": {},
+                "type": "object"
+              },
+              "canUnlockEarly": {
+                "type": "boolean"
+              },
+              "key": {
+                "type": "string"
+              },
+              "owned": {
+                "type": "boolean"
+              },
+              "tracks": {
+                "items": {
+                  "properties": {
+                    "base": {
+                      "type": "number"
+                    },
+                    "canUpgrade": {
+                      "type": "boolean"
+                    },
+                    "currencyKey": {
+                      "type": "string"
+                    },
+                    "key": {
+                      "type": "string"
+                    },
+                    "level": {},
+                    "maxLevel": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "nextMinPlayerLevel": {
+                      "type": "integer"
+                    },
+                    "nextPrice": {
+                      "properties": {
+                        "amount": {
+                          "type": "integer"
+                        },
+                        "currencyKey": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "nextRequires": {
+                      "items": {
+                        "properties": {
+                          "level": {},
+                          "met": {
+                            "type": "boolean"
+                          },
+                          "track": {}
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "nextValue": {},
+                    "unit": {
+                      "type": "string"
+                    },
+                    "value": {}
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "unlockPrices": {
+                "items": {
+                  "properties": {
+                    "amount": {
+                      "type": "integer"
+                    },
+                    "currencyKey": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "unlocked": {
+                "type": "boolean"
+              },
+              "unlockedEarly": {
+                "type": "boolean"
+              }
+            },
+            "type": "object"
+          },
+          "itemKey": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "owned": {
+            "type": "boolean"
+          },
+          "paid": {
+            "items": {
+              "properties": {
+                "amount": {
+                  "type": "integer"
+                },
+                "currencyKey": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "replayed": {
+            "type": "boolean"
+          },
+          "unlocked": {
+            "type": "boolean"
+          },
+          "wallet": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "FROM_LEVEL_REQUIRED",
+        "LEVEL_TOO_LOW",
+        "NOT_OWNED",
+        "TRACK_NOT_FOUND",
+        "TRACK_REQUIREMENT",
+        "UPGRADE_CHANGED",
+        "UPGRADE_MAXED"
       ]
     },
     {
@@ -9136,6 +11994,210 @@
         "LEADERBOARD_KEY_REQUIRED",
         "LEADERBOARD_NOT_FOUND",
         "LEADERBOARD_PERIOD_NOT_FOUND"
+      ]
+    },
+    {
+      "id": "ledger_kinds",
+      "module": "ledger",
+      "handler": "rpcKinds",
+      "source": "integrations/ledger/module.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "lang": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "historyDays": {},
+          "kinds": {
+            "items": {
+              "properties": {
+                "key": {},
+                "name": {}
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "maxLimit": {}
+        },
+        "type": "object"
+      },
+      "errors": []
+    },
+    {
+      "id": "ledger_list",
+      "module": "ledger",
+      "handler": "rpcList",
+      "source": "integrations/ledger/module.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "currency": {
+            "type": "string"
+          },
+          "cursor": {
+            "type": "string"
+          },
+          "direction": {
+            "type": "string"
+          },
+          "from": {
+            "type": "string"
+          },
+          "itemKey": {
+            "type": "string"
+          },
+          "kinds": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "integer"
+          },
+          "to": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "cursor": {
+            "type": "string"
+          },
+          "items": {
+            "items": {
+              "properties": {
+                "amount": {},
+                "at": {
+                  "type": "string"
+                },
+                "change": {},
+                "currency": {},
+                "currencyName": {
+                  "type": "string"
+                },
+                "id": {},
+                "itemKey": {},
+                "itemName": {
+                  "type": "string"
+                },
+                "kind": {},
+                "kindName": {},
+                "level": {},
+                "reason": {},
+                "refId": {},
+                "source": {},
+                "sourceId": {},
+                "sourceType": {},
+                "title": {}
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "lang": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": []
+    },
+    {
+      "id": "pp_local_state",
+      "module": "pp",
+      "handler": "rpcLocalState",
+      "source": "integrations/pp/localstate.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "balances": {
+            "items": {
+              "properties": {
+                "amount": {
+                  "type": "number"
+                },
+                "currency": {
+                  "type": "string"
+                },
+                "currencyId": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "ownedKeys": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "_mismatch": {
+            "properties": {
+              "balances": {
+                "items": {
+                  "properties": {
+                    "currency": {
+                      "type": "string"
+                    },
+                    "local": {
+                      "type": "number"
+                    },
+                    "server": {
+                      "type": "number"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "items": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            },
+            "type": "object"
+          },
+          "adopted": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "type": "object"
+          },
+          "received": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "FAIR_PLAY_INVALID"
       ]
     },
     {
@@ -10942,38 +14004,108 @@
       },
       "response": {
         "properties": {
-          "Answered": {
-            "format": "date-time",
-            "nullable": true,
+          "answered": {},
+          "correct": {
+            "type": "boolean"
+          },
+          "correctCount": {},
+          "next": {
+            "properties": {
+              "acceptedAnswers": {
+                "additionalProperties": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "type": "object"
+              },
+              "answered": {
+                "properties": {
+                  "optionIds": {
+                    "items": {
+                      "type": "integer"
+                    },
+                    "type": "array"
+                  },
+                  "outcome": {
+                    "type": "string"
+                  },
+                  "text": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "deadlineAt": {
+                "type": "string"
+              },
+              "difficulty": {
+                "type": "integer"
+              },
+              "hints": {
+                "items": {
+                  "properties": {
+                    "id": {},
+                    "name": {
+                      "type": "string"
+                    },
+                    "owned": {
+                      "type": "boolean"
+                    },
+                    "price": {}
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "id": {
+                "type": "string"
+              },
+              "index": {
+                "type": "integer"
+              },
+              "mediaUrl": {
+                "type": "string"
+              },
+              "options": {
+                "items": {
+                  "properties": {
+                    "correct": {
+                      "type": "boolean"
+                    },
+                    "id": {},
+                    "mediaUrl": {},
+                    "text": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "text": {
+                "type": "string"
+              },
+              "timeSeconds": {},
+              "type": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "outcome": {
             "type": "string"
           },
-          "Idx": {
+          "questionId": {},
+          "replayed": {
+            "type": "boolean"
+          },
+          "result": {},
+          "sessionId": {},
+          "total": {
             "type": "integer"
-          },
-          "Option": {
-            "nullable": true,
-            "type": "integer"
-          },
-          "Outcome": {
-            "type": "string"
-          },
-          "QuestionID": {
-            "type": "string"
-          },
-          "Round": {
-            "type": "integer"
-          },
-          "Seconds": {
-            "type": "number"
-          },
-          "Served": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "UserID": {
-            "type": "string"
-          },
-          "result": {}
+          }
         },
         "type": "object"
       },
@@ -11067,7 +14199,24 @@
       "errorFormat": "envelope",
       "codeModeFormat": "code",
       "request": {
-        "properties": {},
+        "properties": {
+          "categoryKey": {
+            "type": "string"
+          },
+          "duelId": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "optionId": {
+            "nullable": true,
+            "type": "integer"
+          },
+          "questionId": {
+            "type": "string"
+          }
+        },
         "type": "object"
       },
       "response": {
@@ -11222,7 +14371,24 @@
       "errorFormat": "envelope",
       "codeModeFormat": "code",
       "request": {
-        "properties": {},
+        "properties": {
+          "categoryKey": {
+            "type": "string"
+          },
+          "duelId": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "optionId": {
+            "nullable": true,
+            "type": "integer"
+          },
+          "questionId": {
+            "type": "string"
+          }
+        },
         "type": "object"
       },
       "response": {
@@ -11558,7 +14724,24 @@
       "errorFormat": "envelope",
       "codeModeFormat": "code",
       "request": {
-        "properties": {},
+        "properties": {
+          "categoryKey": {
+            "type": "string"
+          },
+          "duelId": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "optionId": {
+            "nullable": true,
+            "type": "integer"
+          },
+          "questionId": {
+            "type": "string"
+          }
+        },
         "type": "object"
       },
       "response": {
@@ -11710,7 +14893,24 @@
       "errorFormat": "envelope",
       "codeModeFormat": "code",
       "request": {
-        "properties": {},
+        "properties": {
+          "categoryKey": {
+            "type": "string"
+          },
+          "duelId": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "optionId": {
+            "nullable": true,
+            "type": "integer"
+          },
+          "questionId": {
+            "type": "string"
+          }
+        },
         "type": "object"
       },
       "response": {
@@ -11862,7 +15062,24 @@
       "errorFormat": "envelope",
       "codeModeFormat": "code",
       "request": {
-        "properties": {},
+        "properties": {
+          "categoryKey": {
+            "type": "string"
+          },
+          "duelId": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "optionId": {
+            "nullable": true,
+            "type": "integer"
+          },
+          "questionId": {
+            "type": "string"
+          }
+        },
         "type": "object"
       },
       "response": {
@@ -12194,7 +15411,24 @@
       "errorFormat": "envelope",
       "codeModeFormat": "code",
       "request": {
-        "properties": {},
+        "properties": {
+          "categoryKey": {
+            "type": "string"
+          },
+          "duelId": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "optionId": {
+            "nullable": true,
+            "type": "integer"
+          },
+          "questionId": {
+            "type": "string"
+          }
+        },
         "type": "object"
       },
       "response": {
@@ -12349,7 +15583,24 @@
       "errorFormat": "envelope",
       "codeModeFormat": "code",
       "request": {
-        "properties": {},
+        "properties": {
+          "categoryKey": {
+            "type": "string"
+          },
+          "duelId": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "optionId": {
+            "nullable": true,
+            "type": "integer"
+          },
+          "questionId": {
+            "type": "string"
+          }
+        },
         "type": "object"
       },
       "response": {
@@ -12827,35 +16078,20 @@
       },
       "response": {
         "properties": {
-          "Answered": {
-            "format": "date-time",
-            "nullable": true,
+          "hintId": {},
+          "mediaUrl": {},
+          "name": {
             "type": "string"
           },
-          "Idx": {
-            "type": "integer"
+          "owned": {
+            "type": "boolean"
           },
-          "Option": {
-            "nullable": true,
-            "type": "integer"
+          "price": {},
+          "questionId": {},
+          "replayed": {
+            "type": "boolean"
           },
-          "Outcome": {
-            "type": "string"
-          },
-          "QuestionID": {
-            "type": "string"
-          },
-          "Round": {
-            "type": "integer"
-          },
-          "Seconds": {
-            "type": "number"
-          },
-          "Served": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "UserID": {
+          "text": {
             "type": "string"
           }
         },
@@ -14008,6 +17244,1739 @@
       "errors": [
         "QUIZ_PACK_NOT_FOUND"
       ]
+    },
+    {
+      "id": "shopx_purchase_check",
+      "module": "shopx",
+      "handler": "rpcPurchaseCheck",
+      "source": "integrations/shopx/purchase.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "lang": {
+            "type": "string"
+          },
+          "method": {
+            "type": "string"
+          },
+          "productId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "allowed": {
+            "type": "boolean"
+          },
+          "code": {
+            "type": "string"
+          },
+          "method": {
+            "type": "string"
+          },
+          "phoneRequired": {
+            "type": "boolean"
+          },
+          "phoneVerified": {
+            "type": "boolean"
+          },
+          "productId": {
+            "type": "string"
+          },
+          "productKey": {
+            "type": "string"
+          },
+          "sandbox": {},
+          "verifyRpc": {}
+        },
+        "type": "object"
+      },
+      "errors": [
+        "METHOD_NOT_ALLOWED",
+        "METHOD_UNAVAILABLE",
+        "PRODUCT_NOT_FOUND"
+      ]
+    },
+    {
+      "id": "shopx_purchase_rules",
+      "module": "shopx",
+      "handler": "rpcPurchaseRules",
+      "source": "integrations/shopx/purchase.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "lang": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "methods": {
+            "items": {
+              "properties": {
+                "blocked": {
+                  "type": "boolean"
+                },
+                "method": {},
+                "phoneRequired": {
+                  "type": "boolean"
+                },
+                "sandbox": {}
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "phoneVerified": {
+            "type": "boolean"
+          },
+          "verifyRpc": {}
+        },
+        "type": "object"
+      },
+      "errors": []
+    },
+    {
+      "id": "social_avatar",
+      "module": "social",
+      "handler": "rpcAvatar",
+      "source": "integrations/social/profile.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "lang": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "avatar": {},
+          "avatarSlot": {},
+          "avatarUrl": {},
+          "avatars": {
+            "items": {
+              "properties": {
+                "equipped": {
+                  "type": "boolean"
+                },
+                "forSale": {
+                  "type": "boolean"
+                },
+                "iconUrl": {},
+                "imageUrl": {},
+                "key": {},
+                "name": {},
+                "owned": {
+                  "type": "boolean"
+                },
+                "rarity": {},
+                "unlockLevel": {},
+                "url": {}
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "equipRpc": {
+            "type": "string"
+          },
+          "frame": {},
+          "frameSlot": {},
+          "frames": {
+            "items": {
+              "properties": {
+                "equipped": {
+                  "type": "boolean"
+                },
+                "forSale": {
+                  "type": "boolean"
+                },
+                "iconUrl": {},
+                "imageUrl": {},
+                "key": {},
+                "name": {},
+                "owned": {
+                  "type": "boolean"
+                },
+                "rarity": {},
+                "unlockLevel": {},
+                "url": {}
+              },
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "SOCIAL_USER_NOT_FOUND"
+      ]
+    },
+    {
+      "id": "social_comment_delete",
+      "module": "social",
+      "handler": "rpcCommentDelete",
+      "source": "integrations/social/comments.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "body": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "integer"
+          },
+          "metadata": {},
+          "note": {
+            "type": "string"
+          },
+          "page": {
+            "type": "integer"
+          },
+          "parentId": {
+            "type": "string"
+          },
+          "sort": {
+            "type": "string"
+          },
+          "targetId": {
+            "type": "string"
+          },
+          "targetType": {
+            "type": "string"
+          },
+          "titleId": {
+            "type": "string"
+          },
+          "titleKey": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "deleted": {
+            "type": "boolean"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "SOCIAL_COMMENT_NOT_FOUND",
+        "SOCIAL_DELETE_CLOSED"
+      ]
+    },
+    {
+      "id": "social_comment_edit",
+      "module": "social",
+      "handler": "rpcCommentEdit",
+      "source": "integrations/social/comments.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "body": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "integer"
+          },
+          "metadata": {},
+          "note": {
+            "type": "string"
+          },
+          "page": {
+            "type": "integer"
+          },
+          "parentId": {
+            "type": "string"
+          },
+          "sort": {
+            "type": "string"
+          },
+          "targetId": {
+            "type": "string"
+          },
+          "targetType": {
+            "type": "string"
+          },
+          "titleId": {
+            "type": "string"
+          },
+          "titleKey": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "comment": {
+            "type": "object"
+          },
+          "masked": {
+            "type": "boolean"
+          },
+          "pending": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "SOCIAL_COMMENT_BLOCKED",
+        "SOCIAL_COMMENT_MUTED",
+        "SOCIAL_COMMENT_NOT_FOUND",
+        "SOCIAL_COMMENT_TOO_LONG",
+        "SOCIAL_COMMENT_TOO_SHORT",
+        "SOCIAL_DISABLED",
+        "SOCIAL_EDIT_CLOSED"
+      ]
+    },
+    {
+      "id": "social_comment_post",
+      "module": "social",
+      "handler": "rpcCommentPost",
+      "source": "integrations/social/comments.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "body": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "integer"
+          },
+          "metadata": {},
+          "note": {
+            "type": "string"
+          },
+          "page": {
+            "type": "integer"
+          },
+          "parentId": {
+            "type": "string"
+          },
+          "sort": {
+            "type": "string"
+          },
+          "targetId": {
+            "type": "string"
+          },
+          "targetType": {
+            "type": "string"
+          },
+          "titleId": {
+            "type": "string"
+          },
+          "titleKey": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "comment": {
+            "type": "object"
+          },
+          "masked": {
+            "type": "boolean"
+          },
+          "pending": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "SOCIAL_ACTION_NOT_ALLOWED",
+        "SOCIAL_COMMENT_BLOCKED",
+        "SOCIAL_COMMENT_MUTED",
+        "SOCIAL_COMMENT_NOT_FOUND",
+        "SOCIAL_COMMENT_TOO_DEEP",
+        "SOCIAL_COMMENT_TOO_LONG",
+        "SOCIAL_COMMENT_TOO_SHORT",
+        "SOCIAL_DISABLED",
+        "SOCIAL_INVALID_TARGET",
+        "SOCIAL_RATE_LIMITED",
+        "SOCIAL_REPLIES_OFF",
+        "SOCIAL_TARGET_NOT_FOUND",
+        "SOCIAL_TARGET_REQUIRED",
+        "SOCIAL_TARGET_TYPE_NOT_FOUND"
+      ]
+    },
+    {
+      "id": "social_comment_report",
+      "module": "social",
+      "handler": "rpcCommentReport",
+      "source": "integrations/social/comments.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "body": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "integer"
+          },
+          "metadata": {},
+          "note": {
+            "type": "string"
+          },
+          "page": {
+            "type": "integer"
+          },
+          "parentId": {
+            "type": "string"
+          },
+          "sort": {
+            "type": "string"
+          },
+          "targetId": {
+            "type": "string"
+          },
+          "targetType": {
+            "type": "string"
+          },
+          "titleId": {
+            "type": "string"
+          },
+          "titleKey": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "hidden": {
+            "type": "boolean"
+          },
+          "id": {
+            "type": "string"
+          },
+          "reported": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "SOCIAL_ALREADY_REPORTED",
+        "SOCIAL_COMMENT_NOT_FOUND",
+        "SOCIAL_NOTE_TOO_LONG",
+        "SOCIAL_RATE_LIMITED",
+        "SOCIAL_REPORT_OWN",
+        "SOCIAL_REPORT_TITLE_NOT_FOUND",
+        "SOCIAL_REPORT_TITLE_REQUIRED"
+      ]
+    },
+    {
+      "id": "social_comments",
+      "module": "social",
+      "handler": "rpcComments",
+      "source": "integrations/social/comments.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "body": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "integer"
+          },
+          "metadata": {},
+          "note": {
+            "type": "string"
+          },
+          "page": {
+            "type": "integer"
+          },
+          "parentId": {
+            "type": "string"
+          },
+          "sort": {
+            "type": "string"
+          },
+          "targetId": {
+            "type": "string"
+          },
+          "targetType": {
+            "type": "string"
+          },
+          "titleId": {
+            "type": "string"
+          },
+          "titleKey": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "items": {
+            "items": {
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "limit": {
+            "type": "integer"
+          },
+          "page": {
+            "type": "integer"
+          },
+          "parentId": {
+            "type": "string"
+          },
+          "sort": {
+            "type": "string"
+          },
+          "targetId": {
+            "type": "string"
+          },
+          "targetType": {},
+          "total": {
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "SOCIAL_ACTION_NOT_ALLOWED",
+        "SOCIAL_COMMENT_NOT_FOUND",
+        "SOCIAL_DISABLED",
+        "SOCIAL_INVALID_SORT",
+        "SOCIAL_INVALID_TARGET",
+        "SOCIAL_TARGET_NOT_FOUND",
+        "SOCIAL_TARGET_REQUIRED",
+        "SOCIAL_TARGET_TYPE_NOT_FOUND"
+      ]
+    },
+    {
+      "id": "social_config",
+      "module": "social",
+      "handler": "rpcConfig",
+      "source": "integrations/social/actions.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "lang": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "comment": {
+            "properties": {
+              "deleteMinutes": {},
+              "editMinutes": {},
+              "enabled": {},
+              "maxDepth": {},
+              "maxLength": {},
+              "minLength": {},
+              "pageSize": {}
+            },
+            "type": "object"
+          },
+          "follow": {
+            "properties": {
+              "canChangePrivacy": {},
+              "enabled": {},
+              "maxFollowing": {}
+            },
+            "type": "object"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "limits": {
+            "additionalProperties": {},
+            "type": "object"
+          },
+          "notificationCode": {},
+          "reactions": {
+            "items": {
+              "properties": {
+                "emoji": {},
+                "iconUrl": {},
+                "key": {},
+                "name": {
+                  "type": "string"
+                },
+                "targetTypes": {}
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "targetTypes": {
+            "items": {
+              "properties": {
+                "comment": {
+                  "type": "boolean"
+                },
+                "favorite": {
+                  "type": "boolean"
+                },
+                "key": {},
+                "moderation": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "ownerKind": {},
+                "rating": {
+                  "type": "boolean"
+                },
+                "ratingMax": {
+                  "type": "integer"
+                },
+                "reaction": {
+                  "type": "boolean"
+                },
+                "reactionMode": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "errors": []
+    },
+    {
+      "id": "social_favorite",
+      "module": "social",
+      "handler": "rpcFavorite",
+      "source": "integrations/social/actions.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "kind": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "integer"
+          },
+          "metadata": {},
+          "on": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "page": {
+            "type": "integer"
+          },
+          "targetId": {
+            "type": "string"
+          },
+          "targetIds": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "targetType": {
+            "type": "string"
+          },
+          "value": {
+            "nullable": true,
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "active": {
+            "type": "boolean"
+          },
+          "favorites": {
+            "type": "integer"
+          },
+          "targetId": {
+            "type": "string"
+          },
+          "targetType": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "SOCIAL_ACTION_NOT_ALLOWED",
+        "SOCIAL_DISABLED",
+        "SOCIAL_FAVORITE_LIMIT",
+        "SOCIAL_INVALID_TARGET",
+        "SOCIAL_RATE_LIMITED",
+        "SOCIAL_TARGET_NOT_FOUND",
+        "SOCIAL_TARGET_REQUIRED",
+        "SOCIAL_TARGET_TYPE_NOT_FOUND"
+      ]
+    },
+    {
+      "id": "social_follow",
+      "module": "social",
+      "handler": "rpcFollow",
+      "source": "integrations/social/follow.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "accept": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "integer"
+          },
+          "page": {
+            "type": "integer"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "followers": {},
+          "following": {},
+          "relation": {
+            "properties": {
+              "blocked": {
+                "type": "boolean"
+              },
+              "followedBy": {
+                "type": "boolean"
+              },
+              "following": {
+                "type": "boolean"
+              },
+              "requested": {
+                "type": "boolean"
+              }
+            },
+            "type": "object"
+          },
+          "status": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "SOCIAL_DISABLED",
+        "SOCIAL_FOLLOW_CLOSED",
+        "SOCIAL_FOLLOW_LIMIT",
+        "SOCIAL_FOLLOW_SELF",
+        "SOCIAL_RATE_LIMITED"
+      ]
+    },
+    {
+      "id": "social_follow_requests",
+      "module": "social",
+      "handler": "rpcFollowRequests",
+      "source": "integrations/social/follow.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "accept": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "integer"
+          },
+          "page": {
+            "type": "integer"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "items": {
+            "items": {
+              "properties": {
+                "followPolicy": {
+                  "type": "string"
+                },
+                "hideFollowers": {
+                  "type": "boolean"
+                },
+                "hideFollowing": {
+                  "type": "boolean"
+                },
+                "ownHideFollowers": {
+                  "nullable": true,
+                  "type": "boolean"
+                },
+                "ownHideFollowing": {
+                  "nullable": true,
+                  "type": "boolean"
+                },
+                "ownPolicy": {
+                  "type": "string"
+                },
+                "since": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "limit": {
+            "type": "integer"
+          },
+          "page": {
+            "type": "integer"
+          },
+          "total": {
+            "type": "integer"
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "SOCIAL_LIST_HIDDEN"
+      ]
+    },
+    {
+      "id": "social_follow_respond",
+      "module": "social",
+      "handler": "rpcFollowRespond",
+      "source": "integrations/social/follow.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "accept": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "integer"
+          },
+          "page": {
+            "type": "integer"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "accepted": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "counts": {
+            "properties": {
+              "followers": {
+                "type": "integer"
+              },
+              "following": {
+                "type": "integer"
+              },
+              "requests": {
+                "type": "integer"
+              }
+            },
+            "type": "object"
+          },
+          "userId": {}
+        },
+        "type": "object"
+      },
+      "errors": [
+        "SOCIAL_ACCEPT_REQUIRED",
+        "SOCIAL_REQUEST_NOT_FOUND"
+      ]
+    },
+    {
+      "id": "social_follower_remove",
+      "module": "social",
+      "handler": "rpcFollowerRemove",
+      "source": "integrations/social/follow.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "accept": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "integer"
+          },
+          "page": {
+            "type": "integer"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "counts": {
+            "properties": {
+              "followers": {
+                "type": "integer"
+              },
+              "following": {
+                "type": "integer"
+              },
+              "requests": {
+                "type": "integer"
+              }
+            },
+            "type": "object"
+          },
+          "removed": {
+            "type": "boolean"
+          },
+          "userId": {}
+        },
+        "type": "object"
+      },
+      "errors": []
+    },
+    {
+      "id": "social_followers",
+      "module": "social",
+      "handler": "rpcFollowers",
+      "source": "integrations/social/follow.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "accept": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "integer"
+          },
+          "page": {
+            "type": "integer"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "items": {
+            "items": {
+              "properties": {
+                "followPolicy": {
+                  "type": "string"
+                },
+                "hideFollowers": {
+                  "type": "boolean"
+                },
+                "hideFollowing": {
+                  "type": "boolean"
+                },
+                "ownHideFollowers": {
+                  "nullable": true,
+                  "type": "boolean"
+                },
+                "ownHideFollowing": {
+                  "nullable": true,
+                  "type": "boolean"
+                },
+                "ownPolicy": {
+                  "type": "string"
+                },
+                "since": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "limit": {
+            "type": "integer"
+          },
+          "page": {
+            "type": "integer"
+          },
+          "total": {
+            "type": "integer"
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "SOCIAL_LIST_HIDDEN"
+      ]
+    },
+    {
+      "id": "social_following",
+      "module": "social",
+      "handler": "rpcFollowing",
+      "source": "integrations/social/follow.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "accept": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "integer"
+          },
+          "page": {
+            "type": "integer"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "items": {
+            "items": {
+              "properties": {
+                "followPolicy": {
+                  "type": "string"
+                },
+                "hideFollowers": {
+                  "type": "boolean"
+                },
+                "hideFollowing": {
+                  "type": "boolean"
+                },
+                "ownHideFollowers": {
+                  "nullable": true,
+                  "type": "boolean"
+                },
+                "ownHideFollowing": {
+                  "nullable": true,
+                  "type": "boolean"
+                },
+                "ownPolicy": {
+                  "type": "string"
+                },
+                "since": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "limit": {
+            "type": "integer"
+          },
+          "page": {
+            "type": "integer"
+          },
+          "total": {
+            "type": "integer"
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "SOCIAL_LIST_HIDDEN"
+      ]
+    },
+    {
+      "id": "social_mine",
+      "module": "social",
+      "handler": "rpcMine",
+      "source": "integrations/social/actions.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "kind": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "integer"
+          },
+          "metadata": {},
+          "on": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "page": {
+            "type": "integer"
+          },
+          "targetId": {
+            "type": "string"
+          },
+          "targetIds": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "targetType": {
+            "type": "string"
+          },
+          "value": {
+            "nullable": true,
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "items": {
+            "items": {
+              "properties": {
+                "at": {},
+                "metadata": {},
+                "reaction": {
+                  "type": "string"
+                },
+                "targetId": {
+                  "type": "string"
+                },
+                "targetType": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "integer"
+          },
+          "page": {
+            "type": "integer"
+          },
+          "total": {
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "SOCIAL_INVALID_KIND"
+      ]
+    },
+    {
+      "id": "social_privacy_get",
+      "module": "social",
+      "handler": "rpcPrivacyGet",
+      "source": "integrations/social/follow.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {},
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "canChange": {},
+          "defaults": {
+            "properties": {
+              "followPolicy": {},
+              "hideFollowers": {},
+              "hideFollowing": {}
+            },
+            "type": "object"
+          },
+          "privacy": {
+            "properties": {
+              "followPolicy": {
+                "type": "string"
+              },
+              "hideFollowers": {
+                "type": "boolean"
+              },
+              "hideFollowing": {
+                "type": "boolean"
+              },
+              "ownHideFollowers": {
+                "nullable": true,
+                "type": "boolean"
+              },
+              "ownHideFollowing": {
+                "nullable": true,
+                "type": "boolean"
+              },
+              "ownPolicy": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "errors": []
+    },
+    {
+      "id": "social_privacy_set",
+      "module": "social",
+      "handler": "rpcPrivacySet",
+      "source": "integrations/social/follow.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "followPolicy": {
+            "nullable": true,
+            "type": "string"
+          },
+          "hideFollowers": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "hideFollowing": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "reset": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "canChange": {},
+          "defaults": {
+            "properties": {
+              "followPolicy": {},
+              "hideFollowers": {},
+              "hideFollowing": {}
+            },
+            "type": "object"
+          },
+          "privacy": {
+            "properties": {
+              "followPolicy": {
+                "type": "string"
+              },
+              "hideFollowers": {
+                "type": "boolean"
+              },
+              "hideFollowing": {
+                "type": "boolean"
+              },
+              "ownHideFollowers": {
+                "nullable": true,
+                "type": "boolean"
+              },
+              "ownHideFollowing": {
+                "nullable": true,
+                "type": "boolean"
+              },
+              "ownPolicy": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "SOCIAL_INVALID_POLICY",
+        "SOCIAL_PRIVACY_LOCKED"
+      ]
+    },
+    {
+      "id": "social_profile",
+      "module": "social",
+      "handler": "rpcProfile",
+      "source": "integrations/social/profile.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "lang": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "userIds": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "username": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "items": {
+            "items": {},
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "SOCIAL_INVALID_USER",
+        "SOCIAL_TOO_MANY_IDS",
+        "SOCIAL_USER_NOT_FOUND"
+      ]
+    },
+    {
+      "id": "social_rate",
+      "module": "social",
+      "handler": "rpcRate",
+      "source": "integrations/social/actions.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "kind": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "integer"
+          },
+          "metadata": {},
+          "on": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "page": {
+            "type": "integer"
+          },
+          "targetId": {
+            "type": "string"
+          },
+          "targetIds": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "targetType": {
+            "type": "string"
+          },
+          "value": {
+            "nullable": true,
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "mine": {},
+          "rating": {},
+          "targetId": {
+            "type": "string"
+          },
+          "targetType": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "SOCIAL_ACTION_NOT_ALLOWED",
+        "SOCIAL_BUSY",
+        "SOCIAL_DISABLED",
+        "SOCIAL_INVALID_TARGET",
+        "SOCIAL_RATE_LIMITED",
+        "SOCIAL_RATE_SELF",
+        "SOCIAL_RATING_LOCKED",
+        "SOCIAL_RATING_OUT_OF_RANGE",
+        "SOCIAL_RATING_REQUIRED",
+        "SOCIAL_TARGET_NOT_FOUND",
+        "SOCIAL_TARGET_REQUIRED",
+        "SOCIAL_TARGET_TYPE_NOT_FOUND"
+      ]
+    },
+    {
+      "id": "social_react",
+      "module": "social",
+      "handler": "rpcReact",
+      "source": "integrations/social/actions.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "kind": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "integer"
+          },
+          "metadata": {},
+          "on": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "page": {
+            "type": "integer"
+          },
+          "targetId": {
+            "type": "string"
+          },
+          "targetIds": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "targetType": {
+            "type": "string"
+          },
+          "value": {
+            "nullable": true,
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "mine": {},
+          "reactions": {},
+          "targetId": {
+            "type": "string"
+          },
+          "targetType": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "SOCIAL_ACTION_NOT_ALLOWED",
+        "SOCIAL_DISABLED",
+        "SOCIAL_INVALID_TARGET",
+        "SOCIAL_RATE_LIMITED",
+        "SOCIAL_REACTION_NOT_FOUND",
+        "SOCIAL_REACTION_REQUIRED",
+        "SOCIAL_TARGET_NOT_FOUND",
+        "SOCIAL_TARGET_REQUIRED",
+        "SOCIAL_TARGET_TYPE_NOT_FOUND"
+      ]
+    },
+    {
+      "id": "social_summary",
+      "module": "social",
+      "handler": "rpcSummary",
+      "source": "integrations/social/actions.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "kind": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "integer"
+          },
+          "metadata": {},
+          "on": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "page": {
+            "type": "integer"
+          },
+          "targetId": {
+            "type": "string"
+          },
+          "targetIds": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "targetType": {
+            "type": "string"
+          },
+          "value": {
+            "nullable": true,
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "items": {
+            "items": {
+              "nullable": true,
+              "properties": {
+                "comments": {
+                  "type": "integer"
+                },
+                "favorited": {
+                  "type": "boolean"
+                },
+                "favorites": {
+                  "type": "integer"
+                },
+                "myRating": {
+                  "nullable": true,
+                  "type": "integer"
+                },
+                "myReactions": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "rating": {
+                  "nullable": true,
+                  "properties": {
+                    "average": {},
+                    "count": {},
+                    "histogram": {},
+                    "max": {}
+                  },
+                  "type": "object"
+                },
+                "reactions": {
+                  "additionalProperties": {
+                    "type": "integer"
+                  },
+                  "type": "object"
+                },
+                "targetId": {
+                  "type": "string"
+                },
+                "targetType": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "targetType": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "SOCIAL_INVALID_TARGET",
+        "SOCIAL_TARGET_REQUIRED",
+        "SOCIAL_TARGET_TYPE_NOT_FOUND",
+        "SOCIAL_TOO_MANY_IDS"
+      ]
+    },
+    {
+      "id": "social_unfollow",
+      "module": "social",
+      "handler": "rpcUnfollow",
+      "source": "integrations/social/follow.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "accept": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "integer"
+          },
+          "page": {
+            "type": "integer"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "followers": {},
+          "following": {},
+          "relation": {
+            "properties": {
+              "blocked": {
+                "type": "boolean"
+              },
+              "followedBy": {
+                "type": "boolean"
+              },
+              "following": {
+                "type": "boolean"
+              },
+              "requested": {
+                "type": "boolean"
+              }
+            },
+            "type": "object"
+          },
+          "status": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": []
     },
     {
       "id": "voice_token",

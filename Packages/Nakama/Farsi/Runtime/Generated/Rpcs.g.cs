@@ -11,35 +11,86 @@ namespace NakamaFarsi.Sdk.Generated
     {
         public NakamaFarsiRpcs(IRpcCaller caller)
         {
+            Account = new AccountRpcs(caller);
+            Analytics = new AnalyticsRpcs(caller);
+            Assets = new AssetsRpcs(caller);
             Base = new BaseRpcs(caller);
+            Campaign = new CampaignRpcs(caller);
             Combatrace = new CombatraceRpcs(caller);
             Content = new ContentRpcs(caller);
+            Devkit = new DevkitRpcs(caller);
             Economy = new EconomyRpcs(caller);
             Insights = new InsightsRpcs(caller);
+            Inventoryx = new InventoryxRpcs(caller);
             Leaderboardx = new LeaderboardxRpcs(caller);
+            Ledger = new LedgerRpcs(caller);
+            Pp = new PpRpcs(caller);
             Publication = new PublicationRpcs(caller);
             Quiz = new QuizRpcs(caller);
+            Shopx = new ShopxRpcs(caller);
+            Social = new SocialRpcs(caller);
         }
 
+        public AccountRpcs Account { get; }
+
+        public AnalyticsRpcs Analytics { get; }
+
+        public AssetsRpcs Assets { get; }
+
         public BaseRpcs Base { get; }
+
+        public CampaignRpcs Campaign { get; }
 
         public CombatraceRpcs Combatrace { get; }
 
         public ContentRpcs Content { get; }
 
+        public DevkitRpcs Devkit { get; }
+
         public EconomyRpcs Economy { get; }
 
         public InsightsRpcs Insights { get; }
 
+        public InventoryxRpcs Inventoryx { get; }
+
         public LeaderboardxRpcs Leaderboardx { get; }
+
+        public LedgerRpcs Ledger { get; }
+
+        public PpRpcs Pp { get; }
 
         public PublicationRpcs Publication { get; }
 
         public QuizRpcs Quiz { get; }
+
+        public ShopxRpcs Shopx { get; }
+
+        public SocialRpcs Social { get; }
     }
 
     public static class RpcIds
     {
+        public const string AccountMe = "account_me";
+        public const string AccountPasswordChange = "account_password_change";
+        public const string AccountPasswordForgot = "account_password_forgot";
+        public const string AccountPasswordLogin = "account_password_login";
+        public const string AccountPasswordReset = "account_password_reset";
+        public const string AccountPasswordSet = "account_password_set";
+        public const string AccountPhoneCancel = "account_phone_cancel";
+        public const string AccountPhoneRecoverRequest = "account_phone_recover_request";
+        public const string AccountPhoneRecoverVerify = "account_phone_recover_verify";
+        public const string AccountPhoneRequest = "account_phone_request";
+        public const string AccountPhoneVerify = "account_phone_verify";
+        public const string AccountRules = "account_rules";
+        public const string AccountUsernameCheck = "account_username_check";
+        public const string AnalyticsConfig = "analytics_config";
+        public const string AnalyticsStats = "analytics_stats";
+        public const string AnalyticsTrack = "analytics_track";
+        public const string AnalyticsTrophies = "analytics_trophies";
+        public const string AnalyticsTrophyClaim = "analytics_trophy_claim";
+        public const string AssetsContentIndex = "assets_content_index";
+        public const string AssetsFetch = "assets_fetch";
+        public const string AssetsManifest = "assets_manifest";
         public const string BaseAccountDelete = "base_account_delete";
         public const string BaseAccountDeleteCancel = "base_account_delete_cancel";
         public const string BaseAccountGet = "base_account_get";
@@ -89,11 +140,17 @@ namespace NakamaFarsi.Sdk.Generated
         public const string BaseSupportUploadPart = "base_support_upload_part";
         public const string BaseTags = "base_tags";
         public const string BaseUsersGet = "base_users_get";
+        public const string CampaignAttemptComplete = "campaign_attempt_complete";
+        public const string CampaignAttemptStart = "campaign_attempt_start";
+        public const string CampaignChapters = "campaign_chapters";
+        public const string CampaignFreerideClaim = "campaign_freeride_claim";
         public const string CombatraceConfig = "combatrace_config";
         public const string CombatraceHistory = "combatrace_history";
         public const string CombatraceMatchBegin = "combatrace_match_begin";
         public const string CombatraceMatchEnd = "combatrace_match_end";
         public const string ContentCatalog = "content_catalog";
+        public const string DevkitErrorCatalog = "devkit_error_catalog";
+        public const string DevkitRpcSchema = "devkit_rpc_schema";
         public const string EconomyAchievementClaim = "economy_achievement_claim";
         public const string EconomyAchievements = "economy_achievements";
         public const string EconomyAchievementsProfile = "economy_achievements_profile";
@@ -150,12 +207,18 @@ namespace NakamaFarsi.Sdk.Generated
         public const string InsightsConfig = "insights_config";
         public const string InsightsHeatmap = "insights_heatmap";
         public const string InsightsSession = "insights_session";
+        public const string InventoryxItems = "inventoryx_items";
+        public const string InventoryxUnlock = "inventoryx_unlock";
+        public const string InventoryxUpgrade = "inventoryx_upgrade";
         public const string LeaderboardxBoard = "leaderboardx_board";
         public const string LeaderboardxClaim = "leaderboardx_claim";
         public const string LeaderboardxHistory = "leaderboardx_history";
         public const string LeaderboardxList = "leaderboardx_list";
         public const string LeaderboardxSubmit = "leaderboardx_submit";
         public const string LeaderboardxWinners = "leaderboardx_winners";
+        public const string LedgerKinds = "ledger_kinds";
+        public const string LedgerList = "ledger_list";
+        public const string PpLocalState = "pp_local_state";
         public const string PublicationBannerClick = "publication_banner_click";
         public const string PublicationBannerView = "publication_banner_view";
         public const string PublicationBanners = "publication_banners";
@@ -210,7 +273,258 @@ namespace NakamaFarsi.Sdk.Generated
         public const string QuizResultReport = "quiz_result_report";
         public const string QuizSession = "quiz_session";
         public const string QuizStats = "quiz_stats";
+        public const string ShopxPurchaseCheck = "shopx_purchase_check";
+        public const string ShopxPurchaseRules = "shopx_purchase_rules";
+        public const string SocialAvatar = "social_avatar";
+        public const string SocialCommentDelete = "social_comment_delete";
+        public const string SocialCommentEdit = "social_comment_edit";
+        public const string SocialCommentPost = "social_comment_post";
+        public const string SocialCommentReport = "social_comment_report";
+        public const string SocialComments = "social_comments";
+        public const string SocialConfig = "social_config";
+        public const string SocialFavorite = "social_favorite";
+        public const string SocialFollow = "social_follow";
+        public const string SocialFollowRequests = "social_follow_requests";
+        public const string SocialFollowRespond = "social_follow_respond";
+        public const string SocialFollowerRemove = "social_follower_remove";
+        public const string SocialFollowers = "social_followers";
+        public const string SocialFollowing = "social_following";
+        public const string SocialMine = "social_mine";
+        public const string SocialPrivacyGet = "social_privacy_get";
+        public const string SocialPrivacySet = "social_privacy_set";
+        public const string SocialProfile = "social_profile";
+        public const string SocialRate = "social_rate";
+        public const string SocialReact = "social_react";
+        public const string SocialSummary = "social_summary";
+        public const string SocialUnfollow = "social_unfollow";
         public const string VoiceToken = "voice_token";
+    }
+
+    public sealed partial class AccountRpcs
+    {
+        private static readonly RpcCallOptions ReadCall = new RpcCallOptions { ReadOnly = true };
+        private static readonly RpcCallOptions WriteCall = new RpcCallOptions();
+        private readonly IRpcCaller _c;
+
+        public AccountRpcs(IRpcCaller caller)
+        {
+            _c = caller;
+        }
+
+        public Task<AccountMeResponse> MeAsync(AccountMeRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new AccountMeRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<AccountMeResponse>(_c, RpcIds.AccountMe, request, ReadCall, ct);
+        }
+
+        public Task<AccountPasswordChangeResponse> PasswordChangeAsync(AccountPasswordChangeRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new AccountPasswordChangeRequest();
+            return RpcInvoke.CallAsync<AccountPasswordChangeResponse>(_c, RpcIds.AccountPasswordChange, request, WriteCall, ct);
+        }
+
+        public Task<AccountPasswordForgotResponse> PasswordForgotAsync(AccountPasswordForgotRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new AccountPasswordForgotRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<AccountPasswordForgotResponse>(_c, RpcIds.AccountPasswordForgot, request, WriteCall, ct);
+        }
+
+        public Task<AccountPasswordLoginResponse> PasswordLoginAsync(AccountPasswordLoginRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new AccountPasswordLoginRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<AccountPasswordLoginResponse>(_c, RpcIds.AccountPasswordLogin, request, WriteCall, ct);
+        }
+
+        public Task<AccountPasswordResetResponse> PasswordResetAsync(AccountPasswordResetRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new AccountPasswordResetRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<AccountPasswordResetResponse>(_c, RpcIds.AccountPasswordReset, request, WriteCall, ct);
+        }
+
+        public Task<AccountPasswordSetResponse> PasswordSetAsync(AccountPasswordSetRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new AccountPasswordSetRequest();
+            return RpcInvoke.CallAsync<AccountPasswordSetResponse>(_c, RpcIds.AccountPasswordSet, request, WriteCall, ct);
+        }
+
+        public Task<AccountPhoneCancelResponse> PhoneCancelAsync(AccountPhoneCancelRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new AccountPhoneCancelRequest();
+            return RpcInvoke.CallAsync<AccountPhoneCancelResponse>(_c, RpcIds.AccountPhoneCancel, request, WriteCall, ct);
+        }
+
+        public Task<AccountPhoneRecoverRequestResponse> PhoneRecoverRequestAsync(AccountPhoneRecoverRequestRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new AccountPhoneRecoverRequestRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<AccountPhoneRecoverRequestResponse>(_c, RpcIds.AccountPhoneRecoverRequest, request, WriteCall, ct);
+        }
+
+        public Task<AccountPhoneRecoverVerifyResponse> PhoneRecoverVerifyAsync(AccountPhoneRecoverVerifyRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new AccountPhoneRecoverVerifyRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<AccountPhoneRecoverVerifyResponse>(_c, RpcIds.AccountPhoneRecoverVerify, request, WriteCall, ct);
+        }
+
+        public Task<AccountPhoneRequestResponse> PhoneRequestAsync(AccountPhoneRequestRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new AccountPhoneRequestRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<AccountPhoneRequestResponse>(_c, RpcIds.AccountPhoneRequest, request, WriteCall, ct);
+        }
+
+        public Task<AccountPhoneVerifyResponse> PhoneVerifyAsync(AccountPhoneVerifyRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new AccountPhoneVerifyRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<AccountPhoneVerifyResponse>(_c, RpcIds.AccountPhoneVerify, request, WriteCall, ct);
+        }
+
+        public Task<AccountRulesResponse> RulesAsync(AccountRulesRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new AccountRulesRequest();
+            return RpcInvoke.CallAsync<AccountRulesResponse>(_c, RpcIds.AccountRules, request, ReadCall, ct);
+        }
+
+        public Task<AccountUsernameCheckResponse> UsernameCheckAsync(AccountUsernameCheckRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new AccountUsernameCheckRequest();
+            return RpcInvoke.CallAsync<AccountUsernameCheckResponse>(_c, RpcIds.AccountUsernameCheck, request, WriteCall, ct);
+        }
+    }
+
+    public sealed partial class AnalyticsRpcs
+    {
+        private static readonly RpcCallOptions ReadCall = new RpcCallOptions { ReadOnly = true };
+        private static readonly RpcCallOptions WriteCall = new RpcCallOptions();
+        private readonly IRpcCaller _c;
+
+        public AnalyticsRpcs(IRpcCaller caller)
+        {
+            _c = caller;
+        }
+
+        public Task<AnalyticsConfigResponse> ConfigAsync(AnalyticsConfigRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new AnalyticsConfigRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<AnalyticsConfigResponse>(_c, RpcIds.AnalyticsConfig, request, ReadCall, ct);
+        }
+
+        public Task<AnalyticsStatsResponse> StatsAsync(AnalyticsStatsRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new AnalyticsStatsRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<AnalyticsStatsResponse>(_c, RpcIds.AnalyticsStats, request, ReadCall, ct);
+        }
+
+        public Task<AnalyticsTrackResponse> TrackAsync(AnalyticsTrackRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new AnalyticsTrackRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<AnalyticsTrackResponse>(_c, RpcIds.AnalyticsTrack, request, WriteCall, ct);
+        }
+
+        public Task<AnalyticsTrophiesResponse> TrophiesAsync(AnalyticsTrophiesRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new AnalyticsTrophiesRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<AnalyticsTrophiesResponse>(_c, RpcIds.AnalyticsTrophies, request, ReadCall, ct);
+        }
+
+        public Task<AnalyticsTrophyClaimResponse> TrophyClaimAsync(AnalyticsTrophyClaimRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new AnalyticsTrophyClaimRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<AnalyticsTrophyClaimResponse>(_c, RpcIds.AnalyticsTrophyClaim, request, WriteCall, ct);
+        }
+    }
+
+    public sealed partial class AssetsRpcs
+    {
+        private static readonly RpcCallOptions ReadCall = new RpcCallOptions { ReadOnly = true };
+        private static readonly RpcCallOptions WriteCall = new RpcCallOptions();
+        private readonly IRpcCaller _c;
+
+        public AssetsRpcs(IRpcCaller caller)
+        {
+            _c = caller;
+        }
+
+        public Task<AssetsContentIndexResponse> ContentIndexAsync(AssetsContentIndexRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new AssetsContentIndexRequest();
+            return RpcInvoke.CallAsync<AssetsContentIndexResponse>(_c, RpcIds.AssetsContentIndex, request, ReadCall, ct);
+        }
+
+        public Task<AssetsFetchResponse> FetchAsync(AssetsFetchRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new AssetsFetchRequest();
+            return RpcInvoke.CallAsync<AssetsFetchResponse>(_c, RpcIds.AssetsFetch, request, ReadCall, ct);
+        }
+
+        public Task<AssetsManifestResponse> ManifestAsync(AssetsManifestRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new AssetsManifestRequest();
+            return RpcInvoke.CallAsync<AssetsManifestResponse>(_c, RpcIds.AssetsManifest, request, ReadCall, ct);
+        }
     }
 
     public sealed partial class BaseRpcs
@@ -257,6 +571,11 @@ namespace NakamaFarsi.Sdk.Generated
         public Task<BaseAppVersionResponse> AppVersionAsync(BaseAppVersionRequest request = null, CancellationToken ct = default)
         {
             request = request ?? new BaseAppVersionRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
             return RpcInvoke.CallAsync<BaseAppVersionResponse>(_c, RpcIds.BaseAppVersion, request, ReadCall, ct);
         }
 
@@ -645,6 +964,57 @@ namespace NakamaFarsi.Sdk.Generated
         }
     }
 
+    public sealed partial class CampaignRpcs
+    {
+        private static readonly RpcCallOptions ReadCall = new RpcCallOptions { ReadOnly = true };
+        private static readonly RpcCallOptions WriteCall = new RpcCallOptions();
+        private readonly IRpcCaller _c;
+
+        public CampaignRpcs(IRpcCaller caller)
+        {
+            _c = caller;
+        }
+
+        public Task<CampaignAttemptCompleteResponse> AttemptCompleteAsync(CampaignAttemptCompleteRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new CampaignAttemptCompleteRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<CampaignAttemptCompleteResponse>(_c, RpcIds.CampaignAttemptComplete, request, WriteCall, ct);
+        }
+
+        public Task<CampaignAttemptStartResponse> AttemptStartAsync(CampaignAttemptStartRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new CampaignAttemptStartRequest();
+            return RpcInvoke.CallAsync<CampaignAttemptStartResponse>(_c, RpcIds.CampaignAttemptStart, request, WriteCall, ct);
+        }
+
+        public Task<CampaignChaptersResponse> ChaptersAsync(CampaignChaptersRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new CampaignChaptersRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<CampaignChaptersResponse>(_c, RpcIds.CampaignChapters, request, ReadCall, ct);
+        }
+
+        public Task<CampaignFreerideClaimResponse> FreerideClaimAsync(CampaignFreerideClaimRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new CampaignFreerideClaimRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<CampaignFreerideClaimResponse>(_c, RpcIds.CampaignFreerideClaim, request, WriteCall, ct);
+        }
+    }
+
     public sealed partial class CombatraceRpcs
     {
         private static readonly RpcCallOptions ReadCall = new RpcCallOptions { ReadOnly = true };
@@ -696,6 +1066,35 @@ namespace NakamaFarsi.Sdk.Generated
         {
             request = request ?? new ContentCatalogRequest();
             return RpcInvoke.CallAsync<ContentCatalogResponse>(_c, RpcIds.ContentCatalog, request, ReadCall, ct);
+        }
+    }
+
+    public sealed partial class DevkitRpcs
+    {
+        private static readonly RpcCallOptions ReadCall = new RpcCallOptions { ReadOnly = true };
+        private static readonly RpcCallOptions WriteCall = new RpcCallOptions();
+        private readonly IRpcCaller _c;
+
+        public DevkitRpcs(IRpcCaller caller)
+        {
+            _c = caller;
+        }
+
+        public Task<DevkitErrorCatalogResponse> ErrorCatalogAsync(DevkitErrorCatalogRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new DevkitErrorCatalogRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<DevkitErrorCatalogResponse>(_c, RpcIds.DevkitErrorCatalog, request, ReadCall, ct);
+        }
+
+        public Task<DevkitRpcSchemaResponse> RpcSchemaAsync(DevkitRpcSchemaRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new DevkitRpcSchemaRequest();
+            return RpcInvoke.CallAsync<DevkitRpcSchemaResponse>(_c, RpcIds.DevkitRpcSchema, request, ReadCall, ct);
         }
     }
 
@@ -763,12 +1162,22 @@ namespace NakamaFarsi.Sdk.Generated
         public Task<EconomyChanceCanPlayResponse> ChanceCanPlayAsync(EconomyChanceCanPlayRequest request = null, CancellationToken ct = default)
         {
             request = request ?? new EconomyChanceCanPlayRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
             return RpcInvoke.CallAsync<EconomyChanceCanPlayResponse>(_c, RpcIds.EconomyChanceCanPlay, request, WriteCall, ct);
         }
 
         public Task<EconomyChanceGameResponse> ChanceGameAsync(EconomyChanceGameRequest request = null, CancellationToken ct = default)
         {
             request = request ?? new EconomyChanceGameRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
             return RpcInvoke.CallAsync<EconomyChanceGameResponse>(_c, RpcIds.EconomyChanceGame, request, ReadCall, ct);
         }
 
@@ -797,18 +1206,33 @@ namespace NakamaFarsi.Sdk.Generated
         public Task<EconomyChanceNextPlayTimeResponse> ChanceNextPlayTimeAsync(EconomyChanceNextPlayTimeRequest request = null, CancellationToken ct = default)
         {
             request = request ?? new EconomyChanceNextPlayTimeRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
             return RpcInvoke.CallAsync<EconomyChanceNextPlayTimeResponse>(_c, RpcIds.EconomyChanceNextPlayTime, request, WriteCall, ct);
         }
 
         public Task<EconomyChancePlayResponse> ChancePlayAsync(EconomyChancePlayRequest request = null, CancellationToken ct = default)
         {
             request = request ?? new EconomyChancePlayRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
             return RpcInvoke.CallAsync<EconomyChancePlayResponse>(_c, RpcIds.EconomyChancePlay, request, WriteCall, ct);
         }
 
         public Task<EconomyChancePlayWithTicketResponse> ChancePlayWithTicketAsync(EconomyChancePlayWithTicketRequest request = null, CancellationToken ct = default)
         {
             request = request ?? new EconomyChancePlayWithTicketRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
             return RpcInvoke.CallAsync<EconomyChancePlayWithTicketResponse>(_c, RpcIds.EconomyChancePlayWithTicket, request, WriteCall, ct);
         }
 
@@ -1239,6 +1663,51 @@ namespace NakamaFarsi.Sdk.Generated
         }
     }
 
+    public sealed partial class InventoryxRpcs
+    {
+        private static readonly RpcCallOptions ReadCall = new RpcCallOptions { ReadOnly = true };
+        private static readonly RpcCallOptions WriteCall = new RpcCallOptions();
+        private readonly IRpcCaller _c;
+
+        public InventoryxRpcs(IRpcCaller caller)
+        {
+            _c = caller;
+        }
+
+        public Task<InventoryxItemsResponse> ItemsAsync(InventoryxItemsRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new InventoryxItemsRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<InventoryxItemsResponse>(_c, RpcIds.InventoryxItems, request, ReadCall, ct);
+        }
+
+        public Task<InventoryxUnlockResponse> UnlockAsync(InventoryxUnlockRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new InventoryxUnlockRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<InventoryxUnlockResponse>(_c, RpcIds.InventoryxUnlock, request, WriteCall, ct);
+        }
+
+        public Task<InventoryxUpgradeResponse> UpgradeAsync(InventoryxUpgradeRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new InventoryxUpgradeRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<InventoryxUpgradeResponse>(_c, RpcIds.InventoryxUpgrade, request, WriteCall, ct);
+        }
+    }
+
     public sealed partial class LeaderboardxRpcs
     {
         private static readonly RpcCallOptions ReadCall = new RpcCallOptions { ReadOnly = true };
@@ -1304,6 +1773,58 @@ namespace NakamaFarsi.Sdk.Generated
             }
 
             return RpcInvoke.CallAsync<LeaderboardxWinnersResponse>(_c, RpcIds.LeaderboardxWinners, request, ReadCall, ct);
+        }
+    }
+
+    public sealed partial class LedgerRpcs
+    {
+        private static readonly RpcCallOptions ReadCall = new RpcCallOptions { ReadOnly = true };
+        private static readonly RpcCallOptions WriteCall = new RpcCallOptions();
+        private readonly IRpcCaller _c;
+
+        public LedgerRpcs(IRpcCaller caller)
+        {
+            _c = caller;
+        }
+
+        public Task<LedgerKindsResponse> KindsAsync(LedgerKindsRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new LedgerKindsRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<LedgerKindsResponse>(_c, RpcIds.LedgerKinds, request, ReadCall, ct);
+        }
+
+        public Task<LedgerListResponse> ListAsync(LedgerListRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new LedgerListRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<LedgerListResponse>(_c, RpcIds.LedgerList, request, ReadCall, ct);
+        }
+    }
+
+    public sealed partial class PpRpcs
+    {
+        private static readonly RpcCallOptions ReadCall = new RpcCallOptions { ReadOnly = true };
+        private static readonly RpcCallOptions WriteCall = new RpcCallOptions();
+        private readonly IRpcCaller _c;
+
+        public PpRpcs(IRpcCaller caller)
+        {
+            _c = caller;
+        }
+
+        public Task<PpLocalStateResponse> LocalStateAsync(PpLocalStateRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new PpLocalStateRequest();
+            return RpcInvoke.CallAsync<PpLocalStateResponse>(_c, RpcIds.PpLocalState, request, WriteCall, ct);
         }
     }
 
@@ -1604,12 +2125,22 @@ namespace NakamaFarsi.Sdk.Generated
         public Task<QuizDuelAcceptResponse> DuelAcceptAsync(QuizDuelAcceptRequest request = null, CancellationToken ct = default)
         {
             request = request ?? new QuizDuelAcceptRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
             return RpcInvoke.CallAsync<QuizDuelAcceptResponse>(_c, RpcIds.QuizDuelAccept, request, WriteCall, ct);
         }
 
         public Task<QuizDuelAnswerResponse> DuelAnswerAsync(QuizDuelAnswerRequest request = null, CancellationToken ct = default)
         {
             request = request ?? new QuizDuelAnswerRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
             return RpcInvoke.CallAsync<QuizDuelAnswerResponse>(_c, RpcIds.QuizDuelAnswer, request, WriteCall, ct);
         }
 
@@ -1627,18 +2158,33 @@ namespace NakamaFarsi.Sdk.Generated
         public Task<QuizDuelDeclineResponse> DuelDeclineAsync(QuizDuelDeclineRequest request = null, CancellationToken ct = default)
         {
             request = request ?? new QuizDuelDeclineRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
             return RpcInvoke.CallAsync<QuizDuelDeclineResponse>(_c, RpcIds.QuizDuelDecline, request, WriteCall, ct);
         }
 
         public Task<QuizDuelForfeitResponse> DuelForfeitAsync(QuizDuelForfeitRequest request = null, CancellationToken ct = default)
         {
             request = request ?? new QuizDuelForfeitRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
             return RpcInvoke.CallAsync<QuizDuelForfeitResponse>(_c, RpcIds.QuizDuelForfeit, request, WriteCall, ct);
         }
 
         public Task<QuizDuelGetResponse> DuelGetAsync(QuizDuelGetRequest request = null, CancellationToken ct = default)
         {
             request = request ?? new QuizDuelGetRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
             return RpcInvoke.CallAsync<QuizDuelGetResponse>(_c, RpcIds.QuizDuelGet, request, ReadCall, ct);
         }
 
@@ -1656,12 +2202,22 @@ namespace NakamaFarsi.Sdk.Generated
         public Task<QuizDuelPickCategoryResponse> DuelPickCategoryAsync(QuizDuelPickCategoryRequest request = null, CancellationToken ct = default)
         {
             request = request ?? new QuizDuelPickCategoryRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
             return RpcInvoke.CallAsync<QuizDuelPickCategoryResponse>(_c, RpcIds.QuizDuelPickCategory, request, WriteCall, ct);
         }
 
         public Task<QuizDuelQuestionResponse> DuelQuestionAsync(QuizDuelQuestionRequest request = null, CancellationToken ct = default)
         {
             request = request ?? new QuizDuelQuestionRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
             return RpcInvoke.CallAsync<QuizDuelQuestionResponse>(_c, RpcIds.QuizDuelQuestion, request, WriteCall, ct);
         }
 
@@ -1795,6 +2351,1822 @@ namespace NakamaFarsi.Sdk.Generated
         }
     }
 
+    public sealed partial class ShopxRpcs
+    {
+        private static readonly RpcCallOptions ReadCall = new RpcCallOptions { ReadOnly = true };
+        private static readonly RpcCallOptions WriteCall = new RpcCallOptions();
+        private readonly IRpcCaller _c;
+
+        public ShopxRpcs(IRpcCaller caller)
+        {
+            _c = caller;
+        }
+
+        public Task<ShopxPurchaseCheckResponse> PurchaseCheckAsync(ShopxPurchaseCheckRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new ShopxPurchaseCheckRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<ShopxPurchaseCheckResponse>(_c, RpcIds.ShopxPurchaseCheck, request, WriteCall, ct);
+        }
+
+        public Task<ShopxPurchaseRulesResponse> PurchaseRulesAsync(ShopxPurchaseRulesRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new ShopxPurchaseRulesRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<ShopxPurchaseRulesResponse>(_c, RpcIds.ShopxPurchaseRules, request, ReadCall, ct);
+        }
+    }
+
+    public sealed partial class SocialRpcs
+    {
+        private static readonly RpcCallOptions ReadCall = new RpcCallOptions { ReadOnly = true };
+        private static readonly RpcCallOptions WriteCall = new RpcCallOptions();
+        private readonly IRpcCaller _c;
+
+        public SocialRpcs(IRpcCaller caller)
+        {
+            _c = caller;
+        }
+
+        public Task<SocialAvatarResponse> AvatarAsync(SocialAvatarRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new SocialAvatarRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<SocialAvatarResponse>(_c, RpcIds.SocialAvatar, request, ReadCall, ct);
+        }
+
+        public Task<SocialCommentDeleteResponse> CommentDeleteAsync(SocialCommentDeleteRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new SocialCommentDeleteRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<SocialCommentDeleteResponse>(_c, RpcIds.SocialCommentDelete, request, WriteCall, ct);
+        }
+
+        public Task<SocialCommentEditResponse> CommentEditAsync(SocialCommentEditRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new SocialCommentEditRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<SocialCommentEditResponse>(_c, RpcIds.SocialCommentEdit, request, WriteCall, ct);
+        }
+
+        public Task<SocialCommentPostResponse> CommentPostAsync(SocialCommentPostRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new SocialCommentPostRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<SocialCommentPostResponse>(_c, RpcIds.SocialCommentPost, request, WriteCall, ct);
+        }
+
+        public Task<SocialCommentReportResponse> CommentReportAsync(SocialCommentReportRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new SocialCommentReportRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<SocialCommentReportResponse>(_c, RpcIds.SocialCommentReport, request, WriteCall, ct);
+        }
+
+        public Task<SocialCommentsResponse> CommentsAsync(SocialCommentsRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new SocialCommentsRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<SocialCommentsResponse>(_c, RpcIds.SocialComments, request, ReadCall, ct);
+        }
+
+        public Task<SocialConfigResponse> ConfigAsync(SocialConfigRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new SocialConfigRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<SocialConfigResponse>(_c, RpcIds.SocialConfig, request, ReadCall, ct);
+        }
+
+        public Task<SocialFavoriteResponse> FavoriteAsync(SocialFavoriteRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new SocialFavoriteRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<SocialFavoriteResponse>(_c, RpcIds.SocialFavorite, request, WriteCall, ct);
+        }
+
+        public Task<SocialFollowResponse> FollowAsync(SocialFollowRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new SocialFollowRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<SocialFollowResponse>(_c, RpcIds.SocialFollow, request, WriteCall, ct);
+        }
+
+        public Task<SocialFollowRequestsResponse> FollowRequestsAsync(SocialFollowRequestsRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new SocialFollowRequestsRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<SocialFollowRequestsResponse>(_c, RpcIds.SocialFollowRequests, request, WriteCall, ct);
+        }
+
+        public Task<SocialFollowRespondResponse> FollowRespondAsync(SocialFollowRespondRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new SocialFollowRespondRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<SocialFollowRespondResponse>(_c, RpcIds.SocialFollowRespond, request, WriteCall, ct);
+        }
+
+        public Task<SocialFollowerRemoveResponse> FollowerRemoveAsync(SocialFollowerRemoveRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new SocialFollowerRemoveRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<SocialFollowerRemoveResponse>(_c, RpcIds.SocialFollowerRemove, request, WriteCall, ct);
+        }
+
+        public Task<SocialFollowersResponse> FollowersAsync(SocialFollowersRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new SocialFollowersRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<SocialFollowersResponse>(_c, RpcIds.SocialFollowers, request, WriteCall, ct);
+        }
+
+        public Task<SocialFollowingResponse> FollowingAsync(SocialFollowingRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new SocialFollowingRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<SocialFollowingResponse>(_c, RpcIds.SocialFollowing, request, WriteCall, ct);
+        }
+
+        public Task<SocialMineResponse> MineAsync(SocialMineRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new SocialMineRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<SocialMineResponse>(_c, RpcIds.SocialMine, request, ReadCall, ct);
+        }
+
+        public Task<SocialPrivacyGetResponse> PrivacyGetAsync(SocialPrivacyGetRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new SocialPrivacyGetRequest();
+            return RpcInvoke.CallAsync<SocialPrivacyGetResponse>(_c, RpcIds.SocialPrivacyGet, request, ReadCall, ct);
+        }
+
+        public Task<SocialPrivacySetResponse> PrivacySetAsync(SocialPrivacySetRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new SocialPrivacySetRequest();
+            return RpcInvoke.CallAsync<SocialPrivacySetResponse>(_c, RpcIds.SocialPrivacySet, request, WriteCall, ct);
+        }
+
+        public Task<SocialProfileResponse> ProfileAsync(SocialProfileRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new SocialProfileRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<SocialProfileResponse>(_c, RpcIds.SocialProfile, request, ReadCall, ct);
+        }
+
+        public Task<SocialRateResponse> RateAsync(SocialRateRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new SocialRateRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<SocialRateResponse>(_c, RpcIds.SocialRate, request, WriteCall, ct);
+        }
+
+        public Task<SocialReactResponse> ReactAsync(SocialReactRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new SocialReactRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<SocialReactResponse>(_c, RpcIds.SocialReact, request, WriteCall, ct);
+        }
+
+        public Task<SocialSummaryResponse> SummaryAsync(SocialSummaryRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new SocialSummaryRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<SocialSummaryResponse>(_c, RpcIds.SocialSummary, request, WriteCall, ct);
+        }
+
+        public Task<SocialUnfollowResponse> UnfollowAsync(SocialUnfollowRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new SocialUnfollowRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<SocialUnfollowResponse>(_c, RpcIds.SocialUnfollow, request, WriteCall, ct);
+        }
+    }
+
+    public sealed class AccountMeRequest
+    {
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+    }
+
+    public sealed class AccountMeResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("avatarUrl")]
+        public JToken AvatarUrl { get; set; }
+
+        [JsonProperty("createdAt")]
+        public string CreatedAt { get; set; }
+
+        [JsonProperty("deviceId")]
+        public string DeviceId { get; set; }
+
+        [JsonProperty("deviceIds")]
+        public List<string> DeviceIds { get; set; }
+
+        [JsonProperty("displayName")]
+        public JToken DisplayName { get; set; }
+
+        [JsonProperty("hasEmail")]
+        public bool? HasEmail { get; set; }
+
+        [JsonProperty("id")]
+        public JToken Id { get; set; }
+
+        [JsonProperty("isGuest")]
+        public bool? IsGuest { get; set; }
+
+        [JsonProperty("lang")]
+        public JToken Lang { get; set; }
+
+        [JsonProperty("linked")]
+        public List<string> Linked { get; set; }
+
+        [JsonProperty("location")]
+        public JToken Location { get; set; }
+
+        [JsonProperty("mute")]
+        public JToken Mute { get; set; }
+
+        [JsonProperty("pendingPhone")]
+        public JToken PendingPhone { get; set; }
+
+        [JsonProperty("phone")]
+        public string Phone { get; set; }
+
+        [JsonProperty("phoneChange")]
+        public PhoneChangeData PhoneChange { get; set; }
+
+        [JsonProperty("phoneMasked")]
+        public bool? PhoneMasked { get; set; }
+
+        [JsonProperty("phoneVerified")]
+        public bool? PhoneVerified { get; set; }
+
+        [JsonProperty("phoneVerifiedAt")]
+        public string PhoneVerifiedAt { get; set; }
+
+        [JsonProperty("suspension")]
+        public JToken Suspension { get; set; }
+
+        [JsonProperty("timezone")]
+        public JToken Timezone { get; set; }
+
+        [JsonProperty("username")]
+        public JToken Username { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class PhoneChangeData
+        {
+            [JsonProperty("enabled")]
+            public JToken Enabled { get; set; }
+
+            [JsonProperty("nextAt")]
+            public string NextAt { get; set; }
+
+            [JsonProperty("requireOldCode")]
+            public JToken RequireOldCode { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class AccountPasswordChangeRequest
+    {
+        [JsonProperty("currentPassword")]
+        public string CurrentPassword { get; set; }
+
+        [JsonProperty("newPassword")]
+        public string NewPassword { get; set; }
+    }
+
+    public sealed class AccountPasswordChangeResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("ok")]
+        public bool? Ok { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class AccountPasswordForgotRequest
+    {
+        [JsonProperty("country")]
+        public string Country { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("phone")]
+        public string Phone { get; set; }
+    }
+
+    public sealed class AccountPasswordForgotResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("codeLength")]
+        public JToken CodeLength { get; set; }
+
+        [JsonProperty("expiresIn")]
+        public JToken ExpiresIn { get; set; }
+
+        [JsonProperty("phone")]
+        public string Phone { get; set; }
+
+        [JsonProperty("purpose")]
+        public string Purpose { get; set; }
+
+        [JsonProperty("requestId")]
+        public JToken RequestId { get; set; }
+
+        [JsonProperty("resendAfter")]
+        public JToken ResendAfter { get; set; }
+
+        [JsonProperty("sandbox")]
+        public JToken Sandbox { get; set; }
+
+        [JsonProperty("sent")]
+        public bool? Sent { get; set; }
+
+        [JsonProperty("stage")]
+        public string Stage { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class AccountPasswordLoginRequest
+    {
+        [JsonProperty("country")]
+        public string Country { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("password")]
+        public string Password { get; set; }
+
+        [JsonProperty("phone")]
+        public string Phone { get; set; }
+    }
+
+    public sealed class AccountPasswordLoginResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("expiresAt")]
+        public JToken ExpiresAt { get; set; }
+
+        [JsonProperty("loginKey")]
+        public string LoginKey { get; set; }
+
+        [JsonProperty("phone")]
+        public string Phone { get; set; }
+
+        [JsonProperty("token")]
+        public JToken Token { get; set; }
+
+        [JsonProperty("userId")]
+        public string UserId { get; set; }
+
+        [JsonProperty("username")]
+        public string Username { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class AccountPasswordResetRequest
+    {
+        [JsonProperty("code")]
+        public string Code { get; set; }
+
+        [JsonProperty("country")]
+        public string Country { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("newPassword")]
+        public string NewPassword { get; set; }
+
+        [JsonProperty("phone")]
+        public string Phone { get; set; }
+    }
+
+    public sealed class AccountPasswordResetResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("expiresAt")]
+        public JToken ExpiresAt { get; set; }
+
+        [JsonProperty("loginKey")]
+        public string LoginKey { get; set; }
+
+        [JsonProperty("phone")]
+        public string Phone { get; set; }
+
+        [JsonProperty("token")]
+        public JToken Token { get; set; }
+
+        [JsonProperty("userId")]
+        public string UserId { get; set; }
+
+        [JsonProperty("username")]
+        public string Username { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class AccountPasswordSetRequest
+    {
+        [JsonProperty("newPassword")]
+        public string NewPassword { get; set; }
+    }
+
+    public sealed class AccountPasswordSetResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("ok")]
+        public bool? Ok { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class AccountPhoneCancelRequest
+    {
+    }
+
+    public sealed class AccountPhoneCancelResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("canceled")]
+        public bool? Canceled { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class AccountPhoneRecoverRequestRequest
+    {
+        [JsonProperty("country")]
+        public string Country { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("phone")]
+        public string Phone { get; set; }
+    }
+
+    public sealed class AccountPhoneRecoverRequestResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("codeLength")]
+        public JToken CodeLength { get; set; }
+
+        [JsonProperty("deviceMode")]
+        public JToken DeviceMode { get; set; }
+
+        [JsonProperty("expiresIn")]
+        public JToken ExpiresIn { get; set; }
+
+        [JsonProperty("phone")]
+        public string Phone { get; set; }
+
+        [JsonProperty("purpose")]
+        public string Purpose { get; set; }
+
+        [JsonProperty("requestId")]
+        public JToken RequestId { get; set; }
+
+        [JsonProperty("resendAfter")]
+        public JToken ResendAfter { get; set; }
+
+        [JsonProperty("sandbox")]
+        public JToken Sandbox { get; set; }
+
+        [JsonProperty("stage")]
+        public string Stage { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class AccountPhoneRecoverVerifyRequest
+    {
+        [JsonProperty("code")]
+        public string Code { get; set; }
+
+        [JsonProperty("deviceId")]
+        public string DeviceId { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+    }
+
+    public sealed class AccountPhoneRecoverVerifyResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("abandoned")]
+        public JToken Abandoned { get; set; }
+
+        [JsonProperty("deviceAction")]
+        public string DeviceAction { get; set; }
+
+        [JsonProperty("devicesMoved")]
+        public List<string> DevicesMoved { get; set; }
+
+        [JsonProperty("expiresAt")]
+        public JToken ExpiresAt { get; set; }
+
+        [JsonProperty("loginKey")]
+        public string LoginKey { get; set; }
+
+        [JsonProperty("phone")]
+        public string Phone { get; set; }
+
+        [JsonProperty("token")]
+        public JToken Token { get; set; }
+
+        [JsonProperty("userId")]
+        public string UserId { get; set; }
+
+        [JsonProperty("username")]
+        public string Username { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class AccountPhoneRequestRequest
+    {
+        [JsonProperty("country")]
+        public string Country { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("phone")]
+        public string Phone { get; set; }
+    }
+
+    public sealed class AccountPhoneRequestResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("codeLength")]
+        public JToken CodeLength { get; set; }
+
+        [JsonProperty("expiresIn")]
+        public JToken ExpiresIn { get; set; }
+
+        [JsonProperty("phone")]
+        public string Phone { get; set; }
+
+        [JsonProperty("purpose")]
+        public string Purpose { get; set; }
+
+        [JsonProperty("requestId")]
+        public JToken RequestId { get; set; }
+
+        [JsonProperty("resendAfter")]
+        public JToken ResendAfter { get; set; }
+
+        [JsonProperty("sandbox")]
+        public JToken Sandbox { get; set; }
+
+        [JsonProperty("stage")]
+        public string Stage { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class AccountPhoneVerifyRequest
+    {
+        [JsonProperty("code")]
+        public string Code { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+    }
+
+    public sealed class AccountPhoneVerifyResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("codeLength")]
+        public JToken CodeLength { get; set; }
+
+        [JsonProperty("done")]
+        public bool? Done { get; set; }
+
+        [JsonProperty("expiresIn")]
+        public JToken ExpiresIn { get; set; }
+
+        [JsonProperty("phone")]
+        public string Phone { get; set; }
+
+        [JsonProperty("profile")]
+        public ProfileData Profile { get; set; }
+
+        [JsonProperty("purpose")]
+        public string Purpose { get; set; }
+
+        [JsonProperty("requestId")]
+        public JToken RequestId { get; set; }
+
+        [JsonProperty("resendAfter")]
+        public JToken ResendAfter { get; set; }
+
+        [JsonProperty("sandbox")]
+        public JToken Sandbox { get; set; }
+
+        [JsonProperty("stage")]
+        public string Stage { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class ProfileData
+        {
+            [JsonProperty("avatarUrl")]
+            public JToken AvatarUrl { get; set; }
+
+            [JsonProperty("createdAt")]
+            public JToken CreatedAt { get; set; }
+
+            [JsonProperty("deviceId")]
+            public string DeviceId { get; set; }
+
+            [JsonProperty("deviceIds")]
+            public List<string> DeviceIds { get; set; }
+
+            [JsonProperty("displayName")]
+            public JToken DisplayName { get; set; }
+
+            [JsonProperty("hasEmail")]
+            public bool? HasEmail { get; set; }
+
+            [JsonProperty("id")]
+            public JToken Id { get; set; }
+
+            [JsonProperty("isGuest")]
+            public JToken IsGuest { get; set; }
+
+            [JsonProperty("lang")]
+            public JToken Lang { get; set; }
+
+            [JsonProperty("linked")]
+            public JToken Linked { get; set; }
+
+            [JsonProperty("location")]
+            public JToken Location { get; set; }
+
+            [JsonProperty("mute")]
+            public JToken Mute { get; set; }
+
+            [JsonProperty("pendingPhone")]
+            public JToken PendingPhone { get; set; }
+
+            [JsonProperty("phone")]
+            public JToken Phone { get; set; }
+
+            [JsonProperty("phoneChange")]
+            public PhoneChangeData PhoneChange { get; set; }
+
+            [JsonProperty("phoneMasked")]
+            public bool? PhoneMasked { get; set; }
+
+            [JsonProperty("phoneVerified")]
+            public bool? PhoneVerified { get; set; }
+
+            [JsonProperty("phoneVerifiedAt")]
+            public JToken PhoneVerifiedAt { get; set; }
+
+            [JsonProperty("suspension")]
+            public JToken Suspension { get; set; }
+
+            [JsonProperty("timezone")]
+            public JToken Timezone { get; set; }
+
+            [JsonProperty("username")]
+            public JToken Username { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+
+            public sealed class PhoneChangeData
+            {
+                [JsonProperty("enabled")]
+                public JToken Enabled { get; set; }
+
+                [JsonProperty("nextAt")]
+                public JToken NextAt { get; set; }
+
+                [JsonProperty("requireOldCode")]
+                public JToken RequireOldCode { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+        }
+    }
+
+    public sealed class AccountRulesRequest
+    {
+    }
+
+    public sealed class AccountRulesResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("displayNameMax")]
+        public JToken DisplayNameMax { get; set; }
+
+        [JsonProperty("passwordDigit")]
+        public JToken PasswordDigit { get; set; }
+
+        [JsonProperty("passwordLetter")]
+        public JToken PasswordLetter { get; set; }
+
+        [JsonProperty("passwordMin")]
+        public JToken PasswordMin { get; set; }
+
+        [JsonProperty("usernameCharset")]
+        public JToken UsernameCharset { get; set; }
+
+        [JsonProperty("usernameMax")]
+        public JToken UsernameMax { get; set; }
+
+        [JsonProperty("usernameMin")]
+        public JToken UsernameMin { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class AccountUsernameCheckRequest
+    {
+        [JsonProperty("username")]
+        public string Username { get; set; }
+    }
+
+    public sealed class AccountUsernameCheckResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("code")]
+        public JToken Code { get; set; }
+
+        [JsonProperty("ok")]
+        public bool? Ok { get; set; }
+
+        [JsonProperty("reason")]
+        public JToken Reason { get; set; }
+
+        [JsonProperty("username")]
+        public string Username { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class AnalyticsConfigRequest
+    {
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+    }
+
+    public sealed class AnalyticsConfigResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("batchesPerMinute")]
+        public JToken BatchesPerMinute { get; set; }
+
+        [JsonProperty("claimMode")]
+        public JToken ClaimMode { get; set; }
+
+        [JsonProperty("events")]
+        public List<EventsItem> Events { get; set; }
+
+        [JsonProperty("eventsPerMinute")]
+        public JToken EventsPerMinute { get; set; }
+
+        [JsonProperty("maxBatch")]
+        public JToken MaxBatch { get; set; }
+
+        [JsonProperty("maxFields")]
+        public JToken MaxFields { get; set; }
+
+        [JsonProperty("maxStringLength")]
+        public JToken MaxStringLength { get; set; }
+
+        [JsonProperty("notificationCode")]
+        public JToken NotificationCode { get; set; }
+
+        [JsonProperty("sendIntervalSeconds")]
+        public JToken SendIntervalSeconds { get; set; }
+
+        [JsonProperty("stats")]
+        public List<StatsItem> Stats { get; set; }
+
+        [JsonProperty("typed")]
+        public TypedData Typed { get; set; }
+
+        [JsonProperty("unknownEvents")]
+        public JToken UnknownEvents { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class EventsItem
+        {
+            [JsonProperty("fields")]
+            public List<JToken> Fields { get; set; }
+
+            [JsonProperty("name")]
+            public string Name { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class StatsItem
+        {
+            [JsonProperty("key")]
+            public string Key { get; set; }
+
+            [JsonProperty("kind")]
+            public string Kind { get; set; }
+
+            [JsonProperty("sendIntervalSeconds")]
+            public long? SendIntervalSeconds { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class TypedData
+        {
+            [JsonProperty("contextKeys")]
+            public List<ContextKeysItem> ContextKeys { get; set; }
+
+            [JsonProperty("designRoots")]
+            public List<DesignRootsItem> DesignRoots { get; set; }
+
+            [JsonProperty("dimensions")]
+            public List<DimensionsItem> Dimensions { get; set; }
+
+            [JsonProperty("enabled")]
+            public JToken Enabled { get; set; }
+
+            [JsonProperty("maxContextKeys")]
+            public JToken MaxContextKeys { get; set; }
+
+            [JsonProperty("maxDimensions")]
+            public JToken MaxDimensions { get; set; }
+
+            [JsonProperty("resourceCurrencies")]
+            public List<string> ResourceCurrencies { get; set; }
+
+            [JsonProperty("resourceItemTypes")]
+            public List<string> ResourceItemTypes { get; set; }
+
+            [JsonProperty("sessionTimeoutSeconds")]
+            public JToken SessionTimeoutSeconds { get; set; }
+
+            [JsonProperty("unknownContext")]
+            public JToken UnknownContext { get; set; }
+
+            [JsonProperty("unknownDesign")]
+            public JToken UnknownDesign { get; set; }
+
+            [JsonProperty("unknownDimension")]
+            public JToken UnknownDimension { get; set; }
+
+            [JsonProperty("unknownResource")]
+            public JToken UnknownResource { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+
+            public sealed class ContextKeysItem
+            {
+                [JsonProperty("key")]
+                public string Key { get; set; }
+
+                [JsonProperty("values")]
+                public List<string> Values { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+
+            public sealed class DesignRootsItem
+            {
+                [JsonProperty("levels")]
+                public List<LevelsItem> Levels { get; set; }
+
+                [JsonProperty("root")]
+                public string Root { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+
+                public sealed class LevelsItem
+                {
+                    [JsonProperty("name")]
+                    public string Name { get; set; }
+
+                    [JsonProperty("values")]
+                    public List<string> Values { get; set; }
+
+                    [JsonExtensionData]
+                    public IDictionary<string, JToken> Extra { get; set; }
+                }
+            }
+
+            public sealed class DimensionsItem
+            {
+                [JsonProperty("key")]
+                public string Key { get; set; }
+
+                [JsonProperty("values")]
+                public List<string> Values { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+        }
+    }
+
+    public sealed class AnalyticsStatsRequest
+    {
+        [JsonProperty("keys")]
+        public List<string> Keys { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+    }
+
+    public sealed class AnalyticsStatsResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("items")]
+        public List<ItemsItem> Items { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class ItemsItem
+        {
+            [JsonProperty("best")]
+            public double? Best { get; set; }
+
+            [JsonProperty("key")]
+            public string Key { get; set; }
+
+            [JsonProperty("kind")]
+            public string Kind { get; set; }
+
+            [JsonProperty("name")]
+            public string Name { get; set; }
+
+            [JsonProperty("total")]
+            public double? Total { get; set; }
+
+            [JsonProperty("updatedAt")]
+            public string UpdatedAt { get; set; }
+
+            [JsonProperty("value")]
+            public double? Value { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class AnalyticsTrackRequest
+    {
+        [JsonProperty("appVersion")]
+        public string AppVersion { get; set; }
+
+        [JsonProperty("batchId")]
+        public string BatchId { get; set; }
+
+        [JsonProperty("context")]
+        public JObject Context { get; set; }
+
+        [JsonProperty("device")]
+        public DeviceData Device { get; set; }
+
+        [JsonProperty("dimensions")]
+        public JObject Dimensions { get; set; }
+
+        [JsonProperty("events")]
+        public List<EventsItem> Events { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("platform")]
+        public string Platform { get; set; }
+
+        [JsonProperty("session")]
+        public SessionData Session { get; set; }
+
+        public sealed class DeviceData
+        {
+            [JsonProperty("build")]
+            public string Build { get; set; }
+
+            [JsonProperty("manufacturer")]
+            public string Manufacturer { get; set; }
+
+            [JsonProperty("model")]
+            public string Model { get; set; }
+
+            [JsonProperty("os")]
+            public string Os { get; set; }
+
+            [JsonProperty("platform")]
+            public string Platform { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class EventsItem
+        {
+            [JsonProperty("amount")]
+            public JToken Amount { get; set; }
+
+            [JsonProperty("cartType")]
+            public string CartType { get; set; }
+
+            [JsonProperty("context")]
+            public JToken Context { get; set; }
+
+            [JsonProperty("currency")]
+            public string Currency { get; set; }
+
+            [JsonProperty("fields")]
+            public JObject Fields { get; set; }
+
+            [JsonProperty("flow")]
+            public string Flow { get; set; }
+
+            [JsonProperty("id")]
+            public string Id { get; set; }
+
+            [JsonProperty("item")]
+            public string Item { get; set; }
+
+            [JsonProperty("itemType")]
+            public string ItemType { get; set; }
+
+            [JsonProperty("length")]
+            public JToken Length { get; set; }
+
+            [JsonProperty("message")]
+            public string Message { get; set; }
+
+            [JsonProperty("name")]
+            public string Name { get; set; }
+
+            [JsonProperty("p1")]
+            public string P1 { get; set; }
+
+            [JsonProperty("p2")]
+            public string P2 { get; set; }
+
+            [JsonProperty("p3")]
+            public string P3 { get; set; }
+
+            [JsonProperty("receipt")]
+            public string Receipt { get; set; }
+
+            [JsonProperty("score")]
+            public JToken Score { get; set; }
+
+            [JsonProperty("severity")]
+            public string Severity { get; set; }
+
+            [JsonProperty("status")]
+            public string Status { get; set; }
+
+            [JsonProperty("store")]
+            public string Store { get; set; }
+
+            [JsonProperty("time")]
+            public JToken Time { get; set; }
+
+            [JsonProperty("type")]
+            public string Type { get; set; }
+
+            [JsonProperty("value")]
+            public JToken Value { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class SessionData
+        {
+            [JsonProperty("id")]
+            public string Id { get; set; }
+
+            [JsonProperty("num")]
+            public long? Num { get; set; }
+
+            [JsonProperty("start")]
+            public JToken Start { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class AnalyticsTrackResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("batchId")]
+        public string BatchId { get; set; }
+
+        [JsonProperty("duplicate")]
+        public bool? Duplicate { get; set; }
+
+        [JsonProperty("flagged")]
+        public long? Flagged { get; set; }
+
+        [JsonProperty("received")]
+        public long? Received { get; set; }
+
+        [JsonProperty("rejected")]
+        public long? Rejected { get; set; }
+
+        [JsonProperty("results")]
+        public List<ResultsItem> Results { get; set; }
+
+        [JsonProperty("stats")]
+        public List<StatsItem> Stats { get; set; }
+
+        [JsonProperty("stored")]
+        public long? Stored { get; set; }
+
+        [JsonProperty("unlocked")]
+        public List<UnlockedItem> Unlocked { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class ResultsItem
+        {
+            [JsonProperty("code")]
+            public string Code { get; set; }
+
+            [JsonProperty("index")]
+            public long? Index { get; set; }
+
+            [JsonProperty("name")]
+            public string Name { get; set; }
+
+            [JsonProperty("problems")]
+            public List<JToken> Problems { get; set; }
+
+            [JsonProperty("status")]
+            public string Status { get; set; }
+
+            [JsonProperty("type")]
+            public string Type { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class StatsItem
+        {
+            [JsonProperty("accepted")]
+            public double? Accepted { get; set; }
+
+            [JsonProperty("key")]
+            public string Key { get; set; }
+
+            [JsonProperty("sent")]
+            public double? Sent { get; set; }
+
+            [JsonProperty("status")]
+            public string Status { get; set; }
+
+            [JsonProperty("value")]
+            public double? Value { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class UnlockedItem
+        {
+            [JsonProperty("claimMode")]
+            public string ClaimMode { get; set; }
+
+            [JsonProperty("groupKey")]
+            public string GroupKey { get; set; }
+
+            [JsonProperty("iconUrl")]
+            public string IconUrl { get; set; }
+
+            [JsonProperty("rewards")]
+            public JToken Rewards { get; set; }
+
+            [JsonProperty("status")]
+            public string Status { get; set; }
+
+            [JsonProperty("step")]
+            public long? Step { get; set; }
+
+            [JsonProperty("stepCount")]
+            public long? StepCount { get; set; }
+
+            [JsonProperty("stepId")]
+            public string StepId { get; set; }
+
+            [JsonProperty("stepName")]
+            public string StepName { get; set; }
+
+            [JsonProperty("trophyKey")]
+            public string TrophyKey { get; set; }
+
+            [JsonProperty("trophyName")]
+            public string TrophyName { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class AnalyticsTrophiesRequest
+    {
+        [JsonProperty("group")]
+        public string Group { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+    }
+
+    public sealed class AnalyticsTrophiesResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("claimMode")]
+        public JToken ClaimMode { get; set; }
+
+        [JsonProperty("groups")]
+        public List<GroupsItem> Groups { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("totals")]
+        public JObject Totals { get; set; }
+
+        [JsonProperty("unlockOrder")]
+        public JToken UnlockOrder { get; set; }
+
+        [JsonProperty("unlocked")]
+        public List<UnlockedItem> Unlocked { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class GroupsItem
+        {
+            [JsonProperty("description")]
+            public string Description { get; set; }
+
+            [JsonProperty("iconUrl")]
+            public string IconUrl { get; set; }
+
+            [JsonProperty("key")]
+            public string Key { get; set; }
+
+            [JsonProperty("name")]
+            public string Name { get; set; }
+
+            [JsonProperty("stepCount")]
+            public long? StepCount { get; set; }
+
+            [JsonProperty("trophies")]
+            public List<TrophiesItem> Trophies { get; set; }
+
+            [JsonProperty("unlocked")]
+            public long? Unlocked { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+
+            public sealed class TrophiesItem
+            {
+                [JsonProperty("completed")]
+                public bool? Completed { get; set; }
+
+                [JsonProperty("contextKey")]
+                public string ContextKey { get; set; }
+
+                [JsonProperty("description")]
+                public string Description { get; set; }
+
+                [JsonProperty("iconUrl")]
+                public string IconUrl { get; set; }
+
+                [JsonProperty("key")]
+                public string Key { get; set; }
+
+                [JsonProperty("name")]
+                public string Name { get; set; }
+
+                [JsonProperty("stepCount")]
+                public long? StepCount { get; set; }
+
+                [JsonProperty("steps")]
+                public List<JToken> Steps { get; set; }
+
+                [JsonProperty("unlockOrder")]
+                public string UnlockOrder { get; set; }
+
+                [JsonProperty("unlocked")]
+                public long? Unlocked { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+        }
+
+        public sealed class UnlockedItem
+        {
+            [JsonProperty("claimMode")]
+            public string ClaimMode { get; set; }
+
+            [JsonProperty("groupKey")]
+            public string GroupKey { get; set; }
+
+            [JsonProperty("iconUrl")]
+            public string IconUrl { get; set; }
+
+            [JsonProperty("rewards")]
+            public RewardsData Rewards { get; set; }
+
+            [JsonProperty("status")]
+            public string Status { get; set; }
+
+            [JsonProperty("step")]
+            public long? Step { get; set; }
+
+            [JsonProperty("stepCount")]
+            public long? StepCount { get; set; }
+
+            [JsonProperty("stepId")]
+            public string StepId { get; set; }
+
+            [JsonProperty("stepName")]
+            public string StepName { get; set; }
+
+            [JsonProperty("trophyKey")]
+            public string TrophyKey { get; set; }
+
+            [JsonProperty("trophyName")]
+            public string TrophyName { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+
+            public sealed class RewardsData
+            {
+                [JsonProperty("currencies")]
+                public JObject Currencies { get; set; }
+
+                [JsonProperty("prizeGroupKey")]
+                public string PrizeGroupKey { get; set; }
+
+                [JsonProperty("prizeKey")]
+                public string PrizeKey { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+        }
+    }
+
+    public sealed class AnalyticsTrophyClaimRequest
+    {
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("step")]
+        public long? Step { get; set; }
+
+        [JsonProperty("stepId")]
+        public string StepId { get; set; }
+
+        [JsonProperty("trophy")]
+        public string Trophy { get; set; }
+    }
+
+    public sealed class AnalyticsTrophyClaimResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("rewards")]
+        public RewardsData Rewards { get; set; }
+
+        [JsonProperty("status")]
+        public string Status { get; set; }
+
+        [JsonProperty("step")]
+        public long? Step { get; set; }
+
+        [JsonProperty("stepId")]
+        public string StepId { get; set; }
+
+        [JsonProperty("trophyKey")]
+        public string TrophyKey { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class RewardsData
+        {
+            [JsonProperty("currencies")]
+            public JObject Currencies { get; set; }
+
+            [JsonProperty("prize")]
+            public JObject Prize { get; set; }
+
+            [JsonProperty("prizeGroupKey")]
+            public string PrizeGroupKey { get; set; }
+
+            [JsonProperty("prizeKey")]
+            public string PrizeKey { get; set; }
+
+            [JsonProperty("prizes")]
+            public List<JObject> Prizes { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class AssetsContentIndexRequest
+    {
+        [JsonProperty("appVersion")]
+        public string AppVersion { get; set; }
+
+        [JsonProperty("platform")]
+        public string Platform { get; set; }
+    }
+
+    public sealed class AssetsContentIndexResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("appVersion")]
+        public string AppVersion { get; set; }
+
+        [JsonProperty("pack")]
+        public PackData Pack { get; set; }
+
+        [JsonProperty("platform")]
+        public string Platform { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class PackData
+        {
+            [JsonProperty("activatedAt")]
+            public string ActivatedAt { get; set; }
+
+            [JsonProperty("baseUrl")]
+            public string BaseUrl { get; set; }
+
+            [JsonProperty("catalogHash")]
+            public string CatalogHash { get; set; }
+
+            [JsonProperty("catalogPath")]
+            public string CatalogPath { get; set; }
+
+            [JsonProperty("catalogUrl")]
+            public string CatalogUrl { get; set; }
+
+            [JsonProperty("fileCount")]
+            public long? FileCount { get; set; }
+
+            [JsonProperty("hashUrl")]
+            public string HashUrl { get; set; }
+
+            [JsonProperty("id")]
+            public string Id { get; set; }
+
+            [JsonProperty("maxAppVersion")]
+            public string MaxAppVersion { get; set; }
+
+            [JsonProperty("minAppVersion")]
+            public string MinAppVersion { get; set; }
+
+            [JsonProperty("platform")]
+            public string Platform { get; set; }
+
+            [JsonProperty("totalBytes")]
+            public long? TotalBytes { get; set; }
+
+            [JsonProperty("version")]
+            public string Version { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class AssetsFetchRequest
+    {
+        [JsonProperty("folder")]
+        public string Folder { get; set; }
+
+        [JsonProperty("have")]
+        public JObject Have { get; set; }
+
+        [JsonProperty("ids")]
+        public List<string> Ids { get; set; }
+
+        [JsonProperty("limit")]
+        public long? Limit { get; set; }
+
+        [JsonProperty("recursive")]
+        public bool? Recursive { get; set; }
+
+        [JsonProperty("types")]
+        public List<string> Types { get; set; }
+    }
+
+    public sealed class AssetsFetchResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("items")]
+        public List<ItemsItem> Items { get; set; }
+
+        [JsonProperty("missing")]
+        public List<string> Missing { get; set; }
+
+        [JsonProperty("more")]
+        public bool? More { get; set; }
+
+        [JsonProperty("removed")]
+        public List<string> Removed { get; set; }
+
+        [JsonProperty("total")]
+        public long? Total { get; set; }
+
+        [JsonProperty("unchanged")]
+        public long? Unchanged { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class ItemsItem
+        {
+            [JsonProperty("assetId")]
+            public string AssetId { get; set; }
+
+            [JsonProperty("createdAt")]
+            public string CreatedAt { get; set; }
+
+            [JsonProperty("data")]
+            public JToken Data { get; set; }
+
+            [JsonProperty("folder")]
+            public string Folder { get; set; }
+
+            [JsonProperty("hash")]
+            public string Hash { get; set; }
+
+            [JsonProperty("name")]
+            public string Name { get; set; }
+
+            [JsonProperty("size")]
+            public long? Size { get; set; }
+
+            [JsonProperty("sourceGuid")]
+            public string SourceGuid { get; set; }
+
+            [JsonProperty("type")]
+            public string Type { get; set; }
+
+            [JsonProperty("updatedAt")]
+            public string UpdatedAt { get; set; }
+
+            [JsonProperty("updatedBy")]
+            public string UpdatedBy { get; set; }
+
+            [JsonProperty("version")]
+            public long? Version { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class AssetsManifestRequest
+    {
+        [JsonProperty("etag")]
+        public string Etag { get; set; }
+
+        [JsonProperty("folder")]
+        public string Folder { get; set; }
+
+        [JsonProperty("recursive")]
+        public bool? Recursive { get; set; }
+
+        [JsonProperty("types")]
+        public List<string> Types { get; set; }
+    }
+
+    public sealed class AssetsManifestResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("count")]
+        public long? Count { get; set; }
+
+        [JsonProperty("etag")]
+        public string Etag { get; set; }
+
+        [JsonProperty("items")]
+        public List<ItemsItem> Items { get; set; }
+
+        [JsonProperty("notModified")]
+        public bool? NotModified { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class ItemsItem
+        {
+            [JsonProperty("assetId")]
+            public string AssetId { get; set; }
+
+            [JsonProperty("folder")]
+            public string Folder { get; set; }
+
+            [JsonProperty("hash")]
+            public string Hash { get; set; }
+
+            [JsonProperty("name")]
+            public string Name { get; set; }
+
+            [JsonProperty("sourceGuid")]
+            public string SourceGuid { get; set; }
+
+            [JsonProperty("type")]
+            public string Type { get; set; }
+
+            [JsonProperty("version")]
+            public long? Version { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
     public sealed class BaseAccountDeleteRequest
     {
         [JsonProperty("confirm")]
@@ -1914,6 +4286,17 @@ namespace NakamaFarsi.Sdk.Generated
 
     public sealed class BaseAppVersionRequest
     {
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("platform")]
+        public string Platform { get; set; }
+
+        [JsonProperty("store")]
+        public string Store { get; set; }
+
+        [JsonProperty("version")]
+        public string Version { get; set; }
     }
 
     public sealed class BaseAppVersionResponse : IRawResponse
@@ -2572,6 +4955,11 @@ namespace NakamaFarsi.Sdk.Generated
 
     public sealed class BaseFriendsAddRequest
     {
+        [JsonProperty("ids")]
+        public List<string> Ids { get; set; }
+
+        [JsonProperty("usernames")]
+        public List<string> Usernames { get; set; }
     }
 
     public sealed class BaseFriendsAddResponse : IRawResponse
@@ -2585,6 +4973,11 @@ namespace NakamaFarsi.Sdk.Generated
 
     public sealed class BaseFriendsBlockRequest
     {
+        [JsonProperty("ids")]
+        public List<string> Ids { get; set; }
+
+        [JsonProperty("usernames")]
+        public List<string> Usernames { get; set; }
     }
 
     public sealed class BaseFriendsBlockResponse : IRawResponse
@@ -2619,6 +5012,11 @@ namespace NakamaFarsi.Sdk.Generated
 
     public sealed class BaseFriendsRemoveRequest
     {
+        [JsonProperty("ids")]
+        public List<string> Ids { get; set; }
+
+        [JsonProperty("usernames")]
+        public List<string> Usernames { get; set; }
     }
 
     public sealed class BaseFriendsRemoveResponse : IRawResponse
@@ -3833,6 +6231,384 @@ namespace NakamaFarsi.Sdk.Generated
         public IDictionary<string, JToken> Extra { get; set; }
     }
 
+    public sealed class CampaignAttemptCompleteRequest
+    {
+        [JsonProperty("attemptId")]
+        public string AttemptId { get; set; }
+
+        [JsonProperty("elapsedSeconds")]
+        public double? ElapsedSeconds { get; set; }
+
+        [JsonProperty("fields")]
+        public JObject Fields { get; set; }
+
+        [JsonProperty("healthPercent")]
+        public double? HealthPercent { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("stageKey")]
+        public string StageKey { get; set; }
+
+        [JsonProperty("success")]
+        public bool? Success { get; set; }
+    }
+
+    public sealed class CampaignAttemptCompleteResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class CampaignAttemptStartRequest
+    {
+        [JsonProperty("stageKey")]
+        public string StageKey { get; set; }
+    }
+
+    public sealed class CampaignAttemptStartResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("attemptId")]
+        public string AttemptId { get; set; }
+
+        [JsonProperty("expiresAt")]
+        public string ExpiresAt { get; set; }
+
+        [JsonProperty("stageKey")]
+        public JToken StageKey { get; set; }
+
+        [JsonProperty("startedAt")]
+        public string StartedAt { get; set; }
+
+        [JsonProperty("timeLimitSeconds")]
+        public JToken TimeLimitSeconds { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class CampaignChaptersRequest
+    {
+        [JsonProperty("chapter")]
+        public string Chapter { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+    }
+
+    public sealed class CampaignChaptersResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("chapters")]
+        public List<ChaptersItem> Chapters { get; set; }
+
+        [JsonProperty("freeride")]
+        public List<FreerideItem> Freeride { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("level")]
+        public long? Level { get; set; }
+
+        [JsonProperty("maxStars")]
+        public JToken MaxStars { get; set; }
+
+        [JsonProperty("serverTime")]
+        public string ServerTime { get; set; }
+
+        [JsonProperty("xp")]
+        public long? Xp { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class ChaptersItem
+        {
+            [JsonProperty("address")]
+            public JToken Address { get; set; }
+
+            [JsonProperty("description")]
+            public string Description { get; set; }
+
+            [JsonProperty("iconUrl")]
+            public JToken IconUrl { get; set; }
+
+            [JsonProperty("key")]
+            public JToken Key { get; set; }
+
+            [JsonProperty("locks")]
+            public List<LocksItem> Locks { get; set; }
+
+            [JsonProperty("maxStars")]
+            public long? MaxStars { get; set; }
+
+            [JsonProperty("metadata")]
+            public JToken Metadata { get; set; }
+
+            [JsonProperty("milestones")]
+            public List<MilestonesItem> Milestones { get; set; }
+
+            [JsonProperty("name")]
+            public string Name { get; set; }
+
+            [JsonProperty("sort")]
+            public JToken Sort { get; set; }
+
+            [JsonProperty("stages")]
+            public List<StagesItem> Stages { get; set; }
+
+            [JsonProperty("starPercent")]
+            public double? StarPercent { get; set; }
+
+            [JsonProperty("stars")]
+            public long? Stars { get; set; }
+
+            [JsonProperty("unlocked")]
+            public bool? Unlocked { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+
+            public sealed class LocksItem
+            {
+                [JsonProperty("key")]
+                public string Key { get; set; }
+
+                [JsonProperty("table")]
+                public string Table { get; set; }
+
+                [JsonProperty("type")]
+                public string Type { get; set; }
+
+                [JsonProperty("value")]
+                public double? Value { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+
+            public sealed class MilestonesItem
+            {
+                [JsonProperty("claimed")]
+                public bool? Claimed { get; set; }
+
+                [JsonProperty("percent")]
+                public JToken Percent { get; set; }
+
+                [JsonProperty("prizeGroupKey")]
+                public JToken PrizeGroupKey { get; set; }
+
+                [JsonProperty("prizeKey")]
+                public JToken PrizeKey { get; set; }
+
+                [JsonProperty("reached")]
+                public bool? Reached { get; set; }
+
+                [JsonProperty("rewards")]
+                public List<JObject> Rewards { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+
+            public sealed class StagesItem
+            {
+                [JsonProperty("address")]
+                public JToken Address { get; set; }
+
+                [JsonProperty("bestSeconds")]
+                public JToken BestSeconds { get; set; }
+
+                [JsonProperty("bestStars")]
+                public JToken BestStars { get; set; }
+
+                [JsonProperty("claimed")]
+                public List<JObject> Claimed { get; set; }
+
+                [JsonProperty("claimedXp")]
+                public JToken ClaimedXp { get; set; }
+
+                [JsonProperty("completedBy")]
+                public CompletedByData CompletedBy { get; set; }
+
+                [JsonProperty("completions")]
+                public JToken Completions { get; set; }
+
+                [JsonProperty("cooldownSeconds")]
+                public JToken CooldownSeconds { get; set; }
+
+                [JsonProperty("dailyRewardLimit")]
+                public JToken DailyRewardLimit { get; set; }
+
+                [JsonProperty("description")]
+                public string Description { get; set; }
+
+                [JsonProperty("iconUrl")]
+                public JToken IconUrl { get; set; }
+
+                [JsonProperty("key")]
+                public JToken Key { get; set; }
+
+                [JsonProperty("locks")]
+                public List<LocksItem> Locks { get; set; }
+
+                [JsonProperty("metadata")]
+                public JToken Metadata { get; set; }
+
+                [JsonProperty("mode")]
+                public JToken Mode { get; set; }
+
+                [JsonProperty("name")]
+                public string Name { get; set; }
+
+                [JsonProperty("nextRewardAt")]
+                public string NextRewardAt { get; set; }
+
+                [JsonProperty("rewardGroup")]
+                public JToken RewardGroup { get; set; }
+
+                [JsonProperty("rewards")]
+                public List<JObject> Rewards { get; set; }
+
+                [JsonProperty("rewardsLeftToday")]
+                public long? RewardsLeftToday { get; set; }
+
+                [JsonProperty("sort")]
+                public JToken Sort { get; set; }
+
+                [JsonProperty("starMultipliers")]
+                public List<double?> StarMultipliers { get; set; }
+
+                [JsonProperty("tierPrizes")]
+                public JToken TierPrizes { get; set; }
+
+                [JsonProperty("timeLimitSeconds")]
+                public JToken TimeLimitSeconds { get; set; }
+
+                [JsonProperty("unlocked")]
+                public bool? Unlocked { get; set; }
+
+                [JsonProperty("wins")]
+                public JToken Wins { get; set; }
+
+                [JsonProperty("xp")]
+                public JToken Xp { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+
+                public sealed class CompletedByData
+                {
+                    [JsonProperty("owner")]
+                    public JToken Owner { get; set; }
+
+                    [JsonProperty("ref")]
+                    public JToken Ref { get; set; }
+
+                    [JsonExtensionData]
+                    public IDictionary<string, JToken> Extra { get; set; }
+                }
+
+                public sealed class LocksItem
+                {
+                    [JsonProperty("key")]
+                    public string Key { get; set; }
+
+                    [JsonProperty("table")]
+                    public string Table { get; set; }
+
+                    [JsonProperty("type")]
+                    public string Type { get; set; }
+
+                    [JsonProperty("value")]
+                    public double? Value { get; set; }
+
+                    [JsonExtensionData]
+                    public IDictionary<string, JToken> Extra { get; set; }
+                }
+            }
+        }
+
+        public sealed class FreerideItem
+        {
+            [JsonProperty("cooldownSeconds")]
+            public JToken CooldownSeconds { get; set; }
+
+            [JsonProperty("dailyRewardLimit")]
+            public JToken DailyRewardLimit { get; set; }
+
+            [JsonProperty("description")]
+            public string Description { get; set; }
+
+            [JsonProperty("iconUrl")]
+            public JToken IconUrl { get; set; }
+
+            [JsonProperty("key")]
+            public JToken Key { get; set; }
+
+            [JsonProperty("minLevel")]
+            public JToken MinLevel { get; set; }
+
+            [JsonProperty("name")]
+            public string Name { get; set; }
+
+            [JsonProperty("nextRewardAt")]
+            public string NextRewardAt { get; set; }
+
+            [JsonProperty("prizeGroupKey")]
+            public JToken PrizeGroupKey { get; set; }
+
+            [JsonProperty("prizeKey")]
+            public JToken PrizeKey { get; set; }
+
+            [JsonProperty("rewardGroup")]
+            public JToken RewardGroup { get; set; }
+
+            [JsonProperty("rewards")]
+            public List<JObject> Rewards { get; set; }
+
+            [JsonProperty("rewardsLeftToday")]
+            public long? RewardsLeftToday { get; set; }
+
+            [JsonProperty("xp")]
+            public JToken Xp { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class CampaignFreerideClaimRequest
+    {
+        [JsonProperty("key")]
+        public string Key { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("requestId")]
+        public string RequestId { get; set; }
+    }
+
+    public sealed class CampaignFreerideClaimResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
     public sealed class CombatraceConfigRequest
     {
     }
@@ -4141,6 +6917,63 @@ namespace NakamaFarsi.Sdk.Generated
             [JsonExtensionData]
             public IDictionary<string, JToken> Extra { get; set; }
         }
+    }
+
+    public sealed class DevkitErrorCatalogRequest
+    {
+        [JsonProperty("codes")]
+        public List<string> Codes { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+    }
+
+    public sealed class DevkitErrorCatalogResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("cacheSeconds")]
+        public long? CacheSeconds { get; set; }
+
+        [JsonProperty("errors")]
+        public JObject Errors { get; set; }
+
+        [JsonProperty("fallbackLang")]
+        public string FallbackLang { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("mode")]
+        public string Mode { get; set; }
+
+        [JsonProperty("moduleMode")]
+        public string ModuleMode { get; set; }
+
+        [JsonProperty("version")]
+        public string Version { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class DevkitRpcSchemaRequest
+    {
+        [JsonProperty("module")]
+        public string Module { get; set; }
+    }
+
+    public sealed class DevkitRpcSchemaResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("rpcs")]
+        public List<JToken> Rpcs { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
     }
 
     public sealed class EconomyAchievementClaimRequest
@@ -4749,6 +7582,14 @@ namespace NakamaFarsi.Sdk.Generated
 
     public sealed class EconomyChanceCanPlayRequest
     {
+        [JsonProperty("id")]
+        public string Id { get; set; }
+
+        [JsonProperty("key")]
+        public string Key { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
     }
 
     public sealed class EconomyChanceCanPlayResponse : IRawResponse
@@ -4771,6 +7612,14 @@ namespace NakamaFarsi.Sdk.Generated
 
     public sealed class EconomyChanceGameRequest
     {
+        [JsonProperty("id")]
+        public string Id { get; set; }
+
+        [JsonProperty("key")]
+        public string Key { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
     }
 
     public sealed class EconomyChanceGameResponse : IRawResponse
@@ -5213,6 +8062,14 @@ namespace NakamaFarsi.Sdk.Generated
 
     public sealed class EconomyChanceNextPlayTimeRequest
     {
+        [JsonProperty("id")]
+        public string Id { get; set; }
+
+        [JsonProperty("key")]
+        public string Key { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
     }
 
     public sealed class EconomyChanceNextPlayTimeResponse : IRawResponse
@@ -5235,6 +8092,14 @@ namespace NakamaFarsi.Sdk.Generated
 
     public sealed class EconomyChancePlayRequest
     {
+        [JsonProperty("id")]
+        public string Id { get; set; }
+
+        [JsonProperty("key")]
+        public string Key { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
     }
 
     public sealed class EconomyChancePlayResponse : IRawResponse
@@ -5356,6 +8221,14 @@ namespace NakamaFarsi.Sdk.Generated
 
     public sealed class EconomyChancePlayWithTicketRequest
     {
+        [JsonProperty("id")]
+        public string Id { get; set; }
+
+        [JsonProperty("key")]
+        public string Key { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
     }
 
     public sealed class EconomyChancePlayWithTicketResponse : IRawResponse
@@ -9361,118 +12234,163 @@ namespace NakamaFarsi.Sdk.Generated
 
         public sealed class Task_Data
         {
-            [JsonProperty("consumes")]
-            public JToken Consumes { get; set; }
+            [JsonProperty("categoryKey")]
+            public string CategoryKey { get; set; }
 
-            [JsonProperty("excludesTags")]
-            public bool? ExcludesTags { get; set; }
+            [JsonProperty("children")]
+            public List<JToken> Children { get; set; }
 
-            [JsonProperty("items")]
-            public ItemsData Items { get; set; }
+            [JsonProperty("claimId")]
+            public string ClaimId { get; set; }
 
-            [JsonProperty("metas")]
-            public List<MetasItem> Metas { get; set; }
+            [JsonProperty("claimable")]
+            public bool? Claimable { get; set; }
 
-            [JsonProperty("minLevel")]
-            public JToken MinLevel { get; set; }
+            [JsonProperty("claimedAt")]
+            public JToken ClaimedAt { get; set; }
 
-            [JsonProperty("paths")]
-            public JToken Paths { get; set; }
+            [JsonProperty("completedAt")]
+            public JToken CompletedAt { get; set; }
 
-            [JsonProperty("refund")]
-            public JToken Refund { get; set; }
+            [JsonProperty("completions")]
+            public JToken Completions { get; set; }
+
+            [JsonProperty("condition")]
+            public string Condition { get; set; }
+
+            [JsonProperty("dependsOn")]
+            public List<DependsOnItem> DependsOn { get; set; }
+
+            [JsonProperty("description")]
+            public JToken Description { get; set; }
+
+            [JsonProperty("error")]
+            public string Error { get; set; }
+
+            [JsonProperty("expiresAt")]
+            public JToken ExpiresAt { get; set; }
+
+            [JsonProperty("grantMode")]
+            public string GrantMode { get; set; }
+
+            [JsonProperty("groupId")]
+            public string GroupId { get; set; }
+
+            [JsonProperty("groupKey")]
+            public string GroupKey { get; set; }
+
+            [JsonProperty("iconUrl")]
+            public string IconUrl { get; set; }
+
+            [JsonProperty("id")]
+            public string Id { get; set; }
+
+            [JsonProperty("isActive")]
+            public bool? IsActive { get; set; }
+
+            [JsonProperty("key")]
+            public string Key { get; set; }
+
+            [JsonProperty("maxCompletions")]
+            public long? MaxCompletions { get; set; }
+
+            [JsonProperty("metric")]
+            public string Metric { get; set; }
+
+            [JsonProperty("name")]
+            public JToken Name { get; set; }
+
+            [JsonProperty("nextAt")]
+            public JToken NextAt { get; set; }
+
+            [JsonProperty("parentId")]
+            public string ParentId { get; set; }
+
+            [JsonProperty("parentKey")]
+            public JToken ParentKey { get; set; }
+
+            [JsonProperty("pending")]
+            public long? Pending { get; set; }
+
+            [JsonProperty("periodEndsAt")]
+            public JToken PeriodEndsAt { get; set; }
+
+            [JsonProperty("prize")]
+            public PrizeData Prize { get; set; }
+
+            [JsonProperty("progress")]
+            public double? Progress { get; set; }
+
+            [JsonProperty("reason")]
+            public string Reason { get; set; }
+
+            [JsonProperty("repeat")]
+            public string Repeat { get; set; }
+
+            [JsonProperty("repeatMinutes")]
+            public long? RepeatMinutes { get; set; }
+
+            [JsonProperty("scope")]
+            public JToken Scope { get; set; }
+
+            [JsonProperty("state")]
+            public string State { get; set; }
+
+            [JsonProperty("status")]
+            public string Status { get; set; }
 
             [JsonProperty("tags")]
-            public TagsData Tags { get; set; }
+            public JToken Tags { get; set; }
+
+            [JsonProperty("target")]
+            public double? Target { get; set; }
+
+            [JsonProperty("value")]
+            public double? Value { get; set; }
+
+            [JsonProperty("valueMax")]
+            public double? ValueMax { get; set; }
+
+            [JsonProperty("valueMin")]
+            public double? ValueMin { get; set; }
 
             [JsonExtensionData]
             public IDictionary<string, JToken> Extra { get; set; }
 
-            public sealed class ItemsData
+            public sealed class DependsOnItem
             {
-                [JsonProperty("consume")]
-                public JToken Consume { get; set; }
+                [JsonProperty("done")]
+                public long? Done { get; set; }
 
-                [JsonProperty("list")]
-                public List<ListItem> List { get; set; }
-
-                [JsonProperty("mode")]
-                public string Mode { get; set; }
-
-                [JsonExtensionData]
-                public IDictionary<string, JToken> Extra { get; set; }
-
-                public sealed class ListItem
-                {
-                    [JsonProperty("iconUrl")]
-                    public JToken IconUrl { get; set; }
-
-                    [JsonProperty("key")]
-                    public JToken Key { get; set; }
-
-                    [JsonProperty("name")]
-                    public JToken Name { get; set; }
-
-                    [JsonProperty("owned")]
-                    public bool? Owned { get; set; }
-
-                    [JsonExtensionData]
-                    public IDictionary<string, JToken> Extra { get; set; }
-                }
-            }
-
-            public sealed class MetasItem
-            {
-                [JsonProperty("consume")]
-                public JToken Consume { get; set; }
-
-                [JsonProperty("have")]
-                public double? Have { get; set; }
+                [JsonProperty("id")]
+                public JToken Id { get; set; }
 
                 [JsonProperty("key")]
-                public string Key { get; set; }
+                public JToken Key { get; set; }
 
                 [JsonProperty("name")]
                 public string Name { get; set; }
 
-                [JsonProperty("operator")]
-                public JToken Operator { get; set; }
-
-                [JsonProperty("value")]
-                public JToken Value { get; set; }
-
                 [JsonExtensionData]
                 public IDictionary<string, JToken> Extra { get; set; }
             }
 
-            public sealed class TagsData
+            public sealed class PrizeData
             {
-                [JsonProperty("list")]
-                public List<ListItem> List { get; set; }
+                [JsonProperty("id")]
+                public string Id { get; set; }
 
-                [JsonProperty("mode")]
-                public string Mode { get; set; }
+                [JsonProperty("key")]
+                public string Key { get; set; }
+
+                [JsonProperty("message")]
+                public string Message { get; set; }
+
+                [JsonProperty("name")]
+                public string Name { get; set; }
 
                 [JsonExtensionData]
                 public IDictionary<string, JToken> Extra { get; set; }
-
-                public sealed class ListItem
-                {
-                    [JsonProperty("iconUrl")]
-                    public JToken IconUrl { get; set; }
-
-                    [JsonProperty("key")]
-                    public JToken Key { get; set; }
-
-                    [JsonProperty("name")]
-                    public JToken Name { get; set; }
-
-                    [JsonProperty("owned")]
-                    public bool? Owned { get; set; }
-
-                    [JsonExtensionData]
-                    public IDictionary<string, JToken> Extra { get; set; }
-                }
             }
         }
     }
@@ -9634,118 +12552,163 @@ namespace NakamaFarsi.Sdk.Generated
 
         public sealed class TaskData
         {
-            [JsonProperty("consumes")]
-            public JToken Consumes { get; set; }
+            [JsonProperty("categoryKey")]
+            public string CategoryKey { get; set; }
 
-            [JsonProperty("excludesTags")]
-            public bool? ExcludesTags { get; set; }
+            [JsonProperty("children")]
+            public List<JToken> Children { get; set; }
 
-            [JsonProperty("items")]
-            public ItemsData Items { get; set; }
+            [JsonProperty("claimId")]
+            public string ClaimId { get; set; }
 
-            [JsonProperty("metas")]
-            public List<MetasItem> Metas { get; set; }
+            [JsonProperty("claimable")]
+            public bool? Claimable { get; set; }
 
-            [JsonProperty("minLevel")]
-            public JToken MinLevel { get; set; }
+            [JsonProperty("claimedAt")]
+            public JToken ClaimedAt { get; set; }
 
-            [JsonProperty("paths")]
-            public JToken Paths { get; set; }
+            [JsonProperty("completedAt")]
+            public JToken CompletedAt { get; set; }
 
-            [JsonProperty("refund")]
-            public JToken Refund { get; set; }
+            [JsonProperty("completions")]
+            public JToken Completions { get; set; }
+
+            [JsonProperty("condition")]
+            public string Condition { get; set; }
+
+            [JsonProperty("dependsOn")]
+            public List<DependsOnItem> DependsOn { get; set; }
+
+            [JsonProperty("description")]
+            public JToken Description { get; set; }
+
+            [JsonProperty("error")]
+            public string Error { get; set; }
+
+            [JsonProperty("expiresAt")]
+            public JToken ExpiresAt { get; set; }
+
+            [JsonProperty("grantMode")]
+            public string GrantMode { get; set; }
+
+            [JsonProperty("groupId")]
+            public string GroupId { get; set; }
+
+            [JsonProperty("groupKey")]
+            public string GroupKey { get; set; }
+
+            [JsonProperty("iconUrl")]
+            public string IconUrl { get; set; }
+
+            [JsonProperty("id")]
+            public string Id { get; set; }
+
+            [JsonProperty("isActive")]
+            public bool? IsActive { get; set; }
+
+            [JsonProperty("key")]
+            public string Key { get; set; }
+
+            [JsonProperty("maxCompletions")]
+            public long? MaxCompletions { get; set; }
+
+            [JsonProperty("metric")]
+            public string Metric { get; set; }
+
+            [JsonProperty("name")]
+            public JToken Name { get; set; }
+
+            [JsonProperty("nextAt")]
+            public JToken NextAt { get; set; }
+
+            [JsonProperty("parentId")]
+            public string ParentId { get; set; }
+
+            [JsonProperty("parentKey")]
+            public JToken ParentKey { get; set; }
+
+            [JsonProperty("pending")]
+            public long? Pending { get; set; }
+
+            [JsonProperty("periodEndsAt")]
+            public JToken PeriodEndsAt { get; set; }
+
+            [JsonProperty("prize")]
+            public PrizeData Prize { get; set; }
+
+            [JsonProperty("progress")]
+            public double? Progress { get; set; }
+
+            [JsonProperty("reason")]
+            public string Reason { get; set; }
+
+            [JsonProperty("repeat")]
+            public string Repeat { get; set; }
+
+            [JsonProperty("repeatMinutes")]
+            public long? RepeatMinutes { get; set; }
+
+            [JsonProperty("scope")]
+            public JToken Scope { get; set; }
+
+            [JsonProperty("state")]
+            public string State { get; set; }
+
+            [JsonProperty("status")]
+            public string Status { get; set; }
 
             [JsonProperty("tags")]
-            public TagsData Tags { get; set; }
+            public JToken Tags { get; set; }
+
+            [JsonProperty("target")]
+            public double? Target { get; set; }
+
+            [JsonProperty("value")]
+            public double? Value { get; set; }
+
+            [JsonProperty("valueMax")]
+            public double? ValueMax { get; set; }
+
+            [JsonProperty("valueMin")]
+            public double? ValueMin { get; set; }
 
             [JsonExtensionData]
             public IDictionary<string, JToken> Extra { get; set; }
 
-            public sealed class ItemsData
+            public sealed class DependsOnItem
             {
-                [JsonProperty("consume")]
-                public JToken Consume { get; set; }
+                [JsonProperty("done")]
+                public long? Done { get; set; }
 
-                [JsonProperty("list")]
-                public List<ListItem> List { get; set; }
-
-                [JsonProperty("mode")]
-                public string Mode { get; set; }
-
-                [JsonExtensionData]
-                public IDictionary<string, JToken> Extra { get; set; }
-
-                public sealed class ListItem
-                {
-                    [JsonProperty("iconUrl")]
-                    public JToken IconUrl { get; set; }
-
-                    [JsonProperty("key")]
-                    public JToken Key { get; set; }
-
-                    [JsonProperty("name")]
-                    public JToken Name { get; set; }
-
-                    [JsonProperty("owned")]
-                    public bool? Owned { get; set; }
-
-                    [JsonExtensionData]
-                    public IDictionary<string, JToken> Extra { get; set; }
-                }
-            }
-
-            public sealed class MetasItem
-            {
-                [JsonProperty("consume")]
-                public JToken Consume { get; set; }
-
-                [JsonProperty("have")]
-                public double? Have { get; set; }
+                [JsonProperty("id")]
+                public JToken Id { get; set; }
 
                 [JsonProperty("key")]
-                public string Key { get; set; }
+                public JToken Key { get; set; }
 
                 [JsonProperty("name")]
                 public string Name { get; set; }
 
-                [JsonProperty("operator")]
-                public JToken Operator { get; set; }
-
-                [JsonProperty("value")]
-                public JToken Value { get; set; }
-
                 [JsonExtensionData]
                 public IDictionary<string, JToken> Extra { get; set; }
             }
 
-            public sealed class TagsData
+            public sealed class PrizeData
             {
-                [JsonProperty("list")]
-                public List<ListItem> List { get; set; }
+                [JsonProperty("id")]
+                public string Id { get; set; }
 
-                [JsonProperty("mode")]
-                public string Mode { get; set; }
+                [JsonProperty("key")]
+                public string Key { get; set; }
+
+                [JsonProperty("message")]
+                public string Message { get; set; }
+
+                [JsonProperty("name")]
+                public string Name { get; set; }
 
                 [JsonExtensionData]
                 public IDictionary<string, JToken> Extra { get; set; }
-
-                public sealed class ListItem
-                {
-                    [JsonProperty("iconUrl")]
-                    public JToken IconUrl { get; set; }
-
-                    [JsonProperty("key")]
-                    public JToken Key { get; set; }
-
-                    [JsonProperty("name")]
-                    public JToken Name { get; set; }
-
-                    [JsonProperty("owned")]
-                    public bool? Owned { get; set; }
-
-                    [JsonExtensionData]
-                    public IDictionary<string, JToken> Extra { get; set; }
-                }
             }
         }
     }
@@ -10053,236 +13016,326 @@ namespace NakamaFarsi.Sdk.Generated
 
             public sealed class TasksItem
             {
-                [JsonProperty("consumes")]
-                public JToken Consumes { get; set; }
+                [JsonProperty("categoryKey")]
+                public string CategoryKey { get; set; }
 
-                [JsonProperty("excludesTags")]
-                public bool? ExcludesTags { get; set; }
+                [JsonProperty("children")]
+                public List<JToken> Children { get; set; }
 
-                [JsonProperty("items")]
-                public ItemsData Items { get; set; }
+                [JsonProperty("claimId")]
+                public string ClaimId { get; set; }
 
-                [JsonProperty("metas")]
-                public List<MetasItem> Metas { get; set; }
+                [JsonProperty("claimable")]
+                public bool? Claimable { get; set; }
 
-                [JsonProperty("minLevel")]
-                public JToken MinLevel { get; set; }
+                [JsonProperty("claimedAt")]
+                public JToken ClaimedAt { get; set; }
 
-                [JsonProperty("paths")]
-                public JToken Paths { get; set; }
+                [JsonProperty("completedAt")]
+                public JToken CompletedAt { get; set; }
 
-                [JsonProperty("refund")]
-                public JToken Refund { get; set; }
+                [JsonProperty("completions")]
+                public JToken Completions { get; set; }
+
+                [JsonProperty("condition")]
+                public string Condition { get; set; }
+
+                [JsonProperty("dependsOn")]
+                public List<DependsOnItem> DependsOn { get; set; }
+
+                [JsonProperty("description")]
+                public JToken Description { get; set; }
+
+                [JsonProperty("error")]
+                public string Error { get; set; }
+
+                [JsonProperty("expiresAt")]
+                public JToken ExpiresAt { get; set; }
+
+                [JsonProperty("grantMode")]
+                public string GrantMode { get; set; }
+
+                [JsonProperty("groupId")]
+                public string GroupId { get; set; }
+
+                [JsonProperty("groupKey")]
+                public string GroupKey { get; set; }
+
+                [JsonProperty("iconUrl")]
+                public string IconUrl { get; set; }
+
+                [JsonProperty("id")]
+                public string Id { get; set; }
+
+                [JsonProperty("isActive")]
+                public bool? IsActive { get; set; }
+
+                [JsonProperty("key")]
+                public string Key { get; set; }
+
+                [JsonProperty("maxCompletions")]
+                public long? MaxCompletions { get; set; }
+
+                [JsonProperty("metric")]
+                public string Metric { get; set; }
+
+                [JsonProperty("name")]
+                public JToken Name { get; set; }
+
+                [JsonProperty("nextAt")]
+                public JToken NextAt { get; set; }
+
+                [JsonProperty("parentId")]
+                public string ParentId { get; set; }
+
+                [JsonProperty("parentKey")]
+                public JToken ParentKey { get; set; }
+
+                [JsonProperty("pending")]
+                public long? Pending { get; set; }
+
+                [JsonProperty("periodEndsAt")]
+                public JToken PeriodEndsAt { get; set; }
+
+                [JsonProperty("prize")]
+                public PrizeData Prize { get; set; }
+
+                [JsonProperty("progress")]
+                public double? Progress { get; set; }
+
+                [JsonProperty("reason")]
+                public string Reason { get; set; }
+
+                [JsonProperty("repeat")]
+                public string Repeat { get; set; }
+
+                [JsonProperty("repeatMinutes")]
+                public long? RepeatMinutes { get; set; }
+
+                [JsonProperty("scope")]
+                public JToken Scope { get; set; }
+
+                [JsonProperty("state")]
+                public string State { get; set; }
+
+                [JsonProperty("status")]
+                public string Status { get; set; }
 
                 [JsonProperty("tags")]
-                public TagsData Tags { get; set; }
+                public JToken Tags { get; set; }
+
+                [JsonProperty("target")]
+                public double? Target { get; set; }
+
+                [JsonProperty("value")]
+                public double? Value { get; set; }
+
+                [JsonProperty("valueMax")]
+                public double? ValueMax { get; set; }
+
+                [JsonProperty("valueMin")]
+                public double? ValueMin { get; set; }
 
                 [JsonExtensionData]
                 public IDictionary<string, JToken> Extra { get; set; }
 
-                public sealed class ItemsData
+                public sealed class DependsOnItem
                 {
-                    [JsonProperty("consume")]
-                    public JToken Consume { get; set; }
+                    [JsonProperty("done")]
+                    public long? Done { get; set; }
 
-                    [JsonProperty("list")]
-                    public List<ListItem> List { get; set; }
-
-                    [JsonProperty("mode")]
-                    public string Mode { get; set; }
-
-                    [JsonExtensionData]
-                    public IDictionary<string, JToken> Extra { get; set; }
-
-                    public sealed class ListItem
-                    {
-                        [JsonProperty("iconUrl")]
-                        public JToken IconUrl { get; set; }
-
-                        [JsonProperty("key")]
-                        public JToken Key { get; set; }
-
-                        [JsonProperty("name")]
-                        public JToken Name { get; set; }
-
-                        [JsonProperty("owned")]
-                        public bool? Owned { get; set; }
-
-                        [JsonExtensionData]
-                        public IDictionary<string, JToken> Extra { get; set; }
-                    }
-                }
-
-                public sealed class MetasItem
-                {
-                    [JsonProperty("consume")]
-                    public JToken Consume { get; set; }
-
-                    [JsonProperty("have")]
-                    public double? Have { get; set; }
+                    [JsonProperty("id")]
+                    public JToken Id { get; set; }
 
                     [JsonProperty("key")]
-                    public string Key { get; set; }
+                    public JToken Key { get; set; }
 
                     [JsonProperty("name")]
                     public string Name { get; set; }
 
-                    [JsonProperty("operator")]
-                    public JToken Operator { get; set; }
-
-                    [JsonProperty("value")]
-                    public JToken Value { get; set; }
-
                     [JsonExtensionData]
                     public IDictionary<string, JToken> Extra { get; set; }
                 }
 
-                public sealed class TagsData
+                public sealed class PrizeData
                 {
-                    [JsonProperty("list")]
-                    public List<ListItem> List { get; set; }
+                    [JsonProperty("id")]
+                    public string Id { get; set; }
 
-                    [JsonProperty("mode")]
-                    public string Mode { get; set; }
+                    [JsonProperty("key")]
+                    public string Key { get; set; }
+
+                    [JsonProperty("message")]
+                    public string Message { get; set; }
+
+                    [JsonProperty("name")]
+                    public string Name { get; set; }
 
                     [JsonExtensionData]
                     public IDictionary<string, JToken> Extra { get; set; }
-
-                    public sealed class ListItem
-                    {
-                        [JsonProperty("iconUrl")]
-                        public JToken IconUrl { get; set; }
-
-                        [JsonProperty("key")]
-                        public JToken Key { get; set; }
-
-                        [JsonProperty("name")]
-                        public JToken Name { get; set; }
-
-                        [JsonProperty("owned")]
-                        public bool? Owned { get; set; }
-
-                        [JsonExtensionData]
-                        public IDictionary<string, JToken> Extra { get; set; }
-                    }
                 }
             }
         }
 
         public sealed class ItemsItem
         {
-            [JsonProperty("consumes")]
-            public JToken Consumes { get; set; }
+            [JsonProperty("categoryKey")]
+            public string CategoryKey { get; set; }
 
-            [JsonProperty("excludesTags")]
-            public bool? ExcludesTags { get; set; }
+            [JsonProperty("children")]
+            public List<JToken> Children { get; set; }
 
-            [JsonProperty("items")]
-            public ItemsData Items { get; set; }
+            [JsonProperty("claimId")]
+            public string ClaimId { get; set; }
 
-            [JsonProperty("metas")]
-            public List<MetasItem> Metas { get; set; }
+            [JsonProperty("claimable")]
+            public bool? Claimable { get; set; }
 
-            [JsonProperty("minLevel")]
-            public JToken MinLevel { get; set; }
+            [JsonProperty("claimedAt")]
+            public JToken ClaimedAt { get; set; }
 
-            [JsonProperty("paths")]
-            public JToken Paths { get; set; }
+            [JsonProperty("completedAt")]
+            public JToken CompletedAt { get; set; }
 
-            [JsonProperty("refund")]
-            public JToken Refund { get; set; }
+            [JsonProperty("completions")]
+            public JToken Completions { get; set; }
+
+            [JsonProperty("condition")]
+            public string Condition { get; set; }
+
+            [JsonProperty("dependsOn")]
+            public List<DependsOnItem> DependsOn { get; set; }
+
+            [JsonProperty("description")]
+            public JToken Description { get; set; }
+
+            [JsonProperty("error")]
+            public string Error { get; set; }
+
+            [JsonProperty("expiresAt")]
+            public JToken ExpiresAt { get; set; }
+
+            [JsonProperty("grantMode")]
+            public string GrantMode { get; set; }
+
+            [JsonProperty("groupId")]
+            public string GroupId { get; set; }
+
+            [JsonProperty("groupKey")]
+            public string GroupKey { get; set; }
+
+            [JsonProperty("iconUrl")]
+            public string IconUrl { get; set; }
+
+            [JsonProperty("id")]
+            public string Id { get; set; }
+
+            [JsonProperty("isActive")]
+            public bool? IsActive { get; set; }
+
+            [JsonProperty("key")]
+            public string Key { get; set; }
+
+            [JsonProperty("maxCompletions")]
+            public long? MaxCompletions { get; set; }
+
+            [JsonProperty("metric")]
+            public string Metric { get; set; }
+
+            [JsonProperty("name")]
+            public JToken Name { get; set; }
+
+            [JsonProperty("nextAt")]
+            public JToken NextAt { get; set; }
+
+            [JsonProperty("parentId")]
+            public string ParentId { get; set; }
+
+            [JsonProperty("parentKey")]
+            public JToken ParentKey { get; set; }
+
+            [JsonProperty("pending")]
+            public long? Pending { get; set; }
+
+            [JsonProperty("periodEndsAt")]
+            public JToken PeriodEndsAt { get; set; }
+
+            [JsonProperty("prize")]
+            public PrizeData Prize { get; set; }
+
+            [JsonProperty("progress")]
+            public double? Progress { get; set; }
+
+            [JsonProperty("reason")]
+            public string Reason { get; set; }
+
+            [JsonProperty("repeat")]
+            public string Repeat { get; set; }
+
+            [JsonProperty("repeatMinutes")]
+            public long? RepeatMinutes { get; set; }
+
+            [JsonProperty("scope")]
+            public JToken Scope { get; set; }
+
+            [JsonProperty("state")]
+            public string State { get; set; }
+
+            [JsonProperty("status")]
+            public string Status { get; set; }
 
             [JsonProperty("tags")]
-            public TagsData Tags { get; set; }
+            public JToken Tags { get; set; }
+
+            [JsonProperty("target")]
+            public double? Target { get; set; }
+
+            [JsonProperty("value")]
+            public double? Value { get; set; }
+
+            [JsonProperty("valueMax")]
+            public double? ValueMax { get; set; }
+
+            [JsonProperty("valueMin")]
+            public double? ValueMin { get; set; }
 
             [JsonExtensionData]
             public IDictionary<string, JToken> Extra { get; set; }
 
-            public sealed class ItemsData
+            public sealed class DependsOnItem
             {
-                [JsonProperty("consume")]
-                public JToken Consume { get; set; }
+                [JsonProperty("done")]
+                public long? Done { get; set; }
 
-                [JsonProperty("list")]
-                public List<ListItem> List { get; set; }
-
-                [JsonProperty("mode")]
-                public string Mode { get; set; }
-
-                [JsonExtensionData]
-                public IDictionary<string, JToken> Extra { get; set; }
-
-                public sealed class ListItem
-                {
-                    [JsonProperty("iconUrl")]
-                    public JToken IconUrl { get; set; }
-
-                    [JsonProperty("key")]
-                    public JToken Key { get; set; }
-
-                    [JsonProperty("name")]
-                    public JToken Name { get; set; }
-
-                    [JsonProperty("owned")]
-                    public bool? Owned { get; set; }
-
-                    [JsonExtensionData]
-                    public IDictionary<string, JToken> Extra { get; set; }
-                }
-            }
-
-            public sealed class MetasItem
-            {
-                [JsonProperty("consume")]
-                public JToken Consume { get; set; }
-
-                [JsonProperty("have")]
-                public double? Have { get; set; }
+                [JsonProperty("id")]
+                public JToken Id { get; set; }
 
                 [JsonProperty("key")]
-                public string Key { get; set; }
+                public JToken Key { get; set; }
 
                 [JsonProperty("name")]
                 public string Name { get; set; }
 
-                [JsonProperty("operator")]
-                public JToken Operator { get; set; }
-
-                [JsonProperty("value")]
-                public JToken Value { get; set; }
-
                 [JsonExtensionData]
                 public IDictionary<string, JToken> Extra { get; set; }
             }
 
-            public sealed class TagsData
+            public sealed class PrizeData
             {
-                [JsonProperty("list")]
-                public List<ListItem> List { get; set; }
+                [JsonProperty("id")]
+                public string Id { get; set; }
 
-                [JsonProperty("mode")]
-                public string Mode { get; set; }
+                [JsonProperty("key")]
+                public string Key { get; set; }
+
+                [JsonProperty("message")]
+                public string Message { get; set; }
+
+                [JsonProperty("name")]
+                public string Name { get; set; }
 
                 [JsonExtensionData]
                 public IDictionary<string, JToken> Extra { get; set; }
-
-                public sealed class ListItem
-                {
-                    [JsonProperty("iconUrl")]
-                    public JToken IconUrl { get; set; }
-
-                    [JsonProperty("key")]
-                    public JToken Key { get; set; }
-
-                    [JsonProperty("name")]
-                    public JToken Name { get; set; }
-
-                    [JsonProperty("owned")]
-                    public bool? Owned { get; set; }
-
-                    [JsonExtensionData]
-                    public IDictionary<string, JToken> Extra { get; set; }
-                }
             }
         }
     }
@@ -10448,6 +13501,495 @@ namespace NakamaFarsi.Sdk.Generated
 
         [JsonExtensionData]
         public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class InventoryxItemsRequest
+    {
+        [JsonProperty("keys")]
+        public List<string> Keys { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+    }
+
+    public sealed class InventoryxItemsResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("items")]
+        public List<ItemsItem> Items { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("level")]
+        public JToken Level { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class ItemsItem
+        {
+            [JsonProperty("attributes")]
+            public JObject Attributes { get; set; }
+
+            [JsonProperty("canUnlockEarly")]
+            public bool? CanUnlockEarly { get; set; }
+
+            [JsonProperty("key")]
+            public JToken Key { get; set; }
+
+            [JsonProperty("owned")]
+            public bool? Owned { get; set; }
+
+            [JsonProperty("tracks")]
+            public List<TracksItem> Tracks { get; set; }
+
+            [JsonProperty("unlockLevel")]
+            public JToken UnlockLevel { get; set; }
+
+            [JsonProperty("unlockPrices")]
+            public JToken UnlockPrices { get; set; }
+
+            [JsonProperty("unlocked")]
+            public bool? Unlocked { get; set; }
+
+            [JsonProperty("unlockedEarly")]
+            public bool? UnlockedEarly { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+
+            public sealed class TracksItem
+            {
+                [JsonProperty("base")]
+                public double? Base { get; set; }
+
+                [JsonProperty("canUpgrade")]
+                public bool? CanUpgrade { get; set; }
+
+                [JsonProperty("currencyKey")]
+                public string CurrencyKey { get; set; }
+
+                [JsonProperty("key")]
+                public string Key { get; set; }
+
+                [JsonProperty("level")]
+                public JToken Level { get; set; }
+
+                [JsonProperty("maxLevel")]
+                public long? MaxLevel { get; set; }
+
+                [JsonProperty("name")]
+                public string Name { get; set; }
+
+                [JsonProperty("nextMinPlayerLevel")]
+                public long? NextMinPlayerLevel { get; set; }
+
+                [JsonProperty("nextPrice")]
+                public NextPriceData NextPrice { get; set; }
+
+                [JsonProperty("nextRequires")]
+                public List<NextRequiresItem> NextRequires { get; set; }
+
+                [JsonProperty("nextValue")]
+                public double? NextValue { get; set; }
+
+                [JsonProperty("unit")]
+                public string Unit { get; set; }
+
+                [JsonProperty("value")]
+                public JToken Value { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+
+                public sealed class NextPriceData
+                {
+                    [JsonProperty("amount")]
+                    public long? Amount { get; set; }
+
+                    [JsonProperty("currencyKey")]
+                    public string CurrencyKey { get; set; }
+
+                    [JsonExtensionData]
+                    public IDictionary<string, JToken> Extra { get; set; }
+                }
+
+                public sealed class NextRequiresItem
+                {
+                    [JsonProperty("level")]
+                    public JToken Level { get; set; }
+
+                    [JsonProperty("met")]
+                    public bool? Met { get; set; }
+
+                    [JsonProperty("track")]
+                    public JToken Track { get; set; }
+
+                    [JsonExtensionData]
+                    public IDictionary<string, JToken> Extra { get; set; }
+                }
+            }
+        }
+    }
+
+    public sealed class InventoryxUnlockRequest
+    {
+        [JsonProperty("currencyKey")]
+        public string CurrencyKey { get; set; }
+
+        [JsonProperty("key")]
+        public string Key { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("requestId")]
+        public string RequestId { get; set; }
+    }
+
+    public sealed class InventoryxUnlockResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("action")]
+        public string Action { get; set; }
+
+        [JsonProperty("item")]
+        public Item_ Item { get; set; }
+
+        [JsonProperty("itemKey")]
+        public string ItemKey { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("owned")]
+        public bool? Owned { get; set; }
+
+        [JsonProperty("paid")]
+        public List<PaidItem> Paid { get; set; }
+
+        [JsonProperty("replayed")]
+        public bool? Replayed { get; set; }
+
+        [JsonProperty("unlocked")]
+        public bool? Unlocked { get; set; }
+
+        [JsonProperty("wallet")]
+        public JObject Wallet { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class Item_
+        {
+            [JsonProperty("attributes")]
+            public JObject Attributes { get; set; }
+
+            [JsonProperty("canUnlockEarly")]
+            public bool? CanUnlockEarly { get; set; }
+
+            [JsonProperty("key")]
+            public string Key { get; set; }
+
+            [JsonProperty("owned")]
+            public bool? Owned { get; set; }
+
+            [JsonProperty("tracks")]
+            public List<TracksItem> Tracks { get; set; }
+
+            [JsonProperty("unlockPrices")]
+            public List<UnlockPricesItem> UnlockPrices { get; set; }
+
+            [JsonProperty("unlocked")]
+            public bool? Unlocked { get; set; }
+
+            [JsonProperty("unlockedEarly")]
+            public bool? UnlockedEarly { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+
+            public sealed class TracksItem
+            {
+                [JsonProperty("base")]
+                public double? Base { get; set; }
+
+                [JsonProperty("canUpgrade")]
+                public bool? CanUpgrade { get; set; }
+
+                [JsonProperty("currencyKey")]
+                public string CurrencyKey { get; set; }
+
+                [JsonProperty("key")]
+                public string Key { get; set; }
+
+                [JsonProperty("level")]
+                public JToken Level { get; set; }
+
+                [JsonProperty("maxLevel")]
+                public long? MaxLevel { get; set; }
+
+                [JsonProperty("name")]
+                public string Name { get; set; }
+
+                [JsonProperty("nextMinPlayerLevel")]
+                public long? NextMinPlayerLevel { get; set; }
+
+                [JsonProperty("nextPrice")]
+                public NextPriceData NextPrice { get; set; }
+
+                [JsonProperty("nextRequires")]
+                public List<NextRequiresItem> NextRequires { get; set; }
+
+                [JsonProperty("nextValue")]
+                public JToken NextValue { get; set; }
+
+                [JsonProperty("unit")]
+                public string Unit { get; set; }
+
+                [JsonProperty("value")]
+                public JToken Value { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+
+                public sealed class NextPriceData
+                {
+                    [JsonProperty("amount")]
+                    public long? Amount { get; set; }
+
+                    [JsonProperty("currencyKey")]
+                    public string CurrencyKey { get; set; }
+
+                    [JsonExtensionData]
+                    public IDictionary<string, JToken> Extra { get; set; }
+                }
+
+                public sealed class NextRequiresItem
+                {
+                    [JsonProperty("level")]
+                    public JToken Level { get; set; }
+
+                    [JsonProperty("met")]
+                    public bool? Met { get; set; }
+
+                    [JsonProperty("track")]
+                    public JToken Track { get; set; }
+
+                    [JsonExtensionData]
+                    public IDictionary<string, JToken> Extra { get; set; }
+                }
+            }
+
+            public sealed class UnlockPricesItem
+            {
+                [JsonProperty("amount")]
+                public long? Amount { get; set; }
+
+                [JsonProperty("currencyKey")]
+                public string CurrencyKey { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+        }
+
+        public sealed class PaidItem
+        {
+            [JsonProperty("amount")]
+            public long? Amount { get; set; }
+
+            [JsonProperty("currencyKey")]
+            public string CurrencyKey { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class InventoryxUpgradeRequest
+    {
+        [JsonProperty("fromLevel")]
+        public long? FromLevel { get; set; }
+
+        [JsonProperty("key")]
+        public string Key { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("requestId")]
+        public string RequestId { get; set; }
+
+        [JsonProperty("track")]
+        public string Track { get; set; }
+    }
+
+    public sealed class InventoryxUpgradeResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("action")]
+        public string Action { get; set; }
+
+        [JsonProperty("item")]
+        public Item_ Item { get; set; }
+
+        [JsonProperty("itemKey")]
+        public string ItemKey { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("owned")]
+        public bool? Owned { get; set; }
+
+        [JsonProperty("paid")]
+        public List<PaidItem> Paid { get; set; }
+
+        [JsonProperty("replayed")]
+        public bool? Replayed { get; set; }
+
+        [JsonProperty("unlocked")]
+        public bool? Unlocked { get; set; }
+
+        [JsonProperty("wallet")]
+        public JObject Wallet { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class Item_
+        {
+            [JsonProperty("attributes")]
+            public JObject Attributes { get; set; }
+
+            [JsonProperty("canUnlockEarly")]
+            public bool? CanUnlockEarly { get; set; }
+
+            [JsonProperty("key")]
+            public string Key { get; set; }
+
+            [JsonProperty("owned")]
+            public bool? Owned { get; set; }
+
+            [JsonProperty("tracks")]
+            public List<TracksItem> Tracks { get; set; }
+
+            [JsonProperty("unlockPrices")]
+            public List<UnlockPricesItem> UnlockPrices { get; set; }
+
+            [JsonProperty("unlocked")]
+            public bool? Unlocked { get; set; }
+
+            [JsonProperty("unlockedEarly")]
+            public bool? UnlockedEarly { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+
+            public sealed class TracksItem
+            {
+                [JsonProperty("base")]
+                public double? Base { get; set; }
+
+                [JsonProperty("canUpgrade")]
+                public bool? CanUpgrade { get; set; }
+
+                [JsonProperty("currencyKey")]
+                public string CurrencyKey { get; set; }
+
+                [JsonProperty("key")]
+                public string Key { get; set; }
+
+                [JsonProperty("level")]
+                public JToken Level { get; set; }
+
+                [JsonProperty("maxLevel")]
+                public long? MaxLevel { get; set; }
+
+                [JsonProperty("name")]
+                public string Name { get; set; }
+
+                [JsonProperty("nextMinPlayerLevel")]
+                public long? NextMinPlayerLevel { get; set; }
+
+                [JsonProperty("nextPrice")]
+                public NextPriceData NextPrice { get; set; }
+
+                [JsonProperty("nextRequires")]
+                public List<NextRequiresItem> NextRequires { get; set; }
+
+                [JsonProperty("nextValue")]
+                public JToken NextValue { get; set; }
+
+                [JsonProperty("unit")]
+                public string Unit { get; set; }
+
+                [JsonProperty("value")]
+                public JToken Value { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+
+                public sealed class NextPriceData
+                {
+                    [JsonProperty("amount")]
+                    public long? Amount { get; set; }
+
+                    [JsonProperty("currencyKey")]
+                    public string CurrencyKey { get; set; }
+
+                    [JsonExtensionData]
+                    public IDictionary<string, JToken> Extra { get; set; }
+                }
+
+                public sealed class NextRequiresItem
+                {
+                    [JsonProperty("level")]
+                    public JToken Level { get; set; }
+
+                    [JsonProperty("met")]
+                    public bool? Met { get; set; }
+
+                    [JsonProperty("track")]
+                    public JToken Track { get; set; }
+
+                    [JsonExtensionData]
+                    public IDictionary<string, JToken> Extra { get; set; }
+                }
+            }
+
+            public sealed class UnlockPricesItem
+            {
+                [JsonProperty("amount")]
+                public long? Amount { get; set; }
+
+                [JsonProperty("currencyKey")]
+                public string CurrencyKey { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+        }
+
+        public sealed class PaidItem
+        {
+            [JsonProperty("amount")]
+            public long? Amount { get; set; }
+
+            [JsonProperty("currencyKey")]
+            public string CurrencyKey { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
     }
 
     public sealed class LeaderboardxBoardRequest
@@ -11011,6 +14553,219 @@ namespace NakamaFarsi.Sdk.Generated
 
             [JsonExtensionData]
             public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class LedgerKindsRequest
+    {
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+    }
+
+    public sealed class LedgerKindsResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("historyDays")]
+        public JToken HistoryDays { get; set; }
+
+        [JsonProperty("kinds")]
+        public List<KindsItem> Kinds { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("maxLimit")]
+        public JToken MaxLimit { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class KindsItem
+        {
+            [JsonProperty("key")]
+            public JToken Key { get; set; }
+
+            [JsonProperty("name")]
+            public JToken Name { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class LedgerListRequest
+    {
+        [JsonProperty("currency")]
+        public string Currency { get; set; }
+
+        [JsonProperty("cursor")]
+        public string Cursor { get; set; }
+
+        [JsonProperty("direction")]
+        public string Direction { get; set; }
+
+        [JsonProperty("from")]
+        public string From { get; set; }
+
+        [JsonProperty("itemKey")]
+        public string ItemKey { get; set; }
+
+        [JsonProperty("kinds")]
+        public List<string> Kinds { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("limit")]
+        public long? Limit { get; set; }
+
+        [JsonProperty("to")]
+        public string To { get; set; }
+    }
+
+    public sealed class LedgerListResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("cursor")]
+        public string Cursor { get; set; }
+
+        [JsonProperty("items")]
+        public List<ItemsItem> Items { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class ItemsItem
+        {
+            [JsonProperty("amount")]
+            public JToken Amount { get; set; }
+
+            [JsonProperty("at")]
+            public string At { get; set; }
+
+            [JsonProperty("change")]
+            public JToken Change { get; set; }
+
+            [JsonProperty("currency")]
+            public JToken Currency { get; set; }
+
+            [JsonProperty("currencyName")]
+            public string CurrencyName { get; set; }
+
+            [JsonProperty("id")]
+            public JToken Id { get; set; }
+
+            [JsonProperty("itemKey")]
+            public JToken ItemKey { get; set; }
+
+            [JsonProperty("itemName")]
+            public string ItemName { get; set; }
+
+            [JsonProperty("kind")]
+            public JToken Kind { get; set; }
+
+            [JsonProperty("kindName")]
+            public JToken KindName { get; set; }
+
+            [JsonProperty("level")]
+            public JToken Level { get; set; }
+
+            [JsonProperty("reason")]
+            public JToken Reason { get; set; }
+
+            [JsonProperty("refId")]
+            public JToken RefId { get; set; }
+
+            [JsonProperty("source")]
+            public JToken Source { get; set; }
+
+            [JsonProperty("sourceId")]
+            public JToken SourceId { get; set; }
+
+            [JsonProperty("sourceType")]
+            public JToken SourceType { get; set; }
+
+            [JsonProperty("title")]
+            public JToken Title { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class PpLocalStateRequest
+    {
+        [JsonProperty("balances")]
+        public List<BalancesItem> Balances { get; set; }
+
+        [JsonProperty("ownedKeys")]
+        public List<string> OwnedKeys { get; set; }
+
+        public sealed class BalancesItem
+        {
+            [JsonProperty("amount")]
+            public double? Amount { get; set; }
+
+            [JsonProperty("currency")]
+            public string Currency { get; set; }
+
+            [JsonProperty("currencyId")]
+            public string CurrencyId { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class PpLocalStateResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("_mismatch")]
+        public MismatchData Mismatch { get; set; }
+
+        [JsonProperty("adopted")]
+        public JObject Adopted { get; set; }
+
+        [JsonProperty("received")]
+        public bool? Received { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class MismatchData
+        {
+            [JsonProperty("balances")]
+            public List<BalancesItem> Balances { get; set; }
+
+            [JsonProperty("items")]
+            public List<string> Items { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+
+            public sealed class BalancesItem
+            {
+                [JsonProperty("currency")]
+                public string Currency { get; set; }
+
+                [JsonProperty("local")]
+                public double? Local { get; set; }
+
+                [JsonProperty("server")]
+                public double? Server { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
         }
     }
 
@@ -12575,38 +16330,131 @@ namespace NakamaFarsi.Sdk.Generated
         [JsonIgnore]
         public JObject Raw { get; set; }
 
-        [JsonProperty("Answered")]
-        public string Answered { get; set; }
+        [JsonProperty("answered")]
+        public JToken Answered { get; set; }
 
-        [JsonProperty("Idx")]
-        public long? Idx { get; set; }
+        [JsonProperty("correct")]
+        public bool? Correct { get; set; }
 
-        [JsonProperty("Option")]
-        public long? Option { get; set; }
+        [JsonProperty("correctCount")]
+        public JToken CorrectCount { get; set; }
 
-        [JsonProperty("Outcome")]
+        [JsonProperty("next")]
+        public NextData Next { get; set; }
+
+        [JsonProperty("outcome")]
         public string Outcome { get; set; }
 
-        [JsonProperty("QuestionID")]
-        public string QuestionID { get; set; }
+        [JsonProperty("questionId")]
+        public JToken QuestionId { get; set; }
 
-        [JsonProperty("Round")]
-        public long? Round { get; set; }
-
-        [JsonProperty("Seconds")]
-        public double? Seconds { get; set; }
-
-        [JsonProperty("Served")]
-        public string Served { get; set; }
-
-        [JsonProperty("UserID")]
-        public string UserID { get; set; }
+        [JsonProperty("replayed")]
+        public bool? Replayed { get; set; }
 
         [JsonProperty("result")]
         public JToken Result { get; set; }
 
+        [JsonProperty("sessionId")]
+        public JToken SessionId { get; set; }
+
+        [JsonProperty("total")]
+        public long? Total { get; set; }
+
         [JsonExtensionData]
         public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class NextData
+        {
+            [JsonProperty("acceptedAnswers")]
+            public JObject AcceptedAnswers { get; set; }
+
+            [JsonProperty("answered")]
+            public AnsweredData Answered { get; set; }
+
+            [JsonProperty("deadlineAt")]
+            public string DeadlineAt { get; set; }
+
+            [JsonProperty("difficulty")]
+            public long? Difficulty { get; set; }
+
+            [JsonProperty("hints")]
+            public List<HintsItem> Hints { get; set; }
+
+            [JsonProperty("id")]
+            public string Id { get; set; }
+
+            [JsonProperty("index")]
+            public long? Index { get; set; }
+
+            [JsonProperty("mediaUrl")]
+            public string MediaUrl { get; set; }
+
+            [JsonProperty("options")]
+            public List<OptionsItem> Options { get; set; }
+
+            [JsonProperty("text")]
+            public string Text { get; set; }
+
+            [JsonProperty("timeSeconds")]
+            public JToken TimeSeconds { get; set; }
+
+            [JsonProperty("type")]
+            public string Type { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+
+            public sealed class AnsweredData
+            {
+                [JsonProperty("optionIds")]
+                public List<long?> OptionIds { get; set; }
+
+                [JsonProperty("outcome")]
+                public string Outcome { get; set; }
+
+                [JsonProperty("text")]
+                public string Text { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+
+            public sealed class HintsItem
+            {
+                [JsonProperty("id")]
+                public JToken Id { get; set; }
+
+                [JsonProperty("name")]
+                public string Name { get; set; }
+
+                [JsonProperty("owned")]
+                public bool? Owned { get; set; }
+
+                [JsonProperty("price")]
+                public JToken Price { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+
+            public sealed class OptionsItem
+            {
+                [JsonProperty("correct")]
+                public bool? Correct { get; set; }
+
+                [JsonProperty("id")]
+                public JToken Id { get; set; }
+
+                [JsonProperty("mediaUrl")]
+                public JToken MediaUrl { get; set; }
+
+                [JsonProperty("text")]
+                public string Text { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+        }
     }
 
     public sealed class QuizAnswerAllRequest
@@ -12677,6 +16525,20 @@ namespace NakamaFarsi.Sdk.Generated
 
     public sealed class QuizDuelAcceptRequest
     {
+        [JsonProperty("categoryKey")]
+        public string CategoryKey { get; set; }
+
+        [JsonProperty("duelId")]
+        public string DuelId { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("optionId")]
+        public long? OptionId { get; set; }
+
+        [JsonProperty("questionId")]
+        public string QuestionId { get; set; }
     }
 
     public sealed class QuizDuelAcceptResponse : IRawResponse
@@ -12864,6 +16726,20 @@ namespace NakamaFarsi.Sdk.Generated
 
     public sealed class QuizDuelAnswerRequest
     {
+        [JsonProperty("categoryKey")]
+        public string CategoryKey { get; set; }
+
+        [JsonProperty("duelId")]
+        public string DuelId { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("optionId")]
+        public long? OptionId { get; set; }
+
+        [JsonProperty("questionId")]
+        public string QuestionId { get; set; }
     }
 
     public sealed class QuizDuelAnswerResponse : IRawResponse
@@ -13273,6 +17149,20 @@ namespace NakamaFarsi.Sdk.Generated
 
     public sealed class QuizDuelDeclineRequest
     {
+        [JsonProperty("categoryKey")]
+        public string CategoryKey { get; set; }
+
+        [JsonProperty("duelId")]
+        public string DuelId { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("optionId")]
+        public long? OptionId { get; set; }
+
+        [JsonProperty("questionId")]
+        public string QuestionId { get; set; }
     }
 
     public sealed class QuizDuelDeclineResponse : IRawResponse
@@ -13460,6 +17350,20 @@ namespace NakamaFarsi.Sdk.Generated
 
     public sealed class QuizDuelForfeitRequest
     {
+        [JsonProperty("categoryKey")]
+        public string CategoryKey { get; set; }
+
+        [JsonProperty("duelId")]
+        public string DuelId { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("optionId")]
+        public long? OptionId { get; set; }
+
+        [JsonProperty("questionId")]
+        public string QuestionId { get; set; }
     }
 
     public sealed class QuizDuelForfeitResponse : IRawResponse
@@ -13647,6 +17551,20 @@ namespace NakamaFarsi.Sdk.Generated
 
     public sealed class QuizDuelGetRequest
     {
+        [JsonProperty("categoryKey")]
+        public string CategoryKey { get; set; }
+
+        [JsonProperty("duelId")]
+        public string DuelId { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("optionId")]
+        public long? OptionId { get; set; }
+
+        [JsonProperty("questionId")]
+        public string QuestionId { get; set; }
     }
 
     public sealed class QuizDuelGetResponse : IRawResponse
@@ -14044,6 +17962,20 @@ namespace NakamaFarsi.Sdk.Generated
 
     public sealed class QuizDuelPickCategoryRequest
     {
+        [JsonProperty("categoryKey")]
+        public string CategoryKey { get; set; }
+
+        [JsonProperty("duelId")]
+        public string DuelId { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("optionId")]
+        public long? OptionId { get; set; }
+
+        [JsonProperty("questionId")]
+        public string QuestionId { get; set; }
     }
 
     public sealed class QuizDuelPickCategoryResponse : IRawResponse
@@ -14231,6 +18163,20 @@ namespace NakamaFarsi.Sdk.Generated
 
     public sealed class QuizDuelQuestionRequest
     {
+        [JsonProperty("categoryKey")]
+        public string CategoryKey { get; set; }
+
+        [JsonProperty("duelId")]
+        public string DuelId { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("optionId")]
+        public long? OptionId { get; set; }
+
+        [JsonProperty("questionId")]
+        public string QuestionId { get; set; }
     }
 
     public sealed class QuizDuelQuestionResponse : IRawResponse
@@ -14754,32 +18700,29 @@ namespace NakamaFarsi.Sdk.Generated
         [JsonIgnore]
         public JObject Raw { get; set; }
 
-        [JsonProperty("Answered")]
-        public string Answered { get; set; }
+        [JsonProperty("hintId")]
+        public JToken HintId { get; set; }
 
-        [JsonProperty("Idx")]
-        public long? Idx { get; set; }
+        [JsonProperty("mediaUrl")]
+        public JToken MediaUrl { get; set; }
 
-        [JsonProperty("Option")]
-        public long? Option { get; set; }
+        [JsonProperty("name")]
+        public string Name { get; set; }
 
-        [JsonProperty("Outcome")]
-        public string Outcome { get; set; }
+        [JsonProperty("owned")]
+        public bool? Owned { get; set; }
 
-        [JsonProperty("QuestionID")]
-        public string QuestionID { get; set; }
+        [JsonProperty("price")]
+        public JToken Price { get; set; }
 
-        [JsonProperty("Round")]
-        public long? Round { get; set; }
+        [JsonProperty("questionId")]
+        public JToken QuestionId { get; set; }
 
-        [JsonProperty("Seconds")]
-        public double? Seconds { get; set; }
+        [JsonProperty("replayed")]
+        public bool? Replayed { get; set; }
 
-        [JsonProperty("Served")]
-        public string Served { get; set; }
-
-        [JsonProperty("UserID")]
-        public string UserID { get; set; }
+        [JsonProperty("text")]
+        public string Text { get; set; }
 
         [JsonExtensionData]
         public IDictionary<string, JToken> Extra { get; set; }
@@ -15908,6 +19851,1606 @@ namespace NakamaFarsi.Sdk.Generated
 
         [JsonExtensionData]
         public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class ShopxPurchaseCheckRequest
+    {
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("method")]
+        public string Method { get; set; }
+
+        [JsonProperty("productId")]
+        public string ProductId { get; set; }
+    }
+
+    public sealed class ShopxPurchaseCheckResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("allowed")]
+        public bool? Allowed { get; set; }
+
+        [JsonProperty("code")]
+        public string Code { get; set; }
+
+        [JsonProperty("method")]
+        public string Method { get; set; }
+
+        [JsonProperty("phoneRequired")]
+        public bool? PhoneRequired { get; set; }
+
+        [JsonProperty("phoneVerified")]
+        public bool? PhoneVerified { get; set; }
+
+        [JsonProperty("productId")]
+        public string ProductId { get; set; }
+
+        [JsonProperty("productKey")]
+        public string ProductKey { get; set; }
+
+        [JsonProperty("sandbox")]
+        public JToken Sandbox { get; set; }
+
+        [JsonProperty("verifyRpc")]
+        public JToken VerifyRpc { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class ShopxPurchaseRulesRequest
+    {
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+    }
+
+    public sealed class ShopxPurchaseRulesResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("methods")]
+        public List<MethodsItem> Methods { get; set; }
+
+        [JsonProperty("phoneVerified")]
+        public bool? PhoneVerified { get; set; }
+
+        [JsonProperty("verifyRpc")]
+        public JToken VerifyRpc { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class MethodsItem
+        {
+            [JsonProperty("blocked")]
+            public bool? Blocked { get; set; }
+
+            [JsonProperty("method")]
+            public JToken Method { get; set; }
+
+            [JsonProperty("phoneRequired")]
+            public bool? PhoneRequired { get; set; }
+
+            [JsonProperty("sandbox")]
+            public JToken Sandbox { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class SocialAvatarRequest
+    {
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+    }
+
+    public sealed class SocialAvatarResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("avatar")]
+        public JToken Avatar { get; set; }
+
+        [JsonProperty("avatarSlot")]
+        public JToken AvatarSlot { get; set; }
+
+        [JsonProperty("avatarUrl")]
+        public JToken AvatarUrl { get; set; }
+
+        [JsonProperty("avatars")]
+        public List<AvatarsItem> Avatars { get; set; }
+
+        [JsonProperty("equipRpc")]
+        public string EquipRpc { get; set; }
+
+        [JsonProperty("frame")]
+        public JToken Frame { get; set; }
+
+        [JsonProperty("frameSlot")]
+        public JToken FrameSlot { get; set; }
+
+        [JsonProperty("frames")]
+        public List<FramesItem> Frames { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class AvatarsItem
+        {
+            [JsonProperty("equipped")]
+            public bool? Equipped { get; set; }
+
+            [JsonProperty("forSale")]
+            public bool? ForSale { get; set; }
+
+            [JsonProperty("iconUrl")]
+            public JToken IconUrl { get; set; }
+
+            [JsonProperty("imageUrl")]
+            public JToken ImageUrl { get; set; }
+
+            [JsonProperty("key")]
+            public JToken Key { get; set; }
+
+            [JsonProperty("name")]
+            public JToken Name { get; set; }
+
+            [JsonProperty("owned")]
+            public bool? Owned { get; set; }
+
+            [JsonProperty("rarity")]
+            public JToken Rarity { get; set; }
+
+            [JsonProperty("unlockLevel")]
+            public JToken UnlockLevel { get; set; }
+
+            [JsonProperty("url")]
+            public JToken Url { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class FramesItem
+        {
+            [JsonProperty("equipped")]
+            public bool? Equipped { get; set; }
+
+            [JsonProperty("forSale")]
+            public bool? ForSale { get; set; }
+
+            [JsonProperty("iconUrl")]
+            public JToken IconUrl { get; set; }
+
+            [JsonProperty("imageUrl")]
+            public JToken ImageUrl { get; set; }
+
+            [JsonProperty("key")]
+            public JToken Key { get; set; }
+
+            [JsonProperty("name")]
+            public JToken Name { get; set; }
+
+            [JsonProperty("owned")]
+            public bool? Owned { get; set; }
+
+            [JsonProperty("rarity")]
+            public JToken Rarity { get; set; }
+
+            [JsonProperty("unlockLevel")]
+            public JToken UnlockLevel { get; set; }
+
+            [JsonProperty("url")]
+            public JToken Url { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class SocialCommentDeleteRequest
+    {
+        [JsonProperty("body")]
+        public string Body { get; set; }
+
+        [JsonProperty("id")]
+        public string Id { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("limit")]
+        public long? Limit { get; set; }
+
+        [JsonProperty("metadata")]
+        public JToken Metadata { get; set; }
+
+        [JsonProperty("note")]
+        public string Note { get; set; }
+
+        [JsonProperty("page")]
+        public long? Page { get; set; }
+
+        [JsonProperty("parentId")]
+        public string ParentId { get; set; }
+
+        [JsonProperty("sort")]
+        public string Sort { get; set; }
+
+        [JsonProperty("targetId")]
+        public string TargetId { get; set; }
+
+        [JsonProperty("targetType")]
+        public string TargetType { get; set; }
+
+        [JsonProperty("titleId")]
+        public string TitleId { get; set; }
+
+        [JsonProperty("titleKey")]
+        public string TitleKey { get; set; }
+    }
+
+    public sealed class SocialCommentDeleteResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("deleted")]
+        public bool? Deleted { get; set; }
+
+        [JsonProperty("id")]
+        public string Id { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class SocialCommentEditRequest
+    {
+        [JsonProperty("body")]
+        public string Body { get; set; }
+
+        [JsonProperty("id")]
+        public string Id { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("limit")]
+        public long? Limit { get; set; }
+
+        [JsonProperty("metadata")]
+        public JToken Metadata { get; set; }
+
+        [JsonProperty("note")]
+        public string Note { get; set; }
+
+        [JsonProperty("page")]
+        public long? Page { get; set; }
+
+        [JsonProperty("parentId")]
+        public string ParentId { get; set; }
+
+        [JsonProperty("sort")]
+        public string Sort { get; set; }
+
+        [JsonProperty("targetId")]
+        public string TargetId { get; set; }
+
+        [JsonProperty("targetType")]
+        public string TargetType { get; set; }
+
+        [JsonProperty("titleId")]
+        public string TitleId { get; set; }
+
+        [JsonProperty("titleKey")]
+        public string TitleKey { get; set; }
+    }
+
+    public sealed class SocialCommentEditResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("comment")]
+        public JObject Comment { get; set; }
+
+        [JsonProperty("masked")]
+        public bool? Masked { get; set; }
+
+        [JsonProperty("pending")]
+        public bool? Pending { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class SocialCommentPostRequest
+    {
+        [JsonProperty("body")]
+        public string Body { get; set; }
+
+        [JsonProperty("id")]
+        public string Id { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("limit")]
+        public long? Limit { get; set; }
+
+        [JsonProperty("metadata")]
+        public JToken Metadata { get; set; }
+
+        [JsonProperty("note")]
+        public string Note { get; set; }
+
+        [JsonProperty("page")]
+        public long? Page { get; set; }
+
+        [JsonProperty("parentId")]
+        public string ParentId { get; set; }
+
+        [JsonProperty("sort")]
+        public string Sort { get; set; }
+
+        [JsonProperty("targetId")]
+        public string TargetId { get; set; }
+
+        [JsonProperty("targetType")]
+        public string TargetType { get; set; }
+
+        [JsonProperty("titleId")]
+        public string TitleId { get; set; }
+
+        [JsonProperty("titleKey")]
+        public string TitleKey { get; set; }
+    }
+
+    public sealed class SocialCommentPostResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("comment")]
+        public JObject Comment { get; set; }
+
+        [JsonProperty("masked")]
+        public bool? Masked { get; set; }
+
+        [JsonProperty("pending")]
+        public bool? Pending { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class SocialCommentReportRequest
+    {
+        [JsonProperty("body")]
+        public string Body { get; set; }
+
+        [JsonProperty("id")]
+        public string Id { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("limit")]
+        public long? Limit { get; set; }
+
+        [JsonProperty("metadata")]
+        public JToken Metadata { get; set; }
+
+        [JsonProperty("note")]
+        public string Note { get; set; }
+
+        [JsonProperty("page")]
+        public long? Page { get; set; }
+
+        [JsonProperty("parentId")]
+        public string ParentId { get; set; }
+
+        [JsonProperty("sort")]
+        public string Sort { get; set; }
+
+        [JsonProperty("targetId")]
+        public string TargetId { get; set; }
+
+        [JsonProperty("targetType")]
+        public string TargetType { get; set; }
+
+        [JsonProperty("titleId")]
+        public string TitleId { get; set; }
+
+        [JsonProperty("titleKey")]
+        public string TitleKey { get; set; }
+    }
+
+    public sealed class SocialCommentReportResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("hidden")]
+        public bool? Hidden { get; set; }
+
+        [JsonProperty("id")]
+        public string Id { get; set; }
+
+        [JsonProperty("reported")]
+        public bool? Reported { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class SocialCommentsRequest
+    {
+        [JsonProperty("body")]
+        public string Body { get; set; }
+
+        [JsonProperty("id")]
+        public string Id { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("limit")]
+        public long? Limit { get; set; }
+
+        [JsonProperty("metadata")]
+        public JToken Metadata { get; set; }
+
+        [JsonProperty("note")]
+        public string Note { get; set; }
+
+        [JsonProperty("page")]
+        public long? Page { get; set; }
+
+        [JsonProperty("parentId")]
+        public string ParentId { get; set; }
+
+        [JsonProperty("sort")]
+        public string Sort { get; set; }
+
+        [JsonProperty("targetId")]
+        public string TargetId { get; set; }
+
+        [JsonProperty("targetType")]
+        public string TargetType { get; set; }
+
+        [JsonProperty("titleId")]
+        public string TitleId { get; set; }
+
+        [JsonProperty("titleKey")]
+        public string TitleKey { get; set; }
+    }
+
+    public sealed class SocialCommentsResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("items")]
+        public List<JObject> Items { get; set; }
+
+        [JsonProperty("limit")]
+        public long? Limit { get; set; }
+
+        [JsonProperty("page")]
+        public long? Page { get; set; }
+
+        [JsonProperty("parentId")]
+        public string ParentId { get; set; }
+
+        [JsonProperty("sort")]
+        public string Sort { get; set; }
+
+        [JsonProperty("targetId")]
+        public string TargetId { get; set; }
+
+        [JsonProperty("targetType")]
+        public JToken TargetType { get; set; }
+
+        [JsonProperty("total")]
+        public long? Total { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class SocialConfigRequest
+    {
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+    }
+
+    public sealed class SocialConfigResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("comment")]
+        public CommentData Comment { get; set; }
+
+        [JsonProperty("follow")]
+        public FollowData Follow { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("limits")]
+        public JObject Limits { get; set; }
+
+        [JsonProperty("notificationCode")]
+        public JToken NotificationCode { get; set; }
+
+        [JsonProperty("reactions")]
+        public List<ReactionsItem> Reactions { get; set; }
+
+        [JsonProperty("targetTypes")]
+        public List<TargetTypesItem> TargetTypes { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class CommentData
+        {
+            [JsonProperty("deleteMinutes")]
+            public JToken DeleteMinutes { get; set; }
+
+            [JsonProperty("editMinutes")]
+            public JToken EditMinutes { get; set; }
+
+            [JsonProperty("enabled")]
+            public JToken Enabled { get; set; }
+
+            [JsonProperty("maxDepth")]
+            public JToken MaxDepth { get; set; }
+
+            [JsonProperty("maxLength")]
+            public JToken MaxLength { get; set; }
+
+            [JsonProperty("minLength")]
+            public JToken MinLength { get; set; }
+
+            [JsonProperty("pageSize")]
+            public JToken PageSize { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class FollowData
+        {
+            [JsonProperty("canChangePrivacy")]
+            public JToken CanChangePrivacy { get; set; }
+
+            [JsonProperty("enabled")]
+            public JToken Enabled { get; set; }
+
+            [JsonProperty("maxFollowing")]
+            public JToken MaxFollowing { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class ReactionsItem
+        {
+            [JsonProperty("emoji")]
+            public JToken Emoji { get; set; }
+
+            [JsonProperty("iconUrl")]
+            public JToken IconUrl { get; set; }
+
+            [JsonProperty("key")]
+            public JToken Key { get; set; }
+
+            [JsonProperty("name")]
+            public string Name { get; set; }
+
+            [JsonProperty("targetTypes")]
+            public JToken TargetTypes { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class TargetTypesItem
+        {
+            [JsonProperty("comment")]
+            public bool? Comment { get; set; }
+
+            [JsonProperty("favorite")]
+            public bool? Favorite { get; set; }
+
+            [JsonProperty("key")]
+            public JToken Key { get; set; }
+
+            [JsonProperty("moderation")]
+            public string Moderation { get; set; }
+
+            [JsonProperty("name")]
+            public string Name { get; set; }
+
+            [JsonProperty("ownerKind")]
+            public JToken OwnerKind { get; set; }
+
+            [JsonProperty("rating")]
+            public bool? Rating { get; set; }
+
+            [JsonProperty("ratingMax")]
+            public long? RatingMax { get; set; }
+
+            [JsonProperty("reaction")]
+            public bool? Reaction { get; set; }
+
+            [JsonProperty("reactionMode")]
+            public string ReactionMode { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class SocialFavoriteRequest
+    {
+        [JsonProperty("kind")]
+        public string Kind { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("limit")]
+        public long? Limit { get; set; }
+
+        [JsonProperty("metadata")]
+        public JToken Metadata { get; set; }
+
+        [JsonProperty("on")]
+        public bool? On { get; set; }
+
+        [JsonProperty("page")]
+        public long? Page { get; set; }
+
+        [JsonProperty("targetId")]
+        public string TargetId { get; set; }
+
+        [JsonProperty("targetIds")]
+        public List<string> TargetIds { get; set; }
+
+        [JsonProperty("targetType")]
+        public string TargetType { get; set; }
+
+        [JsonProperty("value")]
+        public long? Value { get; set; }
+    }
+
+    public sealed class SocialFavoriteResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("active")]
+        public bool? Active { get; set; }
+
+        [JsonProperty("favorites")]
+        public long? Favorites { get; set; }
+
+        [JsonProperty("targetId")]
+        public string TargetId { get; set; }
+
+        [JsonProperty("targetType")]
+        public string TargetType { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class SocialFollowRequest
+    {
+        [JsonProperty("accept")]
+        public bool? Accept { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("limit")]
+        public long? Limit { get; set; }
+
+        [JsonProperty("page")]
+        public long? Page { get; set; }
+
+        [JsonProperty("userId")]
+        public string UserId { get; set; }
+
+        [JsonProperty("username")]
+        public string Username { get; set; }
+    }
+
+    public sealed class SocialFollowResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("followers")]
+        public JToken Followers { get; set; }
+
+        [JsonProperty("following")]
+        public JToken Following { get; set; }
+
+        [JsonProperty("relation")]
+        public RelationData Relation { get; set; }
+
+        [JsonProperty("status")]
+        public string Status { get; set; }
+
+        [JsonProperty("userId")]
+        public string UserId { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class RelationData
+        {
+            [JsonProperty("blocked")]
+            public bool? Blocked { get; set; }
+
+            [JsonProperty("followedBy")]
+            public bool? FollowedBy { get; set; }
+
+            [JsonProperty("following")]
+            public bool? Following { get; set; }
+
+            [JsonProperty("requested")]
+            public bool? Requested { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class SocialFollowRequestsRequest
+    {
+        [JsonProperty("accept")]
+        public bool? Accept { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("limit")]
+        public long? Limit { get; set; }
+
+        [JsonProperty("page")]
+        public long? Page { get; set; }
+
+        [JsonProperty("userId")]
+        public string UserId { get; set; }
+
+        [JsonProperty("username")]
+        public string Username { get; set; }
+    }
+
+    public sealed class SocialFollowRequestsResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("items")]
+        public List<ItemsItem> Items { get; set; }
+
+        [JsonProperty("limit")]
+        public long? Limit { get; set; }
+
+        [JsonProperty("page")]
+        public long? Page { get; set; }
+
+        [JsonProperty("total")]
+        public long? Total { get; set; }
+
+        [JsonProperty("userId")]
+        public string UserId { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class ItemsItem
+        {
+            [JsonProperty("followPolicy")]
+            public string FollowPolicy { get; set; }
+
+            [JsonProperty("hideFollowers")]
+            public bool? HideFollowers { get; set; }
+
+            [JsonProperty("hideFollowing")]
+            public bool? HideFollowing { get; set; }
+
+            [JsonProperty("ownHideFollowers")]
+            public bool? OwnHideFollowers { get; set; }
+
+            [JsonProperty("ownHideFollowing")]
+            public bool? OwnHideFollowing { get; set; }
+
+            [JsonProperty("ownPolicy")]
+            public string OwnPolicy { get; set; }
+
+            [JsonProperty("since")]
+            public string Since { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class SocialFollowRespondRequest
+    {
+        [JsonProperty("accept")]
+        public bool? Accept { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("limit")]
+        public long? Limit { get; set; }
+
+        [JsonProperty("page")]
+        public long? Page { get; set; }
+
+        [JsonProperty("userId")]
+        public string UserId { get; set; }
+
+        [JsonProperty("username")]
+        public string Username { get; set; }
+    }
+
+    public sealed class SocialFollowRespondResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("accepted")]
+        public bool? Accepted { get; set; }
+
+        [JsonProperty("counts")]
+        public CountsData Counts { get; set; }
+
+        [JsonProperty("userId")]
+        public JToken UserId { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class CountsData
+        {
+            [JsonProperty("followers")]
+            public long? Followers { get; set; }
+
+            [JsonProperty("following")]
+            public long? Following { get; set; }
+
+            [JsonProperty("requests")]
+            public long? Requests { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class SocialFollowerRemoveRequest
+    {
+        [JsonProperty("accept")]
+        public bool? Accept { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("limit")]
+        public long? Limit { get; set; }
+
+        [JsonProperty("page")]
+        public long? Page { get; set; }
+
+        [JsonProperty("userId")]
+        public string UserId { get; set; }
+
+        [JsonProperty("username")]
+        public string Username { get; set; }
+    }
+
+    public sealed class SocialFollowerRemoveResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("counts")]
+        public CountsData Counts { get; set; }
+
+        [JsonProperty("removed")]
+        public bool? Removed { get; set; }
+
+        [JsonProperty("userId")]
+        public JToken UserId { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class CountsData
+        {
+            [JsonProperty("followers")]
+            public long? Followers { get; set; }
+
+            [JsonProperty("following")]
+            public long? Following { get; set; }
+
+            [JsonProperty("requests")]
+            public long? Requests { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class SocialFollowersRequest
+    {
+        [JsonProperty("accept")]
+        public bool? Accept { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("limit")]
+        public long? Limit { get; set; }
+
+        [JsonProperty("page")]
+        public long? Page { get; set; }
+
+        [JsonProperty("userId")]
+        public string UserId { get; set; }
+
+        [JsonProperty("username")]
+        public string Username { get; set; }
+    }
+
+    public sealed class SocialFollowersResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("items")]
+        public List<ItemsItem> Items { get; set; }
+
+        [JsonProperty("limit")]
+        public long? Limit { get; set; }
+
+        [JsonProperty("page")]
+        public long? Page { get; set; }
+
+        [JsonProperty("total")]
+        public long? Total { get; set; }
+
+        [JsonProperty("userId")]
+        public string UserId { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class ItemsItem
+        {
+            [JsonProperty("followPolicy")]
+            public string FollowPolicy { get; set; }
+
+            [JsonProperty("hideFollowers")]
+            public bool? HideFollowers { get; set; }
+
+            [JsonProperty("hideFollowing")]
+            public bool? HideFollowing { get; set; }
+
+            [JsonProperty("ownHideFollowers")]
+            public bool? OwnHideFollowers { get; set; }
+
+            [JsonProperty("ownHideFollowing")]
+            public bool? OwnHideFollowing { get; set; }
+
+            [JsonProperty("ownPolicy")]
+            public string OwnPolicy { get; set; }
+
+            [JsonProperty("since")]
+            public string Since { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class SocialFollowingRequest
+    {
+        [JsonProperty("accept")]
+        public bool? Accept { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("limit")]
+        public long? Limit { get; set; }
+
+        [JsonProperty("page")]
+        public long? Page { get; set; }
+
+        [JsonProperty("userId")]
+        public string UserId { get; set; }
+
+        [JsonProperty("username")]
+        public string Username { get; set; }
+    }
+
+    public sealed class SocialFollowingResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("items")]
+        public List<ItemsItem> Items { get; set; }
+
+        [JsonProperty("limit")]
+        public long? Limit { get; set; }
+
+        [JsonProperty("page")]
+        public long? Page { get; set; }
+
+        [JsonProperty("total")]
+        public long? Total { get; set; }
+
+        [JsonProperty("userId")]
+        public string UserId { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class ItemsItem
+        {
+            [JsonProperty("followPolicy")]
+            public string FollowPolicy { get; set; }
+
+            [JsonProperty("hideFollowers")]
+            public bool? HideFollowers { get; set; }
+
+            [JsonProperty("hideFollowing")]
+            public bool? HideFollowing { get; set; }
+
+            [JsonProperty("ownHideFollowers")]
+            public bool? OwnHideFollowers { get; set; }
+
+            [JsonProperty("ownHideFollowing")]
+            public bool? OwnHideFollowing { get; set; }
+
+            [JsonProperty("ownPolicy")]
+            public string OwnPolicy { get; set; }
+
+            [JsonProperty("since")]
+            public string Since { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class SocialMineRequest
+    {
+        [JsonProperty("kind")]
+        public string Kind { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("limit")]
+        public long? Limit { get; set; }
+
+        [JsonProperty("metadata")]
+        public JToken Metadata { get; set; }
+
+        [JsonProperty("on")]
+        public bool? On { get; set; }
+
+        [JsonProperty("page")]
+        public long? Page { get; set; }
+
+        [JsonProperty("targetId")]
+        public string TargetId { get; set; }
+
+        [JsonProperty("targetIds")]
+        public List<string> TargetIds { get; set; }
+
+        [JsonProperty("targetType")]
+        public string TargetType { get; set; }
+
+        [JsonProperty("value")]
+        public long? Value { get; set; }
+    }
+
+    public sealed class SocialMineResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("items")]
+        public List<ItemsItem> Items { get; set; }
+
+        [JsonProperty("kind")]
+        public string Kind { get; set; }
+
+        [JsonProperty("limit")]
+        public long? Limit { get; set; }
+
+        [JsonProperty("page")]
+        public long? Page { get; set; }
+
+        [JsonProperty("total")]
+        public long? Total { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class ItemsItem
+        {
+            [JsonProperty("at")]
+            public JToken At { get; set; }
+
+            [JsonProperty("metadata")]
+            public JToken Metadata { get; set; }
+
+            [JsonProperty("reaction")]
+            public string Reaction { get; set; }
+
+            [JsonProperty("targetId")]
+            public string TargetId { get; set; }
+
+            [JsonProperty("targetType")]
+            public string TargetType { get; set; }
+
+            [JsonProperty("value")]
+            public long? Value { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class SocialPrivacyGetRequest
+    {
+    }
+
+    public sealed class SocialPrivacyGetResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("canChange")]
+        public JToken CanChange { get; set; }
+
+        [JsonProperty("defaults")]
+        public DefaultsData Defaults { get; set; }
+
+        [JsonProperty("privacy")]
+        public PrivacyData Privacy { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class DefaultsData
+        {
+            [JsonProperty("followPolicy")]
+            public JToken FollowPolicy { get; set; }
+
+            [JsonProperty("hideFollowers")]
+            public JToken HideFollowers { get; set; }
+
+            [JsonProperty("hideFollowing")]
+            public JToken HideFollowing { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class PrivacyData
+        {
+            [JsonProperty("followPolicy")]
+            public string FollowPolicy { get; set; }
+
+            [JsonProperty("hideFollowers")]
+            public bool? HideFollowers { get; set; }
+
+            [JsonProperty("hideFollowing")]
+            public bool? HideFollowing { get; set; }
+
+            [JsonProperty("ownHideFollowers")]
+            public bool? OwnHideFollowers { get; set; }
+
+            [JsonProperty("ownHideFollowing")]
+            public bool? OwnHideFollowing { get; set; }
+
+            [JsonProperty("ownPolicy")]
+            public string OwnPolicy { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class SocialPrivacySetRequest
+    {
+        [JsonProperty("followPolicy")]
+        public string FollowPolicy { get; set; }
+
+        [JsonProperty("hideFollowers")]
+        public bool? HideFollowers { get; set; }
+
+        [JsonProperty("hideFollowing")]
+        public bool? HideFollowing { get; set; }
+
+        [JsonProperty("reset")]
+        public bool? Reset { get; set; }
+    }
+
+    public sealed class SocialPrivacySetResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("canChange")]
+        public JToken CanChange { get; set; }
+
+        [JsonProperty("defaults")]
+        public DefaultsData Defaults { get; set; }
+
+        [JsonProperty("privacy")]
+        public PrivacyData Privacy { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class DefaultsData
+        {
+            [JsonProperty("followPolicy")]
+            public JToken FollowPolicy { get; set; }
+
+            [JsonProperty("hideFollowers")]
+            public JToken HideFollowers { get; set; }
+
+            [JsonProperty("hideFollowing")]
+            public JToken HideFollowing { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class PrivacyData
+        {
+            [JsonProperty("followPolicy")]
+            public string FollowPolicy { get; set; }
+
+            [JsonProperty("hideFollowers")]
+            public bool? HideFollowers { get; set; }
+
+            [JsonProperty("hideFollowing")]
+            public bool? HideFollowing { get; set; }
+
+            [JsonProperty("ownHideFollowers")]
+            public bool? OwnHideFollowers { get; set; }
+
+            [JsonProperty("ownHideFollowing")]
+            public bool? OwnHideFollowing { get; set; }
+
+            [JsonProperty("ownPolicy")]
+            public string OwnPolicy { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class SocialProfileRequest
+    {
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("userId")]
+        public string UserId { get; set; }
+
+        [JsonProperty("userIds")]
+        public List<string> UserIds { get; set; }
+
+        [JsonProperty("username")]
+        public string Username { get; set; }
+    }
+
+    public sealed class SocialProfileResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("items")]
+        public List<JToken> Items { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class SocialRateRequest
+    {
+        [JsonProperty("kind")]
+        public string Kind { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("limit")]
+        public long? Limit { get; set; }
+
+        [JsonProperty("metadata")]
+        public JToken Metadata { get; set; }
+
+        [JsonProperty("on")]
+        public bool? On { get; set; }
+
+        [JsonProperty("page")]
+        public long? Page { get; set; }
+
+        [JsonProperty("targetId")]
+        public string TargetId { get; set; }
+
+        [JsonProperty("targetIds")]
+        public List<string> TargetIds { get; set; }
+
+        [JsonProperty("targetType")]
+        public string TargetType { get; set; }
+
+        [JsonProperty("value")]
+        public long? Value { get; set; }
+    }
+
+    public sealed class SocialRateResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("mine")]
+        public JToken Mine { get; set; }
+
+        [JsonProperty("rating")]
+        public JToken Rating { get; set; }
+
+        [JsonProperty("targetId")]
+        public string TargetId { get; set; }
+
+        [JsonProperty("targetType")]
+        public string TargetType { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class SocialReactRequest
+    {
+        [JsonProperty("kind")]
+        public string Kind { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("limit")]
+        public long? Limit { get; set; }
+
+        [JsonProperty("metadata")]
+        public JToken Metadata { get; set; }
+
+        [JsonProperty("on")]
+        public bool? On { get; set; }
+
+        [JsonProperty("page")]
+        public long? Page { get; set; }
+
+        [JsonProperty("targetId")]
+        public string TargetId { get; set; }
+
+        [JsonProperty("targetIds")]
+        public List<string> TargetIds { get; set; }
+
+        [JsonProperty("targetType")]
+        public string TargetType { get; set; }
+
+        [JsonProperty("value")]
+        public long? Value { get; set; }
+    }
+
+    public sealed class SocialReactResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("mine")]
+        public JToken Mine { get; set; }
+
+        [JsonProperty("reactions")]
+        public JToken Reactions { get; set; }
+
+        [JsonProperty("targetId")]
+        public string TargetId { get; set; }
+
+        [JsonProperty("targetType")]
+        public string TargetType { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class SocialSummaryRequest
+    {
+        [JsonProperty("kind")]
+        public string Kind { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("limit")]
+        public long? Limit { get; set; }
+
+        [JsonProperty("metadata")]
+        public JToken Metadata { get; set; }
+
+        [JsonProperty("on")]
+        public bool? On { get; set; }
+
+        [JsonProperty("page")]
+        public long? Page { get; set; }
+
+        [JsonProperty("targetId")]
+        public string TargetId { get; set; }
+
+        [JsonProperty("targetIds")]
+        public List<string> TargetIds { get; set; }
+
+        [JsonProperty("targetType")]
+        public string TargetType { get; set; }
+
+        [JsonProperty("value")]
+        public long? Value { get; set; }
+    }
+
+    public sealed class SocialSummaryResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("items")]
+        public List<ItemsItem> Items { get; set; }
+
+        [JsonProperty("targetType")]
+        public string TargetType { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class ItemsItem
+        {
+            [JsonProperty("comments")]
+            public long? Comments { get; set; }
+
+            [JsonProperty("favorited")]
+            public bool? Favorited { get; set; }
+
+            [JsonProperty("favorites")]
+            public long? Favorites { get; set; }
+
+            [JsonProperty("myRating")]
+            public long? MyRating { get; set; }
+
+            [JsonProperty("myReactions")]
+            public List<string> MyReactions { get; set; }
+
+            [JsonProperty("rating")]
+            public RatingData Rating { get; set; }
+
+            [JsonProperty("reactions")]
+            public JObject Reactions { get; set; }
+
+            [JsonProperty("targetId")]
+            public string TargetId { get; set; }
+
+            [JsonProperty("targetType")]
+            public string TargetType { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+
+            public sealed class RatingData
+            {
+                [JsonProperty("average")]
+                public JToken Average { get; set; }
+
+                [JsonProperty("count")]
+                public JToken Count { get; set; }
+
+                [JsonProperty("histogram")]
+                public JToken Histogram { get; set; }
+
+                [JsonProperty("max")]
+                public JToken Max { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+        }
+    }
+
+    public sealed class SocialUnfollowRequest
+    {
+        [JsonProperty("accept")]
+        public bool? Accept { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("limit")]
+        public long? Limit { get; set; }
+
+        [JsonProperty("page")]
+        public long? Page { get; set; }
+
+        [JsonProperty("userId")]
+        public string UserId { get; set; }
+
+        [JsonProperty("username")]
+        public string Username { get; set; }
+    }
+
+    public sealed class SocialUnfollowResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("followers")]
+        public JToken Followers { get; set; }
+
+        [JsonProperty("following")]
+        public JToken Following { get; set; }
+
+        [JsonProperty("relation")]
+        public RelationData Relation { get; set; }
+
+        [JsonProperty("status")]
+        public string Status { get; set; }
+
+        [JsonProperty("userId")]
+        public string UserId { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class RelationData
+        {
+            [JsonProperty("blocked")]
+            public bool? Blocked { get; set; }
+
+            [JsonProperty("followedBy")]
+            public bool? FollowedBy { get; set; }
+
+            [JsonProperty("following")]
+            public bool? Following { get; set; }
+
+            [JsonProperty("requested")]
+            public bool? Requested { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
     }
 
     public sealed class VoiceTokenRequest

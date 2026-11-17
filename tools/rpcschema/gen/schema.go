@@ -81,6 +81,65 @@ func (p *pkg) fn(name string) *ast.FuncDecl {
 	return nil
 }
 
+func recvTypeName(t ast.Expr) string {
+	switch v := t.(type) {
+	case *ast.StarExpr:
+		return recvTypeName(v.X)
+	case *ast.Ident:
+		return v.Name
+	}
+	return ""
+}
+
+func (p *pkg) method(name, recv string) *ast.FuncDecl {
+	list := p.funcs[name]
+	for _, d := range list {
+		got := ""
+		if d.Recv != nil && len(d.Recv.List) > 0 {
+			got = recvTypeName(d.Recv.List[0].Type)
+		}
+		if got == recv {
+			return d
+		}
+	}
+	if len(list) > 0 {
+		return list[0]
+	}
+	return nil
+}
+
+func (sc *scope) selectorRecv(x ast.Expr) string {
+	id, ok := x.(*ast.Ident)
+	if !ok {
+		return ""
+	}
+	if t := sc.paramType(id.Name); t != nil {
+		return recvTypeName(t)
+	}
+	if t := sc.varType(id.Name); t != nil {
+		return recvTypeName(t)
+	}
+	if call, ok := sc.varInit(id.Name).(*ast.CallExpr); ok {
+		if d := sc.callee(call.Fun); d != nil && d != sc.decl && d.Type.Results != nil && len(d.Type.Results.List) > 0 {
+			return recvTypeName(d.Type.Results.List[0].Type)
+		}
+	}
+	return ""
+}
+
+func (sc *scope) callee(fun ast.Expr) *ast.FuncDecl {
+	switch v := fun.(type) {
+	case *ast.SelectorExpr:
+		return sc.p.method(v.Sel.Name, sc.selectorRecv(v.X))
+	case *ast.Ident:
+		if lit, ok := sc.varInit(v.Name).(*ast.FuncLit); ok {
+			return &ast.FuncDecl{Recv: sc.decl.Recv, Name: v, Type: lit.Type, Body: lit.Body}
+		}
+		return sc.p.method(v.Name, "")
+	}
+	return nil
+}
+
 func wrapperName(e ast.Expr) string {
 	if call, ok := e.(*ast.CallExpr); ok {
 		return calleeName(call.Fun)
@@ -282,7 +341,7 @@ func (sc *scope) request() Schema {
 		return true
 	})
 	if target == "" {
-		return nil
+		return sc.delegatedRequest()
 	}
 	if t := sc.varType(target); t != nil {
 		s := sc.p.typeSchema(t, 0)
@@ -291,6 +350,33 @@ func (sc *scope) request() Schema {
 		}
 	}
 	return nil
+}
+
+func (sc *scope) delegatedRequest() Schema {
+	if sc.depth >= 3 {
+		return nil
+	}
+	var out Schema
+	ast.Inspect(sc.decl.Body, func(n ast.Node) bool {
+		call, ok := n.(*ast.CallExpr)
+		if !ok || out != nil {
+			return out == nil
+		}
+		passes := false
+		for _, a := range call.Args {
+			if id, ok := a.(*ast.Ident); ok && id.Name == "payload" {
+				passes = true
+			}
+		}
+		if !passes {
+			return true
+		}
+		if d := sc.callee(call.Fun); d != nil && d != sc.decl && d.Body != nil {
+			out = (&scope{p: sc.p, decl: d, depth: sc.depth + 1}).request()
+		}
+		return true
+	})
+	return out
 }
 
 func mentionsPayload(e ast.Expr) bool {
@@ -760,11 +846,11 @@ func (sc *scope) call(v *ast.CallExpr, depth int) Schema {
 		if pkgID, ok := sel.X.(*ast.Ident); ok && (pkgID.Name == "time" || pkgID.Name == "strconv" || pkgID.Name == "strings" || pkgID.Name == "fmt") {
 			return Schema{}
 		}
-		if d := sc.p.fn(sel.Sel.Name); d != nil && depth < 4 && sc.depth < 3 && d != sc.decl {
+		if d := sc.callee(sel); d != nil && depth < 4 && sc.depth < 3 && d != sc.decl {
 			return sc.callResult(d, depth)
 		}
 	} else if id, ok := v.Fun.(*ast.Ident); ok {
-		if d := sc.p.fn(id.Name); d != nil && depth < 4 && sc.depth < 3 && d != sc.decl {
+		if d := sc.callee(id); d != nil && depth < 4 && sc.depth < 3 && d != sc.decl {
 			return sc.callResult(d, depth)
 		}
 		if t, ok := sc.p.types[id.Name]; ok && len(v.Args) == 1 {
