@@ -12,6 +12,7 @@ namespace PolicePatrol.Sdk.Stages
         public const string AttemptClosed = "PROGRESS_ATTEMPT_CLOSED";
         public const string AttemptExpired = "PROGRESS_ATTEMPT_EXPIRED";
         public const string ServerOwned = "STAGE_SERVER_OWNED";
+        public const string RewardLimitedCode = "REWARD_LIMITED";
         public const string LimitedCooldown = "cooldown";
         public const string LimitedDaily = "daily_limit";
     }

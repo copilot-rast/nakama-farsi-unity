@@ -79,5 +79,29 @@ namespace PolicePatrol.Sdk.Tests
             Assert.Equal(Stages.StageErrorCodes.ServerOwned, r.Error.Code);
             Assert.Equal("cup", (string)r.Error.Meta["owner"]);
         }
+    
+        [Fact]
+        public async Task FreeRideLimitsAreAResultNotAnError()
+        {
+            var t = Harness.Start();
+            t.Routes["campaign_chapters"] = p => "{\"xp\":10,\"level\":1,\"chapters\":[],\"freeride\":[{\"key\":\"city\",\"name\":\"City\",\"xp\":5,\"cooldownSeconds\":600}]}";
+            var attempt = await Harness.Call<Stages.StageAttempt>(cb => Stages.StageProvider.Start("city", cb));
+            Assert.DoesNotContain(t.Calls, c => c.Id == "campaign_attempt_start");
+
+            t.Routes["campaign_freeride_claim"] = p => new NF.RpcServerException("{\"code\":\"REWARD_LIMITED\",\"status\":409,\"meta\":{\"reason\":\"cooldown\",\"nextRewardAt\":\"2026-11-18T10:00:00Z\",\"rewardsLeftToday\":2}}", 409);
+            var limited = await Harness.Call<Stages.StageResult>(cb => Stages.StageProvider.Complete("city", attempt.Data.AttemptId, true, 60, null, cb));
+            Assert.True(limited.IsSuccess);
+            Assert.True(limited.Data.IsRewardLimited);
+            Assert.Equal(Stages.StageErrorCodes.LimitedCooldown, limited.Data.RewardLimited);
+            Assert.Equal(new System.DateTimeOffset(2026, 11, 18, 10, 0, 0, System.TimeSpan.Zero), limited.Data.NextRewardAt);
+            Assert.Equal(2, limited.Data.RewardsLeftToday);
+
+            t.Routes["campaign_freeride_claim"] = p => "{\"key\":\"city\",\"rewards\":[{\"currencyKey\":\"coin\",\"amount\":50}],\"xpGained\":5,\"xp\":15,\"level\":1,\"nextRewardAt\":\"2026-11-18T10:10:00Z\",\"rewardsLeftToday\":1}";
+            var paid = await Harness.Call<Stages.StageResult>(cb => Stages.StageProvider.Complete("city", attempt.Data.AttemptId, true, 60, null, cb));
+            Assert.False(paid.Data.IsRewardLimited);
+            Assert.Equal(5, paid.Data.XpGained);
+            Assert.Equal(15, paid.Data.Xp);
+            Assert.Equal(1, paid.Data.RewardsLeftToday);
+        }
     }
 }

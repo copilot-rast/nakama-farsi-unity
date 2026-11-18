@@ -15,5 +15,12 @@ namespace PolicePatrol.Sdk.Stages
         long? NextLevelXp,
         GrantedReward[] MilestoneRewards,
         string RewardLimited,
-        Trophy[] Trophies = null);
+        Trophy[] Trophies = null)
+    {
+        public System.DateTimeOffset? NextRewardAt { get; init; }
+
+        public int? RewardsLeftToday { get; init; }
+
+        public bool IsRewardLimited => !string.IsNullOrEmpty(RewardLimited);
+    }
 }

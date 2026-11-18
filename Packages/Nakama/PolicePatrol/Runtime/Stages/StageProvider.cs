@@ -50,7 +50,21 @@ namespace PolicePatrol.Sdk.Stages
                         return new StageResult(stageKey, false, 0, 0, Array.Empty<GrantedReward>(), 0, 0, 0, false, null, Array.Empty<GrantedReward>(), null, Array.Empty<Trophy>());
                     }
 
-                    var f = await c.Rpc("campaign_freeride_claim", new JObject { ["key"] = stageKey, ["requestId"] = attemptId.Substring(FreeRidePrefix.Length), ["lang"] = c.Language }, false, true).ConfigureAwait(false);
+                    JToken f;
+                    try
+                    {
+                        f = await c.Rpc("campaign_freeride_claim", new JObject { ["key"] = stageKey, ["requestId"] = attemptId.Substring(FreeRidePrefix.Length), ["lang"] = c.Language }, false, true).ConfigureAwait(false);
+                    }
+                    catch (NakamaFarsi.Sdk.ApiException e) when (e.Error.Code == StageErrorCodes.RewardLimitedCode)
+                    {
+                        var meta = e.Error.Meta ?? new JObject();
+                        return new StageResult(stageKey, true, 0, 0, Array.Empty<GrantedReward>(), 0, 0, 0, false, null, Array.Empty<GrantedReward>(), J.Str(meta, "reason") ?? StageErrorCodes.LimitedCooldown, Array.Empty<Trophy>())
+                        {
+                            NextRewardAt = J.Time(meta, "nextRewardAt"),
+                            RewardsLeftToday = (int?)J.NumOrNull(meta, "rewardsLeftToday"),
+                        };
+                    }
+
                     return Result(stageKey, true, f);
                 }
 
@@ -142,7 +156,7 @@ namespace PolicePatrol.Sdk.Stages
             string limitedText = limited == null || limited.Type == JTokenType.Null || (limited.Type == JTokenType.Boolean && !(bool)limited) ? null
                 : limited.Type == JTokenType.String ? (string)limited : StageErrorCodes.LimitedDaily;
             return new StageResult(
-                J.Str(r, "stageKey") ?? stageKey,
+                J.Str(r, "stageKey") ?? J.Str(r, "key") ?? stageKey,
                 J.Bool(r, "success", success),
                 J.Int(r, "stars"),
                 J.Int(r, "bestStars"),
@@ -154,7 +168,11 @@ namespace PolicePatrol.Sdk.Stages
                 (long?)J.NumOrNull(r, "nextLevelXp"),
                 Granted(r, "milestoneRewards"),
                 limitedText,
-                Trophies(r));
+                Trophies(r))
+            {
+                NextRewardAt = J.Time(r, "nextRewardAt"),
+                RewardsLeftToday = (int?)J.NumOrNull(r, "rewardsLeftToday"),
+            };
         }
     }
 }
