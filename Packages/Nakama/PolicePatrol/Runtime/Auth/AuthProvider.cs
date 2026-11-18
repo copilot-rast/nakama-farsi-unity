@@ -28,8 +28,7 @@ namespace PolicePatrol.Sdk.Auth
             PolicePatrolSdk.Run(onComplete, async c =>
             {
                 var answer = await c.Rpc("account_password_login", new JObject { ["phone"] = phoneNumber, ["password"] = password, ["lang"] = c.Language }, false, false, true).ConfigureAwait(false);
-                c.VerificationToken = null;
-                c.VerificationPurpose = null;
+                c.ForgetOtp();
                 return await SignIn(c, answer).ConfigureAwait(false);
             }, null, "phone login");
 
@@ -79,7 +78,7 @@ namespace PolicePatrol.Sdk.Auth
             PolicePatrolSdk.Run(onComplete, async c =>
             {
                 await c.Core.LogoutAsync().ConfigureAwait(false);
-                c.VerificationToken = null;
+                c.ForgetOtp();
                 return new OkResponse(true);
             }, null, "logout");
 

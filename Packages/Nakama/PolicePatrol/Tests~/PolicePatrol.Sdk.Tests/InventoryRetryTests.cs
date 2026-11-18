@@ -115,5 +115,27 @@ namespace PolicePatrol.Sdk.Tests
             Assert.Equal("admin", Ledger.LedgerKinds.AdminUse);
 #pragma warning restore CS0618
         }
+    
+        [Fact]
+        public async Task APendingOtpSurvivesAnAppRestart()
+        {
+            var store = new NF.MemoryKeyValueStore();
+            var t = Harness.Start(store);
+            t.Routes["account_phone_recover_request"] = p => "{\"phone\":\"0912***4567\",\"expiresIn\":120,\"resendAfter\":60}";
+            var asked = await Harness.Call<Auth.OtpChallenge>(cb => Auth.AuthProvider.RequestPhoneOtp("09121234567", cb));
+            Assert.True(asked.IsSuccess);
+
+            Harness.Start(store, t);
+            Assert.True(Auth.AuthProvider.HasPendingOtp);
+            Assert.Equal("0912***4567", PolicePatrolSdk.Client.VerificationToken);
+            t.Routes["account_phone_recover_verify"] = p => new NF.RpcServerException("{\"code\":\"OTP_INVALID_CODE\",\"status\":400}", 400);
+            var wrong = await Harness.Call<Auth.LoginResponse>(cb => Auth.AuthProvider.VerifyOtp("1111", Auth.OtpChannel.Phone, cb));
+            Assert.Equal("AUTH_INVALID_CODE", wrong.Error.Code);
+            Assert.Equal("account_phone_recover_verify", t.Calls.Last().Id);
+
+            await Harness.Call<OkResponse>(cb => Auth.AuthProvider.Logout(cb));
+            Harness.Start(store, t);
+            Assert.False(Auth.AuthProvider.HasPendingOtp);
+        }
     }
 }

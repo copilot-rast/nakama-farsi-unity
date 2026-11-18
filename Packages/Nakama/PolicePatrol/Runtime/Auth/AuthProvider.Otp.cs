@@ -18,8 +18,7 @@ namespace PolicePatrol.Sdk.Auth
                 var answer = recover
                     ? await c.Rpc("account_phone_recover_request", new JObject { ["phone"] = phoneNumber, ["lang"] = c.Language }, false).ConfigureAwait(false)
                     : await c.Rpc("publication_otp_request", new JObject { ["phone"] = phoneNumber, ["lang"] = c.Language }, false, false, true).ConfigureAwait(false);
-                c.VerificationToken = J.Str(answer, "phone") ?? phoneNumber;
-                c.VerificationPurpose = recover ? PurposeRecover : PurposeLogin;
+                c.RememberOtp(J.Str(answer, "phone") ?? phoneNumber, recover ? PurposeRecover : PurposeLogin, answer);
                 return Mapping.Challenge(answer, DateTimeOffset.UtcNow);
             }, null, "phone otp");
 
@@ -57,8 +56,7 @@ namespace PolicePatrol.Sdk.Auth
                     answer = await client.Rpc("publication_otp_verify", new JObject { ["phone"] = client.VerificationToken, ["code"] = code }, false, false, true).ConfigureAwait(false);
                 }
 
-                client.VerificationToken = null;
-                client.VerificationPurpose = null;
+                client.ForgetOtp();
                 var moved = answer?["devicesMoved"] as JArray;
                 if (!string.IsNullOrEmpty(deviceId) && moved != null && moved.Count > 0 && !string.IsNullOrEmpty(J.Str(answer, "token")))
                 {

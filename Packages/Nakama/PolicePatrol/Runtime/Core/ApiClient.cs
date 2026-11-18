@@ -18,7 +18,12 @@ namespace PolicePatrol.Sdk
             Core = core ?? throw new ArgumentNullException(nameof(core));
             _logger = logger;
             Core.Session.SessionExpired += () => Core.Dispatcher.Post(() => SessionExpired?.Invoke());
+            RestoreOtp();
         }
+
+        public static readonly TimeSpan DefaultOtpLifetime = TimeSpan.FromMinutes(10);
+
+        private string OtpStoreKey => Core.Options.StorePrefix + "otp.pending";
 
         public SdkOptions Options { get; }
 
@@ -38,9 +43,62 @@ namespace PolicePatrol.Sdk
 
         public bool HasSession => Core.Session.Current != null;
 
-        public string VerificationToken { get; internal set; }
+        public string VerificationToken { get; private set; }
 
-        internal string VerificationPurpose { get; set; }
+        internal string VerificationPurpose { get; private set; }
+
+        public DateTimeOffset? VerificationExpiresAt { get; private set; }
+
+        internal void RememberOtp(string phone, string purpose, JToken answer)
+        {
+            var seconds = answer?["expiresIn"] is JValue v && (v.Type == JTokenType.Integer || v.Type == JTokenType.Float) ? (double)v : 0;
+            VerificationToken = phone;
+            VerificationPurpose = purpose;
+            VerificationExpiresAt = DateTimeOffset.UtcNow + (seconds > 0 ? TimeSpan.FromSeconds(seconds) : DefaultOtpLifetime);
+            Core.Store.Set(OtpStoreKey, new JObject
+            {
+                ["phone"] = phone,
+                ["purpose"] = purpose,
+                ["expiresAt"] = VerificationExpiresAt.Value.ToUnixTimeSeconds(),
+            }.ToString(Formatting.None));
+            Core.Store.Save();
+        }
+
+        internal void ForgetOtp()
+        {
+            VerificationToken = null;
+            VerificationPurpose = null;
+            VerificationExpiresAt = null;
+            Core.Store.Delete(OtpStoreKey);
+            Core.Store.Save();
+        }
+
+        private void RestoreOtp()
+        {
+            var text = Core.Store.Get(OtpStoreKey);
+            if (string.IsNullOrEmpty(text))
+            {
+                return;
+            }
+
+            try
+            {
+                var saved = JObject.Parse(text);
+                var expires = DateTimeOffset.FromUnixTimeSeconds((long)saved["expiresAt"]);
+                if (expires > DateTimeOffset.UtcNow && !string.IsNullOrEmpty((string)saved["phone"]))
+                {
+                    VerificationToken = (string)saved["phone"];
+                    VerificationPurpose = (string)saved["purpose"];
+                    VerificationExpiresAt = expires;
+                    return;
+                }
+            }
+            catch (Exception)
+            {
+            }
+
+            ForgetOtp();
+        }
 
         public event Action SessionExpired;
 

@@ -9,8 +9,7 @@ namespace PolicePatrol.Sdk.Auth
             PolicePatrolSdk.Run(onComplete, async c =>
             {
                 var answer = await c.Rpc("account_password_forgot", new JObject { ["phone"] = phoneNumber, ["lang"] = c.Language }, false, false, true).ConfigureAwait(false);
-                c.VerificationToken = J.Str(answer, "phone") ?? phoneNumber;
-                c.VerificationPurpose = PurposeReset;
+                c.RememberOtp(J.Str(answer, "phone") ?? phoneNumber, PurposeReset, answer);
                 return Mapping.Challenge(answer, DateTimeOffset.UtcNow);
             }, null, "forgot password");
 
@@ -33,8 +32,7 @@ namespace PolicePatrol.Sdk.Auth
                 {
                     ["phone"] = client.VerificationToken, ["code"] = code, ["newPassword"] = newPassword, ["lang"] = client.Language,
                 }, false, false, true).ConfigureAwait(false);
-                client.VerificationToken = null;
-                client.VerificationPurpose = null;
+                client.ForgetOtp();
                 return await SignIn(client, answer).ConfigureAwait(false);
             }, onComplete, null, "reset password");
         }

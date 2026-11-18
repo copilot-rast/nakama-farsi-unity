@@ -42,12 +42,12 @@ namespace PolicePatrol.Sdk.Tests
 
     internal static class Harness
     {
-        public static ScriptedTransport Start()
+        public static ScriptedTransport Start(MemoryKeyValueStore shared = null, ScriptedTransport reuse = null)
         {
-            var transport = new ScriptedTransport();
+            var transport = reuse ?? new ScriptedTransport();
             var options = new SdkOptions("http://127.0.0.1:1", "test", false, 5, "fa") { UseSocket = false };
             var coreOptions = PolicePatrolSdk.CoreOptions(options);
-            var store = new MemoryKeyValueStore();
+            var store = shared ?? new MemoryKeyValueStore();
             store.Set(coreOptions.StorePrefix + "session.token", Jwt(DateTimeOffset.UtcNow.AddHours(2)));
             store.Set(coreOptions.StorePrefix + "session.refresh", Jwt(DateTimeOffset.UtcNow.AddDays(30)));
             var core = new NakamaFarsiClient(coreOptions, store, httpTransport: transport, socketTransport: transport);
