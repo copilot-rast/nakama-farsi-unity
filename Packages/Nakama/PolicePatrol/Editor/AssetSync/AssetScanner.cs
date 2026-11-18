@@ -75,10 +75,7 @@ namespace PolicePatrol.Sdk.Editor
                         AssetCanonicalJson.Hash(data)));
                 }
 
-                var duplicates = assets
-                    .GroupBy(asset => asset.AssetId, StringComparer.Ordinal)
-                    .Where(group => group.Count() > 1)
-                    .ToDictionary(group => group.Key, group => group.Select(asset => asset.Path).ToArray(), StringComparer.Ordinal);
+                var duplicates = AssetPaths.Duplicates(assets.Select(asset => new KeyValuePair<string, string>(asset.AssetId, asset.Path)));
                 var invalid = assets.Where(asset => !AssetPaths.IsValidId(asset.AssetId)).ToList();
                 return new AssetScanResult(assets, duplicates, invalid, emptyIds, unreadable, references);
             }

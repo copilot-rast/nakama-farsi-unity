@@ -23,4 +23,19 @@ public sealed class AssetPathsTests
     [InlineData("ماشین", false)]
     public void Ids_follow_the_server_rule(string id, bool valid) =>
         AssetPaths.IsValidId(id).Should().Be(valid);
+
+    [Fact]
+    public void Ids_that_differ_only_in_case_are_duplicates()
+    {
+        var found = AssetPaths.Duplicates(new[]
+        {
+            new System.Collections.Generic.KeyValuePair<string, string>("Tiggo8", "Assets/A.asset"),
+            new System.Collections.Generic.KeyValuePair<string, string>("tiggo8", "Assets/B.asset"),
+            new System.Collections.Generic.KeyValuePair<string, string>("Hilux", "Assets/C.asset"),
+        });
+        found.Should().ContainSingle();
+        found["tiggo8"].Should().Equal("Assets/A.asset", "Assets/B.asset");
+        found.ContainsKey("TIGGO8").Should().BeTrue();
+        found.ContainsKey("Hilux").Should().BeFalse();
+    }
 }

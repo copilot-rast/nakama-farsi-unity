@@ -163,7 +163,7 @@ namespace PolicePatrol.Sdk.Editor
 
             if (scan.Duplicates.Count > 0)
             {
-                EditorGUILayout.HelpBox("These files share an id. Give one of each pair a new id before syncing:\n" + string.Join("\n",
+                EditorGUILayout.HelpBox("These files share an id (upper and lower case count as the same). Give one of each pair a new id before syncing:\n" + string.Join("\n",
                     scan.Duplicates.Select(pair => "• \"" + pair.Key + "\": " + string.Join("  and  ", pair.Value))), MessageType.Error);
             }
 

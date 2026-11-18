@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 
 namespace PolicePatrol.Sdk.Assets
@@ -6,6 +9,14 @@ namespace PolicePatrol.Sdk.Assets
     {
         public const int MaxIdLength = 128;
         public const int MaxSyncItems = 500;
+
+        public static string IdKey(string id) => (id ?? string.Empty).ToLower(CultureInfo.InvariantCulture);
+
+        public static Dictionary<string, string[]> Duplicates(IEnumerable<KeyValuePair<string, string>> idAndPath) =>
+            idAndPath
+                .GroupBy(pair => IdKey(pair.Key), StringComparer.Ordinal)
+                .Where(group => group.Count() > 1)
+                .ToDictionary(group => group.Key, group => group.Select(pair => pair.Value).ToArray(), StringComparer.OrdinalIgnoreCase);
 
         public static bool IsValidId(string id) =>
             !string.IsNullOrEmpty(id) && id.Length <= MaxIdLength && id.All(c => (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9') || c == '_' || c == '-' || c == '.' || c == ':');
