@@ -17,6 +17,7 @@
 - Error texts: the cached catalog is reloaded when it is older than its `cacheSeconds` or `NakamaFarsiClient.ErrorCatalogTtl` (30 min) on the next server error and when the app resumes (at most once a minute); `NakamaFarsiClient.RefreshErrorCatalogIfStaleAsync`, `IsErrorCatalogStale`, and `PolicePatrolSdk.RefreshErrorTexts` force a reload.
 - OTP: the pending phone code (shown phone, purpose, expiry from `expiresIn`, 10 min if absent) is saved in the SDK store (PlayerPrefs in Unity) and restored on the next start, so `VerifyOtp` / `ResetPassword` / `ResendOtp` work after the game was closed while the player read the SMS. Cleared on success, on logout and when it expires. New: `ApiClient.VerificationExpiresAt`.
 - Asset Sync: ids that differ only in case (`Tiggo8` / `tiggo8`) are reported as duplicates and block the sync (`AssetPaths.Duplicates`, `AssetPaths.IdKey`), because item keys are lower-cased for the server.
+- Samples: `Samples~` is now in the package (it was left out by `.gitignore`), adapted to this API (reward pending, consume rule, `RewardPendingPaymentIds`). New sample Police Patrol Mission Runner: the saved result is sent before a new attempt starts (no race with `Start`), network / busy errors keep it and block the new attempt, `STAGE_SERVER_OWNED` keeps it aside instead of deleting it. UnityCheck and UnityCompileCheck compile every sample.
 
 ## 0.6.0 — 2026-11-15
 

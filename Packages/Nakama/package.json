@@ -55,6 +55,11 @@
             "displayName": "Police Patrol Analytics",
             "description": "Context, design events with a hierarchy, progression and resource events, and legacy stats.",
             "path": "Samples~/PolicePatrolAnalytics"
+        },
+        {
+            "displayName": "Police Patrol Mission Runner",
+            "description": "Stage attempts with the result saved before sending: the saved result is sent before a new attempt starts, retried on network errors and kept when the server owns the stage.",
+            "path": "Samples~/PolicePatrolMissionRunner"
         }
     ]
 }

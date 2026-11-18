@@ -107,6 +107,7 @@ fabric.properties
 *~
 !Packages/Nakama/Farsi/Tests~/
 !Packages/Nakama/PolicePatrol/Tests~/
+!Packages/Nakama/Samples~/
 
 # temporary files which can be created if a process still has a handle open of a deleted file
 .fuse_hidden*
