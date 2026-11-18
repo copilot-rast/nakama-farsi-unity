@@ -101,5 +101,36 @@ namespace PolicePatrol.Sdk.Tests
             Assert.True(again.IsSuccess, again.Error?.ToString());
             Assert.Equal("publication_otp_request", Ids(t).Last());
         }
+    
+
+        [Fact]
+        public async Task APhoneChangeWithTheOldNumberFirstHasTwoSteps()
+        {
+            var t = Harness.Start();
+            t.Routes["account_phone_request"] = p => "{\"purpose\":\"change\",\"stage\":\"old\",\"phone\":\"0912***4567\",\"expiresIn\":120,\"resendAfter\":60}";
+            var asked = await Harness.Call<OtpChallenge>(cb => AuthProvider.RequestPhoneChange("09351112222", cb));
+            Assert.Equal(PhoneChangeStep.StageOld, asked.Data.Stage);
+            Assert.Equal("0912***4567", asked.Data.SentTo);
+
+            t.Routes["account_phone_verify"] = p => "{\"purpose\":\"change\",\"stage\":\"new\",\"phone\":\"+989351112222\",\"expiresIn\":120,\"resendAfter\":60}";
+            var first = await Harness.Call<PhoneChangeStep>(cb => AuthProvider.VerifyPhoneChangeStep("1111", cb));
+            Assert.True(first.IsSuccess, first.Error?.ToString());
+            Assert.False(first.Data.Done);
+            Assert.True(first.Data.WaitingForNewPhoneCode);
+            Assert.Equal("+989351112222", first.Data.NextChallenge.SentTo);
+            Assert.NotNull(first.Data.NextChallenge.CanResendAt);
+
+#pragma warning disable CS0618
+            var old = await Harness.Call<Users.CurrentUser>(cb => AuthProvider.VerifyPhoneChange("1111", cb));
+#pragma warning restore CS0618
+            Assert.False(old.IsSuccess);
+            Assert.Equal(ApiError.PhoneNewCodeSentCode, old.Error.Code);
+
+            t.Routes["account_phone_verify"] = p => "{\"done\":true,\"purpose\":\"change\",\"phone\":\"+989351112222\",\"profile\":{\"id\":\"u-1\",\"username\":\"p\",\"phone\":\"+989351112222\",\"phoneVerified\":true}}";
+            var second = await Harness.Call<PhoneChangeStep>(cb => AuthProvider.VerifyPhoneChangeStep("2222", cb));
+            Assert.True(second.Data.Done);
+            Assert.True(second.Data.User.PhoneNumberVerified);
+            Assert.Equal(new[] { "account_phone_request", "account_phone_verify", "account_phone_verify", "account_phone_verify" }, Ids(t));
+        }
     }
 }

@@ -59,7 +59,11 @@ namespace PolicePatrol.Sdk
             new UserMeta(key, userId, key, value, new Meta(key, key, key, null, Array.Empty<string>(), Array.Empty<string>(), 0, null, null, null, null, null, true, DateTimeOffset.MinValue, DateTimeOffset.MinValue), DateTimeOffset.MinValue, DateTimeOffset.MinValue);
 
         public static OtpChallenge Challenge(JToken answer, DateTimeOffset now) =>
-            new OtpChallenge(OtpChannel.Phone, answer?["resendAfter"] != null && answer["resendAfter"].Type == JTokenType.Integer ? now.AddSeconds((int)answer["resendAfter"]) : (DateTimeOffset?)null);
+            new OtpChallenge(OtpChannel.Phone, answer?["resendAfter"] != null && answer["resendAfter"].Type == JTokenType.Integer ? now.AddSeconds((int)answer["resendAfter"]) : (DateTimeOffset?)null)
+            {
+                Stage = J.Str(answer, "stage"),
+                SentTo = J.Str(answer, "codeSentTo", "phone"),
+            };
 
         public static double Amount(JToken t) => J.NumOrNull(t, "amount") ?? J.Num(t, "value");
 

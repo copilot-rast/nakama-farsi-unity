@@ -105,11 +105,17 @@ namespace PolicePatrol.Sdk.GuideChecks
                     return;
                 }
             });
-            AuthProvider.VerifyPhoneChange(code, result =>
+            AuthProvider.VerifyPhoneChangeStep(code, result =>
             {
-                if (result.IsSuccess)
+                if (result.IsSuccess && result.Data.WaitingForNewPhoneCode)
                 {
-                    var verified = result.Data.PhoneNumberVerified;
+                    var sentTo = result.Data.NextChallenge.SentTo;
+                    return;
+                }
+
+                if (result.IsSuccess && result.Data.Done)
+                {
+                    var verified = result.Data.User.PhoneNumberVerified;
                     return;
                 }
             });

@@ -80,7 +80,9 @@ namespace PolicePatrol.Sdk.Tests
             Assert.Equal(40, phone.Error.RetryAfterSeconds);
 
             t.Routes["account_phone_verify"] = p => new NF.RpcServerException("{\"code\":\"OTP_INVALID_CODE\",\"status\":400,\"message\":\"کد اشتباه است\"}", 400);
+#pragma warning disable CS0618
             var verify = await Harness.Call<CurrentUser>(cb => AuthProvider.VerifyPhoneChange("12345", cb));
+#pragma warning restore CS0618
             Assert.Equal("AUTH_INVALID_CODE", verify.Error.Code);
 
             var add = await Harness.Call<UserCurrency>(cb => CurrencyProvider.Add("coin", 10, cb));

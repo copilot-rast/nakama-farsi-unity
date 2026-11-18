@@ -10,6 +10,7 @@ namespace PolicePatrol.Sdk
         public const string OtpNotRequestedCode = "SDK_OTP_NOT_REQUESTED";
         public const string NotSupportedCode = "SDK_NOT_SUPPORTED";
         public const string TooManyRequestsCode = "TOO_MANY_REQUESTS";
+        public const string PhoneNewCodeSentCode = "PHONE_NEW_CODE_SENT";
 
         public static ApiError NotInitialized => new ApiError(0, NotInitializedCode, null, "PolicePatrolSdk.Initialize has not been called");
 
