@@ -52,6 +52,17 @@ namespace NakamaFarsi.Sdk
 
         public int RetryDelayMilliseconds { get; set; } = 500;
 
+        public Func<CancellationToken, Task> SignInSilently { get; set; }
+
+        public static readonly System.Collections.Generic.HashSet<string> DeviceSignInRpcs = new System.Collections.Generic.HashSet<string>
+        {
+            "account_password_login",
+            "account_password_forgot",
+            "account_password_reset",
+            "publication_otp_request",
+            "publication_otp_verify",
+        };
+
         public static readonly System.Collections.Generic.Dictionary<string, int> HttpOnlyRpcs = new System.Collections.Generic.Dictionary<string, int>
         {
             ["economy_purchase_start"] = 30,
@@ -81,8 +92,12 @@ namespace NakamaFarsi.Sdk
             {
                 try
                 {
-                    var anonymous = options.AllowAnonymous && !_sessions.IsLoggedIn && !string.IsNullOrEmpty(_options.HttpKey);
-                    var session = anonymous ? null : await _sessions.EnsureAsync(ct).ConfigureAwait(false);
+                    if ((options.AllowAnonymous || DeviceSignInRpcs.Contains(id)) && !_sessions.IsLoggedIn && SignInSilently != null)
+                    {
+                        await SignInSilently(ct).ConfigureAwait(false);
+                    }
+
+                    var session = await _sessions.EnsureAsync(ct).ConfigureAwait(false);
                     return await Send(session, id, payload, options, ct).ConfigureAwait(false);
                 }
                 catch (RpcServerException e) when (e.Status == 401 && !refreshed)

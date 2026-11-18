@@ -40,12 +40,9 @@ namespace NakamaFarsi.Sdk
     public sealed class HttpRpcTransport : IRpcTransport
     {
         private readonly IClient _client;
-        private readonly Func<string> _httpKey;
-
-        public HttpRpcTransport(IClient client, Func<string> httpKey = null)
+        public HttpRpcTransport(IClient client)
         {
             _client = client;
-            _httpKey = httpKey;
         }
 
         public string Name => "http";
@@ -54,11 +51,14 @@ namespace NakamaFarsi.Sdk
 
         public async Task<string> CallAsync(ISession session, string id, string payload, CancellationToken ct)
         {
+            if (session == null)
+            {
+                throw new ApiException(ApiError.NotLoggedIn());
+            }
+
             try
             {
-                var res = session == null
-                    ? await _client.RpcAsync(_httpKey?.Invoke() ?? string.Empty, id, payload, new RetryConfiguration(1, 1), ct).ConfigureAwait(false)
-                    : await _client.RpcAsync(session, id, payload, new RetryConfiguration(1, 1), ct).ConfigureAwait(false);
+                var res = await _client.RpcAsync(session, id, payload, new RetryConfiguration(1, 1), ct).ConfigureAwait(false);
                 return res?.Payload ?? string.Empty;
             }
             catch (ApiResponseException e) when (e.StatusCode > 0)

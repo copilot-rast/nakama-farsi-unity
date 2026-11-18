@@ -9,7 +9,7 @@ namespace NakamaFarsi.Sdk
         public int Port { get; set; } = 7350;
         public string ServerKey { get; set; } = "defaultkey";
 
-        public string HttpKey { get; set; }
+        public string DeviceId { get; set; }
 
         public string Language { get; set; } = "fa";
 

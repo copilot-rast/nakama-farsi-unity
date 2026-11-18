@@ -22,21 +22,44 @@ namespace NakamaFarsi.Sdk.Tests
         }
 
         [Fact]
-        public async Task AnonymousCallsUseHttpWithTheKeyOnlyWhenAllowed()
+        public async Task SignInRpcsSignInWithTheDeviceFirstWhenThereIsNoSession()
         {
             var client = new Client("http", "127.0.0.1", 1, "k");
             var sessions = new SessionManager(client, new MemoryKeyValueStore(), new NakamaFarsiOptions(), _clock);
             Assert.Null(sessions.Current);
-            var noKey = new RpcClient(new NakamaFarsiOptions(), sessions, _http, _socket, new ErrorCatalog(null));
-            var e = await Assert.ThrowsAsync<ApiException>(() => noKey.CallRpcAsync("account_password_login", "{}", new RpcCallOptions { AllowAnonymous = true }));
+            var rpc = new RpcClient(new NakamaFarsiOptions { UseSocket = false }, sessions, _http, _socket, new ErrorCatalog(null));
+            var e = await Assert.ThrowsAsync<ApiException>(() => rpc.CallRpcAsync("account_password_login", "{}", new RpcCallOptions { AllowAnonymous = true }));
             Assert.Equal(ApiError.NotLoggedInCode, e.Error.Code);
-            var withKey = new RpcClient(new NakamaFarsiOptions { HttpKey = "hk" }, sessions, _http, _socket, new ErrorCatalog(null));
-            await Assert.ThrowsAsync<ApiException>(() => withKey.CallRpcAsync("account_me", "{}", RpcCallOptions.Read));
+            Assert.Empty(_http.Calls);
+
+            var signedIn = 0;
+            rpc.SignInSilently = ct =>
+            {
+                signedIn++;
+                sessions.Adopt(Jwt.Make(_clock.UtcNow.AddHours(2)), Jwt.Make(_clock.UtcNow.AddDays(30)));
+                return Task.CompletedTask;
+            };
+            await Assert.ThrowsAsync<ApiException>(() => rpc.CallRpcAsync("account_me", "{}", RpcCallOptions.Read));
+            Assert.Equal(0, signedIn);
             _http.Answers.Enqueue("{\"token\":\"t\"}");
-            var res = await withKey.CallRpcAsync("account_password_login", "{}", new RpcCallOptions { AllowAnonymous = true });
+            var res = await rpc.CallRpcAsync("account_password_login", "{}", RpcCallOptions.Write);
             Assert.Equal("{\"token\":\"t\"}", res);
+            Assert.Equal(1, signedIn);
             Assert.Single(_http.Calls);
-            Assert.Empty(_socket.Calls);
+            _http.Answers.Enqueue("{}");
+            await rpc.CallRpcAsync("publication_otp_request", "{}", RpcCallOptions.Write);
+            Assert.Equal(1, signedIn);
+        }
+
+        [Fact]
+        public void TheSilentDeviceIdIsTheConfiguredOneOrAStoredOne()
+        {
+            var store = new MemoryKeyValueStore();
+            var a = new NakamaFarsiClient(new NakamaFarsiOptions { DeviceId = "n/a" }, store);
+            var id = a.DeviceId;
+            Assert.False(string.IsNullOrEmpty(id));
+            Assert.Equal(id, new NakamaFarsiClient(new NakamaFarsiOptions(), store).DeviceId);
+            Assert.Equal("dev-1", new NakamaFarsiClient(new NakamaFarsiOptions { DeviceId = "dev-1" }, store).DeviceId);
         }
 
         [Fact]

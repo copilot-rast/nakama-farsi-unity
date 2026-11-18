@@ -14,7 +14,6 @@ namespace PolicePatrol.Sdk.Unity
         [SerializeField, Min(1)] private int timeoutSeconds = 30;
         [SerializeField] private string language = "fa";
         [SerializeField, Tooltip("Nakama server key (socket.server_key); ask the project owner")] private string serverKey = "defaultkey";
-        [SerializeField, Tooltip("Runtime HTTP key; only needed for phone + password sign-in or password reset before any device login")] private string httpKey = "";
         [SerializeField, Tooltip("Send calls over the realtime socket first; HTTP is used while it is down")] private bool useSocket = true;
         [SerializeField, Tooltip("Analytics sessions follow pause / resume / quit")] private bool analyticsSessions = true;
 
@@ -28,8 +27,6 @@ namespace PolicePatrol.Sdk.Unity
 
         public string ServerKey => serverKey;
 
-        public string HttpKey => httpKey;
-
         public bool UseSocket => useSocket;
 
         public bool AnalyticsSessions => analyticsSessions;
@@ -38,6 +35,6 @@ namespace PolicePatrol.Sdk.Unity
 
         public static PolicePatrolSdkConfig Load() => Resources.Load<PolicePatrolSdkConfig>(ResourceName);
 
-        public SdkOptions ToOptions() => new SdkOptions(baseUrl, workspace, LoggingEnabled, timeoutSeconds, language) { ServerKey = serverKey, HttpKey = httpKey, UseSocket = useSocket };
+        public SdkOptions ToOptions() => new SdkOptions(baseUrl, workspace, LoggingEnabled, timeoutSeconds, language) { ServerKey = serverKey, UseSocket = useSocket, DeviceId = SystemInfo.deviceUniqueIdentifier };
     }
 }

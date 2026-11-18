@@ -4,7 +4,7 @@ namespace PolicePatrol.Sdk
     {
         public string ServerKey { get; init; } = "defaultkey";
 
-        public string HttpKey { get; init; }
+        public string DeviceId { get; init; }
 
         public bool UseSocket { get; init; } = true;
     }

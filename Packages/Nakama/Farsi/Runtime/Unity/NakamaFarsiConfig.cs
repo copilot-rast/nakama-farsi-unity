@@ -10,7 +10,6 @@ namespace NakamaFarsi.Sdk.Unity
 
         [SerializeField] private string baseUrl = "http://127.0.0.1:7350";
         [SerializeField] private string serverKey = "defaultkey";
-        [SerializeField, Tooltip("Runtime HTTP key; only for RPCs called before any sign-in. Leave empty when the game always signs in with the device first")] private string httpKey = "";
         [SerializeField] private string language = "fa";
         [SerializeField, Min(1)] private int timeoutSeconds = 15;
         [SerializeField] private bool useSocket = true;
@@ -22,8 +21,6 @@ namespace NakamaFarsi.Sdk.Unity
         public string BaseUrl { get => baseUrl; set => baseUrl = value; }
 
         public string ServerKey { get => serverKey; set => serverKey = value; }
-
-        public string HttpKey { get => httpKey; set => httpKey = value; }
 
         public string Language { get => language; set => language = value; }
 
@@ -45,7 +42,7 @@ namespace NakamaFarsi.Sdk.Unity
             o.Language = string.IsNullOrEmpty(language) ? "fa" : language;
             o.TimeoutSeconds = timeoutSeconds;
             o.UseSocket = useSocket;
-            o.HttpKey = string.IsNullOrEmpty(httpKey) ? null : httpKey;
+            o.DeviceId = SystemInfo.deviceUniqueIdentifier;
             o.Logging = LoggingEnabled;
             return o;
         }

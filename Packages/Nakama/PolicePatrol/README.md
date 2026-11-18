@@ -31,7 +31,7 @@ alwaysAuth = true
 Updates: Window › Package Manager › My Registries › PolicePatrol › Update. «ابزار توسعه › پکیج‌های یونیتی» in the console
 shows the published versions and these snippets with the right address.
 
-`PolicePatrolSdkConfig` (Tools › PolicePatrol › Create SDK Config) gained `Server Key`, `Http Key` (optional), `Use Socket` and
+`PolicePatrolSdkConfig` (Tools › PolicePatrol › Create SDK Config) gained `Server Key`, `Use Socket` and
 `Analytics Sessions`; `Base Url` is the game server (Nakama HTTP port).
 
 ## Kept from 0.5.x

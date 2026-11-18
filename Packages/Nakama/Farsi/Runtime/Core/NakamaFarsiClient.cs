@@ -20,6 +20,8 @@ namespace NakamaFarsi.Sdk
         private ContentClient _content;
         private InsightsClient _insights;
 
+        private readonly SemaphoreSlim _deviceLock = new SemaphoreSlim(1, 1);
+
         public NakamaFarsiClient(
             NakamaFarsiOptions options,
             IKeyValueStore store = null,
@@ -43,7 +45,8 @@ namespace NakamaFarsi.Sdk
             Session = new SessionManager(Client, Store, options, Clock, Logger);
             Socket = new SocketManager(Client, Session, socketFactory, Dispatcher, Logger) { LangTag = options.Language };
             Errors = new ErrorCatalog(Store, options.StorePrefix);
-            Rpc = new RpcClient(options, Session, httpTransport ?? new HttpRpcTransport(Client, () => options.HttpKey), socketTransport ?? new SocketRpcTransport(Socket), Errors, Logger);
+            Rpc = new RpcClient(options, Session, httpTransport ?? new HttpRpcTransport(Client), socketTransport ?? new SocketRpcTransport(Socket), Errors, Logger);
+            Rpc.SignInSilently = ct => EnsureDeviceSessionAsync(ct);
             Rpcs = new NakamaFarsiRpcs(this);
             Phone = new PhoneLogin(this);
             Payments = new PaymentClient(this);
@@ -120,6 +123,46 @@ namespace NakamaFarsi.Sdk
             var session = await Session.AuthenticateDeviceAsync(deviceId, create, username, null, ct).ConfigureAwait(false);
             AfterLogin();
             return session;
+        }
+
+        public string DeviceId
+        {
+            get
+            {
+                if (!string.IsNullOrEmpty(Options.DeviceId) && Options.DeviceId != "n/a")
+                {
+                    return Options.DeviceId;
+                }
+
+                var key = Options.StorePrefix + "device.id";
+                var saved = Store.Get(key);
+                if (string.IsNullOrEmpty(saved))
+                {
+                    saved = Guid.NewGuid().ToString("N");
+                    Store.Set(key, saved);
+                    Store.Save();
+                }
+
+                return saved;
+            }
+        }
+
+        public async Task<ISession> EnsureDeviceSessionAsync(CancellationToken ct = default)
+        {
+            if (Session.IsLoggedIn)
+            {
+                return Session.Current;
+            }
+
+            await _deviceLock.WaitAsync(ct).ConfigureAwait(false);
+            try
+            {
+                return Session.IsLoggedIn ? Session.Current : await LoginWithDeviceAsync(DeviceId, true, null, ct).ConfigureAwait(false);
+            }
+            finally
+            {
+                _deviceLock.Release();
+            }
         }
 
         public void LoginWithDevice(string deviceId, Action<ApiResult<ISession>> onComplete) =>

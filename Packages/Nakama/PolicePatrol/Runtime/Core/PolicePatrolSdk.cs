@@ -33,7 +33,7 @@ namespace PolicePatrol.Sdk
             o.Language = string.IsNullOrEmpty(options.Language) ? "fa" : options.Language;
             o.TimeoutSeconds = Math.Max(1, options.TimeoutSeconds);
             o.UseSocket = options.UseSocket;
-            o.HttpKey = string.IsNullOrEmpty(options.HttpKey) ? null : options.HttpKey;
+            o.DeviceId = options.DeviceId;
             o.Logging = options.Logging;
             o.StorePrefix = "PolicePatrol.Sdk.";
             return o;
