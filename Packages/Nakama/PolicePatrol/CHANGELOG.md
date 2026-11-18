@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Payments: a successful payment whose reward is not granted yet answers `PAYMENT_REWARD_PENDING` (server code in `ApiError.ServerCode`); the store purchase is consumed only after the server verified the receipt; `RecheckPending` follows payments whose reward is pending; `Payment.RewardGranted`, `PaymentPoller.WaitForReward`, `PaymentPoller.IsVerified`.
+
 ## 0.6.0 — 2026-11-15
 
 - Runs on the nakama-farsi server through `com.nakamafarsi.sdk`; the 0.5.21 public API of guide sections 1–8 is unchanged.

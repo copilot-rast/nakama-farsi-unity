@@ -3,6 +3,13 @@ namespace PolicePatrol.Sdk.Payments
     public static class PaymentErrorCodes
     {
         public const string StoreUnavailable = "STORE_UNAVAILABLE";
+        public const string RewardPending = "PAYMENT_REWARD_PENDING";
+        public const string ServerRewardPending = "REWARD_PENDING";
+        public const string InProgress = "PAYMENT_IN_PROGRESS";
+        public const string Expired = "PAYMENT_EXPIRED";
+        public const string Closed = "PAYMENT_CLOSED";
+        public const string StoreModeChanged = "STORE_MODE_CHANGED";
+        public const string SubscriptionNotSupported = "SUBSCRIPTION_NOT_SUPPORTED";
         public const string DeveloperPayloadMismatch = "DEVELOPER_PAYLOAD_MISMATCH";
         public const string StoreConfigurationRejected = "STORE_CONFIGURATION_REJECTED";
         public const string SubscriptionOwnedByAnotherUser = "SUBSCRIPTION_OWNED_BY_ANOTHER_USER";

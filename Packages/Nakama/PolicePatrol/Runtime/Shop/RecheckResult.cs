@@ -4,8 +4,9 @@ namespace PolicePatrol.Sdk.Shop
 {
     public sealed class RecheckResult
     {
-        public RecheckResult(int confirmed, int alreadyDone, IReadOnlyList<string> pendingErrorCodes)
+        public RecheckResult(int confirmed, int alreadyDone, IReadOnlyList<string> pendingErrorCodes, IReadOnlyList<string> rewardPendingPaymentIds = null)
         {
+            RewardPendingPaymentIds = rewardPendingPaymentIds ?? new List<string>();
             Confirmed = confirmed;
             AlreadyDone = alreadyDone;
             PendingErrorCodes = pendingErrorCodes ?? new List<string>();
@@ -18,6 +19,8 @@ namespace PolicePatrol.Sdk.Shop
         public int StillPending => PendingErrorCodes.Count;
 
         public IReadOnlyList<string> PendingErrorCodes { get; }
+
+        public IReadOnlyList<string> RewardPendingPaymentIds { get; }
 
         public bool HasRecovered => Confirmed > 0;
     }

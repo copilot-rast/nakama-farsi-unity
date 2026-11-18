@@ -74,6 +74,9 @@ var web = await NakamaFarsiGateway.BuyAsync(productId, PaymentMethods.ZarinPal);
 - Store choice: when the server's store config is in sandbox, or the game is not running on an Android device, a test store is used that makes sandbox tokens the server accepts. A real build needs the store plugin: Tools > Nakama Farsi > Store > Install Poolakey (Cafe Bazaar), or Build for Myket. Build for Bazaar / Build for Myket switch the `NAKAMAFARSI_STORE_*` define and the Android libraries.
 - Gateways: the SDK opens the payment page and waits until the player comes back (deep link or app focus), then reads the payment status.
 - `client.Payments.Completed` fires for every finished purchase.
+- Reward pending: when the server took the money but could not grant the reward yet (`rewardGranted: false`), the result has `Outcome = RewardPending`, `Error = PAYMENT_REWARD_PENDING` and the server code (`REWARD_PENDING`, `PRODUCT_ALREADY_BOUGHT` or `PRIZE_ALREADY_OWNED`) in `ServerError`. It is not a success: show "your purchase is being delivered". The server retries the grant itself; `WaitForRewardAsync(paymentId)` and `RecoverAsync` (it also reads `economy_payments_mine`) follow it up.
+- Consume rule: a store purchase is consumed only after the server verified the receipt (`status: success`, reward granted or pending). Network errors, `STORE_UNAVAILABLE`, `STORE_MODE_CHANGED` and any other answer that is not final leave the purchase in the store, so `RecoverAsync` sends it again later. A rejected receipt (`failed`, `PAYMENT_EXPIRED`, `PAYMENT_CLOSED`) is not consumed either.
+- Start errors: `PAYMENT_IN_PROGRESS` (an open payment for the same one-time product), `PRODUCT_ALREADY_BOUGHT` (also for Bazaar, Myket and gateways). `PurchaseErrors` has the codes.
 
 ## Chat and notifications
 

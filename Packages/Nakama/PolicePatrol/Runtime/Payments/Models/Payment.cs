@@ -21,5 +21,10 @@ namespace PolicePatrol.Sdk.Payments
         string RefId,
         Product Product,
         DateTimeOffset CreatedAt,
-        DateTimeOffset UpdatedAt);
+        DateTimeOffset UpdatedAt)
+    {
+        public bool? RewardGranted { get; init; }
+
+        public bool IsRewardPending => Status == PaymentStatus.Success && RewardGranted == false;
+    }
 }

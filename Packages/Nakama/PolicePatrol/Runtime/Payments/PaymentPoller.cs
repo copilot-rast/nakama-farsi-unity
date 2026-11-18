@@ -23,16 +23,28 @@ namespace PolicePatrol.Sdk.Payments
 
         public TimeSpan Timeout { get; set; } = DefaultTimeout;
 
+        public static readonly TimeSpan DefaultRewardTimeout = TimeSpan.FromSeconds(10);
+
+        public TimeSpan RewardTimeout { get; set; } = DefaultRewardTimeout;
+
         public static bool IsRetryable(ApiError error) =>
-            error != null && (error.IsNetworkError || error.Status == 429 || error.Status >= 500 || error.Code == PaymentErrorCodes.StoreUnavailable);
+            error != null && (error.IsNetworkError || error.Status == 429 || error.Status >= 500 || error.Code == PaymentErrorCodes.StoreUnavailable || error.Code == PaymentErrorCodes.StoreModeChanged);
 
         public void WaitForResult(string paymentId, Action<ApiResult<Payment>> onComplete, CancellationToken cancellationToken = default) =>
-            Repeat(done => PaymentProvider.Get(paymentId, done), result => result.Data?.Status == PaymentStatus.Pending, onComplete, cancellationToken);
+            Repeat(done => PaymentProvider.Get(paymentId, done), result => result.Data?.Status == PaymentStatus.Pending || result.Data?.IsRewardPending == true, Timeout,
+                result => onComplete?.Invoke(PaymentProvider.RewardCheck(result)), cancellationToken);
+
+        public void WaitForReward(string paymentId, Action<ApiResult<Payment>> onComplete, CancellationToken cancellationToken = default) =>
+            Repeat(done => PaymentProvider.Get(paymentId, done), result => result.Data?.IsRewardPending == true, RewardTimeout,
+                result => onComplete?.Invoke(PaymentProvider.RewardCheck(result)), cancellationToken);
 
         public void SubmitBilling(string paymentId, string purchaseToken, Action<ApiResult<Payment>> onComplete, CancellationToken cancellationToken = default) =>
-            Repeat(done => PaymentProvider.SubmitBilling(paymentId, purchaseToken, done), _ => false, onComplete, cancellationToken);
+            Repeat(done => PaymentProvider.SubmitBilling(paymentId, purchaseToken, done), _ => false, Timeout, result => onComplete?.Invoke(PaymentProvider.RewardCheck(result)), cancellationToken);
 
-        private void Repeat(Action<Action<ApiResult<Payment>>> call, Func<ApiResult<Payment>, bool> stillPending, Action<ApiResult<Payment>> onComplete, CancellationToken cancellationToken)
+        public static bool IsVerified(ApiResult<Payment> result) =>
+            result != null && (result.IsSuccess ? result.Data?.Status == PaymentStatus.Success : result.Error?.Code == PaymentErrorCodes.RewardPending);
+
+        private void Repeat(Action<Action<ApiResult<Payment>>> call, Func<ApiResult<Payment>, bool> stillPending, TimeSpan timeout, Action<ApiResult<Payment>> onComplete, CancellationToken cancellationToken)
         {
             var started = _clock();
             ApiResult<Payment> latest = null;
@@ -63,7 +75,7 @@ namespace PolicePatrol.Sdk.Payments
                         return;
                     }
 
-                    if (_clock() - started >= Timeout)
+                    if (_clock() - started >= timeout)
                     {
                         onComplete?.Invoke(latest);
                         return;

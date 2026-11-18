@@ -54,13 +54,30 @@ namespace PolicePatrol.Sdk.Shop
 
                     _poller.SubmitBilling(billing.Id, purchase.PurchaseToken, submitted =>
                     {
-                        if (!submitted.IsSuccess || item.IsSubscription)
+                        if (!PaymentPoller.IsVerified(submitted))
                         {
                             onComplete?.Invoke(submitted);
                             return;
                         }
 
-                        _store.Consume(purchase.PurchaseToken, _ => onComplete?.Invoke(submitted));
+                        Action finish = () =>
+                        {
+                            if (submitted.IsSuccess)
+                            {
+                                onComplete?.Invoke(submitted);
+                                return;
+                            }
+
+                            _poller.WaitForReward(billing.Id, onComplete);
+                        };
+
+                        if (item.IsSubscription)
+                        {
+                            finish();
+                            return;
+                        }
+
+                        _store.Consume(purchase.PurchaseToken, _ => finish());
                     });
                 };
 

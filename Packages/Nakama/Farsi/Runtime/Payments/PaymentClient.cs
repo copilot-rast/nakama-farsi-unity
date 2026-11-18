@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
@@ -14,6 +15,21 @@ namespace NakamaFarsi.Sdk.Payments
         Redirect,
         Cancelled,
         Failed,
+        RewardPending,
+    }
+
+    public static class PurchaseErrors
+    {
+        public const string RewardPending = "PAYMENT_REWARD_PENDING";
+        public const string ServerRewardPending = "REWARD_PENDING";
+        public const string ProductAlreadyBought = "PRODUCT_ALREADY_BOUGHT";
+        public const string PrizeAlreadyOwned = "PRIZE_ALREADY_OWNED";
+        public const string InProgress = "PAYMENT_IN_PROGRESS";
+        public const string Expired = "PAYMENT_EXPIRED";
+        public const string Closed = "PAYMENT_CLOSED";
+        public const string StoreUnavailable = "STORE_UNAVAILABLE";
+        public const string StoreModeChanged = "STORE_MODE_CHANGED";
+        public const string SubscriptionNotSupported = "SUBSCRIPTION_NOT_SUPPORTED";
     }
 
     public sealed class PurchaseResult
@@ -25,11 +41,14 @@ namespace NakamaFarsi.Sdk.Payments
         public JArray Rewards { get; set; }
         public string Message { get; set; }
         public string Error { get; set; }
+        public string ServerError { get; set; }
         public string RedirectUrl { get; set; }
         public ApiError ApiError { get; set; }
         public JObject Raw { get; set; }
 
         public bool IsSuccess => Outcome == PurchaseOutcome.Success;
+
+        public bool IsRewardPending => Outcome == PurchaseOutcome.RewardPending;
     }
 
     public sealed class PaymentClient
@@ -37,8 +56,7 @@ namespace NakamaFarsi.Sdk.Payments
         public static readonly TimeSpan DefaultPollInterval = TimeSpan.FromSeconds(2);
         public static readonly TimeSpan DefaultPollTimeout = TimeSpan.FromMinutes(1);
         public static readonly TimeSpan DefaultSubmitTimeout = TimeSpan.FromMinutes(1);
-
-        private static readonly HashSet<string> Accepted = new HashSet<string> { "REWARD_PENDING", "PRODUCT_ALREADY_BOUGHT", "PRIZE_ALREADY_OWNED" };
+        public static readonly TimeSpan DefaultRewardTimeout = TimeSpan.FromSeconds(10);
 
         private readonly NakamaFarsiClient _client;
         private readonly Dictionary<string, StoreConfig> _configs = new Dictionary<string, StoreConfig>();
@@ -51,12 +69,13 @@ namespace NakamaFarsi.Sdk.Payments
         public TimeSpan PollInterval { get; set; } = DefaultPollInterval;
         public TimeSpan PollTimeout { get; set; } = DefaultPollTimeout;
         public TimeSpan SubmitTimeout { get; set; } = DefaultSubmitTimeout;
+        public TimeSpan RewardTimeout { get; set; } = DefaultRewardTimeout;
         public Func<TimeSpan, CancellationToken, Task> Delay { get; set; } = (wait, ct) => Task.Delay(wait, ct);
 
         public event Action<PurchaseResult> Completed;
 
         public static bool IsRetryable(ApiError error) =>
-            error != null && (error.IsNetworkError || error.Code == ApiError.TimeoutCode || error.Status == 429 || error.Status >= 500 || error.Code == "STORE_UNAVAILABLE");
+            error != null && (error.IsNetworkError || error.Code == ApiError.TimeoutCode || error.Status == 429 || error.Status >= 500 || error.Code == PurchaseErrors.StoreUnavailable || error.Code == PurchaseErrors.StoreModeChanged);
 
         public Task<JObject> CatalogAsync(string categoryKey = null, CancellationToken ct = default)
         {
@@ -151,16 +170,43 @@ namespace NakamaFarsi.Sdk.Payments
 
         public async Task<PurchaseResult> WaitAsync(string paymentId, TimeSpan? timeout = null, CancellationToken ct = default)
         {
-            var until = DateTime.UtcNow + (timeout ?? PollTimeout);
+            var last = await PollAsync(paymentId, timeout ?? PollTimeout, ct).ConfigureAwait(false);
+            return last.Outcome == PurchaseOutcome.Pending ? last : Finish(last);
+        }
+
+        public Task<PurchaseResult> WaitForRewardAsync(string paymentId, TimeSpan? timeout = null, CancellationToken ct = default) =>
+            WaitAsync(paymentId, timeout ?? RewardTimeout, ct);
+
+        public async Task<IReadOnlyList<PurchaseResult>> FollowRewardsAsync(CancellationToken ct = default)
+        {
+            var results = new List<PurchaseResult>();
+            var history = await HistoryAsync(50, null, ct).ConfigureAwait(false);
+            foreach (var row in history["items"] as JArray ?? new JArray())
+            {
+                var id = (string)row["paymentId"] ?? (string)row["id"];
+                if ((string)row["status"] != "success" || !(row["rewardGranted"] is JValue granted) || granted.Type != JTokenType.Boolean || (bool)granted || string.IsNullOrEmpty(id))
+                {
+                    continue;
+                }
+
+                results.Add(await WaitAsync(id, TimeSpan.Zero, ct).ConfigureAwait(false));
+            }
+
+            return results;
+        }
+
+        private async Task<PurchaseResult> PollAsync(string paymentId, TimeSpan timeout, CancellationToken ct)
+        {
+            var until = DateTime.UtcNow + timeout;
             PurchaseResult last = null;
             while (true)
             {
                 try
                 {
                     last = await StatusAsync(paymentId, ct).ConfigureAwait(false);
-                    if (last.Outcome != PurchaseOutcome.Pending)
+                    if (last.Outcome != PurchaseOutcome.Pending && last.Outcome != PurchaseOutcome.RewardPending)
                     {
-                        return Finish(last);
+                        return last;
                     }
                 }
                 catch (ApiException e) when (IsRetryable(e.Error))
@@ -169,7 +215,7 @@ namespace NakamaFarsi.Sdk.Payments
                 }
                 catch (ApiException e)
                 {
-                    return Finish(new PurchaseResult { Outcome = PurchaseOutcome.Failed, PaymentId = paymentId, Error = e.Error.Code, ApiError = e.Error });
+                    return new PurchaseResult { Outcome = PurchaseOutcome.Failed, PaymentId = paymentId, Error = e.Error.Code, ApiError = e.Error };
                 }
 
                 if (DateTime.UtcNow >= until)
@@ -207,17 +253,31 @@ namespace NakamaFarsi.Sdk.Payments
                 if (ServerAccepted(result))
                 {
                     await Wrap<bool>(done => store.Consume(purchase.PurchaseToken, done)).ConfigureAwait(false);
+                    if (result.IsRewardPending && !string.IsNullOrEmpty(result.PaymentId))
+                    {
+                        result = await PollAsync(result.PaymentId, RewardTimeout, ct).ConfigureAwait(false);
+                    }
+
                     Finish(result);
                 }
 
                 results.Add(result);
             }
 
+            var seen = new HashSet<string>(results.Select(r => r.PaymentId).Where(id => !string.IsNullOrEmpty(id)));
+            foreach (var followed in await FollowRewardsAsync(ct).ConfigureAwait(false))
+            {
+                if (seen.Add(followed.PaymentId ?? string.Empty))
+                {
+                    results.Add(followed);
+                }
+            }
+
             return results;
         }
 
         public static bool ServerAccepted(PurchaseResult result) =>
-            result != null && result.Status == "success" && (result.RewardGranted || string.IsNullOrEmpty(result.Error) || Accepted.Contains(result.Error));
+            result != null && result.Status == "success" && (result.Outcome == PurchaseOutcome.Success || result.Outcome == PurchaseOutcome.RewardPending);
 
         private async Task<PurchaseResult> StoreFlowAsync(IStoreBilling store, string paymentId, string sku, string payload, CancellationToken ct)
         {
@@ -236,6 +296,10 @@ namespace NakamaFarsi.Sdk.Payments
             if (ServerAccepted(result))
             {
                 await Wrap<bool>(done => store.Consume(bought.PurchaseToken, done)).ConfigureAwait(false);
+                if (result.IsRewardPending)
+                {
+                    result = await PollAsync(paymentId, RewardTimeout, ct).ConfigureAwait(false);
+                }
             }
 
             return result;
@@ -283,17 +347,30 @@ namespace NakamaFarsi.Sdk.Payments
             return FromServer(raw, outcome);
         }
 
-        private static PurchaseResult FromServer(JObject raw, PurchaseOutcome outcome) => new PurchaseResult
+        private static PurchaseResult FromServer(JObject raw, PurchaseOutcome outcome)
         {
-            Outcome = outcome,
-            PaymentId = (string)raw["paymentId"],
-            Status = (string)raw["status"],
-            RewardGranted = (bool?)raw["rewardGranted"] ?? (outcome == PurchaseOutcome.Success && raw["rewards"] != null),
-            Rewards = raw["rewards"] as JArray ?? new JArray(),
-            Message = (string)raw["purchaseMessage"] ?? string.Empty,
-            Error = (string)raw["error"],
-            Raw = raw,
-        };
+            var notGranted = raw["rewardGranted"] is JValue granted && granted.Type == JTokenType.Boolean && !(bool)granted;
+            var result = new PurchaseResult
+            {
+                Outcome = outcome,
+                PaymentId = (string)raw["paymentId"],
+                Status = (string)raw["status"],
+                RewardGranted = (bool?)raw["rewardGranted"] ?? (outcome == PurchaseOutcome.Success && raw["rewards"] != null),
+                Rewards = raw["rewards"] as JArray ?? new JArray(),
+                Message = (string)raw["purchaseMessage"] ?? string.Empty,
+                Error = (string)raw["error"],
+                ServerError = (string)raw["error"],
+                Raw = raw,
+            };
+            if (outcome == PurchaseOutcome.Success && notGranted)
+            {
+                result.Outcome = PurchaseOutcome.RewardPending;
+                result.ServerError = string.IsNullOrEmpty(result.ServerError) ? PurchaseErrors.ServerRewardPending : result.ServerError;
+                result.Error = PurchaseErrors.RewardPending;
+            }
+
+            return result;
+        }
 
         private PurchaseResult Finish(PurchaseResult result)
         {

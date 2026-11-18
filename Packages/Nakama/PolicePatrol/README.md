@@ -45,6 +45,12 @@ Stat Cards, Content Publish) with API keys from «ابزار توسعه › کل
 
 New: `PolicePatrolAnalytics` (design / progression / resource / business / error events, context, dimensions).
 
+## Payments: reward pending and consume
+
+- `ProductIAP.Buy`, `PaymentPoller.SubmitBilling` / `WaitForResult` and `PolicePatrolPayments.PayWithZarrinpal` answer `PAYMENT_REWARD_PENDING` (not success) when the payment succeeded but the reward is not granted yet. `ApiError.ServerCode` keeps the server code (`REWARD_PENDING`, `PRODUCT_ALREADY_BOUGHT`, `PRIZE_ALREADY_OWNED`) and `Meta["paymentId"]` the payment. The server retries the grant; `PaymentPoller.WaitForReward(paymentId)` and `ProductIAP.RecheckPending` follow it (`RecheckResult.RewardPendingPaymentIds`).
+- The store purchase is consumed only after the server verified the receipt (status `success`, with or without the reward). Network errors, `STORE_UNAVAILABLE`, `STORE_MODE_CHANGED` and every answer that is not final keep it in the store, so `RecheckPending` sends it again. If you call `SubmitBilling` yourself, consume when `PaymentPoller.IsVerified(result)` is true.
+- New codes in `PaymentErrorCodes`: `RewardPending`, `InProgress` (`PAYMENT_IN_PROGRESS`), `Expired`, `Closed`, `StoreModeChanged`, `SubscriptionNotSupported`.
+
 ## Develop
 
 - `dotnet test "sdk/unity-pp/Tests~/PolicePatrol.Sdk.Tests"` (with `NF_IT_URL=http://127.0.0.1:7350` it also runs the guide flows against a server).

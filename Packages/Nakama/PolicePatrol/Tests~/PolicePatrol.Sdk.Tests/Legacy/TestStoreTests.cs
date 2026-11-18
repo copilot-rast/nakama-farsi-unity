@@ -86,7 +86,7 @@ public sealed class TestStoreTests : IDisposable
 
         bought.Error.Code.Should().Be(ProductIAP.PurchaseFailedCode);
         bought.Error.Message.Should().Be(TestStoreLedger.SimulatedNetworkFailure);
-        transport.Calls.Select(r => r.Id).Should().Equal("economy_purchase_start", "economy_purchase_submit");
+        transport.Calls.Select(r => r.Id).Should().Equal("economy_purchase_start", "economy_purchase_submit", "economy_payments_mine");
         transport.Calls[1].Payload.Should().Contain(paidToken);
         recheck.Confirmed.Should().Be(1);
         store.Ledger.Unconsumed.Should().BeEmpty();

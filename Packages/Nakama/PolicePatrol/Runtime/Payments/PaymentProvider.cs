@@ -112,7 +112,22 @@ namespace PolicePatrol.Sdk.Payments
                 J.Str(r, "refId"),
                 null,
                 created,
-                J.Time(r, "updatedAt") ?? created);
+                J.Time(r, "updatedAt") ?? created)
+            {
+                RewardGranted = r is JObject o && o["rewardGranted"] is JValue granted && granted.Type == JTokenType.Boolean ? (bool?)(bool)granted : null,
+            };
+        }
+
+        internal static ApiResult<Payment> RewardCheck(ApiResult<Payment> result)
+        {
+            if (result == null || !result.IsSuccess || result.Data == null || !result.Data.IsRewardPending)
+            {
+                return result;
+            }
+
+            var server = string.IsNullOrEmpty(result.Data.ErrorMessage) ? PaymentErrorCodes.ServerRewardPending : result.Data.ErrorMessage;
+            var meta = new JObject { ["paymentId"] = result.Data.Id, ["serverCode"] = server, ["status"] = result.Data.Status };
+            return ApiResult<Payment>.Fail(new ApiError(200, PaymentErrorCodes.RewardPending, meta, "The payment was received and the reward is still being granted") { ServerCode = server });
         }
     }
 }

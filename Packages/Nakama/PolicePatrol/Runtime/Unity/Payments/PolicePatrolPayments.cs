@@ -95,7 +95,7 @@ namespace PolicePatrol.Sdk.Unity
         private static void Watch(PaymentPoller poller, string paymentId, Action<ApiResult<Payment>> onComplete, CancellationToken cancellationToken) =>
             poller.WaitForResult(paymentId, result =>
             {
-                var settled = result.IsSuccess ? result.Data?.Status != PaymentStatus.Pending : !PaymentPoller.IsRetryable(result.Error);
+                var settled = result.IsSuccess ? result.Data?.Status != PaymentStatus.Pending : !PaymentPoller.IsRetryable(result.Error) && result.Error?.Code != PaymentErrorCodes.RewardPending;
                 if (settled && PendingPaymentId == paymentId)
                 {
                     ForgetPending();
