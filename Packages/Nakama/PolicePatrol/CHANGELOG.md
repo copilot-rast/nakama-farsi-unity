@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Logging (Farsi layer): the base layer (socket, session, chat, analytics) writes to its logger only when `Logging` is on (`NakamaFarsiOptions.Logging`, set from the PP config). New: `SwitchedLogger`.
 - Username errors: `UserErrorCodes.ReasonSeparatorEdge` (`separator_edge`, what the server sends) and `ReasonTaken` (`taken`); `ReasonDotEdge` is `[Obsolete]`. When the server sends a bare code (errors in code mode), the SDK fills `Meta.reason` from the server code (`ApiError.ServerCode`), so `reason` is always there.
 - Error texts: a placeholder the server sent no value for is no longer shown raw. `{retryAfter}` becomes "a few" / «چند», any other one is dropped (`ErrorCatalog.Fill`). A top-level `retryAfterSeconds` fills `{retryAfter}`. `OTP_TOO_SOON` without a wait (errors in code mode) gets the wait from the last code sent to the same number (`ApiError.RetryAfterSeconds`, `Meta.retryAfter`, filled text). New: `ApiClient.VerificationResendAt`.
 - Chat (Farsi layer): `ChatClient.Rejoined` is raised on the main thread (through the client dispatcher), like `MessageReceived`.

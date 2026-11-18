@@ -203,5 +203,29 @@ namespace NakamaFarsi.Sdk.Tests
             Assert.Equal("fa", st.Lang);
             Assert.Equal(2, st.Raw["chats"].Count());
         }
+    
+
+        private sealed class ListLogger : ISdkLogger
+        {
+            public System.Collections.Generic.List<string> Lines { get; } = new System.Collections.Generic.List<string>();
+
+            public void Log(string message) => Lines.Add(message);
+
+            public void Warn(string message) => Lines.Add(message);
+        }
+
+        [Fact]
+        public void TheBaseLayerLogsOnlyWhenLoggingIsOn()
+        {
+            var lines = new ListLogger();
+            var options = new NakamaFarsiOptions { Logging = false };
+            var client = new NakamaFarsiClient(options, new MemoryKeyValueStore(), logger: lines);
+            client.Logger.Log("hidden");
+            client.Logger.Warn("hidden");
+            Assert.Empty(lines.Lines);
+            options.Logging = true;
+            client.Logger.Warn("shown");
+            Assert.Equal(new[] { "shown" }, lines.Lines);
+        }
     }
 }

@@ -22,6 +22,34 @@ namespace NakamaFarsi.Sdk
         }
     }
 
+    public sealed class SwitchedLogger : ISdkLogger
+    {
+        private readonly ISdkLogger _inner;
+        private readonly Func<bool> _enabled;
+
+        public SwitchedLogger(ISdkLogger inner, Func<bool> enabled)
+        {
+            _inner = inner ?? NullLogger.Instance;
+            _enabled = enabled ?? (() => true);
+        }
+
+        public void Log(string message)
+        {
+            if (_enabled())
+            {
+                _inner.Log(message);
+            }
+        }
+
+        public void Warn(string message)
+        {
+            if (_enabled())
+            {
+                _inner.Warn(message);
+            }
+        }
+    }
+
     public sealed class ConsoleLogger : ISdkLogger
     {
         public void Log(string message) => Console.WriteLine("[NakamaFarsi] " + message);

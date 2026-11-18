@@ -39,7 +39,7 @@ namespace NakamaFarsi.Sdk
             Options = options ?? throw new ArgumentNullException(nameof(options));
             Store = store ?? new MemoryKeyValueStore();
             Dispatcher = dispatcher ?? ImmediateDispatcher.Instance;
-            Logger = logger ?? NullLogger.Instance;
+            Logger = logger == null ? (ISdkLogger)NullLogger.Instance : new SwitchedLogger(logger, () => Options.Logging);
             Clock = clock ?? SystemClock.Instance;
             _http = http ?? new HttpClientGet();
             Client = client ?? new Client(options.Scheme, options.Host, options.Port, options.ServerKey, HttpRequestAdapter.WithGzip(), false);
