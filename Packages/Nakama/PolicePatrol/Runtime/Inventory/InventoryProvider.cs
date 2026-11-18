@@ -176,6 +176,7 @@ namespace PolicePatrol.Sdk.Inventory
             {
                 FinalPrices = i["finalPrice"] is JObject fo ? new[] { Price(fo) } : i["finalPrice"] is JArray fa ? fa.Select(Price).ToArray() : null,
                 DiscountPercent = J.Num(i, "discountPercent"),
+                SaleStopped = J.Bool(i, "saleStopped") || (i["isActive"]?.Type == JTokenType.Boolean && !(bool)i["isActive"]),
             };
         }
     }

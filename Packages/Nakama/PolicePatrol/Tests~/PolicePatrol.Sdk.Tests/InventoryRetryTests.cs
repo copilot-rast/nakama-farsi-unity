@@ -56,6 +56,18 @@ namespace PolicePatrol.Sdk.Tests
         }
     
         [Fact]
+        public async Task AStoppedItemIsMarkedAndItsErrorHasItsOwnCode()
+        {
+            var t = Harness.Start();
+            t.Routes["economy_inventory"] = p => "{\"level\":1,\"items\":[{\"key\":\"hilux\",\"owned\":true,\"isActive\":false,\"saleStopped\":true},{\"key\":\"tiggo\",\"isActive\":true}]}";
+            var inv = await Harness.Call<PlayerInventory>(InventoryProvider.Get);
+            Assert.True(inv.Data.Items.Single(i => i.Key == "hilux").SaleStopped);
+            Assert.False(inv.Data.Items.Single(i => i.Key == "tiggo").SaleStopped);
+            var e = ErrorAliases.Convert(new NF.ApiError("ITEM_SALE_STOPPED", 409, ""), ErrorAliases.Inventory);
+            Assert.Equal(InventoryErrorCodes.SaleStopped, e.Code);
+        }
+
+        [Fact]
         public async Task ItemsCarryTheTagDiscountedPrice()
         {
             var t = Harness.Start();

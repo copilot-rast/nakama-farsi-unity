@@ -8,6 +8,7 @@ namespace PolicePatrol.Sdk.Inventory
         public const string LevelTooLow = "INVENTORY_LEVEL_TOO_LOW";
         public const string RequiresItem = "INVENTORY_REQUIRES_ANOTHER_ITEM";
         public const string NotForSale = "INVENTORY_ITEM_NOT_FOR_SALE";
+        public const string SaleStopped = "INVENTORY_ITEM_SALE_STOPPED";
         public const string NotEnough = "INVENTORY_NOT_ENOUGH_CURRENCY";
         public const string Busy = "INVENTORY_BUSY_TRY_AGAIN";
         public const string NotOwned = "INVENTORY_ITEM_NOT_OWNED";

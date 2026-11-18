@@ -27,5 +27,7 @@ namespace PolicePatrol.Sdk.Inventory
         public double DiscountPercent { get; init; }
 
         public bool HasDiscount => DiscountPercent > 0;
+
+        public bool SaleStopped { get; init; }
     }
 }

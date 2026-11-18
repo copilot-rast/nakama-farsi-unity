@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Inventory: an owned item whose sale was stopped in the panel stays in `InventoryProvider.Get` with `PlayerItem.SaleStopped = true` (it cannot be bought). Unlocking it answers `InventoryErrorCodes.SaleStopped` (`INVENTORY_ITEM_SALE_STOPPED`, server `ITEM_SALE_STOPPED`); upgrading it is allowed unless the panel turned that off.
 - Shop: `Product.PhoneRequiredFor` (payment methods that need a verified phone for this player, from `phoneRequiredFor`), `Product.PhoneVerified`, `Product.NeedsPhoneFor(method)`, `ShopItem.PhoneRequiredFor` and `ShopItem.NeedsPhone` (for the store of this build). `zarinpal` from the server is shown as `PaymentMethods.Zarrinpal`.
 - Logging (Farsi layer): the base layer (socket, session, chat, analytics) writes to its logger only when `Logging` is on (`NakamaFarsiOptions.Logging`, set from the PP config). New: `SwitchedLogger`.
 - Username errors: `UserErrorCodes.ReasonSeparatorEdge` (`separator_edge`, what the server sends) and `ReasonTaken` (`taken`); `ReasonDotEdge` is `[Obsolete]`. When the server sends a bare code (errors in code mode), the SDK fills `Meta.reason` from the server code (`ApiError.ServerCode`), so `reason` is always there.
