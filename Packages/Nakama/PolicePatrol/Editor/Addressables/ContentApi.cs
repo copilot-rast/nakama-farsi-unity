@@ -27,7 +27,7 @@ namespace PolicePatrol.Sdk.Editor
 
         public static Task<ContentTarget> GetTargetAsync(AssetSyncSettings settings, string contentId) => FindOrCreateTargetAsync(settings);
 
-        public static async Task<ContentPlan> PlanAsync(AssetSyncSettings settings, string contentId, IEnumerable<ContentFile> files)
+        public static async Task<ContentPlan> PlanAsync(AssetSyncSettings settings, string contentId, IEnumerable<ContentFile> files, bool activate = false)
         {
             var all = files.ToList();
             var body = new JObject
@@ -36,6 +36,7 @@ namespace PolicePatrol.Sdk.Editor
                 ["version"] = DateTime.UtcNow.ToString("yyyyMMdd.HHmmss", CultureInfo.InvariantCulture),
                 ["minAppVersion"] = PlayerSettings.bundleVersion ?? string.Empty,
                 ["files"] = new JArray(all.Select(f => new JObject { ["path"] = f.Path, ["sha256"] = f.Sha256, ["size"] = f.Size })),
+                ["activate"] = activate,
             };
             var answer = await EditorApiClient.SendJsonAsync<JObject>(settings, HttpMethod.Post, BasePath, body);
             var missing = (answer["missing"] as JArray ?? new JArray()).OfType<JObject>().ToList();

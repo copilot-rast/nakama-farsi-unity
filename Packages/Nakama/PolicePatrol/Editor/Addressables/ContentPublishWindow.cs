@@ -57,7 +57,7 @@ namespace PolicePatrol.Sdk.Editor
                 {
                     var folder = ContentBuilder.Build();
                     var files = ContentBuilder.Describe(folder);
-                    var plan = await ContentApi.PlanAsync(_settings, null, files);
+                    var plan = await ContentApi.PlanAsync(_settings, null, files, _activate);
                     var zip = ContentBuilder.Zip(folder, new HashSet<string>(plan.Missing));
                     var activate = _activate;
                     _target = await ContentApi.PublishAsync(_settings, plan, zip, _note, activate);
