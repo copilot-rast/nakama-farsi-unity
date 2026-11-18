@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Poolakey installer (both layers): Unity 6 projects get the Unity 6 package, Unity 2020–2023 projects get the 2020_2023 package (`PoolakeyInstaller.PackageUrl`, `IsUnity6`).
 - Ledger: item rows have `Unit` = the item key (Unity form) and `RefId` in Unity form; `LedgerProvider.List(..., refId)` sends `refId` to the server, so paging works with the filter (needs the server from this release: older servers refuse the field).
 - Inventory: an owned item whose sale was stopped in the panel stays in `InventoryProvider.Get` with `PlayerItem.SaleStopped = true` (it cannot be bought). Unlocking it answers `InventoryErrorCodes.SaleStopped` (`INVENTORY_ITEM_SALE_STOPPED`, server `ITEM_SALE_STOPPED`); upgrading it is allowed unless the panel turned that off.
 - Shop: `Product.PhoneRequiredFor` (payment methods that need a verified phone for this player, from `phoneRequiredFor`), `Product.PhoneVerified`, `Product.NeedsPhoneFor(method)`, `ShopItem.PhoneRequiredFor` and `ShopItem.NeedsPhone` (for the store of this build). `zarinpal` from the server is shown as `PaymentMethods.Zarrinpal`.

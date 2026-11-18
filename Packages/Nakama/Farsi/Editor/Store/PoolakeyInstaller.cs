@@ -13,6 +13,17 @@ namespace NakamaFarsi.Sdk.Editor
         public const string Release = "2.1.1";
         public const string WithResolverUrl = "https://github.com/cafebazaar/PoolakeyUnitySdk/releases/download/" + Release + "/PoolakeyEssentialsWithExternalDependencyManagerUnity6_unitypackage";
         public const string WithoutResolverUrl = "https://github.com/cafebazaar/PoolakeyUnitySdk/releases/download/" + Release + "/PoolakeyEssentialsWithoutExternalDependencyManagerUnity6_unitypackage";
+        public const string WithResolverUrlUnity2020 = "https://github.com/cafebazaar/PoolakeyUnitySdk/releases/download/" + Release + "/PoolakeyEssentialsWithExternalDependencyManagerUnity2020_2023_unitypackage";
+        public const string WithoutResolverUrlUnity2020 = "https://github.com/cafebazaar/PoolakeyUnitySdk/releases/download/" + Release + "/PoolakeyEssentialsWithoutExternalDependencyManagerUnity2020_2023";
+#if UNITY_6000_0_OR_NEWER
+        public const bool IsUnity6 = true;
+#else
+        public const bool IsUnity6 = false;
+#endif
+
+        public static string PackageUrl(bool hasResolver) => IsUnity6
+            ? (hasResolver ? WithoutResolverUrl : WithResolverUrl)
+            : (hasResolver ? WithoutResolverUrlUnity2020 : WithResolverUrlUnity2020);
         private const string Title = "Nakama Farsi: Cafe Bazaar billing";
         private const string ResolveMenu = "Assets/External Dependency Manager/Android Resolver/Resolve";
         private const string PluginName = "poolakey-release";
@@ -85,7 +96,7 @@ namespace NakamaFarsi.Sdk.Editor
 
         public static void Install()
         {
-            var url = HasResolver() ? WithoutResolverUrl : WithResolverUrl;
+            var url = PackageUrl(HasResolver());
             var file = Path.Combine(Path.GetTempPath(), "poolakey-" + Release + ".unitypackage");
 
             try
