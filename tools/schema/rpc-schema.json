@@ -6929,6 +6929,1163 @@
       "errors": []
     },
     {
+      "id": "cup_get",
+      "module": "cup",
+      "handler": "rpcGet",
+      "source": "integrations/cup/player.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "cupId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "bracket": {
+            "properties": {
+              "rounds": {
+                "items": {
+                  "properties": {
+                    "bestOf": {},
+                    "key": {
+                      "type": "string"
+                    },
+                    "matches": {
+                      "items": {
+                        "properties": {
+                          "a": {
+                            "properties": {
+                              "avatarUrl": {},
+                              "displayName": {},
+                              "ready": {},
+                              "seed": {
+                                "type": "integer"
+                              },
+                              "showed": {
+                                "type": "boolean"
+                              },
+                              "status": {
+                                "type": "string"
+                              },
+                              "userId": {
+                                "type": "string"
+                              },
+                              "username": {},
+                              "wins": {
+                                "type": "integer"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "b": {
+                            "properties": {
+                              "avatarUrl": {},
+                              "displayName": {},
+                              "ready": {},
+                              "seed": {
+                                "type": "integer"
+                              },
+                              "showed": {
+                                "type": "boolean"
+                              },
+                              "status": {
+                                "type": "string"
+                              },
+                              "userId": {
+                                "type": "string"
+                              },
+                              "username": {},
+                              "wins": {
+                                "type": "integer"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "bestOf": {
+                            "type": "integer"
+                          },
+                          "closesAt": {
+                            "type": "string"
+                          },
+                          "draws": {
+                            "type": "integer"
+                          },
+                          "finishedAt": {
+                            "type": "string"
+                          },
+                          "gameMatchId": {
+                            "type": "string"
+                          },
+                          "gameNo": {
+                            "type": "integer"
+                          },
+                          "games": {
+                            "items": {
+                              "properties": {
+                                "createdAt": {
+                                  "type": "string"
+                                },
+                                "draw": {},
+                                "finishedAt": {
+                                  "type": "string"
+                                },
+                                "no": {},
+                                "reason": {},
+                                "score": {},
+                                "status": {},
+                                "winnerId": {}
+                              },
+                              "type": "object"
+                            },
+                            "type": "array"
+                          },
+                          "id": {
+                            "type": "string"
+                          },
+                          "kind": {
+                            "type": "string"
+                          },
+                          "loserId": {
+                            "type": "string"
+                          },
+                          "next": {
+                            "type": "object"
+                          },
+                          "opensAt": {
+                            "type": "string"
+                          },
+                          "reason": {
+                            "type": "string"
+                          },
+                          "round": {
+                            "type": "integer"
+                          },
+                          "roundKey": {
+                            "type": "string"
+                          },
+                          "slot": {
+                            "type": "integer"
+                          },
+                          "startsAt": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "string"
+                          },
+                          "winnerId": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "players": {},
+                    "round": {
+                      "type": "integer"
+                    },
+                    "status": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "size": {
+                "type": "integer"
+              },
+              "third": {
+                "type": "object"
+              }
+            },
+            "type": "object"
+          },
+          "champion": {
+            "type": "object"
+          },
+          "cup": {
+            "properties": {
+              "bestOf": {},
+              "cancelReason": {
+                "type": "string"
+              },
+              "capacity": {},
+              "championId": {
+                "type": "string"
+              },
+              "currentRound": {
+                "type": "integer"
+              },
+              "description": {
+                "type": "string"
+              },
+              "fee": {
+                "properties": {
+                  "amount": {},
+                  "currencyKey": {}
+                },
+                "type": "object"
+              },
+              "finishedAt": {
+                "type": "string"
+              },
+              "game": {},
+              "iconUrl": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "me": {
+                "properties": {
+                  "canSignUp": {
+                    "type": "boolean"
+                  },
+                  "canWithdraw": {
+                    "type": "boolean"
+                  },
+                  "place": {
+                    "type": "integer"
+                  },
+                  "reached": {
+                    "type": "integer"
+                  },
+                  "registered": {
+                    "type": "boolean"
+                  },
+                  "seed": {
+                    "type": "integer"
+                  },
+                  "status": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "minPlayers": {},
+              "mode": {},
+              "name": {
+                "type": "string"
+              },
+              "players": {
+                "type": "integer"
+              },
+              "prizes": {
+                "properties": {
+                  "champion": {},
+                  "fourth": {},
+                  "pool": {
+                    "properties": {
+                      "amount": {},
+                      "currencyKey": {},
+                      "percent": {},
+                      "shares": {
+                        "properties": {
+                          "champion": {},
+                          "fourth": {},
+                          "runnerUp": {},
+                          "semi": {},
+                          "third": {}
+                        },
+                        "type": "object"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "reached": {
+                    "items": {
+                      "properties": {
+                        "prizeKey": {},
+                        "round": {}
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "runnerUp": {},
+                  "semi": {},
+                  "third": {}
+                },
+                "type": "object"
+              },
+              "rated": {},
+              "requirements": {
+                "properties": {
+                  "excludeTagIds": {},
+                  "leagues": {},
+                  "maxTrophies": {},
+                  "minTrophies": {},
+                  "tagIds": {},
+                  "tagsMode": {}
+                },
+                "type": "object"
+              },
+              "rounds": {
+                "type": "integer"
+              },
+              "seeding": {},
+              "serverTime": {
+                "type": "string"
+              },
+              "signupAt": {
+                "type": "string"
+              },
+              "size": {
+                "type": "integer"
+              },
+              "startedAt": {
+                "type": "string"
+              },
+              "startsAt": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "templateKey": {
+                "type": "string"
+              },
+              "thirdPlace": {},
+              "timing": {
+                "properties": {
+                  "checkInMinutes": {},
+                  "mode": {},
+                  "readySeconds": {},
+                  "roundMinutes": {},
+                  "windowMinutes": {}
+                },
+                "type": "object"
+              },
+              "withdrawRefundPercent": {}
+            },
+            "type": "object"
+          },
+          "myMatch": {
+            "type": "object"
+          },
+          "standings": {
+            "items": {
+              "properties": {
+                "displayName": {},
+                "place": {},
+                "seed": {},
+                "userId": {},
+                "username": {}
+              },
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "CUP_NOT_FOUND"
+      ]
+    },
+    {
+      "id": "cup_history",
+      "module": "cup",
+      "handler": "rpcHistory",
+      "source": "integrations/cup/player.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "lang": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "items": {
+            "items": {
+              "properties": {
+                "cupId": {
+                  "type": "string"
+                },
+                "finishedAt": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "payouts": {
+                  "items": {
+                    "properties": {
+                      "amounts": {
+                        "additionalProperties": {
+                          "type": "integer"
+                        },
+                        "type": "object"
+                      },
+                      "kind": {
+                        "type": "string"
+                      },
+                      "prizeKey": {
+                        "type": "string"
+                      },
+                      "status": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "place": {
+                  "type": "integer"
+                },
+                "playerStatus": {
+                  "type": "string"
+                },
+                "players": {
+                  "type": "integer"
+                },
+                "reached": {
+                  "type": "integer"
+                },
+                "seed": {
+                  "type": "integer"
+                },
+                "startsAt": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "errors": []
+    },
+    {
+      "id": "cup_list",
+      "module": "cup",
+      "handler": "rpcList",
+      "source": "integrations/cup/player.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "lang": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "integer"
+          },
+          "offset": {
+            "type": "integer"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "items": {
+            "items": {
+              "properties": {
+                "bestOf": {},
+                "cancelReason": {
+                  "type": "string"
+                },
+                "capacity": {},
+                "championId": {
+                  "type": "string"
+                },
+                "currentRound": {
+                  "type": "integer"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "fee": {
+                  "properties": {
+                    "amount": {},
+                    "currencyKey": {}
+                  },
+                  "type": "object"
+                },
+                "finishedAt": {
+                  "type": "string"
+                },
+                "game": {},
+                "iconUrl": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "me": {
+                  "properties": {
+                    "canSignUp": {
+                      "type": "boolean"
+                    },
+                    "canWithdraw": {
+                      "type": "boolean"
+                    },
+                    "place": {
+                      "type": "integer"
+                    },
+                    "reached": {
+                      "type": "integer"
+                    },
+                    "registered": {
+                      "type": "boolean"
+                    },
+                    "seed": {
+                      "type": "integer"
+                    },
+                    "status": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "minPlayers": {},
+                "mode": {},
+                "name": {
+                  "type": "string"
+                },
+                "players": {
+                  "type": "integer"
+                },
+                "prizes": {
+                  "properties": {
+                    "champion": {},
+                    "fourth": {},
+                    "pool": {
+                      "properties": {
+                        "amount": {},
+                        "currencyKey": {},
+                        "percent": {},
+                        "shares": {
+                          "properties": {
+                            "champion": {},
+                            "fourth": {},
+                            "runnerUp": {},
+                            "semi": {},
+                            "third": {}
+                          },
+                          "type": "object"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "reached": {
+                      "items": {
+                        "properties": {
+                          "prizeKey": {},
+                          "round": {}
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "runnerUp": {},
+                    "semi": {},
+                    "third": {}
+                  },
+                  "type": "object"
+                },
+                "rated": {},
+                "requirements": {
+                  "properties": {
+                    "excludeTagIds": {},
+                    "leagues": {},
+                    "maxTrophies": {},
+                    "minTrophies": {},
+                    "tagIds": {},
+                    "tagsMode": {}
+                  },
+                  "type": "object"
+                },
+                "rounds": {
+                  "type": "integer"
+                },
+                "seeding": {},
+                "serverTime": {
+                  "type": "string"
+                },
+                "signupAt": {
+                  "type": "string"
+                },
+                "size": {
+                  "type": "integer"
+                },
+                "startedAt": {
+                  "type": "string"
+                },
+                "startsAt": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "templateKey": {
+                  "type": "string"
+                },
+                "thirdPlace": {},
+                "timing": {
+                  "properties": {
+                    "checkInMinutes": {},
+                    "mode": {},
+                    "readySeconds": {},
+                    "roundMinutes": {},
+                    "windowMinutes": {}
+                  },
+                  "type": "object"
+                },
+                "withdrawRefundPercent": {}
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "more": {
+            "type": "boolean"
+          },
+          "offset": {
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "CUP_BAD_STATUS"
+      ]
+    },
+    {
+      "id": "cup_my_match",
+      "module": "cup",
+      "handler": "rpcMyMatch",
+      "source": "integrations/cup/player.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "cupId": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "items": {
+            "items": {
+              "properties": {
+                "action": {
+                  "type": "string"
+                },
+                "cupId": {},
+                "cupName": {
+                  "type": "string"
+                },
+                "cupStatus": {},
+                "match": {
+                  "type": "object"
+                },
+                "playerStatus": {
+                  "type": "string"
+                },
+                "serverTime": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "CUP_ID_REQUIRED",
+        "CUP_NOT_FOUND"
+      ]
+    },
+    {
+      "id": "cup_ready",
+      "module": "cup",
+      "handler": "rpcReady",
+      "source": "integrations/cup/play.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "cupId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "gameMatchId": {},
+          "gameNo": {},
+          "launched": {},
+          "matchId": {},
+          "status": {}
+        },
+        "type": "object"
+      },
+      "errors": [
+        "CUP_CHECK_IN_NOT_OPEN",
+        "CUP_ID_REQUIRED",
+        "CUP_NOT_A_PLAYER",
+        "CUP_NOT_FOUND",
+        "CUP_NOT_RUNNING",
+        "CUP_NO_MATCH",
+        "CUP_WAITING_FOR_OPPONENT"
+      ]
+    },
+    {
+      "id": "cup_signup",
+      "module": "cup",
+      "handler": "rpcSignup",
+      "source": "integrations/cup/player.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "cupId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "cup": {
+            "properties": {
+              "bestOf": {},
+              "cancelReason": {
+                "type": "string"
+              },
+              "capacity": {},
+              "championId": {
+                "type": "string"
+              },
+              "currentRound": {
+                "type": "integer"
+              },
+              "description": {
+                "type": "string"
+              },
+              "fee": {
+                "properties": {
+                  "amount": {},
+                  "currencyKey": {}
+                },
+                "type": "object"
+              },
+              "finishedAt": {
+                "type": "string"
+              },
+              "game": {},
+              "iconUrl": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "me": {
+                "properties": {
+                  "canSignUp": {
+                    "type": "boolean"
+                  },
+                  "canWithdraw": {
+                    "type": "boolean"
+                  },
+                  "place": {
+                    "type": "integer"
+                  },
+                  "reached": {
+                    "type": "integer"
+                  },
+                  "registered": {
+                    "type": "boolean"
+                  },
+                  "seed": {
+                    "type": "integer"
+                  },
+                  "status": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "minPlayers": {},
+              "mode": {},
+              "name": {
+                "type": "string"
+              },
+              "players": {
+                "type": "integer"
+              },
+              "prizes": {
+                "properties": {
+                  "champion": {},
+                  "fourth": {},
+                  "pool": {
+                    "properties": {
+                      "amount": {},
+                      "currencyKey": {},
+                      "percent": {},
+                      "shares": {
+                        "properties": {
+                          "champion": {},
+                          "fourth": {},
+                          "runnerUp": {},
+                          "semi": {},
+                          "third": {}
+                        },
+                        "type": "object"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "reached": {
+                    "items": {
+                      "properties": {
+                        "prizeKey": {},
+                        "round": {}
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "runnerUp": {},
+                  "semi": {},
+                  "third": {}
+                },
+                "type": "object"
+              },
+              "rated": {},
+              "requirements": {
+                "properties": {
+                  "excludeTagIds": {},
+                  "leagues": {},
+                  "maxTrophies": {},
+                  "minTrophies": {},
+                  "tagIds": {},
+                  "tagsMode": {}
+                },
+                "type": "object"
+              },
+              "rounds": {
+                "type": "integer"
+              },
+              "seeding": {},
+              "serverTime": {
+                "type": "string"
+              },
+              "signupAt": {
+                "type": "string"
+              },
+              "size": {
+                "type": "integer"
+              },
+              "startedAt": {
+                "type": "string"
+              },
+              "startsAt": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "templateKey": {
+                "type": "string"
+              },
+              "thirdPlace": {},
+              "timing": {
+                "properties": {
+                  "checkInMinutes": {},
+                  "mode": {},
+                  "readySeconds": {},
+                  "roundMinutes": {},
+                  "windowMinutes": {}
+                },
+                "type": "object"
+              },
+              "withdrawRefundPercent": {}
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "CUP_ALREADY_SIGNED_UP",
+        "CUP_DISABLED",
+        "CUP_FULL",
+        "CUP_LEAGUE_REQUIRED",
+        "CUP_NOT_ENOUGH_CURRENCY",
+        "CUP_NOT_FOUND",
+        "CUP_REMOVED",
+        "CUP_SIGNUP_CLOSED",
+        "CUP_SIGNUP_NOT_OPEN",
+        "CUP_TAG_EXCLUDED",
+        "CUP_TAG_REQUIRED",
+        "CUP_TOO_MANY_ACTIVE",
+        "CUP_TROPHIES_TOO_HIGH",
+        "CUP_TROPHIES_TOO_LOW"
+      ]
+    },
+    {
+      "id": "cup_start",
+      "module": "cup",
+      "handler": "rpcStart",
+      "source": "integrations/cup/play.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "cupId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "gameMatchId": {},
+          "gameNo": {},
+          "launched": {},
+          "matchId": {},
+          "status": {}
+        },
+        "type": "object"
+      },
+      "errors": [
+        "CUP_CHECK_IN_NOT_OPEN",
+        "CUP_ID_REQUIRED",
+        "CUP_NOT_A_PLAYER",
+        "CUP_NOT_FOUND",
+        "CUP_NOT_RUNNING",
+        "CUP_NO_MATCH",
+        "CUP_WAITING_FOR_OPPONENT"
+      ]
+    },
+    {
+      "id": "cup_withdraw",
+      "module": "cup",
+      "handler": "rpcWithdraw",
+      "source": "integrations/cup/player.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "cupId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "cup": {
+            "properties": {
+              "bestOf": {},
+              "cancelReason": {
+                "type": "string"
+              },
+              "capacity": {},
+              "championId": {
+                "type": "string"
+              },
+              "currentRound": {
+                "type": "integer"
+              },
+              "description": {
+                "type": "string"
+              },
+              "fee": {
+                "properties": {
+                  "amount": {},
+                  "currencyKey": {}
+                },
+                "type": "object"
+              },
+              "finishedAt": {
+                "type": "string"
+              },
+              "game": {},
+              "iconUrl": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "me": {
+                "properties": {
+                  "canSignUp": {
+                    "type": "boolean"
+                  },
+                  "canWithdraw": {
+                    "type": "boolean"
+                  },
+                  "place": {
+                    "type": "integer"
+                  },
+                  "reached": {
+                    "type": "integer"
+                  },
+                  "registered": {
+                    "type": "boolean"
+                  },
+                  "seed": {
+                    "type": "integer"
+                  },
+                  "status": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "minPlayers": {},
+              "mode": {},
+              "name": {
+                "type": "string"
+              },
+              "players": {
+                "type": "integer"
+              },
+              "prizes": {
+                "properties": {
+                  "champion": {},
+                  "fourth": {},
+                  "pool": {
+                    "properties": {
+                      "amount": {},
+                      "currencyKey": {},
+                      "percent": {},
+                      "shares": {
+                        "properties": {
+                          "champion": {},
+                          "fourth": {},
+                          "runnerUp": {},
+                          "semi": {},
+                          "third": {}
+                        },
+                        "type": "object"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "reached": {
+                    "items": {
+                      "properties": {
+                        "prizeKey": {},
+                        "round": {}
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "runnerUp": {},
+                  "semi": {},
+                  "third": {}
+                },
+                "type": "object"
+              },
+              "rated": {},
+              "requirements": {
+                "properties": {
+                  "excludeTagIds": {},
+                  "leagues": {},
+                  "maxTrophies": {},
+                  "minTrophies": {},
+                  "tagIds": {},
+                  "tagsMode": {}
+                },
+                "type": "object"
+              },
+              "rounds": {
+                "type": "integer"
+              },
+              "seeding": {},
+              "serverTime": {
+                "type": "string"
+              },
+              "signupAt": {
+                "type": "string"
+              },
+              "size": {
+                "type": "integer"
+              },
+              "startedAt": {
+                "type": "string"
+              },
+              "startsAt": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "templateKey": {
+                "type": "string"
+              },
+              "thirdPlace": {},
+              "timing": {
+                "properties": {
+                  "checkInMinutes": {},
+                  "mode": {},
+                  "readySeconds": {},
+                  "roundMinutes": {},
+                  "windowMinutes": {}
+                },
+                "type": "object"
+              },
+              "withdrawRefundPercent": {}
+            },
+            "type": "object"
+          },
+          "refunded": {
+            "properties": {
+              "amount": {
+                "type": "integer"
+              },
+              "currencyKey": {
+                "type": "string"
+              },
+              "percent": {}
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "CUP_NOT_FOUND",
+        "CUP_NOT_SIGNED_UP",
+        "CUP_WITHDRAW_CLOSED"
+      ]
+    },
+    {
       "id": "devkit_error_catalog",
       "module": "devkit",
       "handler": "rpcErrorCatalog",

@@ -19,6 +19,7 @@ namespace NakamaFarsi.Sdk.Generated
             Clan = new ClanRpcs(caller);
             Combatrace = new CombatraceRpcs(caller);
             Content = new ContentRpcs(caller);
+            Cup = new CupRpcs(caller);
             Devkit = new DevkitRpcs(caller);
             Economy = new EconomyRpcs(caller);
             Insights = new InsightsRpcs(caller);
@@ -48,6 +49,8 @@ namespace NakamaFarsi.Sdk.Generated
         public CombatraceRpcs Combatrace { get; }
 
         public ContentRpcs Content { get; }
+
+        public CupRpcs Cup { get; }
 
         public DevkitRpcs Devkit { get; }
 
@@ -181,6 +184,14 @@ namespace NakamaFarsi.Sdk.Generated
         public const string CombatraceMatchBegin = "combatrace_match_begin";
         public const string CombatraceMatchEnd = "combatrace_match_end";
         public const string ContentCatalog = "content_catalog";
+        public const string CupGet = "cup_get";
+        public const string CupHistory = "cup_history";
+        public const string CupList = "cup_list";
+        public const string CupMyMatch = "cup_my_match";
+        public const string CupReady = "cup_ready";
+        public const string CupSignup = "cup_signup";
+        public const string CupStart = "cup_start";
+        public const string CupWithdraw = "cup_withdraw";
         public const string DevkitErrorCatalog = "devkit_error_catalog";
         public const string DevkitRpcSchema = "devkit_rpc_schema";
         public const string EconomyAchievementClaim = "economy_achievement_claim";
@@ -1287,6 +1298,81 @@ namespace NakamaFarsi.Sdk.Generated
         {
             request = request ?? new ContentCatalogRequest();
             return RpcInvoke.CallAsync<ContentCatalogResponse>(_c, RpcIds.ContentCatalog, request, ReadCall, ct);
+        }
+    }
+
+    public sealed partial class CupRpcs
+    {
+        private static readonly RpcCallOptions ReadCall = new RpcCallOptions { ReadOnly = true };
+        private static readonly RpcCallOptions WriteCall = new RpcCallOptions();
+        private readonly IRpcCaller _c;
+
+        public CupRpcs(IRpcCaller caller)
+        {
+            _c = caller;
+        }
+
+        public Task<CupGetResponse> GetAsync(CupGetRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new CupGetRequest();
+            return RpcInvoke.CallAsync<CupGetResponse>(_c, RpcIds.CupGet, request, ReadCall, ct);
+        }
+
+        public Task<CupHistoryResponse> HistoryAsync(CupHistoryRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new CupHistoryRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<CupHistoryResponse>(_c, RpcIds.CupHistory, request, ReadCall, ct);
+        }
+
+        public Task<CupListResponse> ListAsync(CupListRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new CupListRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<CupListResponse>(_c, RpcIds.CupList, request, ReadCall, ct);
+        }
+
+        public Task<CupMyMatchResponse> MyMatchAsync(CupMyMatchRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new CupMyMatchRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<CupMyMatchResponse>(_c, RpcIds.CupMyMatch, request, WriteCall, ct);
+        }
+
+        public Task<CupReadyResponse> ReadyAsync(CupReadyRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new CupReadyRequest();
+            return RpcInvoke.CallAsync<CupReadyResponse>(_c, RpcIds.CupReady, request, WriteCall, ct);
+        }
+
+        public Task<CupSignupResponse> SignupAsync(CupSignupRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new CupSignupRequest();
+            return RpcInvoke.CallAsync<CupSignupResponse>(_c, RpcIds.CupSignup, request, WriteCall, ct);
+        }
+
+        public Task<CupStartResponse> StartAsync(CupStartRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new CupStartRequest();
+            return RpcInvoke.CallAsync<CupStartResponse>(_c, RpcIds.CupStart, request, WriteCall, ct);
+        }
+
+        public Task<CupWithdrawResponse> WithdrawAsync(CupWithdrawRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new CupWithdrawRequest();
+            return RpcInvoke.CallAsync<CupWithdrawResponse>(_c, RpcIds.CupWithdraw, request, WriteCall, ct);
         }
     }
 
@@ -9350,6 +9436,1578 @@ namespace NakamaFarsi.Sdk.Generated
 
             [JsonProperty("version")]
             public string Version { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class CupGetRequest
+    {
+        [JsonProperty("cupId")]
+        public string CupId { get; set; }
+    }
+
+    public sealed class CupGetResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("bracket")]
+        public BracketData Bracket { get; set; }
+
+        [JsonProperty("champion")]
+        public JObject Champion { get; set; }
+
+        [JsonProperty("cup")]
+        public CupData Cup { get; set; }
+
+        [JsonProperty("myMatch")]
+        public JObject MyMatch { get; set; }
+
+        [JsonProperty("standings")]
+        public List<StandingsItem> Standings { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class BracketData
+        {
+            [JsonProperty("rounds")]
+            public List<RoundsItem> Rounds { get; set; }
+
+            [JsonProperty("size")]
+            public long? Size { get; set; }
+
+            [JsonProperty("third")]
+            public JObject Third { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+
+            public sealed class RoundsItem
+            {
+                [JsonProperty("bestOf")]
+                public JToken BestOf { get; set; }
+
+                [JsonProperty("key")]
+                public string Key { get; set; }
+
+                [JsonProperty("matches")]
+                public List<MatchesItem> Matches { get; set; }
+
+                [JsonProperty("players")]
+                public JToken Players { get; set; }
+
+                [JsonProperty("round")]
+                public long? Round { get; set; }
+
+                [JsonProperty("status")]
+                public string Status { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+
+                public sealed class MatchesItem
+                {
+                    [JsonProperty("a")]
+                    public AData A { get; set; }
+
+                    [JsonProperty("b")]
+                    public BData B { get; set; }
+
+                    [JsonProperty("bestOf")]
+                    public long? BestOf { get; set; }
+
+                    [JsonProperty("closesAt")]
+                    public string ClosesAt { get; set; }
+
+                    [JsonProperty("draws")]
+                    public long? Draws { get; set; }
+
+                    [JsonProperty("finishedAt")]
+                    public string FinishedAt { get; set; }
+
+                    [JsonProperty("gameMatchId")]
+                    public string GameMatchId { get; set; }
+
+                    [JsonProperty("gameNo")]
+                    public long? GameNo { get; set; }
+
+                    [JsonProperty("games")]
+                    public List<GamesItem> Games { get; set; }
+
+                    [JsonProperty("id")]
+                    public string Id { get; set; }
+
+                    [JsonProperty("kind")]
+                    public string Kind { get; set; }
+
+                    [JsonProperty("loserId")]
+                    public string LoserId { get; set; }
+
+                    [JsonProperty("next")]
+                    public JObject Next { get; set; }
+
+                    [JsonProperty("opensAt")]
+                    public string OpensAt { get; set; }
+
+                    [JsonProperty("reason")]
+                    public string Reason { get; set; }
+
+                    [JsonProperty("round")]
+                    public long? Round { get; set; }
+
+                    [JsonProperty("roundKey")]
+                    public string RoundKey { get; set; }
+
+                    [JsonProperty("slot")]
+                    public long? Slot { get; set; }
+
+                    [JsonProperty("startsAt")]
+                    public string StartsAt { get; set; }
+
+                    [JsonProperty("status")]
+                    public string Status { get; set; }
+
+                    [JsonProperty("winnerId")]
+                    public string WinnerId { get; set; }
+
+                    [JsonExtensionData]
+                    public IDictionary<string, JToken> Extra { get; set; }
+
+                    public sealed class AData
+                    {
+                        [JsonProperty("avatarUrl")]
+                        public JToken AvatarUrl { get; set; }
+
+                        [JsonProperty("displayName")]
+                        public JToken DisplayName { get; set; }
+
+                        [JsonProperty("ready")]
+                        public JToken Ready { get; set; }
+
+                        [JsonProperty("seed")]
+                        public long? Seed { get; set; }
+
+                        [JsonProperty("showed")]
+                        public bool? Showed { get; set; }
+
+                        [JsonProperty("status")]
+                        public string Status { get; set; }
+
+                        [JsonProperty("userId")]
+                        public string UserId { get; set; }
+
+                        [JsonProperty("username")]
+                        public JToken Username { get; set; }
+
+                        [JsonProperty("wins")]
+                        public long? Wins { get; set; }
+
+                        [JsonExtensionData]
+                        public IDictionary<string, JToken> Extra { get; set; }
+                    }
+
+                    public sealed class BData
+                    {
+                        [JsonProperty("avatarUrl")]
+                        public JToken AvatarUrl { get; set; }
+
+                        [JsonProperty("displayName")]
+                        public JToken DisplayName { get; set; }
+
+                        [JsonProperty("ready")]
+                        public JToken Ready { get; set; }
+
+                        [JsonProperty("seed")]
+                        public long? Seed { get; set; }
+
+                        [JsonProperty("showed")]
+                        public bool? Showed { get; set; }
+
+                        [JsonProperty("status")]
+                        public string Status { get; set; }
+
+                        [JsonProperty("userId")]
+                        public string UserId { get; set; }
+
+                        [JsonProperty("username")]
+                        public JToken Username { get; set; }
+
+                        [JsonProperty("wins")]
+                        public long? Wins { get; set; }
+
+                        [JsonExtensionData]
+                        public IDictionary<string, JToken> Extra { get; set; }
+                    }
+
+                    public sealed class GamesItem
+                    {
+                        [JsonProperty("createdAt")]
+                        public string CreatedAt { get; set; }
+
+                        [JsonProperty("draw")]
+                        public JToken Draw { get; set; }
+
+                        [JsonProperty("finishedAt")]
+                        public string FinishedAt { get; set; }
+
+                        [JsonProperty("no")]
+                        public JToken No { get; set; }
+
+                        [JsonProperty("reason")]
+                        public JToken Reason { get; set; }
+
+                        [JsonProperty("score")]
+                        public JToken Score { get; set; }
+
+                        [JsonProperty("status")]
+                        public JToken Status { get; set; }
+
+                        [JsonProperty("winnerId")]
+                        public JToken WinnerId { get; set; }
+
+                        [JsonExtensionData]
+                        public IDictionary<string, JToken> Extra { get; set; }
+                    }
+                }
+            }
+        }
+
+        public sealed class CupData
+        {
+            [JsonProperty("bestOf")]
+            public JToken BestOf { get; set; }
+
+            [JsonProperty("cancelReason")]
+            public string CancelReason { get; set; }
+
+            [JsonProperty("capacity")]
+            public JToken Capacity { get; set; }
+
+            [JsonProperty("championId")]
+            public string ChampionId { get; set; }
+
+            [JsonProperty("currentRound")]
+            public long? CurrentRound { get; set; }
+
+            [JsonProperty("description")]
+            public string Description { get; set; }
+
+            [JsonProperty("fee")]
+            public FeeData Fee { get; set; }
+
+            [JsonProperty("finishedAt")]
+            public string FinishedAt { get; set; }
+
+            [JsonProperty("game")]
+            public JToken Game { get; set; }
+
+            [JsonProperty("iconUrl")]
+            public string IconUrl { get; set; }
+
+            [JsonProperty("id")]
+            public string Id { get; set; }
+
+            [JsonProperty("me")]
+            public MeData Me { get; set; }
+
+            [JsonProperty("minPlayers")]
+            public JToken MinPlayers { get; set; }
+
+            [JsonProperty("mode")]
+            public JToken Mode { get; set; }
+
+            [JsonProperty("name")]
+            public string Name { get; set; }
+
+            [JsonProperty("players")]
+            public long? Players { get; set; }
+
+            [JsonProperty("prizes")]
+            public PrizesData Prizes { get; set; }
+
+            [JsonProperty("rated")]
+            public JToken Rated { get; set; }
+
+            [JsonProperty("requirements")]
+            public RequirementsData Requirements { get; set; }
+
+            [JsonProperty("rounds")]
+            public long? Rounds { get; set; }
+
+            [JsonProperty("seeding")]
+            public JToken Seeding { get; set; }
+
+            [JsonProperty("serverTime")]
+            public string ServerTime { get; set; }
+
+            [JsonProperty("signupAt")]
+            public string SignupAt { get; set; }
+
+            [JsonProperty("size")]
+            public long? Size { get; set; }
+
+            [JsonProperty("startedAt")]
+            public string StartedAt { get; set; }
+
+            [JsonProperty("startsAt")]
+            public string StartsAt { get; set; }
+
+            [JsonProperty("status")]
+            public string Status { get; set; }
+
+            [JsonProperty("templateKey")]
+            public string TemplateKey { get; set; }
+
+            [JsonProperty("thirdPlace")]
+            public JToken ThirdPlace { get; set; }
+
+            [JsonProperty("timing")]
+            public TimingData Timing { get; set; }
+
+            [JsonProperty("withdrawRefundPercent")]
+            public JToken WithdrawRefundPercent { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+
+            public sealed class FeeData
+            {
+                [JsonProperty("amount")]
+                public JToken Amount { get; set; }
+
+                [JsonProperty("currencyKey")]
+                public JToken CurrencyKey { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+
+            public sealed class MeData
+            {
+                [JsonProperty("canSignUp")]
+                public bool? CanSignUp { get; set; }
+
+                [JsonProperty("canWithdraw")]
+                public bool? CanWithdraw { get; set; }
+
+                [JsonProperty("place")]
+                public long? Place { get; set; }
+
+                [JsonProperty("reached")]
+                public long? Reached { get; set; }
+
+                [JsonProperty("registered")]
+                public bool? Registered { get; set; }
+
+                [JsonProperty("seed")]
+                public long? Seed { get; set; }
+
+                [JsonProperty("status")]
+                public string Status { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+
+            public sealed class PrizesData
+            {
+                [JsonProperty("champion")]
+                public JToken Champion { get; set; }
+
+                [JsonProperty("fourth")]
+                public JToken Fourth { get; set; }
+
+                [JsonProperty("pool")]
+                public PoolData Pool { get; set; }
+
+                [JsonProperty("reached")]
+                public List<ReachedItem> Reached { get; set; }
+
+                [JsonProperty("runnerUp")]
+                public JToken RunnerUp { get; set; }
+
+                [JsonProperty("semi")]
+                public JToken Semi { get; set; }
+
+                [JsonProperty("third")]
+                public JToken Third { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+
+                public sealed class PoolData
+                {
+                    [JsonProperty("amount")]
+                    public JToken Amount { get; set; }
+
+                    [JsonProperty("currencyKey")]
+                    public JToken CurrencyKey { get; set; }
+
+                    [JsonProperty("percent")]
+                    public JToken Percent { get; set; }
+
+                    [JsonProperty("shares")]
+                    public SharesData Shares { get; set; }
+
+                    [JsonExtensionData]
+                    public IDictionary<string, JToken> Extra { get; set; }
+
+                    public sealed class SharesData
+                    {
+                        [JsonProperty("champion")]
+                        public JToken Champion { get; set; }
+
+                        [JsonProperty("fourth")]
+                        public JToken Fourth { get; set; }
+
+                        [JsonProperty("runnerUp")]
+                        public JToken RunnerUp { get; set; }
+
+                        [JsonProperty("semi")]
+                        public JToken Semi { get; set; }
+
+                        [JsonProperty("third")]
+                        public JToken Third { get; set; }
+
+                        [JsonExtensionData]
+                        public IDictionary<string, JToken> Extra { get; set; }
+                    }
+                }
+
+                public sealed class ReachedItem
+                {
+                    [JsonProperty("prizeKey")]
+                    public JToken PrizeKey { get; set; }
+
+                    [JsonProperty("round")]
+                    public JToken Round { get; set; }
+
+                    [JsonExtensionData]
+                    public IDictionary<string, JToken> Extra { get; set; }
+                }
+            }
+
+            public sealed class RequirementsData
+            {
+                [JsonProperty("excludeTagIds")]
+                public JToken ExcludeTagIds { get; set; }
+
+                [JsonProperty("leagues")]
+                public JToken Leagues { get; set; }
+
+                [JsonProperty("maxTrophies")]
+                public JToken MaxTrophies { get; set; }
+
+                [JsonProperty("minTrophies")]
+                public JToken MinTrophies { get; set; }
+
+                [JsonProperty("tagIds")]
+                public JToken TagIds { get; set; }
+
+                [JsonProperty("tagsMode")]
+                public JToken TagsMode { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+
+            public sealed class TimingData
+            {
+                [JsonProperty("checkInMinutes")]
+                public JToken CheckInMinutes { get; set; }
+
+                [JsonProperty("mode")]
+                public JToken Mode { get; set; }
+
+                [JsonProperty("readySeconds")]
+                public JToken ReadySeconds { get; set; }
+
+                [JsonProperty("roundMinutes")]
+                public JToken RoundMinutes { get; set; }
+
+                [JsonProperty("windowMinutes")]
+                public JToken WindowMinutes { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+        }
+
+        public sealed class StandingsItem
+        {
+            [JsonProperty("displayName")]
+            public JToken DisplayName { get; set; }
+
+            [JsonProperty("place")]
+            public JToken Place { get; set; }
+
+            [JsonProperty("seed")]
+            public JToken Seed { get; set; }
+
+            [JsonProperty("userId")]
+            public JToken UserId { get; set; }
+
+            [JsonProperty("username")]
+            public JToken Username { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class CupHistoryRequest
+    {
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("limit")]
+        public long? Limit { get; set; }
+    }
+
+    public sealed class CupHistoryResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("items")]
+        public List<ItemsItem> Items { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class ItemsItem
+        {
+            [JsonProperty("cupId")]
+            public string CupId { get; set; }
+
+            [JsonProperty("finishedAt")]
+            public string FinishedAt { get; set; }
+
+            [JsonProperty("name")]
+            public string Name { get; set; }
+
+            [JsonProperty("payouts")]
+            public List<PayoutsItem> Payouts { get; set; }
+
+            [JsonProperty("place")]
+            public long? Place { get; set; }
+
+            [JsonProperty("playerStatus")]
+            public string PlayerStatus { get; set; }
+
+            [JsonProperty("players")]
+            public long? Players { get; set; }
+
+            [JsonProperty("reached")]
+            public long? Reached { get; set; }
+
+            [JsonProperty("seed")]
+            public long? Seed { get; set; }
+
+            [JsonProperty("startsAt")]
+            public string StartsAt { get; set; }
+
+            [JsonProperty("status")]
+            public string Status { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+
+            public sealed class PayoutsItem
+            {
+                [JsonProperty("amounts")]
+                public JObject Amounts { get; set; }
+
+                [JsonProperty("kind")]
+                public string Kind { get; set; }
+
+                [JsonProperty("prizeKey")]
+                public string PrizeKey { get; set; }
+
+                [JsonProperty("status")]
+                public string Status { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+        }
+    }
+
+    public sealed class CupListRequest
+    {
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("limit")]
+        public long? Limit { get; set; }
+
+        [JsonProperty("offset")]
+        public long? Offset { get; set; }
+
+        [JsonProperty("status")]
+        public string Status { get; set; }
+    }
+
+    public sealed class CupListResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("items")]
+        public List<ItemsItem> Items { get; set; }
+
+        [JsonProperty("more")]
+        public bool? More { get; set; }
+
+        [JsonProperty("offset")]
+        public long? Offset { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class ItemsItem
+        {
+            [JsonProperty("bestOf")]
+            public JToken BestOf { get; set; }
+
+            [JsonProperty("cancelReason")]
+            public string CancelReason { get; set; }
+
+            [JsonProperty("capacity")]
+            public JToken Capacity { get; set; }
+
+            [JsonProperty("championId")]
+            public string ChampionId { get; set; }
+
+            [JsonProperty("currentRound")]
+            public long? CurrentRound { get; set; }
+
+            [JsonProperty("description")]
+            public string Description { get; set; }
+
+            [JsonProperty("fee")]
+            public FeeData Fee { get; set; }
+
+            [JsonProperty("finishedAt")]
+            public string FinishedAt { get; set; }
+
+            [JsonProperty("game")]
+            public JToken Game { get; set; }
+
+            [JsonProperty("iconUrl")]
+            public string IconUrl { get; set; }
+
+            [JsonProperty("id")]
+            public string Id { get; set; }
+
+            [JsonProperty("me")]
+            public MeData Me { get; set; }
+
+            [JsonProperty("minPlayers")]
+            public JToken MinPlayers { get; set; }
+
+            [JsonProperty("mode")]
+            public JToken Mode { get; set; }
+
+            [JsonProperty("name")]
+            public string Name { get; set; }
+
+            [JsonProperty("players")]
+            public long? Players { get; set; }
+
+            [JsonProperty("prizes")]
+            public PrizesData Prizes { get; set; }
+
+            [JsonProperty("rated")]
+            public JToken Rated { get; set; }
+
+            [JsonProperty("requirements")]
+            public RequirementsData Requirements { get; set; }
+
+            [JsonProperty("rounds")]
+            public long? Rounds { get; set; }
+
+            [JsonProperty("seeding")]
+            public JToken Seeding { get; set; }
+
+            [JsonProperty("serverTime")]
+            public string ServerTime { get; set; }
+
+            [JsonProperty("signupAt")]
+            public string SignupAt { get; set; }
+
+            [JsonProperty("size")]
+            public long? Size { get; set; }
+
+            [JsonProperty("startedAt")]
+            public string StartedAt { get; set; }
+
+            [JsonProperty("startsAt")]
+            public string StartsAt { get; set; }
+
+            [JsonProperty("status")]
+            public string Status { get; set; }
+
+            [JsonProperty("templateKey")]
+            public string TemplateKey { get; set; }
+
+            [JsonProperty("thirdPlace")]
+            public JToken ThirdPlace { get; set; }
+
+            [JsonProperty("timing")]
+            public TimingData Timing { get; set; }
+
+            [JsonProperty("withdrawRefundPercent")]
+            public JToken WithdrawRefundPercent { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+
+            public sealed class FeeData
+            {
+                [JsonProperty("amount")]
+                public JToken Amount { get; set; }
+
+                [JsonProperty("currencyKey")]
+                public JToken CurrencyKey { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+
+            public sealed class MeData
+            {
+                [JsonProperty("canSignUp")]
+                public bool? CanSignUp { get; set; }
+
+                [JsonProperty("canWithdraw")]
+                public bool? CanWithdraw { get; set; }
+
+                [JsonProperty("place")]
+                public long? Place { get; set; }
+
+                [JsonProperty("reached")]
+                public long? Reached { get; set; }
+
+                [JsonProperty("registered")]
+                public bool? Registered { get; set; }
+
+                [JsonProperty("seed")]
+                public long? Seed { get; set; }
+
+                [JsonProperty("status")]
+                public string Status { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+
+            public sealed class PrizesData
+            {
+                [JsonProperty("champion")]
+                public JToken Champion { get; set; }
+
+                [JsonProperty("fourth")]
+                public JToken Fourth { get; set; }
+
+                [JsonProperty("pool")]
+                public PoolData Pool { get; set; }
+
+                [JsonProperty("reached")]
+                public List<ReachedItem> Reached { get; set; }
+
+                [JsonProperty("runnerUp")]
+                public JToken RunnerUp { get; set; }
+
+                [JsonProperty("semi")]
+                public JToken Semi { get; set; }
+
+                [JsonProperty("third")]
+                public JToken Third { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+
+                public sealed class PoolData
+                {
+                    [JsonProperty("amount")]
+                    public JToken Amount { get; set; }
+
+                    [JsonProperty("currencyKey")]
+                    public JToken CurrencyKey { get; set; }
+
+                    [JsonProperty("percent")]
+                    public JToken Percent { get; set; }
+
+                    [JsonProperty("shares")]
+                    public SharesData Shares { get; set; }
+
+                    [JsonExtensionData]
+                    public IDictionary<string, JToken> Extra { get; set; }
+
+                    public sealed class SharesData
+                    {
+                        [JsonProperty("champion")]
+                        public JToken Champion { get; set; }
+
+                        [JsonProperty("fourth")]
+                        public JToken Fourth { get; set; }
+
+                        [JsonProperty("runnerUp")]
+                        public JToken RunnerUp { get; set; }
+
+                        [JsonProperty("semi")]
+                        public JToken Semi { get; set; }
+
+                        [JsonProperty("third")]
+                        public JToken Third { get; set; }
+
+                        [JsonExtensionData]
+                        public IDictionary<string, JToken> Extra { get; set; }
+                    }
+                }
+
+                public sealed class ReachedItem
+                {
+                    [JsonProperty("prizeKey")]
+                    public JToken PrizeKey { get; set; }
+
+                    [JsonProperty("round")]
+                    public JToken Round { get; set; }
+
+                    [JsonExtensionData]
+                    public IDictionary<string, JToken> Extra { get; set; }
+                }
+            }
+
+            public sealed class RequirementsData
+            {
+                [JsonProperty("excludeTagIds")]
+                public JToken ExcludeTagIds { get; set; }
+
+                [JsonProperty("leagues")]
+                public JToken Leagues { get; set; }
+
+                [JsonProperty("maxTrophies")]
+                public JToken MaxTrophies { get; set; }
+
+                [JsonProperty("minTrophies")]
+                public JToken MinTrophies { get; set; }
+
+                [JsonProperty("tagIds")]
+                public JToken TagIds { get; set; }
+
+                [JsonProperty("tagsMode")]
+                public JToken TagsMode { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+
+            public sealed class TimingData
+            {
+                [JsonProperty("checkInMinutes")]
+                public JToken CheckInMinutes { get; set; }
+
+                [JsonProperty("mode")]
+                public JToken Mode { get; set; }
+
+                [JsonProperty("readySeconds")]
+                public JToken ReadySeconds { get; set; }
+
+                [JsonProperty("roundMinutes")]
+                public JToken RoundMinutes { get; set; }
+
+                [JsonProperty("windowMinutes")]
+                public JToken WindowMinutes { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+        }
+    }
+
+    public sealed class CupMyMatchRequest
+    {
+        [JsonProperty("cupId")]
+        public string CupId { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+    }
+
+    public sealed class CupMyMatchResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("items")]
+        public List<ItemsItem> Items { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class ItemsItem
+        {
+            [JsonProperty("action")]
+            public string Action { get; set; }
+
+            [JsonProperty("cupId")]
+            public JToken CupId { get; set; }
+
+            [JsonProperty("cupName")]
+            public string CupName { get; set; }
+
+            [JsonProperty("cupStatus")]
+            public JToken CupStatus { get; set; }
+
+            [JsonProperty("match")]
+            public JObject Match { get; set; }
+
+            [JsonProperty("playerStatus")]
+            public string PlayerStatus { get; set; }
+
+            [JsonProperty("serverTime")]
+            public string ServerTime { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class CupReadyRequest
+    {
+        [JsonProperty("cupId")]
+        public string CupId { get; set; }
+    }
+
+    public sealed class CupReadyResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("gameMatchId")]
+        public JToken GameMatchId { get; set; }
+
+        [JsonProperty("gameNo")]
+        public JToken GameNo { get; set; }
+
+        [JsonProperty("launched")]
+        public JToken Launched { get; set; }
+
+        [JsonProperty("matchId")]
+        public JToken MatchId { get; set; }
+
+        [JsonProperty("status")]
+        public JToken Status { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class CupSignupRequest
+    {
+        [JsonProperty("cupId")]
+        public string CupId { get; set; }
+    }
+
+    public sealed class CupSignupResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("cup")]
+        public CupData Cup { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class CupData
+        {
+            [JsonProperty("bestOf")]
+            public JToken BestOf { get; set; }
+
+            [JsonProperty("cancelReason")]
+            public string CancelReason { get; set; }
+
+            [JsonProperty("capacity")]
+            public JToken Capacity { get; set; }
+
+            [JsonProperty("championId")]
+            public string ChampionId { get; set; }
+
+            [JsonProperty("currentRound")]
+            public long? CurrentRound { get; set; }
+
+            [JsonProperty("description")]
+            public string Description { get; set; }
+
+            [JsonProperty("fee")]
+            public FeeData Fee { get; set; }
+
+            [JsonProperty("finishedAt")]
+            public string FinishedAt { get; set; }
+
+            [JsonProperty("game")]
+            public JToken Game { get; set; }
+
+            [JsonProperty("iconUrl")]
+            public string IconUrl { get; set; }
+
+            [JsonProperty("id")]
+            public string Id { get; set; }
+
+            [JsonProperty("me")]
+            public MeData Me { get; set; }
+
+            [JsonProperty("minPlayers")]
+            public JToken MinPlayers { get; set; }
+
+            [JsonProperty("mode")]
+            public JToken Mode { get; set; }
+
+            [JsonProperty("name")]
+            public string Name { get; set; }
+
+            [JsonProperty("players")]
+            public long? Players { get; set; }
+
+            [JsonProperty("prizes")]
+            public PrizesData Prizes { get; set; }
+
+            [JsonProperty("rated")]
+            public JToken Rated { get; set; }
+
+            [JsonProperty("requirements")]
+            public RequirementsData Requirements { get; set; }
+
+            [JsonProperty("rounds")]
+            public long? Rounds { get; set; }
+
+            [JsonProperty("seeding")]
+            public JToken Seeding { get; set; }
+
+            [JsonProperty("serverTime")]
+            public string ServerTime { get; set; }
+
+            [JsonProperty("signupAt")]
+            public string SignupAt { get; set; }
+
+            [JsonProperty("size")]
+            public long? Size { get; set; }
+
+            [JsonProperty("startedAt")]
+            public string StartedAt { get; set; }
+
+            [JsonProperty("startsAt")]
+            public string StartsAt { get; set; }
+
+            [JsonProperty("status")]
+            public string Status { get; set; }
+
+            [JsonProperty("templateKey")]
+            public string TemplateKey { get; set; }
+
+            [JsonProperty("thirdPlace")]
+            public JToken ThirdPlace { get; set; }
+
+            [JsonProperty("timing")]
+            public TimingData Timing { get; set; }
+
+            [JsonProperty("withdrawRefundPercent")]
+            public JToken WithdrawRefundPercent { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+
+            public sealed class FeeData
+            {
+                [JsonProperty("amount")]
+                public JToken Amount { get; set; }
+
+                [JsonProperty("currencyKey")]
+                public JToken CurrencyKey { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+
+            public sealed class MeData
+            {
+                [JsonProperty("canSignUp")]
+                public bool? CanSignUp { get; set; }
+
+                [JsonProperty("canWithdraw")]
+                public bool? CanWithdraw { get; set; }
+
+                [JsonProperty("place")]
+                public long? Place { get; set; }
+
+                [JsonProperty("reached")]
+                public long? Reached { get; set; }
+
+                [JsonProperty("registered")]
+                public bool? Registered { get; set; }
+
+                [JsonProperty("seed")]
+                public long? Seed { get; set; }
+
+                [JsonProperty("status")]
+                public string Status { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+
+            public sealed class PrizesData
+            {
+                [JsonProperty("champion")]
+                public JToken Champion { get; set; }
+
+                [JsonProperty("fourth")]
+                public JToken Fourth { get; set; }
+
+                [JsonProperty("pool")]
+                public PoolData Pool { get; set; }
+
+                [JsonProperty("reached")]
+                public List<ReachedItem> Reached { get; set; }
+
+                [JsonProperty("runnerUp")]
+                public JToken RunnerUp { get; set; }
+
+                [JsonProperty("semi")]
+                public JToken Semi { get; set; }
+
+                [JsonProperty("third")]
+                public JToken Third { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+
+                public sealed class PoolData
+                {
+                    [JsonProperty("amount")]
+                    public JToken Amount { get; set; }
+
+                    [JsonProperty("currencyKey")]
+                    public JToken CurrencyKey { get; set; }
+
+                    [JsonProperty("percent")]
+                    public JToken Percent { get; set; }
+
+                    [JsonProperty("shares")]
+                    public SharesData Shares { get; set; }
+
+                    [JsonExtensionData]
+                    public IDictionary<string, JToken> Extra { get; set; }
+
+                    public sealed class SharesData
+                    {
+                        [JsonProperty("champion")]
+                        public JToken Champion { get; set; }
+
+                        [JsonProperty("fourth")]
+                        public JToken Fourth { get; set; }
+
+                        [JsonProperty("runnerUp")]
+                        public JToken RunnerUp { get; set; }
+
+                        [JsonProperty("semi")]
+                        public JToken Semi { get; set; }
+
+                        [JsonProperty("third")]
+                        public JToken Third { get; set; }
+
+                        [JsonExtensionData]
+                        public IDictionary<string, JToken> Extra { get; set; }
+                    }
+                }
+
+                public sealed class ReachedItem
+                {
+                    [JsonProperty("prizeKey")]
+                    public JToken PrizeKey { get; set; }
+
+                    [JsonProperty("round")]
+                    public JToken Round { get; set; }
+
+                    [JsonExtensionData]
+                    public IDictionary<string, JToken> Extra { get; set; }
+                }
+            }
+
+            public sealed class RequirementsData
+            {
+                [JsonProperty("excludeTagIds")]
+                public JToken ExcludeTagIds { get; set; }
+
+                [JsonProperty("leagues")]
+                public JToken Leagues { get; set; }
+
+                [JsonProperty("maxTrophies")]
+                public JToken MaxTrophies { get; set; }
+
+                [JsonProperty("minTrophies")]
+                public JToken MinTrophies { get; set; }
+
+                [JsonProperty("tagIds")]
+                public JToken TagIds { get; set; }
+
+                [JsonProperty("tagsMode")]
+                public JToken TagsMode { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+
+            public sealed class TimingData
+            {
+                [JsonProperty("checkInMinutes")]
+                public JToken CheckInMinutes { get; set; }
+
+                [JsonProperty("mode")]
+                public JToken Mode { get; set; }
+
+                [JsonProperty("readySeconds")]
+                public JToken ReadySeconds { get; set; }
+
+                [JsonProperty("roundMinutes")]
+                public JToken RoundMinutes { get; set; }
+
+                [JsonProperty("windowMinutes")]
+                public JToken WindowMinutes { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+        }
+    }
+
+    public sealed class CupStartRequest
+    {
+        [JsonProperty("cupId")]
+        public string CupId { get; set; }
+    }
+
+    public sealed class CupStartResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("gameMatchId")]
+        public JToken GameMatchId { get; set; }
+
+        [JsonProperty("gameNo")]
+        public JToken GameNo { get; set; }
+
+        [JsonProperty("launched")]
+        public JToken Launched { get; set; }
+
+        [JsonProperty("matchId")]
+        public JToken MatchId { get; set; }
+
+        [JsonProperty("status")]
+        public JToken Status { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class CupWithdrawRequest
+    {
+        [JsonProperty("cupId")]
+        public string CupId { get; set; }
+    }
+
+    public sealed class CupWithdrawResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("cup")]
+        public CupData Cup { get; set; }
+
+        [JsonProperty("refunded")]
+        public RefundedData Refunded { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class CupData
+        {
+            [JsonProperty("bestOf")]
+            public JToken BestOf { get; set; }
+
+            [JsonProperty("cancelReason")]
+            public string CancelReason { get; set; }
+
+            [JsonProperty("capacity")]
+            public JToken Capacity { get; set; }
+
+            [JsonProperty("championId")]
+            public string ChampionId { get; set; }
+
+            [JsonProperty("currentRound")]
+            public long? CurrentRound { get; set; }
+
+            [JsonProperty("description")]
+            public string Description { get; set; }
+
+            [JsonProperty("fee")]
+            public FeeData Fee { get; set; }
+
+            [JsonProperty("finishedAt")]
+            public string FinishedAt { get; set; }
+
+            [JsonProperty("game")]
+            public JToken Game { get; set; }
+
+            [JsonProperty("iconUrl")]
+            public string IconUrl { get; set; }
+
+            [JsonProperty("id")]
+            public string Id { get; set; }
+
+            [JsonProperty("me")]
+            public MeData Me { get; set; }
+
+            [JsonProperty("minPlayers")]
+            public JToken MinPlayers { get; set; }
+
+            [JsonProperty("mode")]
+            public JToken Mode { get; set; }
+
+            [JsonProperty("name")]
+            public string Name { get; set; }
+
+            [JsonProperty("players")]
+            public long? Players { get; set; }
+
+            [JsonProperty("prizes")]
+            public PrizesData Prizes { get; set; }
+
+            [JsonProperty("rated")]
+            public JToken Rated { get; set; }
+
+            [JsonProperty("requirements")]
+            public RequirementsData Requirements { get; set; }
+
+            [JsonProperty("rounds")]
+            public long? Rounds { get; set; }
+
+            [JsonProperty("seeding")]
+            public JToken Seeding { get; set; }
+
+            [JsonProperty("serverTime")]
+            public string ServerTime { get; set; }
+
+            [JsonProperty("signupAt")]
+            public string SignupAt { get; set; }
+
+            [JsonProperty("size")]
+            public long? Size { get; set; }
+
+            [JsonProperty("startedAt")]
+            public string StartedAt { get; set; }
+
+            [JsonProperty("startsAt")]
+            public string StartsAt { get; set; }
+
+            [JsonProperty("status")]
+            public string Status { get; set; }
+
+            [JsonProperty("templateKey")]
+            public string TemplateKey { get; set; }
+
+            [JsonProperty("thirdPlace")]
+            public JToken ThirdPlace { get; set; }
+
+            [JsonProperty("timing")]
+            public TimingData Timing { get; set; }
+
+            [JsonProperty("withdrawRefundPercent")]
+            public JToken WithdrawRefundPercent { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+
+            public sealed class FeeData
+            {
+                [JsonProperty("amount")]
+                public JToken Amount { get; set; }
+
+                [JsonProperty("currencyKey")]
+                public JToken CurrencyKey { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+
+            public sealed class MeData
+            {
+                [JsonProperty("canSignUp")]
+                public bool? CanSignUp { get; set; }
+
+                [JsonProperty("canWithdraw")]
+                public bool? CanWithdraw { get; set; }
+
+                [JsonProperty("place")]
+                public long? Place { get; set; }
+
+                [JsonProperty("reached")]
+                public long? Reached { get; set; }
+
+                [JsonProperty("registered")]
+                public bool? Registered { get; set; }
+
+                [JsonProperty("seed")]
+                public long? Seed { get; set; }
+
+                [JsonProperty("status")]
+                public string Status { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+
+            public sealed class PrizesData
+            {
+                [JsonProperty("champion")]
+                public JToken Champion { get; set; }
+
+                [JsonProperty("fourth")]
+                public JToken Fourth { get; set; }
+
+                [JsonProperty("pool")]
+                public PoolData Pool { get; set; }
+
+                [JsonProperty("reached")]
+                public List<ReachedItem> Reached { get; set; }
+
+                [JsonProperty("runnerUp")]
+                public JToken RunnerUp { get; set; }
+
+                [JsonProperty("semi")]
+                public JToken Semi { get; set; }
+
+                [JsonProperty("third")]
+                public JToken Third { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+
+                public sealed class PoolData
+                {
+                    [JsonProperty("amount")]
+                    public JToken Amount { get; set; }
+
+                    [JsonProperty("currencyKey")]
+                    public JToken CurrencyKey { get; set; }
+
+                    [JsonProperty("percent")]
+                    public JToken Percent { get; set; }
+
+                    [JsonProperty("shares")]
+                    public SharesData Shares { get; set; }
+
+                    [JsonExtensionData]
+                    public IDictionary<string, JToken> Extra { get; set; }
+
+                    public sealed class SharesData
+                    {
+                        [JsonProperty("champion")]
+                        public JToken Champion { get; set; }
+
+                        [JsonProperty("fourth")]
+                        public JToken Fourth { get; set; }
+
+                        [JsonProperty("runnerUp")]
+                        public JToken RunnerUp { get; set; }
+
+                        [JsonProperty("semi")]
+                        public JToken Semi { get; set; }
+
+                        [JsonProperty("third")]
+                        public JToken Third { get; set; }
+
+                        [JsonExtensionData]
+                        public IDictionary<string, JToken> Extra { get; set; }
+                    }
+                }
+
+                public sealed class ReachedItem
+                {
+                    [JsonProperty("prizeKey")]
+                    public JToken PrizeKey { get; set; }
+
+                    [JsonProperty("round")]
+                    public JToken Round { get; set; }
+
+                    [JsonExtensionData]
+                    public IDictionary<string, JToken> Extra { get; set; }
+                }
+            }
+
+            public sealed class RequirementsData
+            {
+                [JsonProperty("excludeTagIds")]
+                public JToken ExcludeTagIds { get; set; }
+
+                [JsonProperty("leagues")]
+                public JToken Leagues { get; set; }
+
+                [JsonProperty("maxTrophies")]
+                public JToken MaxTrophies { get; set; }
+
+                [JsonProperty("minTrophies")]
+                public JToken MinTrophies { get; set; }
+
+                [JsonProperty("tagIds")]
+                public JToken TagIds { get; set; }
+
+                [JsonProperty("tagsMode")]
+                public JToken TagsMode { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+
+            public sealed class TimingData
+            {
+                [JsonProperty("checkInMinutes")]
+                public JToken CheckInMinutes { get; set; }
+
+                [JsonProperty("mode")]
+                public JToken Mode { get; set; }
+
+                [JsonProperty("readySeconds")]
+                public JToken ReadySeconds { get; set; }
+
+                [JsonProperty("roundMinutes")]
+                public JToken RoundMinutes { get; set; }
+
+                [JsonProperty("windowMinutes")]
+                public JToken WindowMinutes { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+        }
+
+        public sealed class RefundedData
+        {
+            [JsonProperty("amount")]
+            public long? Amount { get; set; }
+
+            [JsonProperty("currencyKey")]
+            public string CurrencyKey { get; set; }
+
+            [JsonProperty("percent")]
+            public JToken Percent { get; set; }
 
             [JsonExtensionData]
             public IDictionary<string, JToken> Extra { get; set; }

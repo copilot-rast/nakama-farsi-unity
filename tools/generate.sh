@@ -6,7 +6,7 @@ REV=${REV:-dev}
 MODULES=${MODULES:-}
 tmp=$(mktemp -d)
 trap 'rm -rf "$tmp"' EXIT
-git -C "$NF" archive "$REV" integrations | tar -x -C "$tmp"
+git -C "$NF" archive "$REV" integrations internal | tar -x -C "$tmp"
 for extra in ${EXTRA:-}; do
   repo=${extra%%:*}; rest=${extra#*:}
   git -C "$repo" archive "${rest%%:*}" "${rest#*:}" | tar -x -C "$tmp"
