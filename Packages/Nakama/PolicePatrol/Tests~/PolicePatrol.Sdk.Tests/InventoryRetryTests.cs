@@ -103,5 +103,17 @@ namespace PolicePatrol.Sdk.Tests
             Assert.Equal(15, paid.Data.Xp);
             Assert.Equal(1, paid.Data.RewardsLeftToday);
         }
+    
+        [Fact]
+        public void LedgerKindsMatchTheServerDefaults()
+        {
+            var server = new[] { "purchase", "gift", "asset", "stage", "prize", "admin", "initial", "other" };
+            Assert.Equal(server, new[] { Ledger.LedgerKinds.Purchase, Ledger.LedgerKinds.Gift, Ledger.LedgerKinds.Asset, Ledger.LedgerKinds.Stage, Ledger.LedgerKinds.Prize, Ledger.LedgerKinds.Admin, Ledger.LedgerKinds.Initial, Ledger.LedgerKinds.Other });
+#pragma warning disable CS0618
+            Assert.Equal("gift", Ledger.LedgerKinds.GiftCode);
+            Assert.Equal("admin", Ledger.LedgerKinds.AdminAdd);
+            Assert.Equal("admin", Ledger.LedgerKinds.AdminUse);
+#pragma warning restore CS0618
+        }
     }
 }
