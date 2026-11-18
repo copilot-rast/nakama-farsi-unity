@@ -132,5 +132,22 @@ namespace PolicePatrol.Sdk.Tests
             Assert.True(second.Data.User.PhoneNumberVerified);
             Assert.Equal(new[] { "account_phone_request", "account_phone_verify", "account_phone_verify", "account_phone_verify" }, Ids(t));
         }
+    
+
+        [Fact]
+        public async Task TooSoonWithoutAWaitGetsTheWaitOfTheLastCode()
+        {
+            var t = Harness.Start();
+            t.Routes["publication_otp_request"] = p => "{\"phone\":\"+989121234567\",\"expiresIn\":120,\"resendAfter\":60}";
+            Assert.True((await Harness.Call<OtpChallenge>(cb => AuthProvider.RequestLoginOtp("09121234567", cb))).IsSuccess);
+            t.Routes["publication_otp_request"] = p => new NF.RpcServerException("OTP_TOO_SOON", 429);
+            var soon = await Harness.Call<OtpChallenge>(cb => AuthProvider.ResendOtp(OtpChannel.Phone, cb));
+            Assert.False(soon.IsSuccess);
+            Assert.InRange(soon.Error.RetryAfterSeconds ?? 0, 55, 60);
+            Assert.InRange((int)soon.Error.Meta["retryAfter"], 55, 60);
+
+            var other = await Harness.Call<OtpChallenge>(cb => AuthProvider.RequestLoginOtp("09350000000", cb));
+            Assert.Null(other.Error.RetryAfterSeconds);
+        }
     }
 }

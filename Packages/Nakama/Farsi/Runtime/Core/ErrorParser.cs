@@ -44,6 +44,11 @@ namespace NakamaFarsi.Sdk
                         }
                     }
                     int? retry = json["retryAfterSeconds"] != null && json["retryAfterSeconds"].Type == JTokenType.Integer ? (int?)(int)json["retryAfterSeconds"] : null;
+                    if (retry != null && meta["retryAfter"] == null)
+                    {
+                        meta["retryAfter"] = retry.Value;
+                    }
+
                     var message = (string)json["message"];
                     if (string.IsNullOrEmpty(message) && catalog != null && catalog.TryResolve(code, meta, out var entry, out var filled))
                     {

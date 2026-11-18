@@ -25,6 +25,22 @@ namespace NakamaFarsi.Sdk.Tests
         }
 
         [Fact]
+        public void APlaceholderWithoutAValueIsNotShown()
+        {
+            Assert.Equal("برای کد تازه چند ثانیه صبر کنید.", ErrorCatalog.Fill("برای کد تازه {retryAfter} ثانیه صبر کنید.", null, "fa"));
+            Assert.Equal("Wait a few seconds before asking for a new code.", ErrorCatalog.Fill("Wait {retryAfter} seconds before asking for a new code.", new JObject(), "en"));
+            Assert.Equal("برای کد تازه ۴۰ ثانیه صبر کنید.", ErrorCatalog.Fill("برای کد تازه {retryAfter} ثانیه صبر کنید.", new JObject { ["retryAfter"] = 40 }, "fa"));
+            Assert.Equal("از سطح باز می‌شود", ErrorCatalog.Fill("از سطح {unlockLevel} باز می‌شود", null, "fa"));
+
+            var c = new ErrorCatalog(new MemoryKeyValueStore());
+            c.Apply("{\"lang\":\"fa\",\"errors\":{\"OTP_TOO_SOON\":{\"status\":429,\"message\":\"برای کد تازه {retryAfter} ثانیه صبر کنید.\"}}}", "\"v1\"", DateTimeOffset.UtcNow);
+            var bare = ErrorParser.Parse("OTP_TOO_SOON", 429, c, "fa");
+            Assert.Equal("برای کد تازه چند ثانیه صبر کنید.", bare.Message);
+            var top = ErrorParser.Parse("{\"code\":\"OTP_TOO_SOON\",\"retryAfterSeconds\":30}", 429, c, "fa");
+            Assert.Equal("برای کد تازه ۳۰ ثانیه صبر کنید.", top.Message);
+        }
+
+        [Fact]
         public void TopLevelFieldsOfASuspensionNoticeGoToMeta()
         {
             var e = ErrorParser.Parse("{\"code\":\"ACCOUNT_SUSPENDED\",\"kind\":\"suspend\",\"until\":\"2026-12-01T00:00:00Z\",\"reason\":\"تقلب\",\"lang\":\"fa\"}", 403, Catalog(), "fa");

@@ -31,9 +31,24 @@ namespace PolicePatrol.Sdk.Auth
             PolicePatrolSdk.Run(onComplete, async c =>
             {
                 var recover = purpose == PurposeRecover;
-                var answer = recover
-                    ? await c.Rpc("account_phone_recover_request", new JObject { ["phone"] = phoneNumber, ["lang"] = c.Language }, false).ConfigureAwait(false)
-                    : await c.Rpc("publication_otp_request", new JObject { ["phone"] = phoneNumber, ["lang"] = c.Language }, false, false, true).ConfigureAwait(false);
+                JToken answer;
+                try
+                {
+                    answer = recover
+                        ? await c.Rpc("account_phone_recover_request", new JObject { ["phone"] = phoneNumber, ["lang"] = c.Language }, false).ConfigureAwait(false)
+                        : await c.Rpc("publication_otp_request", new JObject { ["phone"] = phoneNumber, ["lang"] = c.Language }, false, false, true).ConfigureAwait(false);
+                }
+                catch (NakamaFarsi.Sdk.ApiException e)
+                {
+                    var filled = c.WithResendWait(e, phoneNumber);
+                    if (ReferenceEquals(filled, e))
+                    {
+                        throw;
+                    }
+
+                    throw filled;
+                }
+
                 c.RememberOtp(J.Str(answer, "phone") ?? phoneNumber, purpose, answer);
                 return Mapping.Challenge(answer, DateTimeOffset.UtcNow);
             }, null, purpose == PurposeRecover ? "recover otp" : "phone otp");

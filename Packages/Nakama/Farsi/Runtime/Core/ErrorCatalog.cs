@@ -12,6 +12,7 @@ namespace NakamaFarsi.Sdk
     public sealed class ErrorCatalog
     {
         private static readonly Regex Placeholder = new Regex("\\{([A-Za-z0-9_]+)\\}", RegexOptions.CultureInvariant);
+        private static readonly Regex Spaces = new Regex("[ \\t]{2,}", RegexOptions.CultureInvariant);
 
         private readonly object _gate = new object();
         private readonly IKeyValueStore _store;
@@ -74,17 +75,24 @@ namespace NakamaFarsi.Sdk
 
         public static string Fill(string template, JObject meta, string lang)
         {
-            if (string.IsNullOrEmpty(template) || meta == null)
+            if (string.IsNullOrEmpty(template))
             {
                 return template ?? string.Empty;
             }
 
-            return Placeholder.Replace(template, m =>
+            var missing = false;
+            var filled = Placeholder.Replace(template, m =>
             {
-                var v = meta[m.Groups[1].Value];
-                if (v == null)
+                var v = meta?[m.Groups[1].Value];
+                if (v == null || v.Type == JTokenType.Null)
                 {
-                    return m.Value;
+                    if (m.Groups[1].Value == "retryAfter")
+                    {
+                        return lang == "fa" ? "چند" : "a few";
+                    }
+
+                    missing = true;
+                    return string.Empty;
                 }
 
                 var text = v.Type == JTokenType.Float || v.Type == JTokenType.Integer
@@ -92,6 +100,7 @@ namespace NakamaFarsi.Sdk
                     : (string)v;
                 return lang == "fa" ? PersianDigits(text) : text;
             });
+            return missing ? Spaces.Replace(filled, " ").Replace(" .", ".").Replace(" ،", "،").Trim() : filled;
         }
 
         public static string PersianDigits(string s)
