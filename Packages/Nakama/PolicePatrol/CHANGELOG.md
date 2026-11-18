@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- OTP: `RequestLoginOtp` (sign-in or sign-up by phone, always `publication_otp_request`) and `RequestRecoverOtp` (a signed-in guest moves into the phone's account, always `account_phone_recover_request`). `ResendOtp` reuses the purpose saved by the first request (login, recover or password reset), so the silent device sign-in no longer turns a login resend into a recovery (`PHONE_NOT_REGISTERED` for a new phone). `RequestPhoneOtp` is `[Obsolete]`: it still picks the route from `HasSession` on the first request only.
 - Payments: a successful payment whose reward is not granted yet answers `PAYMENT_REWARD_PENDING` (server code in `ApiError.ServerCode`); the store purchase is consumed only after the server verified the receipt; `RecheckPending` follows payments whose reward is pending; `Payment.RewardGranted`, `PaymentPoller.WaitForReward`, `PaymentPoller.IsVerified`.
 - Myket: subscription products are left out of `ProductIAP.Load`, and `Buy` answers `SUBSCRIPTION_NOT_SUPPORTED` before Myket opens (`ProductIAP.SupportsSubscriptions`).
 - Inventory: `Buy`, `Unlock`, `Upgrade` take an optional `requestId`; without one the SDK keeps the same id for retries of the same action until it succeeds or fails with a final error (network, 429, 5xx and `INVENTORY_BUSY_TRY_AGAIN` keep it), so a retry never charges twice. `Service` does the same when `requestId` is null. `InventoryProvider.IsRetryable`.

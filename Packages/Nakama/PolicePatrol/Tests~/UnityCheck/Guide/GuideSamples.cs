@@ -113,7 +113,10 @@ namespace PolicePatrol.Sdk.GuideChecks
                     return;
                 }
             });
-            AuthProvider.RequestPhoneOtp(phone, result =>
+            AuthProvider.RequestLoginOtp(phone, result =>
+            {
+            });
+            AuthProvider.RequestRecoverOtp(phone, result =>
             {
             });
             AuthProvider.VerifyOtp(code, OtpChannel.Phone, result =>

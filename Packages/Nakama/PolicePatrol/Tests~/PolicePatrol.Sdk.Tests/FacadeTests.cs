@@ -221,7 +221,7 @@ namespace PolicePatrol.Sdk.Tests
             t.Routes["account_password_change"] = p => new NF.RpcServerException("{\"code\":\"AUTH_INVALID_CURRENT_PASSWORD\",\"status\":403}", 403);
             var change = await Harness.Call<OkResponse>(cb => AuthProvider.UpdatePassword("old", "secret123", cb));
             Assert.Equal("AUTH_INVALID_CURRENT_PASSWORD", change.Error.Code);
-            Assert.Contains("\"currentPassword\":\"old\"", t.Calls.Last().Payload);
+            Assert.Contains("\"currentPassword\":\"old\"", t.Calls.Last(c => c.Id == "account_password_change").Payload);
         }
     }
 }

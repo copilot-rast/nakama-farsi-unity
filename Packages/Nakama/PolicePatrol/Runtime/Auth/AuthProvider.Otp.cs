@@ -11,16 +11,32 @@ namespace PolicePatrol.Sdk.Auth
 
         public static bool HasPendingOtp => !string.IsNullOrEmpty(PolicePatrolSdk.Client?.VerificationToken);
 
-        public static void RequestPhoneOtp(string phoneNumber, Action<ApiResult<OtpChallenge>> onComplete) =>
+        [Obsolete("Use RequestLoginOtp to sign in or sign up by phone, or RequestRecoverOtp to move a signed-in guest into the phone's account. This method picks the route from HasSession, and the SDK may sign in silently with the device.")]
+        public static void RequestPhoneOtp(string phoneNumber, Action<ApiResult<OtpChallenge>> onComplete)
+        {
+            var client = PolicePatrolSdk.Client;
+            var purpose = client != null && client.HasSession ? PurposeRecover : PurposeLogin;
+            RequestOtp(phoneNumber, purpose, onComplete);
+        }
+
+        public static void RequestLoginOtp(string phoneNumber, Action<ApiResult<OtpChallenge>> onComplete) =>
+            RequestOtp(phoneNumber, PurposeLogin, onComplete);
+
+        public static void RequestRecoverOtp(string phoneNumber, Action<ApiResult<OtpChallenge>> onComplete) =>
+            RequestOtp(phoneNumber, PurposeRecover, onComplete);
+
+        public static string PendingOtpPurpose => PolicePatrolSdk.Client?.VerificationPurpose;
+
+        private static void RequestOtp(string phoneNumber, string purpose, Action<ApiResult<OtpChallenge>> onComplete) =>
             PolicePatrolSdk.Run(onComplete, async c =>
             {
-                var recover = c.HasSession;
+                var recover = purpose == PurposeRecover;
                 var answer = recover
                     ? await c.Rpc("account_phone_recover_request", new JObject { ["phone"] = phoneNumber, ["lang"] = c.Language }, false).ConfigureAwait(false)
                     : await c.Rpc("publication_otp_request", new JObject { ["phone"] = phoneNumber, ["lang"] = c.Language }, false, false, true).ConfigureAwait(false);
-                c.RememberOtp(J.Str(answer, "phone") ?? phoneNumber, recover ? PurposeRecover : PurposeLogin, answer);
+                c.RememberOtp(J.Str(answer, "phone") ?? phoneNumber, purpose, answer);
                 return Mapping.Challenge(answer, DateTimeOffset.UtcNow);
-            }, null, "phone otp");
+            }, null, purpose == PurposeRecover ? "recover otp" : "phone otp");
 
         public static void RequestEmailOtp(string email, Action<ApiResult<OtpChallenge>> onComplete) =>
             onComplete?.Invoke(ApiResult<OtpChallenge>.Fail(ApiError.NotSupported("E-mail codes")));
@@ -78,13 +94,18 @@ namespace PolicePatrol.Sdk.Auth
                 return;
             }
 
-            if (PolicePatrolSdk.Client.VerificationPurpose == PurposeReset)
+            switch (PolicePatrolSdk.Client.VerificationPurpose)
             {
-                ForgotPassword(phone, onComplete);
-                return;
+                case PurposeReset:
+                    ForgotPassword(phone, onComplete);
+                    return;
+                case PurposeRecover:
+                    RequestRecoverOtp(phone, onComplete);
+                    return;
+                default:
+                    RequestLoginOtp(phone, onComplete);
+                    return;
             }
-
-            RequestPhoneOtp(phone, onComplete);
         }
     }
 }

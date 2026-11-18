@@ -122,7 +122,7 @@ namespace PolicePatrol.Sdk.Tests
             var store = new NF.MemoryKeyValueStore();
             var t = Harness.Start(store);
             t.Routes["account_phone_recover_request"] = p => "{\"phone\":\"0912***4567\",\"expiresIn\":120,\"resendAfter\":60}";
-            var asked = await Harness.Call<Auth.OtpChallenge>(cb => Auth.AuthProvider.RequestPhoneOtp("09121234567", cb));
+            var asked = await Harness.Call<Auth.OtpChallenge>(cb => Auth.AuthProvider.RequestRecoverOtp("09121234567", cb));
             Assert.True(asked.IsSuccess);
 
             Harness.Start(store, t);

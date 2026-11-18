@@ -1,0 +1,105 @@
+using System.Linq;
+using System.Threading.Tasks;
+using PolicePatrol.Sdk.Auth;
+using Xunit;
+using NF = NakamaFarsi.Sdk;
+
+namespace PolicePatrol.Sdk.Tests
+{
+    public class OtpRouteTests
+    {
+        private static ScriptedTransport LoginServer(bool signedIn, string userId)
+        {
+            var t = Harness.Start(signedIn: signedIn);
+            var sent = 0;
+            t.Routes["publication_otp_request"] = p => "{\"phone\":\"+989121234567\",\"expiresIn\":120,\"resendAfter\":0,\"requestId\":\"r" + (++sent) + "\"}";
+            t.Routes["publication_otp_verify"] = p => "{\"token\":\"" + Harness.Jwt(System.DateTimeOffset.UtcNow.AddHours(2)) + "\",\"userId\":\"" + userId + "\",\"phone\":\"+989121234567\"}";
+            t.Routes["account_phone_recover_request"] = p => new NF.RpcServerException("{\"code\":\"PHONE_NOT_REGISTERED\",\"status\":404}", 404);
+            return t;
+        }
+
+        private static string[] Ids(ScriptedTransport t) => t.Calls.Select(c => c.Id).Where(id => id != "devkit_error_catalog").ToArray();
+
+        [Fact]
+        public async Task ANewPhoneResendsTheLoginCodeAfterTheSilentDeviceSignIn()
+        {
+            var t = LoginServer(false, "new-user");
+            Assert.False(AuthProvider.IsLoggedIn);
+            var first = await Harness.Call<OtpChallenge>(cb => AuthProvider.RequestLoginOtp("09121234567", cb));
+            Assert.True(first.IsSuccess, first.Error?.ToString());
+            Assert.True(AuthProvider.IsLoggedIn);
+
+            var again = await Harness.Call<OtpChallenge>(cb => AuthProvider.ResendOtp(OtpChannel.Phone, cb));
+            Assert.True(again.IsSuccess, again.Error?.ToString());
+            Assert.Equal(new[] { "device_sign_in", "publication_otp_request", "publication_otp_request" }, Ids(t));
+            Assert.Contains("+989121234567", t.Calls.Last().Payload);
+
+            var login = await Harness.Call<LoginResponse>(cb => AuthProvider.VerifyOtp("1234", OtpChannel.Phone, cb));
+            Assert.True(login.IsSuccess, login.Error?.ToString());
+            Assert.Equal("publication_otp_verify", Ids(t).Last());
+            Assert.False(AuthProvider.HasPendingOtp);
+        }
+
+        [Fact]
+        public async Task TheObsoleteRequestKeepsItsFirstRouteOnResend()
+        {
+            var t = LoginServer(false, "new-user");
+#pragma warning disable CS0618
+            var first = await Harness.Call<OtpChallenge>(cb => AuthProvider.RequestPhoneOtp("09121234567", cb));
+#pragma warning restore CS0618
+            Assert.True(first.IsSuccess, first.Error?.ToString());
+            var again = await Harness.Call<OtpChallenge>(cb => AuthProvider.ResendOtp(OtpChannel.Phone, cb));
+            Assert.True(again.IsSuccess, again.Error?.ToString());
+            Assert.DoesNotContain("account_phone_recover_request", Ids(t));
+            Assert.Equal(2, Ids(t).Count(id => id == "publication_otp_request"));
+        }
+
+        [Fact]
+        public async Task ARegisteredPhoneStaysALoginWhenSignedInWithTheDevice()
+        {
+            var t = LoginServer(true, "owner");
+            Assert.True(AuthProvider.IsLoggedIn);
+            var first = await Harness.Call<OtpChallenge>(cb => AuthProvider.RequestLoginOtp("09121234567", cb));
+            Assert.True(first.IsSuccess, first.Error?.ToString());
+            var again = await Harness.Call<OtpChallenge>(cb => AuthProvider.ResendOtp(OtpChannel.Phone, cb));
+            Assert.True(again.IsSuccess, again.Error?.ToString());
+            Assert.Equal(new[] { "publication_otp_request", "publication_otp_request" }, Ids(t));
+
+            var login = await Harness.Call<LoginResponse>(cb => AuthProvider.VerifyOtp("1234", OtpChannel.Phone, cb));
+            Assert.True(login.IsSuccess, login.Error?.ToString());
+            Assert.Equal("publication_otp_verify", Ids(t).Last());
+        }
+
+        [Fact]
+        public async Task ARecoverCodeIsResentAsARecoverCode()
+        {
+            var t = Harness.Start();
+            t.Routes["account_phone_recover_request"] = p => "{\"purpose\":\"recover\",\"stage\":\"new\",\"phone\":\"+989121234567\",\"expiresIn\":120,\"resendAfter\":0}";
+            t.Routes["account_phone_recover_verify"] = p => "{\"token\":\"" + Harness.Jwt(System.DateTimeOffset.UtcNow.AddHours(2)) + "\",\"userId\":\"owner\",\"devicesMoved\":[]}";
+            var first = await Harness.Call<OtpChallenge>(cb => AuthProvider.RequestRecoverOtp("09121234567", cb));
+            Assert.True(first.IsSuccess, first.Error?.ToString());
+            var again = await Harness.Call<OtpChallenge>(cb => AuthProvider.ResendOtp(OtpChannel.Phone, cb));
+            Assert.True(again.IsSuccess, again.Error?.ToString());
+            Assert.Equal(new[] { "account_phone_recover_request", "account_phone_recover_request" }, Ids(t));
+
+            var login = await Harness.Call<LoginResponse>(cb => AuthProvider.VerifyOtp("1234", OtpChannel.Phone, cb));
+            Assert.True(login.IsSuccess, login.Error?.ToString());
+            Assert.Equal("account_phone_recover_verify", Ids(t).Last());
+        }
+
+        [Fact]
+        public async Task TheSavedPurposeSurvivesARestartForResend()
+        {
+            var store = new NF.MemoryKeyValueStore();
+            var t = Harness.Start(store, null, false);
+            t.Routes["publication_otp_request"] = p => "{\"phone\":\"+989121234567\",\"expiresIn\":120,\"resendAfter\":0}";
+            var first = await Harness.Call<OtpChallenge>(cb => AuthProvider.RequestLoginOtp("09121234567", cb));
+            Assert.True(first.IsSuccess, first.Error?.ToString());
+
+            Harness.Start(store, t);
+            var again = await Harness.Call<OtpChallenge>(cb => AuthProvider.ResendOtp(OtpChannel.Phone, cb));
+            Assert.True(again.IsSuccess, again.Error?.ToString());
+            Assert.Equal("publication_otp_request", Ids(t).Last());
+        }
+    }
+}
