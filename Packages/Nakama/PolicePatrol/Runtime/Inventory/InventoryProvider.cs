@@ -172,7 +172,11 @@ namespace PolicePatrol.Sdk.Inventory
                 J.Bool(i, "canBuy"),
                 J.Int(i, "sort"),
                 upgrades,
-                services);
+                services)
+            {
+                FinalPrices = i["finalPrice"] is JObject fo ? new[] { Price(fo) } : i["finalPrice"] is JArray fa ? fa.Select(Price).ToArray() : null,
+                DiscountPercent = J.Num(i, "discountPercent"),
+            };
         }
     }
 }

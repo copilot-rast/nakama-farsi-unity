@@ -54,5 +54,20 @@ namespace PolicePatrol.Sdk.Tests
             var all = await Harness.Call<PagedResult<Economy.UserCurrency>>(cb => Economy.CurrencyProvider.List(1, 10, cb));
             Assert.Equal(new[] { "coin", "gem" }, all.Data.Items.Select(i => i.Currency.Key).OrderBy(k => k));
         }
+    
+        [Fact]
+        public async Task ItemsCarryTheTagDiscountedPrice()
+        {
+            var t = Harness.Start();
+            t.Routes["economy_inventory"] = p => "{\"level\":1,\"items\":[{\"key\":\"hilux\",\"price\":{\"currencyKey\":\"coin\",\"amount\":1000},\"finalPrice\":{\"currencyKey\":\"coin\",\"amount\":800},\"discountPercent\":20},{\"key\":\"tiggo\",\"price\":{\"currencyKey\":\"coin\",\"amount\":500}}]}";
+            var inv = await Harness.Call<PlayerInventory>(InventoryProvider.Get);
+            var hilux = inv.Data.Items.Single(i => i.Key == "hilux");
+            Assert.Equal(1000, hilux.Prices[0].Amount);
+            Assert.Equal(800, hilux.FinalPrices[0].Amount);
+            Assert.True(hilux.HasDiscount);
+            var tiggo = inv.Data.Items.Single(i => i.Key == "tiggo");
+            Assert.Equal(500, tiggo.FinalPrices[0].Amount);
+            Assert.False(tiggo.HasDiscount);
+        }
     }
 }

@@ -6,6 +6,7 @@
 - Myket: subscription products are left out of `ProductIAP.Load`, and `Buy` answers `SUBSCRIPTION_NOT_SUPPORTED` before Myket opens (`ProductIAP.SupportsSubscriptions`).
 - Inventory: `Buy`, `Unlock`, `Upgrade` take an optional `requestId`; without one the SDK keeps the same id for retries of the same action until it succeeds or fails with a final error (network, 429, 5xx and `INVENTORY_BUSY_TRY_AGAIN` keep it), so a retry never charges twice. `Service` does the same when `requestId` is null. `InventoryProvider.IsRetryable`.
 - Currencies: `CurrencyProvider.List` / `GetByKey` always read `economy_balances.wallet`; the storage `items` list no longer replaces it (coins showed 0 after the first storage reward).
+- Prices: `PlayerItem.FinalPrices` (from `economy_inventory` `finalPrice`, tag discount applied; falls back to `Prices`), `PlayerItem.DiscountPercent`, `PlayerItem.HasDiscount`. Show `FinalPrices` on buy buttons: it is what `Buy` charges. Shop products already had `Product.FinalPrice` / `ShopItem.FinalPrice` (`finalToman`).
 
 ## 0.6.0 — 2026-11-15
 

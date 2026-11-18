@@ -14,5 +14,18 @@ namespace PolicePatrol.Sdk.Inventory
         bool CanBuy,
         int Order,
         PlayerUpgrade[] Upgrades,
-        ItemService[] Services);
+        ItemService[] Services)
+    {
+        private ItemPrice[] _finalPrices;
+
+        public ItemPrice[] FinalPrices
+        {
+            get => _finalPrices ?? Prices;
+            init => _finalPrices = value;
+        }
+
+        public double DiscountPercent { get; init; }
+
+        public bool HasDiscount => DiscountPercent > 0;
+    }
 }
