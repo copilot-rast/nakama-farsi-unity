@@ -69,5 +69,15 @@ namespace PolicePatrol.Sdk.Tests
             Assert.Equal(500, tiggo.FinalPrices[0].Amount);
             Assert.False(tiggo.HasDiscount);
         }
+    
+        [Fact]
+        public async Task ServerOwnedStagesKeepTheServerCode()
+        {
+            var t = Harness.Start();
+            t.Routes["campaign_attempt_complete"] = p => new NF.RpcServerException("{\"code\":\"STAGE_SERVER_OWNED\",\"status\":403,\"meta\":{\"owner\":\"cup\"}}", 403);
+            var r = await Harness.Call<Stages.StageResult>(cb => Stages.StageProvider.Complete("s1", "a1", true, 30, 90, cb));
+            Assert.Equal(Stages.StageErrorCodes.ServerOwned, r.Error.Code);
+            Assert.Equal("cup", (string)r.Error.Meta["owner"]);
+        }
     }
 }
