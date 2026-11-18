@@ -103,5 +103,70 @@ namespace NakamaFarsi.Sdk.Tests
             await client.Chat.LeaveAsync("2...lobby");
             Assert.Empty(client.Chat.JoinedChannelIds);
         }
+    
+
+        private sealed class QueueDispatcher : IMainThreadDispatcher
+        {
+            public System.Collections.Concurrent.ConcurrentQueue<Action> Queue { get; } = new System.Collections.Concurrent.ConcurrentQueue<Action>();
+
+            public bool Draining { get; private set; }
+
+            public void Post(Action action) => Queue.Enqueue(action);
+
+            public void Drain()
+            {
+                Draining = true;
+                while (Queue.TryDequeue(out var a))
+                {
+                    a();
+                }
+
+                Draining = false;
+            }
+        }
+
+        [Fact]
+        public async Task RejoinedComesThroughTheMainThreadDispatcher()
+        {
+            var sockets = new List<FakeProxy>();
+            ISocket Make(IClient c)
+            {
+                var socket = DispatchProxy.Create<ISocket, FakeProxy>();
+                var fake = (FakeProxy)(object)socket;
+                fake.Answer = (name, args) => name == "JoinChatAsync" ? Task.Run(async () => { await Task.Delay(10); return Channel("2...lobby"); }) : null;
+                lock (sockets)
+                {
+                    sockets.Add(fake);
+                }
+
+                return socket;
+            }
+
+            var clock = new FakeClock { UtcNow = DateTimeOffset.UtcNow };
+            var main = new QueueDispatcher();
+            var client = new NakamaFarsiClient(new NakamaFarsiOptions { UseSocket = true }, Jwt.StoreWithSession(clock.UtcNow), socketFactory: Make, dispatcher: main);
+            await client.Socket.ConnectAsync();
+            await client.Chat.JoinRoomAsync("lobby");
+            var raised = 0;
+            var offMain = 0;
+            client.Chat.Rejoined += ch =>
+            {
+                raised++;
+                if (!main.Draining)
+                {
+                    offMain++;
+                }
+            };
+            ((Action<string>)sockets[0].Handlers["Closed"])("gone");
+            var deadline = DateTime.UtcNow.AddSeconds(10);
+            while (raised == 0 && DateTime.UtcNow < deadline)
+            {
+                await Task.Delay(20);
+                main.Drain();
+            }
+
+            Assert.Equal(1, raised);
+            Assert.Equal(0, offMain);
+        }
     }
 }

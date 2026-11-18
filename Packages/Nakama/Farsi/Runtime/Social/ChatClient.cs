@@ -127,7 +127,7 @@ namespace NakamaFarsi.Sdk.Social
                         }
                     }
 
-                    Rejoined?.Invoke(channel);
+                    _client.Dispatcher.Post(() => Rejoined?.Invoke(channel));
                 }
                 catch (Exception e)
                 {
