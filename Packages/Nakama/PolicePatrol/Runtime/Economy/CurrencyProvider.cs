@@ -35,12 +35,6 @@ namespace PolicePatrol.Sdk.Economy
         {
             var b = await c.Rpc("economy_balances", new JObject(), true).ConfigureAwait(false);
             var user = c.Core.Session.UserId;
-            var items = Mapping.Arr(b, "items");
-            if (items.Count > 0)
-            {
-                return items.Select(i => Mapping.UserCurrency(user, J.Str(i, "key"), J.Num(i, "value"), J.Time(i, "updatedAt"))).ToArray();
-            }
-
             return (b?["wallet"] as JObject ?? new JObject()).Properties()
                 .Select(p => Mapping.UserCurrency(user, p.Name, p.Value.Type == JTokenType.Integer || p.Value.Type == JTokenType.Float ? (double)p.Value : 0, null)).ToArray();
         }

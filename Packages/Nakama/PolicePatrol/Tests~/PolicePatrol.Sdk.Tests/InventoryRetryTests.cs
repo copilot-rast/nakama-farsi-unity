@@ -43,5 +43,16 @@ namespace PolicePatrol.Sdk.Tests
             await Harness.Call<UpgradeChange>(cb => InventoryProvider.Upgrade("gun", "Power", 1, cb, "game-42"));
             Assert.Equal("game-42", RequestId(t.Calls.Last().Payload));
         }
+    
+        [Fact]
+        public async Task CurrenciesComeFromTheWalletEvenWithStorageItems()
+        {
+            var t = Harness.Start();
+            t.Routes["economy_balances"] = p => "{\"wallet\":{\"coin\":120,\"gem\":3},\"items\":[{\"key\":\"badge\",\"value\":1}]}";
+            var coin = await Harness.Call<Economy.UserCurrency>(cb => Economy.CurrencyProvider.GetByKey("coin", cb));
+            Assert.Equal(120, coin.Data.Value);
+            var all = await Harness.Call<PagedResult<Economy.UserCurrency>>(cb => Economy.CurrencyProvider.List(1, 10, cb));
+            Assert.Equal(new[] { "coin", "gem" }, all.Data.Items.Select(i => i.Currency.Key).OrderBy(k => k));
+        }
     }
 }

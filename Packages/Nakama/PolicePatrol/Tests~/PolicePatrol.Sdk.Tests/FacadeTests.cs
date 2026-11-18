@@ -103,7 +103,7 @@ namespace PolicePatrol.Sdk.Tests
             Assert.False(me.Data.PhoneNumberVerified);
             Assert.Equal("dev-1", me.Data.DeviceId);
 
-            t.Routes["economy_balances"] = p => "{\"items\":[{\"key\":\"coin\",\"value\":120},{\"key\":\"gem\",\"value\":3}],\"metas\":{\"xp\":900,\"level\":2}}";
+            t.Routes["economy_balances"] = p => "{\"wallet\":{\"coin\":120,\"gem\":3},\"items\":[],\"metas\":{\"xp\":900,\"level\":2}}";
             var coin = await Harness.Call<UserCurrency>(cb => CurrencyProvider.GetByKey("coin", cb));
             Assert.Equal(120, coin.Data.Value);
             Assert.Equal("coin", coin.Data.Currency.Key);
