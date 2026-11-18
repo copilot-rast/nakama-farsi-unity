@@ -7,6 +7,11 @@ namespace NakamaFarsi.Sdk
 {
     public static class ErrorParser
     {
+        private static readonly System.Collections.Generic.HashSet<string> Envelope = new System.Collections.Generic.HashSet<string>(StringComparer.Ordinal)
+        {
+            "code", "status", "message", "meta", "field", "lang", "retryAfterSeconds",
+        };
+
         private static readonly Regex BareCode = new Regex("^[A-Z][A-Z0-9_]{2,}$", RegexOptions.CultureInvariant);
 
         public static ApiError Parse(string text, long httpStatus, ErrorCatalog catalog, string lang)
@@ -17,7 +22,10 @@ namespace NakamaFarsi.Sdk
                 JObject json = null;
                 try
                 {
-                    json = JObject.Parse(text);
+                    using (var reader = new JsonTextReader(new System.IO.StringReader(text)) { DateParseHandling = DateParseHandling.None })
+                    {
+                        json = JObject.Load(reader);
+                    }
                 }
                 catch (JsonException)
                 {
@@ -27,7 +35,14 @@ namespace NakamaFarsi.Sdk
                 {
                     var code = (string)json["code"];
                     var status = json["status"] != null && json["status"].Type == JTokenType.Integer ? (long)json["status"] : httpStatus;
-                    var meta = json["meta"] as JObject ?? new JObject();
+                    var meta = json["meta"] is JObject given ? (JObject)given.DeepClone() : new JObject();
+                    foreach (var top in json.Properties())
+                    {
+                        if (!Envelope.Contains(top.Name) && meta[top.Name] == null)
+                        {
+                            meta[top.Name] = top.Value.DeepClone();
+                        }
+                    }
                     int? retry = json["retryAfterSeconds"] != null && json["retryAfterSeconds"].Type == JTokenType.Integer ? (int?)(int)json["retryAfterSeconds"] : null;
                     var message = (string)json["message"];
                     if (string.IsNullOrEmpty(message) && catalog != null && catalog.TryResolve(code, meta, out var entry, out var filled))

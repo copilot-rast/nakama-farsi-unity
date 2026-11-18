@@ -25,6 +25,21 @@ namespace NakamaFarsi.Sdk.Tests
         }
 
         [Fact]
+        public void TopLevelFieldsOfASuspensionNoticeGoToMeta()
+        {
+            var e = ErrorParser.Parse("{\"code\":\"ACCOUNT_SUSPENDED\",\"kind\":\"suspend\",\"until\":\"2026-12-01T00:00:00Z\",\"reason\":\"تقلب\",\"lang\":\"fa\"}", 403, Catalog(), "fa");
+            Assert.Equal("ACCOUNT_SUSPENDED", e.Code);
+            Assert.Equal("suspend", (string)e.Meta["kind"]);
+            Assert.Equal("2026-12-01T00:00:00Z", (string)e.Meta["until"]);
+            Assert.Equal("تقلب", (string)e.Meta["reason"]);
+            Assert.Null(e.Meta["code"]);
+            Assert.Null(e.Meta["lang"]);
+
+            var nested = ErrorParser.Parse("{\"code\":\"X_Y\",\"until\":\"top\",\"meta\":{\"until\":\"inner\"}}", 400, null, "fa");
+            Assert.Equal("inner", (string)nested.Meta["until"]);
+        }
+
+        [Fact]
         public void BareCodeUsesCatalogWithPlaceholders()
         {
             var e = ErrorParser.Parse("GIFT_EXPIRED", 400, Catalog(), "fa");
