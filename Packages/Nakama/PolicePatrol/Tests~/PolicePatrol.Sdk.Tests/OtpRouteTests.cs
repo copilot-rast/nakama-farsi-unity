@@ -149,5 +149,19 @@ namespace PolicePatrol.Sdk.Tests
             var other = await Harness.Call<OtpChallenge>(cb => AuthProvider.RequestLoginOtp("09350000000", cb));
             Assert.Null(other.Error.RetryAfterSeconds);
         }
+    
+
+        [Fact]
+        public void UsernameErrorsCarryTheServerReasonEvenWithoutMeta()
+        {
+            var edge = ErrorAliases.Convert(new NF.ApiError("USERNAME_SEPARATOR_AT_EDGE", 400, ""));
+            Assert.Equal(Users.UserErrorCodes.UsernameInvalid, edge.Code);
+            Assert.Equal(Users.UserErrorCodes.ReasonSeparatorEdge, (string)edge.Meta["reason"]);
+            var taken = ErrorAliases.Convert(new NF.ApiError("USERNAME_TAKEN", 409, ""));
+            Assert.Equal(Users.UserErrorCodes.UsernameTaken, taken.Code);
+            Assert.Equal(Users.UserErrorCodes.ReasonTaken, (string)taken.Meta["reason"]);
+            var sent = ErrorAliases.Convert(new NF.ApiError("USERNAME_TOO_SHORT", 400, "", new Newtonsoft.Json.Linq.JObject { ["reason"] = "length", ["min"] = 3 }));
+            Assert.Equal(3, (int)sent.Meta["min"]);
+        }
     }
 }

@@ -79,6 +79,19 @@ namespace PolicePatrol.Sdk
             ["REQUIRES_ITEM"] = "PAYMENT_PRIZE_REQUIRES_ANOTHER_ITEM",
         };
 
+        private static readonly IReadOnlyDictionary<string, string> UsernameReasons = new Dictionary<string, string>(StringComparer.Ordinal)
+        {
+            ["USERNAME_TOO_SHORT"] = Users.UserErrorCodes.ReasonLength,
+            ["USERNAME_TOO_LONG"] = Users.UserErrorCodes.ReasonLength,
+            ["USERNAME_INVALID_CHARACTERS"] = Users.UserErrorCodes.ReasonCharacters,
+            ["USERNAME_SEPARATOR_AT_EDGE"] = Users.UserErrorCodes.ReasonSeparatorEdge,
+            ["USERNAME_MUST_START_WITH_LETTER"] = Users.UserErrorCodes.ReasonStart,
+            ["USERNAME_DOUBLE_SEPARATOR"] = Users.UserErrorCodes.ReasonSeparators,
+            ["USERNAME_RESERVED"] = Users.UserErrorCodes.ReasonReserved,
+            ["USERNAME_TAKEN"] = Users.UserErrorCodes.ReasonTaken,
+            ["USERNAME_REQUIRED"] = Users.UserErrorCodes.ReasonRequired,
+        };
+
         public static ApiError Convert(NF.ApiError e, IReadOnlyDictionary<string, string> extra = null)
         {
             if (e == null)
@@ -112,6 +125,11 @@ namespace PolicePatrol.Sdk
             if (e.RetryAfterSeconds.HasValue && meta["retryAfter"] == null)
             {
                 meta["retryAfter"] = e.RetryAfterSeconds.Value;
+            }
+
+            if (meta["reason"] == null && UsernameReasons.TryGetValue(e.Code ?? string.Empty, out var reason))
+            {
+                meta["reason"] = reason;
             }
 
             return new ApiError(e.Status, code, meta, e.Message) { ServerCode = e.Code, Field = e.Field };

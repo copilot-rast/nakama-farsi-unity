@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Username errors: `UserErrorCodes.ReasonSeparatorEdge` (`separator_edge`, what the server sends) and `ReasonTaken` (`taken`); `ReasonDotEdge` is `[Obsolete]`. When the server sends a bare code (errors in code mode), the SDK fills `Meta.reason` from the server code (`ApiError.ServerCode`), so `reason` is always there.
 - Error texts: a placeholder the server sent no value for is no longer shown raw. `{retryAfter}` becomes "a few" / «چند», any other one is dropped (`ErrorCatalog.Fill`). A top-level `retryAfterSeconds` fills `{retryAfter}`. `OTP_TOO_SOON` without a wait (errors in code mode) gets the wait from the last code sent to the same number (`ApiError.RetryAfterSeconds`, `Meta.retryAfter`, filled text). New: `ApiClient.VerificationResendAt`.
 - Chat (Farsi layer): `ChatClient.Rejoined` is raised on the main thread (through the client dispatcher), like `MessageReceived`.
 - Phone change: `AuthProvider.VerifyPhoneChangeStep` answers a `PhoneChangeStep`: when the panel asks for a code to the old number first, the first right code gives `Done = false`, `WaitingForNewPhoneCode` and `NextChallenge` (the code sent to the new number); the second code gives `Done = true` and `User`. `VerifyPhoneChange` is `[Obsolete]` and now fails with `PHONE_NEW_CODE_SENT` after the first step instead of answering the unchanged user. `OtpChallenge.Stage` (`old` / `new`) and `OtpChallenge.SentTo` (shown number).
