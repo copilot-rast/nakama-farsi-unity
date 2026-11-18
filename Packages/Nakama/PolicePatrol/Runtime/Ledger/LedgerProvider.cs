@@ -21,6 +21,11 @@ namespace PolicePatrol.Sdk.Ledger
                         body["kinds"] = new JArray(kinds);
                     }
 
+                    if (!string.IsNullOrEmpty(refId))
+                    {
+                        body["refId"] = refId;
+                    }
+
                     if (!string.IsNullOrEmpty(cursor))
                     {
                         body["cursor"] = cursor;
@@ -38,15 +43,14 @@ namespace PolicePatrol.Sdk.Ledger
 
                 var user = c.Core.Session.UserId;
                 var rows = items
-                    .Where(i => refId == null || J.Str(i, "refId", "sourceId") == refId)
                     .Select(i => new LedgerEntry(
                         J.Str(i, "id"),
                         user,
                         J.Str(i, "kind"),
-                        J.Str(i, "refId", "sourceId"),
+                        string.IsNullOrEmpty(J.Str(i, "itemKey")) ? J.Str(i, "refId", "sourceId") : c.Items.ToGame(J.Str(i, "itemKey")),
                         J.Str(i, "title", "kindName") ?? J.Str(i, "itemName", "currencyName"),
                         J.NumOrNull(i, "amount") ?? J.NumOrNull(i, "change"),
-                        J.Str(i, "currency") ?? c.Items.ToGame(J.Str(i, "itemKey")),
+                        string.IsNullOrEmpty(J.Str(i, "currency")) ? c.Items.ToGame(J.Str(i, "itemKey")) : J.Str(i, "currency"),
                         J.Str(i, "sourceId"),
                         J.TimeOr(i, "at")))
                     .ToArray();

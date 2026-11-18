@@ -68,6 +68,18 @@ namespace PolicePatrol.Sdk.Tests
         }
 
         [Fact]
+        public async Task LedgerItemRowsHaveAUnitAndRefIdIsFilteredOnTheServer()
+        {
+            var t = Harness.Start();
+            t.Routes["ledger_list"] = p => "{\"items\":[{\"id\":\"i:1\",\"kind\":\"asset\",\"currency\":\"\",\"amount\":1,\"itemKey\":\"tiggo8\",\"refId\":\"tiggo8\",\"sourceId\":\"g1\",\"at\":\"2026-11-18T10:00:00Z\"},{\"id\":\"w:1:coin\",\"kind\":\"stage\",\"currency\":\"coin\",\"amount\":10,\"itemKey\":\"\",\"refId\":\"level-01\",\"sourceId\":\"level-01\",\"at\":\"2026-11-18T10:00:00Z\"}],\"cursor\":\"\"}";
+            var all = await Harness.Call<PagedResult<Ledger.LedgerEntry>>(cb => Ledger.LedgerProvider.List(1, 20, cb));
+            Assert.Equal("tiggo8", all.Data.Items[0].Unit);
+            Assert.Equal("coin", all.Data.Items[1].Unit);
+            await Harness.Call<PagedResult<Ledger.LedgerEntry>>(cb => Ledger.LedgerProvider.List(1, 20, cb, null, "level-01"));
+            Assert.Contains("\"refId\":\"level-01\"", t.Calls.Last(c => c.Id == "ledger_list").Payload);
+        }
+
+        [Fact]
         public async Task ItemsCarryTheTagDiscountedPrice()
         {
             var t = Harness.Start();
