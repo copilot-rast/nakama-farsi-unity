@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
@@ -10,27 +12,43 @@ namespace PolicePatrol.Sdk.Inventory
         public static void Get(Action<ApiResult<PlayerInventory>> onComplete) =>
             PolicePatrolSdk.Run(onComplete, Load, ErrorAliases.Inventory, "economy_inventory");
 
-        public static void Buy(string itemKey, Action<ApiResult<ItemChange>> onComplete) =>
+        private static readonly ConcurrentDictionary<string, string> Retries = new ConcurrentDictionary<string, string>(StringComparer.Ordinal);
+
+        public static void Buy(string itemKey, Action<ApiResult<ItemChange>> onComplete) => Buy(itemKey, onComplete, null);
+
+        public static void Buy(string itemKey, Action<ApiResult<ItemChange>> onComplete, string requestId)
+        {
+            var id = Reuse("buy|" + itemKey, requestId, ref onComplete);
             PolicePatrolSdk.Run(onComplete, async c =>
             {
                 var key = c.Items.ToServer(itemKey);
-                var answer = await c.Rpc("economy_item_buy", new JObject { ["key"] = key, ["requestId"] = Guid.NewGuid().ToString("N"), ["lang"] = c.Language }, false, true).ConfigureAwait(false);
+                var answer = await c.Rpc("economy_item_buy", new JObject { ["key"] = key, ["requestId"] = id, ["lang"] = c.Language }, false, true).ConfigureAwait(false);
                 return new ItemChange(Item(c, answer?["item"]), Paid(answer));
             }, ErrorAliases.Inventory, "economy_item_buy");
+        }
 
-        public static void Unlock(string itemKey, Action<ApiResult<ItemChange>> onComplete) =>
+        public static void Unlock(string itemKey, Action<ApiResult<ItemChange>> onComplete) => Unlock(itemKey, onComplete, null);
+
+        public static void Unlock(string itemKey, Action<ApiResult<ItemChange>> onComplete, string requestId)
+        {
+            var id = Reuse("unlock|" + itemKey, requestId, ref onComplete);
             PolicePatrolSdk.Run(onComplete, async c =>
             {
                 var key = c.Items.ToServer(itemKey);
-                var answer = await c.Rpc("inventoryx_unlock", new JObject { ["key"] = key, ["requestId"] = Guid.NewGuid().ToString("N"), ["lang"] = c.Language }, false, true).ConfigureAwait(false);
+                var answer = await c.Rpc("inventoryx_unlock", new JObject { ["key"] = key, ["requestId"] = id, ["lang"] = c.Language }, false, true).ConfigureAwait(false);
                 return new ItemChange(await Fresh(c, key, answer?["item"]).ConfigureAwait(false), Paid(answer));
             }, ErrorAliases.Inventory, "inventoryx_unlock");
+        }
 
-        public static void Upgrade(string itemKey, string upgrade, int? fromLevel, Action<ApiResult<UpgradeChange>> onComplete) =>
+        public static void Upgrade(string itemKey, string upgrade, int? fromLevel, Action<ApiResult<UpgradeChange>> onComplete) => Upgrade(itemKey, upgrade, fromLevel, onComplete, null);
+
+        public static void Upgrade(string itemKey, string upgrade, int? fromLevel, Action<ApiResult<UpgradeChange>> onComplete, string requestId)
+        {
+            var id = Reuse("upgrade|" + itemKey + "|" + upgrade + "|" + fromLevel, requestId, ref onComplete);
             PolicePatrolSdk.Run(onComplete, async c =>
             {
                 var key = c.Items.ToServer(itemKey);
-                var body = new JObject { ["key"] = key, ["track"] = upgrade, ["requestId"] = Guid.NewGuid().ToString("N"), ["lang"] = c.Language };
+                var body = new JObject { ["key"] = key, ["track"] = upgrade, ["requestId"] = id, ["lang"] = c.Language };
                 if (fromLevel.HasValue)
                 {
                     body["fromLevel"] = fromLevel.Value;
@@ -42,14 +60,42 @@ namespace PolicePatrol.Sdk.Inventory
                     ?? J.Int(Mapping.Arr(answer?["item"], "tracks").FirstOrDefault(t => J.Str(t, "key") == upgrade), "level");
                 return new UpgradeChange(item, upgrade, level, Paid(answer));
             }, ErrorAliases.Inventory, "inventoryx_upgrade");
+        }
 
-        public static void Service(string itemKey, string service, int units, string requestId, Action<ApiResult<ServiceResult>> onComplete) =>
+        public static void Service(string itemKey, string service, int units, string requestId, Action<ApiResult<ServiceResult>> onComplete)
+        {
+            var id = Reuse("service|" + itemKey + "|" + service + "|" + units, requestId, ref onComplete);
             PolicePatrolSdk.Run(onComplete, async c =>
             {
-                var body = new JObject { ["key"] = c.Items.ToServer(itemKey), ["service"] = service, ["units"] = units, ["requestId"] = requestId ?? Guid.NewGuid().ToString("N"), ["lang"] = c.Language };
+                var body = new JObject { ["key"] = c.Items.ToServer(itemKey), ["service"] = service, ["units"] = units, ["requestId"] = id, ["lang"] = c.Language };
                 var answer = await c.Rpc("economy_item_use", body, false, true).ConfigureAwait(false);
                 return new ServiceResult(itemKey, J.Str(answer, "service") ?? service, J.Int(answer, "units", units), Paid(answer));
             }, ErrorAliases.Inventory, "economy_item_use");
+        }
+
+        public static bool IsRetryable(ApiError error) =>
+            error != null && (error.IsNetworkError || error.Status == 429 || error.Status >= 500 || error.Code == InventoryErrorCodes.Busy);
+
+        private static string Reuse<T>(string action, string requestId, ref Action<ApiResult<T>> onComplete)
+        {
+            if (!string.IsNullOrEmpty(requestId))
+            {
+                return requestId;
+            }
+
+            var id = Retries.GetOrAdd(action, _ => Guid.NewGuid().ToString("N"));
+            var done = onComplete;
+            onComplete = result =>
+            {
+                if (result.IsSuccess || !IsRetryable(result.Error))
+                {
+                    ((ICollection<KeyValuePair<string, string>>)Retries).Remove(new KeyValuePair<string, string>(action, id));
+                }
+
+                done?.Invoke(result);
+            };
+            return id;
+        }
 
         internal static async Task<PlayerInventory> Load(ApiClient c)
         {
