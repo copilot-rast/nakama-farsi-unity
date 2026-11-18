@@ -65,7 +65,7 @@ namespace PolicePatrol.Sdk.Stages
                         };
                     }
 
-                    return Result(stageKey, true, f);
+                    return Result(c, stageKey, true, f);
                 }
 
                 var body = new JObject { ["stageKey"] = stageKey, ["attemptId"] = attemptId, ["success"] = success, ["elapsedSeconds"] = elapsedSeconds, ["lang"] = c.Language };
@@ -80,7 +80,7 @@ namespace PolicePatrol.Sdk.Stages
                 }
 
                 var r = await c.Rpc("campaign_attempt_complete", body, false, true).ConfigureAwait(false);
-                return Result(stageKey, success, r);
+                return Result(c, stageKey, success, r);
             }, ErrorAliases.Stages, "campaign_attempt_complete");
 
         private static async Task<bool> IsFreeRide(ApiClient c, string key)
@@ -148,7 +148,7 @@ namespace PolicePatrol.Sdk.Stages
             return new Trophy(J.Str(u, "trophyKey"), string.IsNullOrEmpty(step) || J.Int(u, "stepCount") <= 1 ? name : name + " · " + step, step, J.Str(u?["rewards"], "prizeKey"));
         });
 
-        private static StageResult Result(string stageKey, bool success, JToken r)
+        private static StageResult Result(ApiClient c, string stageKey, bool success, JToken r)
         {
             var levels = r?["levels"] as JArray;
             var leveledUp = levels != null && levels.Any(l => J.Int(l, "to") > J.Int(l, "from"));
@@ -172,7 +172,16 @@ namespace PolicePatrol.Sdk.Stages
             {
                 NextRewardAt = J.Time(r, "nextRewardAt"),
                 RewardsLeftToday = (int?)J.NumOrNull(r, "rewardsLeftToday"),
+                Prizes = Mapping.Each(r, "prizes", p => new StagePrize(J.Str(p, "key"), null, J.Str(p, "for"), PrizeItems(c, p))),
+                PendingPrizes = Mapping.Each(r, "pendingPrizes", p => new StagePrize(J.Str(p, "prizeKey"), J.Str(p, "prizeGroupKey"), J.Str(p, "for"), Array.Empty<Prizes.PrizeItem>())),
             };
         }
+
+        private static Prizes.PrizeItem[] PrizeItems(ApiClient c, JToken prize) => Mapping.Each(prize, "items", i =>
+        {
+            var type = J.Str(i, "type");
+            var item = type == "item" || type == Prizes.PrizeItemTypes.InventoryItem;
+            return new Prizes.PrizeItem(item ? Prizes.PrizeItemTypes.InventoryItem : type, item ? c.Items.ToGame(J.Str(i, "key")) : J.Str(i, "key"), null, J.Str(i, "action") ?? "add", i["value"]);
+        });
     }
 }

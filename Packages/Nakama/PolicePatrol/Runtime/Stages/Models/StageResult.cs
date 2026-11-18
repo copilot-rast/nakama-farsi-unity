@@ -21,6 +21,10 @@ namespace PolicePatrol.Sdk.Stages
 
         public int? RewardsLeftToday { get; init; }
 
+        public StagePrize[] Prizes { get; init; } = System.Array.Empty<StagePrize>();
+
+        public StagePrize[] PendingPrizes { get; init; } = System.Array.Empty<StagePrize>();
+
         public bool IsRewardLimited => !string.IsNullOrEmpty(RewardLimited);
     }
 }

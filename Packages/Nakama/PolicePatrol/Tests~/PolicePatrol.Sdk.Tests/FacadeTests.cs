@@ -134,12 +134,18 @@ namespace PolicePatrol.Sdk.Tests
             Assert.Equal("campaign_freeride_claim", t.Calls.Last().Id);
 
             t.Routes["campaign_attempt_start"] = p => "{\"attemptId\":\"a-1\",\"stageKey\":\"s1\",\"startedAt\":\"2026-11-15T10:00:00Z\",\"expiresAt\":\"2026-11-16T10:00:00Z\"}";
-            t.Routes["campaign_attempt_complete"] = p => "{\"stageKey\":\"s1\",\"success\":true,\"stars\":3,\"bestStars\":3,\"rewards\":[{\"currencyKey\":\"coin\",\"amount\":100}],\"xpGained\":50,\"xp\":950,\"level\":3,\"levels\":[{\"from\":2,\"to\":3}],\"trophies\":[{\"trophyKey\":\"driver\",\"trophyName\":\"Driver\",\"stepName\":\"Bronze\",\"stepCount\":3}]}";
+            t.Routes["campaign_attempt_complete"] = p => "{\"stageKey\":\"s1\",\"success\":true,\"stars\":3,\"bestStars\":3,\"rewards\":[{\"currencyKey\":\"coin\",\"amount\":100}],\"xpGained\":50,\"xp\":950,\"level\":3,\"levels\":[{\"from\":2,\"to\":3}],\"trophies\":[{\"trophyKey\":\"driver\",\"trophyName\":\"Driver\",\"stepName\":\"Bronze\",\"stepCount\":3}],\"prizes\":[{\"id\":\"p-1\",\"key\":\"gold_box\",\"for\":\"tier\",\"items\":[{\"type\":\"item\",\"key\":\"tiggo8\",\"action\":\"add\",\"value\":1},{\"type\":\"currency\",\"key\":\"coin\",\"action\":\"add\",\"value\":5}]}],\"pendingPrizes\":[{\"prizeGroupKey\":\"weekly\",\"for\":\"milestone\"}]}";
             var a = await Harness.Call<StageAttempt>(cb => StageProvider.Start("s1", cb));
             var done = await Harness.Call<StageResult>(cb => StageProvider.Complete("s1", a.Data.AttemptId, true, 74.2, 81, new System.Collections.Generic.Dictionary<string, object> { ["car"] = "bugatti" }, cb));
             Assert.True(done.Data.LeveledUp);
             Assert.Equal(3, done.Data.Stars);
             Assert.Equal("driver", done.Data.Trophies[0].GoalKey);
+            Assert.Equal("gold_box", done.Data.Prizes[0].PrizeKey);
+            Assert.Equal("tier", done.Data.Prizes[0].For);
+            Assert.Equal(Prizes.PrizeItemTypes.InventoryItem, done.Data.Prizes[0].Items[0].Type);
+            Assert.Equal(5, (int)done.Data.Prizes[0].Items[1].Value);
+            Assert.Equal("weekly", done.Data.PendingPrizes[0].PrizeGroupKey);
+            Assert.Empty(free.Data.Prizes);
             Assert.Contains("\"car\":\"bugatti\"", t.Calls.Last().Payload);
 
             t.Routes["campaign_attempt_complete"] = p => new NF.RpcServerException("{\"code\":\"STAGE_FINISHED_TOO_FAST\",\"status\":400}", 400);

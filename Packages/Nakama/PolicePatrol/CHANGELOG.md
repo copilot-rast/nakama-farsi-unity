@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Stages: `StageResult.Prizes` (economy prizes paid by this result: `PrizeKey`, `For` = `tier` / `milestone` / `freeride`, `Items`; item keys in Unity form) and `StageResult.PendingPrizes` (prizes the server will pay later, with `PrizeKey` or `PrizeGroupKey`). New model `StagePrize`.
 - Coin purchases: `PaymentProvider.Initiate(productId, PaymentMethods.InApp, ...)` answers `PAYMENT_REWARD_PENDING` (meta `paymentId`) when the server took the coins but the reward is still being granted; the server retries it. A coin purchase that failed without taking coins no longer holds a one-time product for 45 minutes.
 - OTP: `RequestLoginOtp` (sign-in or sign-up by phone, always `publication_otp_request`) and `RequestRecoverOtp` (a signed-in guest moves into the phone's account, always `account_phone_recover_request`). `ResendOtp` reuses the purpose saved by the first request (login, recover or password reset), so the silent device sign-in no longer turns a login resend into a recovery (`PHONE_NOT_REGISTERED` for a new phone). `RequestPhoneOtp` is `[Obsolete]`: it still picks the route from `HasSession` on the first request only.
 - Payments: a successful payment whose reward is not granted yet answers `PAYMENT_REWARD_PENDING` (server code in `ApiError.ServerCode`); the store purchase is consumed only after the server verified the receipt; `RecheckPending` follows payments whose reward is pending; `Payment.RewardGranted`, `PaymentPoller.WaitForReward`, `PaymentPoller.IsVerified`.
