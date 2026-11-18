@@ -129,5 +129,20 @@ namespace PolicePatrol.Sdk.Tests
             Assert.Equal(0, store.Opened);
             Assert.DoesNotContain(t.Calls, c => c.Id == "economy_purchase_start");
         }
+    
+
+        [Fact]
+        public async Task ACoinPurchaseWhoseRewardIsPendingIsNotASuccess()
+        {
+            var t = Harness.Start();
+            t.Routes["economy_purchase_start"] = p => "{\"paymentId\":\"" + PaymentId + "\",\"status\":\"success\",\"rewardGranted\":false,\"error\":\"REWARD_PENDING\"}";
+            var pending = await Harness.Call<InitiatePaymentResult>(cb => PaymentProvider.Initiate("p1", PaymentMethods.InApp, cb));
+            Assert.False(pending.IsSuccess);
+            Assert.Equal(PaymentErrorCodes.RewardPending, pending.Error.Code);
+            Assert.Equal(PaymentId, (string)pending.Error.Meta["paymentId"]);
+
+            t.Routes["economy_purchase_start"] = p => "{\"paymentId\":\"" + PaymentId + "\",\"status\":\"success\",\"rewards\":[]}";
+            Assert.True((await Harness.Call<InitiatePaymentResult>(cb => PaymentProvider.Initiate("p1", PaymentMethods.InApp, cb))).IsSuccess);
+        }
     }
 }

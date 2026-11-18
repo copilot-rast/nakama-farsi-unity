@@ -50,6 +50,12 @@ namespace PolicePatrol.Sdk.Payments
             PolicePatrolSdk.Run(onComplete, async c =>
             {
                 var r = await Start(c, productId, paymentMethod, giftCode).ConfigureAwait(false);
+                var pending = RewardCheck(ApiResult<Payment>.Ok(ToPayment(r, c.Core.Session.UserId)));
+                if (!pending.IsSuccess)
+                {
+                    throw new SdkFailure(pending.Error);
+                }
+
                 return new InitiatePaymentResult(J.Str(r, "paymentId"), J.Str(r, "redirectUrl"), J.Str(r, "paymentId"));
             }, ErrorAliases.Payments, "economy_purchase_start");
 
