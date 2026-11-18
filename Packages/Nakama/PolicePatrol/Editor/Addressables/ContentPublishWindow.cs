@@ -12,6 +12,7 @@ namespace PolicePatrol.Sdk.Editor
         private AssetSyncSettings _settings;
         private ContentTarget _target;
         private string _note = string.Empty;
+        private bool _activate = true;
         private string _message;
         private MessageType _messageType;
         private bool _busy;
@@ -38,6 +39,7 @@ namespace PolicePatrol.Sdk.Editor
             EditorGUILayout.LabelField("Key for this build", _settings.ResolvedContentKey);
             EditorGUILayout.HelpBox("Put {version} in the key (for example game-content-{version}) to give every app version its own content. Old app versions then keep working after you publish a new one.", MessageType.None);
             _note = EditorGUILayout.TextField("Release note", _note);
+            _activate = EditorGUILayout.Toggle(new GUIContent("Make live after upload", "Off: the pack is uploaded and left ready; a key with only content:write can do this. Someone with content:publish makes it live in the panel."), _activate);
 
             EditorGUILayout.BeginHorizontal();
             if (GUILayout.Button("1. Set up"))
@@ -57,8 +59,9 @@ namespace PolicePatrol.Sdk.Editor
                     var files = ContentBuilder.Describe(folder);
                     var plan = await ContentApi.PlanAsync(_settings, null, files);
                     var zip = ContentBuilder.Zip(folder, new HashSet<string>(plan.Missing));
-                    _target = await ContentApi.PublishAsync(_settings, plan, zip, _note);
-                    return $"Published pack {_target.VersionName}: uploaded {plan.Missing.Count} changed files, kept {plan.ReusedCount} unchanged ({plan.ReusedBytes / 1024f / 1024f:0.0} MB not sent). {_target.FileCount} files, {_target.TotalBytes / 1024f / 1024f:0.0} MB at {_target.Url}";
+                    var activate = _activate;
+                    _target = await ContentApi.PublishAsync(_settings, plan, zip, _note, activate);
+                    return (activate ? "Published" : "Uploaded (not live)") + $" pack {_target.VersionName}: uploaded {plan.Missing.Count} changed files, kept {plan.ReusedCount} unchanged ({plan.ReusedBytes / 1024f / 1024f:0.0} MB not sent). {_target.FileCount} files, {_target.TotalBytes / 1024f / 1024f:0.0} MB at {_target.Url}";
                 });
             }
 

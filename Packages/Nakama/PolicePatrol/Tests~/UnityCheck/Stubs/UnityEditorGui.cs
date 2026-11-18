@@ -41,6 +41,18 @@ namespace UnityEngine
         public static int height => 0;
     }
 
+    public sealed class GUIContent
+    {
+        public GUIContent(string text, string tooltip = null)
+        {
+            this.text = text;
+            this.tooltip = tooltip;
+        }
+
+        public string text;
+        public string tooltip;
+    }
+
     public static class GUI
     {
         public static bool enabled { get; set; }
@@ -115,6 +127,10 @@ namespace UnityEditor
     public static class EditorGUILayout
     {
         public static string TextField(string label, string text, params GUILayoutOption[] options) => text;
+
+        public static bool Toggle(GUIContent label, bool value, params GUILayoutOption[] options) => value;
+
+        public static bool Toggle(string label, bool value, params GUILayoutOption[] options) => value;
 
         public static string PasswordField(string label, string password, params GUILayoutOption[] options) => password;
 
