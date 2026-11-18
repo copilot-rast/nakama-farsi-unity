@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json.Linq;
 using PolicePatrol.Sdk.Payments;
 
 namespace PolicePatrol.Sdk.Shop
@@ -23,6 +24,8 @@ namespace PolicePatrol.Sdk.Shop
 
         public string Method => _store.Method;
 
+        public static bool SupportsSubscriptions(string method) => method != PaymentMethods.Myket;
+
         public void Load(Action<ApiResult<IReadOnlyList<ShopItem>>> onComplete) =>
             LoadPage(1, new List<ShopItem>(), onComplete);
 
@@ -31,6 +34,12 @@ namespace PolicePatrol.Sdk.Shop
             if (item == null)
             {
                 throw new ArgumentNullException(nameof(item));
+            }
+
+            if (item.IsSubscription && !SupportsSubscriptions(_store.Method))
+            {
+                onComplete?.Invoke(ApiResult<Payment>.Fail(new ApiError(0, PaymentErrorCodes.SubscriptionNotSupported, new JObject { ["method"] = _store.Method, ["productId"] = item.Id }, "Subscriptions cannot be bought with " + _store.Method)));
+                return;
             }
 
             PaymentProvider.InitiateBilling(item.Id, _store.Method, initiated =>
@@ -118,7 +127,7 @@ namespace PolicePatrol.Sdk.Shop
 
         private ShopItem ToItem(Product product)
         {
-            if (!product.IsActive || product.PaymentMethodSupport == null || !product.PaymentMethodSupport.Contains(_store.Method))
+            if (!product.IsActive || product.PaymentMethodSupport == null || !product.PaymentMethodSupport.Contains(_store.Method) || (product.IsSubscription && !SupportsSubscriptions(_store.Method)))
             {
                 return null;
             }

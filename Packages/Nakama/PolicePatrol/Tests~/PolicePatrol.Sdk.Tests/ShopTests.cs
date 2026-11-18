@@ -110,5 +110,24 @@ namespace PolicePatrol.Sdk.Tests
             Assert.Contains(PaymentErrorCodes.RewardPending, result.PendingErrorCodes);
             Assert.Equal(1, t.Calls.Count(c => c.Id == "economy_purchase_status"));
         }
+    
+        [Fact]
+        public async Task MyketNeverOpensSubscriptions()
+        {
+            var t = Harness.Start();
+            t.Routes["economy_catalog"] = p => Catalog("myket", true);
+            var store = new Store(PaymentMethods.Myket);
+            var shop = new ProductIAP(store, Poller());
+            var loaded = await Harness.Call<IReadOnlyList<ShopItem>>(shop.Load);
+            Assert.Empty(loaded.Data);
+
+            t.Routes["economy_catalog"] = p => Catalog("bazaar", true);
+            var bazaarItem = await Item(new ProductIAP(new Store(), Poller()));
+            var item = new ShopItem(bazaarItem.Product, PaymentMethods.Myket, "coins_100");
+            var r = await Harness.Call<Payment>(cb => shop.Buy(item, cb));
+            Assert.Equal(PaymentErrorCodes.SubscriptionNotSupported, r.Error.Code);
+            Assert.Equal(0, store.Opened);
+            Assert.DoesNotContain(t.Calls, c => c.Id == "economy_purchase_start");
+        }
     }
 }

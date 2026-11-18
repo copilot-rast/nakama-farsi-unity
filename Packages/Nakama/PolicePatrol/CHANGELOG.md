@@ -3,6 +3,7 @@
 ## Unreleased
 
 - Payments: a successful payment whose reward is not granted yet answers `PAYMENT_REWARD_PENDING` (server code in `ApiError.ServerCode`); the store purchase is consumed only after the server verified the receipt; `RecheckPending` follows payments whose reward is pending; `Payment.RewardGranted`, `PaymentPoller.WaitForReward`, `PaymentPoller.IsVerified`.
+- Myket: subscription products are left out of `ProductIAP.Load`, and `Buy` answers `SUBSCRIPTION_NOT_SUPPORTED` before Myket opens (`ProductIAP.SupportsSubscriptions`).
 
 ## 0.6.0 — 2026-11-15
 
