@@ -17,5 +17,8 @@ namespace PolicePatrol.Sdk.Stages
         int CooldownSeconds,
         int DailyRewardLimit,
         DateTimeOffset? NextRewardAt,
-        int? RewardsLeftToday);
+        int? RewardsLeftToday)
+    {
+        public int MinLevel { get; init; }
+    }
 }

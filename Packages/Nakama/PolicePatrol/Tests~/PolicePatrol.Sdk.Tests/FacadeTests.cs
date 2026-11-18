@@ -116,6 +116,25 @@ namespace PolicePatrol.Sdk.Tests
         }
 
         [Fact]
+        public async Task TheServerFreeRideChapterAndTheFreeRideRewardsHaveTheirOwnKeys()
+        {
+            var t = Harness.Start();
+            t.Routes["campaign_chapters"] = p => "{\"xp\":900,\"level\":2,\"chapters\":[{\"key\":\"freeride\",\"name\":\"Free ride\",\"unlocked\":true,\"stages\":[{\"key\":\"fr-1\",\"name\":\"F1\",\"mode\":\"repeatable\",\"unlocked\":true,\"timeLimitSeconds\":240}]}],\"freeride\":[{\"key\":\"ride-low\",\"name\":\"Low\",\"minLevel\":1},{\"key\":\"ride-high\",\"name\":\"High\",\"minLevel\":5}]}";
+            var progress = await Harness.Call<PlayerProgress>(StageProvider.Get);
+            Assert.Equal(new[] { StageProvider.FreeRideChapterKey, StageProvider.FreeRideRewardsChapterKey }, progress.Data.Chapters.Select(c => c.Key).ToArray());
+            Assert.Equal(240, progress.Data.Chapters[0].Stages[0].TimeLimitSeconds);
+            var rides = progress.Data.Chapters[1].Stages;
+            Assert.True(rides[0].Unlocked);
+            Assert.False(rides[1].Unlocked);
+            Assert.Equal(5, rides[1].MinLevel);
+            Assert.Equal(StageProvider.FreeRideMode, rides[1].Mode);
+
+            t.Routes["campaign_attempt_start"] = p => "{\"attemptId\":\"a-9\",\"stageKey\":\"fr-1\"}";
+            var attempt = await Harness.Call<StageAttempt>(cb => StageProvider.Start("fr-1", cb));
+            Assert.Equal("a-9", attempt.Data.AttemptId);
+        }
+
+        [Fact]
         public async Task StagesAndFreeRide()
         {
             var t = Harness.Start();
@@ -124,7 +143,8 @@ namespace PolicePatrol.Sdk.Tests
             Assert.Equal(900, progress.Data.Xp);
             Assert.Equal(2, progress.Data.Chapters.Length);
             Assert.Equal(100, progress.Data.Chapters[0].Stages[0].Rewards[0].Amount);
-            Assert.Equal(StageProvider.FreeRideChapterKey, progress.Data.Chapters[1].Key);
+            Assert.Equal(StageProvider.FreeRideRewardsChapterKey, progress.Data.Chapters[1].Key);
+            Assert.True(progress.Data.Chapters[1].Stages[0].Unlocked);
 
             var attempt = await Harness.Call<StageAttempt>(cb => StageProvider.Start("freeride-chapter-close-beta-level-02", cb));
             Assert.StartsWith("freeride:", attempt.Data.AttemptId);

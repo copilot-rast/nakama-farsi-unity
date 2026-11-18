@@ -11,6 +11,8 @@ namespace PolicePatrol.Sdk.Stages
     public static class StageProvider
     {
         public const string FreeRideChapterKey = "freeride";
+        public const string FreeRideRewardsChapterKey = "freeride-rewards";
+        public const string FreeRideMode = "freeride";
         private const string FreeRidePrefix = "freeride:";
         private static readonly ConcurrentDictionary<string, bool> FreeRide = new ConcurrentDictionary<string, bool>(StringComparer.Ordinal);
 
@@ -112,18 +114,24 @@ namespace PolicePatrol.Sdk.Stages
                 FreeRide[s.Key] = false;
             }
 
+            var level = J.Int(r, "level");
             if (free.Count > 0)
             {
                 var stages = free.Select((f, i) =>
                 {
                     FreeRide[J.Str(f, "key")] = true;
-                    return new PlayerStage(J.Str(f, "key"), J.Str(f, "name"), i, FreeRideChapterKey, true, 0, 0, Rewards(f, "rewards"), J.Int(f, "xp"), null,
-                        J.Str(f, "rewardGroup"), J.Int(f, "cooldownSeconds"), J.Int(f, "dailyRewardLimit"), J.Time(f, "nextRewardAt"), (int?)J.NumOrNull(f, "rewardsLeftToday"));
+                    var minLevel = J.Int(f, "minLevel");
+                    return new PlayerStage(J.Str(f, "key"), J.Str(f, "name"), i, FreeRideMode, level >= minLevel, 0, 0, Rewards(f, "rewards"), J.Int(f, "xp"), null,
+                        J.Str(f, "rewardGroup"), J.Int(f, "cooldownSeconds"), J.Int(f, "dailyRewardLimit"), J.Time(f, "nextRewardAt"), (int?)J.NumOrNull(f, "rewardsLeftToday"))
+                    {
+                        MinLevel = minLevel,
+                    };
                 }).ToArray();
-                chapters.Add(new PlayerChapter(FreeRideChapterKey, "Free ride", chapters.Count, true, 0, 0, Array.Empty<PlayerMilestone>(), stages));
+                var lowest = stages.Min(s => s.MinLevel);
+                chapters.Add(new PlayerChapter(FreeRideRewardsChapterKey, "Free ride", chapters.Count, level >= lowest, lowest, 0, Array.Empty<PlayerMilestone>(), stages));
             }
 
-            return new PlayerProgress(J.Long(r, "xp"), J.Int(r, "level"), (long?)J.NumOrNull(r, "nextLevelXp"), chapters.ToArray());
+            return new PlayerProgress(J.Long(r, "xp"), level, (long?)J.NumOrNull(r, "nextLevelXp"), chapters.ToArray());
         }
 
         private static PlayerChapter Chapter(JToken ch, int index)
