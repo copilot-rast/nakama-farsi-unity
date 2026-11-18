@@ -180,6 +180,7 @@ namespace NakamaFarsi.Sdk
 
         public async Task LogoutAsync()
         {
+            Chat.ForgetChannels();
             await Socket.CloseAsync().ConfigureAwait(false);
             await Session.LogoutAsync().ConfigureAwait(false);
         }

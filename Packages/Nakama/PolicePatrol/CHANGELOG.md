@@ -9,6 +9,7 @@
 - Prices: `PlayerItem.FinalPrices` (from `economy_inventory` `finalPrice`, tag discount applied; falls back to `Prices`), `PlayerItem.DiscountPercent`, `PlayerItem.HasDiscount`. Show `FinalPrices` on buy buttons: it is what `Buy` charges. Shop products already had `Product.FinalPrice` / `ShopItem.FinalPrice` (`finalToman`).
 - Security: `Http Key` is gone (`PolicePatrolSdkConfig.httpKey`, `SdkOptions.HttpKey`, `NakamaFarsiConfig.httpKey`, `NakamaFarsiOptions.HttpKey`). Phone + password login, forgot / reset password and the sign-up OTP (`publication_otp_*`) now sign in silently with the device first when there is no session (`SystemInfo.deviceUniqueIdentifier`, or a stored id), then call the RPC with that session; a password or OTP login replaces the device session as before. Old config assets keep loading (the old field is ignored). New: `SdkOptions.DeviceId`, `NakamaFarsiOptions.DeviceId`, `NakamaFarsiClient.DeviceId`, `NakamaFarsiClient.EnsureDeviceSessionAsync`. Rotate any runtime http_key that was ever put in a build.
 - Errors: fields the server sends next to `code` (the suspension notice `kind`, `until`, `reason`) are copied into `ApiError.Meta` when `meta` does not have them; date strings in error JSON stay as sent.
+- Chat (Farsi layer): `JoinRoomAsync` keeps history by default (`persistence = true`); joined channels are joined again after the socket reconnects (`ChatClient.Rejoined`, `JoinedChannelIds`, `RejoinAsync`, `ForgetChannels`; logout forgets them).
 
 ## 0.6.0 — 2026-11-15
 

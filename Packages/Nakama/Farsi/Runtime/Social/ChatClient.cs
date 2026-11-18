@@ -52,24 +52,103 @@ namespace NakamaFarsi.Sdk.Social
 
     public sealed class ChatClient
     {
+        private sealed class Joined
+        {
+            public string Target;
+            public ChannelType Type;
+            public bool Persistence;
+            public ISocket Socket;
+        }
+
         private readonly NakamaFarsiClient _client;
+        private readonly Dictionary<string, Joined> _joined = new Dictionary<string, Joined>(StringComparer.Ordinal);
 
         public ChatClient(NakamaFarsiClient client)
         {
             _client = client ?? throw new ArgumentNullException(nameof(client));
             _client.Socket.ChannelMessageReceived += m => MessageReceived?.Invoke(ChatMessage.From(m));
+            _client.Socket.Connected += () => _ = RejoinAsync();
         }
 
         public event Action<ChatMessage> MessageReceived;
 
+        public event Action<IChannel> Rejoined;
+
+        public IReadOnlyCollection<string> JoinedChannelIds
+        {
+            get
+            {
+                lock (_joined)
+                {
+                    return new List<string>(_joined.Keys);
+                }
+            }
+        }
+
+        public void ForgetChannels()
+        {
+            lock (_joined)
+            {
+                _joined.Clear();
+            }
+        }
+
+        public async Task RejoinAsync()
+        {
+            var socket = _client.Socket.Socket;
+            if (socket == null)
+            {
+                return;
+            }
+
+            List<KeyValuePair<string, Joined>> stale;
+            lock (_joined)
+            {
+                stale = new List<KeyValuePair<string, Joined>>();
+                foreach (var pair in _joined)
+                {
+                    if (!ReferenceEquals(pair.Value.Socket, socket))
+                    {
+                        stale.Add(pair);
+                    }
+                }
+            }
+
+            foreach (var pair in stale)
+            {
+                try
+                {
+                    var channel = await socket.JoinChatAsync(pair.Value.Target, pair.Value.Type, pair.Value.Persistence, false).ConfigureAwait(false);
+                    lock (_joined)
+                    {
+                        if (_joined.TryGetValue(pair.Key, out var still) && ReferenceEquals(still, pair.Value))
+                        {
+                            still.Socket = socket;
+                        }
+                    }
+
+                    Rejoined?.Invoke(channel);
+                }
+                catch (Exception e)
+                {
+                    _client.Logger.Log("Chat rejoin failed for " + pair.Key + ": " + e.Message);
+                }
+            }
+        }
+
         public Task<IChannel> JoinDirectAsync(string userId, bool persistence = true, CancellationToken ct = default) => Join(userId, ChannelType.DirectMessage, persistence, ct);
 
-        public Task<IChannel> JoinRoomAsync(string room, bool persistence = false, CancellationToken ct = default) => Join(room, ChannelType.Room, persistence, ct);
+        public Task<IChannel> JoinRoomAsync(string room, bool persistence = true, CancellationToken ct = default) => Join(room, ChannelType.Room, persistence, ct);
 
         public Task<IChannel> JoinGroupAsync(string groupId, bool persistence = true, CancellationToken ct = default) => Join(groupId, ChannelType.Group, persistence, ct);
 
         public async Task LeaveAsync(string channelId)
         {
+            lock (_joined)
+            {
+                _joined.Remove(channelId);
+            }
+
             var socket = await SocketAsync().ConfigureAwait(false);
             await socket.LeaveChatAsync(channelId).ConfigureAwait(false);
         }
@@ -106,7 +185,13 @@ namespace NakamaFarsi.Sdk.Social
             var socket = await SocketAsync().ConfigureAwait(false);
             try
             {
-                return await socket.JoinChatAsync(target, type, persistence, false).ConfigureAwait(false);
+                var channel = await socket.JoinChatAsync(target, type, persistence, false).ConfigureAwait(false);
+                lock (_joined)
+                {
+                    _joined[channel.Id] = new Joined { Target = target, Type = type, Persistence = persistence, Socket = socket };
+                }
+
+                return channel;
             }
             catch (Exception e) when (!(e is ApiException))
             {
