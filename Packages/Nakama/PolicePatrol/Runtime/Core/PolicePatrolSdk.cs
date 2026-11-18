@@ -41,6 +41,13 @@ namespace PolicePatrol.Sdk
 
         public static void Shutdown() => Client = null;
 
+        public static void RefreshErrorTexts(Action<ApiResult<OkResponse>> onComplete = null) =>
+            Run(onComplete, async c =>
+            {
+                await c.Core.RefreshErrorCatalogAsync(true).ConfigureAwait(false);
+                return new OkResponse(true);
+            }, null, "error texts");
+
         public static void SetLanguage(string language)
         {
             if (Client != null)

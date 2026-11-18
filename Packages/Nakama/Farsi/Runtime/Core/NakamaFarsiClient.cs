@@ -21,6 +21,8 @@ namespace NakamaFarsi.Sdk
         private InsightsClient _insights;
 
         private readonly SemaphoreSlim _deviceLock = new SemaphoreSlim(1, 1);
+        private readonly object _catalogGate = new object();
+        private DateTimeOffset _catalogTried = DateTimeOffset.MinValue;
 
         public NakamaFarsiClient(
             NakamaFarsiOptions options,
@@ -47,6 +49,7 @@ namespace NakamaFarsi.Sdk
             Errors = new ErrorCatalog(Store, options.StorePrefix);
             Rpc = new RpcClient(options, Session, httpTransport ?? new HttpRpcTransport(Client), socketTransport ?? new SocketRpcTransport(Socket), Errors, Logger);
             Rpc.SignInSilently = ct => EnsureDeviceSessionAsync(ct);
+            Rpc.ErrorSeen = () => _ = RefreshErrorCatalogIfStaleAsync();
             Rpcs = new NakamaFarsiRpcs(this);
             Phone = new PhoneLogin(this);
             Payments = new PaymentClient(this);
@@ -183,6 +186,30 @@ namespace NakamaFarsi.Sdk
             Chat.ForgetChannels();
             await Socket.CloseAsync().ConfigureAwait(false);
             await Session.LogoutAsync().ConfigureAwait(false);
+        }
+
+        public static readonly TimeSpan DefaultErrorCatalogTtl = TimeSpan.FromMinutes(30);
+
+        public TimeSpan ErrorCatalogTtl { get; set; } = DefaultErrorCatalogTtl;
+
+        public TimeSpan ErrorCatalogRetryGap { get; set; } = TimeSpan.FromMinutes(1);
+
+        public bool IsErrorCatalogStale => !Errors.IsFresh(Clock.UtcNow, Language) || Clock.UtcNow - Errors.FetchedAt >= ErrorCatalogTtl;
+
+        public Task RefreshErrorCatalogIfStaleAsync()
+        {
+            var now = Clock.UtcNow;
+            lock (_catalogGate)
+            {
+                if (!IsErrorCatalogStale || now - _catalogTried < ErrorCatalogRetryGap)
+                {
+                    return Task.CompletedTask;
+                }
+
+                _catalogTried = now;
+            }
+
+            return RefreshErrorCatalogAsync(true);
         }
 
         public Task RefreshErrorCatalogAsync(bool force = false)

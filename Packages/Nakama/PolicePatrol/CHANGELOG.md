@@ -14,6 +14,7 @@
 - Free ride: `campaign_freeride_claim` answering `REWARD_LIMITED` comes back as a `StageResult` with `RewardLimited` = the reason (`cooldown` / `daily_limit`), `IsRewardLimited`, `NextRewardAt` and `RewardsLeftToday`, not as an error. Paid claims carry `XpGained`, `Xp`, `Level`, `NextRewardAt` and `RewardsLeftToday`. `StageProvider.Start` for a free-ride stage still makes a local id without a server call; the server limits rewards by the group cooldown and the daily limit, not by the attempt time.
 - Ledger: `LedgerKinds` match the server kinds (`Purchase`, `Gift`, `Asset`, `Stage`, `Prize`, `Admin`, `Initial`, `Other`). `GiftCode` (now `gift`), `AdminAdd` and `AdminUse` (now `admin`) are `[Obsolete]` aliases; `CheatCode` is `[Obsolete]` because the server has no such kind.
 - Content Publish: a "Make live after upload" toggle (on by default, as before). Off sends `activate: false`, so a key with only `content:write` uploads a ready pack without `PACK_ACTIVATE_DENIED`; `ContentApi.PublishAsync(..., activate)` already had the parameter.
+- Error texts: the cached catalog is reloaded when it is older than its `cacheSeconds` or `NakamaFarsiClient.ErrorCatalogTtl` (30 min) on the next server error and when the app resumes (at most once a minute); `NakamaFarsiClient.RefreshErrorCatalogIfStaleAsync`, `IsErrorCatalogStale`, and `PolicePatrolSdk.RefreshErrorTexts` force a reload.
 
 ## 0.6.0 — 2026-11-15
 

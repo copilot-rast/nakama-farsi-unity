@@ -51,6 +51,7 @@ namespace PolicePatrol.Sdk.Tests
             store.Set(coreOptions.StorePrefix + "session.token", Jwt(DateTimeOffset.UtcNow.AddHours(2)));
             store.Set(coreOptions.StorePrefix + "session.refresh", Jwt(DateTimeOffset.UtcNow.AddDays(30)));
             var core = new NakamaFarsiClient(coreOptions, store, httpTransport: transport, socketTransport: transport);
+            core.ErrorCatalogRetryGap = TimeSpan.MaxValue;
             PolicePatrolSdk.Initialize(options, core);
             return transport;
         }

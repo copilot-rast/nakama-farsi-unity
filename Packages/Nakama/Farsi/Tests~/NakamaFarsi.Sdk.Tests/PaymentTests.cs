@@ -35,6 +35,7 @@ namespace NakamaFarsi.Sdk.Tests
         {
             var options = new NakamaFarsiOptions { Host = "127.0.0.1", Port = 1, UseSocket = false, TimeoutSeconds = 1 };
             var client = new NakamaFarsiClient(options, Jwt.StoreWithSession(_clock.UtcNow), clock: _clock, httpTransport: _http, socketTransport: _http);
+            client.ErrorCatalogRetryGap = TimeSpan.MaxValue;
             return new PaymentClient(client) { Delay = (w, ct) => Task.CompletedTask, RewardTimeout = TimeSpan.Zero, SubmitTimeout = TimeSpan.Zero };
         }
 

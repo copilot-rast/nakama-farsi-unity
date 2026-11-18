@@ -54,6 +54,8 @@ namespace NakamaFarsi.Sdk
 
         public Func<CancellationToken, Task> SignInSilently { get; set; }
 
+        public Action ErrorSeen { get; set; }
+
         public static readonly System.Collections.Generic.HashSet<string> DeviceSignInRpcs = new System.Collections.Generic.HashSet<string>
         {
             "account_password_login",
@@ -114,6 +116,7 @@ namespace NakamaFarsi.Sdk
                 }
                 catch (RpcServerException e)
                 {
+                    ErrorSeen?.Invoke();
                     var error = ErrorParser.Parse(e.Message, e.Status, _catalog, _options.Language);
                     Log(id, "error " + error);
                     throw new ApiException(error, e);

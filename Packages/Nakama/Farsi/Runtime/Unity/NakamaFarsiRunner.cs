@@ -90,6 +90,11 @@ namespace NakamaFarsi.Sdk.Unity
 
         private void OnApplicationPause(bool paused)
         {
+            if (!paused)
+            {
+                _ = Client?.RefreshErrorCatalogIfStaleAsync();
+            }
+
             if (Client != null && Client.Insights.Running)
             {
                 if (paused)
