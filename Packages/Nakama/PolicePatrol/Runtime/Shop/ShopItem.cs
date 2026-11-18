@@ -63,6 +63,10 @@ namespace PolicePatrol.Sdk.Shop
 
         public bool IsOneTime => Product.IsOneTime;
 
+        public string[] PhoneRequiredFor => Product.PhoneRequiredFor ?? new string[0];
+
+        public bool NeedsPhone => Product.NeedsPhoneFor(Method);
+
         public string Title => TitleFor(null);
 
         public string TitleFor(string languageId) => LocalizedValues.Pick(Product.Names, languageId) ?? Product.Name;

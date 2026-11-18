@@ -42,5 +42,16 @@ namespace PolicePatrol.Sdk.Shop
         bool IsOneTime = false,
         bool CheckContents = false,
         string IconAddress = null,
-        string CoverAddress = null);
+        string CoverAddress = null)
+    {
+        public string[] PhoneRequiredFor { get; init; } = Array.Empty<string>();
+
+        public bool? PhoneVerified { get; init; }
+
+        public bool NeedsPhoneFor(string paymentMethod)
+        {
+            var m = paymentMethod == "zarinpal" ? Payments.PaymentMethods.Zarrinpal : paymentMethod;
+            return PhoneRequiredFor != null && Array.IndexOf(PhoneRequiredFor, m) >= 0;
+        }
+    }
 }

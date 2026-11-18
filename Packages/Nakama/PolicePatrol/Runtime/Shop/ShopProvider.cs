@@ -109,7 +109,11 @@ namespace PolicePatrol.Sdk.Shop
                 J.Bool(p, "isOneTime"),
                 false,
                 J.Str(p, "iconAddress"),
-                J.Str(p, "coverAddress"));
+                J.Str(p, "coverAddress"))
+            {
+                PhoneRequiredFor = Mapping.Arr(p, "phoneRequiredFor").Select(m => (string)m == "zarinpal" ? Payments.PaymentMethods.Zarrinpal : (string)m).ToArray(),
+                PhoneVerified = p?["phoneVerified"]?.Type == JTokenType.Boolean ? (bool?)(bool)p["phoneVerified"] : null,
+            };
         }
     }
 }

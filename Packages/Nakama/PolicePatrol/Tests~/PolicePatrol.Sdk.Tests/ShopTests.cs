@@ -144,5 +144,21 @@ namespace PolicePatrol.Sdk.Tests
             t.Routes["economy_purchase_start"] = p => "{\"paymentId\":\"" + PaymentId + "\",\"status\":\"success\",\"rewards\":[]}";
             Assert.True((await Harness.Call<InitiatePaymentResult>(cb => PaymentProvider.Initiate("p1", PaymentMethods.InApp, cb))).IsSuccess);
         }
+    
+
+        [Fact]
+        public async Task ProductsSayWhichMethodsNeedAPhone()
+        {
+            var t = Harness.Start();
+            t.Routes["economy_catalog"] = p => "{\"products\":[{\"id\":\"prod\",\"key\":\"coins\",\"name\":\"Coins\",\"priceToman\":1000,\"paymentMethods\":[\"zarinpal\",\"bazaar\"],\"phoneRequiredFor\":[\"zarinpal\"],\"phoneVerified\":false}]}";
+            var list = await Harness.Call<PagedResult<Product>>(cb => ShopProvider.List(ListQuery.Page(1, 10), null, null, cb));
+            var product = list.Data.Items[0];
+            Assert.Equal(new[] { PaymentMethods.Zarrinpal }, product.PhoneRequiredFor);
+            Assert.False(product.PhoneVerified);
+            Assert.True(product.NeedsPhoneFor(PaymentMethods.Zarrinpal));
+            Assert.True(product.NeedsPhoneFor("zarinpal"));
+            Assert.False(product.NeedsPhoneFor(PaymentMethods.Bazaar));
+            Assert.False(new ShopItem(product, PaymentMethods.Bazaar, "coins_100").NeedsPhone);
+        }
     }
 }
