@@ -7643,11 +7643,21 @@
       },
       "response": {
         "properties": {
-          "gameMatchId": {},
-          "gameNo": {},
-          "launched": {},
-          "matchId": {},
-          "status": {}
+          "gameMatchId": {
+            "type": "string"
+          },
+          "gameNo": {
+            "type": "integer"
+          },
+          "launched": {
+            "type": "boolean"
+          },
+          "matchId": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
         },
         "type": "object"
       },
@@ -7872,11 +7882,21 @@
       },
       "response": {
         "properties": {
-          "gameMatchId": {},
-          "gameNo": {},
-          "launched": {},
-          "matchId": {},
-          "status": {}
+          "gameMatchId": {
+            "type": "string"
+          },
+          "gameNo": {
+            "type": "integer"
+          },
+          "launched": {
+            "type": "boolean"
+          },
+          "matchId": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
         },
         "type": "object"
       },

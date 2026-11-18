@@ -10390,19 +10390,19 @@ namespace NakamaFarsi.Sdk.Generated
         public JObject Raw { get; set; }
 
         [JsonProperty("gameMatchId")]
-        public JToken GameMatchId { get; set; }
+        public string GameMatchId { get; set; }
 
         [JsonProperty("gameNo")]
-        public JToken GameNo { get; set; }
+        public long? GameNo { get; set; }
 
         [JsonProperty("launched")]
-        public JToken Launched { get; set; }
+        public bool? Launched { get; set; }
 
         [JsonProperty("matchId")]
-        public JToken MatchId { get; set; }
+        public string MatchId { get; set; }
 
         [JsonProperty("status")]
-        public JToken Status { get; set; }
+        public string Status { get; set; }
 
         [JsonExtensionData]
         public IDictionary<string, JToken> Extra { get; set; }
@@ -10699,19 +10699,19 @@ namespace NakamaFarsi.Sdk.Generated
         public JObject Raw { get; set; }
 
         [JsonProperty("gameMatchId")]
-        public JToken GameMatchId { get; set; }
+        public string GameMatchId { get; set; }
 
         [JsonProperty("gameNo")]
-        public JToken GameNo { get; set; }
+        public long? GameNo { get; set; }
 
         [JsonProperty("launched")]
-        public JToken Launched { get; set; }
+        public bool? Launched { get; set; }
 
         [JsonProperty("matchId")]
-        public JToken MatchId { get; set; }
+        public string MatchId { get; set; }
 
         [JsonProperty("status")]
-        public JToken Status { get; set; }
+        public string Status { get; set; }
 
         [JsonExtensionData]
         public IDictionary<string, JToken> Extra { get; set; }
