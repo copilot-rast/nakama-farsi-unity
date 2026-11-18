@@ -7,6 +7,12 @@ public class PolicePatrolQuickStart : MonoBehaviour
 {
     private void Start()
     {
+        if (!PolicePatrolSdk.IsInitialized)
+        {
+            Debug.LogError($"{ApiError.NotInitializedCode}: add PolicePatrolSdkConfig to a Resources folder (Tools > PolicePatrol > Create SDK Config)");
+            return;
+        }
+
         PolicePatrolSdk.Client.SessionExpired += OnSessionExpired;
 
         if (AuthProvider.IsLoggedIn)
