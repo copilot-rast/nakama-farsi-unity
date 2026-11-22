@@ -1,4 +1,4 @@
-# PolicePatrol SDK (`com.policepatrol.sdk`) 0.6
+# PolicePatrol SDK (`com.policepatrol.sdk`) 0.7
 
 Police Patrol client on the nakama-farsi server. The public API of SDK 0.5.21 (namespaces, classes, methods,
 `ApiResult<T>`, error codes) is kept; underneath, every call goes through `com.nakamafarsi.sdk` (Nakama session,
@@ -44,6 +44,8 @@ Guide sections 1–8: `AuthProvider` (device login, logout, phone OTP / recovery
 Stat Cards, Content Publish) with API keys from «ابزار توسعه › کلیدهای API».
 
 New: `PolicePatrolAnalytics` (design / progression / resource / business / error events, context, dimensions).
+
+New in 0.7 (guide sections 10–12): stage settings, star rules, criteria and milestone ids (`StageProvider`), the start with a car (`StageProvider.Start(stageKey, vehicleKey, ...)`), the trophy page, claim and the 1501 notification (`StatsProvider.Trophies`, `Claim`, `TrophyStepUnlocked`), split stats (`StatsProvider.Mine(keys, ...)`), design event helpers (`PolicePatrolEvents`), car and part profiles (`InventoryProvider.Get(type, withProfile, ...)`), equip / unequip (`InventoryProvider.Equip`, `Unequip`), and the routing table plus dry run in the Asset Sync window.
 
 ## Payments: reward pending and consume
 

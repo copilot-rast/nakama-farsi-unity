@@ -3,6 +3,14 @@ All notable changes to this project are documented below.
 
 The format is based on [keep a changelog](http://keepachangelog.com/) and this project uses [semantic versioning](http://semver.org/).
 
+## [3.23.0-nf.3] - 2026-11-22
+### Added
+- Farsi layer: typed wrappers regenerated from the Police Patrol server (`nakama` @ e12ac90cc), 300 RPCs (new: `base_comm_*`, `base_friend_suggestions`, `base_my_code`, `base_player_codes`, `base_user_by_code`, `base_username_change`, `base_username_quote`, `comms_user_token`, `economy_boosters`, `economy_chance_ack`, `economy_game_active`, `economy_game_bot`, `economy_game_friend_*`, `economy_game_queue`, `economy_game_stats`, `economy_player_card`, `economy_regen_*`, `insights_send`); new request fields such as `withProfile` and `type` on `economy_inventory`. `tools/rpcschema -keep` keeps response shapes the scan no longer resolves, so no generated type loses a member.
+- Police Patrol layer 0.7.0: see `PolicePatrol/CHANGELOG.md`.
+
+### Changed
+- Farsi layer: the socket reads messages up to `NakamaFarsiOptions.SocketMaxMessageBytes` (4 MB). The Nakama default (256 KB) silently dropped larger answers, so the call timed out and went over HTTP.
+
 ## [3.23.0] - 2026-11-08
 ### Changed
 - Update to use Nakama and Satori .NET 3.23.0 release.
