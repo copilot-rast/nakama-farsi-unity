@@ -11,6 +11,6 @@ for extra in ${EXTRA:-}; do
   repo=${extra%%:*}; rest=${extra#*:}
   git -C "$repo" archive "${rest%%:*}" "${rest#*:}" | tar -x -C "$tmp"
 done
-go run ./rpcschema -root "$tmp" -out schema -modules "$MODULES"
+go run ./rpcschema -root "$tmp" -out schema -modules "$MODULES" -keep "${KEEP:-schema/rpc-schema.json}"
 go run ./rpcgen -schema schema/rpc-schema.json -out ../Packages/Nakama/Farsi/Runtime/Generated/Rpcs.g.cs
 echo "generated from $(git -C "$NF" rev-parse --short "$REV")"

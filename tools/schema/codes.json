@@ -49,6 +49,12 @@
       "publication"
     ]
   },
+  "ACTIVE_MATCH_EXISTS": {
+    "status": 409,
+    "modules": [
+      "economy"
+    ]
+  },
   "ALREADY_CLAIMED": {
     "status": 409,
     "modules": [
@@ -63,6 +69,12 @@
       "economy",
       "publication",
       "quiz"
+    ]
+  },
+  "ALREADY_FULL": {
+    "status": 409,
+    "modules": [
+      "economy"
     ]
   },
   "ALREADY_OWNED": {
@@ -103,34 +115,50 @@
       "analytics"
     ]
   },
+  "ANALYTICS_BACKLOG_FULL": {
+    "status": 503,
+    "modules": [
+      "insights"
+    ]
+  },
   "ANALYTICS_BATCH_EMPTY": {
     "status": 400,
     "modules": [
-      "analytics"
+      "analytics",
+      "insights"
     ]
   },
   "ANALYTICS_BATCH_ID_REQUIRED": {
     "status": 400,
     "modules": [
-      "analytics"
+      "analytics",
+      "insights"
     ]
   },
   "ANALYTICS_BATCH_TOO_LARGE": {
     "status": 400,
     "modules": [
-      "analytics"
+      "analytics",
+      "insights"
     ]
   },
   "ANALYTICS_BUSY": {
     "status": 409,
     "modules": [
-      "analytics"
+      "analytics",
+      "insights"
     ]
   },
   "ANALYTICS_CARDS_EMPTY": {
     "status": 400,
     "modules": [
       "analytics"
+    ]
+  },
+  "ANALYTICS_DISABLED": {
+    "status": 503,
+    "modules": [
+      "insights"
     ]
   },
   "ANALYTICS_GROUP_NOT_FOUND": {
@@ -142,13 +170,15 @@
   "ANALYTICS_INVALID_APP_INFO": {
     "status": 400,
     "modules": [
-      "analytics"
+      "analytics",
+      "insights"
     ]
   },
   "ANALYTICS_INVALID_BATCH_ID": {
     "status": 400,
     "modules": [
-      "analytics"
+      "analytics",
+      "insights"
     ]
   },
   "ANALYTICS_INVALID_CONTEXT": {
@@ -259,6 +289,24 @@
     "status": 403,
     "modules": [
       "devkit"
+    ]
+  },
+  "APPLE_API_KEYS_INCOMPLETE": {
+    "status": 400,
+    "modules": [
+      "economy"
+    ]
+  },
+  "APPLE_API_KEYS_REQUIRED": {
+    "status": 400,
+    "modules": [
+      "economy"
+    ]
+  },
+  "APPLE_SHARED_SECRET_REQUIRED": {
+    "status": 400,
+    "modules": [
+      "economy"
     ]
   },
   "APP_VERSION_REQUIRED": {
@@ -567,6 +615,18 @@
       "base"
     ]
   },
+  "BOTS_DISABLED": {
+    "status": 403,
+    "modules": [
+      "economy"
+    ]
+  },
+  "BOT_NOT_FOUND": {
+    "status": 404,
+    "modules": [
+      "economy"
+    ]
+  },
   "CANCELED": {
     "status": 499,
     "modules": [
@@ -574,6 +634,12 @@
       "devkit",
       "economy",
       "publication"
+    ]
+  },
+  "CANNOT_INVITE_SELF": {
+    "status": 400,
+    "modules": [
+      "economy"
     ]
   },
   "CANNOT_RATE": {
@@ -595,6 +661,12 @@
     ]
   },
   "CANNOT_TARGET_SELF": {
+    "status": 400,
+    "modules": [
+      "base"
+    ]
+  },
+  "CAN_SEND_REQUIRED": {
     "status": 400,
     "modules": [
       "base"
@@ -651,10 +723,28 @@
       "publication"
     ]
   },
+  "CHANCE_LOCKED": {
+    "status": 403,
+    "modules": [
+      "economy"
+    ]
+  },
+  "CHANCE_PRICE_CHANGED": {
+    "status": 409,
+    "modules": [
+      "economy"
+    ]
+  },
   "CHANCE_TOTAL_LIMIT": {
     "status": 409,
     "modules": [
       "economy"
+    ]
+  },
+  "CHANNEL_NOT_FOUND": {
+    "status": 404,
+    "modules": [
+      "base"
     ]
   },
   "CHAT_CLOSED": {
@@ -679,6 +769,24 @@
     "status": 404,
     "modules": [
       "base"
+    ]
+  },
+  "CHEST_NOT_FOUND": {
+    "status": 404,
+    "modules": [
+      "economy"
+    ]
+  },
+  "CHEST_TOO_DEEP": {
+    "status": 409,
+    "modules": [
+      "economy"
+    ]
+  },
+  "CLAIM_EXPIRED": {
+    "status": 410,
+    "modules": [
+      "economy"
     ]
   },
   "CLAIM_NOT_FOUND": {
@@ -1024,6 +1132,12 @@
       "clan"
     ]
   },
+  "CODE_JOIN_DISABLED": {
+    "status": 403,
+    "modules": [
+      "economy"
+    ]
+  },
   "CODE_NOT_FOUND": {
     "status": 400,
     "modules": [
@@ -1071,6 +1185,18 @@
     "modules": [
       "base",
       "publication"
+    ]
+  },
+  "COMMS_PROVIDER_REQUIRED": {
+    "status": 400,
+    "modules": [
+      "base"
+    ]
+  },
+  "COMMS_TOKEN_RATE_LIMITED": {
+    "status": 429,
+    "modules": [
+      "base"
     ]
   },
   "CONTENT_INDEX_PRIVATE": {
@@ -1329,6 +1455,7 @@
   "CURRENCY_NOT_FOUND": {
     "status": 400,
     "modules": [
+      "base",
       "economy"
     ]
   },
@@ -1341,6 +1468,7 @@
   "CURRENCY_REQUIRED": {
     "status": 400,
     "modules": [
+      "base",
       "inventoryx"
     ]
   },
@@ -1580,6 +1708,12 @@
       "pp"
     ]
   },
+  "FAVORITES_FULL": {
+    "status": 409,
+    "modules": [
+      "base"
+    ]
+  },
   "FILE_REQUIRED": {
     "status": 400,
     "modules": [
@@ -1611,6 +1745,12 @@
       "economy"
     ]
   },
+  "FRIEND_ROOMS_DISABLED": {
+    "status": 403,
+    "modules": [
+      "economy"
+    ]
+  },
   "FROM_LEVEL_REQUIRED": {
     "status": 400,
     "modules": [
@@ -1626,13 +1766,20 @@
   "GAME_KEY_REQUIRED": {
     "status": 400,
     "modules": [
-      "base"
+      "base",
+      "economy"
     ]
   },
   "GAME_NOT_FOUND": {
     "status": 404,
     "modules": [
       "base",
+      "economy"
+    ]
+  },
+  "GAME_NOT_REALTIME": {
+    "status": 400,
+    "modules": [
       "economy"
     ]
   },
@@ -1801,6 +1948,7 @@
   "IDS_REQUIRED": {
     "status": 400,
     "modules": [
+      "economy",
       "publication"
     ]
   },
@@ -1832,6 +1980,12 @@
     "status": 400,
     "modules": [
       "inventoryx"
+    ]
+  },
+  "INFINITY_NEEDS_CYCLE": {
+    "status": 400,
+    "modules": [
+      "economy"
     ]
   },
   "INSUFFICIENT_BALANCE": {
@@ -1895,9 +2049,16 @@
       "economy"
     ]
   },
+  "INVALID_ASSET_ID": {
+    "status": 400,
+    "modules": [
+      "base"
+    ]
+  },
   "INVALID_BODY": {
     "status": 400,
     "modules": [
+      "base",
       "publication"
     ]
   },
@@ -1905,6 +2066,12 @@
     "status": 400,
     "modules": [
       "publication"
+    ]
+  },
+  "INVALID_BOT_TEMPLATE": {
+    "status": 400,
+    "modules": [
+      "economy"
     ]
   },
   "INVALID_BRANCH": {
@@ -1963,10 +2130,28 @@
       "publication"
     ]
   },
+  "INVALID_COUNT": {
+    "status": 400,
+    "modules": [
+      "economy"
+    ]
+  },
   "INVALID_COUNTRY_CODE": {
     "status": 400,
     "modules": [
       "base"
+    ]
+  },
+  "INVALID_CSV": {
+    "status": 400,
+    "modules": [
+      "economy"
+    ]
+  },
+  "INVALID_CURRENCY": {
+    "status": 400,
+    "modules": [
+      "economy"
     ]
   },
   "INVALID_CURSOR": {
@@ -2010,6 +2195,12 @@
     "modules": [
       "economy",
       "publication"
+    ]
+  },
+  "INVALID_DAY_START": {
+    "status": 400,
+    "modules": [
+      "economy"
     ]
   },
   "INVALID_DEVICE": {
@@ -2079,6 +2270,12 @@
       "publication"
     ]
   },
+  "INVALID_FEE_AT": {
+    "status": 400,
+    "modules": [
+      "economy"
+    ]
+  },
   "INVALID_FILTER": {
     "status": 400,
     "modules": [
@@ -2130,6 +2327,12 @@
       "publication"
     ]
   },
+  "INVALID_HUMAN_SEATS": {
+    "status": 400,
+    "modules": [
+      "economy"
+    ]
+  },
   "INVALID_ICON": {
     "status": 400,
     "modules": [
@@ -2142,6 +2345,12 @@
       "base",
       "economy",
       "publication"
+    ]
+  },
+  "INVALID_INFINITY_RANGE": {
+    "status": 400,
+    "modules": [
+      "economy"
     ]
   },
   "INVALID_INTERVAL": {
@@ -2252,6 +2461,12 @@
       "publication"
     ]
   },
+  "INVALID_LOOK": {
+    "status": 400,
+    "modules": [
+      "economy"
+    ]
+  },
   "INVALID_MAPPING": {
     "status": 400,
     "modules": [
@@ -2342,6 +2557,12 @@
       "economy"
     ]
   },
+  "INVALID_MIN_LEVEL": {
+    "status": 400,
+    "modules": [
+      "economy"
+    ]
+  },
   "INVALID_MOD_ACTION": {
     "status": 400,
     "modules": [
@@ -2412,6 +2633,18 @@
       "economy"
     ]
   },
+  "INVALID_PAYOUT": {
+    "status": 400,
+    "modules": [
+      "economy"
+    ]
+  },
+  "INVALID_PAYOUT_PERCENT": {
+    "status": 400,
+    "modules": [
+      "economy"
+    ]
+  },
   "INVALID_PERCENT": {
     "status": 400,
     "modules": [
@@ -2429,6 +2662,12 @@
     "status": 400,
     "modules": [
       "publication"
+    ]
+  },
+  "INVALID_PITY": {
+    "status": 400,
+    "modules": [
+      "economy"
     ]
   },
   "INVALID_PLACEMENT": {
@@ -2469,6 +2708,12 @@
     ]
   },
   "INVALID_PRICE_AMOUNT": {
+    "status": 400,
+    "modules": [
+      "economy"
+    ]
+  },
+  "INVALID_PRICE_LADDER": {
     "status": 400,
     "modules": [
       "economy"
@@ -2531,6 +2776,24 @@
       "base"
     ]
   },
+  "INVALID_REGEN": {
+    "status": 400,
+    "modules": [
+      "economy"
+    ]
+  },
+  "INVALID_REGEN_INTERVAL": {
+    "status": 400,
+    "modules": [
+      "economy"
+    ]
+  },
+  "INVALID_REGEN_MAX": {
+    "status": 400,
+    "modules": [
+      "economy"
+    ]
+  },
   "INVALID_REPEAT_MINUTES": {
     "status": 400,
     "modules": [
@@ -2558,6 +2821,12 @@
       "leaderboardx"
     ]
   },
+  "INVALID_REROLL_CAP": {
+    "status": 400,
+    "modules": [
+      "economy"
+    ]
+  },
   "INVALID_RESTRICTION_KIND": {
     "status": 400,
     "modules": [
@@ -2567,7 +2836,8 @@
   "INVALID_RESULT": {
     "status": 400,
     "modules": [
-      "campaign"
+      "campaign",
+      "economy"
     ]
   },
   "INVALID_RETENTION": {
@@ -2583,6 +2853,12 @@
     ]
   },
   "INVALID_ROOM_KEY": {
+    "status": 400,
+    "modules": [
+      "economy"
+    ]
+  },
+  "INVALID_ROOM_PLAYERS": {
     "status": 400,
     "modules": [
       "economy"
@@ -2625,10 +2901,22 @@
       "economy"
     ]
   },
+  "INVALID_SETTINGS": {
+    "status": 400,
+    "modules": [
+      "base"
+    ]
+  },
   "INVALID_SIGNATURE": {
     "status": 401,
     "modules": [
       "publication"
+    ]
+  },
+  "INVALID_SIGNUP_DELAY": {
+    "status": 400,
+    "modules": [
+      "economy"
     ]
   },
   "INVALID_SKU": {
@@ -2638,6 +2926,18 @@
     ]
   },
   "INVALID_SLOTS": {
+    "status": 400,
+    "modules": [
+      "economy"
+    ]
+  },
+  "INVALID_SLOT_KIND": {
+    "status": 400,
+    "modules": [
+      "economy"
+    ]
+  },
+  "INVALID_SLOT_RANGE": {
     "status": 400,
     "modules": [
       "economy"
@@ -2656,6 +2956,18 @@
       "economy"
     ]
   },
+  "INVALID_SOURCE": {
+    "status": 400,
+    "modules": [
+      "economy"
+    ]
+  },
+  "INVALID_STAT": {
+    "status": 400,
+    "modules": [
+      "economy"
+    ]
+  },
   "INVALID_STATE": {
     "status": 400,
     "modules": [
@@ -2666,6 +2978,7 @@
     "status": 400,
     "modules": [
       "base",
+      "economy",
       "publication"
     ]
   },
@@ -2814,6 +3127,7 @@
     "status": 400,
     "modules": [
       "base",
+      "economy",
       "publication"
     ]
   },
@@ -2859,10 +3173,22 @@
       "base"
     ]
   },
+  "INVALID_WALLET": {
+    "status": 400,
+    "modules": [
+      "economy"
+    ]
+  },
   "INVALID_WEEKDAY": {
     "status": 400,
     "modules": [
       "publication"
+    ]
+  },
+  "INVALID_WEEK_LENGTH": {
+    "status": 400,
+    "modules": [
+      "economy"
     ]
   },
   "INVALID_WEEK_START": {
@@ -2938,6 +3264,7 @@
   "ITEM_NOT_FOUND": {
     "status": 404,
     "modules": [
+      "campaign",
       "economy",
       "inventoryx"
     ]
@@ -2949,8 +3276,9 @@
     ]
   },
   "ITEM_NOT_OWNED": {
-    "status": 409,
+    "status": 403,
     "modules": [
+      "campaign",
       "economy"
     ]
   },
@@ -2961,6 +3289,12 @@
       "economy"
     ]
   },
+  "ITEM_SALE_STOPPED": {
+    "status": 409,
+    "modules": [
+      "inventoryx"
+    ]
+  },
   "ITEM_TITLE_REQUIRED": {
     "status": 400,
     "modules": [
@@ -2968,6 +3302,12 @@
     ]
   },
   "ITEM_TYPE_NOT_FOUND": {
+    "status": 400,
+    "modules": [
+      "economy"
+    ]
+  },
+  "JACKPOT_NOT_FOR_SLOTS": {
     "status": 400,
     "modules": [
       "economy"
@@ -2991,6 +3331,18 @@
     "status": 400,
     "modules": [
       "publication"
+    ]
+  },
+  "KIND_LOCKED": {
+    "status": 400,
+    "modules": [
+      "base"
+    ]
+  },
+  "LADDER_NEEDS_PRICE": {
+    "status": 400,
+    "modules": [
+      "economy"
     ]
   },
   "LANGUAGE_ACTIVE": {
@@ -3099,6 +3451,7 @@
   "LEVEL_TABLE_NOT_FOUND": {
     "status": 400,
     "modules": [
+      "base",
       "economy",
       "publication"
     ]
@@ -3141,6 +3494,18 @@
       "economy"
     ]
   },
+  "MATCH_CREATE_FAILED": {
+    "status": 503,
+    "modules": [
+      "economy"
+    ]
+  },
+  "MATCH_FINISHED": {
+    "status": 409,
+    "modules": [
+      "economy"
+    ]
+  },
   "MATCH_MISMATCH": {
     "status": 409,
     "modules": [
@@ -3151,6 +3516,18 @@
     "status": 404,
     "modules": [
       "base",
+      "economy"
+    ]
+  },
+  "MATCH_NOT_LIVE": {
+    "status": 404,
+    "modules": [
+      "economy"
+    ]
+  },
+  "MATCH_NOT_STARTED": {
+    "status": 409,
+    "modules": [
       "economy"
     ]
   },
@@ -3242,10 +3619,23 @@
       "publication"
     ]
   },
+  "NEW_PLAYER_ROOM_REQUIRED": {
+    "status": 403,
+    "modules": [
+      "economy"
+    ]
+  },
   "NOTE_REQUIRED": {
     "status": 400,
     "modules": [
-      "base"
+      "base",
+      "economy"
+    ]
+  },
+  "NOTE_TOO_LONG": {
+    "status": 400,
+    "modules": [
+      "economy"
     ]
   },
   "NOTHING_TO_CLAIM": {
@@ -3272,10 +3662,28 @@
       "base"
     ]
   },
+  "NOT_A_BOT": {
+    "status": 400,
+    "modules": [
+      "economy"
+    ]
+  },
+  "NOT_A_MEMBER": {
+    "status": 404,
+    "modules": [
+      "base"
+    ]
+  },
   "NOT_CANCELLABLE": {
     "status": 409,
     "modules": [
       "publication"
+    ]
+  },
+  "NOT_ENOUGH_PLAY_COST": {
+    "status": 409,
+    "modules": [
+      "campaign"
     ]
   },
   "NOT_FOR_SALE": {
@@ -3292,8 +3700,20 @@
       "publication"
     ]
   },
+  "NOT_FRIENDS": {
+    "status": 403,
+    "modules": [
+      "economy"
+    ]
+  },
   "NOT_HELD": {
     "status": 409,
+    "modules": [
+      "economy"
+    ]
+  },
+  "NOT_INVITED": {
+    "status": 403,
     "modules": [
       "economy"
     ]
@@ -3333,6 +3753,12 @@
     "status": 400,
     "modules": [
       "publication"
+    ]
+  },
+  "NO_LIVE_VIEW": {
+    "status": 409,
+    "modules": [
+      "economy"
     ]
   },
   "NO_OFFERS_LEFT": {
@@ -3381,6 +3807,12 @@
   },
   "OFFER_SOLD_OUT": {
     "status": 409,
+    "modules": [
+      "economy"
+    ]
+  },
+  "ONE_JACKPOT": {
+    "status": 400,
     "modules": [
       "economy"
     ]
@@ -3456,6 +3888,12 @@
     "status": 400,
     "modules": [
       "publication"
+    ]
+  },
+  "OWN_ROOM": {
+    "status": 400,
+    "modules": [
+      "economy"
     ]
   },
   "PACK_ACTIVATE_DENIED": {
@@ -3655,6 +4093,18 @@
       "economy"
     ]
   },
+  "PAYMENT_EXPIRED": {
+    "status": 409,
+    "modules": [
+      "economy"
+    ]
+  },
+  "PAYMENT_IN_PROGRESS": {
+    "status": 409,
+    "modules": [
+      "economy"
+    ]
+  },
   "PAYMENT_METHOD_NOT_CONFIGURED": {
     "status": 400,
     "modules": [
@@ -3663,6 +4113,12 @@
   },
   "PAYMENT_METHOD_NOT_FOUND": {
     "status": 404,
+    "modules": [
+      "economy"
+    ]
+  },
+  "PAYMENT_NOT_CHARGED": {
+    "status": 409,
     "modules": [
       "economy"
     ]
@@ -3775,6 +4231,24 @@
       "account"
     ]
   },
+  "PITY_NEEDS_JACKPOT": {
+    "status": 400,
+    "modules": [
+      "economy"
+    ]
+  },
+  "PITY_NOT_FOR_SLOTS": {
+    "status": 400,
+    "modules": [
+      "economy"
+    ]
+  },
+  "PLACE_REQUIRED": {
+    "status": 400,
+    "modules": [
+      "base"
+    ]
+  },
   "PLATFORM_REQUIRED": {
     "status": 400,
     "modules": [
@@ -3802,6 +4276,18 @@
   },
   "PLAY_NOT_FOUND": {
     "status": 404,
+    "modules": [
+      "economy"
+    ]
+  },
+  "POT_NEEDS_ENTRY_FEE": {
+    "status": 400,
+    "modules": [
+      "economy"
+    ]
+  },
+  "PREFIX_REQUIRED": {
+    "status": 400,
     "modules": [
       "economy"
     ]
@@ -4410,6 +4896,30 @@
       "economy"
     ]
   },
+  "REFILL_OFF": {
+    "status": 409,
+    "modules": [
+      "economy"
+    ]
+  },
+  "REFILL_SAME_CURRENCY": {
+    "status": 400,
+    "modules": [
+      "economy"
+    ]
+  },
+  "REFUND_NOT_APPLICABLE": {
+    "status": 409,
+    "modules": [
+      "economy"
+    ]
+  },
+  "REGEN_OFF": {
+    "status": 409,
+    "modules": [
+      "economy"
+    ]
+  },
   "REGIFT_BLOCKED": {
     "status": 409,
     "modules": [
@@ -4423,6 +4933,24 @@
     ]
   },
   "REPEAT_NEEDS_PERIOD": {
+    "status": 400,
+    "modules": [
+      "economy"
+    ]
+  },
+  "REPLACES_NEW_PLAYER_ROOM": {
+    "status": 400,
+    "modules": [
+      "economy"
+    ]
+  },
+  "REPLACES_REQUIRED": {
+    "status": 400,
+    "modules": [
+      "economy"
+    ]
+  },
+  "REPLACES_TAKEN": {
     "status": 400,
     "modules": [
       "economy"
@@ -4532,6 +5060,12 @@
     "status": 409,
     "modules": [
       "campaign"
+    ]
+  },
+  "ROOM_DISABLED": {
+    "status": 409,
+    "modules": [
+      "economy"
     ]
   },
   "ROOM_NOT_ALLOWED": {
@@ -4644,6 +5178,12 @@
     ]
   },
   "SKU_REQUIRED": {
+    "status": 400,
+    "modules": [
+      "economy"
+    ]
+  },
+  "SLOTS_ALL_ZERO": {
     "status": 400,
     "modules": [
       "economy"
@@ -4931,10 +5471,22 @@
       "social"
     ]
   },
+  "SOURCE_CURRENCY_MISMATCH": {
+    "status": 409,
+    "modules": [
+      "economy"
+    ]
+  },
   "SOURCE_NOT_FOUND": {
     "status": 404,
     "modules": [
       "publication"
+    ]
+  },
+  "SOURCE_REUSED": {
+    "status": 409,
+    "modules": [
+      "economy"
     ]
   },
   "SOURCE_SECRET_MISSING": {
@@ -4973,6 +5525,12 @@
       "publication"
     ]
   },
+  "STAGE_ALREADY_WON": {
+    "status": 403,
+    "modules": [
+      "campaign"
+    ]
+  },
   "STAGE_BUSY": {
     "status": 409,
     "modules": [
@@ -4980,6 +5538,18 @@
     ]
   },
   "STAGE_FINISHED_TOO_FAST": {
+    "status": 400,
+    "modules": [
+      "campaign"
+    ]
+  },
+  "STAGE_ITEM_NOT_ALLOWED": {
+    "status": 403,
+    "modules": [
+      "campaign"
+    ]
+  },
+  "STAGE_ITEM_REQUIRED": {
     "status": 400,
     "modules": [
       "campaign"
@@ -5039,6 +5609,12 @@
       "economy"
     ]
   },
+  "STORE_MODE_CHANGED": {
+    "status": 503,
+    "modules": [
+      "economy"
+    ]
+  },
   "STORE_UNAVAILABLE": {
     "status": 503,
     "modules": [
@@ -5050,6 +5626,12 @@
     "modules": [
       "economy",
       "publication"
+    ]
+  },
+  "STRIPE_KEY_MODE": {
+    "status": 400,
+    "modules": [
+      "economy"
     ]
   },
   "SUBSCRIPTION_NOT_SUPPORTED": {
@@ -5357,6 +5939,12 @@
       "economy"
     ]
   },
+  "TOO_MANY_CURRENCIES": {
+    "status": 400,
+    "modules": [
+      "economy"
+    ]
+  },
   "TOO_MANY_DEPENDENCIES": {
     "status": 400,
     "modules": [
@@ -5365,6 +5953,12 @@
   },
   "TOO_MANY_EVENTS": {
     "status": 429,
+    "modules": [
+      "economy"
+    ]
+  },
+  "TOO_MANY_EXTRAS": {
+    "status": 400,
     "modules": [
       "economy"
     ]
@@ -5464,6 +6058,12 @@
       "economy"
     ]
   },
+  "TOO_MANY_RESULTS": {
+    "status": 400,
+    "modules": [
+      "economy"
+    ]
+  },
   "TOO_MANY_REWARDS": {
     "status": 400,
     "modules": [
@@ -5471,6 +6071,12 @@
     ]
   },
   "TOO_MANY_ROOMS": {
+    "status": 400,
+    "modules": [
+      "economy"
+    ]
+  },
+  "TOO_MANY_ROWS": {
     "status": 400,
     "modules": [
       "economy"
@@ -5726,6 +6332,12 @@
       "publication"
     ]
   },
+  "USERNAME_COLUMN_REQUIRED": {
+    "status": 400,
+    "modules": [
+      "economy"
+    ]
+  },
   "USERNAME_REQUIRED": {
     "status": 400,
     "modules": [
@@ -5737,6 +6349,7 @@
     "modules": [
       "account",
       "base",
+      "economy",
       "publication"
     ]
   },
@@ -5804,6 +6417,18 @@
       "base"
     ]
   },
+  "VETERAN_ROOM_FORBIDDEN": {
+    "status": 403,
+    "modules": [
+      "economy"
+    ]
+  },
+  "VOICE_PARTICIPANT_NOT_FOUND": {
+    "status": 404,
+    "modules": [
+      "base"
+    ]
+  },
   "VOICE_PROVIDER_REQUIRED": {
     "status": 400,
     "modules": [
@@ -5822,6 +6447,12 @@
       "base"
     ]
   },
+  "VOICE_ROOM_NOT_FOUND": {
+    "status": 404,
+    "modules": [
+      "base"
+    ]
+  },
   "VOICE_ROOM_REQUIRED": {
     "status": 400,
     "modules": [
@@ -5836,6 +6467,18 @@
   },
   "WAITING_FOR_TURN": {
     "status": 403,
+    "modules": [
+      "economy"
+    ]
+  },
+  "WINNER_NOT_SEATED": {
+    "status": 400,
+    "modules": [
+      "economy"
+    ]
+  },
+  "WINNER_REQUIRED": {
+    "status": 400,
     "modules": [
       "economy"
     ]

@@ -112,17 +112,23 @@ namespace NakamaFarsi.Sdk.Generated
         public const string BaseBrand = "base_brand";
         public const string BaseCategories = "base_categories";
         public const string BaseChatQuota = "base_chat_quota";
+        public const string BaseCommFavorite = "base_comm_favorite";
+        public const string BaseCommFavorites = "base_comm_favorites";
+        public const string BaseCommPacks = "base_comm_packs";
         public const string BaseCountries = "base_countries";
         public const string BaseFriendRules = "base_friend_rules";
+        public const string BaseFriendSuggestions = "base_friend_suggestions";
         public const string BaseFriendsAdd = "base_friends_add";
         public const string BaseFriendsBlock = "base_friends_block";
         public const string BaseFriendsList = "base_friends_list";
         public const string BaseFriendsRemove = "base_friends_remove";
         public const string BaseLanguages = "base_languages";
         public const string BaseMyActivity = "base_my_activity";
+        public const string BaseMyCode = "base_my_code";
         public const string BaseMyReports = "base_my_reports";
         public const string BaseMyStatus = "base_my_status";
         public const string BaseMyTags = "base_my_tags";
+        public const string BasePlayerCodes = "base_player_codes";
         public const string BaseRemoteConfig = "base_remote_config";
         public const string BaseReportMessage = "base_report_message";
         public const string BaseReportPlayer = "base_report_player";
@@ -148,6 +154,9 @@ namespace NakamaFarsi.Sdk.Generated
         public const string BaseSupportUploadFinish = "base_support_upload_finish";
         public const string BaseSupportUploadPart = "base_support_upload_part";
         public const string BaseTags = "base_tags";
+        public const string BaseUserByCode = "base_user_by_code";
+        public const string BaseUsernameChange = "base_username_change";
+        public const string BaseUsernameQuote = "base_username_quote";
         public const string BaseUsersGet = "base_users_get";
         public const string CampaignAttemptComplete = "campaign_attempt_complete";
         public const string CampaignAttemptStart = "campaign_attempt_start";
@@ -183,6 +192,7 @@ namespace NakamaFarsi.Sdk.Generated
         public const string CombatraceHistory = "combatrace_history";
         public const string CombatraceMatchBegin = "combatrace_match_begin";
         public const string CombatraceMatchEnd = "combatrace_match_end";
+        public const string CommsUserToken = "comms_user_token";
         public const string ContentCatalog = "content_catalog";
         public const string CupGet = "cup_get";
         public const string CupHistory = "cup_history";
@@ -208,7 +218,9 @@ namespace NakamaFarsi.Sdk.Generated
         public const string EconomyAvatarSetActive = "economy_avatar_set_active";
         public const string EconomyAvatarUnequip = "economy_avatar_unequip";
         public const string EconomyBalances = "economy_balances";
+        public const string EconomyBoosters = "economy_boosters";
         public const string EconomyCatalog = "economy_catalog";
+        public const string EconomyChanceAck = "economy_chance_ack";
         public const string EconomyChanceCanPlay = "economy_chance_can_play";
         public const string EconomyChanceGame = "economy_chance_game";
         public const string EconomyChanceGames = "economy_chance_games";
@@ -225,7 +237,15 @@ namespace NakamaFarsi.Sdk.Generated
         public const string EconomyFriendGiftSend = "economy_friend_gift_send";
         public const string EconomyFriendGifts = "economy_friend_gifts";
         public const string EconomyGame = "economy_game";
+        public const string EconomyGameActive = "economy_game_active";
+        public const string EconomyGameBot = "economy_game_bot";
+        public const string EconomyGameFriendCancel = "economy_game_friend_cancel";
+        public const string EconomyGameFriendCreate = "economy_game_friend_create";
+        public const string EconomyGameFriendDecline = "economy_game_friend_decline";
+        public const string EconomyGameFriendJoin = "economy_game_friend_join";
         public const string EconomyGameJoin = "economy_game_join";
+        public const string EconomyGameQueue = "economy_game_queue";
+        public const string EconomyGameStats = "economy_game_stats";
         public const string EconomyGames = "economy_games";
         public const string EconomyGiftRedeem = "economy_gift_redeem";
         public const string EconomyInventory = "economy_inventory";
@@ -242,6 +262,7 @@ namespace NakamaFarsi.Sdk.Generated
         public const string EconomyOffers = "economy_offers";
         public const string EconomyOffersReroll = "economy_offers_reroll";
         public const string EconomyPaymentsMine = "economy_payments_mine";
+        public const string EconomyPlayerCard = "economy_player_card";
         public const string EconomyPurchaseReview = "economy_purchase_review";
         public const string EconomyPurchaseStart = "economy_purchase_start";
         public const string EconomyPurchaseStatus = "economy_purchase_status";
@@ -249,6 +270,8 @@ namespace NakamaFarsi.Sdk.Generated
         public const string EconomyPurchasesMine = "economy_purchases_mine";
         public const string EconomyReferralEnter = "economy_referral_enter";
         public const string EconomyReferralMe = "economy_referral_me";
+        public const string EconomyRegenRefill = "economy_regen_refill";
+        public const string EconomyRegenState = "economy_regen_state";
         public const string EconomyRewardClaim = "economy_reward_claim";
         public const string EconomyRewardsMine = "economy_rewards_mine";
         public const string EconomyStoreConfig = "economy_store_config";
@@ -259,6 +282,7 @@ namespace NakamaFarsi.Sdk.Generated
         public const string EconomyTasksList = "economy_tasks_list";
         public const string InsightsConfig = "insights_config";
         public const string InsightsHeatmap = "insights_heatmap";
+        public const string InsightsSend = "insights_send";
         public const string InsightsSession = "insights_session";
         public const string InventoryxItems = "inventoryx_items";
         public const string InventoryxUnlock = "inventoryx_unlock";
@@ -669,6 +693,34 @@ namespace NakamaFarsi.Sdk.Generated
             return RpcInvoke.CallAsync<BaseChatQuotaResponse>(_c, RpcIds.BaseChatQuota, request, ReadCall, ct);
         }
 
+        public Task<BaseCommFavoriteResponse> CommFavoriteAsync(BaseCommFavoriteRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new BaseCommFavoriteRequest();
+            return RpcInvoke.CallAsync<BaseCommFavoriteResponse>(_c, RpcIds.BaseCommFavorite, request, WriteCall, ct);
+        }
+
+        public Task<BaseCommFavoritesResponse> CommFavoritesAsync(BaseCommFavoritesRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new BaseCommFavoritesRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<BaseCommFavoritesResponse>(_c, RpcIds.BaseCommFavorites, request, WriteCall, ct);
+        }
+
+        public Task<BaseCommPacksResponse> CommPacksAsync(BaseCommPacksRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new BaseCommPacksRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<BaseCommPacksResponse>(_c, RpcIds.BaseCommPacks, request, WriteCall, ct);
+        }
+
         public Task<BaseCountriesResponse> CountriesAsync(BaseCountriesRequest request = null, CancellationToken ct = default)
         {
             request = request ?? new BaseCountriesRequest();
@@ -689,6 +741,17 @@ namespace NakamaFarsi.Sdk.Generated
             }
 
             return RpcInvoke.CallAsync<BaseFriendRulesResponse>(_c, RpcIds.BaseFriendRules, request, ReadCall, ct);
+        }
+
+        public Task<BaseFriendSuggestionsResponse> FriendSuggestionsAsync(BaseFriendSuggestionsRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new BaseFriendSuggestionsRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<BaseFriendSuggestionsResponse>(_c, RpcIds.BaseFriendSuggestions, request, WriteCall, ct);
         }
 
         public Task<BaseFriendsAddResponse> FriendsAddAsync(BaseFriendsAddRequest request = null, CancellationToken ct = default)
@@ -732,6 +795,17 @@ namespace NakamaFarsi.Sdk.Generated
             return RpcInvoke.CallAsync<BaseMyActivityResponse>(_c, RpcIds.BaseMyActivity, request, ReadCall, ct);
         }
 
+        public Task<BaseMyCodeResponse> MyCodeAsync(BaseMyCodeRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new BaseMyCodeRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<BaseMyCodeResponse>(_c, RpcIds.BaseMyCode, request, WriteCall, ct);
+        }
+
         public Task<BaseMyReportsResponse> MyReportsAsync(BaseMyReportsRequest request = null, CancellationToken ct = default)
         {
             request = request ?? new BaseMyReportsRequest();
@@ -763,6 +837,12 @@ namespace NakamaFarsi.Sdk.Generated
             }
 
             return RpcInvoke.CallAsync<BaseMyTagsResponse>(_c, RpcIds.BaseMyTags, request, ReadCall, ct);
+        }
+
+        public Task<BasePlayerCodesResponse> PlayerCodesAsync(BasePlayerCodesRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new BasePlayerCodesRequest();
+            return RpcInvoke.CallAsync<BasePlayerCodesResponse>(_c, RpcIds.BasePlayerCodes, request, WriteCall, ct);
         }
 
         public Task<BaseRemoteConfigResponse> RemoteConfigAsync(BaseRemoteConfigRequest request = null, CancellationToken ct = default)
@@ -985,10 +1065,49 @@ namespace NakamaFarsi.Sdk.Generated
             return RpcInvoke.CallAsync<BaseTagsResponse>(_c, RpcIds.BaseTags, request, ReadCall, ct);
         }
 
+        public Task<BaseUserByCodeResponse> UserByCodeAsync(BaseUserByCodeRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new BaseUserByCodeRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<BaseUserByCodeResponse>(_c, RpcIds.BaseUserByCode, request, WriteCall, ct);
+        }
+
+        public Task<BaseUsernameChangeResponse> UsernameChangeAsync(BaseUsernameChangeRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new BaseUsernameChangeRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<BaseUsernameChangeResponse>(_c, RpcIds.BaseUsernameChange, request, WriteCall, ct);
+        }
+
+        public Task<BaseUsernameQuoteResponse> UsernameQuoteAsync(BaseUsernameQuoteRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new BaseUsernameQuoteRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<BaseUsernameQuoteResponse>(_c, RpcIds.BaseUsernameQuote, request, WriteCall, ct);
+        }
+
         public Task<BaseUsersGetResponse> UsersGetAsync(BaseUsersGetRequest request = null, CancellationToken ct = default)
         {
             request = request ?? new BaseUsersGetRequest();
             return RpcInvoke.CallAsync<BaseUsersGetResponse>(_c, RpcIds.BaseUsersGet, request, ReadCall, ct);
+        }
+
+        public Task<CommsUserTokenResponse> CommsUserTokenAsync(CommsUserTokenRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new CommsUserTokenRequest();
+            return RpcInvoke.CallAsync<CommsUserTokenResponse>(_c, RpcIds.CommsUserToken, request, WriteCall, ct);
         }
 
         public Task<VoiceTokenResponse> VoiceTokenAsync(VoiceTokenRequest request = null, CancellationToken ct = default)
@@ -1588,6 +1707,17 @@ namespace NakamaFarsi.Sdk.Generated
             return RpcInvoke.CallAsync<EconomyBalancesResponse>(_c, RpcIds.EconomyBalances, request, ReadCall, ct);
         }
 
+        public Task<EconomyBoostersResponse> BoostersAsync(EconomyBoostersRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new EconomyBoostersRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<EconomyBoostersResponse>(_c, RpcIds.EconomyBoosters, request, WriteCall, ct);
+        }
+
         public Task<EconomyCatalogResponse> CatalogAsync(EconomyCatalogRequest request = null, CancellationToken ct = default)
         {
             request = request ?? new EconomyCatalogRequest();
@@ -1597,6 +1727,12 @@ namespace NakamaFarsi.Sdk.Generated
             }
 
             return RpcInvoke.CallAsync<EconomyCatalogResponse>(_c, RpcIds.EconomyCatalog, request, ReadCall, ct);
+        }
+
+        public Task<EconomyChanceAckResponse> ChanceAckAsync(EconomyChanceAckRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new EconomyChanceAckRequest();
+            return RpcInvoke.CallAsync<EconomyChanceAckResponse>(_c, RpcIds.EconomyChanceAck, request, WriteCall, ct);
         }
 
         public Task<EconomyChanceCanPlayResponse> ChanceCanPlayAsync(EconomyChanceCanPlayRequest request = null, CancellationToken ct = default)
@@ -1760,6 +1896,67 @@ namespace NakamaFarsi.Sdk.Generated
             return RpcInvoke.CallAsync<EconomyGameResponse>(_c, RpcIds.EconomyGame, request, ReadCall, ct);
         }
 
+        public Task<EconomyGameActiveResponse> GameActiveAsync(EconomyGameActiveRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new EconomyGameActiveRequest();
+            return RpcInvoke.CallAsync<EconomyGameActiveResponse>(_c, RpcIds.EconomyGameActive, request, WriteCall, ct);
+        }
+
+        public Task<EconomyGameBotResponse> GameBotAsync(EconomyGameBotRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new EconomyGameBotRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<EconomyGameBotResponse>(_c, RpcIds.EconomyGameBot, request, WriteCall, ct);
+        }
+
+        public Task<EconomyGameFriendCancelResponse> GameFriendCancelAsync(EconomyGameFriendCancelRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new EconomyGameFriendCancelRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<EconomyGameFriendCancelResponse>(_c, RpcIds.EconomyGameFriendCancel, request, WriteCall, ct);
+        }
+
+        public Task<EconomyGameFriendCreateResponse> GameFriendCreateAsync(EconomyGameFriendCreateRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new EconomyGameFriendCreateRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<EconomyGameFriendCreateResponse>(_c, RpcIds.EconomyGameFriendCreate, request, WriteCall, ct);
+        }
+
+        public Task<EconomyGameFriendDeclineResponse> GameFriendDeclineAsync(EconomyGameFriendDeclineRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new EconomyGameFriendDeclineRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<EconomyGameFriendDeclineResponse>(_c, RpcIds.EconomyGameFriendDecline, request, WriteCall, ct);
+        }
+
+        public Task<EconomyGameFriendJoinResponse> GameFriendJoinAsync(EconomyGameFriendJoinRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new EconomyGameFriendJoinRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<EconomyGameFriendJoinResponse>(_c, RpcIds.EconomyGameFriendJoin, request, WriteCall, ct);
+        }
+
         public Task<EconomyGameJoinResponse> GameJoinAsync(EconomyGameJoinRequest request = null, CancellationToken ct = default)
         {
             request = request ?? new EconomyGameJoinRequest();
@@ -1769,6 +1966,23 @@ namespace NakamaFarsi.Sdk.Generated
             }
 
             return RpcInvoke.CallAsync<EconomyGameJoinResponse>(_c, RpcIds.EconomyGameJoin, request, WriteCall, ct);
+        }
+
+        public Task<EconomyGameQueueResponse> GameQueueAsync(EconomyGameQueueRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new EconomyGameQueueRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<EconomyGameQueueResponse>(_c, RpcIds.EconomyGameQueue, request, WriteCall, ct);
+        }
+
+        public Task<EconomyGameStatsResponse> GameStatsAsync(EconomyGameStatsRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new EconomyGameStatsRequest();
+            return RpcInvoke.CallAsync<EconomyGameStatsResponse>(_c, RpcIds.EconomyGameStats, request, ReadCall, ct);
         }
 
         public Task<EconomyGamesResponse> GamesAsync(EconomyGamesRequest request = null, CancellationToken ct = default)
@@ -1927,6 +2141,17 @@ namespace NakamaFarsi.Sdk.Generated
             return RpcInvoke.CallAsync<EconomyPaymentsMineResponse>(_c, RpcIds.EconomyPaymentsMine, request, ReadCall, ct);
         }
 
+        public Task<EconomyPlayerCardResponse> PlayerCardAsync(EconomyPlayerCardRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new EconomyPlayerCardRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<EconomyPlayerCardResponse>(_c, RpcIds.EconomyPlayerCard, request, WriteCall, ct);
+        }
+
         public Task<EconomyPurchaseReviewResponse> PurchaseReviewAsync(EconomyPurchaseReviewRequest request = null, CancellationToken ct = default)
         {
             request = request ?? new EconomyPurchaseReviewRequest();
@@ -1987,6 +2212,18 @@ namespace NakamaFarsi.Sdk.Generated
             }
 
             return RpcInvoke.CallAsync<EconomyReferralMeResponse>(_c, RpcIds.EconomyReferralMe, request, ReadCall, ct);
+        }
+
+        public Task<EconomyRegenRefillResponse> RegenRefillAsync(EconomyRegenRefillRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new EconomyRegenRefillRequest();
+            return RpcInvoke.CallAsync<EconomyRegenRefillResponse>(_c, RpcIds.EconomyRegenRefill, request, WriteCall, ct);
+        }
+
+        public Task<EconomyRegenStateResponse> RegenStateAsync(EconomyRegenStateRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new EconomyRegenStateRequest();
+            return RpcInvoke.CallAsync<EconomyRegenStateResponse>(_c, RpcIds.EconomyRegenState, request, WriteCall, ct);
         }
 
         public Task<EconomyRewardClaimResponse> RewardClaimAsync(EconomyRewardClaimRequest request = null, CancellationToken ct = default)
@@ -2094,6 +2331,17 @@ namespace NakamaFarsi.Sdk.Generated
         {
             request = request ?? new InsightsHeatmapRequest();
             return RpcInvoke.CallAsync<InsightsHeatmapResponse>(_c, RpcIds.InsightsHeatmap, request, WriteCall, ct);
+        }
+
+        public Task<InsightsSendResponse> SendAsync(InsightsSendRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new InsightsSendRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<InsightsSendResponse>(_c, RpcIds.InsightsSend, request, WriteCall, ct);
         }
 
         public Task<InsightsSessionResponse> SessionAsync(InsightsSessionRequest request = null, CancellationToken ct = default)
@@ -3754,6 +4002,9 @@ namespace NakamaFarsi.Sdk.Generated
         [JsonProperty("claimMode")]
         public JToken ClaimMode { get; set; }
 
+        [JsonProperty("day")]
+        public JToken Day { get; set; }
+
         [JsonProperty("events")]
         public List<EventsItem> Events { get; set; }
 
@@ -3777,6 +4028,9 @@ namespace NakamaFarsi.Sdk.Generated
 
         [JsonProperty("stats")]
         public List<StatsItem> Stats { get; set; }
+
+        [JsonProperty("thresholds")]
+        public JObject Thresholds { get; set; }
 
         [JsonProperty("typed")]
         public TypedData Typed { get; set; }
@@ -3807,8 +4061,14 @@ namespace NakamaFarsi.Sdk.Generated
             [JsonProperty("kind")]
             public string Kind { get; set; }
 
+            [JsonProperty("period")]
+            public string Period { get; set; }
+
             [JsonProperty("sendIntervalSeconds")]
             public long? SendIntervalSeconds { get; set; }
+
+            [JsonProperty("splitBy")]
+            public List<string> SplitBy { get; set; }
 
             [JsonExtensionData]
             public IDictionary<string, JToken> Extra { get; set; }
@@ -3922,6 +4182,9 @@ namespace NakamaFarsi.Sdk.Generated
         [JsonIgnore]
         public JObject Raw { get; set; }
 
+        [JsonProperty("day")]
+        public JToken Day { get; set; }
+
         [JsonProperty("items")]
         public List<ItemsItem> Items { get; set; }
 
@@ -3936,6 +4199,9 @@ namespace NakamaFarsi.Sdk.Generated
             [JsonProperty("best")]
             public double? Best { get; set; }
 
+            [JsonProperty("current")]
+            public double? Current { get; set; }
+
             [JsonProperty("key")]
             public string Key { get; set; }
 
@@ -3944,6 +4210,15 @@ namespace NakamaFarsi.Sdk.Generated
 
             [JsonProperty("name")]
             public string Name { get; set; }
+
+            [JsonProperty("period")]
+            public string Period { get; set; }
+
+            [JsonProperty("splitBy")]
+            public List<string> SplitBy { get; set; }
+
+            [JsonProperty("tags")]
+            public List<TagsItem> Tags { get; set; }
 
             [JsonProperty("total")]
             public double? Total { get; set; }
@@ -3956,6 +4231,33 @@ namespace NakamaFarsi.Sdk.Generated
 
             [JsonExtensionData]
             public IDictionary<string, JToken> Extra { get; set; }
+
+            public sealed class TagsItem
+            {
+                [JsonProperty("best")]
+                public double? Best { get; set; }
+
+                [JsonProperty("current")]
+                public double? Current { get; set; }
+
+                [JsonProperty("key")]
+                public string Key { get; set; }
+
+                [JsonProperty("label")]
+                public string Label { get; set; }
+
+                [JsonProperty("tag")]
+                public string Tag { get; set; }
+
+                [JsonProperty("total")]
+                public double? Total { get; set; }
+
+                [JsonProperty("value")]
+                public double? Value { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
         }
     }
 
@@ -4164,6 +4466,9 @@ namespace NakamaFarsi.Sdk.Generated
             [JsonProperty("accepted")]
             public double? Accepted { get; set; }
 
+            [JsonProperty("current")]
+            public double? Current { get; set; }
+
             [JsonProperty("key")]
             public string Key { get; set; }
 
@@ -4172,6 +4477,9 @@ namespace NakamaFarsi.Sdk.Generated
 
             [JsonProperty("status")]
             public string Status { get; set; }
+
+            [JsonProperty("tag")]
+            public string Tag { get; set; }
 
             [JsonProperty("value")]
             public double? Value { get; set; }
@@ -5345,6 +5653,198 @@ namespace NakamaFarsi.Sdk.Generated
         }
     }
 
+    public sealed class BaseCommFavoriteRequest
+    {
+        [JsonProperty("favorite")]
+        public bool? Favorite { get; set; }
+
+        [JsonProperty("item")]
+        public string Item { get; set; }
+
+        [JsonProperty("pack")]
+        public string Pack { get; set; }
+    }
+
+    public sealed class BaseCommFavoriteResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("favorite")]
+        public bool? Favorite { get; set; }
+
+        [JsonProperty("item")]
+        public string Item { get; set; }
+
+        [JsonProperty("pack")]
+        public string Pack { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class BaseCommFavoritesRequest
+    {
+        [JsonProperty("kind")]
+        public string Kind { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("pack")]
+        public string Pack { get; set; }
+    }
+
+    public sealed class BaseCommFavoritesResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("items")]
+        public List<ItemsItem> Items { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class ItemsItem
+        {
+            [JsonProperty("addedAt")]
+            public string AddedAt { get; set; }
+
+            [JsonProperty("assetId")]
+            public string AssetId { get; set; }
+
+            [JsonProperty("imageUrl")]
+            public string ImageUrl { get; set; }
+
+            [JsonProperty("key")]
+            public string Key { get; set; }
+
+            [JsonProperty("name")]
+            public string Name { get; set; }
+
+            [JsonProperty("pack")]
+            public string Pack { get; set; }
+
+            [JsonProperty("packKind")]
+            public string PackKind { get; set; }
+
+            [JsonProperty("ref")]
+            public string Ref { get; set; }
+
+            [JsonProperty("text")]
+            public string Text { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class BaseCommPacksRequest
+    {
+        [JsonProperty("kind")]
+        public string Kind { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("mine")]
+        public bool? Mine { get; set; }
+    }
+
+    public sealed class BaseCommPacksResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("cooldown")]
+        public JToken Cooldown { get; set; }
+
+        [JsonProperty("enabled")]
+        public JToken Enabled { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("maxFavorites")]
+        public JToken MaxFavorites { get; set; }
+
+        [JsonProperty("packs")]
+        public List<PacksItem> Packs { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class PacksItem
+        {
+            [JsonProperty("access")]
+            public string Access { get; set; }
+
+            [JsonProperty("description")]
+            public string Description { get; set; }
+
+            [JsonProperty("iconUrl")]
+            public string IconUrl { get; set; }
+
+            [JsonProperty("item")]
+            public JObject Item { get; set; }
+
+            [JsonProperty("itemKey")]
+            public string ItemKey { get; set; }
+
+            [JsonProperty("items")]
+            public List<ItemsItem> Items { get; set; }
+
+            [JsonProperty("key")]
+            public string Key { get; set; }
+
+            [JsonProperty("kind")]
+            public string Kind { get; set; }
+
+            [JsonProperty("name")]
+            public string Name { get; set; }
+
+            [JsonProperty("owned")]
+            public bool? Owned { get; set; }
+
+            [JsonProperty("starter")]
+            public bool? Starter { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+
+            public sealed class ItemsItem
+            {
+                [JsonProperty("assetId")]
+                public string AssetId { get; set; }
+
+                [JsonProperty("favorite")]
+                public bool? Favorite { get; set; }
+
+                [JsonProperty("imageUrl")]
+                public string ImageUrl { get; set; }
+
+                [JsonProperty("key")]
+                public string Key { get; set; }
+
+                [JsonProperty("name")]
+                public string Name { get; set; }
+
+                [JsonProperty("ref")]
+                public string Ref { get; set; }
+
+                [JsonProperty("text")]
+                public string Text { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+        }
+    }
+
     public sealed class BaseCountriesRequest
     {
         [JsonProperty("lang")]
@@ -5389,6 +5889,12 @@ namespace NakamaFarsi.Sdk.Generated
         [JsonProperty("dailyRequests")]
         public long? DailyRequests { get; set; }
 
+        [JsonProperty("dayStartMinute")]
+        public JToken DayStartMinute { get; set; }
+
+        [JsonProperty("dmFriendsOnly")]
+        public bool? DmFriendsOnly { get; set; }
+
         [JsonProperty("expiryDays")]
         public long? ExpiryDays { get; set; }
 
@@ -5403,6 +5909,9 @@ namespace NakamaFarsi.Sdk.Generated
 
         [JsonProperty("overLimit")]
         public string OverLimit { get; set; }
+
+        [JsonProperty("presenceFriendsOnly")]
+        public bool? PresenceFriendsOnly { get; set; }
 
         [JsonProperty("rejectCooldownHours")]
         public long? RejectCooldownHours { get; set; }
@@ -5450,8 +5959,77 @@ namespace NakamaFarsi.Sdk.Generated
         }
     }
 
+    public sealed class BaseFriendSuggestionsRequest
+    {
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+    }
+
+    public sealed class BaseFriendSuggestionsResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("cycle")]
+        public string Cycle { get; set; }
+
+        [JsonProperty("enabled")]
+        public bool? Enabled { get; set; }
+
+        [JsonProperty("refreshesAt")]
+        public string RefreshesAt { get; set; }
+
+        [JsonProperty("suggestions")]
+        public List<SuggestionsItem> Suggestions { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class SuggestionsItem
+        {
+            [JsonProperty("avatarUrl")]
+            public string AvatarUrl { get; set; }
+
+            [JsonProperty("code")]
+            public string Code { get; set; }
+
+            [JsonProperty("displayName")]
+            public string DisplayName { get; set; }
+
+            [JsonProperty("lastPlayedAt")]
+            public string LastPlayedAt { get; set; }
+
+            [JsonProperty("mutual")]
+            public long? Mutual { get; set; }
+
+            [JsonProperty("online")]
+            public bool? Online { get; set; }
+
+            [JsonProperty("score")]
+            public double? Score { get; set; }
+
+            [JsonProperty("shows")]
+            public long? Shows { get; set; }
+
+            [JsonProperty("source")]
+            public string Source { get; set; }
+
+            [JsonProperty("userId")]
+            public string UserId { get; set; }
+
+            [JsonProperty("username")]
+            public string Username { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
     public sealed class BaseFriendsAddRequest
     {
+        [JsonProperty("codes")]
+        public List<string> Codes { get; set; }
+
         [JsonProperty("ids")]
         public List<string> Ids { get; set; }
 
@@ -5470,6 +6048,9 @@ namespace NakamaFarsi.Sdk.Generated
 
     public sealed class BaseFriendsBlockRequest
     {
+        [JsonProperty("codes")]
+        public List<string> Codes { get; set; }
+
         [JsonProperty("ids")]
         public List<string> Ids { get; set; }
 
@@ -5509,6 +6090,9 @@ namespace NakamaFarsi.Sdk.Generated
 
     public sealed class BaseFriendsRemoveRequest
     {
+        [JsonProperty("codes")]
+        public List<string> Codes { get; set; }
+
         [JsonProperty("ids")]
         public List<string> Ids { get; set; }
 
@@ -5625,6 +6209,24 @@ namespace NakamaFarsi.Sdk.Generated
             [JsonExtensionData]
             public IDictionary<string, JToken> Extra { get; set; }
         }
+    }
+
+    public sealed class BaseMyCodeRequest
+    {
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+    }
+
+    public sealed class BaseMyCodeResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("code")]
+        public string Code { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
     }
 
     public sealed class BaseMyReportsRequest
@@ -5829,6 +6431,24 @@ namespace NakamaFarsi.Sdk.Generated
             [JsonExtensionData]
             public IDictionary<string, JToken> Extra { get; set; }
         }
+    }
+
+    public sealed class BasePlayerCodesRequest
+    {
+        [JsonProperty("ids")]
+        public List<string> Ids { get; set; }
+    }
+
+    public sealed class BasePlayerCodesResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("codes")]
+        public JObject Codes { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
     }
 
     public sealed class BaseRemoteConfigRequest
@@ -6123,6 +6743,9 @@ namespace NakamaFarsi.Sdk.Generated
             [JsonProperty("key")]
             public string Key { get; set; }
 
+            [JsonProperty("kind")]
+            public string Kind { get; set; }
+
             [JsonProperty("name")]
             public string Name { get; set; }
 
@@ -6137,6 +6760,9 @@ namespace NakamaFarsi.Sdk.Generated
 
             public sealed class StickersItem
             {
+                [JsonProperty("assetId")]
+                public string AssetId { get; set; }
+
                 [JsonProperty("imageUrl")]
                 public string ImageUrl { get; set; }
 
@@ -6148,6 +6774,9 @@ namespace NakamaFarsi.Sdk.Generated
 
                 [JsonProperty("ref")]
                 public string Ref { get; set; }
+
+                [JsonProperty("text")]
+                public string Text { get; set; }
 
                 [JsonExtensionData]
                 public IDictionary<string, JToken> Extra { get; set; }
@@ -6710,8 +7339,161 @@ namespace NakamaFarsi.Sdk.Generated
         }
     }
 
+    public sealed class BaseUserByCodeRequest
+    {
+        [JsonProperty("code")]
+        public string Code { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+    }
+
+    public sealed class BaseUserByCodeResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("online")]
+        public bool? Online { get; set; }
+
+        [JsonProperty("relationship")]
+        public JToken Relationship { get; set; }
+
+        [JsonProperty("user")]
+        public UserData User { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class UserData
+        {
+            [JsonProperty("avatarUrl")]
+            public string AvatarUrl { get; set; }
+
+            [JsonProperty("code")]
+            public JToken Code { get; set; }
+
+            [JsonProperty("displayName")]
+            public string DisplayName { get; set; }
+
+            [JsonProperty("id")]
+            public string Id { get; set; }
+
+            [JsonProperty("username")]
+            public string Username { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class BaseUsernameChangeRequest
+    {
+        [JsonProperty("expectedCost")]
+        public long? ExpectedCost { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("username")]
+        public string Username { get; set; }
+    }
+
+    public sealed class BaseUsernameChangeResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("cost")]
+        public long? Cost { get; set; }
+
+        [JsonProperty("currency")]
+        public string Currency { get; set; }
+
+        [JsonProperty("oldUsername")]
+        public string OldUsername { get; set; }
+
+        [JsonProperty("quote")]
+        public QuoteData Quote { get; set; }
+
+        [JsonProperty("source")]
+        public string Source { get; set; }
+
+        [JsonProperty("username")]
+        public string Username { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class QuoteData
+        {
+            [JsonProperty("cooldownEndsAt")]
+            public string CooldownEndsAt { get; set; }
+
+            [JsonProperty("cooldownHours")]
+            public long? CooldownHours { get; set; }
+
+            [JsonProperty("cost")]
+            public long? Cost { get; set; }
+
+            [JsonProperty("currency")]
+            public string Currency { get; set; }
+
+            [JsonProperty("enabled")]
+            public bool? Enabled { get; set; }
+
+            [JsonProperty("free")]
+            public bool? Free { get; set; }
+
+            [JsonProperty("paidChanges")]
+            public long? PaidChanges { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class BaseUsernameQuoteRequest
+    {
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+    }
+
+    public sealed class BaseUsernameQuoteResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("cooldownEndsAt")]
+        public string CooldownEndsAt { get; set; }
+
+        [JsonProperty("cooldownHours")]
+        public long? CooldownHours { get; set; }
+
+        [JsonProperty("cost")]
+        public long? Cost { get; set; }
+
+        [JsonProperty("currency")]
+        public string Currency { get; set; }
+
+        [JsonProperty("enabled")]
+        public bool? Enabled { get; set; }
+
+        [JsonProperty("free")]
+        public bool? Free { get; set; }
+
+        [JsonProperty("paidChanges")]
+        public long? PaidChanges { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
     public sealed class BaseUsersGetRequest
     {
+        [JsonProperty("codes")]
+        public List<string> Codes { get; set; }
+
         [JsonProperty("ids")]
         public List<string> Ids { get; set; }
 
@@ -6778,6 +7560,15 @@ namespace NakamaFarsi.Sdk.Generated
         [JsonProperty("expiresAt")]
         public string ExpiresAt { get; set; }
 
+        [JsonProperty("item")]
+        public Item_ Item { get; set; }
+
+        [JsonProperty("playCost")]
+        public PlayCostData PlayCost { get; set; }
+
+        [JsonProperty("regen")]
+        public JToken Regen { get; set; }
+
         [JsonProperty("stageKey")]
         public JToken StageKey { get; set; }
 
@@ -6789,6 +7580,39 @@ namespace NakamaFarsi.Sdk.Generated
 
         [JsonExtensionData]
         public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class Item_
+        {
+            [JsonProperty("itemKey")]
+            public JToken ItemKey { get; set; }
+
+            [JsonProperty("itemType")]
+            public JToken ItemType { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class PlayCostData
+        {
+            [JsonProperty("amount")]
+            public long? Amount { get; set; }
+
+            [JsonProperty("currencyKey")]
+            public string CurrencyKey { get; set; }
+
+            [JsonProperty("free")]
+            public bool? Free { get; set; }
+
+            [JsonProperty("spent")]
+            public long? Spent { get; set; }
+
+            [JsonProperty("via")]
+            public string Via { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
     }
 
     public sealed class CampaignChaptersRequest
@@ -6819,6 +7643,9 @@ namespace NakamaFarsi.Sdk.Generated
 
         [JsonProperty("maxStars")]
         public JToken MaxStars { get; set; }
+
+        [JsonProperty("nextLevelXp")]
+        public long? NextLevelXp { get; set; }
 
         [JsonProperty("serverTime")]
         public string ServerTime { get; set; }
@@ -6857,6 +7684,9 @@ namespace NakamaFarsi.Sdk.Generated
 
             [JsonProperty("name")]
             public string Name { get; set; }
+
+            [JsonProperty("settings")]
+            public string Settings { get; set; }
 
             [JsonProperty("sort")]
             public JToken Sort { get; set; }
@@ -6898,6 +7728,9 @@ namespace NakamaFarsi.Sdk.Generated
             {
                 [JsonProperty("claimed")]
                 public bool? Claimed { get; set; }
+
+                [JsonProperty("id")]
+                public string Id { get; set; }
 
                 [JsonProperty("percent")]
                 public JToken Percent { get; set; }
@@ -6962,6 +7795,9 @@ namespace NakamaFarsi.Sdk.Generated
                 [JsonProperty("metadata")]
                 public JToken Metadata { get; set; }
 
+                [JsonProperty("minSeconds")]
+                public double? MinSeconds { get; set; }
+
                 [JsonProperty("mode")]
                 public JToken Mode { get; set; }
 
@@ -6970,6 +7806,12 @@ namespace NakamaFarsi.Sdk.Generated
 
                 [JsonProperty("nextRewardAt")]
                 public string NextRewardAt { get; set; }
+
+                [JsonProperty("noReplayAfterWin")]
+                public JToken NoReplayAfterWin { get; set; }
+
+                [JsonProperty("replayable")]
+                public bool? Replayable { get; set; }
 
                 [JsonProperty("rewardGroup")]
                 public JToken RewardGroup { get; set; }
@@ -6980,11 +7822,20 @@ namespace NakamaFarsi.Sdk.Generated
                 [JsonProperty("rewardsLeftToday")]
                 public long? RewardsLeftToday { get; set; }
 
+                [JsonProperty("settings")]
+                public string Settings { get; set; }
+
                 [JsonProperty("sort")]
                 public JToken Sort { get; set; }
 
                 [JsonProperty("starMultipliers")]
                 public List<double?> StarMultipliers { get; set; }
+
+                [JsonProperty("starRules")]
+                public List<JToken> StarRules { get; set; }
+
+                [JsonProperty("starTemplate")]
+                public JToken StarTemplate { get; set; }
 
                 [JsonProperty("tierPrizes")]
                 public JToken TierPrizes { get; set; }
@@ -9368,6 +10219,37 @@ namespace NakamaFarsi.Sdk.Generated
             [JsonExtensionData]
             public IDictionary<string, JToken> Extra { get; set; }
         }
+    }
+
+    public sealed class CommsUserTokenRequest
+    {
+    }
+
+    public sealed class CommsUserTokenResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("appId")]
+        public JToken AppId { get; set; }
+
+        [JsonProperty("enabled")]
+        public bool? Enabled { get; set; }
+
+        [JsonProperty("expiresAt")]
+        public string ExpiresAt { get; set; }
+
+        [JsonProperty("reason")]
+        public string Reason { get; set; }
+
+        [JsonProperty("token")]
+        public JToken Token { get; set; }
+
+        [JsonProperty("url")]
+        public JToken Url { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
     }
 
     public sealed class ContentCatalogRequest
@@ -12118,6 +13000,9 @@ namespace NakamaFarsi.Sdk.Generated
         [JsonProperty("metas")]
         public JObject Metas { get; set; }
 
+        [JsonProperty("regen")]
+        public List<JToken> Regen { get; set; }
+
         [JsonProperty("wallet")]
         public JObject Wallet { get; set; }
 
@@ -12134,6 +13019,51 @@ namespace NakamaFarsi.Sdk.Generated
 
             [JsonProperty("value")]
             public JToken Value { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class EconomyBoostersRequest
+    {
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+    }
+
+    public sealed class EconomyBoostersResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("code")]
+        public string Code { get; set; }
+
+        [JsonProperty("items")]
+        public List<ItemsItem> Items { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class ItemsItem
+        {
+            [JsonProperty("expiresAt")]
+            public string ExpiresAt { get; set; }
+
+            [JsonProperty("metaKey")]
+            public string MetaKey { get; set; }
+
+            [JsonProperty("metaName")]
+            public string MetaName { get; set; }
+
+            [JsonProperty("multiplier")]
+            public double? Multiplier { get; set; }
+
+            [JsonProperty("secondsLeft")]
+            public long? SecondsLeft { get; set; }
 
             [JsonExtensionData]
             public IDictionary<string, JToken> Extra { get; set; }
@@ -12204,6 +13134,9 @@ namespace NakamaFarsi.Sdk.Generated
             [JsonProperty("name")]
             public string Name { get; set; }
 
+            [JsonProperty("regen")]
+            public RegenData Regen { get; set; }
+
             [JsonProperty("tags")]
             public List<string> Tags { get; set; }
 
@@ -12212,6 +13145,21 @@ namespace NakamaFarsi.Sdk.Generated
 
             [JsonExtensionData]
             public IDictionary<string, JToken> Extra { get; set; }
+
+            public sealed class RegenData
+            {
+                [JsonProperty("intervalSeconds")]
+                public long? IntervalSeconds { get; set; }
+
+                [JsonProperty("max")]
+                public long? Max { get; set; }
+
+                [JsonProperty("refillPrice")]
+                public JToken RefillPrice { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
         }
 
         public sealed class ProductsItem
@@ -12239,6 +13187,9 @@ namespace NakamaFarsi.Sdk.Generated
 
             [JsonProperty("exclusive")]
             public bool? Exclusive { get; set; }
+
+            [JsonProperty("finalMinor")]
+            public JToken FinalMinor { get; set; }
 
             [JsonProperty("finalToman")]
             public JToken FinalToman { get; set; }
@@ -12278,6 +13229,12 @@ namespace NakamaFarsi.Sdk.Generated
 
             [JsonProperty("paymentMethods")]
             public List<string> PaymentMethods { get; set; }
+
+            [JsonProperty("priceCurrency")]
+            public string PriceCurrency { get; set; }
+
+            [JsonProperty("priceMinor")]
+            public long? PriceMinor { get; set; }
 
             [JsonProperty("priceToman")]
             public long? PriceToman { get; set; }
@@ -12320,8 +13277,38 @@ namespace NakamaFarsi.Sdk.Generated
         }
     }
 
+    public sealed class EconomyChanceAckRequest
+    {
+        [JsonProperty("playId")]
+        public string PlayId { get; set; }
+    }
+
+    public sealed class EconomyChanceAckResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("ackedAt")]
+        public string AckedAt { get; set; }
+
+        [JsonProperty("acknowledged")]
+        public bool? Acknowledged { get; set; }
+
+        [JsonProperty("code")]
+        public string Code { get; set; }
+
+        [JsonProperty("playId")]
+        public string PlayId { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
     public sealed class EconomyChanceCanPlayRequest
     {
+        [JsonProperty("expectedCost")]
+        public long? ExpectedCost { get; set; }
+
         [JsonProperty("id")]
         public string Id { get; set; }
 
@@ -12352,6 +13339,9 @@ namespace NakamaFarsi.Sdk.Generated
 
     public sealed class EconomyChanceGameRequest
     {
+        [JsonProperty("expectedCost")]
+        public long? ExpectedCost { get; set; }
+
         [JsonProperty("id")]
         public string Id { get; set; }
 
@@ -12798,6 +13788,9 @@ namespace NakamaFarsi.Sdk.Generated
             [JsonProperty("mode")]
             public JToken Mode { get; set; }
 
+            [JsonProperty("outcome")]
+            public List<JObject> Outcome { get; set; }
+
             [JsonProperty("playId")]
             public JToken PlayId { get; set; }
 
@@ -12854,6 +13847,9 @@ namespace NakamaFarsi.Sdk.Generated
                 [JsonProperty("key")]
                 public string Key { get; set; }
 
+                [JsonProperty("rewards")]
+                public List<RewardsItem_> Rewards { get; set; }
+
                 [JsonProperty("type")]
                 public string Type { get; set; }
 
@@ -12862,6 +13858,27 @@ namespace NakamaFarsi.Sdk.Generated
 
                 [JsonExtensionData]
                 public IDictionary<string, JToken> Extra { get; set; }
+
+                public sealed class RewardsItem_
+                {
+                    [JsonProperty("action")]
+                    public string Action { get; set; }
+
+                    [JsonProperty("key")]
+                    public string Key { get; set; }
+
+                    [JsonProperty("rewards")]
+                    public List<JToken> Rewards { get; set; }
+
+                    [JsonProperty("type")]
+                    public string Type { get; set; }
+
+                    [JsonProperty("value")]
+                    public JToken Value { get; set; }
+
+                    [JsonExtensionData]
+                    public IDictionary<string, JToken> Extra { get; set; }
+                }
             }
 
             public sealed class SpentData
@@ -12880,6 +13897,9 @@ namespace NakamaFarsi.Sdk.Generated
 
     public sealed class EconomyChanceNextPlayTimeRequest
     {
+        [JsonProperty("expectedCost")]
+        public long? ExpectedCost { get; set; }
+
         [JsonProperty("id")]
         public string Id { get; set; }
 
@@ -12910,6 +13930,9 @@ namespace NakamaFarsi.Sdk.Generated
 
     public sealed class EconomyChancePlayRequest
     {
+        [JsonProperty("expectedCost")]
+        public long? ExpectedCost { get; set; }
+
         [JsonProperty("id")]
         public string Id { get; set; }
 
@@ -12946,11 +13969,20 @@ namespace NakamaFarsi.Sdk.Generated
         [JsonProperty("mode")]
         public string Mode { get; set; }
 
+        [JsonProperty("needsAck")]
+        public bool? NeedsAck { get; set; }
+
         [JsonProperty("nextPlayAt")]
         public string NextPlayAt { get; set; }
 
         [JsonProperty("nextPlayTime")]
         public long? NextPlayTime { get; set; }
+
+        [JsonProperty("nextTicketCost")]
+        public long? NextTicketCost { get; set; }
+
+        [JsonProperty("outcome")]
+        public List<JObject> Outcome { get; set; }
 
         [JsonProperty("playId")]
         public JToken PlayId { get; set; }
@@ -13039,6 +14071,9 @@ namespace NakamaFarsi.Sdk.Generated
 
     public sealed class EconomyChancePlayWithTicketRequest
     {
+        [JsonProperty("expectedCost")]
+        public long? ExpectedCost { get; set; }
+
         [JsonProperty("id")]
         public string Id { get; set; }
 
@@ -13075,11 +14110,20 @@ namespace NakamaFarsi.Sdk.Generated
         [JsonProperty("mode")]
         public string Mode { get; set; }
 
+        [JsonProperty("needsAck")]
+        public bool? NeedsAck { get; set; }
+
         [JsonProperty("nextPlayAt")]
         public string NextPlayAt { get; set; }
 
         [JsonProperty("nextPlayTime")]
         public long? NextPlayTime { get; set; }
+
+        [JsonProperty("nextTicketCost")]
+        public long? NextTicketCost { get; set; }
+
+        [JsonProperty("outcome")]
+        public List<JObject> Outcome { get; set; }
 
         [JsonProperty("playId")]
         public JToken PlayId { get; set; }
@@ -13347,11 +14391,20 @@ namespace NakamaFarsi.Sdk.Generated
             [JsonProperty("floored")]
             public bool? Floored { get; set; }
 
+            [JsonProperty("infinityAmount")]
+            public long? InfinityAmount { get; set; }
+
+            [JsonProperty("infinityCurrency")]
+            public string InfinityCurrency { get; set; }
+
             [JsonProperty("key")]
             public string Key { get; set; }
 
             [JsonProperty("nextMilestone")]
             public long? NextMilestone { get; set; }
+
+            [JsonProperty("phase")]
+            public string Phase { get; set; }
 
             [JsonProperty("reset")]
             public bool? Reset { get; set; }
@@ -14062,6 +15115,12 @@ namespace NakamaFarsi.Sdk.Generated
         [JsonProperty("name")]
         public string Name { get; set; }
 
+        [JsonProperty("newPlayer")]
+        public bool? NewPlayer { get; set; }
+
+        [JsonProperty("oneMatchPerPlayer")]
+        public bool? OneMatchPerPlayer { get; set; }
+
         [JsonProperty("path")]
         public string Path { get; set; }
 
@@ -14229,6 +15288,9 @@ namespace NakamaFarsi.Sdk.Generated
             [JsonProperty("inheritsGame")]
             public JToken InheritsGame { get; set; }
 
+            [JsonProperty("joinable")]
+            public bool? Joinable { get; set; }
+
             [JsonProperty("key")]
             public JToken Key { get; set; }
 
@@ -14387,6 +15449,262 @@ namespace NakamaFarsi.Sdk.Generated
         }
     }
 
+    public sealed class EconomyGameActiveRequest
+    {
+    }
+
+    public sealed class EconomyGameActiveResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("match")]
+        public JToken Match { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class EconomyGameBotRequest
+    {
+        [JsonProperty("code")]
+        public string Code { get; set; }
+
+        [JsonProperty("friendId")]
+        public string FriendId { get; set; }
+
+        [JsonProperty("key")]
+        public string Key { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("matchId")]
+        public string MatchId { get; set; }
+
+        [JsonProperty("platform")]
+        public string Platform { get; set; }
+
+        [JsonProperty("room")]
+        public string Room { get; set; }
+
+        [JsonProperty("version")]
+        public string Version { get; set; }
+    }
+
+    public sealed class EconomyGameBotResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("botAfterSeconds")]
+        public long? BotAfterSeconds { get; set; }
+
+        [JsonProperty("key")]
+        public string Key { get; set; }
+
+        [JsonProperty("matchId")]
+        public JToken MatchId { get; set; }
+
+        [JsonProperty("room")]
+        public string Room { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class EconomyGameFriendCancelRequest
+    {
+        [JsonProperty("code")]
+        public string Code { get; set; }
+
+        [JsonProperty("friendId")]
+        public string FriendId { get; set; }
+
+        [JsonProperty("key")]
+        public string Key { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("matchId")]
+        public string MatchId { get; set; }
+
+        [JsonProperty("platform")]
+        public string Platform { get; set; }
+
+        [JsonProperty("room")]
+        public string Room { get; set; }
+
+        [JsonProperty("version")]
+        public string Version { get; set; }
+    }
+
+    public sealed class EconomyGameFriendCancelResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("done")]
+        public bool? Done { get; set; }
+
+        [JsonProperty("matchId")]
+        public string MatchId { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class EconomyGameFriendCreateRequest
+    {
+        [JsonProperty("code")]
+        public string Code { get; set; }
+
+        [JsonProperty("friendId")]
+        public string FriendId { get; set; }
+
+        [JsonProperty("key")]
+        public string Key { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("matchId")]
+        public string MatchId { get; set; }
+
+        [JsonProperty("platform")]
+        public string Platform { get; set; }
+
+        [JsonProperty("room")]
+        public string Room { get; set; }
+
+        [JsonProperty("version")]
+        public string Version { get; set; }
+    }
+
+    public sealed class EconomyGameFriendCreateResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("code")]
+        public JToken Code { get; set; }
+
+        [JsonProperty("existing")]
+        public bool? Existing { get; set; }
+
+        [JsonProperty("expiresInSeconds")]
+        public long? ExpiresInSeconds { get; set; }
+
+        [JsonProperty("friendId")]
+        public string FriendId { get; set; }
+
+        [JsonProperty("key")]
+        public string Key { get; set; }
+
+        [JsonProperty("matchId")]
+        public JToken MatchId { get; set; }
+
+        [JsonProperty("room")]
+        public string Room { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class EconomyGameFriendDeclineRequest
+    {
+        [JsonProperty("code")]
+        public string Code { get; set; }
+
+        [JsonProperty("friendId")]
+        public string FriendId { get; set; }
+
+        [JsonProperty("key")]
+        public string Key { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("matchId")]
+        public string MatchId { get; set; }
+
+        [JsonProperty("platform")]
+        public string Platform { get; set; }
+
+        [JsonProperty("room")]
+        public string Room { get; set; }
+
+        [JsonProperty("version")]
+        public string Version { get; set; }
+    }
+
+    public sealed class EconomyGameFriendDeclineResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("done")]
+        public bool? Done { get; set; }
+
+        [JsonProperty("matchId")]
+        public string MatchId { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class EconomyGameFriendJoinRequest
+    {
+        [JsonProperty("code")]
+        public string Code { get; set; }
+
+        [JsonProperty("friendId")]
+        public string FriendId { get; set; }
+
+        [JsonProperty("key")]
+        public string Key { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("matchId")]
+        public string MatchId { get; set; }
+
+        [JsonProperty("platform")]
+        public string Platform { get; set; }
+
+        [JsonProperty("room")]
+        public string Room { get; set; }
+
+        [JsonProperty("version")]
+        public string Version { get; set; }
+    }
+
+    public sealed class EconomyGameFriendJoinResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("expiresInSeconds")]
+        public JToken ExpiresInSeconds { get; set; }
+
+        [JsonProperty("hostId")]
+        public JToken HostId { get; set; }
+
+        [JsonProperty("key")]
+        public JToken Key { get; set; }
+
+        [JsonProperty("matchId")]
+        public string MatchId { get; set; }
+
+        [JsonProperty("room")]
+        public JToken Room { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
     public sealed class EconomyGameJoinRequest
     {
         [JsonProperty("key")]
@@ -14451,6 +15769,120 @@ namespace NakamaFarsi.Sdk.Generated
 
         [JsonExtensionData]
         public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class EconomyGameQueueRequest
+    {
+        [JsonProperty("code")]
+        public string Code { get; set; }
+
+        [JsonProperty("friendId")]
+        public string FriendId { get; set; }
+
+        [JsonProperty("key")]
+        public string Key { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("matchId")]
+        public string MatchId { get; set; }
+
+        [JsonProperty("platform")]
+        public string Platform { get; set; }
+
+        [JsonProperty("room")]
+        public string Room { get; set; }
+
+        [JsonProperty("version")]
+        public string Version { get; set; }
+    }
+
+    public sealed class EconomyGameQueueResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("botFillSeconds")]
+        public JToken BotFillSeconds { get; set; }
+
+        [JsonProperty("humanSeats")]
+        public JToken HumanSeats { get; set; }
+
+        [JsonProperty("key")]
+        public JToken Key { get; set; }
+
+        [JsonProperty("players")]
+        public JToken Players { get; set; }
+
+        [JsonProperty("room")]
+        public JToken Room { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class EconomyGameStatsRequest
+    {
+        [JsonProperty("game")]
+        public string Game { get; set; }
+
+        [JsonProperty("userId")]
+        public string UserId { get; set; }
+    }
+
+    public sealed class EconomyGameStatsResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("items")]
+        public List<ItemsItem> Items { get; set; }
+
+        [JsonProperty("userId")]
+        public string UserId { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class ItemsItem
+        {
+            [JsonProperty("forfeits")]
+            public long? Forfeits { get; set; }
+
+            [JsonProperty("game")]
+            public string Game { get; set; }
+
+            [JsonProperty("lastPlayedAt")]
+            public string LastPlayedAt { get; set; }
+
+            [JsonProperty("lossRate")]
+            public double? LossRate { get; set; }
+
+            [JsonProperty("losses")]
+            public long? Losses { get; set; }
+
+            [JsonProperty("playtimeSeconds")]
+            public long? PlaytimeSeconds { get; set; }
+
+            [JsonProperty("timeouts")]
+            public long? Timeouts { get; set; }
+
+            [JsonProperty("totalGames")]
+            public long? TotalGames { get; set; }
+
+            [JsonProperty("winRate")]
+            public double? WinRate { get; set; }
+
+            [JsonProperty("winnings")]
+            public JObject Winnings { get; set; }
+
+            [JsonProperty("wins")]
+            public long? Wins { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
     }
 
     public sealed class EconomyGamesRequest
@@ -14540,6 +15972,12 @@ namespace NakamaFarsi.Sdk.Generated
 
             [JsonProperty("name")]
             public string Name { get; set; }
+
+            [JsonProperty("newPlayer")]
+            public bool? NewPlayer { get; set; }
+
+            [JsonProperty("oneMatchPerPlayer")]
+            public bool? OneMatchPerPlayer { get; set; }
 
             [JsonProperty("path")]
             public string Path { get; set; }
@@ -14707,6 +16145,9 @@ namespace NakamaFarsi.Sdk.Generated
 
                 [JsonProperty("inheritsGame")]
                 public JToken InheritsGame { get; set; }
+
+                [JsonProperty("joinable")]
+                public bool? Joinable { get; set; }
 
                 [JsonProperty("key")]
                 public JToken Key { get; set; }
@@ -14913,6 +16354,9 @@ namespace NakamaFarsi.Sdk.Generated
             [JsonProperty("key")]
             public string Key { get; set; }
 
+            [JsonProperty("rewards")]
+            public List<RewardsItem_> Rewards { get; set; }
+
             [JsonProperty("type")]
             public string Type { get; set; }
 
@@ -14921,6 +16365,27 @@ namespace NakamaFarsi.Sdk.Generated
 
             [JsonExtensionData]
             public IDictionary<string, JToken> Extra { get; set; }
+
+            public sealed class RewardsItem_
+            {
+                [JsonProperty("action")]
+                public string Action { get; set; }
+
+                [JsonProperty("key")]
+                public string Key { get; set; }
+
+                [JsonProperty("rewards")]
+                public List<JToken> Rewards { get; set; }
+
+                [JsonProperty("type")]
+                public string Type { get; set; }
+
+                [JsonProperty("value")]
+                public JToken Value { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
         }
     }
 
@@ -14931,6 +16396,9 @@ namespace NakamaFarsi.Sdk.Generated
 
         [JsonProperty("type")]
         public string Type { get; set; }
+
+        [JsonProperty("withProfile")]
+        public bool? WithProfile { get; set; }
     }
 
     public sealed class EconomyInventoryResponse : IRawResponse
@@ -15477,11 +16945,23 @@ namespace NakamaFarsi.Sdk.Generated
         [JsonIgnore]
         public JObject Raw { get; set; }
 
+        [JsonProperty("amountMinor")]
+        public JToken AmountMinor { get; set; }
+
+        [JsonProperty("currency")]
+        public JToken Currency { get; set; }
+
         [JsonProperty("developerPayload")]
         public string DeveloperPayload { get; set; }
 
+        [JsonProperty("error")]
+        public string Error { get; set; }
+
         [JsonProperty("paymentId")]
         public string PaymentId { get; set; }
+
+        [JsonProperty("publishableKey")]
+        public string PublishableKey { get; set; }
 
         [JsonProperty("purchaseMessage")]
         public string PurchaseMessage { get; set; }
@@ -15489,8 +16969,14 @@ namespace NakamaFarsi.Sdk.Generated
         [JsonProperty("redirectUrl")]
         public string RedirectUrl { get; set; }
 
+        [JsonProperty("rewardGranted")]
+        public bool? RewardGranted { get; set; }
+
         [JsonProperty("rewards")]
         public List<RewardsItem> Rewards { get; set; }
+
+        [JsonProperty("sessionId")]
+        public JToken SessionId { get; set; }
 
         [JsonProperty("sku")]
         public string Sku { get; set; }
@@ -15509,6 +16995,9 @@ namespace NakamaFarsi.Sdk.Generated
             [JsonProperty("key")]
             public string Key { get; set; }
 
+            [JsonProperty("rewards")]
+            public List<RewardsItem_> Rewards { get; set; }
+
             [JsonProperty("type")]
             public string Type { get; set; }
 
@@ -15517,6 +17006,27 @@ namespace NakamaFarsi.Sdk.Generated
 
             [JsonExtensionData]
             public IDictionary<string, JToken> Extra { get; set; }
+
+            public sealed class RewardsItem_
+            {
+                [JsonProperty("action")]
+                public string Action { get; set; }
+
+                [JsonProperty("key")]
+                public string Key { get; set; }
+
+                [JsonProperty("rewards")]
+                public List<JToken> Rewards { get; set; }
+
+                [JsonProperty("type")]
+                public string Type { get; set; }
+
+                [JsonProperty("value")]
+                public JToken Value { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
         }
     }
 
@@ -16180,6 +17690,138 @@ namespace NakamaFarsi.Sdk.Generated
         }
     }
 
+    public sealed class EconomyPlayerCardRequest
+    {
+        [JsonProperty("game")]
+        public string Game { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("levelTable")]
+        public string LevelTable { get; set; }
+
+        [JsonProperty("userId")]
+        public string UserId { get; set; }
+    }
+
+    public sealed class EconomyPlayerCardResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("avatar")]
+        public AvatarData Avatar { get; set; }
+
+        [JsonProperty("avatarUrl")]
+        public string AvatarUrl { get; set; }
+
+        [JsonProperty("displayName")]
+        public string DisplayName { get; set; }
+
+        [JsonProperty("equipped")]
+        public JObject Equipped { get; set; }
+
+        [JsonProperty("gameStats")]
+        public GameStatsData GameStats { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("level")]
+        public LevelData Level { get; set; }
+
+        [JsonProperty("stats")]
+        public JToken Stats { get; set; }
+
+        [JsonProperty("userId")]
+        public string UserId { get; set; }
+
+        [JsonProperty("username")]
+        public string Username { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class AvatarData
+        {
+            [JsonProperty("iconUrl")]
+            public string IconUrl { get; set; }
+
+            [JsonProperty("key")]
+            public string Key { get; set; }
+
+            [JsonProperty("name")]
+            public string Name { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class GameStatsData
+        {
+            [JsonProperty("forfeits")]
+            public long? Forfeits { get; set; }
+
+            [JsonProperty("game")]
+            public string Game { get; set; }
+
+            [JsonProperty("lastPlayedAt")]
+            public string LastPlayedAt { get; set; }
+
+            [JsonProperty("lossRate")]
+            public double? LossRate { get; set; }
+
+            [JsonProperty("losses")]
+            public long? Losses { get; set; }
+
+            [JsonProperty("playtimeSeconds")]
+            public long? PlaytimeSeconds { get; set; }
+
+            [JsonProperty("timeouts")]
+            public long? Timeouts { get; set; }
+
+            [JsonProperty("totalGames")]
+            public long? TotalGames { get; set; }
+
+            [JsonProperty("winRate")]
+            public double? WinRate { get; set; }
+
+            [JsonProperty("winnings")]
+            public JObject Winnings { get; set; }
+
+            [JsonProperty("wins")]
+            public long? Wins { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class LevelData
+        {
+            [JsonProperty("level")]
+            public long? Level { get; set; }
+
+            [JsonProperty("levelStart")]
+            public long? LevelStart { get; set; }
+
+            [JsonProperty("maxLevel")]
+            public long? MaxLevel { get; set; }
+
+            [JsonProperty("next")]
+            public JToken Next { get; set; }
+
+            [JsonProperty("table")]
+            public string Table { get; set; }
+
+            [JsonProperty("xp")]
+            public long? Xp { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
     public sealed class EconomyPurchaseReviewRequest
     {
         [JsonProperty("method")]
@@ -16223,6 +17865,9 @@ namespace NakamaFarsi.Sdk.Generated
             [JsonProperty("key")]
             public string Key { get; set; }
 
+            [JsonProperty("rewards")]
+            public List<RewardsItem_> Rewards { get; set; }
+
             [JsonProperty("type")]
             public string Type { get; set; }
 
@@ -16231,6 +17876,27 @@ namespace NakamaFarsi.Sdk.Generated
 
             [JsonExtensionData]
             public IDictionary<string, JToken> Extra { get; set; }
+
+            public sealed class RewardsItem_
+            {
+                [JsonProperty("action")]
+                public string Action { get; set; }
+
+                [JsonProperty("key")]
+                public string Key { get; set; }
+
+                [JsonProperty("rewards")]
+                public List<JToken> Rewards { get; set; }
+
+                [JsonProperty("type")]
+                public string Type { get; set; }
+
+                [JsonProperty("value")]
+                public JToken Value { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
         }
     }
 
@@ -16257,11 +17923,23 @@ namespace NakamaFarsi.Sdk.Generated
         [JsonIgnore]
         public JObject Raw { get; set; }
 
+        [JsonProperty("amountMinor")]
+        public JToken AmountMinor { get; set; }
+
+        [JsonProperty("currency")]
+        public JToken Currency { get; set; }
+
         [JsonProperty("developerPayload")]
         public string DeveloperPayload { get; set; }
 
+        [JsonProperty("error")]
+        public string Error { get; set; }
+
         [JsonProperty("paymentId")]
         public string PaymentId { get; set; }
+
+        [JsonProperty("publishableKey")]
+        public string PublishableKey { get; set; }
 
         [JsonProperty("purchaseMessage")]
         public string PurchaseMessage { get; set; }
@@ -16269,8 +17947,14 @@ namespace NakamaFarsi.Sdk.Generated
         [JsonProperty("redirectUrl")]
         public string RedirectUrl { get; set; }
 
+        [JsonProperty("rewardGranted")]
+        public bool? RewardGranted { get; set; }
+
         [JsonProperty("rewards")]
         public List<RewardsItem> Rewards { get; set; }
+
+        [JsonProperty("sessionId")]
+        public JToken SessionId { get; set; }
 
         [JsonProperty("sku")]
         public string Sku { get; set; }
@@ -16289,6 +17973,9 @@ namespace NakamaFarsi.Sdk.Generated
             [JsonProperty("key")]
             public string Key { get; set; }
 
+            [JsonProperty("rewards")]
+            public List<RewardsItem_> Rewards { get; set; }
+
             [JsonProperty("type")]
             public string Type { get; set; }
 
@@ -16297,6 +17984,27 @@ namespace NakamaFarsi.Sdk.Generated
 
             [JsonExtensionData]
             public IDictionary<string, JToken> Extra { get; set; }
+
+            public sealed class RewardsItem_
+            {
+                [JsonProperty("action")]
+                public string Action { get; set; }
+
+                [JsonProperty("key")]
+                public string Key { get; set; }
+
+                [JsonProperty("rewards")]
+                public List<JToken> Rewards { get; set; }
+
+                [JsonProperty("type")]
+                public string Type { get; set; }
+
+                [JsonProperty("value")]
+                public JToken Value { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
         }
     }
 
@@ -16373,6 +18081,9 @@ namespace NakamaFarsi.Sdk.Generated
             [JsonProperty("key")]
             public string Key { get; set; }
 
+            [JsonProperty("rewards")]
+            public List<RewardsItem_> Rewards { get; set; }
+
             [JsonProperty("type")]
             public string Type { get; set; }
 
@@ -16381,6 +18092,27 @@ namespace NakamaFarsi.Sdk.Generated
 
             [JsonExtensionData]
             public IDictionary<string, JToken> Extra { get; set; }
+
+            public sealed class RewardsItem_
+            {
+                [JsonProperty("action")]
+                public string Action { get; set; }
+
+                [JsonProperty("key")]
+                public string Key { get; set; }
+
+                [JsonProperty("rewards")]
+                public List<JToken> Rewards { get; set; }
+
+                [JsonProperty("type")]
+                public string Type { get; set; }
+
+                [JsonProperty("value")]
+                public JToken Value { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
         }
     }
 
@@ -16504,6 +18236,9 @@ namespace NakamaFarsi.Sdk.Generated
             {
                 [JsonProperty("claimId")]
                 public string ClaimId { get; set; }
+
+                [JsonProperty("expiresAt")]
+                public JToken ExpiresAt { get; set; }
 
                 [JsonProperty("grantMode")]
                 public string GrantMode { get; set; }
@@ -16787,6 +18522,45 @@ namespace NakamaFarsi.Sdk.Generated
         }
     }
 
+    public sealed class EconomyRegenRefillRequest
+    {
+        [JsonProperty("currencyKey")]
+        public string CurrencyKey { get; set; }
+
+        [JsonProperty("requestId")]
+        public string RequestId { get; set; }
+    }
+
+    public sealed class EconomyRegenRefillResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class EconomyRegenStateRequest
+    {
+        [JsonProperty("currencies")]
+        public List<string> Currencies { get; set; }
+    }
+
+    public sealed class EconomyRegenStateResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("currencies")]
+        public List<JToken> Currencies { get; set; }
+
+        [JsonProperty("serverTime")]
+        public JToken ServerTime { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
     public sealed class EconomyRewardClaimRequest
     {
         [JsonProperty("claimId")]
@@ -16886,6 +18660,9 @@ namespace NakamaFarsi.Sdk.Generated
 
             [JsonProperty("key")]
             public string Key { get; set; }
+
+            [JsonProperty("rewards")]
+            public List<JToken> Rewards { get; set; }
 
             [JsonProperty("type")]
             public string Type { get; set; }
@@ -17039,6 +18816,9 @@ namespace NakamaFarsi.Sdk.Generated
 
             [JsonProperty("key")]
             public string Key { get; set; }
+
+            [JsonProperty("rewards")]
+            public List<JToken> Rewards { get; set; }
 
             [JsonProperty("type")]
             public string Type { get; set; }
@@ -17251,6 +19031,9 @@ namespace NakamaFarsi.Sdk.Generated
         [JsonIgnore]
         public JObject Raw { get; set; }
 
+        [JsonProperty("bundleId")]
+        public string BundleId { get; set; }
+
         [JsonProperty("method")]
         public string Method { get; set; }
 
@@ -17357,6 +19140,9 @@ namespace NakamaFarsi.Sdk.Generated
 
             [JsonProperty("key")]
             public string Key { get; set; }
+
+            [JsonProperty("rewards")]
+            public List<JToken> Rewards { get; set; }
 
             [JsonProperty("type")]
             public string Type { get; set; }
@@ -18160,12 +19946,17 @@ namespace NakamaFarsi.Sdk.Generated
 
     public sealed class InsightsConfigRequest
     {
+        [JsonProperty("game")]
+        public string Game { get; set; }
     }
 
     public sealed class InsightsConfigResponse : IRawResponse
     {
         [JsonIgnore]
         public JObject Raw { get; set; }
+
+        [JsonProperty("events")]
+        public EventsData Events { get; set; }
 
         [JsonProperty("heatmap")]
         public HeatmapData Heatmap { get; set; }
@@ -18175,6 +19966,33 @@ namespace NakamaFarsi.Sdk.Generated
 
         [JsonExtensionData]
         public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class EventsData
+        {
+            [JsonProperty("enabled")]
+            public JToken Enabled { get; set; }
+
+            [JsonProperty("flushSeconds")]
+            public JToken FlushSeconds { get; set; }
+
+            [JsonProperty("game")]
+            public string Game { get; set; }
+
+            [JsonProperty("maxBatch")]
+            public JToken MaxBatch { get; set; }
+
+            [JsonProperty("maxNameLength")]
+            public JToken MaxNameLength { get; set; }
+
+            [JsonProperty("maxQueue")]
+            public JToken MaxQueue { get; set; }
+
+            [JsonProperty("maxTags")]
+            public JToken MaxTags { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
 
         public sealed class HeatmapData
         {
@@ -18267,6 +20085,63 @@ namespace NakamaFarsi.Sdk.Generated
         public IDictionary<string, JToken> Extra { get; set; }
     }
 
+    public sealed class InsightsSendRequest
+    {
+        [JsonProperty("appVersion")]
+        public string AppVersion { get; set; }
+
+        [JsonProperty("batchId")]
+        public string BatchId { get; set; }
+
+        [JsonProperty("events")]
+        public List<JToken> Events { get; set; }
+
+        [JsonProperty("game")]
+        public string Game { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("platform")]
+        public string Platform { get; set; }
+
+        [JsonProperty("sessionId")]
+        public string SessionId { get; set; }
+    }
+
+    public sealed class InsightsSendResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("accepted")]
+        public long? Accepted { get; set; }
+
+        [JsonProperty("batchId")]
+        public string BatchId { get; set; }
+
+        [JsonProperty("dropped")]
+        public long? Dropped { get; set; }
+
+        [JsonProperty("duplicate")]
+        public bool? Duplicate { get; set; }
+
+        [JsonProperty("flagged")]
+        public long? Flagged { get; set; }
+
+        [JsonProperty("received")]
+        public long? Received { get; set; }
+
+        [JsonProperty("rejected")]
+        public long? Rejected { get; set; }
+
+        [JsonProperty("results")]
+        public List<JToken> Results { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
     public sealed class InsightsSessionRequest
     {
         [JsonProperty("appVersion")]
@@ -18277,6 +20152,9 @@ namespace NakamaFarsi.Sdk.Generated
 
         [JsonProperty("event")]
         public string Event { get; set; }
+
+        [JsonProperty("game")]
+        public string Game { get; set; }
 
         [JsonProperty("os")]
         public string Os { get; set; }
@@ -19471,6 +21349,12 @@ namespace NakamaFarsi.Sdk.Generated
 
         [JsonProperty("limit")]
         public long? Limit { get; set; }
+
+        [JsonProperty("refId")]
+        public string RefId { get; set; }
+
+        [JsonProperty("sourceId")]
+        public string SourceId { get; set; }
 
         [JsonProperty("to")]
         public string To { get; set; }
@@ -26614,6 +28498,9 @@ namespace NakamaFarsi.Sdk.Generated
 
         [JsonProperty("room")]
         public JToken Room { get; set; }
+
+        [JsonProperty("staffMuted")]
+        public bool? StaffMuted { get; set; }
 
         [JsonProperty("token")]
         public JToken Token { get; set; }

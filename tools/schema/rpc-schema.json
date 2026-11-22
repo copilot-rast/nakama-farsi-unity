@@ -680,6 +680,7 @@
         "properties": {
           "batchesPerMinute": {},
           "claimMode": {},
+          "day": {},
           "events": {
             "items": {
               "properties": {
@@ -710,13 +711,28 @@
                 "kind": {
                   "type": "string"
                 },
+                "period": {
+                  "type": "string"
+                },
                 "sendIntervalSeconds": {
                   "type": "integer"
+                },
+                "splitBy": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
                 }
               },
               "type": "object"
             },
             "type": "array"
+          },
+          "thresholds": {
+            "additionalProperties": {
+              "type": "number"
+            },
+            "type": "object"
           },
           "typed": {
             "properties": {
@@ -834,10 +850,14 @@
       },
       "response": {
         "properties": {
+          "day": {},
           "items": {
             "items": {
               "properties": {
                 "best": {
+                  "type": "number"
+                },
+                "current": {
                   "type": "number"
                 },
                 "key": {
@@ -848,6 +868,44 @@
                 },
                 "name": {
                   "type": "string"
+                },
+                "period": {
+                  "type": "string"
+                },
+                "splitBy": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "tags": {
+                  "items": {
+                    "properties": {
+                      "best": {
+                        "type": "number"
+                      },
+                      "current": {
+                        "type": "number"
+                      },
+                      "key": {
+                        "type": "string"
+                      },
+                      "label": {
+                        "type": "string"
+                      },
+                      "tag": {
+                        "type": "string"
+                      },
+                      "total": {
+                        "type": "number"
+                      },
+                      "value": {
+                        "type": "number"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
                 },
                 "total": {
                   "type": "number"
@@ -1055,6 +1113,9 @@
                 "accepted": {
                   "type": "number"
                 },
+                "current": {
+                  "type": "number"
+                },
                 "key": {
                   "type": "string"
                 },
@@ -1062,6 +1123,9 @@
                   "type": "number"
                 },
                 "status": {
+                  "type": "string"
+                },
+                "tag": {
                   "type": "string"
                 },
                 "value": {
@@ -2340,6 +2404,219 @@
       "errors": []
     },
     {
+      "id": "base_comm_favorite",
+      "module": "base",
+      "handler": "rpcCommFavorite",
+      "source": "integrations/base/comms.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {
+          "favorite": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "item": {
+            "type": "string"
+          },
+          "pack": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "favorite": {
+            "type": "boolean"
+          },
+          "item": {
+            "type": "string"
+          },
+          "pack": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "FAVORITES_FULL",
+        "ITEM_REQUIRED"
+      ]
+    },
+    {
+      "id": "base_comm_favorites",
+      "module": "base",
+      "handler": "rpcCommFavorites",
+      "source": "integrations/base/comms.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {
+          "kind": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "pack": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "items": {
+            "items": {
+              "properties": {
+                "addedAt": {
+                  "type": "string"
+                },
+                "assetId": {
+                  "type": "string"
+                },
+                "imageUrl": {
+                  "type": "string"
+                },
+                "key": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "pack": {
+                  "type": "string"
+                },
+                "packKind": {
+                  "type": "string"
+                },
+                "ref": {
+                  "type": "string"
+                },
+                "text": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "lang": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": []
+    },
+    {
+      "id": "base_comm_packs",
+      "module": "base",
+      "handler": "rpcCommPacks",
+      "source": "integrations/base/comms.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {
+          "kind": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "mine": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "cooldown": {},
+          "enabled": {},
+          "lang": {
+            "type": "string"
+          },
+          "maxFavorites": {},
+          "packs": {
+            "items": {
+              "properties": {
+                "access": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "iconUrl": {
+                  "type": "string"
+                },
+                "item": {
+                  "type": "object"
+                },
+                "itemKey": {
+                  "type": "string"
+                },
+                "items": {
+                  "items": {
+                    "properties": {
+                      "assetId": {
+                        "type": "string"
+                      },
+                      "favorite": {
+                        "type": "boolean"
+                      },
+                      "imageUrl": {
+                        "type": "string"
+                      },
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "ref": {
+                        "type": "string"
+                      },
+                      "text": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "key": {
+                  "type": "string"
+                },
+                "kind": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "owned": {
+                  "type": "boolean"
+                },
+                "starter": {
+                  "type": "boolean"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "INVALID_KIND"
+      ]
+    },
+    {
       "id": "base_countries",
       "module": "base",
       "handler": "rpcCountries",
@@ -2407,6 +2684,10 @@
           "dailyRequests": {
             "type": "integer"
           },
+          "dayStartMinute": {},
+          "dmFriendsOnly": {
+            "type": "boolean"
+          },
           "expiryDays": {
             "type": "integer"
           },
@@ -2419,6 +2700,9 @@
           },
           "overLimit": {
             "type": "string"
+          },
+          "presenceFriendsOnly": {
+            "type": "boolean"
           },
           "rejectCooldownHours": {
             "type": "integer"
@@ -2440,6 +2724,80 @@
       "errors": []
     },
     {
+      "id": "base_friend_suggestions",
+      "module": "base",
+      "handler": "rpcFriendSuggestions",
+      "source": "integrations/base/suggestions.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {
+          "lang": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "cycle": {
+            "type": "string"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "refreshesAt": {
+            "type": "string"
+          },
+          "suggestions": {
+            "items": {
+              "properties": {
+                "avatarUrl": {
+                  "type": "string"
+                },
+                "code": {
+                  "type": "string"
+                },
+                "displayName": {
+                  "type": "string"
+                },
+                "lastPlayedAt": {
+                  "nullable": true,
+                  "type": "string"
+                },
+                "mutual": {
+                  "type": "integer"
+                },
+                "online": {
+                  "type": "boolean"
+                },
+                "score": {
+                  "type": "number"
+                },
+                "shows": {
+                  "type": "integer"
+                },
+                "source": {
+                  "type": "string"
+                },
+                "userId": {
+                  "type": "string"
+                },
+                "username": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "errors": []
+    },
+    {
       "id": "base_friends_add",
       "module": "base",
       "handler": "rpcFriendsAdd",
@@ -2449,6 +2807,12 @@
       "codeModeFormat": "code",
       "request": {
         "properties": {
+          "codes": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
           "ids": {
             "items": {
               "type": "string"
@@ -2483,6 +2847,12 @@
       "codeModeFormat": "code",
       "request": {
         "properties": {
+          "codes": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
           "ids": {
             "items": {
               "type": "string"
@@ -2547,6 +2917,12 @@
       "codeModeFormat": "code",
       "request": {
         "properties": {
+          "codes": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
           "ids": {
             "items": {
               "type": "string"
@@ -2681,6 +3057,34 @@
       },
       "errors": [
         "INVALID_KIND"
+      ]
+    },
+    {
+      "id": "base_my_code",
+      "module": "base",
+      "handler": "rpcMyCode",
+      "source": "integrations/base/playercode.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {
+          "lang": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "code": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "USER_NOT_FOUND"
       ]
     },
     {
@@ -2883,6 +3287,40 @@
         "type": "object"
       },
       "errors": []
+    },
+    {
+      "id": "base_player_codes",
+      "module": "base",
+      "handler": "rpcPlayerCodes",
+      "source": "integrations/base/playercode.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {
+          "ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "codes": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "INVALID_USER_ID"
+      ]
     },
     {
       "id": "base_remote_config",
@@ -3226,6 +3664,9 @@
                 "key": {
                   "type": "string"
                 },
+                "kind": {
+                  "type": "string"
+                },
                 "name": {
                   "type": "string"
                 },
@@ -3235,6 +3676,9 @@
                 "stickers": {
                   "items": {
                     "properties": {
+                      "assetId": {
+                        "type": "string"
+                      },
                       "imageUrl": {
                         "type": "string"
                       },
@@ -3245,6 +3689,9 @@
                         "type": "string"
                       },
                       "ref": {
+                        "type": "string"
+                      },
+                      "text": {
                         "type": "string"
                       }
                     },
@@ -4026,6 +4473,173 @@
       ]
     },
     {
+      "id": "base_user_by_code",
+      "module": "base",
+      "handler": "rpcUserByCode",
+      "source": "integrations/base/playercode.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "online": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "relationship": {},
+          "user": {
+            "properties": {
+              "avatarUrl": {
+                "type": "string"
+              },
+              "code": {},
+              "displayName": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "username": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "errors": []
+    },
+    {
+      "id": "base_username_change",
+      "module": "base",
+      "handler": "rpcUsernameChange",
+      "source": "integrations/base/usernames.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {
+          "expectedCost": {
+            "nullable": true,
+            "type": "integer"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "nullable": true,
+        "properties": {
+          "cost": {
+            "type": "integer"
+          },
+          "currency": {
+            "type": "string"
+          },
+          "oldUsername": {
+            "type": "string"
+          },
+          "quote": {
+            "properties": {
+              "cooldownEndsAt": {
+                "type": "string"
+              },
+              "cooldownHours": {
+                "type": "integer"
+              },
+              "cost": {
+                "type": "integer"
+              },
+              "currency": {
+                "type": "string"
+              },
+              "enabled": {
+                "type": "boolean"
+              },
+              "free": {
+                "type": "boolean"
+              },
+              "paidChanges": {
+                "type": "integer"
+              }
+            },
+            "type": "object"
+          },
+          "source": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "USER_NOT_FOUND"
+      ]
+    },
+    {
+      "id": "base_username_quote",
+      "module": "base",
+      "handler": "rpcUsernameQuote",
+      "source": "integrations/base/usernames.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {
+          "lang": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "cooldownEndsAt": {
+            "type": "string"
+          },
+          "cooldownHours": {
+            "type": "integer"
+          },
+          "cost": {
+            "type": "integer"
+          },
+          "currency": {
+            "type": "string"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "free": {
+            "type": "boolean"
+          },
+          "paidChanges": {
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "errors": []
+    },
+    {
       "id": "base_users_get",
       "module": "base",
       "handler": "rpcUsersGet",
@@ -4035,6 +4649,12 @@
       "codeModeFormat": "code",
       "request": {
         "properties": {
+          "codes": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
           "ids": {
             "items": {
               "type": "string"
@@ -4097,6 +4717,7 @@
         "ATTEMPT_NOT_FOUND",
         "ATTEMPT_REQUIRED",
         "INVALID_RESULT",
+        "STAGE_ALREADY_WON",
         "STAGE_BUSY",
         "STAGE_FINISHED_TOO_FAST",
         "STAGE_LOCKED",
@@ -4128,6 +4749,35 @@
           "expiresAt": {
             "type": "string"
           },
+          "item": {
+            "properties": {
+              "itemKey": {},
+              "itemType": {}
+            },
+            "type": "object"
+          },
+          "playCost": {
+            "nullable": true,
+            "properties": {
+              "amount": {
+                "type": "integer"
+              },
+              "currencyKey": {
+                "type": "string"
+              },
+              "free": {
+                "type": "boolean"
+              },
+              "spent": {
+                "type": "integer"
+              },
+              "via": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "regen": {},
           "stageKey": {},
           "startedAt": {
             "type": "string"
@@ -4137,7 +4787,13 @@
         "type": "object"
       },
       "errors": [
+        "ITEM_NOT_FOUND",
+        "ITEM_NOT_OWNED",
+        "NOT_ENOUGH_PLAY_COST",
+        "STAGE_ALREADY_WON",
         "STAGE_BUSY",
+        "STAGE_ITEM_NOT_ALLOWED",
+        "STAGE_ITEM_REQUIRED",
         "STAGE_KEY_REQUIRED",
         "STAGE_LOCKED",
         "STAGE_NOT_FOUND"
@@ -4202,6 +4858,9 @@
                       "claimed": {
                         "type": "boolean"
                       },
+                      "id": {
+                        "type": "string"
+                      },
                       "percent": {},
                       "prizeGroupKey": {},
                       "prizeKey": {},
@@ -4220,6 +4879,9 @@
                   "type": "array"
                 },
                 "name": {
+                  "type": "string"
+                },
+                "settings": {
                   "type": "string"
                 },
                 "sort": {},
@@ -4272,12 +4934,19 @@
                         "type": "array"
                       },
                       "metadata": {},
+                      "minSeconds": {
+                        "type": "number"
+                      },
                       "mode": {},
                       "name": {
                         "type": "string"
                       },
                       "nextRewardAt": {
                         "type": "string"
+                      },
+                      "noReplayAfterWin": {},
+                      "replayable": {
+                        "type": "boolean"
                       },
                       "rewardGroup": {},
                       "rewards": {
@@ -4290,6 +4959,9 @@
                         "nullable": true,
                         "type": "integer"
                       },
+                      "settings": {
+                        "type": "string"
+                      },
                       "sort": {},
                       "starMultipliers": {
                         "items": {
@@ -4297,6 +4969,11 @@
                         },
                         "type": "array"
                       },
+                      "starRules": {
+                        "items": {},
+                        "type": "array"
+                      },
+                      "starTemplate": {},
                       "tierPrizes": {},
                       "timeLimitSeconds": {},
                       "unlocked": {
@@ -4366,6 +5043,9 @@
             "type": "integer"
           },
           "maxStars": {},
+          "nextLevelXp": {
+            "type": "integer"
+          },
           "serverTime": {
             "type": "string"
           },
@@ -6852,6 +7532,39 @@
       "errors": []
     },
     {
+      "id": "comms_user_token",
+      "module": "base",
+      "handler": "rpcCommsUserToken",
+      "source": "integrations/base/voice.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {},
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "appId": {},
+          "enabled": {
+            "type": "boolean"
+          },
+          "expiresAt": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "token": {},
+          "url": {}
+        },
+        "type": "object"
+      },
+      "errors": [
+        "COMMS_TOKEN_RATE_LIMITED"
+      ]
+    },
+    {
       "id": "content_catalog",
       "module": "content",
       "handler": "rpcCatalog",
@@ -9319,11 +10032,72 @@
             "additionalProperties": {},
             "type": "object"
           },
+          "regen": {
+            "items": {},
+            "type": "array"
+          },
           "wallet": {
             "additionalProperties": {
               "type": "integer"
             },
             "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "CURRENCY_NOT_FOUND",
+        "PAYMENT_NOT_CHARGED",
+        "PAYMENT_NOT_SUCCESSFUL",
+        "PRODUCT_ALREADY_BOUGHT"
+      ]
+    },
+    {
+      "id": "economy_boosters",
+      "module": "economy",
+      "handler": "rpcBoosters",
+      "source": "integrations/economy/boosters.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {
+          "lang": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "items": {
+            "items": {
+              "properties": {
+                "expiresAt": {
+                  "type": "string"
+                },
+                "metaKey": {
+                  "type": "string"
+                },
+                "metaName": {
+                  "type": "string"
+                },
+                "multiplier": {
+                  "type": "number"
+                },
+                "secondsLeft": {
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "lang": {
+            "type": "string"
           }
         },
         "type": "object"
@@ -9389,6 +10163,18 @@
                 "name": {
                   "type": "string"
                 },
+                "regen": {
+                  "properties": {
+                    "intervalSeconds": {
+                      "type": "integer"
+                    },
+                    "max": {
+                      "type": "integer"
+                    },
+                    "refillPrice": {}
+                  },
+                  "type": "object"
+                },
                 "tags": {
                   "items": {
                     "type": "string"
@@ -9440,6 +10226,7 @@
                 "exclusive": {
                   "type": "boolean"
                 },
+                "finalMinor": {},
                 "finalToman": {},
                 "iconUrl": {
                   "type": "string"
@@ -9480,6 +10267,13 @@
                   },
                   "type": "array"
                 },
+                "priceCurrency": {
+                  "type": "string"
+                },
+                "priceMinor": {
+                  "nullable": true,
+                  "type": "integer"
+                },
                 "priceToman": {
                   "nullable": true,
                   "type": "integer"
@@ -9516,6 +10310,43 @@
       "errors": []
     },
     {
+      "id": "economy_chance_ack",
+      "module": "economy",
+      "handler": "rpcChanceAck",
+      "source": "integrations/economy/chance_client.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "json",
+      "request": {
+        "properties": {
+          "playId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "ackedAt": {
+            "type": "string"
+          },
+          "acknowledged": {
+            "type": "boolean"
+          },
+          "code": {
+            "type": "string"
+          },
+          "playId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "PLAY_NOT_FOUND"
+      ]
+    },
+    {
       "id": "economy_chance_can_play",
       "module": "economy",
       "handler": "rpcChanceCanPlay",
@@ -9525,6 +10356,10 @@
       "codeModeFormat": "json",
       "request": {
         "properties": {
+          "expectedCost": {
+            "nullable": true,
+            "type": "integer"
+          },
           "id": {
             "type": "string"
           },
@@ -9566,6 +10401,10 @@
       "codeModeFormat": "json",
       "request": {
         "properties": {
+          "expectedCost": {
+            "nullable": true,
+            "type": "integer"
+          },
           "id": {
             "type": "string"
           },
@@ -9964,6 +10803,12 @@
                   "type": "string"
                 },
                 "mode": {},
+                "outcome": {
+                  "items": {
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
                 "playId": {},
                 "prize": {
                   "properties": {
@@ -9992,6 +10837,28 @@
                       },
                       "key": {
                         "type": "string"
+                      },
+                      "rewards": {
+                        "items": {
+                          "properties": {
+                            "action": {
+                              "type": "string"
+                            },
+                            "key": {
+                              "type": "string"
+                            },
+                            "rewards": {
+                              "items": {},
+                              "type": "array"
+                            },
+                            "type": {
+                              "type": "string"
+                            },
+                            "value": {}
+                          },
+                          "type": "object"
+                        },
+                        "type": "array"
                       },
                       "type": {
                         "type": "string"
@@ -10043,6 +10910,10 @@
       "codeModeFormat": "json",
       "request": {
         "properties": {
+          "expectedCost": {
+            "nullable": true,
+            "type": "integer"
+          },
           "id": {
             "type": "string"
           },
@@ -10084,6 +10955,10 @@
       "codeModeFormat": "json",
       "request": {
         "properties": {
+          "expectedCost": {
+            "nullable": true,
+            "type": "integer"
+          },
           "id": {
             "type": "string"
           },
@@ -10124,11 +10999,23 @@
           "mode": {
             "type": "string"
           },
+          "needsAck": {
+            "type": "boolean"
+          },
           "nextPlayAt": {
             "type": "string"
           },
           "nextPlayTime": {
             "type": "integer"
+          },
+          "nextTicketCost": {
+            "type": "integer"
+          },
+          "outcome": {
+            "items": {
+              "type": "object"
+            },
+            "type": "array"
           },
           "playId": {},
           "playsLeft": {},
@@ -10192,6 +11079,10 @@
       "codeModeFormat": "json",
       "request": {
         "properties": {
+          "expectedCost": {
+            "nullable": true,
+            "type": "integer"
+          },
           "id": {
             "type": "string"
           },
@@ -10232,11 +11123,23 @@
           "mode": {
             "type": "string"
           },
+          "needsAck": {
+            "type": "boolean"
+          },
           "nextPlayAt": {
             "type": "string"
           },
           "nextPlayTime": {
             "type": "integer"
+          },
+          "nextTicketCost": {
+            "type": "integer"
+          },
+          "outcome": {
+            "items": {
+              "type": "object"
+            },
+            "type": "array"
           },
           "playId": {},
           "playsLeft": {},
@@ -10456,11 +11359,20 @@
                 "floored": {
                   "type": "boolean"
                 },
+                "infinityAmount": {
+                  "type": "integer"
+                },
+                "infinityCurrency": {
+                  "type": "string"
+                },
                 "key": {
                   "type": "string"
                 },
                 "nextMilestone": {
                   "type": "integer"
+                },
+                "phase": {
+                  "type": "string"
                 },
                 "reset": {
                   "type": "boolean"
@@ -11133,6 +12045,12 @@
           "name": {
             "type": "string"
           },
+          "newPlayer": {
+            "type": "boolean"
+          },
+          "oneMatchPerPlayer": {
+            "type": "boolean"
+          },
           "path": {
             "type": "string"
           },
@@ -11232,6 +12150,9 @@
                   "type": "object"
                 },
                 "inheritsGame": {},
+                "joinable": {
+                  "type": "boolean"
+                },
                 "key": {},
                 "levelLocked": {
                   "type": "boolean"
@@ -11354,6 +12275,330 @@
       ]
     },
     {
+      "id": "economy_game_active",
+      "module": "economy",
+      "handler": "rpcGameActive",
+      "source": "integrations/economy/games_live.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "json",
+      "request": {
+        "properties": {},
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "match": {}
+        },
+        "type": "object"
+      },
+      "errors": [
+        "INVALID_ID"
+      ]
+    },
+    {
+      "id": "economy_game_bot",
+      "module": "economy",
+      "handler": "rpcGameBot",
+      "source": "integrations/economy/games_rooms.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "json",
+      "request": {
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "friendId": {
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "matchId": {
+            "type": "string"
+          },
+          "platform": {
+            "type": "string"
+          },
+          "room": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "botAfterSeconds": {
+            "type": "integer"
+          },
+          "key": {
+            "type": "string"
+          },
+          "matchId": {},
+          "room": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "BOTS_DISABLED",
+        "GAME_KEY_REQUIRED",
+        "GAME_NOT_FOUND",
+        "GAME_NOT_REALTIME",
+        "INSUFFICIENT_BALANCE",
+        "LEVEL_TOO_LOW",
+        "MATCH_CREATE_FAILED",
+        "SINGLE_PLAYER_GAME"
+      ]
+    },
+    {
+      "id": "economy_game_friend_cancel",
+      "module": "economy",
+      "handler": "rpcGameFriendCancel",
+      "source": "integrations/economy/games_rooms.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "json",
+      "request": {
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "friendId": {
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "matchId": {
+            "type": "string"
+          },
+          "platform": {
+            "type": "string"
+          },
+          "room": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "done": {
+            "type": "boolean"
+          },
+          "matchId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "ROOM_NOT_FOUND"
+      ]
+    },
+    {
+      "id": "economy_game_friend_create",
+      "module": "economy",
+      "handler": "rpcGameFriendCreate",
+      "source": "integrations/economy/games_rooms.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "json",
+      "request": {
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "friendId": {
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "matchId": {
+            "type": "string"
+          },
+          "platform": {
+            "type": "string"
+          },
+          "room": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "code": {},
+          "existing": {
+            "type": "boolean"
+          },
+          "expiresInSeconds": {
+            "type": "integer"
+          },
+          "friendId": {
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "matchId": {},
+          "room": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "CANNOT_INVITE_SELF",
+        "FRIEND_ROOMS_DISABLED",
+        "GAME_KEY_REQUIRED",
+        "GAME_NOT_FOUND",
+        "GAME_NOT_REALTIME",
+        "INSUFFICIENT_BALANCE",
+        "LEVEL_TOO_LOW",
+        "MATCH_CREATE_FAILED",
+        "NOT_FRIENDS",
+        "SINGLE_PLAYER_GAME"
+      ]
+    },
+    {
+      "id": "economy_game_friend_decline",
+      "module": "economy",
+      "handler": "rpcGameFriendDecline",
+      "source": "integrations/economy/games_rooms.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "json",
+      "request": {
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "friendId": {
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "matchId": {
+            "type": "string"
+          },
+          "platform": {
+            "type": "string"
+          },
+          "room": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "done": {
+            "type": "boolean"
+          },
+          "matchId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "ROOM_NOT_FOUND"
+      ]
+    },
+    {
+      "id": "economy_game_friend_join",
+      "module": "economy",
+      "handler": "rpcGameFriendJoin",
+      "source": "integrations/economy/games_rooms.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "json",
+      "request": {
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "friendId": {
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "matchId": {
+            "type": "string"
+          },
+          "platform": {
+            "type": "string"
+          },
+          "room": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "expiresInSeconds": {},
+          "hostId": {},
+          "key": {},
+          "matchId": {
+            "type": "string"
+          },
+          "room": {}
+        },
+        "type": "object"
+      },
+      "errors": [
+        "CODE_JOIN_DISABLED",
+        "GAME_KEY_REQUIRED",
+        "GAME_NOT_FOUND",
+        "GAME_NOT_REALTIME",
+        "INSUFFICIENT_BALANCE",
+        "INVALID_CODE",
+        "LEVEL_TOO_LOW",
+        "NOT_INVITED",
+        "OWN_ROOM",
+        "ROOM_NOT_FOUND",
+        "SINGLE_PLAYER_GAME"
+      ]
+    },
+    {
       "id": "economy_game_join",
       "module": "economy",
       "handler": "rpcGameJoin",
@@ -11431,11 +12676,148 @@
         "type": "object"
       },
       "errors": [
+        "ACTIVE_MATCH_EXISTS",
         "GAME_DISABLED",
         "GAME_NOT_FOUND",
         "INSUFFICIENT_BALANCE",
         "LEVEL_TOO_LOW",
+        "NEW_PLAYER_ROOM_REQUIRED",
+        "ROOM_NOT_FOUND",
+        "SINGLE_PLAYER_GAME",
+        "VETERAN_ROOM_FORBIDDEN"
+      ]
+    },
+    {
+      "id": "economy_game_queue",
+      "module": "economy",
+      "handler": "rpcGameQueue",
+      "source": "integrations/economy/games_live.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "json",
+      "request": {
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "friendId": {
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "matchId": {
+            "type": "string"
+          },
+          "platform": {
+            "type": "string"
+          },
+          "room": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "botFillSeconds": {},
+          "humanSeats": {},
+          "key": {},
+          "players": {},
+          "room": {}
+        },
+        "type": "object"
+      },
+      "errors": [
+        "GAME_KEY_REQUIRED",
+        "GAME_NOT_FOUND",
+        "GAME_NOT_REALTIME",
+        "INSUFFICIENT_BALANCE",
+        "LEVEL_TOO_LOW",
+        "MATCH_CREATE_FAILED",
         "SINGLE_PLAYER_GAME"
+      ]
+    },
+    {
+      "id": "economy_game_stats",
+      "module": "economy",
+      "handler": "rpcGameStats",
+      "source": "integrations/economy/games_stats.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "json",
+      "request": {
+        "properties": {
+          "game": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "items": {
+            "items": {
+              "properties": {
+                "forfeits": {
+                  "type": "integer"
+                },
+                "game": {
+                  "type": "string"
+                },
+                "lastPlayedAt": {
+                  "nullable": true,
+                  "type": "string"
+                },
+                "lossRate": {
+                  "type": "number"
+                },
+                "losses": {
+                  "type": "integer"
+                },
+                "playtimeSeconds": {
+                  "type": "integer"
+                },
+                "timeouts": {
+                  "type": "integer"
+                },
+                "totalGames": {
+                  "type": "integer"
+                },
+                "winRate": {
+                  "type": "number"
+                },
+                "winnings": {
+                  "additionalProperties": {
+                    "type": "integer"
+                  },
+                  "type": "object"
+                },
+                "wins": {
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "INVALID_ID"
       ]
     },
     {
@@ -11526,6 +12908,12 @@
                 },
                 "name": {
                   "type": "string"
+                },
+                "newPlayer": {
+                  "type": "boolean"
+                },
+                "oneMatchPerPlayer": {
+                  "type": "boolean"
                 },
                 "path": {
                   "type": "string"
@@ -11626,6 +13014,9 @@
                         "type": "object"
                       },
                       "inheritsGame": {},
+                      "joinable": {
+                        "type": "boolean"
+                      },
                       "key": {},
                       "levelLocked": {
                         "type": "boolean"
@@ -11800,6 +13191,28 @@
                 "key": {
                   "type": "string"
                 },
+                "rewards": {
+                  "items": {
+                    "properties": {
+                      "action": {
+                        "type": "string"
+                      },
+                      "key": {
+                        "type": "string"
+                      },
+                      "rewards": {
+                        "items": {},
+                        "type": "array"
+                      },
+                      "type": {
+                        "type": "string"
+                      },
+                      "value": {}
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
                 "type": {
                   "type": "string"
                 },
@@ -11848,6 +13261,9 @@
           },
           "type": {
             "type": "string"
+          },
+          "withProfile": {
+            "type": "boolean"
           }
         },
         "type": "object"
@@ -12414,10 +13830,18 @@
       },
       "response": {
         "properties": {
+          "amountMinor": {},
+          "currency": {},
           "developerPayload": {
             "type": "string"
           },
+          "error": {
+            "type": "string"
+          },
           "paymentId": {
+            "type": "string"
+          },
+          "publishableKey": {
             "type": "string"
           },
           "purchaseMessage": {
@@ -12425,6 +13849,9 @@
           },
           "redirectUrl": {
             "type": "string"
+          },
+          "rewardGranted": {
+            "type": "boolean"
           },
           "rewards": {
             "items": {
@@ -12435,6 +13862,28 @@
                 "key": {
                   "type": "string"
                 },
+                "rewards": {
+                  "items": {
+                    "properties": {
+                      "action": {
+                        "type": "string"
+                      },
+                      "key": {
+                        "type": "string"
+                      },
+                      "rewards": {
+                        "items": {},
+                        "type": "array"
+                      },
+                      "type": {
+                        "type": "string"
+                      },
+                      "value": {}
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
                 "type": {
                   "type": "string"
                 },
@@ -12444,6 +13893,7 @@
             },
             "type": "array"
           },
+          "sessionId": {},
           "sku": {
             "type": "string"
           },
@@ -13022,6 +14472,138 @@
       ]
     },
     {
+      "id": "economy_player_card",
+      "module": "economy",
+      "handler": "rpcPlayerCard",
+      "source": "integrations/economy/games_stats.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "json",
+      "request": {
+        "properties": {
+          "game": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "levelTable": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "avatar": {
+            "properties": {
+              "iconUrl": {
+                "type": "string"
+              },
+              "key": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "avatarUrl": {
+            "type": "string"
+          },
+          "displayName": {
+            "type": "string"
+          },
+          "equipped": {
+            "properties": {},
+            "type": "object"
+          },
+          "gameStats": {
+            "properties": {
+              "forfeits": {
+                "type": "integer"
+              },
+              "game": {
+                "type": "string"
+              },
+              "lastPlayedAt": {
+                "nullable": true,
+                "type": "string"
+              },
+              "lossRate": {
+                "type": "number"
+              },
+              "losses": {
+                "type": "integer"
+              },
+              "playtimeSeconds": {
+                "type": "integer"
+              },
+              "timeouts": {
+                "type": "integer"
+              },
+              "totalGames": {
+                "type": "integer"
+              },
+              "winRate": {
+                "type": "number"
+              },
+              "winnings": {
+                "additionalProperties": {
+                  "type": "integer"
+                },
+                "type": "object"
+              },
+              "wins": {
+                "type": "integer"
+              }
+            },
+            "type": "object"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "level": {
+            "properties": {
+              "level": {
+                "type": "integer"
+              },
+              "levelStart": {
+                "type": "integer"
+              },
+              "maxLevel": {
+                "type": "integer"
+              },
+              "next": {},
+              "table": {
+                "type": "string"
+              },
+              "xp": {
+                "type": "integer"
+              }
+            },
+            "type": "object"
+          },
+          "stats": {},
+          "userId": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "INVALID_ID",
+        "USER_NOT_FOUND"
+      ]
+    },
+    {
       "id": "economy_purchase_review",
       "module": "economy",
       "handler": "rpcPurchaseReview",
@@ -13063,6 +14645,28 @@
                 "key": {
                   "type": "string"
                 },
+                "rewards": {
+                  "items": {
+                    "properties": {
+                      "action": {
+                        "type": "string"
+                      },
+                      "key": {
+                        "type": "string"
+                      },
+                      "rewards": {
+                        "items": {},
+                        "type": "array"
+                      },
+                      "type": {
+                        "type": "string"
+                      },
+                      "value": {}
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
                 "type": {
                   "type": "string"
                 },
@@ -13084,6 +14688,8 @@
         "INVALID_TOKEN",
         "METHOD_UNAVAILABLE",
         "PAYMENT_CLOSED",
+        "PAYMENT_EXPIRED",
+        "PAYMENT_NOT_CHARGED",
         "PAYMENT_NOT_FOUND",
         "PAYMENT_NOT_SUCCESSFUL",
         "PRODUCT_ALREADY_BOUGHT",
@@ -13127,10 +14733,18 @@
       },
       "response": {
         "properties": {
+          "amountMinor": {},
+          "currency": {},
           "developerPayload": {
             "type": "string"
           },
+          "error": {
+            "type": "string"
+          },
           "paymentId": {
+            "type": "string"
+          },
+          "publishableKey": {
             "type": "string"
           },
           "purchaseMessage": {
@@ -13138,6 +14752,9 @@
           },
           "redirectUrl": {
             "type": "string"
+          },
+          "rewardGranted": {
+            "type": "boolean"
           },
           "rewards": {
             "items": {
@@ -13148,6 +14765,28 @@
                 "key": {
                   "type": "string"
                 },
+                "rewards": {
+                  "items": {
+                    "properties": {
+                      "action": {
+                        "type": "string"
+                      },
+                      "key": {
+                        "type": "string"
+                      },
+                      "rewards": {
+                        "items": {},
+                        "type": "array"
+                      },
+                      "type": {
+                        "type": "string"
+                      },
+                      "value": {}
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
                 "type": {
                   "type": "string"
                 },
@@ -13157,6 +14796,7 @@
             },
             "type": "array"
           },
+          "sessionId": {},
           "sku": {
             "type": "string"
           },
@@ -13219,7 +14859,10 @@
         "type": "object"
       },
       "errors": [
+        "PAYMENT_NOT_CHARGED",
         "PAYMENT_NOT_FOUND",
+        "PAYMENT_NOT_SUCCESSFUL",
+        "PRODUCT_ALREADY_BOUGHT",
         "PRODUCT_NOT_FOUND"
       ]
     },
@@ -13262,6 +14905,28 @@
                 "key": {
                   "type": "string"
                 },
+                "rewards": {
+                  "items": {
+                    "properties": {
+                      "action": {
+                        "type": "string"
+                      },
+                      "key": {
+                        "type": "string"
+                      },
+                      "rewards": {
+                        "items": {},
+                        "type": "array"
+                      },
+                      "type": {
+                        "type": "string"
+                      },
+                      "value": {}
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
                 "type": {
                   "type": "string"
                 },
@@ -13284,10 +14949,12 @@
         "METHOD_UNAVAILABLE",
         "PAYMENT_ALREADY_SETTLED",
         "PAYMENT_CLOSED",
+        "PAYMENT_EXPIRED",
         "PAYMENT_NOT_FOUND",
         "PRODUCT_NOT_FOUND",
         "PURCHASE_INVALID",
         "STORE_CONFIGURATION_REJECTED",
+        "STORE_MODE_CHANGED",
         "STORE_UNAVAILABLE",
         "SUBSCRIPTION_OWNED_BY_ANOTHER_USER",
         "TOKEN_ALREADY_USED",
@@ -13385,6 +15052,7 @@
                     "claimId": {
                       "type": "string"
                     },
+                    "expiresAt": {},
                     "grantMode": {
                       "type": "string"
                     },
@@ -13665,6 +15333,72 @@
       ]
     },
     {
+      "id": "economy_regen_refill",
+      "module": "economy",
+      "handler": "rpcRegenRefill",
+      "source": "integrations/economy/regen.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {
+          "currencyKey": {
+            "type": "string"
+          },
+          "requestId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "type": "object"
+      },
+      "errors": [
+        "ALREADY_FULL",
+        "INSUFFICIENT_BALANCE",
+        "INVALID_KEY",
+        "REFILL_OFF",
+        "REGEN_OFF",
+        "REQUEST_ID_REUSED"
+      ]
+    },
+    {
+      "id": "economy_regen_state",
+      "module": "economy",
+      "handler": "rpcRegenState",
+      "source": "integrations/economy/regen.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "codeModeFormat": "code",
+      "request": {
+        "properties": {
+          "currencies": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "currencies": {
+            "items": {},
+            "type": "array"
+          },
+          "serverTime": {}
+        },
+        "type": "object"
+      },
+      "errors": [
+        "CURRENCY_NOT_FOUND",
+        "INVALID_KEY",
+        "TOO_MANY_CURRENCIES"
+      ]
+    },
+    {
       "id": "economy_reward_claim",
       "module": "economy",
       "handler": "rpcRewardClaim",
@@ -13746,6 +15480,10 @@
                 },
                 "key": {
                   "type": "string"
+                },
+                "rewards": {
+                  "items": {},
+                  "type": "array"
                 },
                 "type": {
                   "type": "string"
@@ -13902,6 +15640,10 @@
                 "key": {
                   "type": "string"
                 },
+                "rewards": {
+                  "items": {},
+                  "type": "array"
+                },
                 "type": {
                   "type": "string"
                 },
@@ -14049,6 +15791,7 @@
       },
       "errors": [
         "ALREADY_CLAIMED",
+        "CLAIM_EXPIRED",
         "CLAIM_NOT_FOUND",
         "INSUFFICIENT_BALANCE",
         "PLAY_NOT_FOUND",
@@ -14116,6 +15859,9 @@
       },
       "response": {
         "properties": {
+          "bundleId": {
+            "type": "string"
+          },
           "method": {
             "type": "string"
           },
@@ -14233,6 +15979,10 @@
                 },
                 "key": {
                   "type": "string"
+                },
+                "rewards": {
+                  "items": {},
+                  "type": "array"
                 },
                 "type": {
                   "type": "string"
@@ -14957,11 +16707,29 @@
       "auth": "session",
       "errorFormat": "envelope",
       "request": {
-        "properties": {},
+        "properties": {
+          "game": {
+            "type": "string"
+          }
+        },
         "type": "object"
       },
       "response": {
         "properties": {
+          "events": {
+            "properties": {
+              "enabled": {},
+              "flushSeconds": {},
+              "game": {
+                "type": "string"
+              },
+              "maxBatch": {},
+              "maxNameLength": {},
+              "maxQueue": {},
+              "maxTags": {}
+            },
+            "type": "object"
+          },
           "heatmap": {
             "properties": {
               "enabled": {},
@@ -15062,6 +16830,84 @@
       ]
     },
     {
+      "id": "insights_send",
+      "module": "insights",
+      "handler": "rpcSend",
+      "source": "integrations/insights/events_ingest.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "appVersion": {
+            "type": "string"
+          },
+          "batchId": {
+            "type": "string"
+          },
+          "events": {
+            "items": {},
+            "type": "array"
+          },
+          "game": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "platform": {
+            "type": "string"
+          },
+          "sessionId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "nullable": true,
+        "properties": {
+          "accepted": {
+            "type": "integer"
+          },
+          "batchId": {
+            "type": "string"
+          },
+          "dropped": {
+            "type": "integer"
+          },
+          "duplicate": {
+            "type": "boolean"
+          },
+          "flagged": {
+            "type": "integer"
+          },
+          "received": {
+            "type": "integer"
+          },
+          "rejected": {
+            "type": "integer"
+          },
+          "results": {
+            "items": {},
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "ANALYTICS_BACKLOG_FULL",
+        "ANALYTICS_BATCH_EMPTY",
+        "ANALYTICS_BATCH_ID_REQUIRED",
+        "ANALYTICS_BATCH_TOO_LARGE",
+        "ANALYTICS_BUSY",
+        "ANALYTICS_DISABLED",
+        "ANALYTICS_INVALID_APP_INFO",
+        "ANALYTICS_INVALID_BATCH_ID",
+        "ANALYTICS_INVALID_SESSION",
+        "ANALYTICS_RATE_LIMITED"
+      ]
+    },
+    {
       "id": "insights_session",
       "module": "insights",
       "handler": "rpcSession",
@@ -15077,6 +16923,9 @@
             "type": "string"
           },
           "event": {
+            "type": "string"
+          },
+          "game": {
             "type": "string"
           },
           "os": {
@@ -16244,6 +18093,12 @@
           },
           "limit": {
             "type": "integer"
+          },
+          "refId": {
+            "type": "string"
+          },
+          "sourceId": {
+            "type": "string"
           },
           "to": {
             "type": "string"
@@ -23440,6 +25295,9 @@
             "type": "string"
           },
           "room": {},
+          "staffMuted": {
+            "type": "boolean"
+          },
           "token": {},
           "url": {}
         },
