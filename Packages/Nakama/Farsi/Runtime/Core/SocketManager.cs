@@ -19,11 +19,11 @@ namespace NakamaFarsi.Sdk
         private int _generation;
         private Task _connecting;
 
-        public SocketManager(IClient client, SessionManager sessions, Func<IClient, ISocket> factory = null, IMainThreadDispatcher dispatcher = null, ISdkLogger logger = null)
+        public SocketManager(IClient client, SessionManager sessions, Func<IClient, ISocket> factory = null, IMainThreadDispatcher dispatcher = null, ISdkLogger logger = null, int maxMessageBytes = 0)
         {
             _client = client;
             _sessions = sessions;
-            _factory = factory ?? (Func<IClient, ISocket>)(c => Nakama.Socket.From(c));
+            _factory = factory ?? (Func<IClient, ISocket>)(c => Nakama.Socket.From(c, Adapter(maxMessageBytes)));
             _dispatcher = dispatcher ?? ImmediateDispatcher.Instance;
             _logger = logger ?? NullLogger.Instance;
         }
@@ -43,6 +43,9 @@ namespace NakamaFarsi.Sdk
         public event Action<string> Disconnected;
 
         public event Action<IApiNotification> NotificationReceived;
+
+        public static ISocketAdapter Adapter(int maxMessageBytes) =>
+            new WebSocketStdlibAdapter(10, maxMessageBytes > 0 ? maxMessageBytes : NakamaFarsiOptions.DefaultSocketMaxMessageBytes);
 
         public event Action<IApiChannelMessage> ChannelMessageReceived;
 

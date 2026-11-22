@@ -17,6 +17,10 @@ namespace NakamaFarsi.Sdk
 
         public bool UseSocket { get; set; } = true;
 
+        public const int DefaultSocketMaxMessageBytes = 4 * 1024 * 1024;
+
+        public int SocketMaxMessageBytes { get; set; } = DefaultSocketMaxMessageBytes;
+
         public int ReadRetries { get; set; } = 1;
 
         public int RefreshAheadSeconds { get; set; } = 120;

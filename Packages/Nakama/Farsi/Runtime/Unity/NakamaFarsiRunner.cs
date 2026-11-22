@@ -39,7 +39,7 @@ namespace NakamaFarsi.Sdk.Unity
             }
 
             IClient nakama = new Client(options.Scheme, options.Host, options.Port, options.ServerKey, UnityWebRequestAdapter.Instance, false);
-            Func<IClient, ISocket> socketFactory = c => c.NewSocket(true);
+            Func<IClient, ISocket> socketFactory = c => c.NewSocket(true, SocketManager.Adapter(options.SocketMaxMessageBytes));
             Client = new NakamaFarsiClient(options, UnityStores.Default(), _instance._dispatcher, new UnityLogger(), nakama, socketFactory, new UnityWebRequestGet(_instance._dispatcher));
             Client.UseAnalytics(analytics ?? DefaultAnalytics());
             Client.Insights.Device = DefaultInsightsDevice();

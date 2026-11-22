@@ -30,6 +30,6 @@ namespace Nakama
 
     public static class UnityClientStubExtensions
     {
-        public static ISocket NewSocket(this IClient client, bool useMainThread = false) => Socket.From(client);
+        public static ISocket NewSocket(this IClient client, bool useMainThread = false, ISocketAdapter defaultAdapter = null) => defaultAdapter == null ? Socket.From(client) : Socket.From(client, defaultAdapter);
     }
 }

@@ -45,7 +45,7 @@ namespace NakamaFarsi.Sdk
             Client = client ?? new Client(options.Scheme, options.Host, options.Port, options.ServerKey, HttpRequestAdapter.WithGzip(), false);
             Client.Timeout = Math.Max(1, options.TimeoutSeconds);
             Session = new SessionManager(Client, Store, options, Clock, Logger);
-            Socket = new SocketManager(Client, Session, socketFactory, Dispatcher, Logger) { LangTag = options.Language };
+            Socket = new SocketManager(Client, Session, socketFactory, Dispatcher, Logger, options.SocketMaxMessageBytes) { LangTag = options.Language };
             Errors = new ErrorCatalog(Store, options.StorePrefix);
             Rpc = new RpcClient(options, Session, httpTransport ?? new HttpRpcTransport(Client), socketTransport ?? new SocketRpcTransport(Socket), Errors, Logger);
             Rpc.SignInSilently = ct => EnsureDeviceSessionAsync(ct);
