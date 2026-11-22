@@ -7,29 +7,16 @@ socket-first RPC with HTTP fallback, devkit errors, analytics). Architecture and
 
 ## Install
 
-From the Police Patrol registry, as with 0.5.x (`<API url>/upm`): an API key with `upm:read` («ابزار توسعه › کلیدهای API») in
-`~/.upmconfig.toml` (outside the project), then `Packages/manifest.json` — the scope list now also has `com.nakamafarsi`,
-and the Nakama client is a Git package that must be listed in the project:
-
-```toml
-[npmAuth."https://<API url>/upm"]
-token = "<API key>"
-alwaysAuth = true
-```
+From git only; there is no registry package. One line in `Packages/manifest.json`:
 
 ```json
-"scopedRegistries": [
-  { "name": "PolicePatrol", "url": "https://<API url>/upm", "scopes": ["com.policepatrol", "com.nakamafarsi"] }
-],
 "dependencies": {
-  "com.heroiclabs.nakama-unity": "https://github.com/heroiclabs/nakama-unity.git?path=/Packages/Nakama#v3.23.0",
-  "com.nakamafarsi.sdk": "0.1.0",
-  "com.policepatrol.sdk": "0.6.0"
+  "com.nakamafarsi.unity": "https://github.com/copilot-rast/nakama-farsi-unity.git?path=/Packages/Nakama#dev"
 }
 ```
 
-Updates: Window › Package Manager › My Registries › PolicePatrol › Update. «ابزار توسعه › پکیج‌های یونیتی» in the console
-shows the published versions and these snippets with the right address.
+Then add `POLICEPATROL_SDK` to Player › Scripting Define Symbols to turn on the Police Patrol layer.
+Updates: Package Manager › the package › Update, or pin a commit instead of `#dev`.
 
 `PolicePatrolSdkConfig` (Tools › PolicePatrol › Create SDK Config) gained `Server Key`, `Use Socket` and
 `Analytics Sessions`; `Base Url` is the game server (Nakama HTTP port).
