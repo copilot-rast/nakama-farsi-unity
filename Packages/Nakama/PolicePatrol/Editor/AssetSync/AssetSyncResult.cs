@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using PolicePatrol.Sdk.Assets;
 
 namespace PolicePatrol.Sdk.Editor
@@ -22,5 +23,11 @@ namespace PolicePatrol.Sdk.Editor
         public int Deleted { get; }
 
         public AssetManifestItem[] Items { get; }
+
+        [JsonProperty("dryRun")]
+        public bool DryRun { get; set; }
+
+        [JsonProperty("routing")]
+        public AssetRouting Routing { get; set; }
     }
 }

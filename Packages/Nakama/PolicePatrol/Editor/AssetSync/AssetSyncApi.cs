@@ -28,7 +28,17 @@ namespace PolicePatrol.Sdk.Editor
             return (answer?["items"] as JArray ?? new JArray()).ToObject<ServerAsset[]>(SdkJson.Serializer);
         }
 
-        public Task<AssetSyncResult> SyncAsync(JArray items, JArray deletes) =>
-            EditorApiClient.SendJsonAsync<AssetSyncResult>(_settings, HttpMethod.Post, BasePath + "/push", new JObject { ["items"] = items, ["deletes"] = deletes });
+        public Task<AssetSyncResult> SyncAsync(JArray items, JArray deletes) => SyncAsync(items, deletes, false);
+
+        public Task<AssetSyncResult> SyncAsync(JArray items, JArray deletes, bool dryRun)
+        {
+            var body = new JObject { ["items"] = items, ["deletes"] = deletes };
+            if (dryRun)
+            {
+                body["dryRun"] = true;
+            }
+
+            return EditorApiClient.SendJsonAsync<AssetSyncResult>(_settings, HttpMethod.Post, BasePath + "/push", body);
+        }
     }
 }

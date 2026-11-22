@@ -57,6 +57,7 @@ namespace PolicePatrol.Sdk
             ["REQUEST_ID_REQUIRED"] = "INVENTORY_REQUEST_ID_REQUIRED",
             ["REQUEST_ID_REUSED"] = "INVENTORY_REQUEST_ID_REUSED",
             ["ANALYTICS_BUSY"] = "INVENTORY_BUSY_TRY_AGAIN",
+            ["PART_VEHICLE_NOT_OWNED"] = "INVENTORY_PART_VEHICLE_NOT_OWNED",
         };
 
         public static readonly IReadOnlyDictionary<string, string> Stages = new Dictionary<string, string>(StringComparer.Ordinal)
@@ -71,6 +72,10 @@ namespace PolicePatrol.Sdk
             ["ATTEMPT_NOT_FOUND"] = "PROGRESS_ATTEMPT_NOT_FOUND",
             ["ATTEMPT_CLOSED"] = "PROGRESS_ATTEMPT_CLOSED",
             ["ATTEMPT_EXPIRED"] = "PROGRESS_ATTEMPT_EXPIRED",
+            ["STAGE_ALREADY_WON"] = "PROGRESS_STAGE_ALREADY_WON",
+            ["STAGE_ITEM_REQUIRED"] = "PROGRESS_STAGE_ITEM_REQUIRED",
+            ["STAGE_ITEM_NOT_ALLOWED"] = "PROGRESS_STAGE_ITEM_NOT_ALLOWED",
+            ["ITEM_NOT_OWNED"] = "PROGRESS_ITEM_NOT_OWNED",
         };
 
         public static readonly IReadOnlyDictionary<string, string> Payments = new Dictionary<string, string>(StringComparer.Ordinal)

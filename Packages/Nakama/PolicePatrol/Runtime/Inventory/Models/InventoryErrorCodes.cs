@@ -19,5 +19,6 @@ namespace PolicePatrol.Sdk.Inventory
         public const string InvalidUnits = "INVENTORY_INVALID_UNITS";
         public const string RequestIdRequired = "INVENTORY_REQUEST_ID_REQUIRED";
         public const string RequestIdReused = "INVENTORY_REQUEST_ID_REUSED";
+        public const string PartVehicleNotOwned = "INVENTORY_PART_VEHICLE_NOT_OWNED";
     }
 }

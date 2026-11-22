@@ -19,7 +19,16 @@ namespace PolicePatrol.Sdk.Editor
             AssetSyncStatus.Differs, AssetSyncStatus.OtherFile, AssetSyncStatus.ServerOnly, AssetSyncStatus.Same,
         };
 
+        private static readonly string[] RouteGroups =
+        {
+            AssetRoutingActions.Error, AssetRoutingActions.Pending, AssetRoutingActions.Skipped, AssetRoutingActions.Deactivated, AssetRoutingActions.Created,
+            AssetRoutingActions.Updated, AssetRoutingActions.Linked, AssetRoutingActions.Unchanged, AssetRoutingActions.Dependency, AssetRoutingActions.Stored,
+        };
+
         private readonly Dictionary<AssetSyncStatus, bool> _open = new Dictionary<AssetSyncStatus, bool>();
+        private readonly Dictionary<string, bool> _routeOpen = new Dictionary<string, bool>();
+        private bool _dryRun;
+        private AssetPushReport _lastPush;
         private AssetSyncSettings _settings;
         private AssetSyncSession _session;
         private string _apiKey;
@@ -53,6 +62,7 @@ namespace PolicePatrol.Sdk.Editor
             }
 
             DrawScanProblems();
+            DrawRouting();
             DrawDiff();
             EditorGUILayout.EndScrollView();
         }
@@ -133,6 +143,7 @@ namespace PolicePatrol.Sdk.Editor
             var push = _session.With(AssetSyncStatus.New, AssetSyncStatus.Changed);
             var pull = _session.With(AssetSyncStatus.ServerNewer);
             var serverOnly = _session.With(AssetSyncStatus.ServerOnly);
+            _dryRun = EditorGUILayout.ToggleLeft("Dry run: show where each card would go, save nothing", _dryRun);
             EditorGUILayout.BeginHorizontal();
             if (GUILayout.Button($"Push {push.Length} (new + changed)") && push.Length > 0)
             {
@@ -147,7 +158,7 @@ namespace PolicePatrol.Sdk.Editor
             if (GUILayout.Button($"Delete {serverOnly.Length} server-only") && serverOnly.Length > 0
                 && EditorUtility.DisplayDialog("Delete on server", $"Delete {serverOnly.Length} asset(s) that are on the server but not in these folders? The game will stop receiving them.", "Delete", "Cancel"))
             {
-                Run(() => AssetSyncRunner.PushAsync(_settings, _session, Array.Empty<AssetDiffEntry>(), serverOnly));
+                Run(() => Push(Array.Empty<AssetDiffEntry>(), serverOnly));
             }
 
             EditorGUILayout.EndHorizontal();
@@ -227,7 +238,7 @@ namespace PolicePatrol.Sdk.Editor
             {
                 if (GUILayout.Button("Use mine", GUILayout.Width(80)))
                 {
-                    Run(() => AssetSyncRunner.PushAsync(_settings, _session, new[] { entry }, Array.Empty<AssetDiffEntry>()));
+                    Run(() => Push(new[] { entry }, Array.Empty<AssetDiffEntry>()));
                 }
 
                 if (GUILayout.Button("Use server", GUILayout.Width(80)))
@@ -251,9 +262,71 @@ namespace PolicePatrol.Sdk.Editor
         private async Task<string> PushFresh(params AssetSyncStatus[] statuses)
         {
             _session = await AssetSyncRunner.CompareAsync(_settings);
-            var message = await AssetSyncRunner.PushAsync(_settings, _session, _session.With(statuses), Array.Empty<AssetDiffEntry>());
+            var message = await Push(_session.With(statuses), Array.Empty<AssetDiffEntry>());
             _session = await AssetSyncRunner.CompareAsync(_settings);
             return message;
+        }
+
+        private async Task<string> Push(IReadOnlyList<AssetDiffEntry> push, IReadOnlyList<AssetDiffEntry> delete)
+        {
+            _lastPush = await AssetSyncRunner.PushReportAsync(_settings, _session, push, delete, _dryRun);
+            return _lastPush.Message;
+        }
+
+        private void DrawRouting()
+        {
+            if (_lastPush == null)
+            {
+                return;
+            }
+
+            EditorGUILayout.Space();
+            EditorGUILayout.LabelField(_lastPush.DryRun ? "Routing of the last dry run" : "Routing of the last push", EditorStyles.boldLabel);
+            var routing = _lastPush.Routing;
+            if (routing == null)
+            {
+                EditorGUILayout.HelpBox("The server did not route these cards to items: item routing is switched off, or nothing changed.", MessageType.Info);
+                return;
+            }
+
+            EditorGUILayout.LabelField(routing.Describe(), EditorStyles.wordWrappedLabel);
+            if (routing.Pending.Length > 0)
+            {
+                EditorGUILayout.HelpBox(routing.Pending.Length + " card(s) are pending: the entry they need has not arrived yet. They are routed again when it does.", MessageType.Warning);
+            }
+
+            if (routing.Errors.Length > 0)
+            {
+                EditorGUILayout.HelpBox(routing.Errors.Length + " card(s) could not be routed. Open the error group below.", MessageType.Error);
+            }
+
+            foreach (var action in RouteGroups.Concat((routing.Rows ?? Array.Empty<AssetRoutingRow>()).Select(r => r.Action).Where(a => !RouteGroups.Contains(a)).Distinct()))
+            {
+                var rows = routing.With(action);
+                if (rows.Length == 0)
+                {
+                    continue;
+                }
+
+                _routeOpen.TryGetValue(action, out var open);
+                _routeOpen[action] = EditorGUILayout.Foldout(open, $"{action} ({rows.Length})");
+                if (!_routeOpen[action])
+                {
+                    continue;
+                }
+
+                foreach (var row in rows.Take(RowsPerGroup))
+                {
+                    var target = string.IsNullOrEmpty(row.Kind) ? (row.Type ?? string.Empty) : row.Kind + (string.IsNullOrEmpty(row.ItemKey) ? string.Empty : " / " + row.ItemKey);
+                    var detail = row.Reason ?? row.Code ?? (row.Changes != null && row.Changes.Length > 0 ? string.Join(", ", row.Changes.Select(c => c.Field)) : string.Empty);
+                    EditorGUILayout.LabelField(row.AssetId, string.IsNullOrEmpty(detail) ? target : target + "  ·  " + detail);
+                }
+
+                if (rows.Length > RowsPerGroup)
+                {
+                    EditorGUILayout.LabelField($"… and {rows.Length - RowsPerGroup} more");
+                }
+            }
         }
 
         private async Task<string> PullFresh(IReadOnlyList<AssetDiffEntry> entries)

@@ -22,7 +22,10 @@ namespace PolicePatrol.Sdk.Editor
             return new AssetSyncSession(scan, diff);
         }
 
-        public static async Task<string> PushAsync(AssetSyncSettings settings, AssetSyncSession session, IReadOnlyList<AssetDiffEntry> push, IReadOnlyList<AssetDiffEntry> delete)
+        public static async Task<string> PushAsync(AssetSyncSettings settings, AssetSyncSession session, IReadOnlyList<AssetDiffEntry> push, IReadOnlyList<AssetDiffEntry> delete) =>
+            (await PushReportAsync(settings, session, push, delete, false)).Message;
+
+        public static async Task<AssetPushReport> PushReportAsync(AssetSyncSettings settings, AssetSyncSession session, IReadOnlyList<AssetDiffEntry> push, IReadOnlyList<AssetDiffEntry> delete, bool dryRun)
         {
             if (!session.Scan.CanSync)
             {
@@ -35,6 +38,7 @@ namespace PolicePatrol.Sdk.Editor
             var api = new AssetSyncApi(settings);
             var state = AssetSyncState.Load();
             int created = 0, updated = 0, unchanged = 0, deleted = 0;
+            var routing = new List<AssetRouting>();
 
             for (var start = 0; start < writes.Count; start += AssetPaths.MaxSyncItems)
             {
@@ -44,10 +48,16 @@ namespace PolicePatrol.Sdk.Editor
                 {
                     var result = await api.SyncAsync(
                         new JArray(batch.Where(w => !w.IsDelete).Select(w => w.Token)),
-                        new JArray(batch.Where(w => w.IsDelete).Select(w => w.Token)));
-                    state.Remember(settings, result.Items);
-                    state.Forget(settings, batch.Where(w => w.IsDelete).Select(w => (string)w.Token["assetId"]));
-                    state.Save();
+                        new JArray(batch.Where(w => w.IsDelete).Select(w => w.Token)),
+                        dryRun);
+                    routing.Add(result.Routing);
+                    if (!dryRun)
+                    {
+                        state.Remember(settings, result.Items);
+                        state.Forget(settings, batch.Where(w => w.IsDelete).Select(w => (string)w.Token["assetId"]));
+                        state.Save();
+                    }
+
                     created += result.Created;
                     updated += result.Updated;
                     unchanged += result.Unchanged;
@@ -59,8 +69,15 @@ namespace PolicePatrol.Sdk.Editor
                 }
             }
 
+            var merged = AssetRouting.Merge(routing);
+            var route = merged == null ? " Item routing is off on the server." : " " + merged.Describe();
+            if (dryRun)
+            {
+                return new AssetPushReport($"Dry run, nothing saved: {created} new, {updated} updated, {unchanged} unchanged, {deleted} deleted." + route, true, merged);
+            }
+
             AssetRegistryBuilder.Build(session.Scan);
-            return $"Pushed: {created} new, {updated} updated, {unchanged} unchanged, {deleted} deleted. Registry updated.";
+            return new AssetPushReport($"Pushed: {created} new, {updated} updated, {unchanged} unchanged, {deleted} deleted. Registry updated." + route, false, merged);
         }
 
         public static async Task<string> PullAsync(AssetSyncSettings settings, AssetSyncSession session, IReadOnlyList<AssetDiffEntry> pull)

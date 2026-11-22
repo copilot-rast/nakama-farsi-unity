@@ -19,6 +19,13 @@ namespace PolicePatrol.Sdk
             Core = core ?? throw new ArgumentNullException(nameof(core));
             _logger = logger;
             Core.Session.SessionExpired += () => Core.Dispatcher.Post(() => SessionExpired?.Invoke());
+            Core.Notifications.Received += n =>
+            {
+                if (ReferenceEquals(PolicePatrolSdk.Client, this) && n != null)
+                {
+                    Stats.StatsProvider.OnNotification(n.Code, n.Content);
+                }
+            };
             RestoreOtp();
         }
 

@@ -122,6 +122,8 @@ namespace UnityEditor
     public static class EditorStyles
     {
         public static GUIStyle boldLabel => new GUIStyle();
+
+        public static GUIStyle wordWrappedLabel => new GUIStyle();
     }
 
     public static class EditorGUILayout
@@ -131,6 +133,8 @@ namespace UnityEditor
         public static bool Toggle(GUIContent label, bool value, params GUILayoutOption[] options) => value;
 
         public static bool Toggle(string label, bool value, params GUILayoutOption[] options) => value;
+
+        public static bool ToggleLeft(string label, bool value, params GUILayoutOption[] options) => value;
 
         public static string PasswordField(string label, string password, params GUILayoutOption[] options) => password;
 

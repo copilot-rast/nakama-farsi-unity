@@ -12,6 +12,30 @@ namespace PolicePatrol.Sdk.Inventory
         public static void Get(Action<ApiResult<PlayerInventory>> onComplete) =>
             PolicePatrolSdk.Run(onComplete, Load, ErrorAliases.Inventory, "economy_inventory");
 
+        public static void Get(bool withProfile, Action<ApiResult<PlayerInventory>> onComplete) => Get(null, withProfile, onComplete);
+
+        public static void Get(string type, bool withProfile, Action<ApiResult<PlayerInventory>> onComplete) =>
+            PolicePatrolSdk.Run(onComplete, c => Load(c, type, withProfile), ErrorAliases.Inventory, "economy_inventory");
+
+        public static void Equip(string itemKey, Action<ApiResult<EquipChange>> onComplete) => SetEquipped(itemKey, true, onComplete);
+
+        public static void Unequip(string itemKey, Action<ApiResult<EquipChange>> onComplete) => SetEquipped(itemKey, false, onComplete);
+
+        private static void SetEquipped(string itemKey, bool on, Action<ApiResult<EquipChange>> onComplete)
+        {
+            var rpc = on ? "economy_item_equip" : "economy_item_unequip";
+            PolicePatrolSdk.Run(onComplete, async c =>
+            {
+                var answer = await c.Rpc(rpc, new JObject { ["key"] = c.Items.ToServer(itemKey), ["lang"] = c.Language }, false, true).ConfigureAwait(false);
+                return Equipped(c, answer);
+            }, ErrorAliases.Inventory, rpc);
+        }
+
+        internal static EquipChange Equipped(ApiClient c, JToken answer) => new EquipChange(
+            Item(c, answer?["item"]),
+            J.Str(answer, "slot"),
+            Mapping.Arr(answer, "unequipped").Select(u => c.Items.ToGame(u.Type == JTokenType.String ? (string)u : J.Str(u, "key"))).Where(k => k != null).ToArray());
+
         private static readonly ConcurrentDictionary<string, string> Retries = new ConcurrentDictionary<string, string>(StringComparer.Ordinal);
 
         public static void Buy(string itemKey, Action<ApiResult<ItemChange>> onComplete) => Buy(itemKey, onComplete, null);
@@ -97,16 +121,41 @@ namespace PolicePatrol.Sdk.Inventory
             return id;
         }
 
-        internal static async Task<PlayerInventory> Load(ApiClient c)
+        internal static Task<PlayerInventory> Load(ApiClient c) => Load(c, null, false);
+
+        internal static async Task<PlayerInventory> Load(ApiClient c, string type, bool withProfile)
         {
-            var inv = await c.Rpc("economy_inventory", new JObject { ["lang"] = c.Language }, true).ConfigureAwait(false);
+            var body = new JObject { ["lang"] = c.Language };
+            if (!string.IsNullOrEmpty(type))
+            {
+                body["type"] = type;
+            }
+
+            if (withProfile)
+            {
+                body["withProfile"] = true;
+            }
+
+            var inv = await c.Rpc("economy_inventory", body, true).ConfigureAwait(false);
+            return Inventory(c, inv);
+        }
+
+        internal static PlayerInventory Inventory(ApiClient c, JToken inv)
+        {
             var items = Mapping.Arr(inv, "items");
             foreach (var i in items)
             {
                 c.Items.LearnItem(i);
             }
 
-            return new PlayerInventory(J.Int(inv, "level"), items.Select(i => Item(c, i)).ToArray());
+            var equipped = (inv?["equipped"] as JObject)?.Properties().Where(p => p.Value.Type == JTokenType.String)
+                .ToDictionary(p => p.Name, p => c.Items.ToGame((string)p.Value), StringComparer.Ordinal) ?? new Dictionary<string, string>();
+            return new PlayerInventory(J.Int(inv, "level"), items.Select(i => Item(c, i)).ToArray())
+            {
+                Equipped = equipped,
+                OwnedCount = J.Int(inv?["counts"], "owned"),
+                TotalCount = J.Int(inv?["counts"], "total"),
+            };
         }
 
         private static async Task<PlayerItem> Fresh(ApiClient c, string key, JToken fallback)
@@ -122,6 +171,8 @@ namespace PolicePatrol.Sdk.Inventory
                 return Item(c, fallback);
             }
         }
+
+        private static string Blank(string s) => string.IsNullOrEmpty(s) ? null : s;
 
         internal static ItemPrice[] Paid(JToken answer) => Mapping.Each(answer, "paid", Price);
 
@@ -157,6 +208,8 @@ namespace PolicePatrol.Sdk.Inventory
                 upgrades = Array.Empty<PlayerUpgrade>();
             }
 
+            var profile = i["profile"] as JObject;
+            var kind = J.Str(i, "kind");
             var services = Mapping.Each(i, "services", s => new ItemService(J.Str(s, "key"), J.Str(s, "name") ?? J.Str(s, "key"), Mapping.CurrencyKey(s), J.Num(s, "unitPrice"), J.Int(s, "maxUnits")));
             return new PlayerItem(
                 key,
@@ -177,6 +230,19 @@ namespace PolicePatrol.Sdk.Inventory
                 FinalPrices = i["finalPrice"] is JObject fo ? new[] { Price(fo) } : i["finalPrice"] is JArray fa ? fa.Select(Price).ToArray() : null,
                 DiscountPercent = J.Num(i, "discountPercent"),
                 SaleStopped = J.Bool(i, "saleStopped") || (i["isActive"]?.Type == JTokenType.Boolean && !(bool)i["isActive"]),
+                Kind = Blank(J.Str(i, "kind")),
+                Description = Blank(J.Str(i, "description")),
+                IconUrl = Blank(J.Str(i, "iconUrl")),
+                ImageUrl = Blank(J.Str(i, "imageUrl")),
+                Equipped = J.Bool(i, "equipped"),
+                Metadata = i["metadata"] as JObject ?? new JObject(),
+                Profile = profile,
+                CarProfile = profile != null && kind == ItemKinds.Car ? new CarProfile(profile, c.Items.ToGame) : null,
+                PartProfile = profile != null && kind == ItemKinds.Part ? new PartProfile(profile, c.Items.ToGame) : null,
+                Stats = (i["stats"] as JObject)?.Properties().Where(p => p.Value is JObject)
+                    .ToDictionary(p => p.Name, p => new CarStat(J.Num(p.Value, "base"), J.Num(p.Value, "bonus"), J.Num(p.Value, "total")), StringComparer.Ordinal) ?? new Dictionary<string, CarStat>(),
+                Installed = (i["installed"] as JObject)?.Properties().Where(p => p.Value.Type == JTokenType.String)
+                    .ToDictionary(p => p.Name, p => c.Items.ToGame((string)p.Value), StringComparer.Ordinal) ?? new Dictionary<string, string>(),
             };
         }
     }
