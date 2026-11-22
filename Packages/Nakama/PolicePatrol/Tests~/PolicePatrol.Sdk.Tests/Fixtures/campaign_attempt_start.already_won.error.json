@@ -1,0 +1,7 @@
+{
+  "code": "STAGE_ALREADY_WON",
+  "status": 403,
+  "message": "This stage is already won and cannot be played again.",
+  "field": "stageKey",
+  "lang": "en"
+}

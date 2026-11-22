@@ -1,0 +1,6 @@
+{
+  "code": "REQUIRES_ITEM",
+  "status": 409,
+  "message": "You need a specific item for this.",
+  "lang": "en"
+}

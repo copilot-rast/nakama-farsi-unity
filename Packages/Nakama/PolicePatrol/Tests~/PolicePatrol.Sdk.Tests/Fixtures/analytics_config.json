@@ -1,0 +1,865 @@
+{
+  "batchesPerMinute": 30,
+  "claimMode": "auto",
+  "day": "2026-11-22",
+  "events": [
+    {
+      "name": "item_bought",
+      "fields": [
+        {
+          "name": "itemKey",
+          "type": "string"
+        },
+        {
+          "name": "currency",
+          "type": "string"
+        },
+        {
+          "name": "amount",
+          "type": "number"
+        },
+        {
+          "name": "price",
+          "type": "number"
+        },
+        {
+          "name": "priceRange",
+          "type": "string"
+        },
+        {
+          "name": "itemType",
+          "type": "string"
+        },
+        {
+          "name": "itemClass",
+          "type": "string"
+        },
+        {
+          "name": "level",
+          "type": "integer"
+        },
+        {
+          "name": "track",
+          "type": "string"
+        },
+        {
+          "name": "early",
+          "type": "boolean"
+        },
+        {
+          "name": "service",
+          "type": "string"
+        },
+        {
+          "name": "units",
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "name": "item_unlocked",
+      "fields": [
+        {
+          "name": "itemKey",
+          "type": "string"
+        },
+        {
+          "name": "currency",
+          "type": "string"
+        },
+        {
+          "name": "amount",
+          "type": "number"
+        },
+        {
+          "name": "price",
+          "type": "number"
+        },
+        {
+          "name": "priceRange",
+          "type": "string"
+        },
+        {
+          "name": "itemType",
+          "type": "string"
+        },
+        {
+          "name": "itemClass",
+          "type": "string"
+        },
+        {
+          "name": "level",
+          "type": "integer"
+        },
+        {
+          "name": "track",
+          "type": "string"
+        },
+        {
+          "name": "early",
+          "type": "boolean"
+        },
+        {
+          "name": "service",
+          "type": "string"
+        },
+        {
+          "name": "units",
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "name": "item_upgraded",
+      "fields": [
+        {
+          "name": "itemKey",
+          "type": "string"
+        },
+        {
+          "name": "currency",
+          "type": "string"
+        },
+        {
+          "name": "amount",
+          "type": "number"
+        },
+        {
+          "name": "price",
+          "type": "number"
+        },
+        {
+          "name": "priceRange",
+          "type": "string"
+        },
+        {
+          "name": "itemType",
+          "type": "string"
+        },
+        {
+          "name": "itemClass",
+          "type": "string"
+        },
+        {
+          "name": "level",
+          "type": "integer"
+        },
+        {
+          "name": "track",
+          "type": "string"
+        },
+        {
+          "name": "early",
+          "type": "boolean"
+        },
+        {
+          "name": "service",
+          "type": "string"
+        },
+        {
+          "name": "units",
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "name": "item_used",
+      "fields": [
+        {
+          "name": "itemKey",
+          "type": "string"
+        },
+        {
+          "name": "currency",
+          "type": "string"
+        },
+        {
+          "name": "amount",
+          "type": "number"
+        },
+        {
+          "name": "price",
+          "type": "number"
+        },
+        {
+          "name": "priceRange",
+          "type": "string"
+        },
+        {
+          "name": "itemType",
+          "type": "string"
+        },
+        {
+          "name": "itemClass",
+          "type": "string"
+        },
+        {
+          "name": "level",
+          "type": "integer"
+        },
+        {
+          "name": "track",
+          "type": "string"
+        },
+        {
+          "name": "early",
+          "type": "boolean"
+        },
+        {
+          "name": "service",
+          "type": "string"
+        },
+        {
+          "name": "units",
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "name": "jump",
+      "fields": [
+        {
+          "name": "height",
+          "type": "number"
+        },
+        {
+          "name": "length",
+          "type": "number"
+        },
+        {
+          "name": "airTime",
+          "type": "number"
+        },
+        {
+          "name": "vehicle",
+          "type": "string"
+        },
+        {
+          "name": "vehicleClass",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "level_up",
+      "fields": [
+        {
+          "name": "value",
+          "type": "number"
+        },
+        {
+          "name": "table",
+          "type": "string"
+        },
+        {
+          "name": "from",
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "name": "overtake",
+      "fields": [
+        {
+          "name": "gap",
+          "type": "number"
+        },
+        {
+          "name": "topSpeed",
+          "type": "boolean"
+        },
+        {
+          "name": "speed",
+          "type": "number"
+        },
+        {
+          "name": "vehicle",
+          "type": "string"
+        },
+        {
+          "name": "vehicleClass",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "purchase_completed",
+      "fields": [
+        {
+          "name": "paymentId",
+          "type": "string"
+        },
+        {
+          "name": "method",
+          "type": "string"
+        },
+        {
+          "name": "productKey",
+          "type": "string"
+        },
+        {
+          "name": "toman",
+          "type": "number"
+        },
+        {
+          "name": "itemType",
+          "type": "string"
+        },
+        {
+          "name": "itemClass",
+          "type": "string"
+        },
+        {
+          "name": "currency",
+          "type": "string"
+        },
+        {
+          "name": "price",
+          "type": "number"
+        },
+        {
+          "name": "priceRange",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "stage_completed",
+      "fields": [
+        {
+          "name": "stars",
+          "type": "integer"
+        },
+        {
+          "name": "success",
+          "type": "boolean"
+        },
+        {
+          "name": "elapsedSeconds",
+          "type": "number"
+        },
+        {
+          "name": "stageKey",
+          "type": "string"
+        },
+        {
+          "name": "chapterKey",
+          "type": "string"
+        },
+        {
+          "name": "mode",
+          "type": "string"
+        },
+        {
+          "name": "timeSavedPercent",
+          "type": "number"
+        },
+        {
+          "name": "xp",
+          "type": "integer"
+        },
+        {
+          "name": "healthPercent",
+          "type": "number"
+        },
+        {
+          "name": "missionType",
+          "type": "string"
+        },
+        {
+          "name": "chapterKind",
+          "type": "string"
+        },
+        {
+          "name": "vehicle",
+          "type": "string"
+        },
+        {
+          "name": "vehicleClass",
+          "type": "string"
+        },
+        {
+          "name": "gun",
+          "type": "string"
+        },
+        {
+          "name": "gunClass",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "stage_won",
+      "fields": [
+        {
+          "name": "stars",
+          "type": "integer"
+        },
+        {
+          "name": "success",
+          "type": "boolean"
+        },
+        {
+          "name": "elapsedSeconds",
+          "type": "number"
+        },
+        {
+          "name": "stageKey",
+          "type": "string"
+        },
+        {
+          "name": "chapterKey",
+          "type": "string"
+        },
+        {
+          "name": "mode",
+          "type": "string"
+        },
+        {
+          "name": "timeSavedPercent",
+          "type": "number"
+        },
+        {
+          "name": "xp",
+          "type": "integer"
+        },
+        {
+          "name": "healthPercent",
+          "type": "number"
+        },
+        {
+          "name": "missionType",
+          "type": "string"
+        },
+        {
+          "name": "chapterKind",
+          "type": "string"
+        },
+        {
+          "name": "vehicle",
+          "type": "string"
+        },
+        {
+          "name": "vehicleClass",
+          "type": "string"
+        },
+        {
+          "name": "gun",
+          "type": "string"
+        },
+        {
+          "name": "gunClass",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "eventsPerMinute": 600,
+  "maxBatch": 50,
+  "maxFields": 30,
+  "maxStringLength": 200,
+  "notificationCode": 1501,
+  "sendIntervalSeconds": 60,
+  "stats": [
+    {
+      "key": "distance_backward_km",
+      "kind": "sum",
+      "period": "total",
+      "splitBy": [
+        "vehicle",
+        "vehicleClass"
+      ],
+      "sendIntervalSeconds": 60
+    },
+    {
+      "key": "distance_clean_km",
+      "kind": "sum",
+      "period": "total",
+      "splitBy": [
+        "vehicle",
+        "vehicleClass"
+      ],
+      "sendIntervalSeconds": 60
+    },
+    {
+      "key": "distance_forward_km",
+      "kind": "sum",
+      "period": "total",
+      "splitBy": [
+        "vehicle",
+        "vehicleClass"
+      ],
+      "sendIntervalSeconds": 60
+    },
+    {
+      "key": "distance_top_speed_km",
+      "kind": "sum",
+      "period": "total",
+      "splitBy": [
+        "vehicle",
+        "vehicleClass"
+      ],
+      "sendIntervalSeconds": 60
+    },
+    {
+      "key": "drift_m",
+      "kind": "sum",
+      "period": "total",
+      "splitBy": [
+        "vehicle",
+        "vehicleClass"
+      ],
+      "sendIntervalSeconds": 60
+    },
+    {
+      "key": "freeride_done",
+      "kind": "count",
+      "period": "total",
+      "splitBy": [],
+      "sendIntervalSeconds": 60
+    },
+    {
+      "key": "hits",
+      "kind": "sum",
+      "period": "total",
+      "splitBy": [
+        "gun",
+        "gunClass"
+      ],
+      "sendIntervalSeconds": 60
+    },
+    {
+      "key": "iap_purchases",
+      "kind": "count",
+      "period": "total",
+      "splitBy": [
+        "itemClass",
+        "priceRange"
+      ],
+      "sendIntervalSeconds": 60
+    },
+    {
+      "key": "iap_toman",
+      "kind": "sum",
+      "period": "total",
+      "splitBy": [],
+      "sendIntervalSeconds": 60
+    },
+    {
+      "key": "items_bought",
+      "kind": "count",
+      "period": "total",
+      "splitBy": [
+        "itemType",
+        "itemClass",
+        "currency",
+        "priceRange"
+      ],
+      "sendIntervalSeconds": 60
+    },
+    {
+      "key": "jumps",
+      "kind": "count",
+      "period": "total",
+      "splitBy": [
+        "vehicle",
+        "vehicleClass"
+      ],
+      "sendIntervalSeconds": 60
+    },
+    {
+      "key": "kills",
+      "kind": "sum",
+      "period": "total",
+      "splitBy": [
+        "gun",
+        "gunClass"
+      ],
+      "sendIntervalSeconds": 60
+    },
+    {
+      "key": "level_ups_day",
+      "kind": "count",
+      "period": "day",
+      "splitBy": [],
+      "sendIntervalSeconds": 60
+    },
+    {
+      "key": "misses",
+      "kind": "sum",
+      "period": "total",
+      "splitBy": [
+        "gun",
+        "gunClass"
+      ],
+      "sendIntervalSeconds": 60
+    },
+    {
+      "key": "mission_days",
+      "kind": "streak",
+      "period": "total",
+      "splitBy": [],
+      "sendIntervalSeconds": 60
+    },
+    {
+      "key": "obstacles_by_vehicle",
+      "kind": "sum",
+      "period": "total",
+      "splitBy": [
+        "vehicle",
+        "vehicleClass"
+      ],
+      "sendIntervalSeconds": 60
+    },
+    {
+      "key": "overtakes",
+      "kind": "count",
+      "period": "total",
+      "splitBy": [
+        "vehicle",
+        "vehicleClass"
+      ],
+      "sendIntervalSeconds": 60
+    },
+    {
+      "key": "play_seconds",
+      "kind": "sum",
+      "period": "total",
+      "splitBy": [],
+      "sendIntervalSeconds": 60
+    },
+    {
+      "key": "police_arrests",
+      "kind": "sum",
+      "period": "total",
+      "splitBy": [
+        "vehicle",
+        "vehicleClass"
+      ],
+      "sendIntervalSeconds": 60
+    },
+    {
+      "key": "shots",
+      "kind": "sum",
+      "period": "total",
+      "splitBy": [
+        "gun",
+        "gunClass"
+      ],
+      "sendIntervalSeconds": 60
+    },
+    {
+      "key": "stage_run_day",
+      "kind": "run",
+      "period": "day",
+      "splitBy": [],
+      "sendIntervalSeconds": 60
+    },
+    {
+      "key": "stages_lost",
+      "kind": "count",
+      "period": "total",
+      "splitBy": [
+        "missionType",
+        "chapterKind",
+        "vehicle",
+        "vehicleClass",
+        "gun",
+        "gunClass"
+      ],
+      "sendIntervalSeconds": 60
+    },
+    {
+      "key": "stages_started",
+      "kind": "count",
+      "period": "total",
+      "splitBy": [],
+      "sendIntervalSeconds": 60
+    },
+    {
+      "key": "stages_won",
+      "kind": "count",
+      "period": "total",
+      "splitBy": [
+        "missionType",
+        "chapterKind",
+        "vehicle",
+        "vehicleClass",
+        "gun",
+        "gunClass"
+      ],
+      "sendIntervalSeconds": 60
+    },
+    {
+      "key": "stages_won_day",
+      "kind": "count",
+      "period": "day",
+      "splitBy": [],
+      "sendIntervalSeconds": 60
+    },
+    {
+      "key": "three_stars",
+      "kind": "count",
+      "period": "total",
+      "splitBy": [
+        "missionType",
+        "chapterKind",
+        "vehicle",
+        "vehicleClass",
+        "gun",
+        "gunClass"
+      ],
+      "sendIntervalSeconds": 60
+    },
+    {
+      "key": "three_stars_full_health",
+      "kind": "count",
+      "period": "total",
+      "splitBy": [
+        "missionType",
+        "chapterKind",
+        "vehicle",
+        "vehicleClass",
+        "gun",
+        "gunClass"
+      ],
+      "sendIntervalSeconds": 60
+    },
+    {
+      "key": "turns_180",
+      "kind": "sum",
+      "period": "total",
+      "splitBy": [
+        "vehicle",
+        "vehicleClass"
+      ],
+      "sendIntervalSeconds": 60
+    },
+    {
+      "key": "upgrades",
+      "kind": "count",
+      "period": "total",
+      "splitBy": [
+        "itemType",
+        "itemClass",
+        "track"
+      ],
+      "sendIntervalSeconds": 60
+    },
+    {
+      "key": "vehicle_distance_km",
+      "kind": "sum",
+      "period": "total",
+      "splitBy": [
+        "vehicle",
+        "vehicleClass"
+      ],
+      "sendIntervalSeconds": 60
+    },
+    {
+      "key": "vehicle_top_speed",
+      "kind": "max",
+      "period": "total",
+      "splitBy": [
+        "vehicle",
+        "vehicleClass"
+      ],
+      "sendIntervalSeconds": 60
+    }
+  ],
+  "thresholds": {
+    "bigJumpHeight": 3,
+    "bigJumpLength": 20,
+    "mmOvertakeGap": 0.5
+  },
+  "typed": {
+    "contextKeys": [
+      {
+        "key": "vehicle",
+        "values": []
+      },
+      {
+        "key": "vehicleClass",
+        "values": [
+          "SUV",
+          "Pickup",
+          "Sedan",
+          "Van",
+          "Truck",
+          "Classic"
+        ]
+      },
+      {
+        "key": "gun",
+        "values": []
+      },
+      {
+        "key": "gunClass",
+        "values": [
+          "Handgun",
+          "MachineGun",
+          "HeavyMachineGun",
+          "Shotgun"
+        ]
+      },
+      {
+        "key": "mode",
+        "values": []
+      },
+      {
+        "key": "chapter",
+        "values": []
+      },
+      {
+        "key": "stage",
+        "values": []
+      },
+      {
+        "key": "attemptId",
+        "values": []
+      },
+      {
+        "key": "weather",
+        "values": []
+      }
+    ],
+    "designRoots": [
+      {
+        "root": "Vehicle",
+        "levels": []
+      },
+      {
+        "root": "Gun",
+        "levels": []
+      },
+      {
+        "root": "Player",
+        "levels": []
+      },
+      {
+        "root": "Discover",
+        "levels": []
+      },
+      {
+        "root": "Garage",
+        "levels": []
+      },
+      {
+        "root": "Police",
+        "levels": []
+      }
+    ],
+    "dimensions": [],
+    "enabled": true,
+    "maxContextKeys": 20,
+    "maxDimensions": 5,
+    "resourceCurrencies": [],
+    "resourceItemTypes": [],
+    "sessionTimeoutSeconds": 30,
+    "unknownContext": "flag",
+    "unknownDesign": "flag",
+    "unknownDimension": "flag",
+    "unknownResource": "flag"
+  },
+  "unknownEvents": "flag"
+}

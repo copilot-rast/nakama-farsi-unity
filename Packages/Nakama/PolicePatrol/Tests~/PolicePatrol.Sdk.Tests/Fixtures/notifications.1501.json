@@ -1,0 +1,116 @@
+[
+  {
+    "id": "91e1594e-6f3f-4809-a848-a3b06ee7a7fa",
+    "subject": "Distance with one car · Bronze",
+    "content": {
+      "claimMode": "none",
+      "groupKey": "vehicle",
+      "iconUrl": "",
+      "rewards": {},
+      "status": "none",
+      "step": 1,
+      "stepCount": 4,
+      "stepId": "104ce56a-4b13-411f-b3a8-6e0056852fbc",
+      "stepName": "Bronze",
+      "trophyKey": "distance_one_car",
+      "trophyName": "Distance with one car",
+      "type": "trophy_step"
+    },
+    "code": 1501,
+    "sender_id": "00000000-0000-0000-0000-000000000000",
+    "create_time": "2026-11-22T05:07:43Z",
+    "persistent": true
+  },
+  {
+    "id": "0492ee26-0de1-41de-8c29-5743d621b0f8",
+    "subject": "Distance with Santa Fe · Bronze",
+    "content": {
+      "claimMode": "none",
+      "groupKey": "vehicle",
+      "iconUrl": "",
+      "rewards": {},
+      "status": "none",
+      "step": 1,
+      "stepCount": 4,
+      "stepId": "b4277807-db17-4df8-acef-e64718b5cb6f",
+      "stepName": "Bronze",
+      "trophyKey": "distance_car_HyundaiSantafe",
+      "trophyName": "Distance with Santa Fe",
+      "type": "trophy_step"
+    },
+    "code": 1501,
+    "sender_id": "00000000-0000-0000-0000-000000000000",
+    "create_time": "2026-11-22T05:07:43Z",
+    "persistent": true
+  },
+  {
+    "id": "fdfa6c39-2ad1-4f08-ab19-46c49b54b916",
+    "subject": "Enemies destroyed · Bronze",
+    "content": {
+      "claimMode": "claim",
+      "groupKey": "gun",
+      "iconUrl": "",
+      "rewards": {
+        "currencies": {
+          "coin": 500
+        }
+      },
+      "status": "ready",
+      "step": 1,
+      "stepCount": 4,
+      "stepId": "9abac33e-2124-4ab8-ab27-fc0385b7d555",
+      "stepName": "Bronze",
+      "trophyKey": "kills",
+      "trophyName": "Enemies destroyed",
+      "type": "trophy_step"
+    },
+    "code": 1501,
+    "sender_id": "00000000-0000-0000-0000-000000000000",
+    "create_time": "2026-11-22T05:07:43Z",
+    "persistent": true
+  },
+  {
+    "id": "86c1d788-a17d-44b4-a465-6831f08359a2",
+    "subject": "Enemies destroyed with a Handgun · Bronze",
+    "content": {
+      "claimMode": "none",
+      "groupKey": "gun",
+      "iconUrl": "",
+      "rewards": {},
+      "status": "none",
+      "step": 1,
+      "stepCount": 4,
+      "stepId": "de743c1b-2954-41c4-afaa-29c38a187fee",
+      "stepName": "Bronze",
+      "trophyKey": "kills_class_Handgun",
+      "trophyName": "Enemies destroyed with a Handgun",
+      "type": "trophy_step"
+    },
+    "code": 1501,
+    "sender_id": "00000000-0000-0000-0000-000000000000",
+    "create_time": "2026-11-22T05:07:43Z",
+    "persistent": true
+  },
+  {
+    "id": "099c251b-faa0-4a45-a4aa-4c6d80eff7e9",
+    "subject": "Levels in one day · Bronze",
+    "content": {
+      "claimMode": "none",
+      "groupKey": "player",
+      "iconUrl": "",
+      "rewards": {},
+      "status": "none",
+      "step": 1,
+      "stepCount": 4,
+      "stepId": "80a6c33e-7d73-4690-8edd-400493d368b5",
+      "stepName": "Bronze",
+      "trophyKey": "level_ups_day",
+      "trophyName": "Levels in one day",
+      "type": "trophy_step"
+    },
+    "code": 1501,
+    "sender_id": "00000000-0000-0000-0000-000000000000",
+    "create_time": "2026-11-22T05:08:10Z",
+    "persistent": true
+  }
+]

@@ -1,0 +1,6 @@
+{
+  "code": "ANALYTICS_ALREADY_CLAIMED",
+  "status": 409,
+  "message": "جایزهٔ این مرحله قبلاً گرفته شده است.",
+  "lang": "fa"
+}

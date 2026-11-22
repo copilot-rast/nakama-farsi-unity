@@ -1,0 +1,6 @@
+{
+  "code": "NOT_FOR_SALE",
+  "status": 409,
+  "message": "This is not for sale.",
+  "lang": "en"
+}

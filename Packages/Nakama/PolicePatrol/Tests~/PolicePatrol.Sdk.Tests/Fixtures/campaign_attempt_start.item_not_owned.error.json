@@ -1,0 +1,10 @@
+{
+  "code": "ITEM_NOT_OWNED",
+  "status": 403,
+  "message": "You do not own this item.",
+  "meta": {
+    "itemKey": "suzukivitara"
+  },
+  "field": "vehicleKey",
+  "lang": "en"
+}

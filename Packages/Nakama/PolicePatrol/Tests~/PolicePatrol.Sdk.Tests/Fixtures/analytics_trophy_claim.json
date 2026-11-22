@@ -1,0 +1,11 @@
+{
+  "rewards": {
+    "currencies": {
+      "coin": 500
+    }
+  },
+  "status": "granted",
+  "step": 1,
+  "stepId": "9abac33e-2124-4ab8-ab27-fc0385b7d555",
+  "trophyKey": "kills"
+}

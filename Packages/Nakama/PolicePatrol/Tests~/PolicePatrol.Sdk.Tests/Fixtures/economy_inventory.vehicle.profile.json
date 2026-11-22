@@ -1,0 +1,1545 @@
+{
+  "counts": {
+    "owned": 2,
+    "total": 6
+  },
+  "equipped": {
+    "gun": "gun-handgun-bereta92",
+    "part:audiq2:colorring": "00431a06-c547-4d17-b8ee-cddba08f9ec0",
+    "skin": "star_basket_classic",
+    "vehicle": "tiggo8"
+  },
+  "items": [
+    {
+      "attributes": {},
+      "canBuy": true,
+      "canUnlock": false,
+      "canUnlockEarly": false,
+      "categoryKey": "",
+      "description": "",
+      "discountPercent": 0,
+      "discounts": [],
+      "equipped": false,
+      "finalPrice": {
+        "currencyKey": "coin",
+        "amount": 850000
+      },
+      "iconUrl": "",
+      "id": "6d942de7-e506-47ed-8a86-e6032f355d9e",
+      "imageUrl": "",
+      "isActive": true,
+      "isStarter": false,
+      "key": "suzukivitara",
+      "locked": false,
+      "maxUpgradeLevel": 0,
+      "metadata": {
+        "gameId": "SuzukiVitara",
+        "garageMultiplier": 1.2,
+        "repair": {
+          "coin": 10000,
+          "gem": 10,
+          "seconds": 60
+        },
+        "serviceSeconds": {
+          "brake": 300,
+          "fuel": 5,
+          "oil": 300,
+          "tire": 10,
+          "wash": 300
+        }
+      },
+      "name": "سوزوکی ویتارا",
+      "nextUpgradePrice": null,
+      "owned": false,
+      "parentKey": "",
+      "playerLevel": 1,
+      "price": {
+        "currencyKey": "coin",
+        "amount": 850000
+      },
+      "rarity": "common",
+      "requirementMet": true,
+      "requiresKey": "",
+      "saleStopped": false,
+      "services": [
+        {
+          "currencyKey": "coin",
+          "key": "fuel",
+          "maxUnits": 100,
+          "name": "سوخت",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "fuel-garage",
+          "maxUnits": 100,
+          "name": "سوخت (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "tire",
+          "maxUnits": 100,
+          "name": "لاستیک",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "tire-garage",
+          "maxUnits": 100,
+          "name": "لاستیک (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "oil",
+          "maxUnits": 100,
+          "name": "روغن",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "oil-garage",
+          "maxUnits": 100,
+          "name": "روغن (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "brake",
+          "maxUnits": 100,
+          "name": "ترمز",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "brake-garage",
+          "maxUnits": 100,
+          "name": "ترمز (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "wash",
+          "maxUnits": 100,
+          "name": "کارواش",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "wash-garage",
+          "maxUnits": 100,
+          "name": "کارواش (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "repair",
+          "maxUnits": 100,
+          "name": "تعمیر",
+          "unitPrice": 100
+        },
+        {
+          "currencyKey": "coin",
+          "key": "repair-garage",
+          "maxUnits": 100,
+          "name": "تعمیر (تعمیرگاه)",
+          "unitPrice": 120
+        },
+        {
+          "currencyKey": "gem",
+          "key": "repair-now",
+          "maxUnits": 12,
+          "name": "تعمیر فوری",
+          "unitPrice": 1
+        }
+      ],
+      "sort": 1,
+      "soundUrl": "",
+      "tags": [],
+      "tracks": [],
+      "type": "vehicle",
+      "typeName": "ماشین‌ها",
+      "unlockLevel": 0,
+      "unlockPrices": [],
+      "unlocked": true,
+      "unlockedEarly": false,
+      "upgradeLevel": 0
+    },
+    {
+      "attributes": {},
+      "canBuy": true,
+      "canUnlock": false,
+      "canUnlockEarly": false,
+      "categoryKey": "",
+      "description": "",
+      "discountPercent": 0,
+      "discounts": [],
+      "equipped": false,
+      "finalPrice": {
+        "currencyKey": "coin",
+        "amount": 1000000
+      },
+      "iconUrl": "",
+      "id": "43863d4b-e9e7-4f69-a216-2363be7608a8",
+      "imageUrl": "",
+      "isActive": true,
+      "isStarter": false,
+      "key": "hyundaisantafe",
+      "locked": false,
+      "maxUpgradeLevel": 0,
+      "metadata": {
+        "gameId": "HyundaiSantafe",
+        "garageMultiplier": 1.2,
+        "repair": {
+          "coin": 15000,
+          "gem": 30,
+          "seconds": 180
+        },
+        "serviceSeconds": {
+          "brake": 300,
+          "fuel": 5,
+          "oil": 300,
+          "tire": 10,
+          "wash": 300
+        }
+      },
+      "name": "سانتافه",
+      "nextUpgradePrice": null,
+      "owned": false,
+      "parentKey": "",
+      "playerLevel": 1,
+      "price": {
+        "currencyKey": "coin",
+        "amount": 1000000
+      },
+      "rarity": "common",
+      "requirementMet": true,
+      "requiresKey": "",
+      "saleStopped": false,
+      "services": [
+        {
+          "currencyKey": "coin",
+          "key": "fuel",
+          "maxUnits": 100,
+          "name": "سوخت",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "fuel-garage",
+          "maxUnits": 100,
+          "name": "سوخت (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "tire",
+          "maxUnits": 100,
+          "name": "لاستیک",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "tire-garage",
+          "maxUnits": 100,
+          "name": "لاستیک (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "oil",
+          "maxUnits": 100,
+          "name": "روغن",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "oil-garage",
+          "maxUnits": 100,
+          "name": "روغن (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "brake",
+          "maxUnits": 100,
+          "name": "ترمز",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "brake-garage",
+          "maxUnits": 100,
+          "name": "ترمز (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "wash",
+          "maxUnits": 100,
+          "name": "کارواش",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "wash-garage",
+          "maxUnits": 100,
+          "name": "کارواش (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "repair",
+          "maxUnits": 100,
+          "name": "تعمیر",
+          "unitPrice": 150
+        },
+        {
+          "currencyKey": "coin",
+          "key": "repair-garage",
+          "maxUnits": 100,
+          "name": "تعمیر (تعمیرگاه)",
+          "unitPrice": 180
+        },
+        {
+          "currencyKey": "gem",
+          "key": "repair-now",
+          "maxUnits": 24,
+          "name": "تعمیر فوری",
+          "unitPrice": 1
+        }
+      ],
+      "sort": 2,
+      "soundUrl": "",
+      "tags": [],
+      "tracks": [],
+      "type": "vehicle",
+      "typeName": "ماشین‌ها",
+      "unlockLevel": 0,
+      "unlockPrices": [],
+      "unlocked": true,
+      "unlockedEarly": false,
+      "upgradeLevel": 0
+    },
+    {
+      "attributes": {},
+      "canBuy": false,
+      "canUnlock": false,
+      "canUnlockEarly": false,
+      "categoryKey": "",
+      "description": "",
+      "discountPercent": 0,
+      "discounts": [],
+      "equipped": true,
+      "finalPrice": null,
+      "iconUrl": "",
+      "id": "6c9e6cee-9994-47cb-be0d-ce2d5ab4484d",
+      "imageUrl": "",
+      "isActive": true,
+      "isStarter": true,
+      "key": "tiggo8",
+      "locked": false,
+      "maxUpgradeLevel": 0,
+      "metadata": {
+        "gameId": "Tiggo8",
+        "garageMultiplier": 1.2,
+        "repair": {
+          "coin": 12500,
+          "gem": 20,
+          "seconds": 120
+        },
+        "serviceSeconds": {
+          "brake": 300,
+          "fuel": 5,
+          "oil": 300,
+          "tire": 10,
+          "wash": 300
+        }
+      },
+      "name": "تیگو 8",
+      "nextUpgradePrice": null,
+      "owned": true,
+      "ownedAt": "2026-11-22T09:06:02.472275+04:00",
+      "parentKey": "",
+      "playerLevel": 1,
+      "price": null,
+      "rarity": "common",
+      "requirementMet": true,
+      "requiresKey": "",
+      "saleStopped": false,
+      "services": [
+        {
+          "currencyKey": "coin",
+          "key": "fuel",
+          "maxUnits": 100,
+          "name": "سوخت",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "fuel-garage",
+          "maxUnits": 100,
+          "name": "سوخت (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "tire",
+          "maxUnits": 100,
+          "name": "لاستیک",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "tire-garage",
+          "maxUnits": 100,
+          "name": "لاستیک (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "oil",
+          "maxUnits": 100,
+          "name": "روغن",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "oil-garage",
+          "maxUnits": 100,
+          "name": "روغن (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "brake",
+          "maxUnits": 100,
+          "name": "ترمز",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "brake-garage",
+          "maxUnits": 100,
+          "name": "ترمز (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "wash",
+          "maxUnits": 100,
+          "name": "کارواش",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "wash-garage",
+          "maxUnits": 100,
+          "name": "کارواش (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "repair",
+          "maxUnits": 100,
+          "name": "تعمیر",
+          "unitPrice": 125
+        },
+        {
+          "currencyKey": "coin",
+          "key": "repair-garage",
+          "maxUnits": 100,
+          "name": "تعمیر (تعمیرگاه)",
+          "unitPrice": 150
+        },
+        {
+          "currencyKey": "gem",
+          "key": "repair-now",
+          "maxUnits": 36,
+          "name": "تعمیر فوری",
+          "unitPrice": 1
+        }
+      ],
+      "sort": 3,
+      "soundUrl": "",
+      "source": "starter",
+      "tags": [],
+      "tracks": [],
+      "type": "vehicle",
+      "typeName": "ماشین‌ها",
+      "unlockLevel": 2,
+      "unlockPrices": [
+        {
+          "currencyKey": "gem",
+          "amount": 20
+        }
+      ],
+      "unlocked": true,
+      "unlockedEarly": false,
+      "upgradeLevel": 0,
+      "version": 1
+    },
+    {
+      "attributes": {},
+      "canBuy": false,
+      "canUnlock": false,
+      "canUnlockEarly": true,
+      "categoryKey": "",
+      "description": "",
+      "discountPercent": 0,
+      "discounts": [],
+      "equipped": false,
+      "finalPrice": {
+        "currencyKey": "coin",
+        "amount": 1950000
+      },
+      "iconUrl": "",
+      "id": "555af0e9-35b5-45b5-9550-a539b37ffee6",
+      "imageUrl": "",
+      "isActive": true,
+      "isStarter": false,
+      "key": "toyotahilux",
+      "locked": true,
+      "maxUpgradeLevel": 0,
+      "metadata": {
+        "gameId": "ToyotaHilux",
+        "garageMultiplier": 1.2,
+        "repair": {
+          "coin": 30000,
+          "gem": 40,
+          "seconds": 240
+        },
+        "serviceSeconds": {
+          "brake": 300,
+          "fuel": 5,
+          "oil": 300,
+          "tire": 10,
+          "wash": 300
+        }
+      },
+      "name": "هایلوکس",
+      "nextUpgradePrice": null,
+      "owned": false,
+      "parentKey": "",
+      "playerLevel": 1,
+      "price": {
+        "currencyKey": "coin",
+        "amount": 1950000
+      },
+      "rarity": "common",
+      "requirementMet": true,
+      "requiresKey": "",
+      "saleStopped": false,
+      "services": [
+        {
+          "currencyKey": "coin",
+          "key": "fuel",
+          "maxUnits": 100,
+          "name": "سوخت",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "fuel-garage",
+          "maxUnits": 100,
+          "name": "سوخت (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "tire",
+          "maxUnits": 100,
+          "name": "لاستیک",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "tire-garage",
+          "maxUnits": 100,
+          "name": "لاستیک (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "oil",
+          "maxUnits": 100,
+          "name": "روغن",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "oil-garage",
+          "maxUnits": 100,
+          "name": "روغن (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "brake",
+          "maxUnits": 100,
+          "name": "ترمز",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "brake-garage",
+          "maxUnits": 100,
+          "name": "ترمز (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "wash",
+          "maxUnits": 100,
+          "name": "کارواش",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "wash-garage",
+          "maxUnits": 100,
+          "name": "کارواش (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "repair",
+          "maxUnits": 100,
+          "name": "تعمیر",
+          "unitPrice": 300
+        },
+        {
+          "currencyKey": "coin",
+          "key": "repair-garage",
+          "maxUnits": 100,
+          "name": "تعمیر (تعمیرگاه)",
+          "unitPrice": 360
+        },
+        {
+          "currencyKey": "gem",
+          "key": "repair-now",
+          "maxUnits": 48,
+          "name": "تعمیر فوری",
+          "unitPrice": 1
+        }
+      ],
+      "sort": 4,
+      "soundUrl": "",
+      "tags": [],
+      "tracks": [],
+      "type": "vehicle",
+      "typeName": "ماشین‌ها",
+      "unlockLevel": 3,
+      "unlockPrices": [
+        {
+          "currencyKey": "gem",
+          "amount": 40
+        }
+      ],
+      "unlocked": false,
+      "unlockedEarly": false,
+      "upgradeLevel": 0
+    },
+    {
+      "attributes": {},
+      "canBuy": false,
+      "canUnlock": false,
+      "canUnlockEarly": false,
+      "categoryKey": "",
+      "description": "",
+      "discountPercent": 0,
+      "discounts": [],
+      "equipped": false,
+      "finalPrice": {
+        "currencyKey": "coin",
+        "amount": 2350000
+      },
+      "iconUrl": "",
+      "id": "8c944170-4732-4049-a3ab-ea07d81fc20a",
+      "imageUrl": "",
+      "installed": {
+        "antibullet": "1fac2a91-29dc-4394-9b7f-100ba1c5454a",
+        "brakedisc": "3cbf6b62-a38d-4d47-89d9-8d40d285bda6",
+        "colorbody": "48e41ede-b4cc-456a-99a5-b2f26b02d559",
+        "colorring": "00431a06-c547-4d17-b8ee-cddba08f9ec0",
+        "engine": "10e860c3-eef0-42e3-8b07-ce0aadcbae8c",
+        "exhaust": "f6f70589-24f2-44ed-a7ab-f97b1e6856d3",
+        "gearbox": "26449864-6b8d-4122-a6ad-02b1f1e57348",
+        "nitro": "3f366717-bb28-4382-a3de-4c32d4aad7bb",
+        "ring": "b74c9cc2-f7d3-4526-97fd-208508f9b373",
+        "siren": "ff902234-0ad7-4d03-bec7-72adcb2dc2f1",
+        "tire": "20ef0942-62d3-4d0c-99c5-c606c33d0aaf",
+        "turbocharge": "a40a6197-2259-484c-ae60-85f0ca920a22"
+      },
+      "isActive": true,
+      "isStarter": false,
+      "key": "audiq2",
+      "kind": "car",
+      "locked": false,
+      "maxUpgradeLevel": 0,
+      "metadata": {
+        "gameId": "AudiQ2",
+        "garageMultiplier": 1.2,
+        "repair": {
+          "coin": 20000,
+          "gem": 50,
+          "seconds": 300
+        },
+        "serviceSeconds": {
+          "brake": 300,
+          "fuel": 5,
+          "oil": 300,
+          "tire": 10,
+          "wash": 300
+        }
+      },
+      "name": "آئودی کیو 2",
+      "nextUpgradePrice": null,
+      "owned": true,
+      "ownedAt": "2026-11-22T09:06:02.505146+04:00",
+      "parentKey": "",
+      "playerLevel": 1,
+      "price": {
+        "currencyKey": "coin",
+        "amount": 2350000
+      },
+      "profile": {
+        "carClass": "SUV",
+        "carName": "AudiQ2",
+        "defaultParts": [
+          "bd6ca010-4926-41cf-ac31-bb0bdedf3e9e",
+          "43154c1c-5e98-43bc-ab97-8b519c0ac692",
+          "ffcfffcb-5269-4081-b803-2ff233fc88ba",
+          "8149212d-eab1-45d9-9419-fdcba47dcee1",
+          "271ad7d4-dd1e-4a62-9697-4e2e54a08236",
+          "92469754-59ec-482f-94e0-96625bf3c61f",
+          "bc69be4d-f406-47af-b6b7-224be8be1fc9",
+          "9de2c22c-acb6-4891-bd34-3381cbb7dd4c",
+          "e202a905-524d-4bab-b009-4ad70090a7f7",
+          "1009478e-9d7c-4691-92c0-940f818e18f6",
+          "7882463e-e809-49d8-8b0e-146fa1d7d848",
+          "af455c18-c997-4476-ba6a-5f7b59eec10f",
+          "3cbf6b62-a38d-4d47-89d9-8d40d285bda6",
+          "48e41ede-b4cc-456a-99a5-b2f26b02d559",
+          "9015a9cc-3a1f-4137-a2f6-b1336f6bbd87",
+          "5fa9ed15-c543-45fb-be5a-4590f9846dd6",
+          "10e860c3-eef0-42e3-8b07-ce0aadcbae8c",
+          "26449864-6b8d-4122-a6ad-02b1f1e57348",
+          "3f366717-bb28-4382-a3de-4c32d4aad7bb",
+          "b74c9cc2-f7d3-4526-97fd-208508f9b373",
+          "ff902234-0ad7-4d03-bec7-72adcb2dc2f1",
+          "20ef0942-62d3-4d0c-99c5-c606c33d0aaf",
+          "a40a6197-2259-484c-ae60-85f0ca920a22",
+          "f6f70589-24f2-44ed-a7ab-f97b1e6856d3",
+          "3f366717-bb28-4382-a3de-4c32d4aad7bb",
+          "1fac2a91-29dc-4394-9b7f-100ba1c5454a"
+        ],
+        "gameId": "AudiQ2",
+        "performance": {
+          "engineMaxRPM": 7000,
+          "engineMaxTorque": 600,
+          "maxBrakeTorque": 4000,
+          "maxSpeedKmh": 180,
+          "maxSpeedVisualCoefficient": 1,
+          "maxSteerAngleDegree": 25,
+          "nitroDuration": 4,
+          "nitroMaxSpeed": 210,
+          "offroadPerformance": 0.55,
+          "runtimeAccelerattionMultiplier": 1,
+          "runtimeSpeedMultiplier": 1,
+          "steerSpeed": 10,
+          "wheelWidth": 0.3
+        },
+        "services": {
+          "brake": {
+            "coin": 300000,
+            "gem": 0,
+            "seconds": 8
+          },
+          "carWash": {
+            "coin": 140000,
+            "gem": 0,
+            "seconds": 10
+          },
+          "fuel": {
+            "coin": 250000,
+            "gem": 0,
+            "seconds": 5
+          },
+          "garageMultiplier": 1.2,
+          "oil": {
+            "coin": 350000,
+            "gem": 0,
+            "seconds": 10
+          },
+          "repair": {
+            "coin": 220000,
+            "gem": 50,
+            "seconds": 300
+          },
+          "repairConfigured": true,
+          "tire": {
+            "coin": 200000,
+            "gem": 0,
+            "seconds": 10
+          }
+        },
+        "slots": [
+          {
+            "collectionId": "646d5651-c20d-46d6-a790-f0bbb59d8bee",
+            "default": "48e41ede-b4cc-456a-99a5-b2f26b02d559",
+            "group": "Customization",
+            "key": "colorbody",
+            "name": "ColorBody",
+            "parts": [
+              "a31bf158-567a-47ad-b128-4cef6e5c0266",
+              "00bc6d15-c356-4d5f-aa90-f91aac6de8b7",
+              "48e41ede-b4cc-456a-99a5-b2f26b02d559",
+              "f01d2efe-15c3-4561-8130-a69bc9b53420",
+              "62e89066-ea60-4b3d-a752-4403c5c71034",
+              "de3c5198-d2e3-4653-a5ce-ee1645e3387b",
+              "f30253b1-e6f4-4997-b0b6-ff2385ecf758",
+              "5262c317-ce25-4b1c-b3ef-c84f6c47ba55",
+              "618f1a28-23b2-4947-872b-6cbd5fc95644",
+              "17cd7121-82a0-4a09-b1f3-80912482c4f1",
+              "673879fa-5980-47ff-939c-889983e5a576",
+              "64a723d3-3729-419b-8d2a-819b27a61287",
+              "fc51e4f8-069e-40bc-8618-f840d3537a4d",
+              "954aa559-ad34-4be1-bd86-ec836b9e3d86",
+              "6220d654-ffa1-485a-af05-b5265c9c255b",
+              "784827ea-082e-471f-96ca-ff87362c5e69",
+              "7705e442-2f8b-43fb-8051-d88902b25537",
+              "a373de50-8bbf-407c-9cc4-99e970daa0bd"
+            ],
+            "selection": "Single",
+            "title": "رنگ بدنه"
+          },
+          {
+            "collectionId": "d53eef4e-1d27-4f31-8fe5-deb497b0d94c",
+            "default": "b74c9cc2-f7d3-4526-97fd-208508f9b373",
+            "group": "Customization",
+            "key": "ring",
+            "name": "Ring",
+            "parts": [
+              "b74c9cc2-f7d3-4526-97fd-208508f9b373",
+              "5160ec86-e697-47c9-8b18-df6016c56d0f",
+              "5a43bc9d-f99c-46fc-b4dc-ce48b48d4ae5",
+              "6a132c72-f3cf-45b0-8524-064e953af056",
+              "10619311-071d-4f9e-99c0-4fcaf8009b65",
+              "91af66db-6bec-4f38-831e-7184d78cba6a",
+              "ab6ffd0c-4cc4-4cc7-a768-7d9a1cf9a928",
+              "796c5f38-bfb3-4e41-9dfa-9292389fd7b5",
+              "70061a77-2813-489b-9fb0-c768acba8cc4",
+              "e2c334c1-5bc2-4dab-80c4-d4bfc5d4fae8",
+              "ab2a70cb-a05c-45c5-9ec8-ca2536cb74e6",
+              "bdf42bc7-b3b9-4944-b1d4-da12de39ef11",
+              "81d4cae5-296a-4291-a655-6e704f760f71",
+              "7fe7b79f-5e51-488f-8a87-665500de6ea1",
+              "abd4e6e3-ef8d-444c-b769-af97457b6e58",
+              "d0f14f1d-4f72-4bcd-b564-19d268491d4c",
+              "1545a7e2-8147-4078-951c-804cd8462884",
+              "c1c1a6a0-d4ba-4ce9-a567-d301a812eaa7",
+              "82ed53f6-12b2-4191-b16f-1efe5f6eba17",
+              "f92eac42-ac05-41ed-b533-8708cd98c329",
+              "3bace01e-a2f1-471d-901b-9ff9c6ec2362",
+              "a8cf1b0a-c226-42e8-a982-7a2fd01189de",
+              "e0239fe9-af67-451f-bb8b-a6a2b49b5704",
+              "3bd36066-035e-4709-b9f5-6650904451c5",
+              "b6681f50-2edf-4108-8d3f-16e96749d2cb",
+              "5110a098-8d1b-40de-a0f0-07f43039f1dc",
+              "3158fe66-00d2-4cc4-8818-b950acb20c43",
+              "8f3ea900-39d7-462a-b4cb-5e9857ffca30",
+              "c701f0ab-fc10-410c-a31e-8729aae3374f",
+              "f00ab916-8c35-4630-a998-3bd175356f1c",
+              "60bc11a9-1c7f-44ea-8773-b97c4c423593",
+              "9fcb4345-b451-4c8c-ba42-61d7a9700bd6",
+              "35b387c5-94e7-4916-9235-df837b4c43f9",
+              "931a2f4e-ef01-41ae-9add-088eed5c5314",
+              "7d5ffeae-312c-433b-8273-58bc40770359",
+              "ee2c92cc-c082-46ea-8d13-cc9db3360da4",
+              "a43681d0-7304-4f74-b5f7-20bf8f59245a",
+              "6378d23f-8070-4d1c-a201-9ad4e01dd00b",
+              "b80e63a3-bf0a-417a-9aad-a143a46ac2c8",
+              "20f6965c-46af-4389-a572-149eb92f0744",
+              "02c97779-5934-4c21-bffd-d540bbffd9ca",
+              "ec24a19e-668f-4e6f-b411-583f3013fe08",
+              "4f487215-3635-45bf-b180-db06cb5d657b",
+              "f3aa4a27-0fae-460c-8ca1-8eddc035fd30",
+              "9f7ea53e-1e44-4972-ba76-bf5cdf1782e3",
+              "de0efd69-0cec-4b48-aaa2-20e2fa4aaf59",
+              "00da09ce-280c-4b90-9a66-8278d67ef0aa",
+              "81e6eb79-763f-4315-b398-769fed938265",
+              "e0060c7b-05c8-4e8a-81a7-b8da4488c2d1",
+              "affda033-1c88-4bef-8102-023810ea3400",
+              "c89ce88c-2608-4bd5-b44f-f8aa2c9bf6e7",
+              "f7ee4d18-adb8-4b6a-98fe-f2a911a6542e",
+              "00c208bf-ece2-4a40-b514-1627322e6bcb",
+              "75fb9b5f-a2ad-49df-87ec-a3bdd81e4c12",
+              "698e46c6-3c61-479b-becc-3ea5d37efae9",
+              "90187c4b-e3e6-4a39-8045-ca61a61fb76b",
+              "10c5a36a-346f-462e-aa32-a5ad5424e155",
+              "ea1f3b70-a489-43b5-aae4-9da8b57d4a42",
+              "77be61ac-ee73-473d-90c9-2db2c1fa6bdb",
+              "b74626cd-6a54-4e10-9b6b-4d88d99d18ea",
+              "a9ca1d2a-2ba9-4cb1-a8d4-d27e9cd18024",
+              "345be0f8-048d-4bde-a16d-7874f55b437c",
+              "6803b343-b58d-4406-9bee-1f98b1a364ca",
+              "ba7d77bd-2fba-4904-8944-0411183d8468",
+              "3d1e9ac3-771f-488a-9956-1ecf5b9c2d6e",
+              "b0c7a4c0-ed1f-4772-8b77-568bf94efdc8",
+              "9bcc526c-50a4-415d-8ad8-84ee431418f5",
+              "d8ce2959-d2e0-4345-bb43-18107341833c",
+              "92acab26-f610-4b32-93ac-57ce02d64c0e",
+              "8a5b2bd2-0706-4cc7-bbcd-099e473f1f41",
+              "1ca12f35-06b8-4b7f-8db9-3df951e10ddb"
+            ],
+            "selection": "Single",
+            "title": "رینگ"
+          },
+          {
+            "collectionId": "79c6cba6-9092-403d-8ece-8e47af440da8",
+            "default": "9015a9cc-3a1f-4137-a2f6-b1336f6bbd87",
+            "group": "Customization",
+            "key": "colorring",
+            "name": "ColorRing",
+            "parts": [
+              "00431a06-c547-4d17-b8ee-cddba08f9ec0",
+              "ad4a81ad-fc98-4790-ab70-147e83a68393",
+              "c8f50268-00f2-4607-88c3-c2add2c3a1ee",
+              "087354d4-e3b2-4179-9b37-eca373a25c40",
+              "ef2b6042-5be2-4980-a819-40950fe10dbf",
+              "017a99df-8847-4933-8a1d-66c0c9a66e0c",
+              "b4ca907d-3ef3-433b-9c91-8ba0d6a76f9f",
+              "4caf72b7-5256-4290-8fbd-68f346224007",
+              "563965d9-4396-4c5f-bc0e-67334b7fa977",
+              "829b2297-d6cf-47bc-85bb-3f4fb238266e",
+              "c3a42950-3278-47a0-98d7-201180224ef4",
+              "016888cf-f679-42ad-8d8f-2145f46fcd6a",
+              "b11ca601-7c87-40e7-a08d-d30c2bb87429",
+              "84740e27-3b50-4a98-b14c-6e825c06e50a",
+              "bec16846-3166-46d1-8550-3537d46b2a5f",
+              "02b318ce-679e-4b51-990f-c386b878cb57",
+              "7b157375-a91c-483b-8f8e-3d90f18cd117",
+              "bcf891eb-fdc7-4437-a80e-a9208f6000e7",
+              "2abc6c6b-7f1d-4fc7-839a-92ed58205dc7",
+              "cd3bc85c-5e8d-4d49-ad6b-0b9674da57ba",
+              "e6877f34-e38c-4ace-929d-97c9b69fc6e8",
+              "7c2090df-7a1c-4ec6-bcec-a660b80fa3fb",
+              "0ac23940-9398-42a2-8fc3-e2855ef339d5",
+              "9015a9cc-3a1f-4137-a2f6-b1336f6bbd87",
+              "6559c3a3-f5b2-4f95-83d3-ea5d0185ebd7",
+              "7b5e4950-eec3-49fd-8aaa-0ffe2e5938a9",
+              "77958b5f-950e-4d3b-a939-ce33250ce912",
+              "610a490f-0fa9-4434-8470-aac2ae447a6d",
+              "e210c92d-53fe-473e-a670-73716bb7d70f",
+              "9eca6371-4a03-4daf-acfc-5903b26e4b25"
+            ],
+            "selection": "Single",
+            "title": "رنگ رینگ"
+          },
+          {
+            "collectionId": "e3d32e5a-3526-437d-88ab-475dbfe91bbe",
+            "default": "f6f70589-24f2-44ed-a7ab-f97b1e6856d3",
+            "group": "Customization",
+            "key": "exhaust",
+            "name": "Exhaust",
+            "parts": [
+              "f6f70589-24f2-44ed-a7ab-f97b1e6856d3",
+              "71a25637-4ad0-4eb6-bcf3-1eb58851a94b",
+              "e0c9a4dc-0b7d-40a6-844f-d42a14b80751",
+              "396f4371-5796-449d-82ef-230031f64c28",
+              "a78e34e3-581e-473a-9d7f-ffda98cbcb4e",
+              "9e2b0ee8-b5f2-4bbd-a76c-adacbd590e14",
+              "da2649c1-6fcf-47ae-9e3d-864fa1b7a5c7",
+              "fd1e07d8-1c2b-422c-b122-a6a92fcf3077",
+              "5e7f6258-1165-4983-8f19-5a80524ccb36",
+              "5a5f6dba-74dc-4063-be6f-a30b45c34bb9",
+              "eab91940-18e0-41ce-babc-461fcdb0207a",
+              "26664e8d-ffa1-4e98-abc3-749c2421dbff",
+              "74ad687e-5bc0-4144-aa8e-eb439db69154",
+              "01d548b6-fbde-4cae-9adb-d1468b4a60be",
+              "f5feae62-a14a-44e6-b6a8-4967a91154d6",
+              "2a77c020-4bf5-4073-b386-cf45a15daacb",
+              "379badab-c711-4457-aea7-0c3e4b0f8d7f",
+              "6b41c6f5-68c7-4671-8fc1-bfa1427985d1",
+              "93fd52f2-5860-4286-bf2f-dddb2cf9304e"
+            ],
+            "selection": "Single",
+            "title": "اگزوز"
+          },
+          {
+            "collectionId": "174ef42b-b46c-47ac-8d36-3a7c7dbdc415",
+            "default": "20ef0942-62d3-4d0c-99c5-c606c33d0aaf",
+            "group": "Customization",
+            "key": "tire",
+            "name": "Tire",
+            "parts": [
+              "20ef0942-62d3-4d0c-99c5-c606c33d0aaf",
+              "2f20702e-1146-4142-9f43-3c2a0df1de4f",
+              "b5fbf14b-931f-4d5b-9972-29d6cedaa2a3",
+              "b419b72e-b29a-4906-867b-7f245e32e46f",
+              "15308393-bd7b-4d19-ac01-ad283c99963f",
+              "b99adcce-dd9d-41ef-a202-d7cbda204785",
+              "10f452eb-18e8-49a1-b5b2-4883140c065d",
+              "bc4f756f-2182-410a-b914-c016c711cf61",
+              "c508a82c-8423-4175-8289-13f46dccfec0",
+              "1121b6aa-4189-4c0b-a0e1-0aa699255c0c",
+              "0ba33cad-e9de-48b2-83fe-8a5dbfd1f41f",
+              "de633147-69f3-41eb-9d5b-2ae703c1940c",
+              "66948a34-1d1a-4985-bc9c-570f6804d40e",
+              "88a4bde2-5584-4a1d-bfa3-af08dca698fc",
+              "4b3e9055-4863-4f14-8140-67a45eaa7f89",
+              "0a11836d-dfb0-432f-aed2-416105083bd8",
+              "826f5ca9-b7bb-4d94-a427-8c566c7619fc",
+              "d94d5411-536f-43a4-99f0-8af7809aecf7",
+              "46465ce1-dd16-4a36-a0e0-dc8564410141",
+              "d4e99aaf-9983-468a-818f-109756969cc0",
+              "6dc9b6bf-80d3-49f6-9729-72f94c552542",
+              "a0f01144-0c20-4a53-9caf-362402a746f1"
+            ],
+            "selection": "Single",
+            "title": "لاستیک"
+          },
+          {
+            "collectionId": "d6e60143-7c58-40b3-ad55-3416b8b5cb0f",
+            "default": "",
+            "group": "Customization",
+            "key": "shieldfront",
+            "name": "ShieldFront",
+            "parts": [
+              "ef13dbfd-e48c-4016-81b9-1014fc4646dd",
+              "53433dcb-b496-48b2-a2b8-9fcc124dd58b",
+              "628b0b8e-f66a-4958-9285-c768dea6b6ad",
+              "576fb737-6e02-471b-b7f4-3f621ed17c28",
+              "a742995e-0bf1-470e-8998-c5c5373be2bc",
+              "5d236549-b7b1-49a3-a831-6d16f7cfee24",
+              "700980d9-1c96-45fa-bade-8afebc5a85f0",
+              "839989b1-3007-4406-806f-eee4ec65cf27",
+              "e87757c4-9e2b-490b-ab15-c66268cdbb4a",
+              "c8397a14-4e00-4e08-9a98-ef8c62b35367",
+              "d4ce2729-0cff-4219-b83c-0b6a08496d0a",
+              "fcc707c0-6e43-4f8c-8063-ad58699b173c",
+              "dbda44a0-59bf-4464-9740-6c1bfd0d7c6a",
+              "adc8d2c7-c605-4f91-be2c-32ac56343ec6"
+            ],
+            "selection": "Single",
+            "title": "گارد جلو"
+          },
+          {
+            "collectionId": "0d3b50c9-7fe0-482d-8d8e-be139d9cb0e9",
+            "default": "",
+            "group": "Customization",
+            "key": "shieldside",
+            "name": "ShieldSide",
+            "parts": [
+              "e47074cc-00ac-4357-b0fc-16d677e41a20",
+              "0105fe5e-dad5-447e-867d-124a69f9699f",
+              "b551725d-7c5c-446a-a038-9427e8bf4289",
+              "e5114c6b-89be-421f-aefa-add2f91792ff",
+              "ceac8252-fefa-4652-8c0f-27cb201c7c04",
+              "17caf09e-0f86-4bf3-bb3e-40ff31a06cd7",
+              "acba9498-20cc-423f-86b5-62ea5b3463ba",
+              "21908a59-d34d-421a-a9aa-eb34104a84c3",
+              "33f1e78f-9d03-489c-bdc1-1f73d191a1c2",
+              "afaa0da4-088d-46ce-ae6b-46747fec21ed",
+              "dc61a2c9-0808-4231-868e-afc03d312237",
+              "99058808-d94d-4e71-be6b-af0997272504",
+              "ac74335f-9b9c-44de-aab0-259f5d0069ad",
+              "74c82934-1491-4e54-88bd-763f264b7214",
+              "4fc7032f-64de-465f-b2d3-67b1d99714ac",
+              "54537824-a185-4263-a615-e0019355d320",
+              "1b508e7c-abe9-4499-8fb6-5dd193745ba2"
+            ],
+            "selection": "Single",
+            "title": "گارد جانبی"
+          },
+          {
+            "collectionId": "4deb2f4a-4433-4757-9fdd-18c1a49fddc5",
+            "default": "",
+            "group": "Customization",
+            "key": "shieldback",
+            "name": "ShieldBack",
+            "parts": [
+              "07f55fe3-3fa5-4612-9e38-8fdbe39090ab",
+              "4dfcfec4-3a8d-4db9-ba78-0a52891d2e47",
+              "c07870d2-5d7d-4524-a3a8-ff9389f0aad1",
+              "154caa0d-55f4-4f95-a1ab-cd08b8e7bf46",
+              "b74bcec1-183f-43cb-b8a3-33211264bc84",
+              "ac0c101d-4484-40b1-bd7a-14577885fb02",
+              "f52e5325-c3d1-4213-8007-67fccc9945b4",
+              "3efdb626-8929-435f-9aab-165724555724",
+              "50d1d827-ec13-4702-a108-0ab147259d3b",
+              "fda66339-d58e-4c04-a7ca-98655919d261",
+              "f7518128-7edf-4926-bf03-b8e80fc747fd",
+              "e61e39e5-17f8-4dc7-8eb6-b09f0e304025",
+              "3631c014-b88a-45b2-9115-31891188f007",
+              "6540501e-9efe-4873-9b31-9354b64a8328"
+            ],
+            "selection": "Single",
+            "title": "گارد عقب"
+          },
+          {
+            "collectionId": "7ee19b5b-ac5e-4238-921c-6fe00a415dad",
+            "default": "ff902234-0ad7-4d03-bec7-72adcb2dc2f1",
+            "group": "Customization",
+            "key": "siren",
+            "name": "Siren",
+            "parts": [
+              "ff902234-0ad7-4d03-bec7-72adcb2dc2f1",
+              "00fbc574-b2d7-4387-9f17-e87b80956d66",
+              "48c943ac-d8fd-425f-8698-3bfce2432fc3",
+              "5f84c6bf-ea22-4e52-a0b7-316b6d593d16",
+              "31db0103-209f-4b08-889a-b51d3af15f0d",
+              "5b64198d-f0a5-45ac-b735-6f7c3b13719f",
+              "1bf54207-9cdd-4842-9a13-f7e0752949ce",
+              "4196f2e6-41f2-40fc-af13-b31db20d2667",
+              "68606be6-b1a6-429d-8d84-4c481aea1517",
+              "64834b3f-dba8-456b-a3d2-6284732a1a3f",
+              "b8982040-c125-4b61-aff1-ae398f4929a0",
+              "7092cb75-e45e-4bda-9cba-e2f3e4d59271",
+              "605a9b0e-d8f0-4426-83e1-2002fd567f0b",
+              "143ee54f-83c5-428a-afc4-649e45c89a46",
+              "3628eff8-b2db-4830-8830-29bdf7a83291",
+              "4983c85e-a7aa-49d6-918f-fd85dafc864f",
+              "42eecc94-6be5-45e9-9b82-cedd38e63b00"
+            ],
+            "selection": "Multiple",
+            "title": "آژیر"
+          },
+          {
+            "collectionId": "a8d5d8de-8528-41f5-a002-9980d9a415ed",
+            "default": "5fa9ed15-c543-45fb-be5a-4590f9846dd6",
+            "group": "Upgrade",
+            "key": "exhaust",
+            "name": "Exhaust",
+            "parts": [
+              "5fa9ed15-c543-45fb-be5a-4590f9846dd6",
+              "363e39fb-8c4f-47d7-b1ee-2d503210b52e",
+              "2bbb6f2d-7519-4497-8dc0-6764d8261b2f",
+              "c2337dd5-43b5-410e-ab74-45ef01eb1f91",
+              "2c496618-3627-41e5-95d8-f2b32cfeac5a"
+            ],
+            "selection": "Single",
+            "title": "کامپیوتر"
+          },
+          {
+            "collectionId": "c2d792b8-7146-47eb-ac66-b55d0c3a9f0d",
+            "default": "10e860c3-eef0-42e3-8b07-ce0aadcbae8c",
+            "group": "Upgrade",
+            "key": "engine",
+            "name": "Engine",
+            "parts": [
+              "10e860c3-eef0-42e3-8b07-ce0aadcbae8c",
+              "1558a2ce-6f0c-463e-86d1-4d0c4282aee3",
+              "55032d8c-bc19-4cfc-bb8d-77173de01b5b",
+              "4ccfd62b-bd00-48d0-acab-ab30603a9c1f",
+              "a706cc26-eca8-4613-891d-a498827005ae",
+              "ed6e0236-09ad-40b1-b500-4b3c50eef24a"
+            ],
+            "selection": "Single",
+            "title": "موتور"
+          },
+          {
+            "collectionId": "1c298c54-63f4-4f0b-a826-51e7648be83b",
+            "default": "3cbf6b62-a38d-4d47-89d9-8d40d285bda6",
+            "group": "Upgrade",
+            "key": "brakedisc",
+            "name": "BrakeDisc",
+            "parts": [
+              "3cbf6b62-a38d-4d47-89d9-8d40d285bda6",
+              "330c0bd4-7677-4a09-bd39-4d2403719014",
+              "7bc0965f-f607-4763-a168-8093957a3cc8",
+              "79b4fe8b-46a0-460b-861a-c320b81cce22",
+              "3a4f6b12-0d49-4c9e-a6d3-c2d9acf71140"
+            ],
+            "selection": "Single",
+            "title": "دیسک ترمز"
+          },
+          {
+            "collectionId": "bf5f9c57-7964-4e55-93f9-f4d1fbba75f7",
+            "default": "26449864-6b8d-4122-a6ad-02b1f1e57348",
+            "group": "Upgrade",
+            "key": "gearbox",
+            "name": "GearBox",
+            "parts": [
+              "26449864-6b8d-4122-a6ad-02b1f1e57348",
+              "3e5a63c1-9b2b-4672-a167-f7c3089e3b1b",
+              "a5a83fe8-f842-4aef-8363-0b2c2649ace8",
+              "0e8a747c-6d68-4145-ac98-23ebd1ec4694",
+              "3d602b7d-b94c-490e-b418-5f3630e9f09d"
+            ],
+            "selection": "Single",
+            "title": "گیربکس"
+          },
+          {
+            "collectionId": "1264af02-7b38-42e4-afdf-eba3146ff345",
+            "default": "a40a6197-2259-484c-ae60-85f0ca920a22",
+            "group": "Upgrade",
+            "key": "turbocharge",
+            "name": "TurboCharge",
+            "parts": [
+              "a40a6197-2259-484c-ae60-85f0ca920a22",
+              "5334e990-a943-49be-bc93-311ba4b937d4",
+              "58d85579-ac07-430d-aaae-d4675dbdd474",
+              "5a9bd2a8-f39d-452c-b41e-c8fbbf3ca3ec",
+              "fc83d3dc-f4c3-4c45-9724-50130c890cb2"
+            ],
+            "selection": "Single",
+            "title": "توربورشارژ"
+          },
+          {
+            "collectionId": "98db9176-0bfe-46f6-8dff-895dd2f170b1",
+            "default": "3f366717-bb28-4382-a3de-4c32d4aad7bb",
+            "group": "Upgrade",
+            "key": "nitro",
+            "name": "Nitro",
+            "parts": [
+              "3f366717-bb28-4382-a3de-4c32d4aad7bb",
+              "3e7a601d-4489-488f-b7da-9bc2b36432fd",
+              "4870b635-4898-42ed-93cf-539addcab9a5",
+              "1ba8a856-f99e-4876-ad7b-65b9505293f1",
+              "7142d054-97eb-4ad1-8098-8c0e07793100",
+              "1a5ad2fe-7605-445f-a87c-fe7c7bd1548f",
+              "6cd0f337-d67a-4de9-97a2-fd7849456c94"
+            ],
+            "selection": "Single",
+            "title": "نیترو"
+          },
+          {
+            "collectionId": "0e7a0c36-1522-4f76-b32c-1073c29542eb",
+            "default": "1fac2a91-29dc-4394-9b7f-100ba1c5454a",
+            "group": "Upgrade",
+            "key": "antibullet",
+            "name": "AntiBullet",
+            "parts": [
+              "1fac2a91-29dc-4394-9b7f-100ba1c5454a",
+              "e873bf4a-2658-4d51-831d-159834c3e856",
+              "2394bd10-38e5-4e5e-a91b-fe8ed37126bb",
+              "74955172-8898-49d3-a537-1ec66e8409f7",
+              "352308d7-f949-4d44-a413-356e8b2d53ec"
+            ],
+            "selection": "Single",
+            "title": "ضد گلوله"
+          }
+        ],
+        "unlockGem": 50
+      },
+      "rarity": "common",
+      "requirementMet": true,
+      "requiresKey": "",
+      "saleStopped": false,
+      "services": [
+        {
+          "currencyKey": "coin",
+          "key": "fuel",
+          "maxUnits": 100,
+          "name": "سوخت",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "fuel-garage",
+          "maxUnits": 100,
+          "name": "سوخت (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "tire",
+          "maxUnits": 100,
+          "name": "لاستیک",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "tire-garage",
+          "maxUnits": 100,
+          "name": "لاستیک (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "oil",
+          "maxUnits": 100,
+          "name": "روغن",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "oil-garage",
+          "maxUnits": 100,
+          "name": "روغن (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "brake",
+          "maxUnits": 100,
+          "name": "ترمز",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "brake-garage",
+          "maxUnits": 100,
+          "name": "ترمز (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "wash",
+          "maxUnits": 100,
+          "name": "کارواش",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "wash-garage",
+          "maxUnits": 100,
+          "name": "کارواش (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "repair",
+          "maxUnits": 100,
+          "name": "تعمیر",
+          "unitPrice": 200
+        },
+        {
+          "currencyKey": "coin",
+          "key": "repair-garage",
+          "maxUnits": 100,
+          "name": "تعمیر (تعمیرگاه)",
+          "unitPrice": 240
+        },
+        {
+          "currencyKey": "gem",
+          "key": "repair-now",
+          "maxUnits": 60,
+          "name": "تعمیر فوری",
+          "unitPrice": 1
+        }
+      ],
+      "sort": 5,
+      "soundUrl": "",
+      "source": "admin",
+      "stats": {
+        "acceleration": {
+          "base": 1,
+          "bonus": 2,
+          "total": 3
+        },
+        "brake": {
+          "base": 4000,
+          "bonus": 5,
+          "total": 4200
+        },
+        "nitro": {
+          "base": 210,
+          "bonus": 1,
+          "total": 211
+        },
+        "offroad": {
+          "base": 0.55,
+          "bonus": 0,
+          "total": 0.55
+        },
+        "speed": {
+          "base": 180,
+          "bonus": 1.1,
+          "total": 181.1
+        },
+        "steerAngle": {
+          "base": 25,
+          "bonus": 0,
+          "total": 25
+        },
+        "steerSpeed": {
+          "base": 10,
+          "bonus": 0,
+          "total": 10
+        }
+      },
+      "tags": [],
+      "tracks": [],
+      "type": "vehicle",
+      "typeName": "ماشین‌ها",
+      "unlockLevel": 4,
+      "unlockPrices": [
+        {
+          "currencyKey": "gem",
+          "amount": 50
+        }
+      ],
+      "unlocked": true,
+      "unlockedEarly": false,
+      "upgradeLevel": 0,
+      "version": 1
+    },
+    {
+      "attributes": {},
+      "canBuy": false,
+      "canUnlock": false,
+      "canUnlockEarly": true,
+      "categoryKey": "",
+      "description": "",
+      "discountPercent": 0,
+      "discounts": [],
+      "equipped": false,
+      "finalPrice": {
+        "currencyKey": "coin",
+        "amount": 4450000
+      },
+      "iconUrl": "",
+      "id": "7c6b96d9-0e8c-45d1-92ee-2856217363a4",
+      "imageUrl": "",
+      "isActive": true,
+      "isStarter": false,
+      "key": "nissantitan",
+      "locked": true,
+      "maxUpgradeLevel": 0,
+      "metadata": {
+        "gameId": "NissanTitan",
+        "garageMultiplier": 1.2,
+        "repair": {
+          "coin": 200000,
+          "gem": 100,
+          "seconds": 400
+        },
+        "serviceSeconds": {
+          "brake": 300,
+          "fuel": 5,
+          "oil": 300,
+          "tire": 10,
+          "wash": 300
+        }
+      },
+      "name": "نیسان تایتان",
+      "nextUpgradePrice": null,
+      "owned": false,
+      "parentKey": "",
+      "playerLevel": 1,
+      "price": {
+        "currencyKey": "coin",
+        "amount": 4450000
+      },
+      "rarity": "common",
+      "requirementMet": true,
+      "requiresKey": "",
+      "saleStopped": false,
+      "services": [
+        {
+          "currencyKey": "coin",
+          "key": "fuel",
+          "maxUnits": 100,
+          "name": "سوخت",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "fuel-garage",
+          "maxUnits": 100,
+          "name": "سوخت (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "tire",
+          "maxUnits": 100,
+          "name": "لاستیک",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "tire-garage",
+          "maxUnits": 100,
+          "name": "لاستیک (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "oil",
+          "maxUnits": 100,
+          "name": "روغن",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "oil-garage",
+          "maxUnits": 100,
+          "name": "روغن (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "brake",
+          "maxUnits": 100,
+          "name": "ترمز",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "brake-garage",
+          "maxUnits": 100,
+          "name": "ترمز (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "wash",
+          "maxUnits": 100,
+          "name": "کارواش",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "wash-garage",
+          "maxUnits": 100,
+          "name": "کارواش (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "repair",
+          "maxUnits": 100,
+          "name": "تعمیر",
+          "unitPrice": 2000
+        },
+        {
+          "currencyKey": "coin",
+          "key": "repair-garage",
+          "maxUnits": 100,
+          "name": "تعمیر (تعمیرگاه)",
+          "unitPrice": 2400
+        },
+        {
+          "currencyKey": "gem",
+          "key": "repair-now",
+          "maxUnits": 120,
+          "name": "تعمیر فوری",
+          "unitPrice": 1
+        }
+      ],
+      "sort": 6,
+      "soundUrl": "",
+      "tags": [],
+      "tracks": [],
+      "type": "vehicle",
+      "typeName": "ماشین‌ها",
+      "unlockLevel": 5,
+      "unlockPrices": [
+        {
+          "currencyKey": "gem",
+          "amount": 120
+        }
+      ],
+      "unlocked": false,
+      "unlockedEarly": false,
+      "upgradeLevel": 0
+    }
+  ],
+  "lang": "fa",
+  "level": 1
+}

@@ -1,0 +1,5592 @@
+{
+  "claimMode": "auto",
+  "groups": [
+    {
+      "key": "vehicle",
+      "name": "ماشین",
+      "unlocked": 2,
+      "stepCount": 84,
+      "trophies": [
+        {
+          "key": "distance",
+          "name": "مسافت کل",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "bcd478ba-6760-491f-9e71-cc7eb0116ad8",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0.5,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 10,
+                  "current": 5,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "cbf69459-1ab0-40e4-8be5-43b97c2c8191",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0.05,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 100,
+                  "current": 5,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "a00de8f4-4ce4-42ae-9864-18d3a1801d51",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0.01,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 500,
+                  "current": 5,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "61d8199f-fe58-4b45-8c6b-2195252b19f2",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0.0025,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 2000,
+                  "current": 5,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "distance_one_car",
+          "name": "مسافت با یک ماشین",
+          "unlockOrder": "sequential",
+          "unlocked": 1,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "104ce56a-4b13-411f-b3a8-6e0056852fbc",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": true,
+              "unlockedAt": "2026-11-22T05:07:43.926762Z",
+              "available": true,
+              "progress": 1,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicle=*",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 5,
+                  "current": 5,
+                  "met": true
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "92bc9b6d-aab5-4f52-8e71-a187bc6e1b81",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": true,
+              "progress": 0.1,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicle=*",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 50,
+                  "current": 5,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "aaedfa58-9889-40da-bafe-007d6d0e2089",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0.025,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicle=*",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 200,
+                  "current": 5,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "c64412e3-cbe0-4b78-84f3-419a0b3e50a7",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0.005,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicle=*",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 1000,
+                  "current": 5,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "distance_car_SuzukiVitara",
+          "name": "مسافت با ویتارا",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "a23fe680-2e09-45f0-ad6d-c4b6d130e5ae",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicle=SuzukiVitara",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 5,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "0dca122e-438c-4fa8-be56-f10cd35aa500",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicle=SuzukiVitara",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 50,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "07845ac9-d1ec-4e88-94c0-81655a332ca7",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicle=SuzukiVitara",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 200,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "61e13dbe-dba2-470d-8f4f-0eaf37e952c6",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicle=SuzukiVitara",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 1000,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "distance_car_HyundaiSantafe",
+          "name": "مسافت با سانتافه",
+          "unlockOrder": "sequential",
+          "unlocked": 1,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "b4277807-db17-4df8-acef-e64718b5cb6f",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": true,
+              "unlockedAt": "2026-11-22T05:07:43.926762Z",
+              "available": true,
+              "progress": 1,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicle=HyundaiSantafe",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 5,
+                  "current": 5,
+                  "met": true
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "8d09f940-9b17-49cd-98fb-07478aaadc6e",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": true,
+              "progress": 0.1,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicle=HyundaiSantafe",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 50,
+                  "current": 5,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "a24a620f-204f-41b7-8a2e-96fb0eed183f",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0.025,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicle=HyundaiSantafe",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 200,
+                  "current": 5,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "1a1fa545-f4a5-4a0a-a877-e7dafe8e4d1c",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0.005,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicle=HyundaiSantafe",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 1000,
+                  "current": 5,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "distance_car_Tiggo8",
+          "name": "مسافت با تیگو ۸",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "0af60c5d-9c56-4a66-919c-4b76a9e48dd3",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicle=Tiggo8",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 5,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "caab7665-e7a7-4d3b-a7fa-9b50dc05eac0",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicle=Tiggo8",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 50,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "c721a888-7583-45e6-a9ae-d2661cd4ee74",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicle=Tiggo8",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 200,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "5312d4ef-1153-4672-9868-58d609adba6d",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicle=Tiggo8",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 1000,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "distance_car_ToyotaHilux",
+          "name": "مسافت با هایلوکس",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "0ac3b4c0-f895-4bb1-bed9-f10aa5ddf37d",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicle=ToyotaHilux",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 5,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "7891e7c1-c43b-4c69-bb29-1a6f19903334",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicle=ToyotaHilux",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 50,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "48812a94-3252-4388-9827-a1dd3a4cc0ad",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicle=ToyotaHilux",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 200,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "87289210-7b74-411d-9f8c-b95cd07621c6",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicle=ToyotaHilux",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 1000,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "distance_car_AudiQ2",
+          "name": "مسافت با آئودی Q2",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "ac3e5077-797e-4cea-b093-94048453f209",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicle=AudiQ2",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 5,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "724502da-ccac-412d-ae36-3474bb1e9077",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicle=AudiQ2",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 50,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "6bc55de2-1093-4cda-9188-e78a423e573c",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicle=AudiQ2",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 200,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "6a3addde-d4d1-4b7a-af62-6d421b1a5f3d",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicle=AudiQ2",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 1000,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "distance_car_NissanTitan",
+          "name": "مسافت با نیسان تایتان",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "8c1dd4b7-8f7f-4621-ae0d-5fc99a1e78ab",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicle=NissanTitan",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 5,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "588b4b18-dce0-48de-8624-fc43f0167bf6",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicle=NissanTitan",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 50,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "94c18f92-9aee-4bd7-94d7-8e9a084d6689",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicle=NissanTitan",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 200,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "5062e739-1772-4626-9d51-5f7d4bae98b4",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicle=NissanTitan",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 1000,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "distance_class_SUV",
+          "name": "مسافت با شاسی‌بلند",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "207c2cb4-2c24-4824-bd07-0f6e4ec6b25e",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0.5,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicleClass=SUV",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 10,
+                  "current": 5,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "e0a0c96d-7319-4cd2-8c43-fd2bb4c6aae4",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0.05,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicleClass=SUV",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 100,
+                  "current": 5,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "299b1126-2a1a-4002-beaa-5c5feee0e6d0",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0.01,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicleClass=SUV",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 500,
+                  "current": 5,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "3f5e211d-9999-4171-9a2f-be7d60c886b0",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0.0025,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicleClass=SUV",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 2000,
+                  "current": 5,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "distance_class_Pickup",
+          "name": "مسافت با وانت",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "aaf6b08b-dae9-4dc8-af85-d71a3126f372",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicleClass=Pickup",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 10,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "2402e6d2-c2ed-4239-93e9-2434c35c00f1",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicleClass=Pickup",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 100,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "e9a47a14-0fe8-466b-827a-281831d2dd7e",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicleClass=Pickup",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 500,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "e79da7a0-1b63-4463-9bd3-db957e4c1ef2",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicleClass=Pickup",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 2000,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "distance_class_Sedan",
+          "name": "مسافت با سدان",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "1b19677f-607e-4931-966d-82a97488fc41",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicleClass=Sedan",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 10,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "a06c7f75-b17c-419a-a834-b77e1769dcc0",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicleClass=Sedan",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 100,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "85af459a-de6a-4083-9c22-d2da5f8a24e0",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicleClass=Sedan",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 500,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "4a21a407-31e1-406a-8a56-806b27adb7b7",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicleClass=Sedan",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 2000,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "distance_class_Van",
+          "name": "مسافت با ون",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "cb77c86a-f7ea-48c7-8812-6ae3e0d2446d",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicleClass=Van",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 10,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "73033ca7-c36e-4d1f-ace7-19dd88ecea14",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicleClass=Van",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 100,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "6c2861a0-b443-4e1d-830c-7d67e8abb377",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicleClass=Van",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 500,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "1722b4c4-0c16-42a0-a71d-86716ec535f1",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicleClass=Van",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 2000,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "distance_class_Truck",
+          "name": "مسافت با کامیون",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "d5718716-b2f2-440e-84e0-317de1b8cec1",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicleClass=Truck",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 10,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "c3009449-0f1f-46c0-aa63-7e38d7adde2e",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicleClass=Truck",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 100,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "ce2a40fa-4c8e-49fe-a2bf-816488735a54",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicleClass=Truck",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 500,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "8ce3a426-8e58-4e87-b318-abda1000bfe0",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicleClass=Truck",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 2000,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "distance_class_Classic",
+          "name": "مسافت با کلاسیک",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "5f0527ca-1c44-484f-97d7-1b6dcf46c29c",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicleClass=Classic",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 10,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "7dcac01c-e421-48e9-866e-21b13687cf1b",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicleClass=Classic",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 100,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "6297a547-2f72-4ef1-8d95-2139286b3d96",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicleClass=Classic",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 500,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "127d3ae3-957a-486b-9615-eb0345e7f2a5",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "vehicle_distance_km",
+                  "tag": "vehicleClass=Classic",
+                  "statName": "مسافت (کیلومتر)",
+                  "op": ">=",
+                  "value": 2000,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "distance_forward",
+          "name": "مسافت رو به جلو",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "3e2c3174-48ba-42de-9f01-a5308838d33c",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "distance_forward_km",
+                  "statName": "مسافت رو به جلو (کیلومتر)",
+                  "op": ">=",
+                  "value": 10,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "eaa8928b-82db-4339-8166-44c3c5e0d1b5",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "distance_forward_km",
+                  "statName": "مسافت رو به جلو (کیلومتر)",
+                  "op": ">=",
+                  "value": 100,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "300b0f6b-7474-4184-8291-e3895ed926fc",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "distance_forward_km",
+                  "statName": "مسافت رو به جلو (کیلومتر)",
+                  "op": ">=",
+                  "value": 500,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "3d396f60-40fe-4dca-a5e2-814bd820df87",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "distance_forward_km",
+                  "statName": "مسافت رو به جلو (کیلومتر)",
+                  "op": ">=",
+                  "value": 2000,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "distance_backward",
+          "name": "مسافت دنده‌عقب",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "182d2388-eab5-46fe-88ad-45805e6174c5",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "distance_backward_km",
+                  "statName": "مسافت دنده‌عقب (کیلومتر)",
+                  "op": ">=",
+                  "value": 0.5,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "693326af-b04f-4f40-bf9a-c1a350c30060",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "distance_backward_km",
+                  "statName": "مسافت دنده‌عقب (کیلومتر)",
+                  "op": ">=",
+                  "value": 5,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "20fdf0fd-d0d4-4117-9428-44744eabb37d",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "distance_backward_km",
+                  "statName": "مسافت دنده‌عقب (کیلومتر)",
+                  "op": ">=",
+                  "value": 20,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "9df15a54-ebd5-4bba-aa91-039f816df289",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "distance_backward_km",
+                  "statName": "مسافت دنده‌عقب (کیلومتر)",
+                  "op": ">=",
+                  "value": 100,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "distance_clean",
+          "name": "مسافت بدون تصادف",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "c9d0976c-018e-4ca9-bb37-fc74dc3a66e3",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "distance_clean_km",
+                  "statName": "مسافت بدون تصادف (کیلومتر)",
+                  "op": ">=",
+                  "value": 5,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "cdf0b911-6a6c-4844-a9f7-85d903b4095c",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "distance_clean_km",
+                  "statName": "مسافت بدون تصادف (کیلومتر)",
+                  "op": ">=",
+                  "value": 50,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "2d3fe620-8a51-41a9-83bd-38eb0d68c666",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "distance_clean_km",
+                  "statName": "مسافت بدون تصادف (کیلومتر)",
+                  "op": ">=",
+                  "value": 200,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "6e72a1ad-38c8-4a35-962f-e86106a34be6",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "distance_clean_km",
+                  "statName": "مسافت بدون تصادف (کیلومتر)",
+                  "op": ">=",
+                  "value": 1000,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "distance_top_speed",
+          "name": "مسافت با بیشترین سرعت",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "05968a70-5ec8-4781-873d-b057a98a71d8",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "distance_top_speed_km",
+                  "statName": "مسافت با بیشترین سرعت (کیلومتر)",
+                  "op": ">=",
+                  "value": 5,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "2fd1a528-82ad-4e6d-8111-bf4b71c3d98f",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "distance_top_speed_km",
+                  "statName": "مسافت با بیشترین سرعت (کیلومتر)",
+                  "op": ">=",
+                  "value": 50,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "853f79c1-0da7-4d75-9fea-994c1cdfb64c",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "distance_top_speed_km",
+                  "statName": "مسافت با بیشترین سرعت (کیلومتر)",
+                  "op": ">=",
+                  "value": 200,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "564c599d-1627-4a41-b1f4-6fad13a1dd46",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "distance_top_speed_km",
+                  "statName": "مسافت با بیشترین سرعت (کیلومتر)",
+                  "op": ">=",
+                  "value": 1000,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "drift",
+          "name": "دریفت",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "708a5ee4-f9af-42b0-b7ca-bfdd366869f6",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "drift_m",
+                  "statName": "مسافت دریفت (متر)",
+                  "op": ">=",
+                  "value": 500,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "9a512728-885e-414d-aee7-9d80bfe7ec23",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "drift_m",
+                  "statName": "مسافت دریفت (متر)",
+                  "op": ">=",
+                  "value": 5000,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "42c94b88-65e0-4244-9c5e-a970da735b4a",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "drift_m",
+                  "statName": "مسافت دریفت (متر)",
+                  "op": ">=",
+                  "value": 50000,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "41eca078-f6f4-403f-a0f8-7ffa427c45db",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "drift_m",
+                  "statName": "مسافت دریفت (متر)",
+                  "op": ">=",
+                  "value": 200000,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "obstacles_vehicle",
+          "name": "نابودی مانع با ماشین",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "d6188b0e-f111-4de9-bc4f-c421d3836b86",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "obstacles_by_vehicle",
+                  "statName": "مانع نابودشده با ماشین",
+                  "op": ">=",
+                  "value": 10,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "f7d27e60-f950-4f33-9008-144099aa5b1a",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "obstacles_by_vehicle",
+                  "statName": "مانع نابودشده با ماشین",
+                  "op": ">=",
+                  "value": 100,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "9f96e45d-7602-4c89-a4fa-7ef83417b57e",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "obstacles_by_vehicle",
+                  "statName": "مانع نابودشده با ماشین",
+                  "op": ">=",
+                  "value": 500,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "87316054-ee59-4dc2-90cf-0a042ff56385",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "obstacles_by_vehicle",
+                  "statName": "مانع نابودشده با ماشین",
+                  "op": ">=",
+                  "value": 2000,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "turns_180",
+          "name": "چرخش ۱۸۰ پلیسی",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "630aa236-6123-4fa4-999e-2f0d7ed4aac0",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "turns_180",
+                  "statName": "چرخش ۱۸۰ پلیسی",
+                  "op": ">=",
+                  "value": 5,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "7de3f9b3-4dbd-4c31-b724-50fd294ef54d",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "turns_180",
+                  "statName": "چرخش ۱۸۰ پلیسی",
+                  "op": ">=",
+                  "value": 50,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "251a39a7-f7a6-4e94-b52c-1dcc1af34cd7",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "turns_180",
+                  "statName": "چرخش ۱۸۰ پلیسی",
+                  "op": ">=",
+                  "value": 200,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "e97776d0-ca75-4ad2-b8eb-f3f08fa0adfb",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "turns_180",
+                  "statName": "چرخش ۱۸۰ پلیسی",
+                  "op": ">=",
+                  "value": 1000,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "gun",
+      "name": "اسلحه",
+      "unlocked": 2,
+      "stepCount": 20,
+      "trophies": [
+        {
+          "key": "kills",
+          "name": "نابودی دشمن",
+          "unlockOrder": "sequential",
+          "unlocked": 1,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "9abac33e-2124-4ab8-ab27-fc0385b7d555",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": true,
+              "unlockedAt": "2026-11-22T05:07:43.926762Z",
+              "available": true,
+              "progress": 1,
+              "conditions": [
+                {
+                  "stat": "kills",
+                  "statName": "دشمن نابودشده",
+                  "op": ">=",
+                  "value": 10,
+                  "current": 12,
+                  "met": true
+                }
+              ],
+              "rewards": {
+                "currencies": {
+                  "coin": 500
+                }
+              },
+              "claimMode": "claim",
+              "claimStatus": "ready",
+              "claimable": true
+            },
+            {
+              "id": "9c647b35-a4bf-4694-8c4f-f70cafde2307",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": true,
+              "progress": 0.12,
+              "conditions": [
+                {
+                  "stat": "kills",
+                  "statName": "دشمن نابودشده",
+                  "op": ">=",
+                  "value": 100,
+                  "current": 12,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "8c8ca273-b4b4-4247-a15e-e83b86901e96",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0.012,
+              "conditions": [
+                {
+                  "stat": "kills",
+                  "statName": "دشمن نابودشده",
+                  "op": ">=",
+                  "value": 1000,
+                  "current": 12,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "473f8954-07c8-498f-b5b1-f76c2aa75baf",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0.0024,
+              "conditions": [
+                {
+                  "stat": "kills",
+                  "statName": "دشمن نابودشده",
+                  "op": ">=",
+                  "value": 5000,
+                  "current": 12,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "kills_class_Handgun",
+          "name": "نابودی دشمن با کلت",
+          "unlockOrder": "sequential",
+          "unlocked": 1,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "de743c1b-2954-41c4-afaa-29c38a187fee",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": true,
+              "unlockedAt": "2026-11-22T05:07:43.926762Z",
+              "available": true,
+              "progress": 1,
+              "conditions": [
+                {
+                  "stat": "kills",
+                  "tag": "gunClass=Handgun",
+                  "statName": "دشمن نابودشده",
+                  "op": ">=",
+                  "value": 10,
+                  "current": 12,
+                  "met": true
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "447720dd-a22c-48df-acd9-9bc4c56358d9",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": true,
+              "progress": 0.12,
+              "conditions": [
+                {
+                  "stat": "kills",
+                  "tag": "gunClass=Handgun",
+                  "statName": "دشمن نابودشده",
+                  "op": ">=",
+                  "value": 100,
+                  "current": 12,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "99354f40-fae6-473a-bd76-e672ec48de9d",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0.024,
+              "conditions": [
+                {
+                  "stat": "kills",
+                  "tag": "gunClass=Handgun",
+                  "statName": "دشمن نابودشده",
+                  "op": ">=",
+                  "value": 500,
+                  "current": 12,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "6f3d44f6-46a1-44c3-8df3-95ca0abfc977",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0.006,
+              "conditions": [
+                {
+                  "stat": "kills",
+                  "tag": "gunClass=Handgun",
+                  "statName": "دشمن نابودشده",
+                  "op": ">=",
+                  "value": 2000,
+                  "current": 12,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "kills_class_MachineGun",
+          "name": "نابودی دشمن با مسلسل",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "eb2ba137-f983-460a-8ef3-b6f6180af419",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "kills",
+                  "tag": "gunClass=MachineGun",
+                  "statName": "دشمن نابودشده",
+                  "op": ">=",
+                  "value": 10,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "3ad0c903-8967-405d-b6f8-bd8ed0f411ca",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "kills",
+                  "tag": "gunClass=MachineGun",
+                  "statName": "دشمن نابودشده",
+                  "op": ">=",
+                  "value": 100,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "caba6f7a-0b35-4feb-9105-f9ec3f14eacc",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "kills",
+                  "tag": "gunClass=MachineGun",
+                  "statName": "دشمن نابودشده",
+                  "op": ">=",
+                  "value": 500,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "94ecf3fb-9cb4-47ee-af59-b64023d632d2",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "kills",
+                  "tag": "gunClass=MachineGun",
+                  "statName": "دشمن نابودشده",
+                  "op": ">=",
+                  "value": 2000,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "kills_class_HeavyMachineGun",
+          "name": "نابودی دشمن با مسلسل سنگین",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "ed45582b-773c-4abe-b3f7-4878559e2f08",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "kills",
+                  "tag": "gunClass=HeavyMachineGun",
+                  "statName": "دشمن نابودشده",
+                  "op": ">=",
+                  "value": 10,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "51f99f70-772d-4e3c-96d2-d212b47ba6c3",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "kills",
+                  "tag": "gunClass=HeavyMachineGun",
+                  "statName": "دشمن نابودشده",
+                  "op": ">=",
+                  "value": 100,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "c420ec01-ba1b-4b07-9a90-6f78273ed07a",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "kills",
+                  "tag": "gunClass=HeavyMachineGun",
+                  "statName": "دشمن نابودشده",
+                  "op": ">=",
+                  "value": 500,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "8ee47920-1799-4170-99be-8bdeb4bee191",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "kills",
+                  "tag": "gunClass=HeavyMachineGun",
+                  "statName": "دشمن نابودشده",
+                  "op": ">=",
+                  "value": 2000,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "kills_class_Shotgun",
+          "name": "نابودی دشمن با شاتگان",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "51d27c3b-ca4c-4294-8e7c-e75d58d0dccc",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "kills",
+                  "tag": "gunClass=Shotgun",
+                  "statName": "دشمن نابودشده",
+                  "op": ">=",
+                  "value": 10,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "6896ac9c-263d-4d4a-a742-885aeda9e471",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "kills",
+                  "tag": "gunClass=Shotgun",
+                  "statName": "دشمن نابودشده",
+                  "op": ">=",
+                  "value": 100,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "9e9e31b9-0f20-49ec-a01a-39786eb5d0b8",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "kills",
+                  "tag": "gunClass=Shotgun",
+                  "statName": "دشمن نابودشده",
+                  "op": ">=",
+                  "value": 500,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "bb9fe0f8-81f9-4a81-a0bd-171b26a4f8b1",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "kills",
+                  "tag": "gunClass=Shotgun",
+                  "statName": "دشمن نابودشده",
+                  "op": ">=",
+                  "value": 2000,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "player",
+      "name": "بازیکن",
+      "unlocked": 1,
+      "stepCount": 12,
+      "trophies": [
+        {
+          "key": "play_time",
+          "name": "زمان بازی",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "4dad5994-21e2-4a59-b5d2-d3b8b98b7d71",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "play_seconds",
+                  "statName": "زمان بازی (ثانیه)",
+                  "op": ">=",
+                  "value": 3600,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "ec10caee-5abc-4481-83a5-469bfb1a0fb7",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "play_seconds",
+                  "statName": "زمان بازی (ثانیه)",
+                  "op": ">=",
+                  "value": 36000,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "f3adaca3-66aa-4eb8-b5d3-a4764a5a5580",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "play_seconds",
+                  "statName": "زمان بازی (ثانیه)",
+                  "op": ">=",
+                  "value": 180000,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "8e65da97-645f-4f2b-8e73-628e47563109",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "play_seconds",
+                  "statName": "زمان بازی (ثانیه)",
+                  "op": ">=",
+                  "value": 720000,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "mission_days",
+          "name": "روزهای پشت سر هم",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "dd8d9dd2-b69e-4dea-b9de-736f67c8d18a",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0.3333,
+              "conditions": [
+                {
+                  "stat": "mission_days",
+                  "statName": "روزهای پشت سر هم با مأموریت",
+                  "op": ">=",
+                  "value": 3,
+                  "current": 1,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "c9794009-fd1b-4aab-bc47-49149b653594",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0.1429,
+              "conditions": [
+                {
+                  "stat": "mission_days",
+                  "statName": "روزهای پشت سر هم با مأموریت",
+                  "op": ">=",
+                  "value": 7,
+                  "current": 1,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "e05d0d85-5a82-4136-9be6-256f9c90c8f9",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0.0714,
+              "conditions": [
+                {
+                  "stat": "mission_days",
+                  "statName": "روزهای پشت سر هم با مأموریت",
+                  "op": ">=",
+                  "value": 14,
+                  "current": 1,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "848e3c7b-0ae1-4f46-8c4f-0ce214f4b9a8",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0.0333,
+              "conditions": [
+                {
+                  "stat": "mission_days",
+                  "statName": "روزهای پشت سر هم با مأموریت",
+                  "op": ">=",
+                  "value": 30,
+                  "current": 1,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "level_ups_day",
+          "name": "سطح در یک روز",
+          "unlockOrder": "sequential",
+          "unlocked": 1,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "80a6c33e-7d73-4690-8edd-400493d368b5",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": true,
+              "unlockedAt": "2026-11-22T05:08:10.063833Z",
+              "available": true,
+              "progress": 1,
+              "conditions": [
+                {
+                  "stat": "level_ups_day",
+                  "statName": "سطح بالا رفتن در یک روز",
+                  "op": ">=",
+                  "value": 2,
+                  "current": 2,
+                  "met": true
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "e960d76d-66e2-4eb9-9e42-2d0f984f3f18",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": true,
+              "progress": 0.6667,
+              "conditions": [
+                {
+                  "stat": "level_ups_day",
+                  "statName": "سطح بالا رفتن در یک روز",
+                  "op": ">=",
+                  "value": 3,
+                  "current": 2,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "f388b058-6437-48ec-bf10-74fbb1b16416",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0.4,
+              "conditions": [
+                {
+                  "stat": "level_ups_day",
+                  "statName": "سطح بالا رفتن در یک روز",
+                  "op": ">=",
+                  "value": 5,
+                  "current": 2,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "55596256-6eb9-40f9-b822-9e82de453e33",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0.25,
+              "conditions": [
+                {
+                  "stat": "level_ups_day",
+                  "statName": "سطح بالا رفتن در یک روز",
+                  "op": ">=",
+                  "value": 8,
+                  "current": 2,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "progress",
+      "name": "پیشرفت و مرحله",
+      "unlocked": 0,
+      "stepCount": 48,
+      "trophies": [
+        {
+          "key": "stages_main",
+          "name": "مرحلهٔ داستان",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "0b74301a-c6b4-4d4d-a1df-907faf04da7a",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0.2,
+              "conditions": [
+                {
+                  "stat": "stages_won",
+                  "tag": "chapterKind=main",
+                  "statName": "مرحلهٔ تمام‌شده",
+                  "op": ">=",
+                  "value": 5,
+                  "current": 1,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "0bd01107-8873-4265-b487-56d2ead73660",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0.05,
+              "conditions": [
+                {
+                  "stat": "stages_won",
+                  "tag": "chapterKind=main",
+                  "statName": "مرحلهٔ تمام‌شده",
+                  "op": ">=",
+                  "value": 20,
+                  "current": 1,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "c7d2c4ee-16c0-4715-b127-1871d41eb73e",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0.02,
+              "conditions": [
+                {
+                  "stat": "stages_won",
+                  "tag": "chapterKind=main",
+                  "statName": "مرحلهٔ تمام‌شده",
+                  "op": ">=",
+                  "value": 50,
+                  "current": 1,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "185ad277-ff32-4b17-b4a5-359a59920bf8",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0.01,
+              "conditions": [
+                {
+                  "stat": "stages_won",
+                  "tag": "chapterKind=main",
+                  "statName": "مرحلهٔ تمام‌شده",
+                  "op": ">=",
+                  "value": 100,
+                  "current": 1,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "stages_poi",
+          "name": "مرحلهٔ مکان‌های دیدنی",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "5469930e-3071-4b62-afbe-112bfe684fb2",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "stages_won",
+                  "tag": "chapterKind=poi",
+                  "statName": "مرحلهٔ تمام‌شده",
+                  "op": ">=",
+                  "value": 3,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "2f1a9e5e-e081-461e-8c6b-97e9192c3938",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "stages_won",
+                  "tag": "chapterKind=poi",
+                  "statName": "مرحلهٔ تمام‌شده",
+                  "op": ">=",
+                  "value": 10,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "fbfe87df-4845-45f2-815d-d9553d94fc55",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "stages_won",
+                  "tag": "chapterKind=poi",
+                  "statName": "مرحلهٔ تمام‌شده",
+                  "op": ">=",
+                  "value": 25,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "7569aa84-440d-4a3b-bdaa-6fea790e42f5",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "stages_won",
+                  "tag": "chapterKind=poi",
+                  "statName": "مرحلهٔ تمام‌شده",
+                  "op": ">=",
+                  "value": 50,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "freeride",
+          "name": "گشت آزاد",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "2f59a7e9-07dc-4fa1-9e67-385c049cafd2",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "freeride_done",
+                  "statName": "گشت آزاد تمام‌شده",
+                  "op": ">=",
+                  "value": 1,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "de7da542-7a95-4ea6-90b3-ea6a6d1629b6",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "freeride_done",
+                  "statName": "گشت آزاد تمام‌شده",
+                  "op": ">=",
+                  "value": 5,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "b288b075-711c-49e3-a877-2003576737a4",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "freeride_done",
+                  "statName": "گشت آزاد تمام‌شده",
+                  "op": ">=",
+                  "value": 20,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "a81903e9-794f-4939-969d-64d1c5a28639",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "freeride_done",
+                  "statName": "گشت آزاد تمام‌شده",
+                  "op": ">=",
+                  "value": 50,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "stages_one_car",
+          "name": "مرحله با یک ماشین",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "6cd16e1e-c8ba-4776-a764-b368d96863f7",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0.2,
+              "conditions": [
+                {
+                  "stat": "stages_won",
+                  "tag": "vehicle=*",
+                  "statName": "مرحلهٔ تمام‌شده",
+                  "op": ">=",
+                  "value": 5,
+                  "current": 1,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "c83c22cd-73f4-4229-9a6d-29b40a917b93",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0.05,
+              "conditions": [
+                {
+                  "stat": "stages_won",
+                  "tag": "vehicle=*",
+                  "statName": "مرحلهٔ تمام‌شده",
+                  "op": ">=",
+                  "value": 20,
+                  "current": 1,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "6c695f43-0967-4573-9b0b-0ddba586d2ea",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0.02,
+              "conditions": [
+                {
+                  "stat": "stages_won",
+                  "tag": "vehicle=*",
+                  "statName": "مرحلهٔ تمام‌شده",
+                  "op": ">=",
+                  "value": 50,
+                  "current": 1,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "441a8486-c6b1-4aa0-9c9b-2d3ceca554b4",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0.01,
+              "conditions": [
+                {
+                  "stat": "stages_won",
+                  "tag": "vehicle=*",
+                  "statName": "مرحلهٔ تمام‌شده",
+                  "op": ">=",
+                  "value": 100,
+                  "current": 1,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "stages_one_gun",
+          "name": "مرحله با یک اسلحه",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "21e2d27b-1d8a-4c3d-afc0-ba55fde0d743",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0.2,
+              "conditions": [
+                {
+                  "stat": "stages_won",
+                  "tag": "gun=*",
+                  "statName": "مرحلهٔ تمام‌شده",
+                  "op": ">=",
+                  "value": 5,
+                  "current": 1,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "8934e2eb-73ef-41c1-969d-2995daf031c4",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0.05,
+              "conditions": [
+                {
+                  "stat": "stages_won",
+                  "tag": "gun=*",
+                  "statName": "مرحلهٔ تمام‌شده",
+                  "op": ">=",
+                  "value": 20,
+                  "current": 1,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "64e9073f-bcb2-4cc8-be94-1bbb9fb56842",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0.02,
+              "conditions": [
+                {
+                  "stat": "stages_won",
+                  "tag": "gun=*",
+                  "statName": "مرحلهٔ تمام‌شده",
+                  "op": ">=",
+                  "value": 50,
+                  "current": 1,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "bb5ebecf-7c18-4652-a5d2-86670f68bc7a",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0.01,
+              "conditions": [
+                {
+                  "stat": "stages_won",
+                  "tag": "gun=*",
+                  "statName": "مرحلهٔ تمام‌شده",
+                  "op": ">=",
+                  "value": 100,
+                  "current": 1,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "three_stars",
+          "name": "سه‌ستاره",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "096a0507-05e4-47da-88bd-01ffd0f957ba",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0.2,
+              "conditions": [
+                {
+                  "stat": "three_stars",
+                  "statName": "مرحلهٔ سه‌ستاره",
+                  "op": ">=",
+                  "value": 5,
+                  "current": 1,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "657b4d3e-0922-498f-a81f-23cb0a1ecfc3",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0.05,
+              "conditions": [
+                {
+                  "stat": "three_stars",
+                  "statName": "مرحلهٔ سه‌ستاره",
+                  "op": ">=",
+                  "value": 20,
+                  "current": 1,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "9ee88bdc-959a-4ab3-902d-2f3973ca7457",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0.02,
+              "conditions": [
+                {
+                  "stat": "three_stars",
+                  "statName": "مرحلهٔ سه‌ستاره",
+                  "op": ">=",
+                  "value": 50,
+                  "current": 1,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "d9210bd1-1f5e-45af-8c3b-52e554d32ba0",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0.01,
+              "conditions": [
+                {
+                  "stat": "three_stars",
+                  "statName": "مرحلهٔ سه‌ستاره",
+                  "op": ">=",
+                  "value": 100,
+                  "current": 1,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "stage_run_day",
+          "name": "پشت سر هم در یک روز",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "0889aa83-edfa-43a6-ad5e-66bc9b76b39c",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0.3333,
+              "conditions": [
+                {
+                  "stat": "stage_run_day",
+                  "statName": "مرحله‌های پشت سر هم در یک روز",
+                  "op": ">=",
+                  "value": 3,
+                  "current": 1,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "2ce5c0fe-bbfa-4d63-a259-a9a66e6f0b3d",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0.2,
+              "conditions": [
+                {
+                  "stat": "stage_run_day",
+                  "statName": "مرحله‌های پشت سر هم در یک روز",
+                  "op": ">=",
+                  "value": 5,
+                  "current": 1,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "a9afde1d-45e6-414b-b2a5-0d86a43dc899",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0.125,
+              "conditions": [
+                {
+                  "stat": "stage_run_day",
+                  "statName": "مرحله‌های پشت سر هم در یک روز",
+                  "op": ">=",
+                  "value": 8,
+                  "current": 1,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "0404fe80-accc-4796-8b03-bd88f2a40528",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0.0833,
+              "conditions": [
+                {
+                  "stat": "stage_run_day",
+                  "statName": "مرحله‌های پشت سر هم در یک روز",
+                  "op": ">=",
+                  "value": 12,
+                  "current": 1,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "three_stars_full_health",
+          "name": "سه‌ستاره بدون آسیب",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "36c19ddc-91d2-4fe6-b299-4294cc64057d",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "three_stars_full_health",
+                  "statName": "سه‌ستاره بدون از دست دادن جان",
+                  "op": ">=",
+                  "value": 1,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "dbfc6a91-f62f-420f-8974-07daf3afb239",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "three_stars_full_health",
+                  "statName": "سه‌ستاره بدون از دست دادن جان",
+                  "op": ">=",
+                  "value": 5,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "24dd8f9a-efd9-4508-9b3e-4bd5cd8479ab",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "three_stars_full_health",
+                  "statName": "سه‌ستاره بدون از دست دادن جان",
+                  "op": ">=",
+                  "value": 20,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "20db03a4-24f3-401c-a6f8-1ebbecfac645",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "three_stars_full_health",
+                  "statName": "سه‌ستاره بدون از دست دادن جان",
+                  "op": ">=",
+                  "value": 50,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "three_stars_target",
+          "name": "سه‌ستاره در هدف",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "0359b6ba-2fa8-4f3d-8898-d182975119d6",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0.3333,
+              "conditions": [
+                {
+                  "stat": "three_stars",
+                  "tag": "missionType=target",
+                  "statName": "مرحلهٔ سه‌ستاره",
+                  "op": ">=",
+                  "value": 3,
+                  "current": 1,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "d9a5c3b6-cdda-46db-8ef8-537dd09e23db",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0.1,
+              "conditions": [
+                {
+                  "stat": "three_stars",
+                  "tag": "missionType=target",
+                  "statName": "مرحلهٔ سه‌ستاره",
+                  "op": ">=",
+                  "value": 10,
+                  "current": 1,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "046cb1c1-ef7c-45e5-92d5-3a0c5c54353b",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0.04,
+              "conditions": [
+                {
+                  "stat": "three_stars",
+                  "tag": "missionType=target",
+                  "statName": "مرحلهٔ سه‌ستاره",
+                  "op": ">=",
+                  "value": 25,
+                  "current": 1,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "55677742-c3e5-4aff-94eb-f47554c9fb02",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0.02,
+              "conditions": [
+                {
+                  "stat": "three_stars",
+                  "tag": "missionType=target",
+                  "statName": "مرحلهٔ سه‌ستاره",
+                  "op": ">=",
+                  "value": 50,
+                  "current": 1,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "three_stars_capture",
+          "name": "سه‌ستاره در دستگیری",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "9a8c3602-ed4a-43ed-bbb8-665d3ad1e35b",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "three_stars",
+                  "tag": "missionType=capture",
+                  "statName": "مرحلهٔ سه‌ستاره",
+                  "op": ">=",
+                  "value": 3,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "6f06d3e9-4c47-4f69-9fe4-603381c64f83",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "three_stars",
+                  "tag": "missionType=capture",
+                  "statName": "مرحلهٔ سه‌ستاره",
+                  "op": ">=",
+                  "value": 10,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "664a4769-8c77-4d5c-81ad-5896b5d03e0b",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "three_stars",
+                  "tag": "missionType=capture",
+                  "statName": "مرحلهٔ سه‌ستاره",
+                  "op": ">=",
+                  "value": 25,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "80207bdf-497c-44b7-82e5-98531e402079",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "three_stars",
+                  "tag": "missionType=capture",
+                  "statName": "مرحلهٔ سه‌ستاره",
+                  "op": ">=",
+                  "value": 50,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "three_stars_pursuit",
+          "name": "سه‌ستاره در تعقیب مخفی",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "6a09e7d2-0427-47c5-9f64-4a223a5a9ca4",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "three_stars",
+                  "tag": "missionType=pursuit",
+                  "statName": "مرحلهٔ سه‌ستاره",
+                  "op": ">=",
+                  "value": 3,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "a099f9c9-7edd-4db7-a8f5-db6c5a6d5410",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "three_stars",
+                  "tag": "missionType=pursuit",
+                  "statName": "مرحلهٔ سه‌ستاره",
+                  "op": ">=",
+                  "value": 10,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "7f9627fc-1c91-43bf-8312-5190450cb21f",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "three_stars",
+                  "tag": "missionType=pursuit",
+                  "statName": "مرحلهٔ سه‌ستاره",
+                  "op": ">=",
+                  "value": 25,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "5dc3c0d1-1c5c-40fb-a100-ecc7da487235",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "three_stars",
+                  "tag": "missionType=pursuit",
+                  "statName": "مرحلهٔ سه‌ستاره",
+                  "op": ">=",
+                  "value": 50,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "three_stars_escort",
+          "name": "سه‌ستاره در اسکورت",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "95cc5321-97fc-4190-a068-7bef2cc56f79",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "three_stars",
+                  "tag": "missionType=escort",
+                  "statName": "مرحلهٔ سه‌ستاره",
+                  "op": ">=",
+                  "value": 3,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "e417ec67-fcfb-4b06-9793-fe119caefe1f",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "three_stars",
+                  "tag": "missionType=escort",
+                  "statName": "مرحلهٔ سه‌ستاره",
+                  "op": ">=",
+                  "value": 10,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "dafdd2ca-0e3c-499c-bf65-c171e58f66c6",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "three_stars",
+                  "tag": "missionType=escort",
+                  "statName": "مرحلهٔ سه‌ستاره",
+                  "op": ">=",
+                  "value": 25,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "1f51ff1c-44cc-48a3-81a9-5d5ff1bfe898",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "three_stars",
+                  "tag": "missionType=escort",
+                  "statName": "مرحلهٔ سه‌ستاره",
+                  "op": ">=",
+                  "value": 50,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "shop",
+      "name": "خرید",
+      "unlocked": 0,
+      "stepCount": 36,
+      "trophies": [
+        {
+          "key": "buy_vehicles",
+          "name": "خرید ماشین",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "688a5a31-302b-4887-b665-5dece282c1bb",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "items_bought",
+                  "tag": "itemType=vehicle",
+                  "statName": "خرید آیتم",
+                  "op": ">=",
+                  "value": 1,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "ac85db07-ef7a-4080-b0ed-e7581ec578b8",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "items_bought",
+                  "tag": "itemType=vehicle",
+                  "statName": "خرید آیتم",
+                  "op": ">=",
+                  "value": 3,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "5f66c0d4-44d5-4e8b-80ca-6387f01392bb",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "items_bought",
+                  "tag": "itemType=vehicle",
+                  "statName": "خرید آیتم",
+                  "op": ">=",
+                  "value": 5,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "b24f8162-1dad-46e9-ab17-78faf12f28bf",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "items_bought",
+                  "tag": "itemType=vehicle",
+                  "statName": "خرید آیتم",
+                  "op": ">=",
+                  "value": 6,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "buy_guns",
+          "name": "خرید اسلحه",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "f377b1d5-4cb9-42ba-84ce-7c755dc5048f",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "items_bought",
+                  "tag": "itemType=gun",
+                  "statName": "خرید آیتم",
+                  "op": ">=",
+                  "value": 1,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "ccb1d7ce-1586-49a5-b609-e3f3582626d9",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "items_bought",
+                  "tag": "itemType=gun",
+                  "statName": "خرید آیتم",
+                  "op": ">=",
+                  "value": 5,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "f7dac180-4157-4afc-9caf-ba3e08514723",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "items_bought",
+                  "tag": "itemType=gun",
+                  "statName": "خرید آیتم",
+                  "op": ">=",
+                  "value": 10,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "2f69efe2-c0c9-4977-b743-4aadd816a667",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "items_bought",
+                  "tag": "itemType=gun",
+                  "statName": "خرید آیتم",
+                  "op": ">=",
+                  "value": 19,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "upgrades",
+          "name": "ارتقا",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "8a1adebd-2443-4048-8abb-c25054fc2e57",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "upgrades",
+                  "statName": "ارتقا",
+                  "op": ">=",
+                  "value": 5,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "9bf25588-e498-4dce-8a42-561cf8295609",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "upgrades",
+                  "statName": "ارتقا",
+                  "op": ">=",
+                  "value": 20,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "7fd1e383-8e38-482b-8925-c33193698974",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "upgrades",
+                  "statName": "ارتقا",
+                  "op": ">=",
+                  "value": 50,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "89286125-e53f-41e0-af67-e4d500f4b763",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "upgrades",
+                  "statName": "ارتقا",
+                  "op": ">=",
+                  "value": 150,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "iap_coin",
+          "name": "خرید سکه",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "28c96080-ffec-4b72-90fe-0633640b1984",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "iap_purchases",
+                  "tag": "itemClass=coin",
+                  "statName": "خرید درون‌برنامه‌ای",
+                  "op": ">=",
+                  "value": 1,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "f8647b93-330a-4459-b477-176bfd70e286",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "iap_purchases",
+                  "tag": "itemClass=coin",
+                  "statName": "خرید درون‌برنامه‌ای",
+                  "op": ">=",
+                  "value": 3,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "858aa3a8-6617-46cf-93b5-edd0311a7ffa",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "iap_purchases",
+                  "tag": "itemClass=coin",
+                  "statName": "خرید درون‌برنامه‌ای",
+                  "op": ">=",
+                  "value": 10,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "a33d6897-9c9f-432f-bb20-b245ea94f989",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "iap_purchases",
+                  "tag": "itemClass=coin",
+                  "statName": "خرید درون‌برنامه‌ای",
+                  "op": ">=",
+                  "value": 25,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "iap_gem",
+          "name": "خرید الماس",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "d6fd30eb-0204-4319-abc4-00b33d00dec1",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "iap_purchases",
+                  "tag": "itemClass=gem",
+                  "statName": "خرید درون‌برنامه‌ای",
+                  "op": ">=",
+                  "value": 1,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "dfcf522d-d4ad-4e20-9024-de72fd3815a3",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "iap_purchases",
+                  "tag": "itemClass=gem",
+                  "statName": "خرید درون‌برنامه‌ای",
+                  "op": ">=",
+                  "value": 3,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "4f706080-2b1a-43e6-bee4-e1ff44565fd2",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "iap_purchases",
+                  "tag": "itemClass=gem",
+                  "statName": "خرید درون‌برنامه‌ای",
+                  "op": ">=",
+                  "value": 10,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "28dfcf4c-5904-4abb-83a9-8c872377139a",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "iap_purchases",
+                  "tag": "itemClass=gem",
+                  "statName": "خرید درون‌برنامه‌ای",
+                  "op": ">=",
+                  "value": 25,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "iap_range_lt_50k",
+          "name": "خرید زیر ۵۰ هزار تومان",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "25cd00f0-5587-45e0-9c90-81ed95b630a1",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "iap_purchases",
+                  "tag": "priceRange=lt_50k",
+                  "statName": "خرید درون‌برنامه‌ای",
+                  "op": ">=",
+                  "value": 1,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "4e539871-34ed-4b12-b1e6-b5ee562aef3c",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "iap_purchases",
+                  "tag": "priceRange=lt_50k",
+                  "statName": "خرید درون‌برنامه‌ای",
+                  "op": ">=",
+                  "value": 3,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "c2cbfd23-1e83-4abc-85eb-3402caedef5a",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "iap_purchases",
+                  "tag": "priceRange=lt_50k",
+                  "statName": "خرید درون‌برنامه‌ای",
+                  "op": ">=",
+                  "value": 10,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "c349fb3e-04a2-42ab-a23c-e150cd40292b",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "iap_purchases",
+                  "tag": "priceRange=lt_50k",
+                  "statName": "خرید درون‌برنامه‌ای",
+                  "op": ">=",
+                  "value": 25,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "iap_range_50k_200k",
+          "name": "خرید ۵۰ تا ۲۰۰ هزار تومان",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "2f665685-b537-4ec9-b2d1-73a21f4fb0d9",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "iap_purchases",
+                  "tag": "priceRange=50k_200k",
+                  "statName": "خرید درون‌برنامه‌ای",
+                  "op": ">=",
+                  "value": 1,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "84de4738-f4b1-4b87-a17e-7dd8b85ee472",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "iap_purchases",
+                  "tag": "priceRange=50k_200k",
+                  "statName": "خرید درون‌برنامه‌ای",
+                  "op": ">=",
+                  "value": 3,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "3192ef93-3031-4218-a175-e5eff2c2c6c3",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "iap_purchases",
+                  "tag": "priceRange=50k_200k",
+                  "statName": "خرید درون‌برنامه‌ای",
+                  "op": ">=",
+                  "value": 10,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "5e15ed02-edad-4ff8-8660-7b319fe074c9",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "iap_purchases",
+                  "tag": "priceRange=50k_200k",
+                  "statName": "خرید درون‌برنامه‌ای",
+                  "op": ">=",
+                  "value": 25,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "iap_range_200k_1m",
+          "name": "خرید ۲۰۰ هزار تا ۱ میلیون تومان",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "07615de6-10fb-48a6-8e4f-116070f11c6c",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "iap_purchases",
+                  "tag": "priceRange=200k_1m",
+                  "statName": "خرید درون‌برنامه‌ای",
+                  "op": ">=",
+                  "value": 1,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "81bab57b-c03f-46e4-9449-ead0128a1bf1",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "iap_purchases",
+                  "tag": "priceRange=200k_1m",
+                  "statName": "خرید درون‌برنامه‌ای",
+                  "op": ">=",
+                  "value": 3,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "5c573f4b-a8df-42e9-9331-a5556d00c451",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "iap_purchases",
+                  "tag": "priceRange=200k_1m",
+                  "statName": "خرید درون‌برنامه‌ای",
+                  "op": ">=",
+                  "value": 10,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "44743d19-0cd4-40fc-b82f-e9ca9991f4ad",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "iap_purchases",
+                  "tag": "priceRange=200k_1m",
+                  "statName": "خرید درون‌برنامه‌ای",
+                  "op": ">=",
+                  "value": 25,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "iap_range_1m_plus",
+          "name": "خرید بالای ۱ میلیون تومان",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "9cb57470-368d-4061-9c81-24ba60161554",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "iap_purchases",
+                  "tag": "priceRange=1m_plus",
+                  "statName": "خرید درون‌برنامه‌ای",
+                  "op": ">=",
+                  "value": 1,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "3af7a9bf-746f-4868-bf32-3dc869f05b6d",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "iap_purchases",
+                  "tag": "priceRange=1m_plus",
+                  "statName": "خرید درون‌برنامه‌ای",
+                  "op": ">=",
+                  "value": 3,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "1d03f671-4ee3-46c3-b3c0-2e792be45ca6",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "iap_purchases",
+                  "tag": "priceRange=1m_plus",
+                  "statName": "خرید درون‌برنامه‌ای",
+                  "op": ">=",
+                  "value": 10,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "4009b52d-ee74-444f-a7bf-bab197b865aa",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "iap_purchases",
+                  "tag": "priceRange=1m_plus",
+                  "statName": "خرید درون‌برنامه‌ای",
+                  "op": ">=",
+                  "value": 25,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "fun",
+      "name": "آمار سرگرمی",
+      "unlocked": 0,
+      "stepCount": 20,
+      "trophies": [
+        {
+          "key": "shots",
+          "name": "تیر",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "e859c216-0cc5-4879-8738-38369473ddf9",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "shots",
+                  "statName": "تیر",
+                  "op": ">=",
+                  "value": 100,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "eb12632c-8b2c-4e02-87a7-c44ea1b0b7d7",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "shots",
+                  "statName": "تیر",
+                  "op": ">=",
+                  "value": 1000,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "f9af3bab-3cf2-4d81-bf72-b2c5228ad8d0",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "shots",
+                  "statName": "تیر",
+                  "op": ">=",
+                  "value": 10000,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "0077bb1d-2d21-462a-89c0-89f19f4ace47",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "shots",
+                  "statName": "تیر",
+                  "op": ">=",
+                  "value": 50000,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "hits",
+          "name": "اصابت",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "a0dba681-150e-432d-a343-230d778db5b0",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "hits",
+                  "statName": "اصابت",
+                  "op": ">=",
+                  "value": 50,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "8eba2e79-5893-49f6-8f04-a260d2190ebc",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "hits",
+                  "statName": "اصابت",
+                  "op": ">=",
+                  "value": 500,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "58ce37ef-2ba5-40df-8751-0243a5526d26",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "hits",
+                  "statName": "اصابت",
+                  "op": ">=",
+                  "value": 5000,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "3fc573ba-ad65-41ca-9abc-b93fe86c22a8",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "hits",
+                  "statName": "اصابت",
+                  "op": ">=",
+                  "value": 25000,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "misses",
+          "name": "خطا",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "0acc7da5-7942-4344-b649-a187e9109034",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "misses",
+                  "statName": "خطا",
+                  "op": ">=",
+                  "value": 50,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "979e3a1c-1361-4646-81be-0bd5fbd7c805",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "misses",
+                  "statName": "خطا",
+                  "op": ">=",
+                  "value": 500,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "e038b380-2706-43f6-bfb2-d2ab67ae021f",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "misses",
+                  "statName": "خطا",
+                  "op": ">=",
+                  "value": 5000,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "5c211eb4-9396-436c-a272-d9ba00aa0eb0",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "misses",
+                  "statName": "خطا",
+                  "op": ">=",
+                  "value": 25000,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "losses",
+          "name": "باخت",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "2e1bc08f-d2b4-4760-a406-9d19472e6e28",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "stages_lost",
+                  "statName": "مرحلهٔ باخته",
+                  "op": ">=",
+                  "value": 5,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "578351ab-6b5e-4b0b-8983-ce0370bbfded",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "stages_lost",
+                  "statName": "مرحلهٔ باخته",
+                  "op": ">=",
+                  "value": 20,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "72d4f6e1-f2e4-47f6-84ce-0ae4e6e0f714",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "stages_lost",
+                  "statName": "مرحلهٔ باخته",
+                  "op": ">=",
+                  "value": 50,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "6b8b6faa-dfad-463f-89f2-e074158fc376",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0,
+              "conditions": [
+                {
+                  "stat": "stages_lost",
+                  "statName": "مرحلهٔ باخته",
+                  "op": ">=",
+                  "value": 100,
+                  "current": 0,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        },
+        {
+          "key": "starts",
+          "name": "شروع مرحله",
+          "unlockOrder": "sequential",
+          "unlocked": 0,
+          "stepCount": 4,
+          "completed": false,
+          "steps": [
+            {
+              "id": "30f49815-4b14-434d-9c9e-c352ef4b8941",
+              "step": 1,
+              "name": "برنز",
+              "unlocked": false,
+              "available": true,
+              "progress": 0.1,
+              "conditions": [
+                {
+                  "stat": "stages_started",
+                  "statName": "مرحلهٔ شروع‌شده",
+                  "op": ">=",
+                  "value": 10,
+                  "current": 1,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "72e09e57-a935-410d-aeff-f3e50779e8cf",
+              "step": 2,
+              "name": "نقره",
+              "unlocked": false,
+              "available": false,
+              "progress": 0.02,
+              "conditions": [
+                {
+                  "stat": "stages_started",
+                  "statName": "مرحلهٔ شروع‌شده",
+                  "op": ">=",
+                  "value": 50,
+                  "current": 1,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "19714845-8f66-46d6-a272-ba73f1b578a5",
+              "step": 3,
+              "name": "طلا",
+              "unlocked": false,
+              "available": false,
+              "progress": 0.005,
+              "conditions": [
+                {
+                  "stat": "stages_started",
+                  "statName": "مرحلهٔ شروع‌شده",
+                  "op": ">=",
+                  "value": 200,
+                  "current": 1,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            },
+            {
+              "id": "37f7dbcc-3b11-4884-ad31-1c80c046a505",
+              "step": 4,
+              "name": "پلاتین",
+              "unlocked": false,
+              "available": false,
+              "progress": 0.002,
+              "conditions": [
+                {
+                  "stat": "stages_started",
+                  "statName": "مرحلهٔ شروع‌شده",
+                  "op": ">=",
+                  "value": 500,
+                  "current": 1,
+                  "met": false
+                }
+              ],
+              "rewards": {},
+              "claimMode": "none",
+              "claimStatus": "none",
+              "claimable": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "lang": "fa",
+  "totals": {
+    "claimable": 1,
+    "steps": 220,
+    "unlocked": 5
+  },
+  "unlockOrder": "sequential",
+  "unlocked": []
+}

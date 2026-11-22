@@ -1,0 +1,61 @@
+{
+  "item": {
+    "attributes": {},
+    "canBuy": false,
+    "canUnlock": false,
+    "canUnlockEarly": false,
+    "categoryKey": "",
+    "description": "",
+    "discountPercent": 0,
+    "discounts": [],
+    "equipped": true,
+    "finalPrice": {
+      "currencyKey": "coin",
+      "amount": 25000
+    },
+    "iconUrl": "",
+    "id": "c0978e61-bba1-4675-a1af-fd68f912f6d3",
+    "imageUrl": "",
+    "isActive": true,
+    "isStarter": false,
+    "key": "00431a06-c547-4d17-b8ee-cddba08f9ec0",
+    "locked": false,
+    "maxUpgradeLevel": 0,
+    "metadata": {
+      "car": "audiq2",
+      "gameId": "00431a06-c547-4d17-b8ee-cddba08f9ec0",
+      "slot": "colorring"
+    },
+    "name": "AudiQ2_ColorRing_Gray",
+    "nextUpgradePrice": null,
+    "owned": true,
+    "ownedAt": "2026-11-22T09:06:02.508346+04:00",
+    "parentKey": "audiq2",
+    "playerLevel": 1,
+    "price": {
+      "currencyKey": "coin",
+      "amount": 25000
+    },
+    "rarity": "common",
+    "requirementMet": true,
+    "requiresKey": "",
+    "saleStopped": false,
+    "services": [],
+    "sort": 1,
+    "soundUrl": "",
+    "source": "buy",
+    "tags": [],
+    "tracks": [],
+    "type": "part",
+    "typeName": "Car parts",
+    "unlockLevel": 0,
+    "unlockPrices": [],
+    "unlocked": true,
+    "unlockedEarly": false,
+    "upgradeLevel": 0,
+    "version": 2
+  },
+  "lang": "en",
+  "slot": "part:audiq2:colorring",
+  "unequipped": []
+}

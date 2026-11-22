@@ -1,0 +1,663 @@
+{
+  "day": "2026-11-22",
+  "items": [
+    {
+      "key": "vehicle_distance_km",
+      "name": "مسافت (کیلومتر)",
+      "kind": "sum",
+      "period": "total",
+      "splitBy": [
+        "vehicle",
+        "vehicleClass"
+      ],
+      "value": 5,
+      "current": 5,
+      "total": 5,
+      "best": 5,
+      "tags": [
+        {
+          "tag": "vehicle=HyundaiSantafe",
+          "key": "vehicle",
+          "label": "HyundaiSantafe",
+          "value": 5,
+          "current": 5,
+          "total": 5,
+          "best": 5
+        },
+        {
+          "tag": "vehicleClass=SUV",
+          "key": "vehicleClass",
+          "label": "SUV",
+          "value": 5,
+          "current": 5,
+          "total": 5,
+          "best": 5
+        }
+      ],
+      "updatedAt": "2026-11-22T05:07:43.92673Z"
+    },
+    {
+      "key": "distance_forward_km",
+      "name": "مسافت رو به جلو (کیلومتر)",
+      "kind": "sum",
+      "period": "total",
+      "splitBy": [
+        "vehicle",
+        "vehicleClass"
+      ],
+      "value": 0,
+      "current": 0,
+      "total": 0,
+      "best": 0,
+      "tags": []
+    },
+    {
+      "key": "distance_backward_km",
+      "name": "مسافت دنده‌عقب (کیلومتر)",
+      "kind": "sum",
+      "period": "total",
+      "splitBy": [
+        "vehicle",
+        "vehicleClass"
+      ],
+      "value": 0,
+      "current": 0,
+      "total": 0,
+      "best": 0,
+      "tags": []
+    },
+    {
+      "key": "distance_clean_km",
+      "name": "مسافت بدون تصادف (کیلومتر)",
+      "kind": "sum",
+      "period": "total",
+      "splitBy": [
+        "vehicle",
+        "vehicleClass"
+      ],
+      "value": 0,
+      "current": 0,
+      "total": 0,
+      "best": 0,
+      "tags": []
+    },
+    {
+      "key": "distance_top_speed_km",
+      "name": "مسافت با بیشترین سرعت (کیلومتر)",
+      "kind": "sum",
+      "period": "total",
+      "splitBy": [
+        "vehicle",
+        "vehicleClass"
+      ],
+      "value": 0,
+      "current": 0,
+      "total": 0,
+      "best": 0,
+      "tags": []
+    },
+    {
+      "key": "vehicle_top_speed",
+      "name": "بیشترین سرعت",
+      "kind": "max",
+      "period": "total",
+      "splitBy": [
+        "vehicle",
+        "vehicleClass"
+      ],
+      "value": 0,
+      "current": 0,
+      "total": 0,
+      "best": 0,
+      "tags": []
+    },
+    {
+      "key": "drift_m",
+      "name": "مسافت دریفت (متر)",
+      "kind": "sum",
+      "period": "total",
+      "splitBy": [
+        "vehicle",
+        "vehicleClass"
+      ],
+      "value": 0,
+      "current": 0,
+      "total": 0,
+      "best": 0,
+      "tags": []
+    },
+    {
+      "key": "obstacles_by_vehicle",
+      "name": "مانع نابودشده با ماشین",
+      "kind": "sum",
+      "period": "total",
+      "splitBy": [
+        "vehicle",
+        "vehicleClass"
+      ],
+      "value": 0,
+      "current": 0,
+      "total": 0,
+      "best": 0,
+      "tags": []
+    },
+    {
+      "key": "jumps",
+      "name": "پرش",
+      "kind": "count",
+      "period": "total",
+      "splitBy": [
+        "vehicle",
+        "vehicleClass"
+      ],
+      "value": 1,
+      "current": 1,
+      "total": 1,
+      "best": 1,
+      "tags": [
+        {
+          "tag": "vehicle=HyundaiSantafe",
+          "key": "vehicle",
+          "label": "HyundaiSantafe",
+          "value": 1,
+          "current": 1,
+          "total": 1,
+          "best": 1
+        },
+        {
+          "tag": "vehicleClass=SUV",
+          "key": "vehicleClass",
+          "label": "SUV",
+          "value": 1,
+          "current": 1,
+          "total": 1,
+          "best": 1
+        }
+      ],
+      "updatedAt": "2026-11-22T05:07:43.92673Z"
+    },
+    {
+      "key": "turns_180",
+      "name": "چرخش ۱۸۰ پلیسی",
+      "kind": "sum",
+      "period": "total",
+      "splitBy": [
+        "vehicle",
+        "vehicleClass"
+      ],
+      "value": 0,
+      "current": 0,
+      "total": 0,
+      "best": 0,
+      "tags": []
+    },
+    {
+      "key": "overtakes",
+      "name": "سبقت",
+      "kind": "count",
+      "period": "total",
+      "splitBy": [
+        "vehicle",
+        "vehicleClass"
+      ],
+      "value": 1,
+      "current": 1,
+      "total": 1,
+      "best": 1,
+      "tags": [
+        {
+          "tag": "vehicle=HyundaiSantafe",
+          "key": "vehicle",
+          "label": "HyundaiSantafe",
+          "value": 1,
+          "current": 1,
+          "total": 1,
+          "best": 1
+        },
+        {
+          "tag": "vehicleClass=SUV",
+          "key": "vehicleClass",
+          "label": "SUV",
+          "value": 1,
+          "current": 1,
+          "total": 1,
+          "best": 1
+        }
+      ],
+      "updatedAt": "2026-11-22T05:07:43.92673Z"
+    },
+    {
+      "key": "police_arrests",
+      "name": "دستگیری",
+      "kind": "sum",
+      "period": "total",
+      "splitBy": [
+        "vehicle",
+        "vehicleClass"
+      ],
+      "value": 0,
+      "current": 0,
+      "total": 0,
+      "best": 0,
+      "tags": []
+    },
+    {
+      "key": "kills",
+      "name": "دشمن نابودشده",
+      "kind": "sum",
+      "period": "total",
+      "splitBy": [
+        "gun",
+        "gunClass"
+      ],
+      "value": 12,
+      "current": 12,
+      "total": 12,
+      "best": 12,
+      "tags": [
+        {
+          "tag": "gun=gun-handgun-mp5",
+          "key": "gun",
+          "label": "gun-handgun-mp5",
+          "value": 12,
+          "current": 12,
+          "total": 12,
+          "best": 12
+        },
+        {
+          "tag": "gunClass=Handgun",
+          "key": "gunClass",
+          "label": "Handgun",
+          "value": 12,
+          "current": 12,
+          "total": 12,
+          "best": 12
+        }
+      ],
+      "updatedAt": "2026-11-22T05:07:43.92673Z"
+    },
+    {
+      "key": "shots",
+      "name": "تیر",
+      "kind": "sum",
+      "period": "total",
+      "splitBy": [
+        "gun",
+        "gunClass"
+      ],
+      "value": 0,
+      "current": 0,
+      "total": 0,
+      "best": 0,
+      "tags": []
+    },
+    {
+      "key": "hits",
+      "name": "اصابت",
+      "kind": "sum",
+      "period": "total",
+      "splitBy": [
+        "gun",
+        "gunClass"
+      ],
+      "value": 0,
+      "current": 0,
+      "total": 0,
+      "best": 0,
+      "tags": []
+    },
+    {
+      "key": "misses",
+      "name": "خطا",
+      "kind": "sum",
+      "period": "total",
+      "splitBy": [
+        "gun",
+        "gunClass"
+      ],
+      "value": 0,
+      "current": 0,
+      "total": 0,
+      "best": 0,
+      "tags": []
+    },
+    {
+      "key": "play_seconds",
+      "name": "زمان بازی (ثانیه)",
+      "kind": "sum",
+      "period": "total",
+      "splitBy": [],
+      "value": 0,
+      "current": 0,
+      "total": 0,
+      "best": 0,
+      "tags": []
+    },
+    {
+      "key": "mission_days",
+      "name": "روزهای پشت سر هم با مأموریت",
+      "kind": "streak",
+      "period": "total",
+      "splitBy": [],
+      "value": 1,
+      "current": 1,
+      "total": 1,
+      "best": 1,
+      "tags": [],
+      "updatedAt": "2026-11-22T05:08:10.076624Z"
+    },
+    {
+      "key": "level_ups_day",
+      "name": "سطح بالا رفتن در یک روز",
+      "kind": "count",
+      "period": "day",
+      "splitBy": [],
+      "value": 2,
+      "current": 2,
+      "total": 2,
+      "best": 2,
+      "tags": [],
+      "updatedAt": "2026-11-22T05:08:10.0637Z"
+    },
+    {
+      "key": "stages_won",
+      "name": "مرحلهٔ تمام‌شده",
+      "kind": "count",
+      "period": "total",
+      "splitBy": [
+        "missionType",
+        "chapterKind",
+        "vehicle",
+        "vehicleClass",
+        "gun",
+        "gunClass"
+      ],
+      "value": 1,
+      "current": 1,
+      "total": 1,
+      "best": 1,
+      "tags": [
+        {
+          "tag": "chapterKind=main",
+          "key": "chapterKind",
+          "label": "main",
+          "value": 1,
+          "current": 1,
+          "total": 1,
+          "best": 1
+        },
+        {
+          "tag": "gun=gun-handgun-mp5",
+          "key": "gun",
+          "label": "gun-handgun-mp5",
+          "value": 1,
+          "current": 1,
+          "total": 1,
+          "best": 1
+        },
+        {
+          "tag": "gunClass=Handgun",
+          "key": "gunClass",
+          "label": "Handgun",
+          "value": 1,
+          "current": 1,
+          "total": 1,
+          "best": 1
+        },
+        {
+          "tag": "missionType=target",
+          "key": "missionType",
+          "label": "target",
+          "value": 1,
+          "current": 1,
+          "total": 1,
+          "best": 1
+        },
+        {
+          "tag": "vehicle=HyundaiSantafe",
+          "key": "vehicle",
+          "label": "HyundaiSantafe",
+          "value": 1,
+          "current": 1,
+          "total": 1,
+          "best": 1
+        },
+        {
+          "tag": "vehicleClass=SUV",
+          "key": "vehicleClass",
+          "label": "SUV",
+          "value": 1,
+          "current": 1,
+          "total": 1,
+          "best": 1
+        }
+      ],
+      "updatedAt": "2026-11-22T05:08:10.076624Z"
+    },
+    {
+      "key": "stages_lost",
+      "name": "مرحلهٔ باخته",
+      "kind": "count",
+      "period": "total",
+      "splitBy": [
+        "missionType",
+        "chapterKind",
+        "vehicle",
+        "vehicleClass",
+        "gun",
+        "gunClass"
+      ],
+      "value": 0,
+      "current": 0,
+      "total": 0,
+      "best": 0,
+      "tags": []
+    },
+    {
+      "key": "stages_started",
+      "name": "مرحلهٔ شروع‌شده",
+      "kind": "count",
+      "period": "total",
+      "splitBy": [],
+      "value": 1,
+      "current": 1,
+      "total": 1,
+      "best": 1,
+      "tags": [],
+      "updatedAt": "2026-11-22T05:07:43.946822Z"
+    },
+    {
+      "key": "freeride_done",
+      "name": "گشت آزاد تمام‌شده",
+      "kind": "count",
+      "period": "total",
+      "splitBy": [],
+      "value": 0,
+      "current": 0,
+      "total": 0,
+      "best": 0,
+      "tags": []
+    },
+    {
+      "key": "three_stars",
+      "name": "مرحلهٔ سه‌ستاره",
+      "kind": "count",
+      "period": "total",
+      "splitBy": [
+        "missionType",
+        "chapterKind",
+        "vehicle",
+        "vehicleClass",
+        "gun",
+        "gunClass"
+      ],
+      "value": 1,
+      "current": 1,
+      "total": 1,
+      "best": 1,
+      "tags": [
+        {
+          "tag": "chapterKind=main",
+          "key": "chapterKind",
+          "label": "main",
+          "value": 1,
+          "current": 1,
+          "total": 1,
+          "best": 1
+        },
+        {
+          "tag": "gun=gun-handgun-mp5",
+          "key": "gun",
+          "label": "gun-handgun-mp5",
+          "value": 1,
+          "current": 1,
+          "total": 1,
+          "best": 1
+        },
+        {
+          "tag": "gunClass=Handgun",
+          "key": "gunClass",
+          "label": "Handgun",
+          "value": 1,
+          "current": 1,
+          "total": 1,
+          "best": 1
+        },
+        {
+          "tag": "missionType=target",
+          "key": "missionType",
+          "label": "target",
+          "value": 1,
+          "current": 1,
+          "total": 1,
+          "best": 1
+        },
+        {
+          "tag": "vehicle=HyundaiSantafe",
+          "key": "vehicle",
+          "label": "HyundaiSantafe",
+          "value": 1,
+          "current": 1,
+          "total": 1,
+          "best": 1
+        },
+        {
+          "tag": "vehicleClass=SUV",
+          "key": "vehicleClass",
+          "label": "SUV",
+          "value": 1,
+          "current": 1,
+          "total": 1,
+          "best": 1
+        }
+      ],
+      "updatedAt": "2026-11-22T05:08:10.076624Z"
+    },
+    {
+      "key": "three_stars_full_health",
+      "name": "سه‌ستاره بدون از دست دادن جان",
+      "kind": "count",
+      "period": "total",
+      "splitBy": [
+        "missionType",
+        "chapterKind",
+        "vehicle",
+        "vehicleClass",
+        "gun",
+        "gunClass"
+      ],
+      "value": 0,
+      "current": 0,
+      "total": 0,
+      "best": 0,
+      "tags": []
+    },
+    {
+      "key": "stage_run_day",
+      "name": "مرحله‌های پشت سر هم در یک روز",
+      "kind": "run",
+      "period": "day",
+      "splitBy": [],
+      "value": 1,
+      "current": 1,
+      "total": 1,
+      "best": 1,
+      "tags": [],
+      "updatedAt": "2026-11-22T05:08:10.076624Z"
+    },
+    {
+      "key": "stages_won_day",
+      "name": "مرحله در یک روز",
+      "kind": "count",
+      "period": "day",
+      "splitBy": [],
+      "value": 1,
+      "current": 1,
+      "total": 1,
+      "best": 1,
+      "tags": [],
+      "updatedAt": "2026-11-22T05:08:10.076624Z"
+    },
+    {
+      "key": "items_bought",
+      "name": "خرید آیتم",
+      "kind": "count",
+      "period": "total",
+      "splitBy": [
+        "itemType",
+        "itemClass",
+        "currency",
+        "priceRange"
+      ],
+      "value": 0,
+      "current": 0,
+      "total": 0,
+      "best": 0,
+      "tags": []
+    },
+    {
+      "key": "upgrades",
+      "name": "ارتقا",
+      "kind": "count",
+      "period": "total",
+      "splitBy": [
+        "itemType",
+        "itemClass",
+        "track"
+      ],
+      "value": 0,
+      "current": 0,
+      "total": 0,
+      "best": 0,
+      "tags": []
+    },
+    {
+      "key": "iap_purchases",
+      "name": "خرید درون‌برنامه‌ای",
+      "kind": "count",
+      "period": "total",
+      "splitBy": [
+        "itemClass",
+        "priceRange"
+      ],
+      "value": 0,
+      "current": 0,
+      "total": 0,
+      "best": 0,
+      "tags": []
+    },
+    {
+      "key": "iap_toman",
+      "name": "مبلغ خرید درون‌برنامه‌ای (تومان)",
+      "kind": "sum",
+      "period": "total",
+      "splitBy": [],
+      "value": 0,
+      "current": 0,
+      "total": 0,
+      "best": 0,
+      "tags": []
+    }
+  ],
+  "lang": "fa"
+}

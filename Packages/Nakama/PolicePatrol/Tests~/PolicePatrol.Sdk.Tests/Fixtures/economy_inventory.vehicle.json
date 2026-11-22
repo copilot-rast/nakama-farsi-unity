@@ -1,0 +1,968 @@
+{
+  "counts": {
+    "owned": 1,
+    "total": 6
+  },
+  "equipped": {
+    "gun": "gun-handgun-bereta92",
+    "skin": "star_basket_classic",
+    "vehicle": "tiggo8"
+  },
+  "items": [
+    {
+      "attributes": {},
+      "canBuy": true,
+      "canUnlock": false,
+      "canUnlockEarly": false,
+      "categoryKey": "",
+      "description": "",
+      "discountPercent": 0,
+      "discounts": [],
+      "equipped": false,
+      "finalPrice": {
+        "currencyKey": "coin",
+        "amount": 850000
+      },
+      "iconUrl": "",
+      "id": "6d942de7-e506-47ed-8a86-e6032f355d9e",
+      "imageUrl": "",
+      "isActive": true,
+      "isStarter": false,
+      "key": "suzukivitara",
+      "locked": false,
+      "maxUpgradeLevel": 0,
+      "metadata": {
+        "gameId": "SuzukiVitara",
+        "garageMultiplier": 1.2,
+        "repair": {
+          "coin": 10000,
+          "gem": 10,
+          "seconds": 60
+        },
+        "serviceSeconds": {
+          "brake": 300,
+          "fuel": 5,
+          "oil": 300,
+          "tire": 10,
+          "wash": 300
+        }
+      },
+      "name": "سوزوکی ویتارا",
+      "nextUpgradePrice": null,
+      "owned": false,
+      "parentKey": "",
+      "playerLevel": 1,
+      "price": {
+        "currencyKey": "coin",
+        "amount": 850000
+      },
+      "rarity": "common",
+      "requirementMet": true,
+      "requiresKey": "",
+      "saleStopped": false,
+      "services": [
+        {
+          "currencyKey": "coin",
+          "key": "fuel",
+          "maxUnits": 100,
+          "name": "سوخت",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "fuel-garage",
+          "maxUnits": 100,
+          "name": "سوخت (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "tire",
+          "maxUnits": 100,
+          "name": "لاستیک",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "tire-garage",
+          "maxUnits": 100,
+          "name": "لاستیک (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "oil",
+          "maxUnits": 100,
+          "name": "روغن",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "oil-garage",
+          "maxUnits": 100,
+          "name": "روغن (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "brake",
+          "maxUnits": 100,
+          "name": "ترمز",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "brake-garage",
+          "maxUnits": 100,
+          "name": "ترمز (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "wash",
+          "maxUnits": 100,
+          "name": "کارواش",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "wash-garage",
+          "maxUnits": 100,
+          "name": "کارواش (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "repair",
+          "maxUnits": 100,
+          "name": "تعمیر",
+          "unitPrice": 100
+        },
+        {
+          "currencyKey": "coin",
+          "key": "repair-garage",
+          "maxUnits": 100,
+          "name": "تعمیر (تعمیرگاه)",
+          "unitPrice": 120
+        },
+        {
+          "currencyKey": "gem",
+          "key": "repair-now",
+          "maxUnits": 12,
+          "name": "تعمیر فوری",
+          "unitPrice": 1
+        }
+      ],
+      "sort": 1,
+      "soundUrl": "",
+      "tags": [],
+      "tracks": [],
+      "type": "vehicle",
+      "typeName": "ماشین‌ها",
+      "unlockLevel": 0,
+      "unlockPrices": [],
+      "unlocked": true,
+      "unlockedEarly": false,
+      "upgradeLevel": 0
+    },
+    {
+      "attributes": {},
+      "canBuy": true,
+      "canUnlock": false,
+      "canUnlockEarly": false,
+      "categoryKey": "",
+      "description": "",
+      "discountPercent": 0,
+      "discounts": [],
+      "equipped": false,
+      "finalPrice": {
+        "currencyKey": "coin",
+        "amount": 1000000
+      },
+      "iconUrl": "",
+      "id": "43863d4b-e9e7-4f69-a216-2363be7608a8",
+      "imageUrl": "",
+      "isActive": true,
+      "isStarter": false,
+      "key": "hyundaisantafe",
+      "locked": false,
+      "maxUpgradeLevel": 0,
+      "metadata": {
+        "gameId": "HyundaiSantafe",
+        "garageMultiplier": 1.2,
+        "repair": {
+          "coin": 15000,
+          "gem": 30,
+          "seconds": 180
+        },
+        "serviceSeconds": {
+          "brake": 300,
+          "fuel": 5,
+          "oil": 300,
+          "tire": 10,
+          "wash": 300
+        }
+      },
+      "name": "سانتافه",
+      "nextUpgradePrice": null,
+      "owned": false,
+      "parentKey": "",
+      "playerLevel": 1,
+      "price": {
+        "currencyKey": "coin",
+        "amount": 1000000
+      },
+      "rarity": "common",
+      "requirementMet": true,
+      "requiresKey": "",
+      "saleStopped": false,
+      "services": [
+        {
+          "currencyKey": "coin",
+          "key": "fuel",
+          "maxUnits": 100,
+          "name": "سوخت",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "fuel-garage",
+          "maxUnits": 100,
+          "name": "سوخت (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "tire",
+          "maxUnits": 100,
+          "name": "لاستیک",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "tire-garage",
+          "maxUnits": 100,
+          "name": "لاستیک (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "oil",
+          "maxUnits": 100,
+          "name": "روغن",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "oil-garage",
+          "maxUnits": 100,
+          "name": "روغن (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "brake",
+          "maxUnits": 100,
+          "name": "ترمز",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "brake-garage",
+          "maxUnits": 100,
+          "name": "ترمز (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "wash",
+          "maxUnits": 100,
+          "name": "کارواش",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "wash-garage",
+          "maxUnits": 100,
+          "name": "کارواش (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "repair",
+          "maxUnits": 100,
+          "name": "تعمیر",
+          "unitPrice": 150
+        },
+        {
+          "currencyKey": "coin",
+          "key": "repair-garage",
+          "maxUnits": 100,
+          "name": "تعمیر (تعمیرگاه)",
+          "unitPrice": 180
+        },
+        {
+          "currencyKey": "gem",
+          "key": "repair-now",
+          "maxUnits": 24,
+          "name": "تعمیر فوری",
+          "unitPrice": 1
+        }
+      ],
+      "sort": 2,
+      "soundUrl": "",
+      "tags": [],
+      "tracks": [],
+      "type": "vehicle",
+      "typeName": "ماشین‌ها",
+      "unlockLevel": 0,
+      "unlockPrices": [],
+      "unlocked": true,
+      "unlockedEarly": false,
+      "upgradeLevel": 0
+    },
+    {
+      "attributes": {},
+      "canBuy": false,
+      "canUnlock": false,
+      "canUnlockEarly": false,
+      "categoryKey": "",
+      "description": "",
+      "discountPercent": 0,
+      "discounts": [],
+      "equipped": true,
+      "finalPrice": null,
+      "iconUrl": "",
+      "id": "6c9e6cee-9994-47cb-be0d-ce2d5ab4484d",
+      "imageUrl": "",
+      "isActive": true,
+      "isStarter": true,
+      "key": "tiggo8",
+      "locked": false,
+      "maxUpgradeLevel": 0,
+      "metadata": {
+        "gameId": "Tiggo8",
+        "garageMultiplier": 1.2,
+        "repair": {
+          "coin": 12500,
+          "gem": 20,
+          "seconds": 120
+        },
+        "serviceSeconds": {
+          "brake": 300,
+          "fuel": 5,
+          "oil": 300,
+          "tire": 10,
+          "wash": 300
+        }
+      },
+      "name": "تیگو 8",
+      "nextUpgradePrice": null,
+      "owned": true,
+      "ownedAt": "2026-11-22T09:06:02.472275+04:00",
+      "parentKey": "",
+      "playerLevel": 1,
+      "price": null,
+      "rarity": "common",
+      "requirementMet": true,
+      "requiresKey": "",
+      "saleStopped": false,
+      "services": [
+        {
+          "currencyKey": "coin",
+          "key": "fuel",
+          "maxUnits": 100,
+          "name": "سوخت",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "fuel-garage",
+          "maxUnits": 100,
+          "name": "سوخت (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "tire",
+          "maxUnits": 100,
+          "name": "لاستیک",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "tire-garage",
+          "maxUnits": 100,
+          "name": "لاستیک (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "oil",
+          "maxUnits": 100,
+          "name": "روغن",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "oil-garage",
+          "maxUnits": 100,
+          "name": "روغن (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "brake",
+          "maxUnits": 100,
+          "name": "ترمز",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "brake-garage",
+          "maxUnits": 100,
+          "name": "ترمز (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "wash",
+          "maxUnits": 100,
+          "name": "کارواش",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "wash-garage",
+          "maxUnits": 100,
+          "name": "کارواش (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "repair",
+          "maxUnits": 100,
+          "name": "تعمیر",
+          "unitPrice": 125
+        },
+        {
+          "currencyKey": "coin",
+          "key": "repair-garage",
+          "maxUnits": 100,
+          "name": "تعمیر (تعمیرگاه)",
+          "unitPrice": 150
+        },
+        {
+          "currencyKey": "gem",
+          "key": "repair-now",
+          "maxUnits": 36,
+          "name": "تعمیر فوری",
+          "unitPrice": 1
+        }
+      ],
+      "sort": 3,
+      "soundUrl": "",
+      "source": "starter",
+      "tags": [],
+      "tracks": [],
+      "type": "vehicle",
+      "typeName": "ماشین‌ها",
+      "unlockLevel": 2,
+      "unlockPrices": [
+        {
+          "currencyKey": "gem",
+          "amount": 20
+        }
+      ],
+      "unlocked": true,
+      "unlockedEarly": false,
+      "upgradeLevel": 0,
+      "version": 1
+    },
+    {
+      "attributes": {},
+      "canBuy": false,
+      "canUnlock": false,
+      "canUnlockEarly": true,
+      "categoryKey": "",
+      "description": "",
+      "discountPercent": 0,
+      "discounts": [],
+      "equipped": false,
+      "finalPrice": {
+        "currencyKey": "coin",
+        "amount": 1950000
+      },
+      "iconUrl": "",
+      "id": "555af0e9-35b5-45b5-9550-a539b37ffee6",
+      "imageUrl": "",
+      "isActive": true,
+      "isStarter": false,
+      "key": "toyotahilux",
+      "locked": true,
+      "maxUpgradeLevel": 0,
+      "metadata": {
+        "gameId": "ToyotaHilux",
+        "garageMultiplier": 1.2,
+        "repair": {
+          "coin": 30000,
+          "gem": 40,
+          "seconds": 240
+        },
+        "serviceSeconds": {
+          "brake": 300,
+          "fuel": 5,
+          "oil": 300,
+          "tire": 10,
+          "wash": 300
+        }
+      },
+      "name": "هایلوکس",
+      "nextUpgradePrice": null,
+      "owned": false,
+      "parentKey": "",
+      "playerLevel": 1,
+      "price": {
+        "currencyKey": "coin",
+        "amount": 1950000
+      },
+      "rarity": "common",
+      "requirementMet": true,
+      "requiresKey": "",
+      "saleStopped": false,
+      "services": [
+        {
+          "currencyKey": "coin",
+          "key": "fuel",
+          "maxUnits": 100,
+          "name": "سوخت",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "fuel-garage",
+          "maxUnits": 100,
+          "name": "سوخت (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "tire",
+          "maxUnits": 100,
+          "name": "لاستیک",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "tire-garage",
+          "maxUnits": 100,
+          "name": "لاستیک (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "oil",
+          "maxUnits": 100,
+          "name": "روغن",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "oil-garage",
+          "maxUnits": 100,
+          "name": "روغن (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "brake",
+          "maxUnits": 100,
+          "name": "ترمز",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "brake-garage",
+          "maxUnits": 100,
+          "name": "ترمز (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "wash",
+          "maxUnits": 100,
+          "name": "کارواش",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "wash-garage",
+          "maxUnits": 100,
+          "name": "کارواش (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "repair",
+          "maxUnits": 100,
+          "name": "تعمیر",
+          "unitPrice": 300
+        },
+        {
+          "currencyKey": "coin",
+          "key": "repair-garage",
+          "maxUnits": 100,
+          "name": "تعمیر (تعمیرگاه)",
+          "unitPrice": 360
+        },
+        {
+          "currencyKey": "gem",
+          "key": "repair-now",
+          "maxUnits": 48,
+          "name": "تعمیر فوری",
+          "unitPrice": 1
+        }
+      ],
+      "sort": 4,
+      "soundUrl": "",
+      "tags": [],
+      "tracks": [],
+      "type": "vehicle",
+      "typeName": "ماشین‌ها",
+      "unlockLevel": 3,
+      "unlockPrices": [
+        {
+          "currencyKey": "gem",
+          "amount": 40
+        }
+      ],
+      "unlocked": false,
+      "unlockedEarly": false,
+      "upgradeLevel": 0
+    },
+    {
+      "attributes": {},
+      "canBuy": false,
+      "canUnlock": false,
+      "canUnlockEarly": true,
+      "categoryKey": "",
+      "description": "",
+      "discountPercent": 0,
+      "discounts": [],
+      "equipped": false,
+      "finalPrice": {
+        "currencyKey": "coin",
+        "amount": 2350000
+      },
+      "iconUrl": "",
+      "id": "8c944170-4732-4049-a3ab-ea07d81fc20a",
+      "imageUrl": "",
+      "isActive": true,
+      "isStarter": false,
+      "key": "audiq2",
+      "locked": true,
+      "maxUpgradeLevel": 0,
+      "metadata": {
+        "gameId": "AudiQ2",
+        "garageMultiplier": 1.2,
+        "repair": {
+          "coin": 20000,
+          "gem": 50,
+          "seconds": 300
+        },
+        "serviceSeconds": {
+          "brake": 300,
+          "fuel": 5,
+          "oil": 300,
+          "tire": 10,
+          "wash": 300
+        }
+      },
+      "name": "آئودی کیو 2",
+      "nextUpgradePrice": null,
+      "owned": false,
+      "parentKey": "",
+      "playerLevel": 1,
+      "price": {
+        "currencyKey": "coin",
+        "amount": 2350000
+      },
+      "rarity": "common",
+      "requirementMet": true,
+      "requiresKey": "",
+      "saleStopped": false,
+      "services": [
+        {
+          "currencyKey": "coin",
+          "key": "fuel",
+          "maxUnits": 100,
+          "name": "سوخت",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "fuel-garage",
+          "maxUnits": 100,
+          "name": "سوخت (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "tire",
+          "maxUnits": 100,
+          "name": "لاستیک",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "tire-garage",
+          "maxUnits": 100,
+          "name": "لاستیک (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "oil",
+          "maxUnits": 100,
+          "name": "روغن",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "oil-garage",
+          "maxUnits": 100,
+          "name": "روغن (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "brake",
+          "maxUnits": 100,
+          "name": "ترمز",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "brake-garage",
+          "maxUnits": 100,
+          "name": "ترمز (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "wash",
+          "maxUnits": 100,
+          "name": "کارواش",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "wash-garage",
+          "maxUnits": 100,
+          "name": "کارواش (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "repair",
+          "maxUnits": 100,
+          "name": "تعمیر",
+          "unitPrice": 200
+        },
+        {
+          "currencyKey": "coin",
+          "key": "repair-garage",
+          "maxUnits": 100,
+          "name": "تعمیر (تعمیرگاه)",
+          "unitPrice": 240
+        },
+        {
+          "currencyKey": "gem",
+          "key": "repair-now",
+          "maxUnits": 60,
+          "name": "تعمیر فوری",
+          "unitPrice": 1
+        }
+      ],
+      "sort": 5,
+      "soundUrl": "",
+      "tags": [],
+      "tracks": [],
+      "type": "vehicle",
+      "typeName": "ماشین‌ها",
+      "unlockLevel": 4,
+      "unlockPrices": [
+        {
+          "currencyKey": "gem",
+          "amount": 50
+        }
+      ],
+      "unlocked": false,
+      "unlockedEarly": false,
+      "upgradeLevel": 0
+    },
+    {
+      "attributes": {},
+      "canBuy": false,
+      "canUnlock": false,
+      "canUnlockEarly": true,
+      "categoryKey": "",
+      "description": "",
+      "discountPercent": 0,
+      "discounts": [],
+      "equipped": false,
+      "finalPrice": {
+        "currencyKey": "coin",
+        "amount": 4450000
+      },
+      "iconUrl": "",
+      "id": "7c6b96d9-0e8c-45d1-92ee-2856217363a4",
+      "imageUrl": "",
+      "isActive": true,
+      "isStarter": false,
+      "key": "nissantitan",
+      "locked": true,
+      "maxUpgradeLevel": 0,
+      "metadata": {
+        "gameId": "NissanTitan",
+        "garageMultiplier": 1.2,
+        "repair": {
+          "coin": 200000,
+          "gem": 100,
+          "seconds": 400
+        },
+        "serviceSeconds": {
+          "brake": 300,
+          "fuel": 5,
+          "oil": 300,
+          "tire": 10,
+          "wash": 300
+        }
+      },
+      "name": "نیسان تایتان",
+      "nextUpgradePrice": null,
+      "owned": false,
+      "parentKey": "",
+      "playerLevel": 1,
+      "price": {
+        "currencyKey": "coin",
+        "amount": 4450000
+      },
+      "rarity": "common",
+      "requirementMet": true,
+      "requiresKey": "",
+      "saleStopped": false,
+      "services": [
+        {
+          "currencyKey": "coin",
+          "key": "fuel",
+          "maxUnits": 100,
+          "name": "سوخت",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "fuel-garage",
+          "maxUnits": 100,
+          "name": "سوخت (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "tire",
+          "maxUnits": 100,
+          "name": "لاستیک",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "tire-garage",
+          "maxUnits": 100,
+          "name": "لاستیک (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "oil",
+          "maxUnits": 100,
+          "name": "روغن",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "oil-garage",
+          "maxUnits": 100,
+          "name": "روغن (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "brake",
+          "maxUnits": 100,
+          "name": "ترمز",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "brake-garage",
+          "maxUnits": 100,
+          "name": "ترمز (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "wash",
+          "maxUnits": 100,
+          "name": "کارواش",
+          "unitPrice": 10
+        },
+        {
+          "currencyKey": "coin",
+          "key": "wash-garage",
+          "maxUnits": 100,
+          "name": "کارواش (تعمیرگاه)",
+          "unitPrice": 12
+        },
+        {
+          "currencyKey": "coin",
+          "key": "repair",
+          "maxUnits": 100,
+          "name": "تعمیر",
+          "unitPrice": 2000
+        },
+        {
+          "currencyKey": "coin",
+          "key": "repair-garage",
+          "maxUnits": 100,
+          "name": "تعمیر (تعمیرگاه)",
+          "unitPrice": 2400
+        },
+        {
+          "currencyKey": "gem",
+          "key": "repair-now",
+          "maxUnits": 120,
+          "name": "تعمیر فوری",
+          "unitPrice": 1
+        }
+      ],
+      "sort": 6,
+      "soundUrl": "",
+      "tags": [],
+      "tracks": [],
+      "type": "vehicle",
+      "typeName": "ماشین‌ها",
+      "unlockLevel": 5,
+      "unlockPrices": [
+        {
+          "currencyKey": "gem",
+          "amount": 120
+        }
+      ],
+      "unlocked": false,
+      "unlockedEarly": false,
+      "upgradeLevel": 0
+    }
+  ],
+  "lang": "fa",
+  "level": 1
+}

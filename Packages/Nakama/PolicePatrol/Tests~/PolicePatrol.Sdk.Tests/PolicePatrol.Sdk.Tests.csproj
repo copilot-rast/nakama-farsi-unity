@@ -15,7 +15,8 @@
     <Compile Include="../../../Farsi/Runtime/**/*.cs" Exclude="../../../Farsi/Runtime/Unity/**/*.cs" LinkBase="Core" />
     <Compile Include="../../Runtime/**/*.cs" Exclude="../../Runtime/Unity/**/*.cs;../../Runtime/Addressables/**/*.cs" LinkBase="Runtime" />
     <Compile Include="../../Runtime/Unity/Stats/IStatCard.cs;../../Runtime/Unity/Stats/IGoalCard.cs;../../Runtime/Unity/Stats/GoalCardCondition.cs;../../Runtime/Unity/Stats/GoalValueType.cs" LinkBase="Linked" />
-    <Compile Include="../../Editor/Store/MyketGradle.cs;../../Editor/StatCards/StatCardJson.cs;../../Editor/ShopCards/ShopCardRow.cs;../../Editor/ShopCards/ShopCardSyncResult.cs" LinkBase="LinkedEditor" />
+    <Compile Include="../../Editor/Store/MyketGradle.cs;../../Editor/StatCards/StatCardJson.cs;../../Editor/ShopCards/ShopCardRow.cs;../../Editor/ShopCards/ShopCardSyncResult.cs;../../Editor/AssetSync/AssetSyncResult.cs;../../Editor/AssetSync/AssetRouting.cs" LinkBase="LinkedEditor" />
+    <None Include="Fixtures/*.json" CopyToOutputDirectory="PreserveNewest" LinkBase="Fixtures" />
     <Compile Include="*.cs;Legacy/*.cs" />
   </ItemGroup>
 

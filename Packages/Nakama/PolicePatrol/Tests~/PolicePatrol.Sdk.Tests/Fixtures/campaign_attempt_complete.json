@@ -1,0 +1,114 @@
+{
+  "attemptId": "98faf3d6-bc68-489a-887a-937dcdc28244",
+  "bestStars": 3,
+  "chapterKey": "chapter-close-beta-01",
+  "criteria": [
+    {
+      "field": "timeSavedPercent",
+      "stars": 3,
+      "value": 85.67
+    },
+    {
+      "field": "healthPercent",
+      "stars": 3,
+      "value": 81
+    },
+    {
+      "field": "timesSeen",
+      "stars": 3,
+      "value": 0
+    }
+  ],
+  "level": 2,
+  "levels": [
+    {
+      "tableId": "f013d5ad-88b5-4a6b-abd2-8ff21f82cc32",
+      "key": "player",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "tableId": "aa377352-437c-4280-86fc-58f9533f22bc",
+      "key": "star_levels",
+      "from": 0,
+      "to": 4
+    }
+  ],
+  "milestoneIds": [],
+  "milestoneRewards": [],
+  "milestones": [],
+  "minSeconds": 25,
+  "mode": "ordered",
+  "nextLevelXp": 2300,
+  "nextRewardAt": null,
+  "pendingPrizes": [],
+  "playCostRefund": null,
+  "previousBestStars": 0,
+  "prizes": [],
+  "replayable": false,
+  "replayed": false,
+  "rewardLimited": null,
+  "rewards": [
+    {
+      "amount": 150000,
+      "currencyKey": "coin"
+    },
+    {
+      "amount": 10,
+      "currencyKey": "gem"
+    }
+  ],
+  "rewardsLeftToday": null,
+  "serverSeconds": 26.02,
+  "stageKey": "chapter-close-beta-level-01",
+  "starRules": [
+    {
+      "conditions": [
+        {
+          "field": "timeSavedPercent",
+          "op": ">=",
+          "value": 30
+        },
+        {
+          "field": "healthPercent",
+          "op": ">=",
+          "value": 75
+        },
+        {
+          "field": "timesSeen",
+          "missing": "pass",
+          "op": "<=",
+          "value": 0
+        }
+      ],
+      "stars": 3
+    },
+    {
+      "conditions": [
+        {
+          "field": "timeSavedPercent",
+          "op": ">=",
+          "value": 10
+        },
+        {
+          "field": "healthPercent",
+          "op": ">=",
+          "value": 50
+        },
+        {
+          "field": "timesSeen",
+          "missing": "pass",
+          "op": "<=",
+          "value": 2
+        }
+      ],
+      "stars": 2
+    }
+  ],
+  "stars": 3,
+  "success": true,
+  "timeSavedPercent": 85.67,
+  "trophies": [],
+  "xp": 900,
+  "xpGained": 900
+}

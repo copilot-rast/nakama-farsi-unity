@@ -1,0 +1,12 @@
+{
+  "attemptId": "e0b584a9-0058-4d2f-b5a9-9c229c4b0852",
+  "expiresAt": "2026-11-23T05:06:02Z",
+  "item": {
+    "itemKey": "audiq2",
+    "itemType": "vehicle"
+  },
+  "playCost": null,
+  "stageKey": "chapter-close-beta-level-01",
+  "startedAt": "2026-11-22T05:06:02.546582Z",
+  "timeLimitSeconds": 180
+}

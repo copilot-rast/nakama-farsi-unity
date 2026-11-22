@@ -1,0 +1,192 @@
+{
+  "batchId": "cap-1795324063924",
+  "duplicate": false,
+  "received": 4,
+  "stored": 4,
+  "flagged": 0,
+  "rejected": 0,
+  "results": [
+    {
+      "index": 0,
+      "name": "design",
+      "type": "design",
+      "status": "stored"
+    },
+    {
+      "index": 1,
+      "name": "design",
+      "type": "design",
+      "status": "stored"
+    },
+    {
+      "index": 2,
+      "name": "jump",
+      "status": "stored"
+    },
+    {
+      "index": 3,
+      "name": "overtake",
+      "status": "stored"
+    }
+  ],
+  "stats": [
+    {
+      "key": "jumps",
+      "sent": 1,
+      "accepted": 1,
+      "value": 1,
+      "current": 1,
+      "status": "accepted"
+    },
+    {
+      "key": "jumps",
+      "tag": "vehicle=HyundaiSantafe",
+      "sent": 1,
+      "accepted": 1,
+      "value": 1,
+      "current": 1,
+      "status": "accepted"
+    },
+    {
+      "key": "jumps",
+      "tag": "vehicleClass=SUV",
+      "sent": 1,
+      "accepted": 1,
+      "value": 1,
+      "current": 1,
+      "status": "accepted"
+    },
+    {
+      "key": "kills",
+      "sent": 12,
+      "accepted": 12,
+      "value": 12,
+      "current": 12,
+      "status": "accepted"
+    },
+    {
+      "key": "kills",
+      "tag": "gun=gun-handgun-mp5",
+      "sent": 12,
+      "accepted": 12,
+      "value": 12,
+      "current": 12,
+      "status": "accepted"
+    },
+    {
+      "key": "kills",
+      "tag": "gunClass=Handgun",
+      "sent": 12,
+      "accepted": 12,
+      "value": 12,
+      "current": 12,
+      "status": "accepted"
+    },
+    {
+      "key": "overtakes",
+      "sent": 1,
+      "accepted": 1,
+      "value": 1,
+      "current": 1,
+      "status": "accepted"
+    },
+    {
+      "key": "overtakes",
+      "tag": "vehicle=HyundaiSantafe",
+      "sent": 1,
+      "accepted": 1,
+      "value": 1,
+      "current": 1,
+      "status": "accepted"
+    },
+    {
+      "key": "overtakes",
+      "tag": "vehicleClass=SUV",
+      "sent": 1,
+      "accepted": 1,
+      "value": 1,
+      "current": 1,
+      "status": "accepted"
+    },
+    {
+      "key": "vehicle_distance_km",
+      "sent": 5,
+      "accepted": 5,
+      "value": 5,
+      "current": 5,
+      "status": "accepted"
+    },
+    {
+      "key": "vehicle_distance_km",
+      "tag": "vehicle=HyundaiSantafe",
+      "sent": 5,
+      "accepted": 5,
+      "value": 5,
+      "current": 5,
+      "status": "accepted"
+    },
+    {
+      "key": "vehicle_distance_km",
+      "tag": "vehicleClass=SUV",
+      "sent": 5,
+      "accepted": 5,
+      "value": 5,
+      "current": 5,
+      "status": "accepted"
+    }
+  ],
+  "unlocked": [
+    {
+      "stepId": "104ce56a-4b13-411f-b3a8-6e0056852fbc",
+      "trophyKey": "distance_one_car",
+      "trophyName": "مسافت با یک ماشین",
+      "groupKey": "vehicle",
+      "step": 1,
+      "stepCount": 4,
+      "stepName": "برنز",
+      "rewards": {},
+      "claimMode": "none",
+      "status": "none"
+    },
+    {
+      "stepId": "b4277807-db17-4df8-acef-e64718b5cb6f",
+      "trophyKey": "distance_car_HyundaiSantafe",
+      "trophyName": "مسافت با سانتافه",
+      "groupKey": "vehicle",
+      "step": 1,
+      "stepCount": 4,
+      "stepName": "برنز",
+      "rewards": {},
+      "claimMode": "none",
+      "status": "none"
+    },
+    {
+      "stepId": "9abac33e-2124-4ab8-ab27-fc0385b7d555",
+      "trophyKey": "kills",
+      "trophyName": "نابودی دشمن",
+      "groupKey": "gun",
+      "step": 1,
+      "stepCount": 4,
+      "stepName": "برنز",
+      "rewards": {
+        "currencies": {
+          "coin": 500
+        }
+      },
+      "claimMode": "claim",
+      "status": "ready"
+    },
+    {
+      "stepId": "de743c1b-2954-41c4-afaa-29c38a187fee",
+      "trophyKey": "kills_class_Handgun",
+      "trophyName": "نابودی دشمن با کلت",
+      "groupKey": "gun",
+      "step": 1,
+      "stepCount": 4,
+      "stepName": "برنز",
+      "rewards": {},
+      "claimMode": "none",
+      "status": "none"
+    }
+  ]
+}

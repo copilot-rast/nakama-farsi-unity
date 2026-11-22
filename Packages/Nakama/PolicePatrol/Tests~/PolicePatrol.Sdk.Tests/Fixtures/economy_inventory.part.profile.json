@@ -1,0 +1,474 @@
+{
+  "counts": {
+    "owned": 0,
+    "total": 272
+  },
+  "equipped": {
+    "gun": "gun-handgun-bereta92",
+    "skin": "star_basket_classic",
+    "vehicle": "tiggo8"
+  },
+  "items": [
+    {
+      "attributes": {},
+      "canBuy": false,
+      "canUnlock": false,
+      "canUnlockEarly": false,
+      "categoryKey": "",
+      "description": "",
+      "discountPercent": 0,
+      "discounts": [],
+      "equipped": false,
+      "finalPrice": {
+        "currencyKey": "coin",
+        "amount": 25000
+      },
+      "iconUrl": "",
+      "id": "c0978e61-bba1-4675-a1af-fd68f912f6d3",
+      "imageUrl": "",
+      "isActive": true,
+      "isStarter": false,
+      "key": "00431a06-c547-4d17-b8ee-cddba08f9ec0",
+      "kind": "part",
+      "locked": false,
+      "maxUpgradeLevel": 0,
+      "metadata": {
+        "car": "audiq2",
+        "gameId": "00431a06-c547-4d17-b8ee-cddba08f9ec0",
+        "slot": "colorring"
+      },
+      "name": "رنگ رینگ ۱",
+      "nextUpgradePrice": null,
+      "owned": false,
+      "parentKey": "audiq2",
+      "playerLevel": 2,
+      "price": {
+        "currencyKey": "coin",
+        "amount": 25000
+      },
+      "profile": {
+        "car": "AudiQ2",
+        "carKey": "audiq2",
+        "cardId": "00431a06-c547-4d17-b8ee-cddba08f9ec0",
+        "collectionId": "79c6cba6-9092-403d-8ece-8e47af440da8",
+        "constParameters": {
+          "CameraPos": "ColorRing_1",
+          "Color": "878787"
+        },
+        "expire": 0,
+        "group": "Customization",
+        "health": 0,
+        "level": 1,
+        "parameters": {},
+        "requires": [],
+        "sellable": true,
+        "slot": "colorring",
+        "slotName": "ColorRing",
+        "tags": [
+          "ColorRing",
+          "Customization"
+        ]
+      },
+      "rarity": "common",
+      "requirementMet": false,
+      "requiresKey": "",
+      "saleStopped": false,
+      "services": [],
+      "sort": 1,
+      "soundUrl": "",
+      "tags": [],
+      "tracks": [],
+      "type": "part",
+      "typeName": "قطعه‌های ماشین",
+      "unlockLevel": 0,
+      "unlockPrices": [],
+      "unlocked": true,
+      "unlockedEarly": false,
+      "upgradeLevel": 0
+    },
+    {
+      "attributes": {},
+      "canBuy": false,
+      "canUnlock": false,
+      "canUnlockEarly": false,
+      "categoryKey": "",
+      "description": "",
+      "discountPercent": 0,
+      "discounts": [],
+      "equipped": false,
+      "finalPrice": {
+        "currencyKey": "coin",
+        "amount": 100000
+      },
+      "iconUrl": "",
+      "id": "03aea076-b0ea-475a-81c3-766ebb0b5f34",
+      "imageUrl": "",
+      "isActive": true,
+      "isStarter": false,
+      "key": "07f55fe3-3fa5-4612-9e38-8fdbe39090ab",
+      "kind": "part",
+      "locked": false,
+      "maxUpgradeLevel": 0,
+      "metadata": {
+        "car": "audiq2",
+        "gameId": "07f55fe3-3fa5-4612-9e38-8fdbe39090ab",
+        "slot": "shieldback"
+      },
+      "name": "گارد عقب ۱",
+      "nextUpgradePrice": null,
+      "owned": false,
+      "parentKey": "audiq2",
+      "playerLevel": 2,
+      "price": {
+        "currencyKey": "coin",
+        "amount": 100000
+      },
+      "profile": {
+        "car": "AudiQ2",
+        "carKey": "audiq2",
+        "cardId": "07f55fe3-3fa5-4612-9e38-8fdbe39090ab",
+        "collectionId": "4deb2f4a-4433-4757-9fdd-18c1a49fddc5",
+        "constParameters": {
+          "CameraPos": "ShieldBack_1"
+        },
+        "expire": 0,
+        "group": "Customization",
+        "health": 0,
+        "level": 1,
+        "parameters": {
+          "UpgradeBodyPower": 1
+        },
+        "requires": [],
+        "sellable": true,
+        "slot": "shieldback",
+        "slotName": "ShieldBack",
+        "tags": [
+          "Customization",
+          "Upgrade",
+          "ShieldBack"
+        ]
+      },
+      "rarity": "common",
+      "requirementMet": false,
+      "requiresKey": "",
+      "saleStopped": false,
+      "services": [],
+      "sort": 1,
+      "soundUrl": "",
+      "tags": [],
+      "tracks": [],
+      "type": "part",
+      "typeName": "قطعه‌های ماشین",
+      "unlockLevel": 0,
+      "unlockPrices": [],
+      "unlocked": true,
+      "unlockedEarly": false,
+      "upgradeLevel": 0
+    },
+    {
+      "attributes": {},
+      "canBuy": false,
+      "canUnlock": false,
+      "canUnlockEarly": false,
+      "categoryKey": "",
+      "description": "",
+      "discountPercent": 0,
+      "discounts": [],
+      "equipped": false,
+      "finalPrice": null,
+      "iconUrl": "",
+      "id": "60981c96-e9d8-4926-b4ed-5b50f2fe6b65",
+      "imageUrl": "",
+      "isActive": true,
+      "isStarter": false,
+      "key": "1009478e-9d7c-4691-92c0-940f818e18f6",
+      "kind": "part",
+      "locked": false,
+      "maxUpgradeLevel": 0,
+      "metadata": {
+        "car": "audiq2",
+        "gameId": "1009478e-9d7c-4691-92c0-940f818e18f6",
+        "slot": "vehicle_windowfrontleft"
+      },
+      "name": "AudiQ2_Window_FL",
+      "nextUpgradePrice": null,
+      "owned": false,
+      "parentKey": "audiq2",
+      "playerLevel": 2,
+      "price": null,
+      "profile": {
+        "car": "AudiQ2",
+        "carKey": "audiq2",
+        "cardId": "1009478e-9d7c-4691-92c0-940f818e18f6",
+        "collectionId": "133cef3b-9f2e-49ef-a735-c2e6bbd26041",
+        "constParameters": {},
+        "expire": 0,
+        "fittedOnly": true,
+        "group": "",
+        "health": 0,
+        "level": 1,
+        "parameters": {},
+        "requires": [],
+        "sellable": false,
+        "slot": "vehicle_windowfrontleft",
+        "slotName": "Vehicle_WindowFrontLeft",
+        "tags": [
+          "Vehicle_WindowFrontLeft"
+        ]
+      },
+      "rarity": "common",
+      "requirementMet": false,
+      "requiresKey": "",
+      "saleStopped": false,
+      "services": [],
+      "sort": 1,
+      "soundUrl": "",
+      "tags": [],
+      "tracks": [],
+      "type": "part",
+      "typeName": "قطعه‌های ماشین",
+      "unlockLevel": 0,
+      "unlockPrices": [],
+      "unlocked": true,
+      "unlockedEarly": false,
+      "upgradeLevel": 0
+    },
+    {
+      "attributes": {},
+      "canBuy": false,
+      "canUnlock": false,
+      "canUnlockEarly": false,
+      "categoryKey": "",
+      "description": "",
+      "discountPercent": 0,
+      "discounts": [],
+      "equipped": false,
+      "finalPrice": {
+        "currencyKey": "coin",
+        "amount": 45000
+      },
+      "iconUrl": "",
+      "id": "634d9d8a-c3e4-48a7-be4e-13a370a77c07",
+      "imageUrl": "",
+      "isActive": true,
+      "isStarter": false,
+      "key": "10e860c3-eef0-42e3-8b07-ce0aadcbae8c",
+      "kind": "part",
+      "locked": false,
+      "maxUpgradeLevel": 0,
+      "metadata": {
+        "car": "audiq2",
+        "gameId": "10e860c3-eef0-42e3-8b07-ce0aadcbae8c",
+        "slot": "engine"
+      },
+      "name": "موتور ۱",
+      "nextUpgradePrice": null,
+      "owned": false,
+      "parentKey": "audiq2",
+      "playerLevel": 2,
+      "price": {
+        "currencyKey": "coin",
+        "amount": 45000
+      },
+      "profile": {
+        "car": "AudiQ2",
+        "carKey": "audiq2",
+        "cardId": "10e860c3-eef0-42e3-8b07-ce0aadcbae8c",
+        "collectionId": "c2d792b8-7146-47eb-ac66-b55d0c3a9f0d",
+        "constParameters": {
+          "CameraPos": "Engine_1"
+        },
+        "expire": 0,
+        "group": "Upgrade",
+        "health": 0,
+        "level": 1,
+        "parameters": {
+          "UpgradeSpeed": 1
+        },
+        "requires": [],
+        "sellable": true,
+        "slot": "engine",
+        "slotName": "Engine",
+        "tags": [
+          "Upgrade",
+          "Engine"
+        ]
+      },
+      "rarity": "common",
+      "requirementMet": false,
+      "requiresKey": "",
+      "saleStopped": false,
+      "services": [],
+      "sort": 1,
+      "soundUrl": "",
+      "tags": [],
+      "tracks": [],
+      "type": "part",
+      "typeName": "قطعه‌های ماشین",
+      "unlockLevel": 0,
+      "unlockPrices": [],
+      "unlocked": true,
+      "unlockedEarly": false,
+      "upgradeLevel": 0
+    },
+    {
+      "attributes": {},
+      "canBuy": false,
+      "canUnlock": false,
+      "canUnlockEarly": false,
+      "categoryKey": "",
+      "description": "",
+      "discountPercent": 0,
+      "discounts": [],
+      "equipped": false,
+      "finalPrice": {
+        "currencyKey": "coin",
+        "amount": 100000
+      },
+      "iconUrl": "",
+      "id": "03aea076-b0ea-475a-81c3-766ebb0b5f34",
+      "imageUrl": "",
+      "isActive": true,
+      "isStarter": false,
+      "key": "07f55fe3-3fa5-4612-9e38-8fdbe39090ab",
+      "kind": "part",
+      "locked": false,
+      "maxUpgradeLevel": 0,
+      "metadata": {
+        "car": "audiq2",
+        "gameId": "07f55fe3-3fa5-4612-9e38-8fdbe39090ab",
+        "slot": "shieldback"
+      },
+      "name": "گارد عقب ۱",
+      "nextUpgradePrice": null,
+      "owned": false,
+      "parentKey": "audiq2",
+      "playerLevel": 2,
+      "price": {
+        "currencyKey": "coin",
+        "amount": 100000
+      },
+      "profile": {
+        "car": "AudiQ2",
+        "carKey": "audiq2",
+        "cardId": "07f55fe3-3fa5-4612-9e38-8fdbe39090ab",
+        "collectionId": "4deb2f4a-4433-4757-9fdd-18c1a49fddc5",
+        "constParameters": {
+          "CameraPos": "ShieldBack_1"
+        },
+        "expire": 0,
+        "group": "Customization",
+        "health": 0,
+        "level": 1,
+        "parameters": {
+          "UpgradeBodyPower": 1
+        },
+        "requires": [],
+        "sellable": true,
+        "slot": "shieldback",
+        "slotName": "ShieldBack",
+        "tags": [
+          "Customization",
+          "Upgrade",
+          "ShieldBack"
+        ]
+      },
+      "rarity": "common",
+      "requirementMet": false,
+      "requiresKey": "",
+      "saleStopped": false,
+      "services": [],
+      "sort": 1,
+      "soundUrl": "",
+      "tags": [],
+      "tracks": [],
+      "type": "part",
+      "typeName": "قطعه‌های ماشین",
+      "unlockLevel": 0,
+      "unlockPrices": [],
+      "unlocked": true,
+      "unlockedEarly": false,
+      "upgradeLevel": 0
+    },
+    {
+      "attributes": {},
+      "canBuy": false,
+      "canUnlock": false,
+      "canUnlockEarly": false,
+      "categoryKey": "",
+      "description": "",
+      "discountPercent": 0,
+      "discounts": [],
+      "equipped": false,
+      "finalPrice": {
+        "currencyKey": "coin",
+        "amount": 45000
+      },
+      "iconUrl": "",
+      "id": "634d9d8a-c3e4-48a7-be4e-13a370a77c07",
+      "imageUrl": "",
+      "isActive": true,
+      "isStarter": false,
+      "key": "10e860c3-eef0-42e3-8b07-ce0aadcbae8c",
+      "kind": "part",
+      "locked": false,
+      "maxUpgradeLevel": 0,
+      "metadata": {
+        "car": "audiq2",
+        "gameId": "10e860c3-eef0-42e3-8b07-ce0aadcbae8c",
+        "slot": "engine"
+      },
+      "name": "موتور ۱",
+      "nextUpgradePrice": null,
+      "owned": false,
+      "parentKey": "audiq2",
+      "playerLevel": 2,
+      "price": {
+        "currencyKey": "coin",
+        "amount": 45000
+      },
+      "profile": {
+        "car": "AudiQ2",
+        "carKey": "audiq2",
+        "cardId": "10e860c3-eef0-42e3-8b07-ce0aadcbae8c",
+        "collectionId": "c2d792b8-7146-47eb-ac66-b55d0c3a9f0d",
+        "constParameters": {
+          "CameraPos": "Engine_1"
+        },
+        "expire": 0,
+        "group": "Upgrade",
+        "health": 0,
+        "level": 1,
+        "parameters": {
+          "UpgradeSpeed": 1
+        },
+        "requires": [],
+        "sellable": true,
+        "slot": "engine",
+        "slotName": "Engine",
+        "tags": [
+          "Upgrade",
+          "Engine"
+        ]
+      },
+      "rarity": "common",
+      "requirementMet": false,
+      "requiresKey": "",
+      "saleStopped": false,
+      "services": [],
+      "sort": 1,
+      "soundUrl": "",
+      "tags": [],
+      "tracks": [],
+      "type": "part",
+      "typeName": "قطعه‌های ماشین",
+      "unlockLevel": 0,
+      "unlockPrices": [],
+      "unlocked": true,
+      "unlockedEarly": false,
+      "upgradeLevel": 0
+    }
+  ],
+  "lang": "fa",
+  "level": 2
+}

@@ -1,0 +1,96 @@
+{
+  "dryRun": true,
+  "created": 0,
+  "updated": 1,
+  "unchanged": 3,
+  "deleted": 0,
+  "conflicts": [],
+  "rows": [
+    {
+      "assetId": "AudiQ2",
+      "action": "updated",
+      "version": 2,
+      "previousVersion": 1,
+      "hash": "1dc3677b65b3a02336089d35588f3387bb54aead94f52d3af086003518c55706"
+    },
+    {
+      "assetId": "1fac2a91-29dc-4394-9b7f-100ba1c5454a",
+      "action": "unchanged",
+      "version": 1,
+      "hash": "8fc5c631c1d7ee037e6512c8208baac625e5d7a013fe2d5de7bf344e6a5926b7"
+    },
+    {
+      "assetId": "e873bf4a-2658-4d51-831d-159834c3e856",
+      "action": "unchanged",
+      "version": 1,
+      "hash": "5bcf767d41478c18dff7f4707472ca29230d52a015958f30d66882a5db7f2a93"
+    },
+    {
+      "assetId": "2394bd10-38e5-4e5e-a91b-fe8ed37126bb",
+      "action": "unchanged",
+      "version": 1,
+      "hash": "b802990ae56777eb7cacb11cc505ffdfe1d303262965d514b50e3937cc645d20"
+    }
+  ],
+  "items": [
+    {
+      "assetId": "AudiQ2",
+      "sourceGuid": "d5d273742bea3024aaf2fe685153a5e4",
+      "type": "GameData.VehicleCard",
+      "folder": "Assets/Common/Config/Vehicle Card",
+      "name": "VehicleCard_AudiQ2",
+      "version": 2,
+      "hash": "1dc3677b65b3a02336089d35588f3387bb54aead94f52d3af086003518c55706"
+    },
+    {
+      "assetId": "1fac2a91-29dc-4394-9b7f-100ba1c5454a",
+      "sourceGuid": "df00f6985d730b044ad6b00cbcd4bee8",
+      "type": "AssetData.Cards.AssetCard",
+      "folder": "Assets/Common/Config/Asset/Vehicle_AudiQ2/AntiBullet",
+      "name": "AudiQ2_AntiBullet_1",
+      "version": 1,
+      "hash": "8fc5c631c1d7ee037e6512c8208baac625e5d7a013fe2d5de7bf344e6a5926b7"
+    },
+    {
+      "assetId": "e873bf4a-2658-4d51-831d-159834c3e856",
+      "sourceGuid": "89633cb8b8905904f95858d1196af697",
+      "type": "AssetData.Cards.AssetCard",
+      "folder": "Assets/Common/Config/Asset/Vehicle_AudiQ2/AntiBullet",
+      "name": "AudiQ2_AntiBullet_2",
+      "version": 1,
+      "hash": "5bcf767d41478c18dff7f4707472ca29230d52a015958f30d66882a5db7f2a93"
+    },
+    {
+      "assetId": "2394bd10-38e5-4e5e-a91b-fe8ed37126bb",
+      "sourceGuid": "2dc5391448676b643bc06e1438f37c58",
+      "type": "AssetData.Cards.AssetCard",
+      "folder": "Assets/Common/Config/Asset/Vehicle_AudiQ2/AntiBullet",
+      "name": "AudiQ2_AntiBullet_3",
+      "version": 1,
+      "hash": "b802990ae56777eb7cacb11cc505ffdfe1d303262965d514b50e3937cc645d20"
+    }
+  ],
+  "routing": {
+    "enabled": true,
+    "dryRun": true,
+    "summary": {
+      "updated": 1
+    },
+    "rows": [
+      {
+        "assetId": "AudiQ2",
+        "type": "GameData.VehicleCard",
+        "kind": "car",
+        "itemKey": "audiq2",
+        "action": "updated",
+        "changes": [
+          {
+            "field": "profile.unlockGem",
+            "before": 50,
+            "after": 51
+          }
+        ]
+      }
+    ]
+  }
+}
