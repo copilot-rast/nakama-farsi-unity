@@ -105,16 +105,43 @@ cd ../UnityCheck && dotnet build                                              # 
 
 ## Regenerating the wrappers
 
-After RPCs change on the server:
+All games share one generated layer (`NakamaFarsi.Sdk.Generated`, no define), so every project that installs the package sees every game's RPCs. The wrappers are always generated from every project at once:
 
 ```sh
-tools/generate.sh                      # reads the committed nakama-farsi dev branch next to this repository
-NF=../pp/backend REV=nakama MODULES="combatrace=integrations/combatrace,devkit=integrations/devkit,analytics=integrations/analytics,account=integrations/account,shopx=integrations/shopx,inventoryx=integrations/inventoryx,ledger=integrations/ledger,campaign=integrations/campaign,assets=integrations/assets,social=integrations/social,fairplay=integrations/fairplay,pp=integrations/pp" EXTRA="../combatrace/backend:dev:integrations/combatrace" tools/generate.sh   # what is committed: Police Patrol and CombatRace RPCs
-NF=../path/to/nakama-farsi REV=dev MODULES="flickkick=integrations/flickkick" tools/generate.sh
-python3 tools/write_meta.py Packages/Nakama Farsi
+tools/generate-all.sh                    # all projects in tools/projects.txt, then both gates; writes Rpcs.g.cs, tools/schema and the ApiCompatCheck usage file
+tools/generate-all.sh --check            # same run, writes nothing; fails if the committed Rpcs.g.cs is stale
+REV_combatrace=roadstorm-progress tools/generate-all.sh   # pin one project to another branch or commit
 ```
 
-`MODULES` adds game plugins (for example a fork's own plugins).
+`tools/generate.sh` only forwards to `generate-all.sh`; the old `NF`, `REV`, `EXTRA` and `MODULES` variables are refused, because a run from one repository drops the other games' RPCs.
+
+`tools/projects.txt` lists every server: `name path branch`. A new game backend is one more line. Every `integrations/<dir>` of every project is scanned, so a fork's own plugins need no extra setting. When two projects serve the same RPC, the C# type is the union of their fields; on a type conflict the first project in the list wins and the run prints a note.
+
+`tools/rpc-exclude.txt` lists server-only RPCs that get no wrapper (one id and the reason per line).
+
+### The gates
+
+The run stops before it writes anything if:
+
+1. **Coverage** (`tools/rpcschema`): an RPC that any project registers with `RegisterRpc` has no wrapper, or a registration cannot be read (for example an id built at run time). Fix the scanner or add the id to `rpc-exclude.txt` with a reason.
+2. **API compatibility** (`tools/apicompat`): it compares the new `Rpcs.g.cs` with the one in `HEAD`. A removed or renamed class, property, method, module or `RpcIds` constant, a changed type, a changed JSON name or a changed method signature fails the run. New RPCs, new classes and new optional fields pass.
+3. **JSON rules** (`tools/apicompat`, no override): every value-type field must be nullable (a field an older server does not send stays null), and every response and nested data class keeps `[JsonExtensionData] Extra`, so fields from newer servers are kept, not lost. `SdkJson` ignores unknown members, and a field whose type changed is skipped (`SdkJson.MemberSkipped`) while the rest loads; the full answer is always in `Raw`.
+
+The schema step also keeps every field type from the committed `tools/schema/rpc-schema.json`: if a server now sends another type for an existing field, the old C# type stays, the run prints a note, and the value is still in `Raw`.
+
+An intentional breaking change needs both a major or minor bump in `package.json` (for example `3.24.0-nf.1`) and `tools/generate-all.sh --allow-breaking`. Write the change in `CHANGELOG.md` and tell every game team before they update.
+
+After a run, compile and test:
+
+```sh
+cd Packages/Nakama/Farsi/Tests~/ApiCompatCheck && dotnet build      # every old public member (OldApiUsage.g.cs) and the handoff snippets (Snippets/) against the new code
+dotnet build -p:OldRpcs=/path/to/old/Rpcs.g.cs                       # the same snippets against an older Rpcs.g.cs (git show HEAD~1:...)
+cd ../UnityCompileCheck && dotnet build && cd ../NakamaFarsi.Sdk.Tests && dotnet test
+cd ../../../PolicePatrol/Tests~/UnityCheck && dotnet build && cd ../PolicePatrol.Sdk.Tests && dotnet test
+cd tools && go test ./...
+```
+
+New runtime files need `.meta` files: `python3 tools/write_meta.py Packages/Nakama Farsi`.
 
 ## Tests
 

@@ -3,6 +3,16 @@ All notable changes to this project are documented below.
 
 The format is based on [keep a changelog](http://keepachangelog.com/) and this project uses [semantic versioning](http://semver.org/).
 
+## [3.23.0-nf.4] - 2026-11-23
+### Added
+- Farsi layer: wrappers generated from every game server at once (nakama-farsi, Police Patrol, CombatRace, Rakhtkan, Soltan, Finteen, ViralVanguard, Machine Irani, Mench), 336 RPCs (300 before). New: `combatrace_profile`, `combatrace_missions`, `combatrace_events`, `combatrace_task_claim`; `combatrace_match_end` takes `kills`, `zombies`, `finished`, `weapons` and answers the pits split, XP, level, level-up and league fields; `flickkick_*`, `prediction_*`, `soltan_*`, `blockworld_*` (player RPCs only); new optional fields on existing answers (for example `displayName` in `economy_referral_me`). All of them sit in the shared generated layer with no define, so no project needs a new symbol.
+- `tools/generate-all.sh` with `tools/projects.txt` (one line per server) and `tools/rpc-exclude.txt` (server-only RPCs). `tools/generate.sh` forwards to it and refuses the old single-repository variables.
+- Generation gates: every RPC registered in any listed project must get a wrapper; every public member of the committed `Rpcs.g.cs` must stay with the same type, JSON name and signature (`tools/apicompat`, override only with `--allow-breaking` and a major or minor version bump); value fields stay nullable and every answer class keeps `Extra`.
+- `Farsi/Tests~/ApiCompatCheck`: compiles a usage of every old public member and the Road Storm handoff snippets against the new code (and the snippets against the old code with `-p:OldRpcs=`). `JsonCompatTests`: old answers parse in the new SDK, unknown fields land in `Extra`, a changed field type is skipped and the rest loads.
+
+### Changed
+- `tools/rpcschema` keeps the committed type of every existing field (the value stays in `Raw` if a server changes it), reads RPC maps written inline in `InitModule` or in functions named `rpcs`, joins every definition of a local variable, and widens integer plus number to number (for example `leagueMultiplier` is `double?`).
+
 ## [3.23.0-nf.3] - 2026-11-22
 ### Added
 - Farsi layer: typed wrappers regenerated from the Police Patrol server (`nakama` @ e12ac90cc), 300 RPCs (new: `base_comm_*`, `base_friend_suggestions`, `base_my_code`, `base_player_codes`, `base_user_by_code`, `base_username_change`, `base_username_quote`, `comms_user_token`, `economy_boosters`, `economy_chance_ack`, `economy_game_active`, `economy_game_bot`, `economy_game_friend_*`, `economy_game_queue`, `economy_game_stats`, `economy_player_card`, `economy_regen_*`, `insights_send`); new request fields such as `withProfile` and `type` on `economy_inventory`. `tools/rpcschema -keep` keeps response shapes the scan no longer resolves, so no generated type loses a member.
