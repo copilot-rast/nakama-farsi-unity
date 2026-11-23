@@ -15,6 +15,7 @@ namespace NakamaFarsi.Sdk.Generated
             Analytics = new AnalyticsRpcs(caller);
             Assets = new AssetsRpcs(caller);
             Base = new BaseRpcs(caller);
+            Blockworld = new BlockworldRpcs(caller);
             Campaign = new CampaignRpcs(caller);
             Clan = new ClanRpcs(caller);
             Combatrace = new CombatraceRpcs(caller);
@@ -22,15 +23,18 @@ namespace NakamaFarsi.Sdk.Generated
             Cup = new CupRpcs(caller);
             Devkit = new DevkitRpcs(caller);
             Economy = new EconomyRpcs(caller);
+            Flickkick = new FlickkickRpcs(caller);
             Insights = new InsightsRpcs(caller);
             Inventoryx = new InventoryxRpcs(caller);
             Leaderboardx = new LeaderboardxRpcs(caller);
             Ledger = new LedgerRpcs(caller);
             Pp = new PpRpcs(caller);
+            Prediction = new PredictionRpcs(caller);
             Publication = new PublicationRpcs(caller);
             Quiz = new QuizRpcs(caller);
             Shopx = new ShopxRpcs(caller);
             Social = new SocialRpcs(caller);
+            Soltan = new SoltanRpcs(caller);
             Trophy = new TrophyRpcs(caller);
         }
 
@@ -41,6 +45,8 @@ namespace NakamaFarsi.Sdk.Generated
         public AssetsRpcs Assets { get; }
 
         public BaseRpcs Base { get; }
+
+        public BlockworldRpcs Blockworld { get; }
 
         public CampaignRpcs Campaign { get; }
 
@@ -56,6 +62,8 @@ namespace NakamaFarsi.Sdk.Generated
 
         public EconomyRpcs Economy { get; }
 
+        public FlickkickRpcs Flickkick { get; }
+
         public InsightsRpcs Insights { get; }
 
         public InventoryxRpcs Inventoryx { get; }
@@ -66,6 +74,8 @@ namespace NakamaFarsi.Sdk.Generated
 
         public PpRpcs Pp { get; }
 
+        public PredictionRpcs Prediction { get; }
+
         public PublicationRpcs Publication { get; }
 
         public QuizRpcs Quiz { get; }
@@ -73,6 +83,8 @@ namespace NakamaFarsi.Sdk.Generated
         public ShopxRpcs Shopx { get; }
 
         public SocialRpcs Social { get; }
+
+        public SoltanRpcs Soltan { get; }
 
         public TrophyRpcs Trophy { get; }
     }
@@ -158,6 +170,9 @@ namespace NakamaFarsi.Sdk.Generated
         public const string BaseUsernameChange = "base_username_change";
         public const string BaseUsernameQuote = "base_username_quote";
         public const string BaseUsersGet = "base_users_get";
+        public const string BlockworldBuyBlock = "blockworld_buy_block";
+        public const string BlockworldToken = "blockworld_token";
+        public const string BlockworldWallet = "blockworld_wallet";
         public const string CampaignAttemptComplete = "campaign_attempt_complete";
         public const string CampaignAttemptStart = "campaign_attempt_start";
         public const string CampaignChapters = "campaign_chapters";
@@ -189,9 +204,13 @@ namespace NakamaFarsi.Sdk.Generated
         public const string ClanWarSignup = "clan_war_signup";
         public const string ClanXpHistory = "clan_xp_history";
         public const string CombatraceConfig = "combatrace_config";
+        public const string CombatraceEvents = "combatrace_events";
         public const string CombatraceHistory = "combatrace_history";
         public const string CombatraceMatchBegin = "combatrace_match_begin";
         public const string CombatraceMatchEnd = "combatrace_match_end";
+        public const string CombatraceMissions = "combatrace_missions";
+        public const string CombatraceProfile = "combatrace_profile";
+        public const string CombatraceTaskClaim = "combatrace_task_claim";
         public const string CommsUserToken = "comms_user_token";
         public const string ContentCatalog = "content_catalog";
         public const string CupGet = "cup_get";
@@ -280,6 +299,12 @@ namespace NakamaFarsi.Sdk.Generated
         public const string EconomyTaskGroupCurrent = "economy_task_group_current";
         public const string EconomyTaskGroupNext = "economy_task_group_next";
         public const string EconomyTasksList = "economy_tasks_list";
+        public const string FlickkickBotMatch = "flickkick_bot_match";
+        public const string FlickkickConfig = "flickkick_config";
+        public const string FlickkickFormations = "flickkick_formations";
+        public const string FlickkickFriendCancel = "flickkick_friend_cancel";
+        public const string FlickkickFriendCreate = "flickkick_friend_create";
+        public const string FlickkickFriendJoin = "flickkick_friend_join";
         public const string InsightsConfig = "insights_config";
         public const string InsightsHeatmap = "insights_heatmap";
         public const string InsightsSend = "insights_send";
@@ -296,6 +321,19 @@ namespace NakamaFarsi.Sdk.Generated
         public const string LedgerKinds = "ledger_kinds";
         public const string LedgerList = "ledger_list";
         public const string PpLocalState = "pp_local_state";
+        public const string PredictionAnswerUpdate = "prediction_answer_update";
+        public const string PredictionConfig = "prediction_config";
+        public const string PredictionEvent = "prediction_event";
+        public const string PredictionEvents = "prediction_events";
+        public const string PredictionHistory = "prediction_history";
+        public const string PredictionLeaderboard = "prediction_leaderboard";
+        public const string PredictionLeague = "prediction_league";
+        public const string PredictionLeagues = "prediction_leagues";
+        public const string PredictionMyAnswers = "prediction_my_answers";
+        public const string PredictionMyStats = "prediction_my_stats";
+        public const string PredictionQuestionEvents = "prediction_question_events";
+        public const string PredictionResults = "prediction_results";
+        public const string PredictionSubmit = "prediction_submit";
         public const string PublicationBannerClick = "publication_banner_click";
         public const string PublicationBannerView = "publication_banner_view";
         public const string PublicationBanners = "publication_banners";
@@ -374,6 +412,16 @@ namespace NakamaFarsi.Sdk.Generated
         public const string SocialReact = "social_react";
         public const string SocialSummary = "social_summary";
         public const string SocialUnfollow = "social_unfollow";
+        public const string SoltanBootstrap = "soltan_bootstrap";
+        public const string SoltanDailyState = "soltan_daily_state";
+        public const string SoltanDuelHistory = "soltan_duel_history";
+        public const string SoltanDuelInfo = "soltan_duel_info";
+        public const string SoltanHint = "soltan_hint";
+        public const string SoltanLevelComplete = "soltan_level_complete";
+        public const string SoltanLevelStart = "soltan_level_start";
+        public const string SoltanMapSeen = "soltan_map_seen";
+        public const string SoltanPrefs = "soltan_prefs";
+        public const string SoltanRocket = "soltan_rocket";
         public const string TrophyHistory = "trophy_history";
         public const string TrophyLeagues = "trophy_leagues";
         public const string TrophyMe = "trophy_me";
@@ -1117,6 +1165,36 @@ namespace NakamaFarsi.Sdk.Generated
         }
     }
 
+    public sealed partial class BlockworldRpcs
+    {
+        private static readonly RpcCallOptions ReadCall = new RpcCallOptions { ReadOnly = true };
+        private static readonly RpcCallOptions WriteCall = new RpcCallOptions();
+        private readonly IRpcCaller _c;
+
+        public BlockworldRpcs(IRpcCaller caller)
+        {
+            _c = caller;
+        }
+
+        public Task<BlockworldBuyBlockResponse> BuyBlockAsync(BlockworldBuyBlockRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new BlockworldBuyBlockRequest();
+            return RpcInvoke.CallAsync<BlockworldBuyBlockResponse>(_c, RpcIds.BlockworldBuyBlock, request, WriteCall, ct);
+        }
+
+        public Task<BlockworldTokenResponse> TokenAsync(BlockworldTokenRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new BlockworldTokenRequest();
+            return RpcInvoke.CallAsync<BlockworldTokenResponse>(_c, RpcIds.BlockworldToken, request, WriteCall, ct);
+        }
+
+        public Task<BlockworldWalletResponse> WalletAsync(BlockworldWalletRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new BlockworldWalletRequest();
+            return RpcInvoke.CallAsync<BlockworldWalletResponse>(_c, RpcIds.BlockworldWallet, request, WriteCall, ct);
+        }
+    }
+
     public sealed partial class CampaignRpcs
     {
         private static readonly RpcCallOptions ReadCall = new RpcCallOptions { ReadOnly = true };
@@ -1383,6 +1461,17 @@ namespace NakamaFarsi.Sdk.Generated
             return RpcInvoke.CallAsync<CombatraceConfigResponse>(_c, RpcIds.CombatraceConfig, request, ReadCall, ct);
         }
 
+        public Task<CombatraceEventsResponse> EventsAsync(CombatraceEventsRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new CombatraceEventsRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<CombatraceEventsResponse>(_c, RpcIds.CombatraceEvents, request, WriteCall, ct);
+        }
+
         public Task<CombatraceHistoryResponse> HistoryAsync(CombatraceHistoryRequest request = null, CancellationToken ct = default)
         {
             request = request ?? new CombatraceHistoryRequest();
@@ -1399,6 +1488,34 @@ namespace NakamaFarsi.Sdk.Generated
         {
             request = request ?? new CombatraceMatchEndRequest();
             return RpcInvoke.CallAsync<CombatraceMatchEndResponse>(_c, RpcIds.CombatraceMatchEnd, request, WriteCall, ct);
+        }
+
+        public Task<CombatraceMissionsResponse> MissionsAsync(CombatraceMissionsRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new CombatraceMissionsRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<CombatraceMissionsResponse>(_c, RpcIds.CombatraceMissions, request, WriteCall, ct);
+        }
+
+        public Task<CombatraceProfileResponse> ProfileAsync(CombatraceProfileRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new CombatraceProfileRequest();
+            return RpcInvoke.CallAsync<CombatraceProfileResponse>(_c, RpcIds.CombatraceProfile, request, ReadCall, ct);
+        }
+
+        public Task<CombatraceTaskClaimResponse> TaskClaimAsync(CombatraceTaskClaimRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new CombatraceTaskClaimRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<CombatraceTaskClaimResponse>(_c, RpcIds.CombatraceTaskClaim, request, WriteCall, ct);
         }
     }
 
@@ -2310,6 +2427,54 @@ namespace NakamaFarsi.Sdk.Generated
         }
     }
 
+    public sealed partial class FlickkickRpcs
+    {
+        private static readonly RpcCallOptions ReadCall = new RpcCallOptions { ReadOnly = true };
+        private static readonly RpcCallOptions WriteCall = new RpcCallOptions();
+        private readonly IRpcCaller _c;
+
+        public FlickkickRpcs(IRpcCaller caller)
+        {
+            _c = caller;
+        }
+
+        public Task<FlickkickBotMatchResponse> BotMatchAsync(FlickkickBotMatchRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new FlickkickBotMatchRequest();
+            return RpcInvoke.CallAsync<FlickkickBotMatchResponse>(_c, RpcIds.FlickkickBotMatch, request, WriteCall, ct);
+        }
+
+        public Task<FlickkickConfigResponse> ConfigAsync(FlickkickConfigRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new FlickkickConfigRequest();
+            return RpcInvoke.CallAsync<FlickkickConfigResponse>(_c, RpcIds.FlickkickConfig, request, ReadCall, ct);
+        }
+
+        public Task<FlickkickFormationsResponse> FormationsAsync(FlickkickFormationsRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new FlickkickFormationsRequest();
+            return RpcInvoke.CallAsync<FlickkickFormationsResponse>(_c, RpcIds.FlickkickFormations, request, WriteCall, ct);
+        }
+
+        public Task<FlickkickFriendCancelResponse> FriendCancelAsync(FlickkickFriendCancelRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new FlickkickFriendCancelRequest();
+            return RpcInvoke.CallAsync<FlickkickFriendCancelResponse>(_c, RpcIds.FlickkickFriendCancel, request, WriteCall, ct);
+        }
+
+        public Task<FlickkickFriendCreateResponse> FriendCreateAsync(FlickkickFriendCreateRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new FlickkickFriendCreateRequest();
+            return RpcInvoke.CallAsync<FlickkickFriendCreateResponse>(_c, RpcIds.FlickkickFriendCreate, request, WriteCall, ct);
+        }
+
+        public Task<FlickkickFriendJoinResponse> FriendJoinAsync(FlickkickFriendJoinRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new FlickkickFriendJoinRequest();
+            return RpcInvoke.CallAsync<FlickkickFriendJoinResponse>(_c, RpcIds.FlickkickFriendJoin, request, WriteCall, ct);
+        }
+    }
+
     public sealed partial class InsightsRpcs
     {
         private static readonly RpcCallOptions ReadCall = new RpcCallOptions { ReadOnly = true };
@@ -2513,6 +2678,96 @@ namespace NakamaFarsi.Sdk.Generated
         {
             request = request ?? new PpLocalStateRequest();
             return RpcInvoke.CallAsync<PpLocalStateResponse>(_c, RpcIds.PpLocalState, request, WriteCall, ct);
+        }
+    }
+
+    public sealed partial class PredictionRpcs
+    {
+        private static readonly RpcCallOptions ReadCall = new RpcCallOptions { ReadOnly = true };
+        private static readonly RpcCallOptions WriteCall = new RpcCallOptions();
+        private readonly IRpcCaller _c;
+
+        public PredictionRpcs(IRpcCaller caller)
+        {
+            _c = caller;
+        }
+
+        public Task<PredictionAnswerUpdateResponse> AnswerUpdateAsync(PredictionAnswerUpdateRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new PredictionAnswerUpdateRequest();
+            return RpcInvoke.CallAsync<PredictionAnswerUpdateResponse>(_c, RpcIds.PredictionAnswerUpdate, request, WriteCall, ct);
+        }
+
+        public Task<PredictionConfigResponse> ConfigAsync(PredictionConfigRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new PredictionConfigRequest();
+            return RpcInvoke.CallAsync<PredictionConfigResponse>(_c, RpcIds.PredictionConfig, request, ReadCall, ct);
+        }
+
+        public Task<PredictionEventResponse> EventAsync(PredictionEventRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new PredictionEventRequest();
+            return RpcInvoke.CallAsync<PredictionEventResponse>(_c, RpcIds.PredictionEvent, request, WriteCall, ct);
+        }
+
+        public Task<PredictionEventsResponse> EventsAsync(PredictionEventsRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new PredictionEventsRequest();
+            return RpcInvoke.CallAsync<PredictionEventsResponse>(_c, RpcIds.PredictionEvents, request, WriteCall, ct);
+        }
+
+        public Task<PredictionHistoryResponse> HistoryAsync(PredictionHistoryRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new PredictionHistoryRequest();
+            return RpcInvoke.CallAsync<PredictionHistoryResponse>(_c, RpcIds.PredictionHistory, request, ReadCall, ct);
+        }
+
+        public Task<PredictionLeaderboardResponse> LeaderboardAsync(PredictionLeaderboardRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new PredictionLeaderboardRequest();
+            return RpcInvoke.CallAsync<PredictionLeaderboardResponse>(_c, RpcIds.PredictionLeaderboard, request, WriteCall, ct);
+        }
+
+        public Task<PredictionLeagueResponse> LeagueAsync(PredictionLeagueRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new PredictionLeagueRequest();
+            return RpcInvoke.CallAsync<PredictionLeagueResponse>(_c, RpcIds.PredictionLeague, request, WriteCall, ct);
+        }
+
+        public Task<PredictionLeaguesResponse> LeaguesAsync(PredictionLeaguesRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new PredictionLeaguesRequest();
+            return RpcInvoke.CallAsync<PredictionLeaguesResponse>(_c, RpcIds.PredictionLeagues, request, WriteCall, ct);
+        }
+
+        public Task<PredictionMyAnswersResponse> MyAnswersAsync(PredictionMyAnswersRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new PredictionMyAnswersRequest();
+            return RpcInvoke.CallAsync<PredictionMyAnswersResponse>(_c, RpcIds.PredictionMyAnswers, request, WriteCall, ct);
+        }
+
+        public Task<PredictionMyStatsResponse> MyStatsAsync(PredictionMyStatsRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new PredictionMyStatsRequest();
+            return RpcInvoke.CallAsync<PredictionMyStatsResponse>(_c, RpcIds.PredictionMyStats, request, ReadCall, ct);
+        }
+
+        public Task<PredictionQuestionEventsResponse> QuestionEventsAsync(PredictionQuestionEventsRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new PredictionQuestionEventsRequest();
+            return RpcInvoke.CallAsync<PredictionQuestionEventsResponse>(_c, RpcIds.PredictionQuestionEvents, request, WriteCall, ct);
+        }
+
+        public Task<PredictionResultsResponse> ResultsAsync(PredictionResultsRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new PredictionResultsRequest();
+            return RpcInvoke.CallAsync<PredictionResultsResponse>(_c, RpcIds.PredictionResults, request, WriteCall, ct);
+        }
+
+        public Task<PredictionSubmitResponse> SubmitAsync(PredictionSubmitRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new PredictionSubmitRequest();
+            return RpcInvoke.CallAsync<PredictionSubmitResponse>(_c, RpcIds.PredictionSubmit, request, WriteCall, ct);
         }
     }
 
@@ -3314,6 +3569,88 @@ namespace NakamaFarsi.Sdk.Generated
             }
 
             return RpcInvoke.CallAsync<SocialUnfollowResponse>(_c, RpcIds.SocialUnfollow, request, WriteCall, ct);
+        }
+    }
+
+    public sealed partial class SoltanRpcs
+    {
+        private static readonly RpcCallOptions ReadCall = new RpcCallOptions { ReadOnly = true };
+        private static readonly RpcCallOptions WriteCall = new RpcCallOptions();
+        private readonly IRpcCaller _c;
+
+        public SoltanRpcs(IRpcCaller caller)
+        {
+            _c = caller;
+        }
+
+        public Task<SoltanBootstrapResponse> BootstrapAsync(SoltanBootstrapRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new SoltanBootstrapRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<SoltanBootstrapResponse>(_c, RpcIds.SoltanBootstrap, request, WriteCall, ct);
+        }
+
+        public Task<SoltanDailyStateResponse> DailyStateAsync(SoltanDailyStateRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new SoltanDailyStateRequest();
+            return RpcInvoke.CallAsync<SoltanDailyStateResponse>(_c, RpcIds.SoltanDailyState, request, WriteCall, ct);
+        }
+
+        public Task<SoltanDuelHistoryResponse> DuelHistoryAsync(SoltanDuelHistoryRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new SoltanDuelHistoryRequest();
+            return RpcInvoke.CallAsync<SoltanDuelHistoryResponse>(_c, RpcIds.SoltanDuelHistory, request, ReadCall, ct);
+        }
+
+        public Task<SoltanDuelInfoResponse> DuelInfoAsync(SoltanDuelInfoRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new SoltanDuelInfoRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<SoltanDuelInfoResponse>(_c, RpcIds.SoltanDuelInfo, request, ReadCall, ct);
+        }
+
+        public Task<SoltanHintResponse> HintAsync(SoltanHintRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new SoltanHintRequest();
+            return RpcInvoke.CallAsync<SoltanHintResponse>(_c, RpcIds.SoltanHint, request, WriteCall, ct);
+        }
+
+        public Task<SoltanLevelCompleteResponse> LevelCompleteAsync(SoltanLevelCompleteRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new SoltanLevelCompleteRequest();
+            return RpcInvoke.CallAsync<SoltanLevelCompleteResponse>(_c, RpcIds.SoltanLevelComplete, request, WriteCall, ct);
+        }
+
+        public Task<SoltanLevelStartResponse> LevelStartAsync(SoltanLevelStartRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new SoltanLevelStartRequest();
+            return RpcInvoke.CallAsync<SoltanLevelStartResponse>(_c, RpcIds.SoltanLevelStart, request, WriteCall, ct);
+        }
+
+        public Task<SoltanMapSeenResponse> MapSeenAsync(SoltanMapSeenRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new SoltanMapSeenRequest();
+            return RpcInvoke.CallAsync<SoltanMapSeenResponse>(_c, RpcIds.SoltanMapSeen, request, WriteCall, ct);
+        }
+
+        public Task<SoltanPrefsResponse> PrefsAsync(SoltanPrefsRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new SoltanPrefsRequest();
+            return RpcInvoke.CallAsync<SoltanPrefsResponse>(_c, RpcIds.SoltanPrefs, request, ReadCall, ct);
+        }
+
+        public Task<SoltanRocketResponse> RocketAsync(SoltanRocketRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new SoltanRocketRequest();
+            return RpcInvoke.CallAsync<SoltanRocketResponse>(_c, RpcIds.SoltanRocket, request, WriteCall, ct);
         }
     }
 
@@ -7510,6 +7847,105 @@ namespace NakamaFarsi.Sdk.Generated
         public IDictionary<string, JToken> Extra { get; set; }
     }
 
+    public sealed class BlockworldBuyBlockRequest
+    {
+    }
+
+    public sealed class BlockworldBuyBlockResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("actionIds")]
+        public List<long?> ActionIds { get; set; }
+
+        [JsonProperty("blocks")]
+        public List<long?> Blocks { get; set; }
+
+        [JsonProperty("coins")]
+        public JToken Coins { get; set; }
+
+        [JsonProperty("purchaseId")]
+        public string PurchaseId { get; set; }
+
+        [JsonProperty("total")]
+        public long? Total { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class BlockworldTokenRequest
+    {
+    }
+
+    public sealed class BlockworldTokenResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("expiresAt")]
+        public JToken ExpiresAt { get; set; }
+
+        [JsonProperty("issuer")]
+        public JToken Issuer { get; set; }
+
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
+        [JsonProperty("subject")]
+        public JToken Subject { get; set; }
+
+        [JsonProperty("token")]
+        public string Token { get; set; }
+
+        [JsonProperty("username")]
+        public JToken Username { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class BlockworldWalletRequest
+    {
+    }
+
+    public sealed class BlockworldWalletResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("coins")]
+        public long? Coins { get; set; }
+
+        [JsonProperty("currency")]
+        public JToken Currency { get; set; }
+
+        [JsonProperty("owned")]
+        public List<long?> Owned { get; set; }
+
+        [JsonProperty("prices")]
+        public List<PricesItem> Prices { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class PricesItem
+        {
+            [JsonProperty("id")]
+            public long? Id { get; set; }
+
+            [JsonProperty("name")]
+            public string Name { get; set; }
+
+            [JsonProperty("price")]
+            public long? Price { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
     public sealed class CampaignAttemptCompleteRequest
     {
         [JsonProperty("attemptId")]
@@ -10009,14 +10445,32 @@ namespace NakamaFarsi.Sdk.Generated
 
         public sealed class SettingsData
         {
+            [JsonProperty("leagueFloors")]
+            public List<long?> LeagueFloors { get; set; }
+
+            [JsonProperty("leagueMultipliers")]
+            public List<double?> LeagueMultipliers { get; set; }
+
+            [JsonProperty("levelUpPits")]
+            public long? LevelUpPits { get; set; }
+
             [JsonProperty("maxCars")]
             public long? MaxCars { get; set; }
+
+            [JsonProperty("maxKills")]
+            public long? MaxKills { get; set; }
 
             [JsonProperty("maxKmh")]
             public double? MaxKmh { get; set; }
 
+            [JsonProperty("maxLevel")]
+            public long? MaxLevel { get; set; }
+
             [JsonProperty("maxRaceSeconds")]
             public long? MaxRaceSeconds { get; set; }
+
+            [JsonProperty("maxZombies")]
+            public long? MaxZombies { get; set; }
 
             [JsonProperty("minRaceSeconds")]
             public long? MinRaceSeconds { get; set; }
@@ -10027,11 +10481,119 @@ namespace NakamaFarsi.Sdk.Generated
             [JsonProperty("pitsByPosition")]
             public List<long?> PitsByPosition { get; set; }
 
+            [JsonProperty("pitsForFinish")]
+            public long? PitsForFinish { get; set; }
+
+            [JsonProperty("pitsPerKill")]
+            public long? PitsPerKill { get; set; }
+
+            [JsonProperty("pitsPerZombie")]
+            public long? PitsPerZombie { get; set; }
+
             [JsonProperty("ticketMinutes")]
             public long? TicketMinutes { get; set; }
 
             [JsonProperty("trophiesByPosition")]
             public List<long?> TrophiesByPosition { get; set; }
+
+            [JsonProperty("xpByPosition")]
+            public List<long?> XpByPosition { get; set; }
+
+            [JsonProperty("xpFirstLevel")]
+            public long? XpFirstLevel { get; set; }
+
+            [JsonProperty("xpLevelStep")]
+            public long? XpLevelStep { get; set; }
+
+            [JsonProperty("xpPerZombie")]
+            public long? XpPerZombie { get; set; }
+
+            [JsonProperty("xpZombieCap")]
+            public long? XpZombieCap { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class CombatraceEventsRequest
+    {
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+    }
+
+    public sealed class CombatraceEventsResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("claimable")]
+        public long? Claimable { get; set; }
+
+        [JsonProperty("items")]
+        public List<ItemsItem> Items { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class ItemsItem
+        {
+            [JsonProperty("claimable")]
+            public bool? Claimable { get; set; }
+
+            [JsonProperty("claimed")]
+            public bool? Claimed { get; set; }
+
+            [JsonProperty("done")]
+            public bool? Done { get; set; }
+
+            [JsonProperty("endsAt")]
+            public JToken EndsAt { get; set; }
+
+            [JsonProperty("goal")]
+            public double? Goal { get; set; }
+
+            [JsonProperty("icon")]
+            public string Icon { get; set; }
+
+            [JsonProperty("id")]
+            public string Id { get; set; }
+
+            [JsonProperty("kind")]
+            public string Kind { get; set; }
+
+            [JsonProperty("oil")]
+            public long? Oil { get; set; }
+
+            [JsonProperty("perMatch")]
+            public bool? PerMatch { get; set; }
+
+            [JsonProperty("pits")]
+            public long? Pits { get; set; }
+
+            [JsonProperty("progress")]
+            public double? Progress { get; set; }
+
+            [JsonProperty("repeat")]
+            public string Repeat { get; set; }
+
+            [JsonProperty("secondsLeft")]
+            public long? SecondsLeft { get; set; }
+
+            [JsonProperty("startsAt")]
+            public JToken StartsAt { get; set; }
+
+            [JsonProperty("text")]
+            public string Text { get; set; }
+
+            [JsonProperty("title")]
+            public string Title { get; set; }
+
+            [JsonProperty("weapon")]
+            public string Weapon { get; set; }
+
+            [JsonProperty("xp")]
+            public long? Xp { get; set; }
 
             [JsonExtensionData]
             public IDictionary<string, JToken> Extra { get; set; }
@@ -10129,14 +10691,32 @@ namespace NakamaFarsi.Sdk.Generated
 
         public sealed class SettingsData
         {
+            [JsonProperty("leagueFloors")]
+            public List<long?> LeagueFloors { get; set; }
+
+            [JsonProperty("leagueMultipliers")]
+            public List<double?> LeagueMultipliers { get; set; }
+
+            [JsonProperty("levelUpPits")]
+            public long? LevelUpPits { get; set; }
+
             [JsonProperty("maxCars")]
             public long? MaxCars { get; set; }
+
+            [JsonProperty("maxKills")]
+            public long? MaxKills { get; set; }
 
             [JsonProperty("maxKmh")]
             public double? MaxKmh { get; set; }
 
+            [JsonProperty("maxLevel")]
+            public long? MaxLevel { get; set; }
+
             [JsonProperty("maxRaceSeconds")]
             public long? MaxRaceSeconds { get; set; }
+
+            [JsonProperty("maxZombies")]
+            public long? MaxZombies { get; set; }
 
             [JsonProperty("minRaceSeconds")]
             public long? MinRaceSeconds { get; set; }
@@ -10147,11 +10727,35 @@ namespace NakamaFarsi.Sdk.Generated
             [JsonProperty("pitsByPosition")]
             public List<long?> PitsByPosition { get; set; }
 
+            [JsonProperty("pitsForFinish")]
+            public long? PitsForFinish { get; set; }
+
+            [JsonProperty("pitsPerKill")]
+            public long? PitsPerKill { get; set; }
+
+            [JsonProperty("pitsPerZombie")]
+            public long? PitsPerZombie { get; set; }
+
             [JsonProperty("ticketMinutes")]
             public long? TicketMinutes { get; set; }
 
             [JsonProperty("trophiesByPosition")]
             public List<long?> TrophiesByPosition { get; set; }
+
+            [JsonProperty("xpByPosition")]
+            public List<long?> XpByPosition { get; set; }
+
+            [JsonProperty("xpFirstLevel")]
+            public long? XpFirstLevel { get; set; }
+
+            [JsonProperty("xpLevelStep")]
+            public long? XpLevelStep { get; set; }
+
+            [JsonProperty("xpPerZombie")]
+            public long? XpPerZombie { get; set; }
+
+            [JsonProperty("xpZombieCap")]
+            public long? XpZombieCap { get; set; }
 
             [JsonExtensionData]
             public IDictionary<string, JToken> Extra { get; set; }
@@ -10162,6 +10766,12 @@ namespace NakamaFarsi.Sdk.Generated
     {
         [JsonProperty("cars")]
         public long? Cars { get; set; }
+
+        [JsonProperty("finished")]
+        public bool? Finished { get; set; }
+
+        [JsonProperty("kills")]
+        public long? Kills { get; set; }
 
         [JsonProperty("maxKmh")]
         public double? MaxKmh { get; set; }
@@ -10174,6 +10784,12 @@ namespace NakamaFarsi.Sdk.Generated
 
         [JsonProperty("timeMs")]
         public long? TimeMs { get; set; }
+
+        [JsonProperty("weapons")]
+        public JObject Weapons { get; set; }
+
+        [JsonProperty("zombies")]
+        public long? Zombies { get; set; }
     }
 
     public sealed class CombatraceMatchEndResponse : IRawResponse
@@ -10184,11 +10800,65 @@ namespace NakamaFarsi.Sdk.Generated
         [JsonProperty("accepted")]
         public bool? Accepted { get; set; }
 
+        [JsonProperty("clamped")]
+        public bool? Clamped { get; set; }
+
+        [JsonProperty("finishPits")]
+        public long? FinishPits { get; set; }
+
+        [JsonProperty("imported")]
+        public bool? Imported { get; set; }
+
+        [JsonProperty("killPits")]
+        public long? KillPits { get; set; }
+
+        [JsonProperty("kills")]
+        public long? Kills { get; set; }
+
+        [JsonProperty("league")]
+        public long? League { get; set; }
+
+        [JsonProperty("leagueBefore")]
+        public long? LeagueBefore { get; set; }
+
+        [JsonProperty("leagueFloor")]
+        public double? LeagueFloor { get; set; }
+
+        [JsonProperty("leagueMultiplier")]
+        public double? LeagueMultiplier { get; set; }
+
+        [JsonProperty("leagueName")]
+        public JToken LeagueName { get; set; }
+
+        [JsonProperty("leagueStart")]
+        public double? LeagueStart { get; set; }
+
+        [JsonProperty("level")]
+        public long? Level { get; set; }
+
+        [JsonProperty("levelUpPits")]
+        public long? LevelUpPits { get; set; }
+
+        [JsonProperty("levelUpPrizes")]
+        public List<string> LevelUpPrizes { get; set; }
+
+        [JsonProperty("levelUps")]
+        public List<long?> LevelUps { get; set; }
+
+        [JsonProperty("maxLevel")]
+        public long? MaxLevel { get; set; }
+
+        [JsonProperty("nextLeagueAt")]
+        public double? NextLeagueAt { get; set; }
+
         [JsonProperty("payouts")]
         public JToken Payouts { get; set; }
 
         [JsonProperty("position")]
         public long? Position { get; set; }
+
+        [JsonProperty("positionPits")]
+        public long? PositionPits { get; set; }
 
         [JsonProperty("reason")]
         public string Reason { get; set; }
@@ -10202,23 +10872,273 @@ namespace NakamaFarsi.Sdk.Generated
         [JsonProperty("trophies")]
         public double? Trophies { get; set; }
 
+        [JsonProperty("xp")]
+        public long? Xp { get; set; }
+
+        [JsonProperty("xpForNext")]
+        public long? XpForNext { get; set; }
+
+        [JsonProperty("xpGained")]
+        public double? XpGained { get; set; }
+
+        [JsonProperty("xpIntoLevel")]
+        public long? XpIntoLevel { get; set; }
+
+        [JsonProperty("zombiePits")]
+        public long? ZombiePits { get; set; }
+
+        [JsonProperty("zombies")]
+        public long? Zombies { get; set; }
+
         [JsonExtensionData]
         public IDictionary<string, JToken> Extra { get; set; }
 
         public sealed class RewardsData
         {
+            [JsonProperty("finishPits")]
+            public long? FinishPits { get; set; }
+
+            [JsonProperty("killPits")]
+            public double? KillPits { get; set; }
+
+            [JsonProperty("kills")]
+            public JToken Kills { get; set; }
+
+            [JsonProperty("leagueMultiplier")]
+            public double? LeagueMultiplier { get; set; }
+
             [JsonProperty("oil")]
             public long? Oil { get; set; }
 
             [JsonProperty("pits")]
             public long? Pits { get; set; }
 
+            [JsonProperty("positionPits")]
+            public long? PositionPits { get; set; }
+
             [JsonProperty("trophies")]
             public long? Trophies { get; set; }
+
+            [JsonProperty("xp")]
+            public double? Xp { get; set; }
+
+            [JsonProperty("zombiePits")]
+            public double? ZombiePits { get; set; }
+
+            [JsonProperty("zombies")]
+            public JToken Zombies { get; set; }
 
             [JsonExtensionData]
             public IDictionary<string, JToken> Extra { get; set; }
         }
+    }
+
+    public sealed class CombatraceMissionsRequest
+    {
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+    }
+
+    public sealed class CombatraceMissionsResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("claimable")]
+        public long? Claimable { get; set; }
+
+        [JsonProperty("items")]
+        public List<ItemsItem> Items { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class ItemsItem
+        {
+            [JsonProperty("claimable")]
+            public bool? Claimable { get; set; }
+
+            [JsonProperty("claimed")]
+            public bool? Claimed { get; set; }
+
+            [JsonProperty("done")]
+            public bool? Done { get; set; }
+
+            [JsonProperty("endsAt")]
+            public JToken EndsAt { get; set; }
+
+            [JsonProperty("goal")]
+            public double? Goal { get; set; }
+
+            [JsonProperty("icon")]
+            public string Icon { get; set; }
+
+            [JsonProperty("id")]
+            public string Id { get; set; }
+
+            [JsonProperty("kind")]
+            public string Kind { get; set; }
+
+            [JsonProperty("oil")]
+            public long? Oil { get; set; }
+
+            [JsonProperty("perMatch")]
+            public bool? PerMatch { get; set; }
+
+            [JsonProperty("pits")]
+            public long? Pits { get; set; }
+
+            [JsonProperty("progress")]
+            public double? Progress { get; set; }
+
+            [JsonProperty("repeat")]
+            public string Repeat { get; set; }
+
+            [JsonProperty("secondsLeft")]
+            public long? SecondsLeft { get; set; }
+
+            [JsonProperty("startsAt")]
+            public JToken StartsAt { get; set; }
+
+            [JsonProperty("text")]
+            public string Text { get; set; }
+
+            [JsonProperty("title")]
+            public string Title { get; set; }
+
+            [JsonProperty("weapon")]
+            public string Weapon { get; set; }
+
+            [JsonProperty("xp")]
+            public long? Xp { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class CombatraceProfileRequest
+    {
+    }
+
+    public sealed class CombatraceProfileResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("imported")]
+        public bool? Imported { get; set; }
+
+        [JsonProperty("league")]
+        public long? League { get; set; }
+
+        [JsonProperty("leagueFloor")]
+        public double? LeagueFloor { get; set; }
+
+        [JsonProperty("leagueName")]
+        public JToken LeagueName { get; set; }
+
+        [JsonProperty("leagueStart")]
+        public double? LeagueStart { get; set; }
+
+        [JsonProperty("level")]
+        public long? Level { get; set; }
+
+        [JsonProperty("levelUpPits")]
+        public long? LevelUpPits { get; set; }
+
+        [JsonProperty("levelUpPrizes")]
+        public List<string> LevelUpPrizes { get; set; }
+
+        [JsonProperty("levelUps")]
+        public List<long?> LevelUps { get; set; }
+
+        [JsonProperty("maxLevel")]
+        public long? MaxLevel { get; set; }
+
+        [JsonProperty("nextLeagueAt")]
+        public double? NextLeagueAt { get; set; }
+
+        [JsonProperty("trophies")]
+        public double? Trophies { get; set; }
+
+        [JsonProperty("xp")]
+        public long? Xp { get; set; }
+
+        [JsonProperty("xpForNext")]
+        public long? XpForNext { get; set; }
+
+        [JsonProperty("xpIntoLevel")]
+        public long? XpIntoLevel { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class CombatraceTaskClaimRequest
+    {
+        [JsonProperty("id")]
+        public string Id { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+    }
+
+    public sealed class CombatraceTaskClaimResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("claimId")]
+        public JToken ClaimId { get; set; }
+
+        [JsonProperty("claimed")]
+        public bool? Claimed { get; set; }
+
+        [JsonProperty("id")]
+        public string Id { get; set; }
+
+        [JsonProperty("imported")]
+        public bool? Imported { get; set; }
+
+        [JsonProperty("level")]
+        public long? Level { get; set; }
+
+        [JsonProperty("levelUpPits")]
+        public long? LevelUpPits { get; set; }
+
+        [JsonProperty("levelUpPrizes")]
+        public List<string> LevelUpPrizes { get; set; }
+
+        [JsonProperty("levelUps")]
+        public List<long?> LevelUps { get; set; }
+
+        [JsonProperty("maxLevel")]
+        public long? MaxLevel { get; set; }
+
+        [JsonProperty("oil")]
+        public long? Oil { get; set; }
+
+        [JsonProperty("pits")]
+        public long? Pits { get; set; }
+
+        [JsonProperty("rewards")]
+        public JToken Rewards { get; set; }
+
+        [JsonProperty("xp")]
+        public long? Xp { get; set; }
+
+        [JsonProperty("xpForNext")]
+        public long? XpForNext { get; set; }
+
+        [JsonProperty("xpIntoLevel")]
+        public long? XpIntoLevel { get; set; }
+
+        [JsonProperty("xpReward")]
+        public long? XpReward { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
     }
 
     public sealed class CommsUserTokenRequest
@@ -10303,6 +11223,9 @@ namespace NakamaFarsi.Sdk.Generated
 
             [JsonProperty("id")]
             public string Id { get; set; }
+
+            [JsonProperty("kind")]
+            public JToken Kind { get; set; }
 
             [JsonProperty("maxAppVersion")]
             public string MaxAppVersion { get; set; }
@@ -13377,6 +14300,9 @@ namespace NakamaFarsi.Sdk.Generated
             [JsonProperty("dailyLimit")]
             public long? DailyLimit { get; set; }
 
+            [JsonProperty("dayEndsAt")]
+            public string DayEndsAt { get; set; }
+
             [JsonProperty("description")]
             public string Description { get; set; }
 
@@ -13425,17 +14351,26 @@ namespace NakamaFarsi.Sdk.Generated
             [JsonProperty("price")]
             public PriceData Price { get; set; }
 
+            [JsonProperty("priceLadder")]
+            public List<long?> PriceLadder { get; set; }
+
             [JsonProperty("prize")]
             public List<PrizeItem> Prize { get; set; }
 
             [JsonProperty("prizeType")]
             public string PrizeType { get; set; }
 
+            [JsonProperty("revealAck")]
+            public bool? RevealAck { get; set; }
+
             [JsonProperty("showOdds")]
             public bool? ShowOdds { get; set; }
 
             [JsonProperty("sort")]
             public long? Sort { get; set; }
+
+            [JsonProperty("ticketsToday")]
+            public long? TicketsToday { get; set; }
 
             [JsonProperty("totalLimit")]
             public long? TotalLimit { get; set; }
@@ -13572,6 +14507,9 @@ namespace NakamaFarsi.Sdk.Generated
             [JsonProperty("dailyLimit")]
             public long? DailyLimit { get; set; }
 
+            [JsonProperty("dayEndsAt")]
+            public string DayEndsAt { get; set; }
+
             [JsonProperty("description")]
             public string Description { get; set; }
 
@@ -13620,17 +14558,26 @@ namespace NakamaFarsi.Sdk.Generated
             [JsonProperty("price")]
             public PriceData Price { get; set; }
 
+            [JsonProperty("priceLadder")]
+            public List<long?> PriceLadder { get; set; }
+
             [JsonProperty("prize")]
             public List<PrizeItem> Prize { get; set; }
 
             [JsonProperty("prizeType")]
             public string PrizeType { get; set; }
 
+            [JsonProperty("revealAck")]
+            public bool? RevealAck { get; set; }
+
             [JsonProperty("showOdds")]
             public bool? ShowOdds { get; set; }
 
             [JsonProperty("sort")]
             public long? Sort { get; set; }
+
+            [JsonProperty("ticketsToday")]
+            public long? TicketsToday { get; set; }
 
             [JsonProperty("totalLimit")]
             public long? TotalLimit { get; set; }
@@ -18283,6 +19230,9 @@ namespace NakamaFarsi.Sdk.Generated
             [JsonProperty("createdAt")]
             public string CreatedAt { get; set; }
 
+            [JsonProperty("displayName")]
+            public string DisplayName { get; set; }
+
             [JsonProperty("status")]
             public string Status { get; set; }
 
@@ -18297,6 +19247,9 @@ namespace NakamaFarsi.Sdk.Generated
         {
             [JsonProperty("createdAt")]
             public string CreatedAt { get; set; }
+
+            [JsonProperty("displayName")]
+            public string DisplayName { get; set; }
 
             [JsonProperty("id")]
             public string Id { get; set; }
@@ -18445,6 +19398,9 @@ namespace NakamaFarsi.Sdk.Generated
             [JsonProperty("createdAt")]
             public string CreatedAt { get; set; }
 
+            [JsonProperty("displayName")]
+            public string DisplayName { get; set; }
+
             [JsonProperty("status")]
             public string Status { get; set; }
 
@@ -18459,6 +19415,9 @@ namespace NakamaFarsi.Sdk.Generated
         {
             [JsonProperty("createdAt")]
             public string CreatedAt { get; set; }
+
+            [JsonProperty("displayName")]
+            public string DisplayName { get; set; }
 
             [JsonProperty("id")]
             public string Id { get; set; }
@@ -19944,6 +20903,312 @@ namespace NakamaFarsi.Sdk.Generated
         }
     }
 
+    public sealed class FlickkickBotMatchRequest
+    {
+    }
+
+    public sealed class FlickkickBotMatchResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("matchId")]
+        public JToken MatchId { get; set; }
+
+        [JsonProperty("room")]
+        public string Room { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class FlickkickConfigRequest
+    {
+    }
+
+    public sealed class FlickkickConfigResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("arena")]
+        public JToken Arena { get; set; }
+
+        [JsonProperty("ball")]
+        public BallData Ball { get; set; }
+
+        [JsonProperty("botPrize")]
+        public BotPrizeData BotPrize { get; set; }
+
+        [JsonProperty("botTimeoutSeconds")]
+        public long? BotTimeoutSeconds { get; set; }
+
+        [JsonProperty("botsAllowed")]
+        public bool? BotsAllowed { get; set; }
+
+        [JsonProperty("cosmeticSlots")]
+        public List<string> CosmeticSlots { get; set; }
+
+        [JsonProperty("defaultFormation")]
+        public JToken DefaultFormation { get; set; }
+
+        [JsonProperty("disc")]
+        public DiscData Disc { get; set; }
+
+        [JsonProperty("discsPerTeam")]
+        public JToken DiscsPerTeam { get; set; }
+
+        [JsonProperty("formation")]
+        public JToken Formation { get; set; }
+
+        [JsonProperty("formationItemType")]
+        public string FormationItemType { get; set; }
+
+        [JsonProperty("formationMode")]
+        public string FormationMode { get; set; }
+
+        [JsonProperty("formationModes")]
+        public JObject FormationModes { get; set; }
+
+        [JsonProperty("formationRooms")]
+        public List<string> FormationRooms { get; set; }
+
+        [JsonProperty("formations")]
+        public List<FormationsItem> Formations { get; set; }
+
+        [JsonProperty("friendRooms")]
+        public bool? FriendRooms { get; set; }
+
+        [JsonProperty("goalsToWin")]
+        public JToken GoalsToWin { get; set; }
+
+        [JsonProperty("graceSeconds")]
+        public long? GraceSeconds { get; set; }
+
+        [JsonProperty("keyframeSteps")]
+        public long? KeyframeSteps { get; set; }
+
+        [JsonProperty("matchSeconds")]
+        public long? MatchSeconds { get; set; }
+
+        [JsonProperty("maxImpulse")]
+        public JToken MaxImpulse { get; set; }
+
+        [JsonProperty("maxShots")]
+        public JToken MaxShots { get; set; }
+
+        [JsonProperty("minImpulse")]
+        public JToken MinImpulse { get; set; }
+
+        [JsonProperty("protocolVersion")]
+        public JToken ProtocolVersion { get; set; }
+
+        [JsonProperty("rooms")]
+        public long? Rooms { get; set; }
+
+        [JsonProperty("simVersion")]
+        public JToken SimVersion { get; set; }
+
+        [JsonProperty("stepHz")]
+        public JToken StepHz { get; set; }
+
+        [JsonProperty("turnSeconds")]
+        public long? TurnSeconds { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class BallData
+        {
+            [JsonProperty("radius")]
+            public JToken Radius { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class BotPrizeData
+        {
+            [JsonProperty("afterCap")]
+            public string AfterCap { get; set; }
+
+            [JsonProperty("dailyCap")]
+            public long? DailyCap { get; set; }
+
+            [JsonProperty("mode")]
+            public string Mode { get; set; }
+
+            [JsonProperty("roomModes")]
+            public JObject RoomModes { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class DiscData
+        {
+            [JsonProperty("radius")]
+            public JToken Radius { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class FormationsItem
+        {
+            [JsonProperty("key")]
+            public JToken Key { get; set; }
+
+            [JsonProperty("points")]
+            public JToken Points { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class FlickkickFormationsRequest
+    {
+    }
+
+    public sealed class FlickkickFormationsResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("defaultFormation")]
+        public JToken DefaultFormation { get; set; }
+
+        [JsonProperty("formations")]
+        public List<FormationsItem> Formations { get; set; }
+
+        [JsonProperty("mode")]
+        public string Mode { get; set; }
+
+        [JsonProperty("room")]
+        public string Room { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class FormationsItem
+        {
+            [JsonProperty("item")]
+            public Item_ Item { get; set; }
+
+            [JsonProperty("key")]
+            public string Key { get; set; }
+
+            [JsonProperty("owned")]
+            public bool? Owned { get; set; }
+
+            [JsonProperty("points")]
+            public List<List<double?>> Points { get; set; }
+
+            [JsonProperty("reason")]
+            public string Reason { get; set; }
+
+            [JsonProperty("source")]
+            public string Source { get; set; }
+
+            [JsonProperty("usable")]
+            public bool? Usable { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+
+            public sealed class Item_
+            {
+                [JsonProperty("iconUrl")]
+                public string IconUrl { get; set; }
+
+                [JsonProperty("imageUrl")]
+                public string ImageUrl { get; set; }
+
+                [JsonProperty("key")]
+                public string Key { get; set; }
+
+                [JsonProperty("metadata")]
+                public JToken Metadata { get; set; }
+
+                [JsonProperty("name")]
+                public JToken Name { get; set; }
+
+                [JsonProperty("owned")]
+                public bool? Owned { get; set; }
+
+                [JsonProperty("price")]
+                public JToken Price { get; set; }
+
+                [JsonProperty("rarity")]
+                public string Rarity { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+        }
+    }
+
+    public sealed class FlickkickFriendCancelRequest
+    {
+    }
+
+    public sealed class FlickkickFriendCancelResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class FlickkickFriendCreateRequest
+    {
+    }
+
+    public sealed class FlickkickFriendCreateResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("code")]
+        public string Code { get; set; }
+
+        [JsonProperty("existing")]
+        public bool? Existing { get; set; }
+
+        [JsonProperty("expiresInSeconds")]
+        public long? ExpiresInSeconds { get; set; }
+
+        [JsonProperty("matchId")]
+        public string MatchId { get; set; }
+
+        [JsonProperty("room")]
+        public string Room { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class FlickkickFriendJoinRequest
+    {
+    }
+
+    public sealed class FlickkickFriendJoinResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("matchId")]
+        public string MatchId { get; set; }
+
+        [JsonProperty("room")]
+        public JToken Room { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
     public sealed class InsightsConfigRequest
     {
         [JsonProperty("game")]
@@ -20174,11 +21439,17 @@ namespace NakamaFarsi.Sdk.Generated
         [JsonIgnore]
         public JObject Raw { get; set; }
 
+        [JsonProperty("created")]
+        public bool? Created { get; set; }
+
         [JsonProperty("duplicate")]
         public bool? Duplicate { get; set; }
 
         [JsonProperty("ignored")]
         public bool? Ignored { get; set; }
+
+        [JsonProperty("pingSeconds")]
+        public JToken PingSeconds { get; set; }
 
         [JsonProperty("seconds")]
         public JToken Seconds { get; set; }
@@ -20194,6 +21465,9 @@ namespace NakamaFarsi.Sdk.Generated
 
         [JsonProperty("status")]
         public string Status { get; set; }
+
+        [JsonProperty("timeoutSeconds")]
+        public JToken TimeoutSeconds { get; set; }
 
         [JsonExtensionData]
         public IDictionary<string, JToken> Extra { get; set; }
@@ -21502,6 +22776,223 @@ namespace NakamaFarsi.Sdk.Generated
                 public IDictionary<string, JToken> Extra { get; set; }
             }
         }
+    }
+
+    public sealed class PredictionAnswerUpdateRequest
+    {
+    }
+
+    public sealed class PredictionAnswerUpdateResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class PredictionConfigRequest
+    {
+    }
+
+    public sealed class PredictionConfigResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("answerEdit")]
+        public JToken AnswerEdit { get; set; }
+
+        [JsonProperty("kickoffLockOffsetSeconds")]
+        public JToken KickoffLockOffsetSeconds { get; set; }
+
+        [JsonProperty("leaderboard")]
+        public LeaderboardData Leaderboard { get; set; }
+
+        [JsonProperty("lockPolicy")]
+        public JToken LockPolicy { get; set; }
+
+        [JsonProperty("scoreline")]
+        public ScorelineData Scoreline { get; set; }
+
+        [JsonProperty("winThreshold")]
+        public JToken WinThreshold { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class LeaderboardData
+        {
+            [JsonProperty("basis")]
+            public JToken Basis { get; set; }
+
+            [JsonProperty("currency")]
+            public JToken Currency { get; set; }
+
+            [JsonProperty("pointsPerFullAnswer")]
+            public JToken PointsPerFullAnswer { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class ScorelineData
+        {
+            [JsonProperty("maxGoals")]
+            public JToken MaxGoals { get; set; }
+
+            [JsonProperty("scoringMode")]
+            public JToken ScoringMode { get; set; }
+
+            [JsonProperty("tiers")]
+            public JToken Tiers { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class PredictionEventRequest
+    {
+    }
+
+    public sealed class PredictionEventResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class PredictionEventsRequest
+    {
+    }
+
+    public sealed class PredictionEventsResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class PredictionHistoryRequest
+    {
+    }
+
+    public sealed class PredictionHistoryResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class PredictionLeaderboardRequest
+    {
+    }
+
+    public sealed class PredictionLeaderboardResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class PredictionLeagueRequest
+    {
+    }
+
+    public sealed class PredictionLeagueResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class PredictionLeaguesRequest
+    {
+    }
+
+    public sealed class PredictionLeaguesResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class PredictionMyAnswersRequest
+    {
+    }
+
+    public sealed class PredictionMyAnswersResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class PredictionMyStatsRequest
+    {
+    }
+
+    public sealed class PredictionMyStatsResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class PredictionQuestionEventsRequest
+    {
+    }
+
+    public sealed class PredictionQuestionEventsResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class PredictionResultsRequest
+    {
+    }
+
+    public sealed class PredictionResultsResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class PredictionSubmitRequest
+    {
+    }
+
+    public sealed class PredictionSubmitResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
     }
 
     public sealed class PublicationBannerClickRequest
@@ -25414,8 +26905,71 @@ namespace NakamaFarsi.Sdk.Generated
         [JsonIgnore]
         public JObject Raw { get; set; }
 
+        [JsonProperty("answered")]
+        public long? Answered { get; set; }
+
+        [JsonProperty("correct")]
+        public long? Correct { get; set; }
+
+        [JsonProperty("expired")]
+        public bool? Expired { get; set; }
+
+        [JsonProperty("missionRewards")]
+        public List<JObject> MissionRewards { get; set; }
+
+        [JsonProperty("missionsCompleted")]
+        public List<string> MissionsCompleted { get; set; }
+
+        [JsonProperty("packKey")]
+        public string PackKey { get; set; }
+
+        [JsonProperty("passCorrect")]
+        public JToken PassCorrect { get; set; }
+
+        [JsonProperty("passed")]
+        public bool? Passed { get; set; }
+
+        [JsonProperty("questionRewards")]
+        public List<JObject> QuestionRewards { get; set; }
+
+        [JsonProperty("replayed")]
+        public bool? Replayed { get; set; }
+
+        [JsonProperty("review")]
+        public List<ReviewItem> Review { get; set; }
+
+        [JsonProperty("rewardLimited")]
+        public string RewardLimited { get; set; }
+
+        [JsonProperty("rewards")]
+        public List<JObject> Rewards { get; set; }
+
+        [JsonProperty("score")]
+        public JToken Score { get; set; }
+
+        [JsonProperty("serverSeconds")]
+        public double? ServerSeconds { get; set; }
+
+        [JsonProperty("sessionId")]
+        public string SessionId { get; set; }
+
+        [JsonProperty("total")]
+        public long? Total { get; set; }
+
         [JsonExtensionData]
         public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class ReviewItem
+        {
+            [JsonProperty("outcome")]
+            public string Outcome { get; set; }
+
+            [JsonProperty("questionId")]
+            public JToken QuestionId { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
     }
 
     public sealed class QuizHintBuyRequest
@@ -28182,6 +29736,1372 @@ namespace NakamaFarsi.Sdk.Generated
 
             [JsonProperty("requested")]
             public bool? Requested { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class SoltanBootstrapRequest
+    {
+        [JsonProperty("appVersion")]
+        public string AppVersion { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("platform")]
+        public string Platform { get; set; }
+    }
+
+    public sealed class SoltanBootstrapResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("chapters")]
+        public List<ChaptersItem> Chapters { get; set; }
+
+        [JsonProperty("content")]
+        public JObject Content { get; set; }
+
+        [JsonProperty("daily")]
+        public DailyData Daily { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("platform")]
+        public string Platform { get; set; }
+
+        [JsonProperty("prefs")]
+        public PrefsData Prefs { get; set; }
+
+        [JsonProperty("prices")]
+        public PricesData Prices { get; set; }
+
+        [JsonProperty("progress")]
+        public ProgressData Progress { get; set; }
+
+        [JsonProperty("serverTime")]
+        public string ServerTime { get; set; }
+
+        [JsonProperty("settings")]
+        public SettingsData Settings { get; set; }
+
+        [JsonProperty("stats")]
+        public StatsData Stats { get; set; }
+
+        [JsonProperty("store")]
+        public StoreData Store { get; set; }
+
+        [JsonProperty("wallet")]
+        public WalletData Wallet { get; set; }
+
+        [JsonProperty("warnings")]
+        public List<string> Warnings { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class ChaptersItem
+        {
+            [JsonProperty("key")]
+            public string Key { get; set; }
+
+            [JsonProperty("levels")]
+            public List<JToken> Levels { get; set; }
+
+            [JsonProperty("name")]
+            public string Name { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class DailyData
+        {
+            [JsonProperty("bestStreak")]
+            public long? BestStreak { get; set; }
+
+            [JsonProperty("date")]
+            public string Date { get; set; }
+
+            [JsonProperty("dayZone")]
+            public string DayZone { get; set; }
+
+            [JsonProperty("enabled")]
+            public bool? Enabled { get; set; }
+
+            [JsonProperty("level")]
+            public JToken Level { get; set; }
+
+            [JsonProperty("nextAt")]
+            public string NextAt { get; set; }
+
+            [JsonProperty("playCost")]
+            public JToken PlayCost { get; set; }
+
+            [JsonProperty("played")]
+            public bool? Played { get; set; }
+
+            [JsonProperty("plays")]
+            public long? Plays { get; set; }
+
+            [JsonProperty("reward")]
+            public JToken Reward { get; set; }
+
+            [JsonProperty("rewarded")]
+            public bool? Rewarded { get; set; }
+
+            [JsonProperty("serverTime")]
+            public string ServerTime { get; set; }
+
+            [JsonProperty("streak")]
+            public long? Streak { get; set; }
+
+            [JsonProperty("streakBonus")]
+            public JToken StreakBonus { get; set; }
+
+            [JsonProperty("won")]
+            public bool? Won { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class PrefsData
+        {
+            [JsonProperty("quickChat")]
+            public bool? QuickChat { get; set; }
+
+            [JsonProperty("voice")]
+            public bool? Voice { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class PricesData
+        {
+            [JsonProperty("heartRefill")]
+            public JToken HeartRefill { get; set; }
+
+            [JsonProperty("hintCoins")]
+            public long? HintCoins { get; set; }
+
+            [JsonProperty("rocketCoins")]
+            public long? RocketCoins { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class ProgressData
+        {
+            [JsonProperty("chest")]
+            public ChestData Chest { get; set; }
+
+            [JsonProperty("currentLevel")]
+            public long? CurrentLevel { get; set; }
+
+            [JsonProperty("mapSeen")]
+            public long? MapSeen { get; set; }
+
+            [JsonProperty("stars")]
+            public JObject Stars { get; set; }
+
+            [JsonProperty("totalStars")]
+            public long? TotalStars { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+
+            public sealed class ChestData
+            {
+                [JsonProperty("every")]
+                public JToken Every { get; set; }
+
+                [JsonProperty("opened")]
+                public JToken Opened { get; set; }
+
+                [JsonProperty("progress")]
+                public JToken Progress { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+        }
+
+        public sealed class SettingsData
+        {
+            [JsonProperty("bonusCoins")]
+            public long? BonusCoins { get; set; }
+
+            [JsonProperty("chestEvery")]
+            public long? ChestEvery { get; set; }
+
+            [JsonProperty("chestReward")]
+            public ChestRewardData ChestReward { get; set; }
+
+            [JsonProperty("comboSteps")]
+            public List<JToken> ComboSteps { get; set; }
+
+            [JsonProperty("comboWindowMs")]
+            public long? ComboWindowMs { get; set; }
+
+            [JsonProperty("minWordLength")]
+            public long? MinWordLength { get; set; }
+
+            [JsonProperty("replayExtras")]
+            public string ReplayExtras { get; set; }
+
+            [JsonProperty("rocketWords")]
+            public long? RocketWords { get; set; }
+
+            [JsonProperty("stageReward")]
+            public StageRewardData StageReward { get; set; }
+
+            [JsonProperty("stars")]
+            public JToken Stars { get; set; }
+
+            [JsonProperty("wordCoins")]
+            public long? WordCoins { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+
+            public sealed class ChestRewardData
+            {
+                [JsonProperty("currencies")]
+                public JToken Currencies { get; set; }
+
+                [JsonProperty("prizeKey")]
+                public JToken PrizeKey { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+
+            public sealed class StageRewardData
+            {
+                [JsonProperty("currencies")]
+                public JToken Currencies { get; set; }
+
+                [JsonProperty("prizeKey")]
+                public JToken PrizeKey { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+        }
+
+        public sealed class StatsData
+        {
+            [JsonProperty("bestDuelPoints")]
+            public long? BestDuelPoints { get; set; }
+
+            [JsonProperty("bestStreak")]
+            public long? BestStreak { get; set; }
+
+            [JsonProperty("dailyStreak")]
+            public long? DailyStreak { get; set; }
+
+            [JsonProperty("duelsDrawn")]
+            public long? DuelsDrawn { get; set; }
+
+            [JsonProperty("duelsLost")]
+            public long? DuelsLost { get; set; }
+
+            [JsonProperty("duelsPlayed")]
+            public long? DuelsPlayed { get; set; }
+
+            [JsonProperty("duelsWon")]
+            public long? DuelsWon { get; set; }
+
+            [JsonProperty("level")]
+            public JToken Level { get; set; }
+
+            [JsonProperty("levelsWon")]
+            public long? LevelsWon { get; set; }
+
+            [JsonProperty("maxLevel")]
+            public JToken MaxLevel { get; set; }
+
+            [JsonProperty("riddlesSolved")]
+            public long? RiddlesSolved { get; set; }
+
+            [JsonProperty("totalPoints")]
+            public long? TotalPoints { get; set; }
+
+            [JsonProperty("totalStars")]
+            public long? TotalStars { get; set; }
+
+            [JsonProperty("xp")]
+            public JToken Xp { get; set; }
+
+            [JsonProperty("xpForNext")]
+            public JToken XpForNext { get; set; }
+
+            [JsonProperty("xpLevelStart")]
+            public JToken XpLevelStart { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class StoreData
+        {
+            [JsonProperty("currencies")]
+            public List<JObject> Currencies { get; set; }
+
+            [JsonProperty("methods")]
+            public List<string> Methods { get; set; }
+
+            [JsonProperty("platform")]
+            public string Platform { get; set; }
+
+            [JsonProperty("products")]
+            public List<JObject> Products { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class WalletData
+        {
+            [JsonProperty("all")]
+            public JObject All { get; set; }
+
+            [JsonProperty("coins")]
+            public long? Coins { get; set; }
+
+            [JsonProperty("gems")]
+            public long? Gems { get; set; }
+
+            [JsonProperty("hearts")]
+            public long? Hearts { get; set; }
+
+            [JsonProperty("heartsRegen")]
+            public JToken HeartsRegen { get; set; }
+
+            [JsonProperty("hint")]
+            public long? Hint { get; set; }
+
+            [JsonProperty("regen")]
+            public List<JToken> Regen { get; set; }
+
+            [JsonProperty("rocket")]
+            public long? Rocket { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class SoltanDailyStateRequest
+    {
+    }
+
+    public sealed class SoltanDailyStateResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("bestStreak")]
+        public long? BestStreak { get; set; }
+
+        [JsonProperty("date")]
+        public string Date { get; set; }
+
+        [JsonProperty("dayZone")]
+        public string DayZone { get; set; }
+
+        [JsonProperty("enabled")]
+        public bool? Enabled { get; set; }
+
+        [JsonProperty("level")]
+        public LevelData Level { get; set; }
+
+        [JsonProperty("nextAt")]
+        public string NextAt { get; set; }
+
+        [JsonProperty("playCost")]
+        public PlayCostData PlayCost { get; set; }
+
+        [JsonProperty("played")]
+        public bool? Played { get; set; }
+
+        [JsonProperty("plays")]
+        public long? Plays { get; set; }
+
+        [JsonProperty("reward")]
+        public RewardData Reward { get; set; }
+
+        [JsonProperty("rewarded")]
+        public bool? Rewarded { get; set; }
+
+        [JsonProperty("serverTime")]
+        public string ServerTime { get; set; }
+
+        [JsonProperty("streak")]
+        public long? Streak { get; set; }
+
+        [JsonProperty("streakBonus")]
+        public StreakBonusData StreakBonus { get; set; }
+
+        [JsonProperty("won")]
+        public bool? Won { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class LevelData
+        {
+            [JsonProperty("clue")]
+            public string Clue { get; set; }
+
+            [JsonProperty("difficulty")]
+            public string Difficulty { get; set; }
+
+            [JsonProperty("lettersCount")]
+            public long? LettersCount { get; set; }
+
+            [JsonProperty("rows")]
+            public List<JToken> Rows { get; set; }
+
+            [JsonProperty("theme")]
+            public string Theme { get; set; }
+
+            [JsonProperty("wordCount")]
+            public long? WordCount { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class PlayCostData
+        {
+            [JsonProperty("amount")]
+            public long? Amount { get; set; }
+
+            [JsonProperty("currencyKey")]
+            public string CurrencyKey { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class RewardData
+        {
+            [JsonProperty("currencies")]
+            public List<JToken> Currencies { get; set; }
+
+            [JsonProperty("prizeKey")]
+            public string PrizeKey { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class StreakBonusData
+        {
+            [JsonProperty("daysToNext")]
+            public long? DaysToNext { get; set; }
+
+            [JsonProperty("every")]
+            public long? Every { get; set; }
+
+            [JsonProperty("reward")]
+            public RewardData Reward { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+
+            public sealed class RewardData
+            {
+                [JsonProperty("currencies")]
+                public JToken Currencies { get; set; }
+
+                [JsonProperty("prizeKey")]
+                public JToken PrizeKey { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+        }
+    }
+
+    public sealed class SoltanDuelHistoryRequest
+    {
+        [JsonProperty("limit")]
+        public long? Limit { get; set; }
+    }
+
+    public sealed class SoltanDuelHistoryResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("items")]
+        public List<ItemsItem> Items { get; set; }
+
+        [JsonProperty("limit")]
+        public long? Limit { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class ItemsItem
+        {
+            [JsonProperty("finishedAt")]
+            public string FinishedAt { get; set; }
+
+            [JsonProperty("matchId")]
+            public string MatchId { get; set; }
+
+            [JsonProperty("mode")]
+            public string Mode { get; set; }
+
+            [JsonProperty("opponent")]
+            public OpponentData Opponent { get; set; }
+
+            [JsonProperty("points")]
+            public long? Points { get; set; }
+
+            [JsonProperty("reason")]
+            public string Reason { get; set; }
+
+            [JsonProperty("result")]
+            public string Result { get; set; }
+
+            [JsonProperty("room")]
+            public string Room { get; set; }
+
+            [JsonProperty("solved")]
+            public long? Solved { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+
+            public sealed class OpponentData
+            {
+                [JsonProperty("avatarUrl")]
+                public JToken AvatarUrl { get; set; }
+
+                [JsonProperty("bot")]
+                public JToken Bot { get; set; }
+
+                [JsonProperty("name")]
+                public JToken Name { get; set; }
+
+                [JsonProperty("points")]
+                public JToken Points { get; set; }
+
+                [JsonProperty("userId")]
+                public JToken UserId { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+        }
+    }
+
+    public sealed class SoltanDuelInfoRequest
+    {
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+    }
+
+    public sealed class SoltanDuelInfoResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("available")]
+        public JToken Available { get; set; }
+
+        [JsonProperty("gameKey")]
+        public JToken GameKey { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("leaderboardKey")]
+        public JToken LeaderboardKey { get; set; }
+
+        [JsonProperty("prefs")]
+        public PrefsData Prefs { get; set; }
+
+        [JsonProperty("quickChat")]
+        public List<QuickChatItem> QuickChat { get; set; }
+
+        [JsonProperty("settings")]
+        public SettingsData Settings { get; set; }
+
+        [JsonProperty("stats")]
+        public StatsData Stats { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class PrefsData
+        {
+            [JsonProperty("quickChat")]
+            public bool? QuickChat { get; set; }
+
+            [JsonProperty("voice")]
+            public bool? Voice { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class QuickChatItem
+        {
+            [JsonProperty("id")]
+            public string Id { get; set; }
+
+            [JsonProperty("text")]
+            public string Text { get; set; }
+
+            [JsonProperty("texts")]
+            public JObject Texts { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class SettingsData
+        {
+            [JsonProperty("botAfterSeconds")]
+            public JToken BotAfterSeconds { get; set; }
+
+            [JsonProperty("botsAllowed")]
+            public JToken BotsAllowed { get; set; }
+
+            [JsonProperty("breakSeconds")]
+            public long? BreakSeconds { get; set; }
+
+            [JsonProperty("chatCooldownMs")]
+            public long? ChatCooldownMs { get; set; }
+
+            [JsonProperty("chatPerMatch")]
+            public long? ChatPerMatch { get; set; }
+
+            [JsonProperty("friendRooms")]
+            public JToken FriendRooms { get; set; }
+
+            [JsonProperty("friendWaitSeconds")]
+            public JToken FriendWaitSeconds { get; set; }
+
+            [JsonProperty("hintPenalty")]
+            public long? HintPenalty { get; set; }
+
+            [JsonProperty("hintsPerMatch")]
+            public long? HintsPerMatch { get; set; }
+
+            [JsonProperty("rooms")]
+            public List<string> Rooms { get; set; }
+
+            [JsonProperty("roundSeconds")]
+            public long? RoundSeconds { get; set; }
+
+            [JsonProperty("rounds")]
+            public long? Rounds { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class StatsData
+        {
+            [JsonProperty("bestDuelPoints")]
+            public long? BestDuelPoints { get; set; }
+
+            [JsonProperty("bestStreak")]
+            public long? BestStreak { get; set; }
+
+            [JsonProperty("dailyStreak")]
+            public long? DailyStreak { get; set; }
+
+            [JsonProperty("duelsDrawn")]
+            public long? DuelsDrawn { get; set; }
+
+            [JsonProperty("duelsLost")]
+            public long? DuelsLost { get; set; }
+
+            [JsonProperty("duelsPlayed")]
+            public long? DuelsPlayed { get; set; }
+
+            [JsonProperty("duelsWon")]
+            public long? DuelsWon { get; set; }
+
+            [JsonProperty("level")]
+            public long? Level { get; set; }
+
+            [JsonProperty("levelsWon")]
+            public long? LevelsWon { get; set; }
+
+            [JsonProperty("maxLevel")]
+            public long? MaxLevel { get; set; }
+
+            [JsonProperty("riddlesSolved")]
+            public long? RiddlesSolved { get; set; }
+
+            [JsonProperty("totalPoints")]
+            public long? TotalPoints { get; set; }
+
+            [JsonProperty("totalStars")]
+            public long? TotalStars { get; set; }
+
+            [JsonProperty("xp")]
+            public double? Xp { get; set; }
+
+            [JsonProperty("xpForNext")]
+            public double? XpForNext { get; set; }
+
+            [JsonProperty("xpLevelStart")]
+            public double? XpLevelStart { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class SoltanHintRequest
+    {
+        [JsonProperty("found")]
+        public List<string> Found { get; set; }
+
+        [JsonProperty("requestId")]
+        public string RequestId { get; set; }
+
+        [JsonProperty("sessionId")]
+        public string SessionId { get; set; }
+    }
+
+    public sealed class SoltanHintResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("boostersUsed")]
+        public long? BoostersUsed { get; set; }
+
+        [JsonProperty("completedSlots")]
+        public List<long?> CompletedSlots { get; set; }
+
+        [JsonProperty("kind")]
+        public string Kind { get; set; }
+
+        [JsonProperty("owned")]
+        public OwnedData Owned { get; set; }
+
+        [JsonProperty("paidWith")]
+        public string PaidWith { get; set; }
+
+        [JsonProperty("picks")]
+        public List<PicksItem> Picks { get; set; }
+
+        [JsonProperty("price")]
+        public PriceData Price { get; set; }
+
+        [JsonProperty("replayed")]
+        public bool? Replayed { get; set; }
+
+        [JsonProperty("sessionId")]
+        public string SessionId { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class OwnedData
+        {
+            [JsonProperty("coins")]
+            public long? Coins { get; set; }
+
+            [JsonProperty("hint")]
+            public long? Hint { get; set; }
+
+            [JsonProperty("rocket")]
+            public long? Rocket { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class PicksItem
+        {
+            [JsonProperty("index")]
+            public long? Index { get; set; }
+
+            [JsonProperty("letter")]
+            public string Letter { get; set; }
+
+            [JsonProperty("slot")]
+            public long? Slot { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class PriceData
+        {
+            [JsonProperty("amount")]
+            public long? Amount { get; set; }
+
+            [JsonProperty("currencyKey")]
+            public string CurrencyKey { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class SoltanLevelCompleteRequest
+    {
+        [JsonProperty("bonus")]
+        public List<BonusItem> Bonus { get; set; }
+
+        [JsonProperty("found")]
+        public List<FoundItem> Found { get; set; }
+
+        [JsonProperty("giveUp")]
+        public bool? GiveUp { get; set; }
+
+        [JsonProperty("requestId")]
+        public string RequestId { get; set; }
+
+        [JsonProperty("sessionId")]
+        public string SessionId { get; set; }
+
+        public sealed class BonusItem
+        {
+            [JsonProperty("atMs")]
+            public long? AtMs { get; set; }
+
+            [JsonProperty("word")]
+            public string Word { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class FoundItem
+        {
+            [JsonProperty("atMs")]
+            public long? AtMs { get; set; }
+
+            [JsonProperty("word")]
+            public string Word { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class SoltanLevelCompleteResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("bestStars")]
+        public long? BestStars { get; set; }
+
+        [JsonProperty("bonusFound")]
+        public long? BonusFound { get; set; }
+
+        [JsonProperty("boostersUsed")]
+        public long? BoostersUsed { get; set; }
+
+        [JsonProperty("campaign")]
+        public JObject Campaign { get; set; }
+
+        [JsonProperty("campaignError")]
+        public string CampaignError { get; set; }
+
+        [JsonProperty("chest")]
+        public ChestData Chest { get; set; }
+
+        [JsonProperty("comboMax")]
+        public long? ComboMax { get; set; }
+
+        [JsonProperty("daily")]
+        public DailyData Daily { get; set; }
+
+        [JsonProperty("extrasPaid")]
+        public string ExtrasPaid { get; set; }
+
+        [JsonProperty("firstWin")]
+        public bool? FirstWin { get; set; }
+
+        [JsonProperty("gaveUp")]
+        public bool? GaveUp { get; set; }
+
+        [JsonProperty("hearts")]
+        public JToken Hearts { get; set; }
+
+        [JsonProperty("kind")]
+        public string Kind { get; set; }
+
+        [JsonProperty("level")]
+        public LevelData Level { get; set; }
+
+        [JsonProperty("nextLevel")]
+        public long? NextLevel { get; set; }
+
+        [JsonProperty("points")]
+        public long? Points { get; set; }
+
+        [JsonProperty("replayed")]
+        public bool? Replayed { get; set; }
+
+        [JsonProperty("requestId")]
+        public string RequestId { get; set; }
+
+        [JsonProperty("rewards")]
+        public RewardsData Rewards { get; set; }
+
+        [JsonProperty("serverSeconds")]
+        public double? ServerSeconds { get; set; }
+
+        [JsonProperty("sessionId")]
+        public string SessionId { get; set; }
+
+        [JsonProperty("stars")]
+        public long? Stars { get; set; }
+
+        [JsonProperty("wallet")]
+        public JObject Wallet { get; set; }
+
+        [JsonProperty("won")]
+        public bool? Won { get; set; }
+
+        [JsonProperty("words")]
+        public WordsData Words { get; set; }
+
+        [JsonProperty("wordsFound")]
+        public long? WordsFound { get; set; }
+
+        [JsonProperty("xp")]
+        public XpData Xp { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class ChestData
+        {
+            [JsonProperty("every")]
+            public long? Every { get; set; }
+
+            [JsonProperty("opened")]
+            public long? Opened { get; set; }
+
+            [JsonProperty("progress")]
+            public long? Progress { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class DailyData
+        {
+            [JsonProperty("bestStreak")]
+            public long? BestStreak { get; set; }
+
+            [JsonProperty("day")]
+            public string Day { get; set; }
+
+            [JsonProperty("rewarded")]
+            public bool? Rewarded { get; set; }
+
+            [JsonProperty("streak")]
+            public long? Streak { get; set; }
+
+            [JsonProperty("streakBonus")]
+            public bool? StreakBonus { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class LevelData
+        {
+            [JsonProperty("clue")]
+            public string Clue { get; set; }
+
+            [JsonProperty("difficulty")]
+            public string Difficulty { get; set; }
+
+            [JsonProperty("number")]
+            public long? Number { get; set; }
+
+            [JsonProperty("theme")]
+            public string Theme { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class RewardsData
+        {
+            [JsonProperty("bonus")]
+            public long? Bonus { get; set; }
+
+            [JsonProperty("chest")]
+            public List<JToken> Chest { get; set; }
+
+            [JsonProperty("combo")]
+            public long? Combo { get; set; }
+
+            [JsonProperty("daily")]
+            public List<JToken> Daily { get; set; }
+
+            [JsonProperty("prizes")]
+            public List<JObject> Prizes { get; set; }
+
+            [JsonProperty("stage")]
+            public List<JToken> Stage { get; set; }
+
+            [JsonProperty("total")]
+            public List<JToken> Total { get; set; }
+
+            [JsonProperty("words")]
+            public long? Words { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class WordsData
+        {
+            [JsonProperty("bonus")]
+            public List<string> Bonus { get; set; }
+
+            [JsonProperty("targets")]
+            public List<List<JToken>> Targets { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class XpData
+        {
+            [JsonProperty("from")]
+            public long? From { get; set; }
+
+            [JsonProperty("gained")]
+            public double? Gained { get; set; }
+
+            [JsonProperty("levelUp")]
+            public bool? LevelUp { get; set; }
+
+            [JsonProperty("rewards")]
+            public List<JToken> Rewards { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class SoltanLevelStartRequest
+    {
+        [JsonProperty("daily")]
+        public bool? Daily { get; set; }
+
+        [JsonProperty("level")]
+        public long? Level { get; set; }
+
+        [JsonProperty("requestId")]
+        public string RequestId { get; set; }
+    }
+
+    public sealed class SoltanLevelStartResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("attemptId")]
+        public string AttemptId { get; set; }
+
+        [JsonProperty("bonusCount")]
+        public long? BonusCount { get; set; }
+
+        [JsonProperty("boostersUsed")]
+        public long? BoostersUsed { get; set; }
+
+        [JsonProperty("day")]
+        public string Day { get; set; }
+
+        [JsonProperty("expiresAt")]
+        public string ExpiresAt { get; set; }
+
+        [JsonProperty("foundSlots")]
+        public List<long?> FoundSlots { get; set; }
+
+        [JsonProperty("hashes")]
+        public HashesData Hashes { get; set; }
+
+        [JsonProperty("hearts")]
+        public JToken Hearts { get; set; }
+
+        [JsonProperty("kind")]
+        public string Kind { get; set; }
+
+        [JsonProperty("letters")]
+        public List<string> Letters { get; set; }
+
+        [JsonProperty("level")]
+        public LevelData Level { get; set; }
+
+        [JsonProperty("owned")]
+        public OwnedData Owned { get; set; }
+
+        [JsonProperty("playCost")]
+        public JObject PlayCost { get; set; }
+
+        [JsonProperty("prices")]
+        public PricesData Prices { get; set; }
+
+        [JsonProperty("resumed")]
+        public bool? Resumed { get; set; }
+
+        [JsonProperty("revealed")]
+        public List<RevealedItem> Revealed { get; set; }
+
+        [JsonProperty("rows")]
+        public List<List<RowsItemItem>> Rows { get; set; }
+
+        [JsonProperty("salt")]
+        public string Salt { get; set; }
+
+        [JsonProperty("serverTime")]
+        public string ServerTime { get; set; }
+
+        [JsonProperty("sessionId")]
+        public string SessionId { get; set; }
+
+        [JsonProperty("startedAt")]
+        public string StartedAt { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class HashesData
+        {
+            [JsonProperty("bonus")]
+            public List<string> Bonus { get; set; }
+
+            [JsonProperty("slots")]
+            public List<JToken> Slots { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class LevelData
+        {
+            [JsonProperty("clue")]
+            public string Clue { get; set; }
+
+            [JsonProperty("difficulty")]
+            public string Difficulty { get; set; }
+
+            [JsonProperty("number")]
+            public long? Number { get; set; }
+
+            [JsonProperty("theme")]
+            public string Theme { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class OwnedData
+        {
+            [JsonProperty("coins")]
+            public long? Coins { get; set; }
+
+            [JsonProperty("hint")]
+            public long? Hint { get; set; }
+
+            [JsonProperty("rocket")]
+            public long? Rocket { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class PricesData
+        {
+            [JsonProperty("heartRefill")]
+            public JToken HeartRefill { get; set; }
+
+            [JsonProperty("hintCoins")]
+            public long? HintCoins { get; set; }
+
+            [JsonProperty("rocketCoins")]
+            public long? RocketCoins { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class RevealedItem
+        {
+            [JsonProperty("index")]
+            public long? Index { get; set; }
+
+            [JsonProperty("letter")]
+            public string Letter { get; set; }
+
+            [JsonProperty("slot")]
+            public long? Slot { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class RowsItemItem
+        {
+            [JsonProperty("length")]
+            public JToken Length { get; set; }
+
+            [JsonProperty("slot")]
+            public JToken Slot { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class SoltanMapSeenRequest
+    {
+        [JsonProperty("level")]
+        public long? Level { get; set; }
+    }
+
+    public sealed class SoltanMapSeenResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("mapSeen")]
+        public long? MapSeen { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class SoltanPrefsRequest
+    {
+        [JsonProperty("quickChat")]
+        public bool? QuickChat { get; set; }
+
+        [JsonProperty("voice")]
+        public bool? Voice { get; set; }
+    }
+
+    public sealed class SoltanPrefsResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("quickChat")]
+        public bool? QuickChat { get; set; }
+
+        [JsonProperty("voice")]
+        public bool? Voice { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+    }
+
+    public sealed class SoltanRocketRequest
+    {
+        [JsonProperty("found")]
+        public List<string> Found { get; set; }
+
+        [JsonProperty("requestId")]
+        public string RequestId { get; set; }
+
+        [JsonProperty("sessionId")]
+        public string SessionId { get; set; }
+    }
+
+    public sealed class SoltanRocketResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("boostersUsed")]
+        public long? BoostersUsed { get; set; }
+
+        [JsonProperty("completedSlots")]
+        public List<long?> CompletedSlots { get; set; }
+
+        [JsonProperty("kind")]
+        public string Kind { get; set; }
+
+        [JsonProperty("owned")]
+        public OwnedData Owned { get; set; }
+
+        [JsonProperty("paidWith")]
+        public string PaidWith { get; set; }
+
+        [JsonProperty("picks")]
+        public List<PicksItem> Picks { get; set; }
+
+        [JsonProperty("price")]
+        public PriceData Price { get; set; }
+
+        [JsonProperty("replayed")]
+        public bool? Replayed { get; set; }
+
+        [JsonProperty("sessionId")]
+        public string SessionId { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class OwnedData
+        {
+            [JsonProperty("coins")]
+            public long? Coins { get; set; }
+
+            [JsonProperty("hint")]
+            public long? Hint { get; set; }
+
+            [JsonProperty("rocket")]
+            public long? Rocket { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class PicksItem
+        {
+            [JsonProperty("index")]
+            public long? Index { get; set; }
+
+            [JsonProperty("letter")]
+            public string Letter { get; set; }
+
+            [JsonProperty("slot")]
+            public long? Slot { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class PriceData
+        {
+            [JsonProperty("amount")]
+            public long? Amount { get; set; }
+
+            [JsonProperty("currencyKey")]
+            public string CurrencyKey { get; set; }
 
             [JsonExtensionData]
             public IDictionary<string, JToken> Extra { get; set; }

@@ -1,4 +1,10 @@
 {
+  "ACCOUNT_BANNED": {
+    "status": 403,
+    "modules": [
+      "blockworld"
+    ]
+  },
   "ACCOUNT_DISABLED": {
     "status": 403,
     "modules": [
@@ -489,6 +495,48 @@
       "account"
     ]
   },
+  "AUTOMATION_ALERT_NOT_FOUND": {
+    "status": 404,
+    "modules": [
+      "prediction"
+    ]
+  },
+  "AUTOMATION_COMPETITION_NOT_FOUND": {
+    "status": 404,
+    "modules": [
+      "prediction"
+    ]
+  },
+  "AUTOMATION_INVALID_JOB_CONFIG": {
+    "status": 422,
+    "modules": [
+      "prediction"
+    ]
+  },
+  "AUTOMATION_JOB_ALREADY_RUNNING": {
+    "status": 409,
+    "modules": [
+      "prediction"
+    ]
+  },
+  "AUTOMATION_JOB_NOT_FOUND": {
+    "status": 404,
+    "modules": [
+      "prediction"
+    ]
+  },
+  "AUTOMATION_RUN_NOT_FOUND": {
+    "status": 404,
+    "modules": [
+      "prediction"
+    ]
+  },
+  "AUTOMATION_SETTINGS_INVALID": {
+    "status": 422,
+    "modules": [
+      "prediction"
+    ]
+  },
   "AVATAR_ALREADY_OWNED": {
     "status": 409,
     "modules": [
@@ -601,6 +649,12 @@
     "status": 404,
     "modules": [
       "publication"
+    ]
+  },
+  "BLOCK_NOT_SOLD": {
+    "status": 400,
+    "modules": [
+      "blockworld"
     ]
   },
   "BODY_REQUIRED": {
@@ -781,6 +835,12 @@
     "status": 409,
     "modules": [
       "economy"
+    ]
+  },
+  "CHOOSE_1_TO_64_BLOCKS": {
+    "status": 400,
+    "modules": [
+      "blockworld"
     ]
   },
   "CLAIM_EXPIRED": {
@@ -1197,6 +1257,60 @@
     "status": 429,
     "modules": [
       "base"
+    ]
+  },
+  "COMPETITION_ALREADY_EXISTS": {
+    "status": 409,
+    "modules": [
+      "prediction"
+    ]
+  },
+  "COMPETITION_FIELD_NOT_LOCKABLE": {
+    "status": 422,
+    "modules": [
+      "prediction"
+    ]
+  },
+  "COMPETITION_NOT_FOUND": {
+    "status": 404,
+    "modules": [
+      "prediction"
+    ]
+  },
+  "COMPETITION_NOT_IN_CATALOG": {
+    "status": 422,
+    "modules": [
+      "prediction"
+    ]
+  },
+  "COMPETITION_PERSIAN_NAME_REQUIRED": {
+    "status": 422,
+    "modules": [
+      "prediction"
+    ]
+  },
+  "COMPETITION_PROVIDER_MISMATCH": {
+    "status": 422,
+    "modules": [
+      "prediction"
+    ]
+  },
+  "COMPETITION_SEASON_UNKNOWN": {
+    "status": 422,
+    "modules": [
+      "prediction"
+    ]
+  },
+  "COMPETITION_TEMPLATE_REQUIRED": {
+    "status": 422,
+    "modules": [
+      "prediction"
+    ]
+  },
+  "CONFIRM_REQUIRED": {
+    "status": 400,
+    "modules": [
+      "economy"
     ]
   },
   "CONTENT_INDEX_PRIVATE": {
@@ -1677,6 +1791,18 @@
       "base"
     ]
   },
+  "EVENTS_UNAVAILABLE": {
+    "status": 503,
+    "modules": [
+      "blockworld"
+    ]
+  },
+  "EVENT_IN_PROGRESS": {
+    "status": 409,
+    "modules": [
+      "blockworld"
+    ]
+  },
   "EVENT_NOT_ALLOWED": {
     "status": 403,
     "modules": [
@@ -2000,6 +2126,7 @@
     "modules": [
       "account",
       "base",
+      "blockworld",
       "devkit",
       "economy",
       "publication"
@@ -2258,6 +2385,12 @@
       "economy"
     ]
   },
+  "INVALID_EVENT": {
+    "status": 400,
+    "modules": [
+      "blockworld"
+    ]
+  },
   "INVALID_EVENT_KEY": {
     "status": 400,
     "modules": [
@@ -2353,6 +2486,12 @@
       "economy"
     ]
   },
+  "INVALID_INPUT": {
+    "status": 400,
+    "modules": [
+      "prediction"
+    ]
+  },
   "INVALID_INTERVAL": {
     "status": 400,
     "modules": [
@@ -2377,9 +2516,11 @@
       "analytics",
       "assets",
       "base",
+      "blockworld",
       "devkit",
       "economy",
       "inventoryx",
+      "prediction",
       "publication"
     ]
   },
@@ -3123,6 +3264,12 @@
       "publication"
     ]
   },
+  "INVALID_USER": {
+    "status": 400,
+    "modules": [
+      "blockworld"
+    ]
+  },
   "INVALID_USERNAME": {
     "status": 400,
     "modules": [
@@ -3680,10 +3827,17 @@
       "publication"
     ]
   },
+  "NOT_ENOUGH_COINS": {
+    "status": 400,
+    "modules": [
+      "blockworld"
+    ]
+  },
   "NOT_ENOUGH_PLAY_COST": {
     "status": 409,
     "modules": [
-      "campaign"
+      "campaign",
+      "soltan"
     ]
   },
   "NOT_FOR_SALE": {
@@ -3909,6 +4063,12 @@
       "content"
     ]
   },
+  "PACK_ASSEMBLING": {
+    "status": 409,
+    "modules": [
+      "content"
+    ]
+  },
   "PACK_CATALOG_AMBIGUOUS": {
     "status": 400,
     "modules": [
@@ -4078,6 +4238,7 @@
   "PAYLOAD_TOO_LARGE": {
     "status": 400,
     "modules": [
+      "blockworld",
       "publication"
     ]
   },
@@ -4139,6 +4300,36 @@
     "status": 409,
     "modules": [
       "economy"
+    ]
+  },
+  "PERSON_COMPETITION_NOT_FOUND": {
+    "status": 404,
+    "modules": [
+      "prediction"
+    ]
+  },
+  "PERSON_COMPETITION_PROVIDER_MISMATCH": {
+    "status": 422,
+    "modules": [
+      "prediction"
+    ]
+  },
+  "PERSON_COMPETITION_SEASON_UNKNOWN": {
+    "status": 422,
+    "modules": [
+      "prediction"
+    ]
+  },
+  "PERSON_NOT_FOUND": {
+    "status": 404,
+    "modules": [
+      "prediction"
+    ]
+  },
+  "PERSON_TEAM_NOT_IN_COMPETITION": {
+    "status": 404,
+    "modules": [
+      "prediction"
     ]
   },
   "PHONE_CHANGE_DISABLED": {
@@ -4298,6 +4489,12 @@
       "publication"
     ]
   },
+  "PRICE_CHANGED": {
+    "status": 400,
+    "modules": [
+      "blockworld"
+    ]
+  },
   "PRICE_REQUIRED": {
     "status": 400,
     "modules": [
@@ -4390,10 +4587,22 @@
       "economy"
     ]
   },
+  "PROVIDER_CAPABILITY_MISSING": {
+    "status": 422,
+    "modules": [
+      "prediction"
+    ]
+  },
   "PROVIDER_CHANNEL_MISMATCH": {
     "status": 400,
     "modules": [
       "publication"
+    ]
+  },
+  "PROVIDER_ERROR": {
+    "status": 502,
+    "modules": [
+      "prediction"
     ]
   },
   "PROVIDER_INACTIVE": {
@@ -4408,6 +4617,12 @@
       "publication"
     ]
   },
+  "PROVIDER_MISMATCH": {
+    "status": 422,
+    "modules": [
+      "prediction"
+    ]
+  },
   "PROVIDER_NOT_ALLOWED": {
     "status": 400,
     "modules": [
@@ -4417,6 +4632,7 @@
   "PROVIDER_NOT_CONFIGURED": {
     "status": 400,
     "modules": [
+      "prediction",
       "publication"
     ]
   },
@@ -4430,6 +4646,30 @@
     "status": 400,
     "modules": [
       "publication"
+    ]
+  },
+  "PROVIDER_PLAN_RESTRICTED": {
+    "status": 422,
+    "modules": [
+      "prediction"
+    ]
+  },
+  "PROVIDER_QUOTA_EXHAUSTED": {
+    "status": 429,
+    "modules": [
+      "prediction"
+    ]
+  },
+  "PROVIDER_RATE_LIMITED": {
+    "status": 429,
+    "modules": [
+      "prediction"
+    ]
+  },
+  "PROVIDER_SEAL_UNAVAILABLE": {
+    "status": 422,
+    "modules": [
+      "prediction"
     ]
   },
   "PUBLIC_BASE_URL_REQUIRED": {
@@ -4448,6 +4688,42 @@
     "status": 400,
     "modules": [
       "publication"
+    ]
+  },
+  "QUESTION_TEMPLATE_INACTIVE": {
+    "status": 422,
+    "modules": [
+      "prediction"
+    ]
+  },
+  "QUESTION_TEMPLATE_INVALID": {
+    "status": 422,
+    "modules": [
+      "prediction"
+    ]
+  },
+  "QUESTION_TEMPLATE_KEY_TAKEN": {
+    "status": 409,
+    "modules": [
+      "prediction"
+    ]
+  },
+  "QUESTION_TEMPLATE_NOT_FOUND": {
+    "status": 404,
+    "modules": [
+      "prediction"
+    ]
+  },
+  "QUESTION_TEMPLATE_VERSION_CONFLICT": {
+    "status": 409,
+    "modules": [
+      "prediction"
+    ]
+  },
+  "QUESTION_TEMPLATE_VERSION_NOT_FOUND": {
+    "status": 404,
+    "modules": [
+      "prediction"
     ]
   },
   "QUIZ_ANSWER_INVALID": {
@@ -4980,20 +5256,28 @@
       "base"
     ]
   },
+  "REQUEST_ID_INVALID": {
+    "status": 400,
+    "modules": [
+      "soltan"
+    ]
+  },
   "REQUEST_ID_REQUIRED": {
     "status": 400,
     "modules": [
       "campaign",
       "economy",
       "inventoryx",
-      "leaderboardx"
+      "leaderboardx",
+      "soltan"
     ]
   },
   "REQUEST_ID_REUSED": {
     "status": 409,
     "modules": [
       "economy",
-      "inventoryx"
+      "inventoryx",
+      "soltan"
     ]
   },
   "REQUEST_TOO_LARGE": {
@@ -5003,6 +5287,7 @@
       "base",
       "devkit",
       "economy",
+      "prediction",
       "publication"
     ]
   },
@@ -5105,6 +5390,60 @@
       "publication"
     ]
   },
+  "SCRAPED_LEAGUE_NOT_FOUND": {
+    "status": 404,
+    "modules": [
+      "prediction"
+    ]
+  },
+  "SCRAPED_MATCH_ACTION_FAILED": {
+    "status": 500,
+    "modules": [
+      "prediction"
+    ]
+  },
+  "SCRAPED_MATCH_BAD_TRANSITION": {
+    "status": 409,
+    "modules": [
+      "prediction"
+    ]
+  },
+  "SCRAPED_MATCH_CONVERTED": {
+    "status": 409,
+    "modules": [
+      "prediction"
+    ]
+  },
+  "SCRAPED_MATCH_DRAFT_INVALID": {
+    "status": 422,
+    "modules": [
+      "prediction"
+    ]
+  },
+  "SCRAPED_MATCH_IN_CONVERSION": {
+    "status": 409,
+    "modules": [
+      "prediction"
+    ]
+  },
+  "SCRAPED_MATCH_NOT_FOUND": {
+    "status": 404,
+    "modules": [
+      "prediction"
+    ]
+  },
+  "SCRAPE_ALREADY_RUNNING": {
+    "status": 409,
+    "modules": [
+      "prediction"
+    ]
+  },
+  "SCRAPE_RUN_NOT_FOUND": {
+    "status": 404,
+    "modules": [
+      "prediction"
+    ]
+  },
   "SECRET_KEY_MISSING": {
     "status": 400,
     "modules": [
@@ -5135,6 +5474,12 @@
       "economy"
     ]
   },
+  "SERVER_ONLY": {
+    "status": 403,
+    "modules": [
+      "blockworld"
+    ]
+  },
   "SERVICE_NOT_FOUND": {
     "status": 404,
     "modules": [
@@ -5145,6 +5490,54 @@
     "status": 503,
     "modules": [
       "account"
+    ]
+  },
+  "SETTLEMENT_ANSWER_INVALID": {
+    "status": 422,
+    "modules": [
+      "prediction"
+    ]
+  },
+  "SETTLEMENT_EVENT_NOT_LINKED": {
+    "status": 404,
+    "modules": [
+      "prediction"
+    ]
+  },
+  "SETTLEMENT_NO_RESULT_SNAPSHOT": {
+    "status": 422,
+    "modules": [
+      "prediction"
+    ]
+  },
+  "SETTLEMENT_PAYOUT_IN_PROGRESS": {
+    "status": 409,
+    "modules": [
+      "prediction"
+    ]
+  },
+  "SETTLEMENT_PROPOSAL_NOT_FOUND": {
+    "status": 404,
+    "modules": [
+      "prediction"
+    ]
+  },
+  "SETTLEMENT_PROPOSAL_NOT_PENDING": {
+    "status": 409,
+    "modules": [
+      "prediction"
+    ]
+  },
+  "SETTLEMENT_PROPOSAL_STALE": {
+    "status": 409,
+    "modules": [
+      "prediction"
+    ]
+  },
+  "SETTLEMENT_UNANSWERED_QUESTIONS": {
+    "status": 409,
+    "modules": [
+      "prediction"
     ]
   },
   "SHOP_CARDS_EMPTY": {
@@ -5471,6 +5864,114 @@
       "social"
     ]
   },
+  "SOLTAN_BUSY": {
+    "status": 409,
+    "modules": [
+      "soltan"
+    ]
+  },
+  "SOLTAN_CAMPAIGN_UNAVAILABLE": {
+    "status": 503,
+    "modules": [
+      "soltan"
+    ]
+  },
+  "SOLTAN_DAILY_NOT_READY": {
+    "status": 404,
+    "modules": [
+      "soltan"
+    ]
+  },
+  "SOLTAN_DAILY_OFF": {
+    "status": 403,
+    "modules": [
+      "soltan"
+    ]
+  },
+  "SOLTAN_ECONOMY_UNAVAILABLE": {
+    "status": 503,
+    "modules": [
+      "soltan"
+    ]
+  },
+  "SOLTAN_LEVEL_NOT_FOUND": {
+    "status": 404,
+    "modules": [
+      "soltan"
+    ]
+  },
+  "SOLTAN_LEVEL_NOT_PLAYABLE": {
+    "status": 409,
+    "modules": [
+      "soltan"
+    ]
+  },
+  "SOLTAN_LEVEL_NOT_SOLVED": {
+    "status": 409,
+    "modules": [
+      "soltan"
+    ]
+  },
+  "SOLTAN_LEVEL_REQUIRED": {
+    "status": 400,
+    "modules": [
+      "soltan"
+    ]
+  },
+  "SOLTAN_NOTHING_TO_REVEAL": {
+    "status": 409,
+    "modules": [
+      "soltan"
+    ]
+  },
+  "SOLTAN_NOT_ENOUGH_COINS": {
+    "status": 409,
+    "modules": [
+      "soltan"
+    ]
+  },
+  "SOLTAN_PLATFORM_INVALID": {
+    "status": 400,
+    "modules": [
+      "soltan"
+    ]
+  },
+  "SOLTAN_SESSION_CLOSED": {
+    "status": 409,
+    "modules": [
+      "soltan"
+    ]
+  },
+  "SOLTAN_SESSION_EXPIRED": {
+    "status": 409,
+    "modules": [
+      "soltan"
+    ]
+  },
+  "SOLTAN_SESSION_NOT_FOUND": {
+    "status": 404,
+    "modules": [
+      "soltan"
+    ]
+  },
+  "SOLTAN_TIME_INVALID": {
+    "status": 400,
+    "modules": [
+      "soltan"
+    ]
+  },
+  "SOLTAN_TOO_MANY_WORDS": {
+    "status": 400,
+    "modules": [
+      "soltan"
+    ]
+  },
+  "SOLTAN_WORD_INVALID": {
+    "status": 400,
+    "modules": [
+      "soltan"
+    ]
+  },
   "SOURCE_CURRENCY_MISMATCH": {
     "status": 409,
     "modules": [
@@ -5784,6 +6285,30 @@
       "economy"
     ]
   },
+  "TEAM_ALREADY_MAPPED": {
+    "status": 409,
+    "modules": [
+      "prediction"
+    ]
+  },
+  "TEAM_MAPPING_NOT_FOUND": {
+    "status": 404,
+    "modules": [
+      "prediction"
+    ]
+  },
+  "TEAM_NAME_ALREADY_EXISTS": {
+    "status": 409,
+    "modules": [
+      "prediction"
+    ]
+  },
+  "TEAM_NOT_FOUND": {
+    "status": 422,
+    "modules": [
+      "prediction"
+    ]
+  },
   "TEXT_REQUIRED": {
     "status": 400,
     "modules": [
@@ -5972,6 +6497,7 @@
   "TOO_MANY_IDS": {
     "status": 400,
     "modules": [
+      "blockworld",
       "publication"
     ]
   },
@@ -6197,6 +6723,7 @@
     "status": 401,
     "modules": [
       "base",
+      "blockworld",
       "devkit",
       "economy",
       "publication"
@@ -6252,78 +6779,6 @@
       "base"
     ]
   },
-  "UPM_PACKAGE_EMPTY": {
-    "status": 400,
-    "modules": [
-      "devkit"
-    ]
-  },
-  "UPM_PACKAGE_INVALID": {
-    "status": 400,
-    "modules": [
-      "devkit"
-    ]
-  },
-  "UPM_PACKAGE_NAME_INVALID": {
-    "status": 400,
-    "modules": [
-      "devkit"
-    ]
-  },
-  "UPM_PACKAGE_NAME_NOT_ALLOWED": {
-    "status": 400,
-    "modules": [
-      "devkit"
-    ]
-  },
-  "UPM_PACKAGE_NOT_FOUND": {
-    "status": 404,
-    "modules": [
-      "devkit"
-    ]
-  },
-  "UPM_PACKAGE_TOO_LARGE": {
-    "status": 400,
-    "modules": [
-      "devkit"
-    ]
-  },
-  "UPM_PACKAGE_VERSION_EXISTS": {
-    "status": 409,
-    "modules": [
-      "devkit"
-    ]
-  },
-  "UPM_PACKAGE_VERSION_INVALID": {
-    "status": 400,
-    "modules": [
-      "devkit"
-    ]
-  },
-  "UPM_PART_INVALID": {
-    "status": 400,
-    "modules": [
-      "devkit"
-    ]
-  },
-  "UPM_PART_MISSING": {
-    "status": 400,
-    "modules": [
-      "devkit"
-    ]
-  },
-  "UPM_REGISTRY_DISABLED": {
-    "status": 404,
-    "modules": [
-      "devkit"
-    ]
-  },
-  "UPM_STORAGE_UNAVAILABLE": {
-    "status": 503,
-    "modules": [
-      "devkit"
-    ]
-  },
   "URL_TOO_LONG": {
     "status": 400,
     "modules": [
@@ -6376,9 +6831,16 @@
     "status": 404,
     "modules": [
       "base",
+      "blockworld",
       "clan",
       "economy",
       "publication"
+    ]
+  },
+  "USER_PREDICTION_STATISTIC_NOT_FOUND": {
+    "status": 404,
+    "modules": [
+      "prediction"
     ]
   },
   "VALUE_OUT_OF_RANGE": {
