@@ -24,6 +24,7 @@ type RPC struct {
 	Request     Schema   `json:"request"`
 	Response    Schema   `json:"response"`
 	Errors      []string `json:"errors"`
+	Projects    []string `json:"projects,omitempty"`
 }
 
 type pkg struct {
@@ -215,11 +216,33 @@ func ScanRPCs(root string, modules []Module) ([]RPC, error) {
 			names = append(names, n)
 		}
 		sort.Strings(names)
+		seen := map[string]bool{}
+		add := func(lit *ast.CompositeLit, format string) {
+			for _, el := range lit.Elts {
+				kv, ok := el.(*ast.KeyValueExpr)
+				if !ok {
+					continue
+				}
+				id, ok := stringLit(kv.Key)
+				if !ok || seen[id] {
+					continue
+				}
+				seen[id] = true
+				handler := calleeName(kv.Value)
+				if sel, ok := kv.Value.(*ast.SelectorExpr); ok {
+					handler = sel.Sel.Name
+				}
+				out = append(out, p.describe(id, handler, format))
+			}
+		}
 		for _, name := range names {
-			if !strings.HasSuffix(name, "RPCs") {
+			if !strings.HasSuffix(strings.ToLower(name), "rpcs") {
 				continue
 			}
 			decl := p.fn(name)
+			if decl == nil || decl.Body == nil {
+				continue
+			}
 			format := p.formats[name]
 			if format == "" {
 				format = "code"
@@ -232,22 +255,34 @@ func ScanRPCs(root string, modules []Module) ([]RPC, error) {
 				if _, ok := lit.Type.(*ast.MapType); !ok {
 					return true
 				}
-				for _, el := range lit.Elts {
-					kv, ok := el.(*ast.KeyValueExpr)
-					if !ok {
-						continue
-					}
-					id, ok := stringLit(kv.Key)
-					if !ok {
-						continue
-					}
-					handler := calleeName(kv.Value)
-					if sel, ok := kv.Value.(*ast.SelectorExpr); ok {
-						handler = sel.Sel.Name
-					}
-					out = append(out, p.describe(id, handler, format))
-				}
+				add(lit, format)
 				return false
+			})
+		}
+		if init := p.fn("InitModule"); init != nil && init.Body != nil {
+			ast.Inspect(init.Body, func(n ast.Node) bool {
+				rs, ok := n.(*ast.RangeStmt)
+				if !ok {
+					return true
+				}
+				lit, ok := rs.X.(*ast.CompositeLit)
+				if !ok {
+					return true
+				}
+				if _, ok := lit.Type.(*ast.MapType); !ok {
+					return true
+				}
+				format := "code"
+				ast.Inspect(rs.Body, func(m ast.Node) bool {
+					if c, ok := m.(*ast.CallExpr); ok && calleeName(c.Fun) == "RegisterRpc" && len(c.Args) == 2 {
+						if f := wrapperFormat[wrapperName(c.Args[1])]; f != "" {
+							format = f
+						}
+					}
+					return true
+				})
+				add(lit, format)
+				return true
 			})
 		}
 	}
@@ -401,6 +436,40 @@ func (sc *scope) varType(name string) ast.Expr {
 			for _, id := range d.Names {
 				if id.Name == name && d.Type != nil {
 					out = d.Type
+				}
+			}
+		}
+		return true
+	})
+	return out
+}
+
+func (sc *scope) varInits(name string) []ast.Expr {
+	var out []ast.Expr
+	ast.Inspect(sc.decl.Body, func(n ast.Node) bool {
+		if d, ok := n.(*ast.AssignStmt); ok && d.Tok == token.DEFINE {
+			if len(d.Lhs) == len(d.Rhs) {
+				for i, l := range d.Lhs {
+					if id, ok := l.(*ast.Ident); ok && id.Name == name {
+						out = append(out, d.Rhs[i])
+					}
+				}
+			} else if len(d.Rhs) == 1 {
+				for i, l := range d.Lhs {
+					if id, ok := l.(*ast.Ident); ok && id.Name == name {
+						if i == 0 {
+							out = append(out, d.Rhs[0])
+						} else {
+							out = append(out, &multiResult{call: d.Rhs[0], index: i})
+						}
+					}
+				}
+			}
+		}
+		if d, ok := n.(*ast.ValueSpec); ok {
+			for i, id := range d.Names {
+				if id.Name == name && i < len(d.Values) {
+					out = append(out, d.Values[i])
 				}
 			}
 		}
@@ -579,6 +648,9 @@ func merge(a, b Schema) Schema {
 		c["nullable"] = true
 		return c
 	}
+	if (a["type"] == "integer" && b["type"] == "number") || (a["type"] == "number" && b["type"] == "integer") {
+		return Schema{"type": "number"}
+	}
 	return a
 }
 
@@ -611,8 +683,11 @@ func (sc *scope) expr(e ast.Expr, depth int) Schema {
 			s := sc.p.typeSchema(t, 0)
 			return sc.enrich(v.Name, s, depth)
 		}
-		if init := sc.varInit(v.Name); init != nil {
-			s := sc.expr(init, depth+1)
+		if inits := sc.varInits(v.Name); len(inits) > 0 {
+			var s Schema
+			for _, init := range inits {
+				s = merge(s, sc.expr(init, depth+1))
+			}
 			return sc.enrich(v.Name, s, depth)
 		}
 		if t := sc.paramType(v.Name); t != nil {
@@ -846,11 +921,11 @@ func (sc *scope) call(v *ast.CallExpr, depth int) Schema {
 		if pkgID, ok := sel.X.(*ast.Ident); ok && (pkgID.Name == "time" || pkgID.Name == "strconv" || pkgID.Name == "strings" || pkgID.Name == "fmt") {
 			return Schema{}
 		}
-		if d := sc.callee(sel); d != nil && depth < 4 && sc.depth < 3 && d != sc.decl {
+		if d := sc.callee(sel); d != nil && depth < 6 && sc.depth < 3 && d != sc.decl {
 			return sc.callResult(d, depth)
 		}
 	} else if id, ok := v.Fun.(*ast.Ident); ok {
-		if d := sc.callee(id); d != nil && depth < 4 && sc.depth < 3 && d != sc.decl {
+		if d := sc.callee(id); d != nil && depth < 6 && sc.depth < 3 && d != sc.decl {
 			return sc.callResult(d, depth)
 		}
 		if t, ok := sc.p.types[id.Name]; ok && len(v.Args) == 1 {

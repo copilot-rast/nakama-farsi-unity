@@ -1,0 +1,9 @@
+nakama-farsi ../../nakama-farsi dev
+pp ../../pp/backend nakama
+combatrace ../../combatrace/backend dev
+rakhtkan ../../rakhtkan/backend dev
+soltan ../../soltan/backend dev
+finteen ../../finteen/backend dev
+viralvanguard ../../viralvanguard/backend dev
+machineirani ../../machineirani/backend dev
+mench ../../mench/backend dev

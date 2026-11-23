@@ -1,0 +1,6 @@
+base_sample_cleanup server-only: answers SERVER_ONLY to players, the console page calls it
+cup_report server-only: match servers report cup results, players never call it
+blockworld_bridge_ack server-only: the SpacetimeDB bridge calls it with the http key, players get SERVER_ONLY
+blockworld_bridge_flags server-only: the SpacetimeDB bridge calls it with the http key, players get SERVER_ONLY
+blockworld_bridge_pull server-only: the SpacetimeDB bridge calls it with the http key, players get SERVER_ONLY
+blockworld_bridge_report server-only: the SpacetimeDB bridge calls it with the http key, players get SERVER_ONLY
