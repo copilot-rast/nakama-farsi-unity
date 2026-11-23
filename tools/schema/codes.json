@@ -639,6 +639,60 @@
       "economy"
     ]
   },
+  "BACKUP_COOLDOWN": {
+    "status": 409,
+    "modules": [
+      "pp"
+    ]
+  },
+  "BACKUP_KEY_REQUIRED": {
+    "status": 400,
+    "modules": [
+      "pp"
+    ]
+  },
+  "BACKUP_LIMIT": {
+    "status": 409,
+    "modules": [
+      "pp"
+    ]
+  },
+  "BACKUP_NOT_FOUND": {
+    "status": 404,
+    "modules": [
+      "pp"
+    ]
+  },
+  "BACKUP_NOT_OWNED": {
+    "status": 409,
+    "modules": [
+      "pp"
+    ]
+  },
+  "BACKUP_REFUND_EXPIRED": {
+    "status": 409,
+    "modules": [
+      "pp"
+    ]
+  },
+  "BACKUP_REFUND_OFF": {
+    "status": 409,
+    "modules": [
+      "pp"
+    ]
+  },
+  "BACKUP_UNIT_NOT_ALLOWED": {
+    "status": 409,
+    "modules": [
+      "pp"
+    ]
+  },
+  "BACKUP_USE_NOT_FOUND": {
+    "status": 404,
+    "modules": [
+      "pp"
+    ]
+  },
   "BANNER_LIST_NOT_FOUND": {
     "status": 404,
     "modules": [
@@ -2182,6 +2236,12 @@
       "base"
     ]
   },
+  "INVALID_ATTEMPT_ID": {
+    "status": 400,
+    "modules": [
+      "pp"
+    ]
+  },
   "INVALID_BODY": {
     "status": 400,
     "modules": [
@@ -2704,6 +2764,12 @@
       "economy"
     ]
   },
+  "INVALID_MISSION": {
+    "status": 400,
+    "modules": [
+      "pp"
+    ]
+  },
   "INVALID_MOD_ACTION": {
     "status": 400,
     "modules": [
@@ -2959,7 +3025,8 @@
       "campaign",
       "clan",
       "economy",
-      "leaderboardx"
+      "leaderboardx",
+      "pp"
     ]
   },
   "INVALID_REROLL_CAP": {
@@ -3246,6 +3313,12 @@
     "status": 400,
     "modules": [
       "economy"
+    ]
+  },
+  "INVALID_UNIT_ID": {
+    "status": 400,
+    "modules": [
+      "pp"
     ]
   },
   "INVALID_UPLOAD": {
@@ -5269,6 +5342,7 @@
       "economy",
       "inventoryx",
       "leaderboardx",
+      "pp",
       "soltan"
     ]
   },
@@ -5277,6 +5351,7 @@
     "modules": [
       "economy",
       "inventoryx",
+      "pp",
       "soltan"
     ]
   },
@@ -6072,6 +6147,12 @@
     "status": 404,
     "modules": [
       "campaign"
+    ]
+  },
+  "STAGE_NOT_RUNNING": {
+    "status": 409,
+    "modules": [
+      "pp"
     ]
   },
   "STAGE_SERVER_OWNED": {

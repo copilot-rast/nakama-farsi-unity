@@ -3,6 +3,11 @@ All notable changes to this project are documented below.
 
 The format is based on [keep a changelog](http://keepachangelog.com/) and this project uses [semantic versioning](http://semver.org/).
 
+## [3.23.0-nf.5] - 2026-11-23
+### Added
+- Farsi layer: wrappers regenerated from every server (339 RPCs); new `pp_backup_list`, `pp_backup_use`, `pp_backup_refund` from the Police Patrol server (`nakama` @ d9c3469d1).
+- Police Patrol layer 0.8.0: backup units (`BackupProvider`), see `PolicePatrol/CHANGELOG.md`.
+
 ## [3.23.0-nf.4] - 2026-11-23
 ### Added
 - Farsi layer: wrappers generated from every game server at once (nakama-farsi, Police Patrol, CombatRace, Rakhtkan, Soltan, Finteen, ViralVanguard, Machine Irani, Mench), 336 RPCs (300 before). New: `combatrace_profile`, `combatrace_missions`, `combatrace_events`, `combatrace_task_claim`; `combatrace_match_end` takes `kills`, `zombies`, `finished`, `weapons` and answers the pits split, XP, level, level-up and league fields; `flickkick_*`, `prediction_*`, `soltan_*`, `blockworld_*` (player RPCs only); new optional fields on existing answers (for example `displayName` in `economy_referral_me`). All of them sit in the shared generated layer with no define, so no project needs a new symbol.

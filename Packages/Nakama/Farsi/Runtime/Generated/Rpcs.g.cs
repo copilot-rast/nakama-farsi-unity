@@ -320,6 +320,9 @@ namespace NakamaFarsi.Sdk.Generated
         public const string LeaderboardxWinners = "leaderboardx_winners";
         public const string LedgerKinds = "ledger_kinds";
         public const string LedgerList = "ledger_list";
+        public const string PpBackupList = "pp_backup_list";
+        public const string PpBackupRefund = "pp_backup_refund";
+        public const string PpBackupUse = "pp_backup_use";
         public const string PpLocalState = "pp_local_state";
         public const string PredictionAnswerUpdate = "prediction_answer_update";
         public const string PredictionConfig = "prediction_config";
@@ -2672,6 +2675,39 @@ namespace NakamaFarsi.Sdk.Generated
         public PpRpcs(IRpcCaller caller)
         {
             _c = caller;
+        }
+
+        public Task<PpBackupListResponse> BackupListAsync(PpBackupListRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new PpBackupListRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<PpBackupListResponse>(_c, RpcIds.PpBackupList, request, ReadCall, ct);
+        }
+
+        public Task<PpBackupRefundResponse> BackupRefundAsync(PpBackupRefundRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new PpBackupRefundRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<PpBackupRefundResponse>(_c, RpcIds.PpBackupRefund, request, WriteCall, ct);
+        }
+
+        public Task<PpBackupUseResponse> BackupUseAsync(PpBackupUseRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new PpBackupUseRequest();
+            if (request.Lang == null)
+            {
+                request.Lang = _c.Language;
+            }
+
+            return RpcInvoke.CallAsync<PpBackupUseResponse>(_c, RpcIds.PpBackupUse, request, WriteCall, ct);
         }
 
         public Task<PpLocalStateResponse> LocalStateAsync(PpLocalStateRequest request = null, CancellationToken ct = default)
@@ -22703,6 +22739,462 @@ namespace NakamaFarsi.Sdk.Generated
 
             [JsonProperty("title")]
             public JToken Title { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class PpBackupListRequest
+    {
+        [JsonProperty("attemptId")]
+        public string AttemptId { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("mission")]
+        public string Mission { get; set; }
+    }
+
+    public sealed class PpBackupListResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("attemptId")]
+        public string AttemptId { get; set; }
+
+        [JsonProperty("callsPerMission")]
+        public long? CallsPerMission { get; set; }
+
+        [JsonProperty("carsOutAtOnce")]
+        public long? CarsOutAtOnce { get; set; }
+
+        [JsonProperty("debitOn")]
+        public string DebitOn { get; set; }
+
+        [JsonProperty("enabled")]
+        public bool? Enabled { get; set; }
+
+        [JsonProperty("enforceCap")]
+        public bool? EnforceCap { get; set; }
+
+        [JsonProperty("enforceCooldown")]
+        public bool? EnforceCooldown { get; set; }
+
+        [JsonProperty("items")]
+        public List<ItemsItem> Items { get; set; }
+
+        [JsonProperty("limitsPer")]
+        public string LimitsPer { get; set; }
+
+        [JsonProperty("mission")]
+        public string Mission { get; set; }
+
+        [JsonProperty("refundSeconds")]
+        public long? RefundSeconds { get; set; }
+
+        [JsonProperty("requireRun")]
+        public bool? RequireRun { get; set; }
+
+        [JsonProperty("secondsBetweenCalls")]
+        public long? SecondsBetweenCalls { get; set; }
+
+        [JsonProperty("serverTime")]
+        public string ServerTime { get; set; }
+
+        [JsonProperty("unlimited")]
+        public bool? Unlimited { get; set; }
+
+        [JsonProperty("use")]
+        public UseData Use { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class ItemsItem
+        {
+            [JsonProperty("callsLeft")]
+            public long? CallsLeft { get; set; }
+
+            [JsonProperty("callsPerMission")]
+            public long? CallsPerMission { get; set; }
+
+            [JsonProperty("count")]
+            public long? Count { get; set; }
+
+            [JsonProperty("icon")]
+            public string Icon { get; set; }
+
+            [JsonProperty("key")]
+            public string Key { get; set; }
+
+            [JsonProperty("kind")]
+            public string Kind { get; set; }
+
+            [JsonProperty("nextCallAt")]
+            public string NextCallAt { get; set; }
+
+            [JsonProperty("secondsBetweenCalls")]
+            public long? SecondsBetweenCalls { get; set; }
+
+            [JsonProperty("secondsUntilNextCall")]
+            public long? SecondsUntilNextCall { get; set; }
+
+            [JsonProperty("sort")]
+            public long? Sort { get; set; }
+
+            [JsonProperty("title")]
+            public string Title { get; set; }
+
+            [JsonProperty("unityIds")]
+            public List<string> UnityIds { get; set; }
+
+            [JsonProperty("used")]
+            public long? Used { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class UseData
+        {
+            [JsonProperty("at")]
+            public string At { get; set; }
+
+            [JsonProperty("attemptId")]
+            public string AttemptId { get; set; }
+
+            [JsonProperty("debited")]
+            public long? Debited { get; set; }
+
+            [JsonProperty("key")]
+            public string Key { get; set; }
+
+            [JsonProperty("kind")]
+            public string Kind { get; set; }
+
+            [JsonProperty("mission")]
+            public string Mission { get; set; }
+
+            [JsonProperty("replayed")]
+            public bool? Replayed { get; set; }
+
+            [JsonProperty("requestId")]
+            public string RequestId { get; set; }
+
+            [JsonProperty("status")]
+            public string Status { get; set; }
+
+            [JsonProperty("unitId")]
+            public string UnitId { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class PpBackupRefundRequest
+    {
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("requestId")]
+        public string RequestId { get; set; }
+    }
+
+    public sealed class PpBackupRefundResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("attemptId")]
+        public string AttemptId { get; set; }
+
+        [JsonProperty("callsPerMission")]
+        public long? CallsPerMission { get; set; }
+
+        [JsonProperty("carsOutAtOnce")]
+        public long? CarsOutAtOnce { get; set; }
+
+        [JsonProperty("debitOn")]
+        public string DebitOn { get; set; }
+
+        [JsonProperty("enabled")]
+        public bool? Enabled { get; set; }
+
+        [JsonProperty("enforceCap")]
+        public bool? EnforceCap { get; set; }
+
+        [JsonProperty("enforceCooldown")]
+        public bool? EnforceCooldown { get; set; }
+
+        [JsonProperty("items")]
+        public List<ItemsItem> Items { get; set; }
+
+        [JsonProperty("limitsPer")]
+        public string LimitsPer { get; set; }
+
+        [JsonProperty("mission")]
+        public string Mission { get; set; }
+
+        [JsonProperty("refundSeconds")]
+        public long? RefundSeconds { get; set; }
+
+        [JsonProperty("requireRun")]
+        public bool? RequireRun { get; set; }
+
+        [JsonProperty("secondsBetweenCalls")]
+        public long? SecondsBetweenCalls { get; set; }
+
+        [JsonProperty("serverTime")]
+        public string ServerTime { get; set; }
+
+        [JsonProperty("unlimited")]
+        public bool? Unlimited { get; set; }
+
+        [JsonProperty("use")]
+        public UseData Use { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class ItemsItem
+        {
+            [JsonProperty("callsLeft")]
+            public long? CallsLeft { get; set; }
+
+            [JsonProperty("callsPerMission")]
+            public long? CallsPerMission { get; set; }
+
+            [JsonProperty("count")]
+            public long? Count { get; set; }
+
+            [JsonProperty("icon")]
+            public string Icon { get; set; }
+
+            [JsonProperty("key")]
+            public string Key { get; set; }
+
+            [JsonProperty("kind")]
+            public string Kind { get; set; }
+
+            [JsonProperty("nextCallAt")]
+            public string NextCallAt { get; set; }
+
+            [JsonProperty("secondsBetweenCalls")]
+            public long? SecondsBetweenCalls { get; set; }
+
+            [JsonProperty("secondsUntilNextCall")]
+            public long? SecondsUntilNextCall { get; set; }
+
+            [JsonProperty("sort")]
+            public long? Sort { get; set; }
+
+            [JsonProperty("title")]
+            public string Title { get; set; }
+
+            [JsonProperty("unityIds")]
+            public List<string> UnityIds { get; set; }
+
+            [JsonProperty("used")]
+            public long? Used { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class UseData
+        {
+            [JsonProperty("at")]
+            public string At { get; set; }
+
+            [JsonProperty("attemptId")]
+            public string AttemptId { get; set; }
+
+            [JsonProperty("debited")]
+            public long? Debited { get; set; }
+
+            [JsonProperty("key")]
+            public string Key { get; set; }
+
+            [JsonProperty("kind")]
+            public string Kind { get; set; }
+
+            [JsonProperty("mission")]
+            public string Mission { get; set; }
+
+            [JsonProperty("replayed")]
+            public bool? Replayed { get; set; }
+
+            [JsonProperty("requestId")]
+            public string RequestId { get; set; }
+
+            [JsonProperty("status")]
+            public string Status { get; set; }
+
+            [JsonProperty("unitId")]
+            public string UnitId { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class PpBackupUseRequest
+    {
+        [JsonProperty("attemptId")]
+        public string AttemptId { get; set; }
+
+        [JsonProperty("key")]
+        public string Key { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
+
+        [JsonProperty("mission")]
+        public string Mission { get; set; }
+
+        [JsonProperty("requestId")]
+        public string RequestId { get; set; }
+
+        [JsonProperty("unitId")]
+        public string UnitId { get; set; }
+    }
+
+    public sealed class PpBackupUseResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("attemptId")]
+        public string AttemptId { get; set; }
+
+        [JsonProperty("callsPerMission")]
+        public long? CallsPerMission { get; set; }
+
+        [JsonProperty("carsOutAtOnce")]
+        public long? CarsOutAtOnce { get; set; }
+
+        [JsonProperty("debitOn")]
+        public string DebitOn { get; set; }
+
+        [JsonProperty("enabled")]
+        public bool? Enabled { get; set; }
+
+        [JsonProperty("enforceCap")]
+        public bool? EnforceCap { get; set; }
+
+        [JsonProperty("enforceCooldown")]
+        public bool? EnforceCooldown { get; set; }
+
+        [JsonProperty("items")]
+        public List<ItemsItem> Items { get; set; }
+
+        [JsonProperty("limitsPer")]
+        public string LimitsPer { get; set; }
+
+        [JsonProperty("mission")]
+        public string Mission { get; set; }
+
+        [JsonProperty("refundSeconds")]
+        public long? RefundSeconds { get; set; }
+
+        [JsonProperty("requireRun")]
+        public bool? RequireRun { get; set; }
+
+        [JsonProperty("secondsBetweenCalls")]
+        public long? SecondsBetweenCalls { get; set; }
+
+        [JsonProperty("serverTime")]
+        public string ServerTime { get; set; }
+
+        [JsonProperty("unlimited")]
+        public bool? Unlimited { get; set; }
+
+        [JsonProperty("use")]
+        public UseData Use { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class ItemsItem
+        {
+            [JsonProperty("callsLeft")]
+            public long? CallsLeft { get; set; }
+
+            [JsonProperty("callsPerMission")]
+            public long? CallsPerMission { get; set; }
+
+            [JsonProperty("count")]
+            public long? Count { get; set; }
+
+            [JsonProperty("icon")]
+            public string Icon { get; set; }
+
+            [JsonProperty("key")]
+            public string Key { get; set; }
+
+            [JsonProperty("kind")]
+            public string Kind { get; set; }
+
+            [JsonProperty("nextCallAt")]
+            public string NextCallAt { get; set; }
+
+            [JsonProperty("secondsBetweenCalls")]
+            public long? SecondsBetweenCalls { get; set; }
+
+            [JsonProperty("secondsUntilNextCall")]
+            public long? SecondsUntilNextCall { get; set; }
+
+            [JsonProperty("sort")]
+            public long? Sort { get; set; }
+
+            [JsonProperty("title")]
+            public string Title { get; set; }
+
+            [JsonProperty("unityIds")]
+            public List<string> UnityIds { get; set; }
+
+            [JsonProperty("used")]
+            public long? Used { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class UseData
+        {
+            [JsonProperty("at")]
+            public string At { get; set; }
+
+            [JsonProperty("attemptId")]
+            public string AttemptId { get; set; }
+
+            [JsonProperty("debited")]
+            public long? Debited { get; set; }
+
+            [JsonProperty("key")]
+            public string Key { get; set; }
+
+            [JsonProperty("kind")]
+            public string Kind { get; set; }
+
+            [JsonProperty("mission")]
+            public string Mission { get; set; }
+
+            [JsonProperty("replayed")]
+            public bool? Replayed { get; set; }
+
+            [JsonProperty("requestId")]
+            public string RequestId { get; set; }
+
+            [JsonProperty("status")]
+            public string Status { get; set; }
+
+            [JsonProperty("unitId")]
+            public string UnitId { get; set; }
 
             [JsonExtensionData]
             public IDictionary<string, JToken> Extra { get; set; }

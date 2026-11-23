@@ -1,0 +1,46 @@
+{
+  "enabled": true,
+  "unlimited": false,
+  "debitOn": "arrival",
+  "refundSeconds": 30,
+  "requireRun": true,
+  "enforceCap": true,
+  "callsPerMission": 3,
+  "enforceCooldown": true,
+  "secondsBetweenCalls": 60,
+  "carsOutAtOnce": 1,
+  "limitsPer": "kind",
+  "attemptId": "0f9fff72-3615-4985-86f1-111acce81c32",
+  "mission": "",
+  "serverTime": "2026-11-23T13:10:43.427623Z",
+  "items": [
+    {
+      "key": "backup_ground",
+      "kind": "ground",
+      "unityIds": [],
+      "title": "نیروی کمکی زمینی",
+      "icon": "",
+      "sort": 10,
+      "count": 4,
+      "callsPerMission": 3,
+      "secondsBetweenCalls": 60,
+      "used": 0,
+      "callsLeft": 3,
+      "secondsUntilNextCall": 0
+    },
+    {
+      "key": "backup_air",
+      "kind": "air",
+      "unityIds": [],
+      "title": "نیروی کمکی هوایی",
+      "icon": "",
+      "sort": 20,
+      "count": 0,
+      "callsPerMission": 3,
+      "secondsBetweenCalls": 60,
+      "used": 0,
+      "callsLeft": 3,
+      "secondsUntilNextCall": 0
+    }
+  ]
+}

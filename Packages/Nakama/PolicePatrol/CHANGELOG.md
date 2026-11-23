@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.8.0 — 2026-11-23 (package `com.nakamafarsi.unity` 3.23.0-nf.5)
+
+Backup units from the server (Police Patrol server `nakama` @ d9c3469d1). Nothing in 0.7 changed.
+
+- `BackupProvider.List(onComplete)` and `List(attemptId, mission, onComplete)` (`pp_backup_list`) answer a `BackupList`: `Units` (`BackupUnit`: `Key`, `Kind`, `Title`, `Icon`, `Count`, `UnityIds`, `Sort`, `CallsPerMission`, `SecondsBetweenCalls`, `Used`, `CallsLeft`, `NextCallAt`, `SecondsUntilNextCall`, `IsGround`, `IsAir`, `Serves(unityId)`), `Enabled`, `Unlimited`, `DebitOn`, `DebitOnArrival`, `RefundSeconds`, `RequireRun`, `EnforceCap`, `CallsPerMission`, `EnforceCooldown`, `SecondsBetweenCalls`, `CarsOutAtOnce`, `LimitsPer`, `ServerTime`, `Find(key)`, `OfKind(kind)`, `For(kind, unityId)`, `CanCall(unit)`.
+- `BackupProvider.Use(key, attemptId, requestId, onComplete)` and `Use(key, attemptId, requestId, unitId, mission, onComplete)` (`pp_backup_use`, idempotent by `requestId`; an empty one gets `NewRequestId()`) answer the list with `Use` (`BackupUse`: `RequestId`, `Key`, `Kind`, `AttemptId`, `Mission`, `UnitId`, `Debited`, `Status`, `At`, `Replayed`, `Refunded`).
+- `BackupProvider.Refund(requestId, onComplete)` (`pp_backup_refund`, only when the panel takes a unit at the call).
+- Constants `BackupKinds` (`Ground`, `Air`), `BackupDebitModes` (`Arrival`, `Call`), `BackupErrorCodes` (`NotOwned`, `Limit`, `Cooldown`, `NotFound`, `UnitNotAllowed`, `StageNotRunning`, `RefundOff`, `RefundExpired`, `UseNotFound`, `RequestIdReused`). Server codes come back unchanged; `BACKUP_COOLDOWN` fills `ApiError.RetryAfterSeconds`.
+
 ## 0.7.0 — 2026-11-22 (package `com.nakamafarsi.unity` 3.23.0-nf.3)
 
 Typed APIs for the levels, stats and cars server features (Police Patrol server `nakama` @ e12ac90cc). Every 0.6 call and model keeps working; new fields are init properties on the same records.
