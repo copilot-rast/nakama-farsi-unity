@@ -17,39 +17,39 @@
   "sources": [
     {
       "name": "nakama-farsi",
-      "commit": "1f46889c"
+      "commit": "3ccde803"
     },
     {
       "name": "pp",
-      "commit": "d9c3469d1"
+      "commit": "172dcc97a"
     },
     {
       "name": "combatrace",
-      "commit": "7910484f"
+      "commit": "1d0fb5fe"
     },
     {
       "name": "rakhtkan",
-      "commit": "2ec6f8c07"
+      "commit": "bbcfd8308"
     },
     {
       "name": "soltan",
-      "commit": "43e2ee24"
+      "commit": "e716be5a"
     },
     {
       "name": "finteen",
-      "commit": "5d193ea7"
+      "commit": "09b7402c"
     },
     {
       "name": "viralvanguard",
-      "commit": "b9de6b1e"
+      "commit": "961e55eb"
     },
     {
       "name": "machineirani",
-      "commit": "3b5a9388"
+      "commit": "f2ada403"
     },
     {
       "name": "mench",
-      "commit": "11675a4e"
+      "commit": "d5ba880c"
     }
   ],
   "rpcs": [
@@ -1759,6 +1759,13 @@
       },
       "response": {
         "properties": {
+          "client": {
+            "properties": {
+              "maxCacheAgeHours": {},
+              "requireOnline": {}
+            },
+            "type": "object"
+          },
           "count": {
             "type": "integer"
           },
@@ -1796,6 +1803,9 @@
           },
           "notModified": {
             "type": "boolean"
+          },
+          "serverTime": {
+            "type": "string"
           }
         },
         "type": "object"
@@ -21928,6 +21938,468 @@
       ]
     },
     {
+      "id": "pp_car_adopt",
+      "module": "pp",
+      "handler": "rpcCarAdopt",
+      "source": "integrations/pp/cars_service.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "cars": {
+            "items": {
+              "properties": {
+                "condition": {
+                  "properties": {
+                    "brake": {},
+                    "carWash": {},
+                    "fuel": {},
+                    "health": {},
+                    "oil": {},
+                    "tire": {}
+                  },
+                  "type": "object"
+                },
+                "services": {
+                  "items": {},
+                  "type": "array"
+                },
+                "vehicleKey": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "adopted": {
+            "type": "boolean"
+          },
+          "alreadyAdopted": {
+            "type": "boolean"
+          },
+          "applied": {
+            "items": {
+              "properties": {
+                "after": {
+                  "properties": {
+                    "brake": {},
+                    "carWash": {},
+                    "fuel": {},
+                    "health": {},
+                    "oil": {},
+                    "tire": {}
+                  },
+                  "type": "object"
+                },
+                "before": {
+                  "properties": {
+                    "brake": {},
+                    "carWash": {},
+                    "fuel": {},
+                    "health": {},
+                    "oil": {},
+                    "tire": {}
+                  },
+                  "type": "object"
+                },
+                "services": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "vehicleKey": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "cars": {
+            "items": {
+              "properties": {
+                "canDrive": {
+                  "type": "boolean"
+                },
+                "condition": {
+                  "properties": {
+                    "brake": {},
+                    "carWash": {},
+                    "fuel": {},
+                    "health": {},
+                    "oil": {},
+                    "tire": {}
+                  },
+                  "type": "object"
+                },
+                "critical": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "equipped": {
+                  "type": "boolean"
+                },
+                "gameId": {
+                  "type": "string"
+                },
+                "inService": {
+                  "type": "boolean"
+                },
+                "itemId": {
+                  "type": "string"
+                },
+                "needsCriticalService": {
+                  "type": "boolean"
+                },
+                "parkedPoi": {
+                  "type": "string"
+                },
+                "quotes": {
+                  "items": {},
+                  "type": "array"
+                },
+                "repairing": {
+                  "type": "boolean"
+                },
+                "services": {
+                  "items": {},
+                  "type": "array"
+                },
+                "updatedAt": {
+                  "type": "string"
+                },
+                "vehicleKey": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "ignoredServices": {
+            "type": "integer"
+          },
+          "mode": {
+            "type": "string"
+          },
+          "serverTime": {
+            "type": "string"
+          },
+          "skipped": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "ticketsTrusted": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "CAR_CONDITION_OFF",
+        "ITEM_NOT_FOUND",
+        "ITEM_NOT_OWNED",
+        "TOO_MANY_CARS",
+        "VEHICLE_KEY_REQUIRED"
+      ],
+      "projects": [
+        "pp"
+      ]
+    },
+    {
+      "id": "pp_car_condition",
+      "module": "pp",
+      "handler": "rpcCarCondition",
+      "source": "integrations/pp/cars.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "noQuotes": {
+            "type": "boolean"
+          },
+          "route": {
+            "type": "string"
+          },
+          "vehicleKey": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "adopted": {
+            "type": "boolean"
+          },
+          "cars": {
+            "items": {
+              "properties": {
+                "canDrive": {
+                  "type": "boolean"
+                },
+                "condition": {
+                  "properties": {
+                    "brake": {},
+                    "carWash": {},
+                    "fuel": {},
+                    "health": {},
+                    "oil": {},
+                    "tire": {}
+                  },
+                  "type": "object"
+                },
+                "critical": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "equipped": {
+                  "type": "boolean"
+                },
+                "gameId": {
+                  "type": "string"
+                },
+                "inService": {
+                  "type": "boolean"
+                },
+                "itemId": {
+                  "type": "string"
+                },
+                "needsCriticalService": {
+                  "type": "boolean"
+                },
+                "parkedPoi": {
+                  "type": "string"
+                },
+                "quotes": {
+                  "items": {},
+                  "type": "array"
+                },
+                "repairing": {
+                  "type": "boolean"
+                },
+                "services": {
+                  "items": {},
+                  "type": "array"
+                },
+                "updatedAt": {
+                  "type": "string"
+                },
+                "vehicleKey": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "route": {
+            "type": "string"
+          },
+          "serverTime": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "CAR_CONDITION_OFF",
+        "ITEM_NOT_FOUND",
+        "ITEM_NOT_OWNED",
+        "SERVICE_ROUTE_INVALID",
+        "VEHICLE_KEY_REQUIRED"
+      ],
+      "projects": [
+        "pp"
+      ]
+    },
+    {
+      "id": "pp_car_report",
+      "module": "pp",
+      "handler": "rpcCarReport",
+      "source": "integrations/pp/cars.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "condition": {
+            "properties": {
+              "brake": {
+                "nullable": true,
+                "type": "number"
+              },
+              "carWash": {
+                "nullable": true,
+                "type": "number"
+              },
+              "fuel": {
+                "nullable": true,
+                "type": "number"
+              },
+              "health": {
+                "nullable": true,
+                "type": "number"
+              },
+              "oil": {
+                "nullable": true,
+                "type": "number"
+              },
+              "tire": {
+                "nullable": true,
+                "type": "number"
+              }
+            },
+            "type": "object"
+          },
+          "parkedPoi": {
+            "nullable": true,
+            "type": "string"
+          },
+          "vehicleKey": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "car": {
+            "properties": {
+              "canDrive": {
+                "type": "boolean"
+              },
+              "condition": {
+                "properties": {
+                  "brake": {
+                    "type": "integer"
+                  },
+                  "carWash": {
+                    "type": "integer"
+                  },
+                  "fuel": {
+                    "type": "integer"
+                  },
+                  "health": {
+                    "type": "integer"
+                  },
+                  "oil": {
+                    "type": "integer"
+                  },
+                  "tire": {
+                    "type": "integer"
+                  }
+                },
+                "type": "object"
+              },
+              "critical": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "equipped": {
+                "type": "boolean"
+              },
+              "gameId": {
+                "type": "string"
+              },
+              "inService": {
+                "type": "boolean"
+              },
+              "itemId": {
+                "type": "string"
+              },
+              "needsCriticalService": {
+                "type": "boolean"
+              },
+              "parkedPoi": {
+                "type": "string"
+              },
+              "quotes": {
+                "items": {
+                  "properties": {
+                    "available": {},
+                    "coin": {},
+                    "full": {},
+                    "gem": {},
+                    "percent": {},
+                    "price": {},
+                    "seconds": {},
+                    "slot": {}
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "repairing": {
+                "type": "boolean"
+              },
+              "services": {
+                "items": {
+                  "properties": {
+                    "charged": {},
+                    "endsAt": {},
+                    "finishedAt": {},
+                    "finishedBy": {},
+                    "gem": {},
+                    "gemToFinish": {},
+                    "route": {},
+                    "seconds": {},
+                    "secondsLeft": {},
+                    "serviceId": {},
+                    "skipGem": {},
+                    "slot": {},
+                    "source": {},
+                    "startedAt": {},
+                    "state": {}
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "updatedAt": {
+                "type": "string"
+              },
+              "vehicleKey": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "changed": {
+            "type": "boolean"
+          },
+          "serverTime": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "CAR_REPORTS_OFF",
+        "INVALID_POI",
+        "ITEM_NOT_FOUND",
+        "ITEM_NOT_OWNED",
+        "VEHICLE_KEY_REQUIRED"
+      ],
+      "projects": [
+        "pp"
+      ]
+    },
+    {
       "id": "pp_local_state",
       "module": "pp",
       "handler": "rpcLocalState",
@@ -22006,6 +22478,460 @@
       },
       "errors": [
         "FAIR_PLAY_INVALID"
+      ],
+      "projects": [
+        "pp"
+      ]
+    },
+    {
+      "id": "pp_service_finish",
+      "module": "pp",
+      "handler": "rpcServiceFinish",
+      "source": "integrations/pp/cars_service.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "requestId": {
+            "type": "string"
+          },
+          "skip": {
+            "type": "boolean"
+          },
+          "slot": {
+            "type": "string"
+          },
+          "vehicleKey": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "alreadyDone": {
+            "type": "boolean"
+          },
+          "car": {
+            "properties": {
+              "canDrive": {
+                "type": "boolean"
+              },
+              "condition": {
+                "properties": {
+                  "brake": {
+                    "type": "integer"
+                  },
+                  "carWash": {
+                    "type": "integer"
+                  },
+                  "fuel": {
+                    "type": "integer"
+                  },
+                  "health": {
+                    "type": "integer"
+                  },
+                  "oil": {
+                    "type": "integer"
+                  },
+                  "tire": {
+                    "type": "integer"
+                  }
+                },
+                "type": "object"
+              },
+              "critical": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "equipped": {
+                "type": "boolean"
+              },
+              "gameId": {
+                "type": "string"
+              },
+              "inService": {
+                "type": "boolean"
+              },
+              "itemId": {
+                "type": "string"
+              },
+              "needsCriticalService": {
+                "type": "boolean"
+              },
+              "parkedPoi": {
+                "type": "string"
+              },
+              "quotes": {
+                "items": {
+                  "properties": {
+                    "available": {},
+                    "coin": {},
+                    "full": {},
+                    "gem": {},
+                    "percent": {},
+                    "price": {},
+                    "seconds": {},
+                    "slot": {}
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "repairing": {
+                "type": "boolean"
+              },
+              "services": {
+                "items": {
+                  "properties": {
+                    "charged": {},
+                    "endsAt": {},
+                    "finishedAt": {},
+                    "finishedBy": {},
+                    "gem": {},
+                    "gemToFinish": {},
+                    "route": {},
+                    "seconds": {},
+                    "secondsLeft": {},
+                    "serviceId": {},
+                    "skipGem": {},
+                    "slot": {},
+                    "source": {},
+                    "startedAt": {},
+                    "state": {}
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "updatedAt": {
+                "type": "string"
+              },
+              "vehicleKey": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "charged": {
+            "properties": {
+              "amount": {
+                "type": "integer"
+              },
+              "currency": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "completed": {
+            "type": "boolean"
+          },
+          "replayed": {
+            "type": "boolean"
+          },
+          "serverTime": {
+            "type": "string"
+          },
+          "service": {
+            "properties": {
+              "charged": {
+                "properties": {
+                  "amount": {
+                    "type": "integer"
+                  },
+                  "currency": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "endsAt": {
+                "type": "string"
+              },
+              "finishedAt": {
+                "type": "string"
+              },
+              "finishedBy": {
+                "type": "string"
+              },
+              "gem": {
+                "type": "integer"
+              },
+              "gemToFinish": {
+                "type": "integer"
+              },
+              "route": {
+                "type": "string"
+              },
+              "seconds": {
+                "type": "number"
+              },
+              "secondsLeft": {
+                "type": "number"
+              },
+              "serviceId": {
+                "type": "string"
+              },
+              "skipGem": {
+                "type": "integer"
+              },
+              "slot": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string"
+              },
+              "startedAt": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "CAR_CONDITION_OFF",
+        "ITEM_NOT_FOUND",
+        "ITEM_NOT_OWNED",
+        "REQUEST_ID_REUSED",
+        "SERVICE_NOT_READY",
+        "SERVICE_NOT_RUNNING",
+        "VEHICLE_KEY_REQUIRED"
+      ],
+      "projects": [
+        "pp"
+      ]
+    },
+    {
+      "id": "pp_service_start",
+      "module": "pp",
+      "handler": "rpcServiceStart",
+      "source": "integrations/pp/cars_service.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "requestId": {
+            "type": "string"
+          },
+          "route": {
+            "type": "string"
+          },
+          "slot": {
+            "type": "string"
+          },
+          "vehicleKey": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "alreadyDone": {
+            "type": "boolean"
+          },
+          "car": {
+            "properties": {
+              "canDrive": {
+                "type": "boolean"
+              },
+              "condition": {
+                "properties": {
+                  "brake": {
+                    "type": "integer"
+                  },
+                  "carWash": {
+                    "type": "integer"
+                  },
+                  "fuel": {
+                    "type": "integer"
+                  },
+                  "health": {
+                    "type": "integer"
+                  },
+                  "oil": {
+                    "type": "integer"
+                  },
+                  "tire": {
+                    "type": "integer"
+                  }
+                },
+                "type": "object"
+              },
+              "critical": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "equipped": {
+                "type": "boolean"
+              },
+              "gameId": {
+                "type": "string"
+              },
+              "inService": {
+                "type": "boolean"
+              },
+              "itemId": {
+                "type": "string"
+              },
+              "needsCriticalService": {
+                "type": "boolean"
+              },
+              "parkedPoi": {
+                "type": "string"
+              },
+              "quotes": {
+                "items": {
+                  "properties": {
+                    "available": {},
+                    "coin": {},
+                    "full": {},
+                    "gem": {},
+                    "percent": {},
+                    "price": {},
+                    "seconds": {},
+                    "slot": {}
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "repairing": {
+                "type": "boolean"
+              },
+              "services": {
+                "items": {
+                  "properties": {
+                    "charged": {},
+                    "endsAt": {},
+                    "finishedAt": {},
+                    "finishedBy": {},
+                    "gem": {},
+                    "gemToFinish": {},
+                    "route": {},
+                    "seconds": {},
+                    "secondsLeft": {},
+                    "serviceId": {},
+                    "skipGem": {},
+                    "slot": {},
+                    "source": {},
+                    "startedAt": {},
+                    "state": {}
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "updatedAt": {
+                "type": "string"
+              },
+              "vehicleKey": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "charged": {
+            "properties": {
+              "amount": {
+                "type": "integer"
+              },
+              "currency": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "completed": {
+            "type": "boolean"
+          },
+          "replayed": {
+            "type": "boolean"
+          },
+          "serverTime": {
+            "type": "string"
+          },
+          "service": {
+            "properties": {
+              "charged": {
+                "properties": {
+                  "amount": {
+                    "type": "integer"
+                  },
+                  "currency": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "endsAt": {
+                "type": "string"
+              },
+              "finishedAt": {
+                "type": "string"
+              },
+              "finishedBy": {
+                "type": "string"
+              },
+              "gem": {
+                "type": "integer"
+              },
+              "gemToFinish": {
+                "type": "integer"
+              },
+              "route": {
+                "type": "string"
+              },
+              "seconds": {
+                "type": "number"
+              },
+              "secondsLeft": {
+                "type": "number"
+              },
+              "serviceId": {
+                "type": "string"
+              },
+              "skipGem": {
+                "type": "integer"
+              },
+              "slot": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string"
+              },
+              "startedAt": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "CAR_CONDITION_OFF",
+        "ITEM_NOT_FOUND",
+        "ITEM_NOT_OWNED",
+        "REQUEST_ID_REUSED",
+        "SERVICE_ALREADY_RUNNING",
+        "SERVICE_NOT_AVAILABLE",
+        "SERVICE_NOT_NEEDED",
+        "SERVICE_ROUTE_INVALID",
+        "VEHICLE_KEY_REQUIRED"
       ],
       "projects": [
         "pp"

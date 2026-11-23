@@ -9525,11 +9525,202 @@ namespace NakamaFarsi.ApiCompat
 
         public static void Use830(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupListRequest(); string v = o.AttemptId; o.AttemptId = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupListRequest(); string v = o.Lang; o.Lang = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupListRequest(); string v = o.Mission; o.Mission = v; }
+        }
+
+        public static void Use831(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        {
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupListResponse(); string v = o.AttemptId; o.AttemptId = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupListResponse(); long? v = o.CallsPerMission; o.CallsPerMission = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupListResponse(); long? v = o.CarsOutAtOnce; o.CarsOutAtOnce = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupListResponse(); string v = o.DebitOn; o.DebitOn = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupListResponse(); bool? v = o.Enabled; o.Enabled = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupListResponse(); bool? v = o.EnforceCap; o.EnforceCap = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupListResponse(); bool? v = o.EnforceCooldown; o.EnforceCooldown = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupListResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupListResponse(); List<global::NakamaFarsi.Sdk.Generated.PpBackupListResponse.ItemsItem> v = o.Items; o.Items = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupListResponse(); string v = o.LimitsPer; o.LimitsPer = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupListResponse(); string v = o.Mission; o.Mission = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupListResponse(); JObject v = o.Raw; o.Raw = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupListResponse(); long? v = o.RefundSeconds; o.RefundSeconds = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupListResponse(); bool? v = o.RequireRun; o.RequireRun = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupListResponse(); long? v = o.SecondsBetweenCalls; o.SecondsBetweenCalls = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupListResponse(); string v = o.ServerTime; o.ServerTime = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupListResponse(); bool? v = o.Unlimited; o.Unlimited = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupListResponse(); global::NakamaFarsi.Sdk.Generated.PpBackupListResponse.UseData v = o.Use; o.Use = v; }
+            { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.PpBackupListResponse(); JObject raw = r.Raw; }
+        }
+
+        public static void Use832(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        {
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupListResponse.ItemsItem(); long? v = o.CallsLeft; o.CallsLeft = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupListResponse.ItemsItem(); long? v = o.CallsPerMission; o.CallsPerMission = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupListResponse.ItemsItem(); long? v = o.Count; o.Count = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupListResponse.ItemsItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupListResponse.ItemsItem(); string v = o.Icon; o.Icon = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupListResponse.ItemsItem(); string v = o.Key; o.Key = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupListResponse.ItemsItem(); string v = o.Kind; o.Kind = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupListResponse.ItemsItem(); string v = o.NextCallAt; o.NextCallAt = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupListResponse.ItemsItem(); long? v = o.SecondsBetweenCalls; o.SecondsBetweenCalls = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupListResponse.ItemsItem(); long? v = o.SecondsUntilNextCall; o.SecondsUntilNextCall = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupListResponse.ItemsItem(); long? v = o.Sort; o.Sort = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupListResponse.ItemsItem(); string v = o.Title; o.Title = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupListResponse.ItemsItem(); List<string> v = o.UnityIds; o.UnityIds = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupListResponse.ItemsItem(); long? v = o.Used; o.Used = v; }
+        }
+
+        public static void Use833(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        {
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupListResponse.UseData(); string v = o.At; o.At = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupListResponse.UseData(); string v = o.AttemptId; o.AttemptId = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupListResponse.UseData(); long? v = o.Debited; o.Debited = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupListResponse.UseData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupListResponse.UseData(); string v = o.Key; o.Key = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupListResponse.UseData(); string v = o.Kind; o.Kind = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupListResponse.UseData(); string v = o.Mission; o.Mission = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupListResponse.UseData(); bool? v = o.Replayed; o.Replayed = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupListResponse.UseData(); string v = o.RequestId; o.RequestId = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupListResponse.UseData(); string v = o.Status; o.Status = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupListResponse.UseData(); string v = o.UnitId; o.UnitId = v; }
+        }
+
+        public static void Use834(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        {
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupRefundRequest(); string v = o.Lang; o.Lang = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupRefundRequest(); string v = o.RequestId; o.RequestId = v; }
+        }
+
+        public static void Use835(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        {
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupRefundResponse(); string v = o.AttemptId; o.AttemptId = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupRefundResponse(); long? v = o.CallsPerMission; o.CallsPerMission = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupRefundResponse(); long? v = o.CarsOutAtOnce; o.CarsOutAtOnce = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupRefundResponse(); string v = o.DebitOn; o.DebitOn = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupRefundResponse(); bool? v = o.Enabled; o.Enabled = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupRefundResponse(); bool? v = o.EnforceCap; o.EnforceCap = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupRefundResponse(); bool? v = o.EnforceCooldown; o.EnforceCooldown = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupRefundResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupRefundResponse(); List<global::NakamaFarsi.Sdk.Generated.PpBackupRefundResponse.ItemsItem> v = o.Items; o.Items = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupRefundResponse(); string v = o.LimitsPer; o.LimitsPer = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupRefundResponse(); string v = o.Mission; o.Mission = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupRefundResponse(); JObject v = o.Raw; o.Raw = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupRefundResponse(); long? v = o.RefundSeconds; o.RefundSeconds = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupRefundResponse(); bool? v = o.RequireRun; o.RequireRun = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupRefundResponse(); long? v = o.SecondsBetweenCalls; o.SecondsBetweenCalls = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupRefundResponse(); string v = o.ServerTime; o.ServerTime = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupRefundResponse(); bool? v = o.Unlimited; o.Unlimited = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupRefundResponse(); global::NakamaFarsi.Sdk.Generated.PpBackupRefundResponse.UseData v = o.Use; o.Use = v; }
+            { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.PpBackupRefundResponse(); JObject raw = r.Raw; }
+        }
+
+        public static void Use836(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        {
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupRefundResponse.ItemsItem(); long? v = o.CallsLeft; o.CallsLeft = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupRefundResponse.ItemsItem(); long? v = o.CallsPerMission; o.CallsPerMission = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupRefundResponse.ItemsItem(); long? v = o.Count; o.Count = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupRefundResponse.ItemsItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupRefundResponse.ItemsItem(); string v = o.Icon; o.Icon = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupRefundResponse.ItemsItem(); string v = o.Key; o.Key = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupRefundResponse.ItemsItem(); string v = o.Kind; o.Kind = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupRefundResponse.ItemsItem(); string v = o.NextCallAt; o.NextCallAt = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupRefundResponse.ItemsItem(); long? v = o.SecondsBetweenCalls; o.SecondsBetweenCalls = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupRefundResponse.ItemsItem(); long? v = o.SecondsUntilNextCall; o.SecondsUntilNextCall = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupRefundResponse.ItemsItem(); long? v = o.Sort; o.Sort = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupRefundResponse.ItemsItem(); string v = o.Title; o.Title = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupRefundResponse.ItemsItem(); List<string> v = o.UnityIds; o.UnityIds = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupRefundResponse.ItemsItem(); long? v = o.Used; o.Used = v; }
+        }
+
+        public static void Use837(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        {
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupRefundResponse.UseData(); string v = o.At; o.At = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupRefundResponse.UseData(); string v = o.AttemptId; o.AttemptId = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupRefundResponse.UseData(); long? v = o.Debited; o.Debited = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupRefundResponse.UseData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupRefundResponse.UseData(); string v = o.Key; o.Key = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupRefundResponse.UseData(); string v = o.Kind; o.Kind = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupRefundResponse.UseData(); string v = o.Mission; o.Mission = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupRefundResponse.UseData(); bool? v = o.Replayed; o.Replayed = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupRefundResponse.UseData(); string v = o.RequestId; o.RequestId = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupRefundResponse.UseData(); string v = o.Status; o.Status = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupRefundResponse.UseData(); string v = o.UnitId; o.UnitId = v; }
+        }
+
+        public static void Use838(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        {
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseRequest(); string v = o.AttemptId; o.AttemptId = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseRequest(); string v = o.Key; o.Key = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseRequest(); string v = o.Lang; o.Lang = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseRequest(); string v = o.Mission; o.Mission = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseRequest(); string v = o.RequestId; o.RequestId = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseRequest(); string v = o.UnitId; o.UnitId = v; }
+        }
+
+        public static void Use839(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        {
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseResponse(); string v = o.AttemptId; o.AttemptId = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseResponse(); long? v = o.CallsPerMission; o.CallsPerMission = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseResponse(); long? v = o.CarsOutAtOnce; o.CarsOutAtOnce = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseResponse(); string v = o.DebitOn; o.DebitOn = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseResponse(); bool? v = o.Enabled; o.Enabled = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseResponse(); bool? v = o.EnforceCap; o.EnforceCap = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseResponse(); bool? v = o.EnforceCooldown; o.EnforceCooldown = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseResponse(); List<global::NakamaFarsi.Sdk.Generated.PpBackupUseResponse.ItemsItem> v = o.Items; o.Items = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseResponse(); string v = o.LimitsPer; o.LimitsPer = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseResponse(); string v = o.Mission; o.Mission = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseResponse(); JObject v = o.Raw; o.Raw = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseResponse(); long? v = o.RefundSeconds; o.RefundSeconds = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseResponse(); bool? v = o.RequireRun; o.RequireRun = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseResponse(); long? v = o.SecondsBetweenCalls; o.SecondsBetweenCalls = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseResponse(); string v = o.ServerTime; o.ServerTime = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseResponse(); bool? v = o.Unlimited; o.Unlimited = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseResponse(); global::NakamaFarsi.Sdk.Generated.PpBackupUseResponse.UseData v = o.Use; o.Use = v; }
+            { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.PpBackupUseResponse(); JObject raw = r.Raw; }
+        }
+
+        public static void Use840(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        {
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseResponse.ItemsItem(); long? v = o.CallsLeft; o.CallsLeft = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseResponse.ItemsItem(); long? v = o.CallsPerMission; o.CallsPerMission = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseResponse.ItemsItem(); long? v = o.Count; o.Count = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseResponse.ItemsItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseResponse.ItemsItem(); string v = o.Icon; o.Icon = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseResponse.ItemsItem(); string v = o.Key; o.Key = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseResponse.ItemsItem(); string v = o.Kind; o.Kind = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseResponse.ItemsItem(); string v = o.NextCallAt; o.NextCallAt = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseResponse.ItemsItem(); long? v = o.SecondsBetweenCalls; o.SecondsBetweenCalls = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseResponse.ItemsItem(); long? v = o.SecondsUntilNextCall; o.SecondsUntilNextCall = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseResponse.ItemsItem(); long? v = o.Sort; o.Sort = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseResponse.ItemsItem(); string v = o.Title; o.Title = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseResponse.ItemsItem(); List<string> v = o.UnityIds; o.UnityIds = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseResponse.ItemsItem(); long? v = o.Used; o.Used = v; }
+        }
+
+        public static void Use841(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        {
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseResponse.UseData(); string v = o.At; o.At = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseResponse.UseData(); string v = o.AttemptId; o.AttemptId = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseResponse.UseData(); long? v = o.Debited; o.Debited = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseResponse.UseData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseResponse.UseData(); string v = o.Key; o.Key = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseResponse.UseData(); string v = o.Kind; o.Kind = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseResponse.UseData(); string v = o.Mission; o.Mission = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseResponse.UseData(); bool? v = o.Replayed; o.Replayed = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseResponse.UseData(); string v = o.RequestId; o.RequestId = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseResponse.UseData(); string v = o.Status; o.Status = v; }
+            { var o = new global::NakamaFarsi.Sdk.Generated.PpBackupUseResponse.UseData(); string v = o.UnitId; o.UnitId = v; }
+        }
+
+        public static void Use842(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        {
             { var o = new global::NakamaFarsi.Sdk.Generated.PpLocalStateRequest(); List<global::NakamaFarsi.Sdk.Generated.PpLocalStateRequest.BalancesItem> v = o.Balances; o.Balances = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PpLocalStateRequest(); List<string> v = o.OwnedKeys; o.OwnedKeys = v; }
         }
 
-        public static void Use831(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use843(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PpLocalStateRequest.BalancesItem(); double? v = o.Amount; o.Amount = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PpLocalStateRequest.BalancesItem(); string v = o.Currency; o.Currency = v; }
@@ -9537,7 +9728,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.PpLocalStateRequest.BalancesItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
         }
 
-        public static void Use832(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use844(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PpLocalStateResponse(); JObject v = o.Adopted; o.Adopted = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PpLocalStateResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -9547,14 +9738,14 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.PpLocalStateResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use833(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use845(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PpLocalStateResponse.MismatchData(); List<global::NakamaFarsi.Sdk.Generated.PpLocalStateResponse.MismatchData.BalancesItem> v = o.Balances; o.Balances = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PpLocalStateResponse.MismatchData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PpLocalStateResponse.MismatchData(); List<string> v = o.Items; o.Items = v; }
         }
 
-        public static void Use834(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use846(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PpLocalStateResponse.MismatchData.BalancesItem(); string v = o.Currency; o.Currency = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PpLocalStateResponse.MismatchData.BalancesItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -9562,20 +9753,26 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.PpLocalStateResponse.MismatchData.BalancesItem(); double? v = o.Server; o.Server = v; }
         }
 
-        public static void Use835(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use847(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
+            { Task<global::NakamaFarsi.Sdk.Generated.PpBackupListResponse> t = rpcs.Pp.BackupListAsync(new global::NakamaFarsi.Sdk.Generated.PpBackupListRequest(), CancellationToken.None); }
+            { Task<global::NakamaFarsi.Sdk.Generated.PpBackupListResponse> t = rpcs.Pp.BackupListAsync(); }
+            { Task<global::NakamaFarsi.Sdk.Generated.PpBackupRefundResponse> t = rpcs.Pp.BackupRefundAsync(new global::NakamaFarsi.Sdk.Generated.PpBackupRefundRequest(), CancellationToken.None); }
+            { Task<global::NakamaFarsi.Sdk.Generated.PpBackupRefundResponse> t = rpcs.Pp.BackupRefundAsync(); }
+            { Task<global::NakamaFarsi.Sdk.Generated.PpBackupUseResponse> t = rpcs.Pp.BackupUseAsync(new global::NakamaFarsi.Sdk.Generated.PpBackupUseRequest(), CancellationToken.None); }
+            { Task<global::NakamaFarsi.Sdk.Generated.PpBackupUseResponse> t = rpcs.Pp.BackupUseAsync(); }
             { Task<global::NakamaFarsi.Sdk.Generated.PpLocalStateResponse> t = rpcs.Pp.LocalStateAsync(new global::NakamaFarsi.Sdk.Generated.PpLocalStateRequest(), CancellationToken.None); }
             { Task<global::NakamaFarsi.Sdk.Generated.PpLocalStateResponse> t = rpcs.Pp.LocalStateAsync(); }
         }
 
-        public static void Use836(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use848(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PredictionAnswerUpdateResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PredictionAnswerUpdateResponse(); JObject v = o.Raw; o.Raw = v; }
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.PredictionAnswerUpdateResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use837(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use849(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PredictionConfigResponse(); JToken v = o.AnswerEdit; o.AnswerEdit = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PredictionConfigResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -9588,7 +9785,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.PredictionConfigResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use838(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use850(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PredictionConfigResponse.LeaderboardData(); JToken v = o.Basis; o.Basis = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PredictionConfigResponse.LeaderboardData(); JToken v = o.Currency; o.Currency = v; }
@@ -9596,7 +9793,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.PredictionConfigResponse.LeaderboardData(); JToken v = o.PointsPerFullAnswer; o.PointsPerFullAnswer = v; }
         }
 
-        public static void Use839(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use851(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PredictionConfigResponse.ScorelineData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PredictionConfigResponse.ScorelineData(); JToken v = o.MaxGoals; o.MaxGoals = v; }
@@ -9604,77 +9801,77 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.PredictionConfigResponse.ScorelineData(); JToken v = o.Tiers; o.Tiers = v; }
         }
 
-        public static void Use840(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use852(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PredictionEventResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PredictionEventResponse(); JObject v = o.Raw; o.Raw = v; }
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.PredictionEventResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use841(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use853(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PredictionEventsResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PredictionEventsResponse(); JObject v = o.Raw; o.Raw = v; }
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.PredictionEventsResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use842(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use854(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PredictionHistoryResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PredictionHistoryResponse(); JObject v = o.Raw; o.Raw = v; }
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.PredictionHistoryResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use843(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use855(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PredictionLeaderboardResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PredictionLeaderboardResponse(); JObject v = o.Raw; o.Raw = v; }
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.PredictionLeaderboardResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use844(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use856(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PredictionLeagueResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PredictionLeagueResponse(); JObject v = o.Raw; o.Raw = v; }
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.PredictionLeagueResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use845(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use857(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PredictionLeaguesResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PredictionLeaguesResponse(); JObject v = o.Raw; o.Raw = v; }
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.PredictionLeaguesResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use846(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use858(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PredictionMyAnswersResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PredictionMyAnswersResponse(); JObject v = o.Raw; o.Raw = v; }
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.PredictionMyAnswersResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use847(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use859(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PredictionMyStatsResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PredictionMyStatsResponse(); JObject v = o.Raw; o.Raw = v; }
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.PredictionMyStatsResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use848(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use860(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PredictionQuestionEventsResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PredictionQuestionEventsResponse(); JObject v = o.Raw; o.Raw = v; }
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.PredictionQuestionEventsResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use849(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use861(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PredictionResultsResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PredictionResultsResponse(); JObject v = o.Raw; o.Raw = v; }
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.PredictionResultsResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use850(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use862(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { Task<global::NakamaFarsi.Sdk.Generated.PredictionAnswerUpdateResponse> t = rpcs.Prediction.AnswerUpdateAsync(new global::NakamaFarsi.Sdk.Generated.PredictionAnswerUpdateRequest(), CancellationToken.None); }
             { Task<global::NakamaFarsi.Sdk.Generated.PredictionAnswerUpdateResponse> t = rpcs.Prediction.AnswerUpdateAsync(); }
@@ -9704,14 +9901,14 @@ namespace NakamaFarsi.ApiCompat
             { Task<global::NakamaFarsi.Sdk.Generated.PredictionSubmitResponse> t = rpcs.Prediction.SubmitAsync(); }
         }
 
-        public static void Use851(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use863(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PredictionSubmitResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PredictionSubmitResponse(); JObject v = o.Raw; o.Raw = v; }
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.PredictionSubmitResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use852(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use864(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationBannerClickRequest(); string v = o.BannerId; o.BannerId = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationBannerClickRequest(); string v = o.Lang; o.Lang = v; }
@@ -9719,7 +9916,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationBannerClickRequest(); string v = o.Version; o.Version = v; }
         }
 
-        public static void Use853(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use865(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationBannerClickResponse(); JToken v = o.Action; o.Action = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationBannerClickResponse(); JToken v = o.BannerId; o.BannerId = v; }
@@ -9730,7 +9927,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.PublicationBannerClickResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use854(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use866(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationBannerViewRequest(); List<string> v = o.BannerIds; o.BannerIds = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationBannerViewRequest(); string v = o.Lang; o.Lang = v; }
@@ -9738,7 +9935,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationBannerViewRequest(); string v = o.Version; o.Version = v; }
         }
 
-        public static void Use855(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use867(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationBannerViewResponse(); List<string> v = o.Counted; o.Counted = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationBannerViewResponse(); string v = o.Day; o.Day = v; }
@@ -9749,7 +9946,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.PublicationBannerViewResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use856(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use868(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationBannersRequest(); string v = o.Lang; o.Lang = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationBannersRequest(); string v = o.Placement; o.Placement = v; }
@@ -9757,7 +9954,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationBannersRequest(); string v = o.Version; o.Version = v; }
         }
 
-        public static void Use857(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use869(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationBannersResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationBannersResponse(); List<global::NakamaFarsi.Sdk.Generated.PublicationBannersResponse.ItemsItem> v = o.Items; o.Items = v; }
@@ -9767,7 +9964,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.PublicationBannersResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use858(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use870(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationBannersResponse.ItemsItem(); global::NakamaFarsi.Sdk.Generated.PublicationBannersResponse.ItemsItem.ActionData v = o.Action; o.Action = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationBannersResponse.ItemsItem(); string v = o.BgColor; o.BgColor = v; }
@@ -9783,7 +9980,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationBannersResponse.ItemsItem(); string v = o.Title; o.Title = v; }
         }
 
-        public static void Use859(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use871(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationBannersResponse.ItemsItem.ActionData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationBannersResponse.ItemsItem.ActionData(); string v = o.Label; o.Label = v; }
@@ -9793,7 +9990,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationBannersResponse.ItemsItem.ActionData(); string v = o.Value; o.Value = v; }
         }
 
-        public static void Use860(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use872(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationBannersResponse.PlacementData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationBannersResponse.PlacementData(); JToken v = o.Key; o.Key = v; }
@@ -9804,14 +10001,14 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationBannersResponse.PlacementData(); JToken v = o.Sponsor; o.Sponsor = v; }
         }
 
-        public static void Use861(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use873(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationFaqListRequest(); string v = o.CategoryKey; o.CategoryKey = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationFaqListRequest(); string v = o.Lang; o.Lang = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationFaqListRequest(); string v = o.Q; o.Q = v; }
         }
 
-        public static void Use862(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use874(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationFaqListResponse(); List<global::NakamaFarsi.Sdk.Generated.PublicationFaqListResponse.CategoriesItem> v = o.Categories; o.Categories = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationFaqListResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -9821,14 +10018,14 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.PublicationFaqListResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use863(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use875(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationFaqListResponse.CategoriesItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationFaqListResponse.CategoriesItem(); string v = o.Key; o.Key = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationFaqListResponse.CategoriesItem(); string v = o.Name; o.Name = v; }
         }
 
-        public static void Use864(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use876(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationFaqListResponse.ItemsItem(); string v = o.Answer; o.Answer = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationFaqListResponse.ItemsItem(); string v = o.AnswerHtml; o.AnswerHtml = v; }
@@ -9838,13 +10035,13 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationFaqListResponse.ItemsItem(); string v = o.Question; o.Question = v; }
         }
 
-        public static void Use865(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use877(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationInboxClaimRequest(); string v = o.Lang; o.Lang = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationInboxClaimRequest(); string v = o.NotificationId; o.NotificationId = v; }
         }
 
-        public static void Use866(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use878(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationInboxClaimResponse(); bool? v = o.Claimed; o.Claimed = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationInboxClaimResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -9854,14 +10051,14 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.PublicationInboxClaimResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use867(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use879(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationInboxRequest(); string v = o.Cursor; o.Cursor = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationInboxRequest(); string v = o.Lang; o.Lang = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationInboxRequest(); long? v = o.Limit; o.Limit = v; }
         }
 
-        public static void Use868(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use880(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationInboxResponse(); string v = o.Cursor; o.Cursor = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationInboxResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -9872,7 +10069,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.PublicationInboxResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use869(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use881(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationInboxResponse.ItemsItem(); global::NakamaFarsi.Sdk.Generated.PublicationInboxResponse.ItemsItem.ActionData v = o.Action; o.Action = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationInboxResponse.ItemsItem(); JToken v = o.Body; o.Body = v; }
@@ -9890,7 +10087,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationInboxResponse.ItemsItem(); string v = o.Title; o.Title = v; }
         }
 
-        public static void Use870(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use882(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationInboxResponse.ItemsItem.ActionData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationInboxResponse.ItemsItem.ActionData(); string v = o.Label; o.Label = v; }
@@ -9898,14 +10095,14 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationInboxResponse.ItemsItem.ActionData(); string v = o.Value; o.Value = v; }
         }
 
-        public static void Use871(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use883(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationInboxResponse.ItemsItem.CategoryData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationInboxResponse.ItemsItem.CategoryData(); string v = o.Key; o.Key = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationInboxResponse.ItemsItem.CategoryData(); string v = o.Name; o.Name = v; }
         }
 
-        public static void Use872(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use884(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationInboxResponse.ItemsItem.PrizeData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationInboxResponse.ItemsItem.PrizeData(); string v = o.Id; o.Id = v; }
@@ -9914,13 +10111,13 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationInboxResponse.ItemsItem.PrizeData(); string v = o.Name; o.Name = v; }
         }
 
-        public static void Use873(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use885(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationInboxSeenRequest(); bool? v = o.All; o.All = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationInboxSeenRequest(); List<string> v = o.Ids; o.Ids = v; }
         }
 
-        public static void Use874(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use886(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationInboxSeenResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationInboxSeenResponse(); JObject v = o.Raw; o.Raw = v; }
@@ -9928,14 +10125,14 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.PublicationInboxSeenResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use875(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use887(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsBySlugRequest(); string v = o.Id; o.Id = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsBySlugRequest(); string v = o.Lang; o.Lang = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsBySlugRequest(); string v = o.Slug; o.Slug = v; }
         }
 
-        public static void Use876(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use888(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsBySlugResponse(); List<global::NakamaFarsi.Sdk.Generated.PublicationNewsBySlugResponse.ActionsItem> v = o.Actions; o.Actions = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsBySlugResponse(); bool? v = o.AllowComment; o.AllowComment = v; }
@@ -9963,7 +10160,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.PublicationNewsBySlugResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use877(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use889(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsBySlugResponse.ActionsItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsBySlugResponse.ActionsItem(); string v = o.Label; o.Label = v; }
@@ -9971,7 +10168,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsBySlugResponse.ActionsItem(); JToken v = o.Value; o.Value = v; }
         }
 
-        public static void Use878(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use890(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsBySlugResponse.SeoData(); string v = o.CanonicalUrl; o.CanonicalUrl = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsBySlugResponse.SeoData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -9983,12 +10180,12 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsBySlugResponse.SeoData(); string v = o.Slug; o.Slug = v; }
         }
 
-        public static void Use879(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use891(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsCommentDeleteRequest(); string v = o.Id; o.Id = v; }
         }
 
-        public static void Use880(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use892(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsCommentDeleteResponse(); bool? v = o.Deleted; o.Deleted = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsCommentDeleteResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -9996,14 +10193,14 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.PublicationNewsCommentDeleteResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use881(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use893(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsCommentRequest(); string v = o.Message; o.Message = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsCommentRequest(); string v = o.NewsId; o.NewsId = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsCommentRequest(); string v = o.ParentId; o.ParentId = v; }
         }
 
-        public static void Use882(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use894(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsCommentResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsCommentResponse(); JObject v = o.Raw; o.Raw = v; }
@@ -10011,14 +10208,14 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.PublicationNewsCommentResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use883(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use895(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsCommentsRequest(); string v = o.Cursor; o.Cursor = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsCommentsRequest(); long? v = o.Limit; o.Limit = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsCommentsRequest(); string v = o.NewsId; o.NewsId = v; }
         }
 
-        public static void Use884(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use896(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsCommentsResponse(); string v = o.Cursor; o.Cursor = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsCommentsResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -10027,20 +10224,20 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.PublicationNewsCommentsResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use885(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use897(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsCommentsResponse.ItemsItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsCommentsResponse.ItemsItem(); List<JObject> v = o.Replies; o.Replies = v; }
         }
 
-        public static void Use886(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use898(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsGetRequest(); string v = o.Id; o.Id = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsGetRequest(); string v = o.Lang; o.Lang = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsGetRequest(); string v = o.Slug; o.Slug = v; }
         }
 
-        public static void Use887(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use899(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsGetResponse(); List<global::NakamaFarsi.Sdk.Generated.PublicationNewsGetResponse.ActionsItem> v = o.Actions; o.Actions = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsGetResponse(); bool? v = o.AllowComment; o.AllowComment = v; }
@@ -10068,7 +10265,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.PublicationNewsGetResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use888(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use900(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsGetResponse.ActionsItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsGetResponse.ActionsItem(); string v = o.Label; o.Label = v; }
@@ -10076,7 +10273,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsGetResponse.ActionsItem(); JToken v = o.Value; o.Value = v; }
         }
 
-        public static void Use889(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use901(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsGetResponse.SeoData(); string v = o.CanonicalUrl; o.CanonicalUrl = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsGetResponse.SeoData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -10088,7 +10285,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsGetResponse.SeoData(); string v = o.Slug; o.Slug = v; }
         }
 
-        public static void Use890(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use902(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsListRequest(); string v = o.CategoryKey; o.CategoryKey = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsListRequest(); string v = o.Cursor; o.Cursor = v; }
@@ -10104,7 +10301,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsListRequest(); bool? v = o.UnreadOnly; o.UnreadOnly = v; }
         }
 
-        public static void Use891(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use903(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsListResponse(); string v = o.Cursor; o.Cursor = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsListResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -10115,7 +10312,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.PublicationNewsListResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use892(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use904(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsListResponse.ItemsItem(); JToken v = o.AllowComment; o.AllowComment = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsListResponse.ItemsItem(); string v = o.CategoryKey; o.CategoryKey = v; }
@@ -10135,7 +10332,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsListResponse.ItemsItem(); string v = o.Title; o.Title = v; }
         }
 
-        public static void Use893(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use905(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsListResponse.ItemsItem.SeoData(); string v = o.CanonicalUrl; o.CanonicalUrl = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsListResponse.ItemsItem.SeoData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -10147,13 +10344,13 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsListResponse.ItemsItem.SeoData(); string v = o.Slug; o.Slug = v; }
         }
 
-        public static void Use894(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use906(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsReactRequest(); string v = o.NewsId; o.NewsId = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsReactRequest(); string v = o.Reaction; o.Reaction = v; }
         }
 
-        public static void Use895(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use907(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsReactResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsReactResponse(); string v = o.NewsId; o.NewsId = v; }
@@ -10161,12 +10358,12 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.PublicationNewsReactResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use896(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use908(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsReactionTypesRequest(); string v = o.Lang; o.Lang = v; }
         }
 
-        public static void Use897(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use909(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsReactionTypesResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsReactionTypesResponse(); List<JObject> v = o.Items; o.Items = v; }
@@ -10175,14 +10372,14 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.PublicationNewsReactionTypesResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use898(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use910(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsSeenRequest(); bool? v = o.All; o.All = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsSeenRequest(); string v = o.Id; o.Id = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsSeenRequest(); List<string> v = o.Ids; o.Ids = v; }
         }
 
-        public static void Use899(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use911(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsSeenResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsSeenResponse(); JObject v = o.Raw; o.Raw = v; }
@@ -10190,7 +10387,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.PublicationNewsSeenResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use900(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use912(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsUnreadRequest(); string v = o.CategoryKey; o.CategoryKey = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsUnreadRequest(); string v = o.TagKey; o.TagKey = v; }
@@ -10198,7 +10395,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsUnreadRequest(); string v = o.TagMode; o.TagMode = v; }
         }
 
-        public static void Use901(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use913(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsUnreadResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNewsUnreadResponse(); JObject v = o.Raw; o.Raw = v; }
@@ -10206,12 +10403,12 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.PublicationNewsUnreadResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use902(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use914(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNotificationOpenedRequest(); string v = o.NotificationId; o.NotificationId = v; }
         }
 
-        public static void Use903(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use915(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNotificationOpenedResponse(); bool? v = o.Counted; o.Counted = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNotificationOpenedResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -10220,12 +10417,12 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.PublicationNotificationOpenedResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use904(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use916(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNotifyPrefsRequest(); string v = o.Lang; o.Lang = v; }
         }
 
-        public static void Use905(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use917(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNotifyPrefsResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNotifyPrefsResponse(); List<global::NakamaFarsi.Sdk.Generated.PublicationNotifyPrefsResponse.ItemsItem> v = o.Items; o.Items = v; }
@@ -10235,7 +10432,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.PublicationNotifyPrefsResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use906(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use918(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNotifyPrefsResponse.ItemsItem(); bool? v = o.CanOptOut; o.CanOptOut = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNotifyPrefsResponse.ItemsItem(); string v = o.Description; o.Description = v; }
@@ -10245,13 +10442,13 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNotifyPrefsResponse.ItemsItem(); string v = o.Name; o.Name = v; }
         }
 
-        public static void Use907(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use919(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNotifyPrefsSetRequest(); string v = o.Lang; o.Lang = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNotifyPrefsSetRequest(); JObject v = o.Prefs; o.Prefs = v; }
         }
 
-        public static void Use908(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use920(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNotifyPrefsSetResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNotifyPrefsSetResponse(); List<global::NakamaFarsi.Sdk.Generated.PublicationNotifyPrefsSetResponse.ItemsItem> v = o.Items; o.Items = v; }
@@ -10261,7 +10458,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.PublicationNotifyPrefsSetResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use909(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use921(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNotifyPrefsSetResponse.ItemsItem(); bool? v = o.CanOptOut; o.CanOptOut = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNotifyPrefsSetResponse.ItemsItem(); string v = o.Description; o.Description = v; }
@@ -10271,14 +10468,14 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationNotifyPrefsSetResponse.ItemsItem(); string v = o.Name; o.Name = v; }
         }
 
-        public static void Use910(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use922(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationOtpRequestRequest(); string v = o.Country; o.Country = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationOtpRequestRequest(); string v = o.Lang; o.Lang = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationOtpRequestRequest(); string v = o.Phone; o.Phone = v; }
         }
 
-        public static void Use911(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use923(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationOtpRequestResponse(); long? v = o.CodeLength; o.CodeLength = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationOtpRequestResponse(); long? v = o.ExpiresIn; o.ExpiresIn = v; }
@@ -10291,7 +10488,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.PublicationOtpRequestResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use912(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use924(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationOtpVerifyRequest(); string v = o.Code; o.Code = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationOtpVerifyRequest(); string v = o.Country; o.Country = v; }
@@ -10299,7 +10496,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationOtpVerifyRequest(); string v = o.Phone; o.Phone = v; }
         }
 
-        public static void Use913(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use925(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationOtpVerifyResponse(); bool? v = o.Created; o.Created = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationOtpVerifyResponse(); JToken v = o.ExpiresAt; o.ExpiresAt = v; }
@@ -10314,7 +10511,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.PublicationOtpVerifyResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use914(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use926(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationPhoneResponse(); long? v = o.CodeLength; o.CodeLength = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationPhoneResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -10324,7 +10521,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.PublicationPhoneResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use915(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use927(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationPushDevicesResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationPushDevicesResponse(); List<global::NakamaFarsi.Sdk.Generated.PublicationPushDevicesResponse.ItemsItem> v = o.Items; o.Items = v; }
@@ -10332,7 +10529,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.PublicationPushDevicesResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use916(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use928(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationPushDevicesResponse.ItemsItem(); bool? v = o.Active; o.Active = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationPushDevicesResponse.ItemsItem(); string v = o.AppVersion; o.AppVersion = v; }
@@ -10343,7 +10540,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationPushDevicesResponse.ItemsItem(); string v = o.Token; o.Token = v; }
         }
 
-        public static void Use917(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use929(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationPushRegisterRequest(); string v = o.AppVersion; o.AppVersion = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationPushRegisterRequest(); string v = o.DeviceId; o.DeviceId = v; }
@@ -10351,7 +10548,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationPushRegisterRequest(); string v = o.Token; o.Token = v; }
         }
 
-        public static void Use918(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use930(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationPushRegisterResponse(); bool? v = o.Active; o.Active = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationPushRegisterResponse(); string v = o.DeviceId; o.DeviceId = v; }
@@ -10361,12 +10558,12 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.PublicationPushRegisterResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use919(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use931(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationPushUnregisterRequest(); string v = o.Token; o.Token = v; }
         }
 
-        public static void Use920(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use932(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationPushUnregisterResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationPushUnregisterResponse(); JObject v = o.Raw; o.Raw = v; }
@@ -10374,7 +10571,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.PublicationPushUnregisterResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use921(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use933(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { Task<global::NakamaFarsi.Sdk.Generated.PublicationBannerClickResponse> t = rpcs.Publication.BannerClickAsync(new global::NakamaFarsi.Sdk.Generated.PublicationBannerClickRequest(), CancellationToken.None); }
             { Task<global::NakamaFarsi.Sdk.Generated.PublicationBannerClickResponse> t = rpcs.Publication.BannerClickAsync(); }
@@ -10436,14 +10633,14 @@ namespace NakamaFarsi.ApiCompat
             { Task<global::NakamaFarsi.Sdk.Generated.PublicationSponsorsResponse> t = rpcs.Publication.SponsorsAsync(); }
         }
 
-        public static void Use922(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use934(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationSponsorClickRequest(); string v = o.Lang; o.Lang = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationSponsorClickRequest(); string v = o.Link; o.Link = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationSponsorClickRequest(); string v = o.SponsorId; o.SponsorId = v; }
         }
 
-        public static void Use923(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use935(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationSponsorClickResponse(); bool? v = o.Counted; o.Counted = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationSponsorClickResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -10454,7 +10651,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.PublicationSponsorClickResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use924(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use936(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationSponsorClickResponse.SponsorData(); global::NakamaFarsi.Sdk.Generated.PublicationSponsorClickResponse.SponsorData.ActionData v = o.Action; o.Action = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationSponsorClickResponse.SponsorData(); string v = o.BgColor; o.BgColor = v; }
@@ -10471,7 +10668,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationSponsorClickResponse.SponsorData(); string v = o.Title; o.Title = v; }
         }
 
-        public static void Use925(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use937(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationSponsorClickResponse.SponsorData.ActionData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationSponsorClickResponse.SponsorData.ActionData(); string v = o.Label; o.Label = v; }
@@ -10481,7 +10678,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationSponsorClickResponse.SponsorData.ActionData(); string v = o.Value; o.Value = v; }
         }
 
-        public static void Use926(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use938(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationSponsorClickResponse.SponsorData.LinksItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationSponsorClickResponse.SponsorData.LinksItem(); string v = o.Label; o.Label = v; }
@@ -10489,12 +10686,12 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationSponsorClickResponse.SponsorData.LinksItem(); JToken v = o.Url; o.Url = v; }
         }
 
-        public static void Use927(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use939(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationSponsorViewRequest(); List<string> v = o.SponsorIds; o.SponsorIds = v; }
         }
 
-        public static void Use928(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use940(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationSponsorViewResponse(); List<string> v = o.Counted; o.Counted = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationSponsorViewResponse(); string v = o.Day; o.Day = v; }
@@ -10504,13 +10701,13 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.PublicationSponsorViewResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use929(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use941(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationSponsorsRequest(); string v = o.Lang; o.Lang = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationSponsorsRequest(); string v = o.TagKey; o.TagKey = v; }
         }
 
-        public static void Use930(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use942(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationSponsorsResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationSponsorsResponse(); List<global::NakamaFarsi.Sdk.Generated.PublicationSponsorsResponse.ItemsItem> v = o.Items; o.Items = v; }
@@ -10519,7 +10716,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.PublicationSponsorsResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use931(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use943(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationSponsorsResponse.ItemsItem(); global::NakamaFarsi.Sdk.Generated.PublicationSponsorsResponse.ItemsItem.ActionData v = o.Action; o.Action = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationSponsorsResponse.ItemsItem(); string v = o.BgColor; o.BgColor = v; }
@@ -10536,7 +10733,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationSponsorsResponse.ItemsItem(); string v = o.Title; o.Title = v; }
         }
 
-        public static void Use932(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use944(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationSponsorsResponse.ItemsItem.ActionData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationSponsorsResponse.ItemsItem.ActionData(); string v = o.Label; o.Label = v; }
@@ -10546,7 +10743,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationSponsorsResponse.ItemsItem.ActionData(); string v = o.Value; o.Value = v; }
         }
 
-        public static void Use933(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use945(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationSponsorsResponse.ItemsItem.LinksItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationSponsorsResponse.ItemsItem.LinksItem(); string v = o.Label; o.Label = v; }
@@ -10554,14 +10751,14 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.PublicationSponsorsResponse.ItemsItem.LinksItem(); JToken v = o.Url; o.Url = v; }
         }
 
-        public static void Use934(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use946(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizAnswerAllRequest(); List<global::NakamaFarsi.Sdk.Generated.QuizAnswerAllRequest.AnswersItem> v = o.Answers; o.Answers = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizAnswerAllRequest(); string v = o.Lang; o.Lang = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizAnswerAllRequest(); string v = o.SessionId; o.SessionId = v; }
         }
 
-        public static void Use935(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use947(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizAnswerAllRequest.AnswersItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizAnswerAllRequest.AnswersItem(); string v = o.Lang; o.Lang = v; }
@@ -10572,7 +10769,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizAnswerAllRequest.AnswersItem(); string v = o.Text; o.Text = v; }
         }
 
-        public static void Use936(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use948(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizAnswerAllResponse(); List<global::NakamaFarsi.Sdk.Generated.QuizAnswerAllResponse.AnswersItem> v = o.Answers; o.Answers = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizAnswerAllResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -10582,14 +10779,14 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.QuizAnswerAllResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use937(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use949(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizAnswerAllResponse.AnswersItem(); JToken v = o.Error; o.Error = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizAnswerAllResponse.AnswersItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizAnswerAllResponse.AnswersItem(); JToken v = o.QuestionId; o.QuestionId = v; }
         }
 
-        public static void Use938(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use950(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizAnswerRequest(); string v = o.Lang; o.Lang = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizAnswerRequest(); long? v = o.OptionId; o.OptionId = v; }
@@ -10599,7 +10796,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizAnswerRequest(); string v = o.Text; o.Text = v; }
         }
 
-        public static void Use939(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use951(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizAnswerResponse(); JToken v = o.Answered; o.Answered = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizAnswerResponse(); bool? v = o.Correct; o.Correct = v; }
@@ -10616,7 +10813,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.QuizAnswerResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use940(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use952(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizAnswerResponse.NextData(); JObject v = o.AcceptedAnswers; o.AcceptedAnswers = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizAnswerResponse.NextData(); global::NakamaFarsi.Sdk.Generated.QuizAnswerResponse.NextData.AnsweredData v = o.Answered; o.Answered = v; }
@@ -10633,7 +10830,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizAnswerResponse.NextData(); string v = o.Type; o.Type = v; }
         }
 
-        public static void Use941(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use953(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizAnswerResponse.NextData.AnsweredData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizAnswerResponse.NextData.AnsweredData(); List<long?> v = o.OptionIds; o.OptionIds = v; }
@@ -10641,7 +10838,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizAnswerResponse.NextData.AnsweredData(); string v = o.Text; o.Text = v; }
         }
 
-        public static void Use942(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use954(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizAnswerResponse.NextData.HintsItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizAnswerResponse.NextData.HintsItem(); JToken v = o.Id; o.Id = v; }
@@ -10650,7 +10847,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizAnswerResponse.NextData.HintsItem(); JToken v = o.Price; o.Price = v; }
         }
 
-        public static void Use943(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use955(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizAnswerResponse.NextData.OptionsItem(); bool? v = o.Correct; o.Correct = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizAnswerResponse.NextData.OptionsItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -10659,7 +10856,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizAnswerResponse.NextData.OptionsItem(); string v = o.Text; o.Text = v; }
         }
 
-        public static void Use944(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use956(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAcceptRequest(); string v = o.CategoryKey; o.CategoryKey = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAcceptRequest(); string v = o.DuelId; o.DuelId = v; }
@@ -10668,7 +10865,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAcceptRequest(); string v = o.QuestionId; o.QuestionId = v; }
         }
 
-        public static void Use945(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use957(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAcceptResponse(); string v = o.CreatedAt; o.CreatedAt = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAcceptResponse(); JToken v = o.DuelId; o.DuelId = v; }
@@ -10697,7 +10894,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.QuizDuelAcceptResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use946(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use958(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAcceptResponse.RoundListItem(); global::NakamaFarsi.Sdk.Generated.QuizDuelAcceptResponse.RoundListItem.CategoryData v = o.Category; o.Category = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAcceptResponse.RoundListItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -10709,7 +10906,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAcceptResponse.RoundListItem(); long? v = o.YouCorrect; o.YouCorrect = v; }
         }
 
-        public static void Use947(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use959(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAcceptResponse.RoundListItem.CategoryData(); string v = o.Color; o.Color = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAcceptResponse.RoundListItem.CategoryData(); string v = o.Description; o.Description = v; }
@@ -10719,7 +10916,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAcceptResponse.RoundListItem.CategoryData(); string v = o.Name; o.Name = v; }
         }
 
-        public static void Use948(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use960(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAcceptResponse.StepData(); global::NakamaFarsi.Sdk.Generated.QuizDuelAcceptResponse.StepData.CategoryData v = o.Category; o.Category = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAcceptResponse.StepData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -10728,7 +10925,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAcceptResponse.StepData(); JToken v = o.Round; o.Round = v; }
         }
 
-        public static void Use949(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use961(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAcceptResponse.StepData.CategoryData(); string v = o.Color; o.Color = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAcceptResponse.StepData.CategoryData(); string v = o.Description; o.Description = v; }
@@ -10738,7 +10935,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAcceptResponse.StepData.CategoryData(); string v = o.Name; o.Name = v; }
         }
 
-        public static void Use950(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use962(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAcceptResponse.StepData.OffersItem(); string v = o.Color; o.Color = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAcceptResponse.StepData.OffersItem(); string v = o.Description; o.Description = v; }
@@ -10748,7 +10945,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAcceptResponse.StepData.OffersItem(); string v = o.Name; o.Name = v; }
         }
 
-        public static void Use951(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use963(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAnswerRequest(); string v = o.CategoryKey; o.CategoryKey = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAnswerRequest(); string v = o.DuelId; o.DuelId = v; }
@@ -10757,7 +10954,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAnswerRequest(); string v = o.QuestionId; o.QuestionId = v; }
         }
 
-        public static void Use952(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use964(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAnswerResponse(); global::NakamaFarsi.Sdk.Generated.QuizDuelAnswerResponse.DuelData v = o.Duel; o.Duel = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAnswerResponse(); string v = o.Explanation; o.Explanation = v; }
@@ -10769,7 +10966,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.QuizDuelAnswerResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use953(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use965(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAnswerResponse.DuelData(); string v = o.CreatedAt; o.CreatedAt = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAnswerResponse.DuelData(); string v = o.DuelId; o.DuelId = v; }
@@ -10796,7 +10993,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAnswerResponse.DuelData(); global::NakamaFarsi.Sdk.Generated.QuizDuelAnswerResponse.DuelData.YouData v = o.You; o.You = v; }
         }
 
-        public static void Use954(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use966(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAnswerResponse.DuelData.OpponentData(); JToken v = o.AvatarUrl; o.AvatarUrl = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAnswerResponse.DuelData.OpponentData(); JToken v = o.DisplayName; o.DisplayName = v; }
@@ -10806,7 +11003,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAnswerResponse.DuelData.OpponentData(); JToken v = o.Username; o.Username = v; }
         }
 
-        public static void Use955(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use967(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAnswerResponse.DuelData.RoundListItem(); global::NakamaFarsi.Sdk.Generated.QuizDuelAnswerResponse.DuelData.RoundListItem.CategoryData v = o.Category; o.Category = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAnswerResponse.DuelData.RoundListItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -10818,7 +11015,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAnswerResponse.DuelData.RoundListItem(); long? v = o.YouCorrect; o.YouCorrect = v; }
         }
 
-        public static void Use956(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use968(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAnswerResponse.DuelData.RoundListItem.CategoryData(); string v = o.Color; o.Color = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAnswerResponse.DuelData.RoundListItem.CategoryData(); string v = o.Description; o.Description = v; }
@@ -10828,7 +11025,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAnswerResponse.DuelData.RoundListItem.CategoryData(); string v = o.Name; o.Name = v; }
         }
 
-        public static void Use957(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use969(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAnswerResponse.DuelData.StepData(); global::NakamaFarsi.Sdk.Generated.QuizDuelAnswerResponse.DuelData.StepData.CategoryData v = o.Category; o.Category = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAnswerResponse.DuelData.StepData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -10837,7 +11034,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAnswerResponse.DuelData.StepData(); JToken v = o.Round; o.Round = v; }
         }
 
-        public static void Use958(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use970(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAnswerResponse.DuelData.StepData.CategoryData(); string v = o.Color; o.Color = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAnswerResponse.DuelData.StepData.CategoryData(); string v = o.Description; o.Description = v; }
@@ -10847,7 +11044,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAnswerResponse.DuelData.StepData.CategoryData(); string v = o.Name; o.Name = v; }
         }
 
-        public static void Use959(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use971(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAnswerResponse.DuelData.StepData.OffersItem(); string v = o.Color; o.Color = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAnswerResponse.DuelData.StepData.OffersItem(); string v = o.Description; o.Description = v; }
@@ -10857,7 +11054,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAnswerResponse.DuelData.StepData.OffersItem(); string v = o.Name; o.Name = v; }
         }
 
-        public static void Use960(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use972(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAnswerResponse.DuelData.YouData(); JToken v = o.AvatarUrl; o.AvatarUrl = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAnswerResponse.DuelData.YouData(); JToken v = o.DisplayName; o.DisplayName = v; }
@@ -10867,7 +11064,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAnswerResponse.DuelData.YouData(); JToken v = o.Username; o.Username = v; }
         }
 
-        public static void Use961(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use973(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAnswerResponse.NextData(); string v = o.DeadlineAt; o.DeadlineAt = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAnswerResponse.NextData(); string v = o.DuelId; o.DuelId = v; }
@@ -10884,7 +11081,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAnswerResponse.NextData(); long? v = o.Total; o.Total = v; }
         }
 
-        public static void Use962(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use974(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAnswerResponse.NextData.OptionsItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAnswerResponse.NextData.OptionsItem(); long? v = o.Id; o.Id = v; }
@@ -10892,12 +11089,12 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelAnswerResponse.NextData.OptionsItem(); string v = o.Text; o.Text = v; }
         }
 
-        public static void Use963(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use975(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelCategoriesRequest(); string v = o.Lang; o.Lang = v; }
         }
 
-        public static void Use964(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use976(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelCategoriesResponse(); List<global::NakamaFarsi.Sdk.Generated.QuizDuelCategoriesResponse.CategoriesItem> v = o.Categories; o.Categories = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelCategoriesResponse(); JToken v = o.Enabled; o.Enabled = v; }
@@ -10908,7 +11105,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.QuizDuelCategoriesResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use965(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use977(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelCategoriesResponse.CategoriesItem(); string v = o.Color; o.Color = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelCategoriesResponse.CategoriesItem(); string v = o.Description; o.Description = v; }
@@ -10919,7 +11116,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelCategoriesResponse.CategoriesItem(); bool? v = o.Playable; o.Playable = v; }
         }
 
-        public static void Use966(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use978(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelCategoriesResponse.RulesData(); JToken v = o.CategoryChoices; o.CategoryChoices = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelCategoriesResponse.RulesData(); JToken v = o.DailyStarts; o.DailyStarts = v; }
@@ -10939,7 +11136,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelCategoriesResponse.RulesData(); JToken v = o.WinPrize; o.WinPrize = v; }
         }
 
-        public static void Use967(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use979(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelDeclineRequest(); string v = o.CategoryKey; o.CategoryKey = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelDeclineRequest(); string v = o.DuelId; o.DuelId = v; }
@@ -10948,7 +11145,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelDeclineRequest(); string v = o.QuestionId; o.QuestionId = v; }
         }
 
-        public static void Use968(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use980(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelDeclineResponse(); string v = o.CreatedAt; o.CreatedAt = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelDeclineResponse(); JToken v = o.DuelId; o.DuelId = v; }
@@ -10977,7 +11174,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.QuizDuelDeclineResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use969(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use981(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelDeclineResponse.RoundListItem(); global::NakamaFarsi.Sdk.Generated.QuizDuelDeclineResponse.RoundListItem.CategoryData v = o.Category; o.Category = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelDeclineResponse.RoundListItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -10989,7 +11186,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelDeclineResponse.RoundListItem(); long? v = o.YouCorrect; o.YouCorrect = v; }
         }
 
-        public static void Use970(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use982(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelDeclineResponse.RoundListItem.CategoryData(); string v = o.Color; o.Color = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelDeclineResponse.RoundListItem.CategoryData(); string v = o.Description; o.Description = v; }
@@ -10999,7 +11196,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelDeclineResponse.RoundListItem.CategoryData(); string v = o.Name; o.Name = v; }
         }
 
-        public static void Use971(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use983(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelDeclineResponse.StepData(); global::NakamaFarsi.Sdk.Generated.QuizDuelDeclineResponse.StepData.CategoryData v = o.Category; o.Category = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelDeclineResponse.StepData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -11008,7 +11205,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelDeclineResponse.StepData(); JToken v = o.Round; o.Round = v; }
         }
 
-        public static void Use972(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use984(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelDeclineResponse.StepData.CategoryData(); string v = o.Color; o.Color = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelDeclineResponse.StepData.CategoryData(); string v = o.Description; o.Description = v; }
@@ -11018,7 +11215,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelDeclineResponse.StepData.CategoryData(); string v = o.Name; o.Name = v; }
         }
 
-        public static void Use973(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use985(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelDeclineResponse.StepData.OffersItem(); string v = o.Color; o.Color = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelDeclineResponse.StepData.OffersItem(); string v = o.Description; o.Description = v; }
@@ -11028,7 +11225,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelDeclineResponse.StepData.OffersItem(); string v = o.Name; o.Name = v; }
         }
 
-        public static void Use974(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use986(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelForfeitRequest(); string v = o.CategoryKey; o.CategoryKey = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelForfeitRequest(); string v = o.DuelId; o.DuelId = v; }
@@ -11037,7 +11234,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelForfeitRequest(); string v = o.QuestionId; o.QuestionId = v; }
         }
 
-        public static void Use975(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use987(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelForfeitResponse(); string v = o.CreatedAt; o.CreatedAt = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelForfeitResponse(); JToken v = o.DuelId; o.DuelId = v; }
@@ -11066,7 +11263,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.QuizDuelForfeitResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use976(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use988(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelForfeitResponse.RoundListItem(); global::NakamaFarsi.Sdk.Generated.QuizDuelForfeitResponse.RoundListItem.CategoryData v = o.Category; o.Category = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelForfeitResponse.RoundListItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -11078,7 +11275,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelForfeitResponse.RoundListItem(); long? v = o.YouCorrect; o.YouCorrect = v; }
         }
 
-        public static void Use977(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use989(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelForfeitResponse.RoundListItem.CategoryData(); string v = o.Color; o.Color = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelForfeitResponse.RoundListItem.CategoryData(); string v = o.Description; o.Description = v; }
@@ -11088,7 +11285,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelForfeitResponse.RoundListItem.CategoryData(); string v = o.Name; o.Name = v; }
         }
 
-        public static void Use978(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use990(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelForfeitResponse.StepData(); global::NakamaFarsi.Sdk.Generated.QuizDuelForfeitResponse.StepData.CategoryData v = o.Category; o.Category = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelForfeitResponse.StepData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -11097,7 +11294,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelForfeitResponse.StepData(); JToken v = o.Round; o.Round = v; }
         }
 
-        public static void Use979(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use991(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelForfeitResponse.StepData.CategoryData(); string v = o.Color; o.Color = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelForfeitResponse.StepData.CategoryData(); string v = o.Description; o.Description = v; }
@@ -11107,7 +11304,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelForfeitResponse.StepData.CategoryData(); string v = o.Name; o.Name = v; }
         }
 
-        public static void Use980(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use992(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelForfeitResponse.StepData.OffersItem(); string v = o.Color; o.Color = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelForfeitResponse.StepData.OffersItem(); string v = o.Description; o.Description = v; }
@@ -11117,7 +11314,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelForfeitResponse.StepData.OffersItem(); string v = o.Name; o.Name = v; }
         }
 
-        public static void Use981(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use993(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelGetRequest(); string v = o.CategoryKey; o.CategoryKey = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelGetRequest(); string v = o.DuelId; o.DuelId = v; }
@@ -11126,7 +11323,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelGetRequest(); string v = o.QuestionId; o.QuestionId = v; }
         }
 
-        public static void Use982(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use994(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelGetResponse(); string v = o.CreatedAt; o.CreatedAt = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelGetResponse(); JToken v = o.DuelId; o.DuelId = v; }
@@ -11155,7 +11352,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.QuizDuelGetResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use983(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use995(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelGetResponse.RoundListItem(); global::NakamaFarsi.Sdk.Generated.QuizDuelGetResponse.RoundListItem.CategoryData v = o.Category; o.Category = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelGetResponse.RoundListItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -11167,7 +11364,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelGetResponse.RoundListItem(); long? v = o.YouCorrect; o.YouCorrect = v; }
         }
 
-        public static void Use984(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use996(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelGetResponse.RoundListItem.CategoryData(); string v = o.Color; o.Color = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelGetResponse.RoundListItem.CategoryData(); string v = o.Description; o.Description = v; }
@@ -11177,7 +11374,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelGetResponse.RoundListItem.CategoryData(); string v = o.Name; o.Name = v; }
         }
 
-        public static void Use985(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use997(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelGetResponse.StepData(); global::NakamaFarsi.Sdk.Generated.QuizDuelGetResponse.StepData.CategoryData v = o.Category; o.Category = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelGetResponse.StepData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -11186,7 +11383,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelGetResponse.StepData(); JToken v = o.Round; o.Round = v; }
         }
 
-        public static void Use986(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use998(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelGetResponse.StepData.CategoryData(); string v = o.Color; o.Color = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelGetResponse.StepData.CategoryData(); string v = o.Description; o.Description = v; }
@@ -11196,7 +11393,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelGetResponse.StepData.CategoryData(); string v = o.Name; o.Name = v; }
         }
 
-        public static void Use987(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use999(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelGetResponse.StepData.OffersItem(); string v = o.Color; o.Color = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelGetResponse.StepData.OffersItem(); string v = o.Description; o.Description = v; }
@@ -11206,7 +11403,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelGetResponse.StepData.OffersItem(); string v = o.Name; o.Name = v; }
         }
 
-        public static void Use988(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1000(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelListRequest(); string v = o.Cursor; o.Cursor = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelListRequest(); string v = o.Lang; o.Lang = v; }
@@ -11214,7 +11411,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelListRequest(); string v = o.Status; o.Status = v; }
         }
 
-        public static void Use989(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1001(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelListResponse(); List<global::NakamaFarsi.Sdk.Generated.QuizDuelListResponse.DuelsItem> v = o.Duels; o.Duels = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelListResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -11223,7 +11420,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.QuizDuelListResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use990(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1002(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelListResponse.DuelsItem(); string v = o.CreatedAt; o.CreatedAt = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelListResponse.DuelsItem(); string v = o.DuelId; o.DuelId = v; }
@@ -11250,7 +11447,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelListResponse.DuelsItem(); JToken v = o.You; o.You = v; }
         }
 
-        public static void Use991(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1003(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelListResponse.DuelsItem.RoundListItem(); global::NakamaFarsi.Sdk.Generated.QuizDuelListResponse.DuelsItem.RoundListItem.CategoryData v = o.Category; o.Category = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelListResponse.DuelsItem.RoundListItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -11262,7 +11459,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelListResponse.DuelsItem.RoundListItem(); long? v = o.YouCorrect; o.YouCorrect = v; }
         }
 
-        public static void Use992(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1004(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelListResponse.DuelsItem.RoundListItem.CategoryData(); string v = o.Color; o.Color = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelListResponse.DuelsItem.RoundListItem.CategoryData(); string v = o.Description; o.Description = v; }
@@ -11272,7 +11469,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelListResponse.DuelsItem.RoundListItem.CategoryData(); string v = o.Name; o.Name = v; }
         }
 
-        public static void Use993(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1005(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelListResponse.DuelsItem.StepData(); global::NakamaFarsi.Sdk.Generated.QuizDuelListResponse.DuelsItem.StepData.CategoryData v = o.Category; o.Category = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelListResponse.DuelsItem.StepData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -11281,7 +11478,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelListResponse.DuelsItem.StepData(); JToken v = o.Round; o.Round = v; }
         }
 
-        public static void Use994(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1006(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelListResponse.DuelsItem.StepData.CategoryData(); string v = o.Color; o.Color = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelListResponse.DuelsItem.StepData.CategoryData(); string v = o.Description; o.Description = v; }
@@ -11291,7 +11488,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelListResponse.DuelsItem.StepData.CategoryData(); string v = o.Name; o.Name = v; }
         }
 
-        public static void Use995(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1007(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelListResponse.DuelsItem.StepData.OffersItem(); string v = o.Color; o.Color = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelListResponse.DuelsItem.StepData.OffersItem(); string v = o.Description; o.Description = v; }
@@ -11301,7 +11498,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelListResponse.DuelsItem.StepData.OffersItem(); string v = o.Name; o.Name = v; }
         }
 
-        public static void Use996(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1008(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelPickCategoryRequest(); string v = o.CategoryKey; o.CategoryKey = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelPickCategoryRequest(); string v = o.DuelId; o.DuelId = v; }
@@ -11310,7 +11507,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelPickCategoryRequest(); string v = o.QuestionId; o.QuestionId = v; }
         }
 
-        public static void Use997(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1009(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelPickCategoryResponse(); string v = o.CreatedAt; o.CreatedAt = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelPickCategoryResponse(); JToken v = o.DuelId; o.DuelId = v; }
@@ -11339,7 +11536,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.QuizDuelPickCategoryResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use998(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1010(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelPickCategoryResponse.RoundListItem(); global::NakamaFarsi.Sdk.Generated.QuizDuelPickCategoryResponse.RoundListItem.CategoryData v = o.Category; o.Category = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelPickCategoryResponse.RoundListItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -11351,7 +11548,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelPickCategoryResponse.RoundListItem(); long? v = o.YouCorrect; o.YouCorrect = v; }
         }
 
-        public static void Use999(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1011(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelPickCategoryResponse.RoundListItem.CategoryData(); string v = o.Color; o.Color = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelPickCategoryResponse.RoundListItem.CategoryData(); string v = o.Description; o.Description = v; }
@@ -11361,7 +11558,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelPickCategoryResponse.RoundListItem.CategoryData(); string v = o.Name; o.Name = v; }
         }
 
-        public static void Use1000(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1012(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelPickCategoryResponse.StepData(); global::NakamaFarsi.Sdk.Generated.QuizDuelPickCategoryResponse.StepData.CategoryData v = o.Category; o.Category = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelPickCategoryResponse.StepData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -11370,7 +11567,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelPickCategoryResponse.StepData(); JToken v = o.Round; o.Round = v; }
         }
 
-        public static void Use1001(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1013(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelPickCategoryResponse.StepData.CategoryData(); string v = o.Color; o.Color = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelPickCategoryResponse.StepData.CategoryData(); string v = o.Description; o.Description = v; }
@@ -11380,7 +11577,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelPickCategoryResponse.StepData.CategoryData(); string v = o.Name; o.Name = v; }
         }
 
-        public static void Use1002(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1014(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelPickCategoryResponse.StepData.OffersItem(); string v = o.Color; o.Color = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelPickCategoryResponse.StepData.OffersItem(); string v = o.Description; o.Description = v; }
@@ -11390,7 +11587,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelPickCategoryResponse.StepData.OffersItem(); string v = o.Name; o.Name = v; }
         }
 
-        public static void Use1003(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1015(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelQuestionRequest(); string v = o.CategoryKey; o.CategoryKey = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelQuestionRequest(); string v = o.DuelId; o.DuelId = v; }
@@ -11399,7 +11596,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelQuestionRequest(); string v = o.QuestionId; o.QuestionId = v; }
         }
 
-        public static void Use1004(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1016(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelQuestionResponse(); global::NakamaFarsi.Sdk.Generated.QuizDuelQuestionResponse.DuelData v = o.Duel; o.Duel = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelQuestionResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -11408,7 +11605,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.QuizDuelQuestionResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1005(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1017(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelQuestionResponse.DuelData(); string v = o.CreatedAt; o.CreatedAt = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelQuestionResponse.DuelData(); string v = o.DuelId; o.DuelId = v; }
@@ -11435,7 +11632,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelQuestionResponse.DuelData(); JToken v = o.You; o.You = v; }
         }
 
-        public static void Use1006(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1018(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelQuestionResponse.DuelData.RoundListItem(); global::NakamaFarsi.Sdk.Generated.QuizDuelQuestionResponse.DuelData.RoundListItem.CategoryData v = o.Category; o.Category = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelQuestionResponse.DuelData.RoundListItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -11447,7 +11644,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelQuestionResponse.DuelData.RoundListItem(); long? v = o.YouCorrect; o.YouCorrect = v; }
         }
 
-        public static void Use1007(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1019(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelQuestionResponse.DuelData.RoundListItem.CategoryData(); string v = o.Color; o.Color = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelQuestionResponse.DuelData.RoundListItem.CategoryData(); string v = o.Description; o.Description = v; }
@@ -11457,7 +11654,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelQuestionResponse.DuelData.RoundListItem.CategoryData(); string v = o.Name; o.Name = v; }
         }
 
-        public static void Use1008(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1020(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelQuestionResponse.DuelData.StepData(); global::NakamaFarsi.Sdk.Generated.QuizDuelQuestionResponse.DuelData.StepData.CategoryData v = o.Category; o.Category = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelQuestionResponse.DuelData.StepData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -11466,7 +11663,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelQuestionResponse.DuelData.StepData(); JToken v = o.Round; o.Round = v; }
         }
 
-        public static void Use1009(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1021(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelQuestionResponse.DuelData.StepData.CategoryData(); string v = o.Color; o.Color = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelQuestionResponse.DuelData.StepData.CategoryData(); string v = o.Description; o.Description = v; }
@@ -11476,7 +11673,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelQuestionResponse.DuelData.StepData.CategoryData(); string v = o.Name; o.Name = v; }
         }
 
-        public static void Use1010(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1022(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelQuestionResponse.DuelData.StepData.OffersItem(); string v = o.Color; o.Color = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelQuestionResponse.DuelData.StepData.OffersItem(); string v = o.Description; o.Description = v; }
@@ -11486,7 +11683,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelQuestionResponse.DuelData.StepData.OffersItem(); string v = o.Name; o.Name = v; }
         }
 
-        public static void Use1011(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1023(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelQuestionResponse.QuestionData(); string v = o.DeadlineAt; o.DeadlineAt = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelQuestionResponse.QuestionData(); string v = o.DuelId; o.DuelId = v; }
@@ -11503,7 +11700,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelQuestionResponse.QuestionData(); long? v = o.Total; o.Total = v; }
         }
 
-        public static void Use1012(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1024(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelQuestionResponse.QuestionData.OptionsItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelQuestionResponse.QuestionData.OptionsItem(); long? v = o.Id; o.Id = v; }
@@ -11511,14 +11708,14 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelQuestionResponse.QuestionData.OptionsItem(); string v = o.Text; o.Text = v; }
         }
 
-        public static void Use1013(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1025(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelStartRequest(); string v = o.Lang; o.Lang = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelStartRequest(); string v = o.Mode; o.Mode = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelStartRequest(); string v = o.UserId; o.UserId = v; }
         }
 
-        public static void Use1014(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1026(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelStartResponse(); string v = o.CreatedAt; o.CreatedAt = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelStartResponse(); JToken v = o.DuelId; o.DuelId = v; }
@@ -11547,7 +11744,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.QuizDuelStartResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1015(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1027(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelStartResponse.RoundListItem(); global::NakamaFarsi.Sdk.Generated.QuizDuelStartResponse.RoundListItem.CategoryData v = o.Category; o.Category = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelStartResponse.RoundListItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -11559,7 +11756,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelStartResponse.RoundListItem(); long? v = o.YouCorrect; o.YouCorrect = v; }
         }
 
-        public static void Use1016(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1028(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelStartResponse.RoundListItem.CategoryData(); string v = o.Color; o.Color = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelStartResponse.RoundListItem.CategoryData(); string v = o.Description; o.Description = v; }
@@ -11569,7 +11766,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelStartResponse.RoundListItem.CategoryData(); string v = o.Name; o.Name = v; }
         }
 
-        public static void Use1017(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1029(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelStartResponse.StepData(); global::NakamaFarsi.Sdk.Generated.QuizDuelStartResponse.StepData.CategoryData v = o.Category; o.Category = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelStartResponse.StepData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -11578,7 +11775,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelStartResponse.StepData(); JToken v = o.Round; o.Round = v; }
         }
 
-        public static void Use1018(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1030(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelStartResponse.StepData.CategoryData(); string v = o.Color; o.Color = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelStartResponse.StepData.CategoryData(); string v = o.Description; o.Description = v; }
@@ -11588,7 +11785,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelStartResponse.StepData.CategoryData(); string v = o.Name; o.Name = v; }
         }
 
-        public static void Use1019(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1031(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelStartResponse.StepData.OffersItem(); string v = o.Color; o.Color = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelStartResponse.StepData.OffersItem(); string v = o.Description; o.Description = v; }
@@ -11598,12 +11795,12 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelStartResponse.StepData.OffersItem(); string v = o.Name; o.Name = v; }
         }
 
-        public static void Use1020(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1032(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelStatsRequest(); string v = o.UserId; o.UserId = v; }
         }
 
-        public static void Use1021(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1033(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelStatsResponse(); long? v = o.Answered; o.Answered = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizDuelStatsResponse(); long? v = o.Correct; o.Correct = v; }
@@ -11619,12 +11816,12 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.QuizDuelStatsResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1022(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1034(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizFinishRequest(); string v = o.SessionId; o.SessionId = v; }
         }
 
-        public static void Use1023(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1035(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizFinishResponse(); long? v = o.Answered; o.Answered = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizFinishResponse(); long? v = o.Correct; o.Correct = v; }
@@ -11648,21 +11845,21 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.QuizFinishResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1024(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1036(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizFinishResponse.ReviewItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizFinishResponse.ReviewItem(); string v = o.Outcome; o.Outcome = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizFinishResponse.ReviewItem(); JToken v = o.QuestionId; o.QuestionId = v; }
         }
 
-        public static void Use1025(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1037(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizHintBuyRequest(); string v = o.HintId; o.HintId = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizHintBuyRequest(); string v = o.Lang; o.Lang = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizHintBuyRequest(); string v = o.SessionId; o.SessionId = v; }
         }
 
-        public static void Use1026(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1038(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizHintBuyResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizHintBuyResponse(); JToken v = o.HintId; o.HintId = v; }
@@ -11677,13 +11874,13 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.QuizHintBuyResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1027(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1039(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizMissionStartRequest(); string v = o.Key; o.Key = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizMissionStartRequest(); string v = o.Lang; o.Lang = v; }
         }
 
-        public static void Use1028(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1040(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizMissionStartResponse(); string v = o.CompletedAt; o.CompletedAt = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizMissionStartResponse(); string v = o.Description; o.Description = v; }
@@ -11710,7 +11907,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.QuizMissionStartResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1029(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1041(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizMissionStartResponse.ItemsItem(); bool? v = o.Completed; o.Completed = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizMissionStartResponse.ItemsItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -11720,7 +11917,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizMissionStartResponse.ItemsItem(); JToken v = o.Sort; o.Sort = v; }
         }
 
-        public static void Use1030(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1042(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizMissionStartResponse.MissionsItem(); string v = o.CompletedAt; o.CompletedAt = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizMissionStartResponse.MissionsItem(); string v = o.Description; o.Description = v; }
@@ -11742,7 +11939,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizMissionStartResponse.MissionsItem(); long? v = o.TimeSeconds; o.TimeSeconds = v; }
         }
 
-        public static void Use1031(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1043(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizMissionStartResponse.MissionsItem.ItemsItem(); bool? v = o.Completed; o.Completed = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizMissionStartResponse.MissionsItem.ItemsItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -11752,7 +11949,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizMissionStartResponse.MissionsItem.ItemsItem(); JToken v = o.Sort; o.Sort = v; }
         }
 
-        public static void Use1032(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1044(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizMissionStartResponse.MissionsItem.RewardData(); JToken v = o.Currencies; o.Currencies = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizMissionStartResponse.MissionsItem.RewardData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -11760,7 +11957,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizMissionStartResponse.MissionsItem.RewardData(); string v = o.PrizeKey; o.PrizeKey = v; }
         }
 
-        public static void Use1033(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1045(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizMissionStartResponse.RewardData(); JToken v = o.Currencies; o.Currencies = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizMissionStartResponse.RewardData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -11768,14 +11965,14 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizMissionStartResponse.RewardData(); string v = o.PrizeKey; o.PrizeKey = v; }
         }
 
-        public static void Use1034(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1046(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizMissionsRequest(); string v = o.Key; o.Key = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizMissionsRequest(); string v = o.Kind; o.Kind = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizMissionsRequest(); string v = o.Lang; o.Lang = v; }
         }
 
-        public static void Use1035(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1047(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizMissionsResponse(); string v = o.CompletedAt; o.CompletedAt = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizMissionsResponse(); string v = o.Description; o.Description = v; }
@@ -11802,7 +11999,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.QuizMissionsResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1036(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1048(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizMissionsResponse.ItemsItem(); bool? v = o.Completed; o.Completed = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizMissionsResponse.ItemsItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -11812,7 +12009,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizMissionsResponse.ItemsItem(); JToken v = o.Sort; o.Sort = v; }
         }
 
-        public static void Use1037(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1049(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizMissionsResponse.MissionsItem(); string v = o.CompletedAt; o.CompletedAt = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizMissionsResponse.MissionsItem(); string v = o.Description; o.Description = v; }
@@ -11834,7 +12031,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizMissionsResponse.MissionsItem(); long? v = o.TimeSeconds; o.TimeSeconds = v; }
         }
 
-        public static void Use1038(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1050(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizMissionsResponse.MissionsItem.ItemsItem(); bool? v = o.Completed; o.Completed = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizMissionsResponse.MissionsItem.ItemsItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -11844,7 +12041,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizMissionsResponse.MissionsItem.ItemsItem(); JToken v = o.Sort; o.Sort = v; }
         }
 
-        public static void Use1039(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1051(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizMissionsResponse.MissionsItem.RewardData(); JToken v = o.Currencies; o.Currencies = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizMissionsResponse.MissionsItem.RewardData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -11852,7 +12049,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizMissionsResponse.MissionsItem.RewardData(); string v = o.PrizeKey; o.PrizeKey = v; }
         }
 
-        public static void Use1040(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1052(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizMissionsResponse.RewardData(); JToken v = o.Currencies; o.Currencies = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizMissionsResponse.RewardData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -11860,7 +12057,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizMissionsResponse.RewardData(); string v = o.PrizeKey; o.PrizeKey = v; }
         }
 
-        public static void Use1041(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1053(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizPackRandomRequest(); List<string> v = o.Categories; o.Categories = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizPackRandomRequest(); bool? v = o.ForceNew; o.ForceNew = v; }
@@ -11869,7 +12066,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizPackRandomRequest(); List<string> v = o.Tags; o.Tags = v; }
         }
 
-        public static void Use1042(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1054(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizPackRandomResponse(); double? v = o.BestScore; o.BestScore = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizPackRandomResponse(); string v = o.CampaignStageKey; o.CampaignStageKey = v; }
@@ -11901,7 +12098,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.QuizPackRandomResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1043(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1055(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizPackRandomResponse.RewardData(); JToken v = o.Currencies; o.Currencies = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizPackRandomResponse.RewardData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -11909,7 +12106,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizPackRandomResponse.RewardData(); string v = o.PrizeKey; o.PrizeKey = v; }
         }
 
-        public static void Use1044(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1056(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizPacksRequest(); string v = o.Category; o.Category = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizPacksRequest(); string v = o.Lang; o.Lang = v; }
@@ -11917,7 +12114,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizPacksRequest(); string v = o.Tag; o.Tag = v; }
         }
 
-        public static void Use1045(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1057(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizPacksResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizPacksResponse(); string v = o.Lang; o.Lang = v; }
@@ -11927,7 +12124,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.QuizPacksResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1046(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1058(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizPacksResponse.PacksItem(); double? v = o.BestScore; o.BestScore = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizPacksResponse.PacksItem(); string v = o.CampaignStageKey; o.CampaignStageKey = v; }
@@ -11957,7 +12154,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizPacksResponse.PacksItem(); long? v = o.Wins; o.Wins = v; }
         }
 
-        public static void Use1047(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1059(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizPacksResponse.PacksItem.RewardData(); JToken v = o.Currencies; o.Currencies = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizPacksResponse.PacksItem.RewardData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -11965,14 +12162,14 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizPacksResponse.PacksItem.RewardData(); string v = o.PrizeKey; o.PrizeKey = v; }
         }
 
-        public static void Use1048(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1060(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizPlayRequest(); string v = o.Lang; o.Lang = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizPlayRequest(); JObject v = o.Metadata; o.Metadata = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizPlayRequest(); string v = o.PackKey; o.PackKey = v; }
         }
 
-        public static void Use1049(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1061(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizPlayResponse(); long? v = o.Answered; o.Answered = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizPlayResponse(); JToken v = o.CampaignAttemptId; o.CampaignAttemptId = v; }
@@ -11995,7 +12192,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.QuizPlayResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1050(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1062(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizPlayResponse.QuestionsItem(); JObject v = o.AcceptedAnswers; o.AcceptedAnswers = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizPlayResponse.QuestionsItem(); global::NakamaFarsi.Sdk.Generated.QuizPlayResponse.QuestionsItem.AnsweredData v = o.Answered; o.Answered = v; }
@@ -12012,7 +12209,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizPlayResponse.QuestionsItem(); string v = o.Type; o.Type = v; }
         }
 
-        public static void Use1051(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1063(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizPlayResponse.QuestionsItem.AnsweredData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizPlayResponse.QuestionsItem.AnsweredData(); List<long?> v = o.OptionIds; o.OptionIds = v; }
@@ -12020,7 +12217,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizPlayResponse.QuestionsItem.AnsweredData(); string v = o.Text; o.Text = v; }
         }
 
-        public static void Use1052(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1064(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizPlayResponse.QuestionsItem.HintsItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizPlayResponse.QuestionsItem.HintsItem(); JToken v = o.Id; o.Id = v; }
@@ -12029,7 +12226,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizPlayResponse.QuestionsItem.HintsItem(); JToken v = o.Price; o.Price = v; }
         }
 
-        public static void Use1053(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1065(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizPlayResponse.QuestionsItem.OptionsItem(); bool? v = o.Correct; o.Correct = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizPlayResponse.QuestionsItem.OptionsItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -12038,7 +12235,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizPlayResponse.QuestionsItem.OptionsItem(); JToken v = o.Text; o.Text = v; }
         }
 
-        public static void Use1054(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1066(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizReportQuestionRequest(); string v = o.Note; o.Note = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizReportQuestionRequest(); string v = o.QuestionId; o.QuestionId = v; }
@@ -12046,7 +12243,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizReportQuestionRequest(); string v = o.SessionId; o.SessionId = v; }
         }
 
-        public static void Use1055(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1067(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizReportQuestionResponse(); bool? v = o.Duplicate; o.Duplicate = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizReportQuestionResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -12055,12 +12252,12 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.QuizReportQuestionResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1056(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1068(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizReportReasonsRequest(); string v = o.Lang; o.Lang = v; }
         }
 
-        public static void Use1057(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1069(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizReportReasonsResponse(); JToken v = o.Enabled; o.Enabled = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizReportReasonsResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -12070,19 +12267,19 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.QuizReportReasonsResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1058(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1070(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizReportReasonsResponse.ReasonsItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizReportReasonsResponse.ReasonsItem(); string v = o.Key; o.Key = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizReportReasonsResponse.ReasonsItem(); string v = o.Name; o.Name = v; }
         }
 
-        public static void Use1059(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1071(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizResultReportRequest(); string v = o.TemplateKey; o.TemplateKey = v; }
         }
 
-        public static void Use1060(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1072(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizResultReportResponse(); string v = o.Body; o.Body = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizResultReportResponse(); string v = o.CreatedAt; o.CreatedAt = v; }
@@ -12095,7 +12292,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.QuizResultReportResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1061(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1073(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { Task<global::NakamaFarsi.Sdk.Generated.QuizAnswerAllResponse> t = rpcs.Quiz.AnswerAllAsync(new global::NakamaFarsi.Sdk.Generated.QuizAnswerAllRequest(), CancellationToken.None); }
             { Task<global::NakamaFarsi.Sdk.Generated.QuizAnswerAllResponse> t = rpcs.Quiz.AnswerAllAsync(); }
@@ -12149,14 +12346,14 @@ namespace NakamaFarsi.ApiCompat
             { Task<global::NakamaFarsi.Sdk.Generated.QuizStatsResponse> t = rpcs.Quiz.StatsAsync(); }
         }
 
-        public static void Use1062(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1074(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizSessionRequest(); string v = o.Lang; o.Lang = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizSessionRequest(); string v = o.PackKey; o.PackKey = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizSessionRequest(); string v = o.SessionId; o.SessionId = v; }
         }
 
-        public static void Use1063(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1075(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizSessionResponse(); long? v = o.Answered; o.Answered = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizSessionResponse(); string v = o.CampaignAttemptId; o.CampaignAttemptId = v; }
@@ -12179,7 +12376,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.QuizSessionResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1064(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1076(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizSessionResponse.QuestionsItem(); JObject v = o.AcceptedAnswers; o.AcceptedAnswers = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizSessionResponse.QuestionsItem(); global::NakamaFarsi.Sdk.Generated.QuizSessionResponse.QuestionsItem.AnsweredData v = o.Answered; o.Answered = v; }
@@ -12196,7 +12393,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizSessionResponse.QuestionsItem(); string v = o.Type; o.Type = v; }
         }
 
-        public static void Use1065(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1077(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizSessionResponse.QuestionsItem.AnsweredData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizSessionResponse.QuestionsItem.AnsweredData(); List<long?> v = o.OptionIds; o.OptionIds = v; }
@@ -12204,7 +12401,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizSessionResponse.QuestionsItem.AnsweredData(); string v = o.Text; o.Text = v; }
         }
 
-        public static void Use1066(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1078(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizSessionResponse.QuestionsItem.HintsItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizSessionResponse.QuestionsItem.HintsItem(); JToken v = o.Id; o.Id = v; }
@@ -12213,7 +12410,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizSessionResponse.QuestionsItem.HintsItem(); JToken v = o.Price; o.Price = v; }
         }
 
-        public static void Use1067(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1079(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizSessionResponse.QuestionsItem.OptionsItem(); bool? v = o.Correct; o.Correct = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizSessionResponse.QuestionsItem.OptionsItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -12222,12 +12419,12 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizSessionResponse.QuestionsItem.OptionsItem(); string v = o.Text; o.Text = v; }
         }
 
-        public static void Use1068(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1080(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizStatsRequest(); string v = o.PackKey; o.PackKey = v; }
         }
 
-        public static void Use1069(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1081(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizStatsResponse(); long? v = o.Answers; o.Answers = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.QuizStatsResponse(); double? v = o.BestScore; o.BestScore = v; }
@@ -12242,14 +12439,14 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.QuizStatsResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1070(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1082(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.ShopxPurchaseCheckRequest(); string v = o.Lang; o.Lang = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.ShopxPurchaseCheckRequest(); string v = o.Method; o.Method = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.ShopxPurchaseCheckRequest(); string v = o.ProductId; o.ProductId = v; }
         }
 
-        public static void Use1071(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1083(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.ShopxPurchaseCheckResponse(); bool? v = o.Allowed; o.Allowed = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.ShopxPurchaseCheckResponse(); string v = o.Code; o.Code = v; }
@@ -12265,12 +12462,12 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.ShopxPurchaseCheckResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1072(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1084(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.ShopxPurchaseRulesRequest(); string v = o.Lang; o.Lang = v; }
         }
 
-        public static void Use1073(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1085(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.ShopxPurchaseRulesResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.ShopxPurchaseRulesResponse(); List<global::NakamaFarsi.Sdk.Generated.ShopxPurchaseRulesResponse.MethodsItem> v = o.Methods; o.Methods = v; }
@@ -12280,7 +12477,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.ShopxPurchaseRulesResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1074(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1086(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.ShopxPurchaseRulesResponse.MethodsItem(); bool? v = o.Blocked; o.Blocked = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.ShopxPurchaseRulesResponse.MethodsItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -12289,7 +12486,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.ShopxPurchaseRulesResponse.MethodsItem(); JToken v = o.Sandbox; o.Sandbox = v; }
         }
 
-        public static void Use1075(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1087(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { Task<global::NakamaFarsi.Sdk.Generated.ShopxPurchaseCheckResponse> t = rpcs.Shopx.PurchaseCheckAsync(new global::NakamaFarsi.Sdk.Generated.ShopxPurchaseCheckRequest(), CancellationToken.None); }
             { Task<global::NakamaFarsi.Sdk.Generated.ShopxPurchaseCheckResponse> t = rpcs.Shopx.PurchaseCheckAsync(); }
@@ -12297,12 +12494,12 @@ namespace NakamaFarsi.ApiCompat
             { Task<global::NakamaFarsi.Sdk.Generated.ShopxPurchaseRulesResponse> t = rpcs.Shopx.PurchaseRulesAsync(); }
         }
 
-        public static void Use1076(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1088(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialAvatarRequest(); string v = o.Lang; o.Lang = v; }
         }
 
-        public static void Use1077(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1089(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialAvatarResponse(); JToken v = o.Avatar; o.Avatar = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialAvatarResponse(); JToken v = o.AvatarSlot; o.AvatarSlot = v; }
@@ -12317,7 +12514,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.SocialAvatarResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1078(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1090(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialAvatarResponse.AvatarsItem(); bool? v = o.Equipped; o.Equipped = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialAvatarResponse.AvatarsItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -12332,7 +12529,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialAvatarResponse.AvatarsItem(); JToken v = o.Url; o.Url = v; }
         }
 
-        public static void Use1079(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1091(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialAvatarResponse.FramesItem(); bool? v = o.Equipped; o.Equipped = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialAvatarResponse.FramesItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -12347,7 +12544,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialAvatarResponse.FramesItem(); JToken v = o.Url; o.Url = v; }
         }
 
-        public static void Use1080(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1092(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialCommentDeleteRequest(); string v = o.Body; o.Body = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialCommentDeleteRequest(); string v = o.Id; o.Id = v; }
@@ -12364,7 +12561,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialCommentDeleteRequest(); string v = o.TitleKey; o.TitleKey = v; }
         }
 
-        public static void Use1081(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1093(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialCommentDeleteResponse(); bool? v = o.Deleted; o.Deleted = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialCommentDeleteResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -12373,7 +12570,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.SocialCommentDeleteResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1082(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1094(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialCommentEditRequest(); string v = o.Body; o.Body = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialCommentEditRequest(); string v = o.Id; o.Id = v; }
@@ -12390,7 +12587,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialCommentEditRequest(); string v = o.TitleKey; o.TitleKey = v; }
         }
 
-        public static void Use1083(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1095(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialCommentEditResponse(); JObject v = o.Comment; o.Comment = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialCommentEditResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -12400,7 +12597,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.SocialCommentEditResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1084(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1096(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialCommentPostRequest(); string v = o.Body; o.Body = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialCommentPostRequest(); string v = o.Id; o.Id = v; }
@@ -12417,7 +12614,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialCommentPostRequest(); string v = o.TitleKey; o.TitleKey = v; }
         }
 
-        public static void Use1085(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1097(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialCommentPostResponse(); JObject v = o.Comment; o.Comment = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialCommentPostResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -12427,7 +12624,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.SocialCommentPostResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1086(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1098(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialCommentReportRequest(); string v = o.Body; o.Body = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialCommentReportRequest(); string v = o.Id; o.Id = v; }
@@ -12444,7 +12641,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialCommentReportRequest(); string v = o.TitleKey; o.TitleKey = v; }
         }
 
-        public static void Use1087(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1099(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialCommentReportResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialCommentReportResponse(); bool? v = o.Hidden; o.Hidden = v; }
@@ -12454,7 +12651,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.SocialCommentReportResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1088(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1100(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialCommentsRequest(); string v = o.Body; o.Body = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialCommentsRequest(); string v = o.Id; o.Id = v; }
@@ -12471,7 +12668,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialCommentsRequest(); string v = o.TitleKey; o.TitleKey = v; }
         }
 
-        public static void Use1089(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1101(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialCommentsResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialCommentsResponse(); List<JObject> v = o.Items; o.Items = v; }
@@ -12486,12 +12683,12 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.SocialCommentsResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1090(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1102(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialConfigRequest(); string v = o.Lang; o.Lang = v; }
         }
 
-        public static void Use1091(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1103(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialConfigResponse(); global::NakamaFarsi.Sdk.Generated.SocialConfigResponse.CommentData v = o.Comment; o.Comment = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialConfigResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -12505,7 +12702,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.SocialConfigResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1092(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1104(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialConfigResponse.CommentData(); JToken v = o.DeleteMinutes; o.DeleteMinutes = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialConfigResponse.CommentData(); JToken v = o.EditMinutes; o.EditMinutes = v; }
@@ -12517,7 +12714,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialConfigResponse.CommentData(); JToken v = o.PageSize; o.PageSize = v; }
         }
 
-        public static void Use1093(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1105(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialConfigResponse.FollowData(); JToken v = o.CanChangePrivacy; o.CanChangePrivacy = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialConfigResponse.FollowData(); JToken v = o.Enabled; o.Enabled = v; }
@@ -12525,7 +12722,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialConfigResponse.FollowData(); JToken v = o.MaxFollowing; o.MaxFollowing = v; }
         }
 
-        public static void Use1094(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1106(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialConfigResponse.ReactionsItem(); JToken v = o.Emoji; o.Emoji = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialConfigResponse.ReactionsItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -12535,7 +12732,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialConfigResponse.ReactionsItem(); JToken v = o.TargetTypes; o.TargetTypes = v; }
         }
 
-        public static void Use1095(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1107(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialConfigResponse.TargetTypesItem(); bool? v = o.Comment; o.Comment = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialConfigResponse.TargetTypesItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -12550,7 +12747,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialConfigResponse.TargetTypesItem(); string v = o.ReactionMode; o.ReactionMode = v; }
         }
 
-        public static void Use1096(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1108(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFavoriteRequest(); string v = o.Kind; o.Kind = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFavoriteRequest(); string v = o.Lang; o.Lang = v; }
@@ -12564,7 +12761,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFavoriteRequest(); long? v = o.Value; o.Value = v; }
         }
 
-        public static void Use1097(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1109(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFavoriteResponse(); bool? v = o.Active; o.Active = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFavoriteResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -12575,7 +12772,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.SocialFavoriteResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1098(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1110(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFollowRequest(); bool? v = o.Accept; o.Accept = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFollowRequest(); string v = o.Lang; o.Lang = v; }
@@ -12585,7 +12782,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFollowRequest(); string v = o.Username; o.Username = v; }
         }
 
-        public static void Use1099(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1111(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFollowRequestsRequest(); bool? v = o.Accept; o.Accept = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFollowRequestsRequest(); string v = o.Lang; o.Lang = v; }
@@ -12595,7 +12792,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFollowRequestsRequest(); string v = o.Username; o.Username = v; }
         }
 
-        public static void Use1100(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1112(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFollowRequestsResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFollowRequestsResponse(); List<global::NakamaFarsi.Sdk.Generated.SocialFollowRequestsResponse.ItemsItem> v = o.Items; o.Items = v; }
@@ -12607,7 +12804,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.SocialFollowRequestsResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1101(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1113(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFollowRequestsResponse.ItemsItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFollowRequestsResponse.ItemsItem(); string v = o.FollowPolicy; o.FollowPolicy = v; }
@@ -12619,7 +12816,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFollowRequestsResponse.ItemsItem(); string v = o.Since; o.Since = v; }
         }
 
-        public static void Use1102(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1114(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFollowRespondRequest(); bool? v = o.Accept; o.Accept = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFollowRespondRequest(); string v = o.Lang; o.Lang = v; }
@@ -12629,7 +12826,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFollowRespondRequest(); string v = o.Username; o.Username = v; }
         }
 
-        public static void Use1103(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1115(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFollowRespondResponse(); bool? v = o.Accepted; o.Accepted = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFollowRespondResponse(); global::NakamaFarsi.Sdk.Generated.SocialFollowRespondResponse.CountsData v = o.Counts; o.Counts = v; }
@@ -12639,7 +12836,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.SocialFollowRespondResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1104(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1116(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFollowRespondResponse.CountsData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFollowRespondResponse.CountsData(); long? v = o.Followers; o.Followers = v; }
@@ -12647,7 +12844,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFollowRespondResponse.CountsData(); long? v = o.Requests; o.Requests = v; }
         }
 
-        public static void Use1105(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1117(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFollowResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFollowResponse(); JToken v = o.Followers; o.Followers = v; }
@@ -12659,7 +12856,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.SocialFollowResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1106(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1118(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFollowResponse.RelationData(); bool? v = o.Blocked; o.Blocked = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFollowResponse.RelationData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -12668,7 +12865,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFollowResponse.RelationData(); bool? v = o.Requested; o.Requested = v; }
         }
 
-        public static void Use1107(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1119(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFollowerRemoveRequest(); bool? v = o.Accept; o.Accept = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFollowerRemoveRequest(); string v = o.Lang; o.Lang = v; }
@@ -12678,7 +12875,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFollowerRemoveRequest(); string v = o.Username; o.Username = v; }
         }
 
-        public static void Use1108(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1120(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFollowerRemoveResponse(); global::NakamaFarsi.Sdk.Generated.SocialFollowerRemoveResponse.CountsData v = o.Counts; o.Counts = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFollowerRemoveResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -12688,7 +12885,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.SocialFollowerRemoveResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1109(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1121(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFollowerRemoveResponse.CountsData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFollowerRemoveResponse.CountsData(); long? v = o.Followers; o.Followers = v; }
@@ -12696,7 +12893,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFollowerRemoveResponse.CountsData(); long? v = o.Requests; o.Requests = v; }
         }
 
-        public static void Use1110(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1122(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFollowersRequest(); bool? v = o.Accept; o.Accept = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFollowersRequest(); string v = o.Lang; o.Lang = v; }
@@ -12706,7 +12903,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFollowersRequest(); string v = o.Username; o.Username = v; }
         }
 
-        public static void Use1111(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1123(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFollowersResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFollowersResponse(); List<global::NakamaFarsi.Sdk.Generated.SocialFollowersResponse.ItemsItem> v = o.Items; o.Items = v; }
@@ -12718,7 +12915,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.SocialFollowersResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1112(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1124(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFollowersResponse.ItemsItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFollowersResponse.ItemsItem(); string v = o.FollowPolicy; o.FollowPolicy = v; }
@@ -12730,7 +12927,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFollowersResponse.ItemsItem(); string v = o.Since; o.Since = v; }
         }
 
-        public static void Use1113(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1125(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFollowingRequest(); bool? v = o.Accept; o.Accept = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFollowingRequest(); string v = o.Lang; o.Lang = v; }
@@ -12740,7 +12937,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFollowingRequest(); string v = o.Username; o.Username = v; }
         }
 
-        public static void Use1114(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1126(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFollowingResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFollowingResponse(); List<global::NakamaFarsi.Sdk.Generated.SocialFollowingResponse.ItemsItem> v = o.Items; o.Items = v; }
@@ -12752,7 +12949,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.SocialFollowingResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1115(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1127(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFollowingResponse.ItemsItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFollowingResponse.ItemsItem(); string v = o.FollowPolicy; o.FollowPolicy = v; }
@@ -12764,7 +12961,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialFollowingResponse.ItemsItem(); string v = o.Since; o.Since = v; }
         }
 
-        public static void Use1116(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1128(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialMineRequest(); string v = o.Kind; o.Kind = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialMineRequest(); string v = o.Lang; o.Lang = v; }
@@ -12778,7 +12975,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialMineRequest(); long? v = o.Value; o.Value = v; }
         }
 
-        public static void Use1117(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1129(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialMineResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialMineResponse(); List<global::NakamaFarsi.Sdk.Generated.SocialMineResponse.ItemsItem> v = o.Items; o.Items = v; }
@@ -12790,7 +12987,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.SocialMineResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1118(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1130(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialMineResponse.ItemsItem(); JToken v = o.At; o.At = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialMineResponse.ItemsItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -12801,7 +12998,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialMineResponse.ItemsItem(); long? v = o.Value; o.Value = v; }
         }
 
-        public static void Use1119(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1131(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialPrivacyGetResponse(); JToken v = o.CanChange; o.CanChange = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialPrivacyGetResponse(); global::NakamaFarsi.Sdk.Generated.SocialPrivacyGetResponse.DefaultsData v = o.Defaults; o.Defaults = v; }
@@ -12811,7 +13008,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.SocialPrivacyGetResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1120(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1132(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialPrivacyGetResponse.DefaultsData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialPrivacyGetResponse.DefaultsData(); JToken v = o.FollowPolicy; o.FollowPolicy = v; }
@@ -12819,7 +13016,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialPrivacyGetResponse.DefaultsData(); JToken v = o.HideFollowing; o.HideFollowing = v; }
         }
 
-        public static void Use1121(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1133(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialPrivacyGetResponse.PrivacyData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialPrivacyGetResponse.PrivacyData(); string v = o.FollowPolicy; o.FollowPolicy = v; }
@@ -12830,7 +13027,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialPrivacyGetResponse.PrivacyData(); string v = o.OwnPolicy; o.OwnPolicy = v; }
         }
 
-        public static void Use1122(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1134(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialPrivacySetRequest(); string v = o.FollowPolicy; o.FollowPolicy = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialPrivacySetRequest(); bool? v = o.HideFollowers; o.HideFollowers = v; }
@@ -12838,7 +13035,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialPrivacySetRequest(); bool? v = o.Reset; o.Reset = v; }
         }
 
-        public static void Use1123(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1135(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialPrivacySetResponse(); JToken v = o.CanChange; o.CanChange = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialPrivacySetResponse(); global::NakamaFarsi.Sdk.Generated.SocialPrivacySetResponse.DefaultsData v = o.Defaults; o.Defaults = v; }
@@ -12848,7 +13045,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.SocialPrivacySetResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1124(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1136(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialPrivacySetResponse.DefaultsData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialPrivacySetResponse.DefaultsData(); JToken v = o.FollowPolicy; o.FollowPolicy = v; }
@@ -12856,7 +13053,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialPrivacySetResponse.DefaultsData(); JToken v = o.HideFollowing; o.HideFollowing = v; }
         }
 
-        public static void Use1125(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1137(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialPrivacySetResponse.PrivacyData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialPrivacySetResponse.PrivacyData(); string v = o.FollowPolicy; o.FollowPolicy = v; }
@@ -12867,7 +13064,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialPrivacySetResponse.PrivacyData(); string v = o.OwnPolicy; o.OwnPolicy = v; }
         }
 
-        public static void Use1126(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1138(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialProfileRequest(); string v = o.Lang; o.Lang = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialProfileRequest(); string v = o.UserId; o.UserId = v; }
@@ -12875,7 +13072,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialProfileRequest(); string v = o.Username; o.Username = v; }
         }
 
-        public static void Use1127(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1139(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialProfileResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialProfileResponse(); List<JToken> v = o.Items; o.Items = v; }
@@ -12883,7 +13080,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.SocialProfileResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1128(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1140(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialRateRequest(); string v = o.Kind; o.Kind = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialRateRequest(); string v = o.Lang; o.Lang = v; }
@@ -12897,7 +13094,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialRateRequest(); long? v = o.Value; o.Value = v; }
         }
 
-        public static void Use1129(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1141(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialRateResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialRateResponse(); JToken v = o.Mine; o.Mine = v; }
@@ -12908,7 +13105,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.SocialRateResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1130(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1142(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialReactRequest(); string v = o.Kind; o.Kind = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialReactRequest(); string v = o.Lang; o.Lang = v; }
@@ -12922,7 +13119,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialReactRequest(); long? v = o.Value; o.Value = v; }
         }
 
-        public static void Use1131(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1143(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialReactResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialReactResponse(); JToken v = o.Mine; o.Mine = v; }
@@ -12933,7 +13130,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.SocialReactResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1132(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1144(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { Task<global::NakamaFarsi.Sdk.Generated.SocialAvatarResponse> t = rpcs.Social.AvatarAsync(new global::NakamaFarsi.Sdk.Generated.SocialAvatarRequest(), CancellationToken.None); }
             { Task<global::NakamaFarsi.Sdk.Generated.SocialAvatarResponse> t = rpcs.Social.AvatarAsync(); }
@@ -12981,7 +13178,7 @@ namespace NakamaFarsi.ApiCompat
             { Task<global::NakamaFarsi.Sdk.Generated.SocialUnfollowResponse> t = rpcs.Social.UnfollowAsync(); }
         }
 
-        public static void Use1133(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1145(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialSummaryRequest(); string v = o.Kind; o.Kind = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialSummaryRequest(); string v = o.Lang; o.Lang = v; }
@@ -12995,7 +13192,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialSummaryRequest(); long? v = o.Value; o.Value = v; }
         }
 
-        public static void Use1134(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1146(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialSummaryResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialSummaryResponse(); List<global::NakamaFarsi.Sdk.Generated.SocialSummaryResponse.ItemsItem> v = o.Items; o.Items = v; }
@@ -13004,7 +13201,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.SocialSummaryResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1135(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1147(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialSummaryResponse.ItemsItem(); long? v = o.Comments; o.Comments = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialSummaryResponse.ItemsItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -13018,7 +13215,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialSummaryResponse.ItemsItem(); string v = o.TargetType; o.TargetType = v; }
         }
 
-        public static void Use1136(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1148(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialSummaryResponse.ItemsItem.RatingData(); JToken v = o.Average; o.Average = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialSummaryResponse.ItemsItem.RatingData(); JToken v = o.Count; o.Count = v; }
@@ -13027,7 +13224,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialSummaryResponse.ItemsItem.RatingData(); JToken v = o.Max; o.Max = v; }
         }
 
-        public static void Use1137(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1149(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialUnfollowRequest(); bool? v = o.Accept; o.Accept = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialUnfollowRequest(); string v = o.Lang; o.Lang = v; }
@@ -13037,7 +13234,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialUnfollowRequest(); string v = o.Username; o.Username = v; }
         }
 
-        public static void Use1138(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1150(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialUnfollowResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialUnfollowResponse(); JToken v = o.Followers; o.Followers = v; }
@@ -13049,7 +13246,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.SocialUnfollowResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1139(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1151(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialUnfollowResponse.RelationData(); bool? v = o.Blocked; o.Blocked = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialUnfollowResponse.RelationData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -13058,14 +13255,14 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SocialUnfollowResponse.RelationData(); bool? v = o.Requested; o.Requested = v; }
         }
 
-        public static void Use1140(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1152(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanBootstrapRequest(); string v = o.AppVersion; o.AppVersion = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanBootstrapRequest(); string v = o.Lang; o.Lang = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanBootstrapRequest(); string v = o.Platform; o.Platform = v; }
         }
 
-        public static void Use1141(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1153(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanBootstrapResponse(); List<global::NakamaFarsi.Sdk.Generated.SoltanBootstrapResponse.ChaptersItem> v = o.Chapters; o.Chapters = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanBootstrapResponse(); JObject v = o.Content; o.Content = v; }
@@ -13086,7 +13283,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.SoltanBootstrapResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1142(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1154(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanBootstrapResponse.ChaptersItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanBootstrapResponse.ChaptersItem(); string v = o.Key; o.Key = v; }
@@ -13094,7 +13291,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanBootstrapResponse.ChaptersItem(); string v = o.Name; o.Name = v; }
         }
 
-        public static void Use1143(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1155(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanBootstrapResponse.DailyData(); long? v = o.BestStreak; o.BestStreak = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanBootstrapResponse.DailyData(); string v = o.Date; o.Date = v; }
@@ -13114,14 +13311,14 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanBootstrapResponse.DailyData(); bool? v = o.Won; o.Won = v; }
         }
 
-        public static void Use1144(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1156(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanBootstrapResponse.PrefsData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanBootstrapResponse.PrefsData(); bool? v = o.QuickChat; o.QuickChat = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanBootstrapResponse.PrefsData(); bool? v = o.Voice; o.Voice = v; }
         }
 
-        public static void Use1145(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1157(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanBootstrapResponse.PricesData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanBootstrapResponse.PricesData(); JToken v = o.HeartRefill; o.HeartRefill = v; }
@@ -13129,7 +13326,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanBootstrapResponse.PricesData(); long? v = o.RocketCoins; o.RocketCoins = v; }
         }
 
-        public static void Use1146(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1158(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanBootstrapResponse.ProgressData(); global::NakamaFarsi.Sdk.Generated.SoltanBootstrapResponse.ProgressData.ChestData v = o.Chest; o.Chest = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanBootstrapResponse.ProgressData(); long? v = o.CurrentLevel; o.CurrentLevel = v; }
@@ -13139,7 +13336,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanBootstrapResponse.ProgressData(); long? v = o.TotalStars; o.TotalStars = v; }
         }
 
-        public static void Use1147(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1159(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanBootstrapResponse.ProgressData.ChestData(); JToken v = o.Every; o.Every = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanBootstrapResponse.ProgressData.ChestData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -13147,7 +13344,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanBootstrapResponse.ProgressData.ChestData(); JToken v = o.Progress; o.Progress = v; }
         }
 
-        public static void Use1148(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1160(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanBootstrapResponse.SettingsData(); long? v = o.BonusCoins; o.BonusCoins = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanBootstrapResponse.SettingsData(); long? v = o.ChestEvery; o.ChestEvery = v; }
@@ -13163,21 +13360,21 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanBootstrapResponse.SettingsData(); long? v = o.WordCoins; o.WordCoins = v; }
         }
 
-        public static void Use1149(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1161(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanBootstrapResponse.SettingsData.ChestRewardData(); JToken v = o.Currencies; o.Currencies = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanBootstrapResponse.SettingsData.ChestRewardData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanBootstrapResponse.SettingsData.ChestRewardData(); JToken v = o.PrizeKey; o.PrizeKey = v; }
         }
 
-        public static void Use1150(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1162(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanBootstrapResponse.SettingsData.StageRewardData(); JToken v = o.Currencies; o.Currencies = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanBootstrapResponse.SettingsData.StageRewardData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanBootstrapResponse.SettingsData.StageRewardData(); JToken v = o.PrizeKey; o.PrizeKey = v; }
         }
 
-        public static void Use1151(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1163(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanBootstrapResponse.StatsData(); long? v = o.BestDuelPoints; o.BestDuelPoints = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanBootstrapResponse.StatsData(); long? v = o.BestStreak; o.BestStreak = v; }
@@ -13198,7 +13395,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanBootstrapResponse.StatsData(); JToken v = o.XpLevelStart; o.XpLevelStart = v; }
         }
 
-        public static void Use1152(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1164(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanBootstrapResponse.StoreData(); List<JObject> v = o.Currencies; o.Currencies = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanBootstrapResponse.StoreData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -13207,7 +13404,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanBootstrapResponse.StoreData(); List<JObject> v = o.Products; o.Products = v; }
         }
 
-        public static void Use1153(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1165(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanBootstrapResponse.WalletData(); JObject v = o.All; o.All = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanBootstrapResponse.WalletData(); long? v = o.Coins; o.Coins = v; }
@@ -13220,7 +13417,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanBootstrapResponse.WalletData(); long? v = o.Rocket; o.Rocket = v; }
         }
 
-        public static void Use1154(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1166(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanDailyStateResponse(); long? v = o.BestStreak; o.BestStreak = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanDailyStateResponse(); string v = o.Date; o.Date = v; }
@@ -13242,7 +13439,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.SoltanDailyStateResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1155(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1167(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanDailyStateResponse.LevelData(); string v = o.Clue; o.Clue = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanDailyStateResponse.LevelData(); string v = o.Difficulty; o.Difficulty = v; }
@@ -13253,21 +13450,21 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanDailyStateResponse.LevelData(); long? v = o.WordCount; o.WordCount = v; }
         }
 
-        public static void Use1156(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1168(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanDailyStateResponse.PlayCostData(); long? v = o.Amount; o.Amount = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanDailyStateResponse.PlayCostData(); string v = o.CurrencyKey; o.CurrencyKey = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanDailyStateResponse.PlayCostData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
         }
 
-        public static void Use1157(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1169(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanDailyStateResponse.RewardData(); List<JToken> v = o.Currencies; o.Currencies = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanDailyStateResponse.RewardData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanDailyStateResponse.RewardData(); string v = o.PrizeKey; o.PrizeKey = v; }
         }
 
-        public static void Use1158(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1170(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanDailyStateResponse.StreakBonusData(); long? v = o.DaysToNext; o.DaysToNext = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanDailyStateResponse.StreakBonusData(); long? v = o.Every; o.Every = v; }
@@ -13275,19 +13472,19 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanDailyStateResponse.StreakBonusData(); global::NakamaFarsi.Sdk.Generated.SoltanDailyStateResponse.StreakBonusData.RewardData v = o.Reward; o.Reward = v; }
         }
 
-        public static void Use1159(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1171(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanDailyStateResponse.StreakBonusData.RewardData(); JToken v = o.Currencies; o.Currencies = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanDailyStateResponse.StreakBonusData.RewardData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanDailyStateResponse.StreakBonusData.RewardData(); JToken v = o.PrizeKey; o.PrizeKey = v; }
         }
 
-        public static void Use1160(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1172(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanDuelHistoryRequest(); long? v = o.Limit; o.Limit = v; }
         }
 
-        public static void Use1161(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1173(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanDuelHistoryResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanDuelHistoryResponse(); List<global::NakamaFarsi.Sdk.Generated.SoltanDuelHistoryResponse.ItemsItem> v = o.Items; o.Items = v; }
@@ -13296,7 +13493,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.SoltanDuelHistoryResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1162(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1174(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanDuelHistoryResponse.ItemsItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanDuelHistoryResponse.ItemsItem(); string v = o.FinishedAt; o.FinishedAt = v; }
@@ -13310,7 +13507,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanDuelHistoryResponse.ItemsItem(); long? v = o.Solved; o.Solved = v; }
         }
 
-        public static void Use1163(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1175(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanDuelHistoryResponse.ItemsItem.OpponentData(); JToken v = o.AvatarUrl; o.AvatarUrl = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanDuelHistoryResponse.ItemsItem.OpponentData(); JToken v = o.Bot; o.Bot = v; }
@@ -13320,12 +13517,12 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanDuelHistoryResponse.ItemsItem.OpponentData(); JToken v = o.UserId; o.UserId = v; }
         }
 
-        public static void Use1164(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1176(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanDuelInfoRequest(); string v = o.Lang; o.Lang = v; }
         }
 
-        public static void Use1165(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1177(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanDuelInfoResponse(); JToken v = o.Available; o.Available = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanDuelInfoResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -13340,14 +13537,14 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.SoltanDuelInfoResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1166(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1178(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanDuelInfoResponse.PrefsData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanDuelInfoResponse.PrefsData(); bool? v = o.QuickChat; o.QuickChat = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanDuelInfoResponse.PrefsData(); bool? v = o.Voice; o.Voice = v; }
         }
 
-        public static void Use1167(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1179(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanDuelInfoResponse.QuickChatItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanDuelInfoResponse.QuickChatItem(); string v = o.Id; o.Id = v; }
@@ -13355,7 +13552,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanDuelInfoResponse.QuickChatItem(); JObject v = o.Texts; o.Texts = v; }
         }
 
-        public static void Use1168(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1180(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanDuelInfoResponse.SettingsData(); JToken v = o.BotAfterSeconds; o.BotAfterSeconds = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanDuelInfoResponse.SettingsData(); JToken v = o.BotsAllowed; o.BotsAllowed = v; }
@@ -13372,7 +13569,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanDuelInfoResponse.SettingsData(); long? v = o.Rounds; o.Rounds = v; }
         }
 
-        public static void Use1169(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1181(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanDuelInfoResponse.StatsData(); long? v = o.BestDuelPoints; o.BestDuelPoints = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanDuelInfoResponse.StatsData(); long? v = o.BestStreak; o.BestStreak = v; }
@@ -13393,14 +13590,14 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanDuelInfoResponse.StatsData(); double? v = o.XpLevelStart; o.XpLevelStart = v; }
         }
 
-        public static void Use1170(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1182(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanHintRequest(); List<string> v = o.Found; o.Found = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanHintRequest(); string v = o.RequestId; o.RequestId = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanHintRequest(); string v = o.SessionId; o.SessionId = v; }
         }
 
-        public static void Use1171(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1183(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanHintResponse(); long? v = o.BoostersUsed; o.BoostersUsed = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanHintResponse(); List<long?> v = o.CompletedSlots; o.CompletedSlots = v; }
@@ -13416,7 +13613,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.SoltanHintResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1172(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1184(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanHintResponse.OwnedData(); long? v = o.Coins; o.Coins = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanHintResponse.OwnedData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -13424,7 +13621,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanHintResponse.OwnedData(); long? v = o.Rocket; o.Rocket = v; }
         }
 
-        public static void Use1173(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1185(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanHintResponse.PicksItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanHintResponse.PicksItem(); long? v = o.Index; o.Index = v; }
@@ -13432,14 +13629,14 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanHintResponse.PicksItem(); long? v = o.Slot; o.Slot = v; }
         }
 
-        public static void Use1174(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1186(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanHintResponse.PriceData(); long? v = o.Amount; o.Amount = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanHintResponse.PriceData(); string v = o.CurrencyKey; o.CurrencyKey = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanHintResponse.PriceData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
         }
 
-        public static void Use1175(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1187(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelCompleteRequest(); List<global::NakamaFarsi.Sdk.Generated.SoltanLevelCompleteRequest.BonusItem> v = o.Bonus; o.Bonus = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelCompleteRequest(); List<global::NakamaFarsi.Sdk.Generated.SoltanLevelCompleteRequest.FoundItem> v = o.Found; o.Found = v; }
@@ -13448,21 +13645,21 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelCompleteRequest(); string v = o.SessionId; o.SessionId = v; }
         }
 
-        public static void Use1176(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1188(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelCompleteRequest.BonusItem(); long? v = o.AtMs; o.AtMs = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelCompleteRequest.BonusItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelCompleteRequest.BonusItem(); string v = o.Word; o.Word = v; }
         }
 
-        public static void Use1177(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1189(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelCompleteRequest.FoundItem(); long? v = o.AtMs; o.AtMs = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelCompleteRequest.FoundItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelCompleteRequest.FoundItem(); string v = o.Word; o.Word = v; }
         }
 
-        public static void Use1178(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1190(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelCompleteResponse(); long? v = o.BestStars; o.BestStars = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelCompleteResponse(); long? v = o.BonusFound; o.BonusFound = v; }
@@ -13496,7 +13693,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.SoltanLevelCompleteResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1179(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1191(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelCompleteResponse.ChestData(); long? v = o.Every; o.Every = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelCompleteResponse.ChestData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -13504,7 +13701,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelCompleteResponse.ChestData(); long? v = o.Progress; o.Progress = v; }
         }
 
-        public static void Use1180(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1192(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelCompleteResponse.DailyData(); long? v = o.BestStreak; o.BestStreak = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelCompleteResponse.DailyData(); string v = o.Day; o.Day = v; }
@@ -13514,7 +13711,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelCompleteResponse.DailyData(); bool? v = o.StreakBonus; o.StreakBonus = v; }
         }
 
-        public static void Use1181(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1193(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelCompleteResponse.LevelData(); string v = o.Clue; o.Clue = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelCompleteResponse.LevelData(); string v = o.Difficulty; o.Difficulty = v; }
@@ -13523,7 +13720,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelCompleteResponse.LevelData(); string v = o.Theme; o.Theme = v; }
         }
 
-        public static void Use1182(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1194(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelCompleteResponse.RewardsData(); long? v = o.Bonus; o.Bonus = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelCompleteResponse.RewardsData(); List<JToken> v = o.Chest; o.Chest = v; }
@@ -13536,14 +13733,14 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelCompleteResponse.RewardsData(); long? v = o.Words; o.Words = v; }
         }
 
-        public static void Use1183(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1195(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelCompleteResponse.WordsData(); List<string> v = o.Bonus; o.Bonus = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelCompleteResponse.WordsData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelCompleteResponse.WordsData(); List<List<JToken>> v = o.Targets; o.Targets = v; }
         }
 
-        public static void Use1184(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1196(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelCompleteResponse.XpData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelCompleteResponse.XpData(); long? v = o.From; o.From = v; }
@@ -13552,14 +13749,14 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelCompleteResponse.XpData(); List<JToken> v = o.Rewards; o.Rewards = v; }
         }
 
-        public static void Use1185(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1197(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelStartRequest(); bool? v = o.Daily; o.Daily = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelStartRequest(); long? v = o.Level; o.Level = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelStartRequest(); string v = o.RequestId; o.RequestId = v; }
         }
 
-        public static void Use1186(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1198(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelStartResponse(); string v = o.AttemptId; o.AttemptId = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelStartResponse(); long? v = o.BonusCount; o.BonusCount = v; }
@@ -13587,14 +13784,14 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.SoltanLevelStartResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1187(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1199(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelStartResponse.HashesData(); List<string> v = o.Bonus; o.Bonus = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelStartResponse.HashesData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelStartResponse.HashesData(); List<JToken> v = o.Slots; o.Slots = v; }
         }
 
-        public static void Use1188(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1200(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelStartResponse.LevelData(); string v = o.Clue; o.Clue = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelStartResponse.LevelData(); string v = o.Difficulty; o.Difficulty = v; }
@@ -13603,7 +13800,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelStartResponse.LevelData(); string v = o.Theme; o.Theme = v; }
         }
 
-        public static void Use1189(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1201(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelStartResponse.OwnedData(); long? v = o.Coins; o.Coins = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelStartResponse.OwnedData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -13611,7 +13808,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelStartResponse.OwnedData(); long? v = o.Rocket; o.Rocket = v; }
         }
 
-        public static void Use1190(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1202(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelStartResponse.PricesData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelStartResponse.PricesData(); JToken v = o.HeartRefill; o.HeartRefill = v; }
@@ -13619,7 +13816,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelStartResponse.PricesData(); long? v = o.RocketCoins; o.RocketCoins = v; }
         }
 
-        public static void Use1191(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1203(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelStartResponse.RevealedItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelStartResponse.RevealedItem(); long? v = o.Index; o.Index = v; }
@@ -13627,19 +13824,19 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelStartResponse.RevealedItem(); long? v = o.Slot; o.Slot = v; }
         }
 
-        public static void Use1192(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1204(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelStartResponse.RowsItemItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelStartResponse.RowsItemItem(); JToken v = o.Length; o.Length = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanLevelStartResponse.RowsItemItem(); JToken v = o.Slot; o.Slot = v; }
         }
 
-        public static void Use1193(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1205(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanMapSeenRequest(); long? v = o.Level; o.Level = v; }
         }
 
-        public static void Use1194(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1206(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanMapSeenResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanMapSeenResponse(); long? v = o.MapSeen; o.MapSeen = v; }
@@ -13647,13 +13844,13 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.SoltanMapSeenResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1195(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1207(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanPrefsRequest(); bool? v = o.QuickChat; o.QuickChat = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanPrefsRequest(); bool? v = o.Voice; o.Voice = v; }
         }
 
-        public static void Use1196(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1208(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanPrefsResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanPrefsResponse(); bool? v = o.QuickChat; o.QuickChat = v; }
@@ -13662,14 +13859,14 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.SoltanPrefsResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1197(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1209(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanRocketRequest(); List<string> v = o.Found; o.Found = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanRocketRequest(); string v = o.RequestId; o.RequestId = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanRocketRequest(); string v = o.SessionId; o.SessionId = v; }
         }
 
-        public static void Use1198(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1210(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanRocketResponse(); long? v = o.BoostersUsed; o.BoostersUsed = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanRocketResponse(); List<long?> v = o.CompletedSlots; o.CompletedSlots = v; }
@@ -13685,7 +13882,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.SoltanRocketResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1199(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1211(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanRocketResponse.OwnedData(); long? v = o.Coins; o.Coins = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanRocketResponse.OwnedData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -13693,7 +13890,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanRocketResponse.OwnedData(); long? v = o.Rocket; o.Rocket = v; }
         }
 
-        public static void Use1200(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1212(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanRocketResponse.PicksItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanRocketResponse.PicksItem(); long? v = o.Index; o.Index = v; }
@@ -13701,14 +13898,14 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanRocketResponse.PicksItem(); long? v = o.Slot; o.Slot = v; }
         }
 
-        public static void Use1201(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1213(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanRocketResponse.PriceData(); long? v = o.Amount; o.Amount = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanRocketResponse.PriceData(); string v = o.CurrencyKey; o.CurrencyKey = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.SoltanRocketResponse.PriceData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
         }
 
-        public static void Use1202(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1214(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { Task<global::NakamaFarsi.Sdk.Generated.SoltanBootstrapResponse> t = rpcs.Soltan.BootstrapAsync(new global::NakamaFarsi.Sdk.Generated.SoltanBootstrapRequest(), CancellationToken.None); }
             { Task<global::NakamaFarsi.Sdk.Generated.SoltanBootstrapResponse> t = rpcs.Soltan.BootstrapAsync(); }
@@ -13732,12 +13929,12 @@ namespace NakamaFarsi.ApiCompat
             { Task<global::NakamaFarsi.Sdk.Generated.SoltanRocketResponse> t = rpcs.Soltan.RocketAsync(); }
         }
 
-        public static void Use1203(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1215(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.TrophyHistoryRequest(); long? v = o.Limit; o.Limit = v; }
         }
 
-        public static void Use1204(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1216(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.TrophyHistoryResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.TrophyHistoryResponse(); List<JObject> v = o.Items; o.Items = v; }
@@ -13745,12 +13942,12 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.TrophyHistoryResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1205(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1217(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.TrophyLeaguesRequest(); string v = o.Lang; o.Lang = v; }
         }
 
-        public static void Use1206(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1218(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.TrophyLeaguesResponse(); JToken v = o.Best; o.Best = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.TrophyLeaguesResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -13761,7 +13958,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.TrophyLeaguesResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1207(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1219(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.TrophyLeaguesResponse.LeaguesItem(); JToken v = o.Color; o.Color = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.TrophyLeaguesResponse.LeaguesItem(); bool? v = o.Current; o.Current = v; }
@@ -13778,7 +13975,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.TrophyLeaguesResponse.LeaguesItem(); bool? v = o.Reached; o.Reached = v; }
         }
 
-        public static void Use1208(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1220(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.TrophyLeaguesResponse.SeasonData(); JToken v = o.EndsAt; o.EndsAt = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.TrophyLeaguesResponse.SeasonData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -13786,12 +13983,12 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.TrophyLeaguesResponse.SeasonData(); string v = o.StartedAt; o.StartedAt = v; }
         }
 
-        public static void Use1209(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1221(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.TrophyMeRequest(); string v = o.Lang; o.Lang = v; }
         }
 
-        public static void Use1210(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1222(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.TrophyMeResponse(); global::NakamaFarsi.Sdk.Generated.TrophyMeResponse.AmountsData v = o.Amounts; o.Amounts = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.TrophyMeResponse(); long? v = o.Best; o.Best = v; }
@@ -13810,7 +14007,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.TrophyMeResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1211(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1223(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.TrophyMeResponse.AmountsData(); JToken v = o.Draw; o.Draw = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.TrophyMeResponse.AmountsData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -13819,7 +14016,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.TrophyMeResponse.AmountsData(); JToken v = o.Win; o.Win = v; }
         }
 
-        public static void Use1212(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1224(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.TrophyMeResponse.LeagueData(); string v = o.Color; o.Color = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.TrophyMeResponse.LeagueData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -13829,7 +14026,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.TrophyMeResponse.LeagueData(); string v = o.Name; o.Name = v; }
         }
 
-        public static void Use1213(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1225(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.TrophyMeResponse.SeasonData(); JToken v = o.EndsAt; o.EndsAt = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.TrophyMeResponse.SeasonData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -13837,13 +14034,13 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.TrophyMeResponse.SeasonData(); string v = o.StartedAt; o.StartedAt = v; }
         }
 
-        public static void Use1214(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1226(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.TrophyPlayersRequest(); string v = o.Lang; o.Lang = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.TrophyPlayersRequest(); List<string> v = o.UserIds; o.UserIds = v; }
         }
 
-        public static void Use1215(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1227(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.TrophyPlayersResponse(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.TrophyPlayersResponse(); List<global::NakamaFarsi.Sdk.Generated.TrophyPlayersResponse.PlayersItem> v = o.Players; o.Players = v; }
@@ -13851,7 +14048,7 @@ namespace NakamaFarsi.ApiCompat
             { global::NakamaFarsi.Sdk.IRawResponse r = new global::NakamaFarsi.Sdk.Generated.TrophyPlayersResponse(); JObject raw = r.Raw; }
         }
 
-        public static void Use1216(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1228(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.TrophyPlayersResponse.PlayersItem(); long? v = o.Best; o.Best = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.TrophyPlayersResponse.PlayersItem(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -13860,7 +14057,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.TrophyPlayersResponse.PlayersItem(); string v = o.UserId; o.UserId = v; }
         }
 
-        public static void Use1217(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1229(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.TrophyPlayersResponse.PlayersItem.LeagueData(); string v = o.Color; o.Color = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.TrophyPlayersResponse.PlayersItem.LeagueData(); IDictionary<string, JToken> v = o.Extra; o.Extra = v; }
@@ -13870,7 +14067,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.TrophyPlayersResponse.PlayersItem.LeagueData(); JToken v = o.Name; o.Name = v; }
         }
 
-        public static void Use1218(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1230(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { Task<global::NakamaFarsi.Sdk.Generated.TrophyHistoryResponse> t = rpcs.Trophy.HistoryAsync(new global::NakamaFarsi.Sdk.Generated.TrophyHistoryRequest(), CancellationToken.None); }
             { Task<global::NakamaFarsi.Sdk.Generated.TrophyHistoryResponse> t = rpcs.Trophy.HistoryAsync(); }
@@ -13882,7 +14079,7 @@ namespace NakamaFarsi.ApiCompat
             { Task<global::NakamaFarsi.Sdk.Generated.TrophyPlayersResponse> t = rpcs.Trophy.PlayersAsync(); }
         }
 
-        public static void Use1219(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1231(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.VoiceTokenRequest(); string v = o.GameKey; o.GameKey = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.VoiceTokenRequest(); string v = o.MatchId; o.MatchId = v; }
@@ -13890,7 +14087,7 @@ namespace NakamaFarsi.ApiCompat
             { var o = new global::NakamaFarsi.Sdk.Generated.VoiceTokenRequest(); string v = o.Room; o.Room = v; }
         }
 
-        public static void Use1220(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
+        public static void Use1232(global::NakamaFarsi.Sdk.Generated.NakamaFarsiRpcs rpcs)
         {
             { var o = new global::NakamaFarsi.Sdk.Generated.VoiceTokenResponse(); JToken v = o.CanPublish; o.CanPublish = v; }
             { var o = new global::NakamaFarsi.Sdk.Generated.VoiceTokenResponse(); bool? v = o.Enabled; o.Enabled = v; }
@@ -14139,6 +14336,9 @@ namespace NakamaFarsi.ApiCompat
             { const string v = global::NakamaFarsi.Sdk.Generated.RpcIds.LeaderboardxWinners; }
             { const string v = global::NakamaFarsi.Sdk.Generated.RpcIds.LedgerKinds; }
             { const string v = global::NakamaFarsi.Sdk.Generated.RpcIds.LedgerList; }
+            { const string v = global::NakamaFarsi.Sdk.Generated.RpcIds.PpBackupList; }
+            { const string v = global::NakamaFarsi.Sdk.Generated.RpcIds.PpBackupRefund; }
+            { const string v = global::NakamaFarsi.Sdk.Generated.RpcIds.PpBackupUse; }
             { const string v = global::NakamaFarsi.Sdk.Generated.RpcIds.PpLocalState; }
             { const string v = global::NakamaFarsi.Sdk.Generated.RpcIds.PredictionAnswerUpdate; }
             { const string v = global::NakamaFarsi.Sdk.Generated.RpcIds.PredictionConfig; }

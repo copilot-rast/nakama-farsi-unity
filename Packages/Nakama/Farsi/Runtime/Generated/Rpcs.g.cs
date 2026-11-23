@@ -323,7 +323,12 @@ namespace NakamaFarsi.Sdk.Generated
         public const string PpBackupList = "pp_backup_list";
         public const string PpBackupRefund = "pp_backup_refund";
         public const string PpBackupUse = "pp_backup_use";
+        public const string PpCarAdopt = "pp_car_adopt";
+        public const string PpCarCondition = "pp_car_condition";
+        public const string PpCarReport = "pp_car_report";
         public const string PpLocalState = "pp_local_state";
+        public const string PpServiceFinish = "pp_service_finish";
+        public const string PpServiceStart = "pp_service_start";
         public const string PredictionAnswerUpdate = "prediction_answer_update";
         public const string PredictionConfig = "prediction_config";
         public const string PredictionEvent = "prediction_event";
@@ -2710,10 +2715,40 @@ namespace NakamaFarsi.Sdk.Generated
             return RpcInvoke.CallAsync<PpBackupUseResponse>(_c, RpcIds.PpBackupUse, request, WriteCall, ct);
         }
 
+        public Task<PpCarAdoptResponse> CarAdoptAsync(PpCarAdoptRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new PpCarAdoptRequest();
+            return RpcInvoke.CallAsync<PpCarAdoptResponse>(_c, RpcIds.PpCarAdopt, request, WriteCall, ct);
+        }
+
+        public Task<PpCarConditionResponse> CarConditionAsync(PpCarConditionRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new PpCarConditionRequest();
+            return RpcInvoke.CallAsync<PpCarConditionResponse>(_c, RpcIds.PpCarCondition, request, WriteCall, ct);
+        }
+
+        public Task<PpCarReportResponse> CarReportAsync(PpCarReportRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new PpCarReportRequest();
+            return RpcInvoke.CallAsync<PpCarReportResponse>(_c, RpcIds.PpCarReport, request, WriteCall, ct);
+        }
+
         public Task<PpLocalStateResponse> LocalStateAsync(PpLocalStateRequest request = null, CancellationToken ct = default)
         {
             request = request ?? new PpLocalStateRequest();
             return RpcInvoke.CallAsync<PpLocalStateResponse>(_c, RpcIds.PpLocalState, request, WriteCall, ct);
+        }
+
+        public Task<PpServiceFinishResponse> ServiceFinishAsync(PpServiceFinishRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new PpServiceFinishRequest();
+            return RpcInvoke.CallAsync<PpServiceFinishResponse>(_c, RpcIds.PpServiceFinish, request, WriteCall, ct);
+        }
+
+        public Task<PpServiceStartResponse> ServiceStartAsync(PpServiceStartRequest request = null, CancellationToken ct = default)
+        {
+            request = request ?? new PpServiceStartRequest();
+            return RpcInvoke.CallAsync<PpServiceStartResponse>(_c, RpcIds.PpServiceStart, request, WriteCall, ct);
         }
     }
 
@@ -5296,6 +5331,9 @@ namespace NakamaFarsi.Sdk.Generated
         [JsonIgnore]
         public JObject Raw { get; set; }
 
+        [JsonProperty("client")]
+        public ClientData Client { get; set; }
+
         [JsonProperty("count")]
         public long? Count { get; set; }
 
@@ -5308,8 +5346,23 @@ namespace NakamaFarsi.Sdk.Generated
         [JsonProperty("notModified")]
         public bool? NotModified { get; set; }
 
+        [JsonProperty("serverTime")]
+        public string ServerTime { get; set; }
+
         [JsonExtensionData]
         public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class ClientData
+        {
+            [JsonProperty("maxCacheAgeHours")]
+            public JToken MaxCacheAgeHours { get; set; }
+
+            [JsonProperty("requireOnline")]
+            public JToken RequireOnline { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
 
         public sealed class ItemsItem
         {
@@ -23201,6 +23254,537 @@ namespace NakamaFarsi.Sdk.Generated
         }
     }
 
+    public sealed class PpCarAdoptRequest
+    {
+        [JsonProperty("cars")]
+        public List<CarsItem> Cars { get; set; }
+
+        public sealed class CarsItem
+        {
+            [JsonProperty("condition")]
+            public ConditionData Condition { get; set; }
+
+            [JsonProperty("services")]
+            public List<JToken> Services { get; set; }
+
+            [JsonProperty("vehicleKey")]
+            public string VehicleKey { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+
+            public sealed class ConditionData
+            {
+                [JsonProperty("brake")]
+                public JToken Brake { get; set; }
+
+                [JsonProperty("carWash")]
+                public JToken CarWash { get; set; }
+
+                [JsonProperty("fuel")]
+                public JToken Fuel { get; set; }
+
+                [JsonProperty("health")]
+                public JToken Health { get; set; }
+
+                [JsonProperty("oil")]
+                public JToken Oil { get; set; }
+
+                [JsonProperty("tire")]
+                public JToken Tire { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+        }
+    }
+
+    public sealed class PpCarAdoptResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("adopted")]
+        public bool? Adopted { get; set; }
+
+        [JsonProperty("alreadyAdopted")]
+        public bool? AlreadyAdopted { get; set; }
+
+        [JsonProperty("applied")]
+        public List<AppliedItem> Applied { get; set; }
+
+        [JsonProperty("cars")]
+        public List<CarsItem> Cars { get; set; }
+
+        [JsonProperty("ignoredServices")]
+        public long? IgnoredServices { get; set; }
+
+        [JsonProperty("mode")]
+        public string Mode { get; set; }
+
+        [JsonProperty("serverTime")]
+        public string ServerTime { get; set; }
+
+        [JsonProperty("skipped")]
+        public List<string> Skipped { get; set; }
+
+        [JsonProperty("ticketsTrusted")]
+        public bool? TicketsTrusted { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class AppliedItem
+        {
+            [JsonProperty("after")]
+            public AfterData After { get; set; }
+
+            [JsonProperty("before")]
+            public BeforeData Before { get; set; }
+
+            [JsonProperty("services")]
+            public List<string> Services { get; set; }
+
+            [JsonProperty("vehicleKey")]
+            public string VehicleKey { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+
+            public sealed class AfterData
+            {
+                [JsonProperty("brake")]
+                public JToken Brake { get; set; }
+
+                [JsonProperty("carWash")]
+                public JToken CarWash { get; set; }
+
+                [JsonProperty("fuel")]
+                public JToken Fuel { get; set; }
+
+                [JsonProperty("health")]
+                public JToken Health { get; set; }
+
+                [JsonProperty("oil")]
+                public JToken Oil { get; set; }
+
+                [JsonProperty("tire")]
+                public JToken Tire { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+
+            public sealed class BeforeData
+            {
+                [JsonProperty("brake")]
+                public JToken Brake { get; set; }
+
+                [JsonProperty("carWash")]
+                public JToken CarWash { get; set; }
+
+                [JsonProperty("fuel")]
+                public JToken Fuel { get; set; }
+
+                [JsonProperty("health")]
+                public JToken Health { get; set; }
+
+                [JsonProperty("oil")]
+                public JToken Oil { get; set; }
+
+                [JsonProperty("tire")]
+                public JToken Tire { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+        }
+
+        public sealed class CarsItem
+        {
+            [JsonProperty("canDrive")]
+            public bool? CanDrive { get; set; }
+
+            [JsonProperty("condition")]
+            public ConditionData Condition { get; set; }
+
+            [JsonProperty("critical")]
+            public List<string> Critical { get; set; }
+
+            [JsonProperty("equipped")]
+            public bool? Equipped { get; set; }
+
+            [JsonProperty("gameId")]
+            public string GameId { get; set; }
+
+            [JsonProperty("inService")]
+            public bool? InService { get; set; }
+
+            [JsonProperty("itemId")]
+            public string ItemId { get; set; }
+
+            [JsonProperty("needsCriticalService")]
+            public bool? NeedsCriticalService { get; set; }
+
+            [JsonProperty("parkedPoi")]
+            public string ParkedPoi { get; set; }
+
+            [JsonProperty("quotes")]
+            public List<JToken> Quotes { get; set; }
+
+            [JsonProperty("repairing")]
+            public bool? Repairing { get; set; }
+
+            [JsonProperty("services")]
+            public List<JToken> Services { get; set; }
+
+            [JsonProperty("updatedAt")]
+            public string UpdatedAt { get; set; }
+
+            [JsonProperty("vehicleKey")]
+            public string VehicleKey { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+
+            public sealed class ConditionData
+            {
+                [JsonProperty("brake")]
+                public JToken Brake { get; set; }
+
+                [JsonProperty("carWash")]
+                public JToken CarWash { get; set; }
+
+                [JsonProperty("fuel")]
+                public JToken Fuel { get; set; }
+
+                [JsonProperty("health")]
+                public JToken Health { get; set; }
+
+                [JsonProperty("oil")]
+                public JToken Oil { get; set; }
+
+                [JsonProperty("tire")]
+                public JToken Tire { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+        }
+    }
+
+    public sealed class PpCarConditionRequest
+    {
+        [JsonProperty("noQuotes")]
+        public bool? NoQuotes { get; set; }
+
+        [JsonProperty("route")]
+        public string Route { get; set; }
+
+        [JsonProperty("vehicleKey")]
+        public string VehicleKey { get; set; }
+    }
+
+    public sealed class PpCarConditionResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("adopted")]
+        public bool? Adopted { get; set; }
+
+        [JsonProperty("cars")]
+        public List<CarsItem> Cars { get; set; }
+
+        [JsonProperty("route")]
+        public string Route { get; set; }
+
+        [JsonProperty("serverTime")]
+        public string ServerTime { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class CarsItem
+        {
+            [JsonProperty("canDrive")]
+            public bool? CanDrive { get; set; }
+
+            [JsonProperty("condition")]
+            public ConditionData Condition { get; set; }
+
+            [JsonProperty("critical")]
+            public List<string> Critical { get; set; }
+
+            [JsonProperty("equipped")]
+            public bool? Equipped { get; set; }
+
+            [JsonProperty("gameId")]
+            public string GameId { get; set; }
+
+            [JsonProperty("inService")]
+            public bool? InService { get; set; }
+
+            [JsonProperty("itemId")]
+            public string ItemId { get; set; }
+
+            [JsonProperty("needsCriticalService")]
+            public bool? NeedsCriticalService { get; set; }
+
+            [JsonProperty("parkedPoi")]
+            public string ParkedPoi { get; set; }
+
+            [JsonProperty("quotes")]
+            public List<JToken> Quotes { get; set; }
+
+            [JsonProperty("repairing")]
+            public bool? Repairing { get; set; }
+
+            [JsonProperty("services")]
+            public List<JToken> Services { get; set; }
+
+            [JsonProperty("updatedAt")]
+            public string UpdatedAt { get; set; }
+
+            [JsonProperty("vehicleKey")]
+            public string VehicleKey { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+
+            public sealed class ConditionData
+            {
+                [JsonProperty("brake")]
+                public JToken Brake { get; set; }
+
+                [JsonProperty("carWash")]
+                public JToken CarWash { get; set; }
+
+                [JsonProperty("fuel")]
+                public JToken Fuel { get; set; }
+
+                [JsonProperty("health")]
+                public JToken Health { get; set; }
+
+                [JsonProperty("oil")]
+                public JToken Oil { get; set; }
+
+                [JsonProperty("tire")]
+                public JToken Tire { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+        }
+    }
+
+    public sealed class PpCarReportRequest
+    {
+        [JsonProperty("condition")]
+        public ConditionData Condition { get; set; }
+
+        [JsonProperty("parkedPoi")]
+        public string ParkedPoi { get; set; }
+
+        [JsonProperty("vehicleKey")]
+        public string VehicleKey { get; set; }
+
+        public sealed class ConditionData
+        {
+            [JsonProperty("brake")]
+            public double? Brake { get; set; }
+
+            [JsonProperty("carWash")]
+            public double? CarWash { get; set; }
+
+            [JsonProperty("fuel")]
+            public double? Fuel { get; set; }
+
+            [JsonProperty("health")]
+            public double? Health { get; set; }
+
+            [JsonProperty("oil")]
+            public double? Oil { get; set; }
+
+            [JsonProperty("tire")]
+            public double? Tire { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+    }
+
+    public sealed class PpCarReportResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("car")]
+        public CarData Car { get; set; }
+
+        [JsonProperty("changed")]
+        public bool? Changed { get; set; }
+
+        [JsonProperty("serverTime")]
+        public string ServerTime { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class CarData
+        {
+            [JsonProperty("canDrive")]
+            public bool? CanDrive { get; set; }
+
+            [JsonProperty("condition")]
+            public ConditionData Condition { get; set; }
+
+            [JsonProperty("critical")]
+            public List<string> Critical { get; set; }
+
+            [JsonProperty("equipped")]
+            public bool? Equipped { get; set; }
+
+            [JsonProperty("gameId")]
+            public string GameId { get; set; }
+
+            [JsonProperty("inService")]
+            public bool? InService { get; set; }
+
+            [JsonProperty("itemId")]
+            public string ItemId { get; set; }
+
+            [JsonProperty("needsCriticalService")]
+            public bool? NeedsCriticalService { get; set; }
+
+            [JsonProperty("parkedPoi")]
+            public string ParkedPoi { get; set; }
+
+            [JsonProperty("quotes")]
+            public List<QuotesItem> Quotes { get; set; }
+
+            [JsonProperty("repairing")]
+            public bool? Repairing { get; set; }
+
+            [JsonProperty("services")]
+            public List<ServicesItem> Services { get; set; }
+
+            [JsonProperty("updatedAt")]
+            public string UpdatedAt { get; set; }
+
+            [JsonProperty("vehicleKey")]
+            public string VehicleKey { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+
+            public sealed class ConditionData
+            {
+                [JsonProperty("brake")]
+                public long? Brake { get; set; }
+
+                [JsonProperty("carWash")]
+                public long? CarWash { get; set; }
+
+                [JsonProperty("fuel")]
+                public long? Fuel { get; set; }
+
+                [JsonProperty("health")]
+                public long? Health { get; set; }
+
+                [JsonProperty("oil")]
+                public long? Oil { get; set; }
+
+                [JsonProperty("tire")]
+                public long? Tire { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+
+            public sealed class QuotesItem
+            {
+                [JsonProperty("available")]
+                public JToken Available { get; set; }
+
+                [JsonProperty("coin")]
+                public JToken Coin { get; set; }
+
+                [JsonProperty("full")]
+                public JToken Full { get; set; }
+
+                [JsonProperty("gem")]
+                public JToken Gem { get; set; }
+
+                [JsonProperty("percent")]
+                public JToken Percent { get; set; }
+
+                [JsonProperty("price")]
+                public JToken Price { get; set; }
+
+                [JsonProperty("seconds")]
+                public JToken Seconds { get; set; }
+
+                [JsonProperty("slot")]
+                public JToken Slot { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+
+            public sealed class ServicesItem
+            {
+                [JsonProperty("charged")]
+                public JToken Charged { get; set; }
+
+                [JsonProperty("endsAt")]
+                public JToken EndsAt { get; set; }
+
+                [JsonProperty("finishedAt")]
+                public JToken FinishedAt { get; set; }
+
+                [JsonProperty("finishedBy")]
+                public JToken FinishedBy { get; set; }
+
+                [JsonProperty("gem")]
+                public JToken Gem { get; set; }
+
+                [JsonProperty("gemToFinish")]
+                public JToken GemToFinish { get; set; }
+
+                [JsonProperty("route")]
+                public JToken Route { get; set; }
+
+                [JsonProperty("seconds")]
+                public JToken Seconds { get; set; }
+
+                [JsonProperty("secondsLeft")]
+                public JToken SecondsLeft { get; set; }
+
+                [JsonProperty("serviceId")]
+                public JToken ServiceId { get; set; }
+
+                [JsonProperty("skipGem")]
+                public JToken SkipGem { get; set; }
+
+                [JsonProperty("slot")]
+                public JToken Slot { get; set; }
+
+                [JsonProperty("source")]
+                public JToken Source { get; set; }
+
+                [JsonProperty("startedAt")]
+                public JToken StartedAt { get; set; }
+
+                [JsonProperty("state")]
+                public JToken State { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+        }
+    }
+
     public sealed class PpLocalStateRequest
     {
         [JsonProperty("balances")]
@@ -23263,6 +23847,552 @@ namespace NakamaFarsi.Sdk.Generated
 
                 [JsonProperty("server")]
                 public double? Server { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+        }
+    }
+
+    public sealed class PpServiceFinishRequest
+    {
+        [JsonProperty("requestId")]
+        public string RequestId { get; set; }
+
+        [JsonProperty("skip")]
+        public bool? Skip { get; set; }
+
+        [JsonProperty("slot")]
+        public string Slot { get; set; }
+
+        [JsonProperty("vehicleKey")]
+        public string VehicleKey { get; set; }
+    }
+
+    public sealed class PpServiceFinishResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("alreadyDone")]
+        public bool? AlreadyDone { get; set; }
+
+        [JsonProperty("car")]
+        public CarData Car { get; set; }
+
+        [JsonProperty("charged")]
+        public ChargedData Charged { get; set; }
+
+        [JsonProperty("completed")]
+        public bool? Completed { get; set; }
+
+        [JsonProperty("replayed")]
+        public bool? Replayed { get; set; }
+
+        [JsonProperty("serverTime")]
+        public string ServerTime { get; set; }
+
+        [JsonProperty("service")]
+        public ServiceData Service { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class CarData
+        {
+            [JsonProperty("canDrive")]
+            public bool? CanDrive { get; set; }
+
+            [JsonProperty("condition")]
+            public ConditionData Condition { get; set; }
+
+            [JsonProperty("critical")]
+            public List<string> Critical { get; set; }
+
+            [JsonProperty("equipped")]
+            public bool? Equipped { get; set; }
+
+            [JsonProperty("gameId")]
+            public string GameId { get; set; }
+
+            [JsonProperty("inService")]
+            public bool? InService { get; set; }
+
+            [JsonProperty("itemId")]
+            public string ItemId { get; set; }
+
+            [JsonProperty("needsCriticalService")]
+            public bool? NeedsCriticalService { get; set; }
+
+            [JsonProperty("parkedPoi")]
+            public string ParkedPoi { get; set; }
+
+            [JsonProperty("quotes")]
+            public List<QuotesItem> Quotes { get; set; }
+
+            [JsonProperty("repairing")]
+            public bool? Repairing { get; set; }
+
+            [JsonProperty("services")]
+            public List<ServicesItem> Services { get; set; }
+
+            [JsonProperty("updatedAt")]
+            public string UpdatedAt { get; set; }
+
+            [JsonProperty("vehicleKey")]
+            public string VehicleKey { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+
+            public sealed class ConditionData
+            {
+                [JsonProperty("brake")]
+                public long? Brake { get; set; }
+
+                [JsonProperty("carWash")]
+                public long? CarWash { get; set; }
+
+                [JsonProperty("fuel")]
+                public long? Fuel { get; set; }
+
+                [JsonProperty("health")]
+                public long? Health { get; set; }
+
+                [JsonProperty("oil")]
+                public long? Oil { get; set; }
+
+                [JsonProperty("tire")]
+                public long? Tire { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+
+            public sealed class QuotesItem
+            {
+                [JsonProperty("available")]
+                public JToken Available { get; set; }
+
+                [JsonProperty("coin")]
+                public JToken Coin { get; set; }
+
+                [JsonProperty("full")]
+                public JToken Full { get; set; }
+
+                [JsonProperty("gem")]
+                public JToken Gem { get; set; }
+
+                [JsonProperty("percent")]
+                public JToken Percent { get; set; }
+
+                [JsonProperty("price")]
+                public JToken Price { get; set; }
+
+                [JsonProperty("seconds")]
+                public JToken Seconds { get; set; }
+
+                [JsonProperty("slot")]
+                public JToken Slot { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+
+            public sealed class ServicesItem
+            {
+                [JsonProperty("charged")]
+                public JToken Charged { get; set; }
+
+                [JsonProperty("endsAt")]
+                public JToken EndsAt { get; set; }
+
+                [JsonProperty("finishedAt")]
+                public JToken FinishedAt { get; set; }
+
+                [JsonProperty("finishedBy")]
+                public JToken FinishedBy { get; set; }
+
+                [JsonProperty("gem")]
+                public JToken Gem { get; set; }
+
+                [JsonProperty("gemToFinish")]
+                public JToken GemToFinish { get; set; }
+
+                [JsonProperty("route")]
+                public JToken Route { get; set; }
+
+                [JsonProperty("seconds")]
+                public JToken Seconds { get; set; }
+
+                [JsonProperty("secondsLeft")]
+                public JToken SecondsLeft { get; set; }
+
+                [JsonProperty("serviceId")]
+                public JToken ServiceId { get; set; }
+
+                [JsonProperty("skipGem")]
+                public JToken SkipGem { get; set; }
+
+                [JsonProperty("slot")]
+                public JToken Slot { get; set; }
+
+                [JsonProperty("source")]
+                public JToken Source { get; set; }
+
+                [JsonProperty("startedAt")]
+                public JToken StartedAt { get; set; }
+
+                [JsonProperty("state")]
+                public JToken State { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+        }
+
+        public sealed class ChargedData
+        {
+            [JsonProperty("amount")]
+            public long? Amount { get; set; }
+
+            [JsonProperty("currency")]
+            public string Currency { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class ServiceData
+        {
+            [JsonProperty("charged")]
+            public ChargedData Charged { get; set; }
+
+            [JsonProperty("endsAt")]
+            public string EndsAt { get; set; }
+
+            [JsonProperty("finishedAt")]
+            public string FinishedAt { get; set; }
+
+            [JsonProperty("finishedBy")]
+            public string FinishedBy { get; set; }
+
+            [JsonProperty("gem")]
+            public long? Gem { get; set; }
+
+            [JsonProperty("gemToFinish")]
+            public long? GemToFinish { get; set; }
+
+            [JsonProperty("route")]
+            public string Route { get; set; }
+
+            [JsonProperty("seconds")]
+            public double? Seconds { get; set; }
+
+            [JsonProperty("secondsLeft")]
+            public double? SecondsLeft { get; set; }
+
+            [JsonProperty("serviceId")]
+            public string ServiceId { get; set; }
+
+            [JsonProperty("skipGem")]
+            public long? SkipGem { get; set; }
+
+            [JsonProperty("slot")]
+            public string Slot { get; set; }
+
+            [JsonProperty("source")]
+            public string Source { get; set; }
+
+            [JsonProperty("startedAt")]
+            public string StartedAt { get; set; }
+
+            [JsonProperty("state")]
+            public string State { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+
+            public sealed class ChargedData
+            {
+                [JsonProperty("amount")]
+                public long? Amount { get; set; }
+
+                [JsonProperty("currency")]
+                public string Currency { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+        }
+    }
+
+    public sealed class PpServiceStartRequest
+    {
+        [JsonProperty("requestId")]
+        public string RequestId { get; set; }
+
+        [JsonProperty("route")]
+        public string Route { get; set; }
+
+        [JsonProperty("slot")]
+        public string Slot { get; set; }
+
+        [JsonProperty("vehicleKey")]
+        public string VehicleKey { get; set; }
+    }
+
+    public sealed class PpServiceStartResponse : IRawResponse
+    {
+        [JsonIgnore]
+        public JObject Raw { get; set; }
+
+        [JsonProperty("alreadyDone")]
+        public bool? AlreadyDone { get; set; }
+
+        [JsonProperty("car")]
+        public CarData Car { get; set; }
+
+        [JsonProperty("charged")]
+        public ChargedData Charged { get; set; }
+
+        [JsonProperty("completed")]
+        public bool? Completed { get; set; }
+
+        [JsonProperty("replayed")]
+        public bool? Replayed { get; set; }
+
+        [JsonProperty("serverTime")]
+        public string ServerTime { get; set; }
+
+        [JsonProperty("service")]
+        public ServiceData Service { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, JToken> Extra { get; set; }
+
+        public sealed class CarData
+        {
+            [JsonProperty("canDrive")]
+            public bool? CanDrive { get; set; }
+
+            [JsonProperty("condition")]
+            public ConditionData Condition { get; set; }
+
+            [JsonProperty("critical")]
+            public List<string> Critical { get; set; }
+
+            [JsonProperty("equipped")]
+            public bool? Equipped { get; set; }
+
+            [JsonProperty("gameId")]
+            public string GameId { get; set; }
+
+            [JsonProperty("inService")]
+            public bool? InService { get; set; }
+
+            [JsonProperty("itemId")]
+            public string ItemId { get; set; }
+
+            [JsonProperty("needsCriticalService")]
+            public bool? NeedsCriticalService { get; set; }
+
+            [JsonProperty("parkedPoi")]
+            public string ParkedPoi { get; set; }
+
+            [JsonProperty("quotes")]
+            public List<QuotesItem> Quotes { get; set; }
+
+            [JsonProperty("repairing")]
+            public bool? Repairing { get; set; }
+
+            [JsonProperty("services")]
+            public List<ServicesItem> Services { get; set; }
+
+            [JsonProperty("updatedAt")]
+            public string UpdatedAt { get; set; }
+
+            [JsonProperty("vehicleKey")]
+            public string VehicleKey { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+
+            public sealed class ConditionData
+            {
+                [JsonProperty("brake")]
+                public long? Brake { get; set; }
+
+                [JsonProperty("carWash")]
+                public long? CarWash { get; set; }
+
+                [JsonProperty("fuel")]
+                public long? Fuel { get; set; }
+
+                [JsonProperty("health")]
+                public long? Health { get; set; }
+
+                [JsonProperty("oil")]
+                public long? Oil { get; set; }
+
+                [JsonProperty("tire")]
+                public long? Tire { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+
+            public sealed class QuotesItem
+            {
+                [JsonProperty("available")]
+                public JToken Available { get; set; }
+
+                [JsonProperty("coin")]
+                public JToken Coin { get; set; }
+
+                [JsonProperty("full")]
+                public JToken Full { get; set; }
+
+                [JsonProperty("gem")]
+                public JToken Gem { get; set; }
+
+                [JsonProperty("percent")]
+                public JToken Percent { get; set; }
+
+                [JsonProperty("price")]
+                public JToken Price { get; set; }
+
+                [JsonProperty("seconds")]
+                public JToken Seconds { get; set; }
+
+                [JsonProperty("slot")]
+                public JToken Slot { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+
+            public sealed class ServicesItem
+            {
+                [JsonProperty("charged")]
+                public JToken Charged { get; set; }
+
+                [JsonProperty("endsAt")]
+                public JToken EndsAt { get; set; }
+
+                [JsonProperty("finishedAt")]
+                public JToken FinishedAt { get; set; }
+
+                [JsonProperty("finishedBy")]
+                public JToken FinishedBy { get; set; }
+
+                [JsonProperty("gem")]
+                public JToken Gem { get; set; }
+
+                [JsonProperty("gemToFinish")]
+                public JToken GemToFinish { get; set; }
+
+                [JsonProperty("route")]
+                public JToken Route { get; set; }
+
+                [JsonProperty("seconds")]
+                public JToken Seconds { get; set; }
+
+                [JsonProperty("secondsLeft")]
+                public JToken SecondsLeft { get; set; }
+
+                [JsonProperty("serviceId")]
+                public JToken ServiceId { get; set; }
+
+                [JsonProperty("skipGem")]
+                public JToken SkipGem { get; set; }
+
+                [JsonProperty("slot")]
+                public JToken Slot { get; set; }
+
+                [JsonProperty("source")]
+                public JToken Source { get; set; }
+
+                [JsonProperty("startedAt")]
+                public JToken StartedAt { get; set; }
+
+                [JsonProperty("state")]
+                public JToken State { get; set; }
+
+                [JsonExtensionData]
+                public IDictionary<string, JToken> Extra { get; set; }
+            }
+        }
+
+        public sealed class ChargedData
+        {
+            [JsonProperty("amount")]
+            public long? Amount { get; set; }
+
+            [JsonProperty("currency")]
+            public string Currency { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+        }
+
+        public sealed class ServiceData
+        {
+            [JsonProperty("charged")]
+            public ChargedData Charged { get; set; }
+
+            [JsonProperty("endsAt")]
+            public string EndsAt { get; set; }
+
+            [JsonProperty("finishedAt")]
+            public string FinishedAt { get; set; }
+
+            [JsonProperty("finishedBy")]
+            public string FinishedBy { get; set; }
+
+            [JsonProperty("gem")]
+            public long? Gem { get; set; }
+
+            [JsonProperty("gemToFinish")]
+            public long? GemToFinish { get; set; }
+
+            [JsonProperty("route")]
+            public string Route { get; set; }
+
+            [JsonProperty("seconds")]
+            public double? Seconds { get; set; }
+
+            [JsonProperty("secondsLeft")]
+            public double? SecondsLeft { get; set; }
+
+            [JsonProperty("serviceId")]
+            public string ServiceId { get; set; }
+
+            [JsonProperty("skipGem")]
+            public long? SkipGem { get; set; }
+
+            [JsonProperty("slot")]
+            public string Slot { get; set; }
+
+            [JsonProperty("source")]
+            public string Source { get; set; }
+
+            [JsonProperty("startedAt")]
+            public string StartedAt { get; set; }
+
+            [JsonProperty("state")]
+            public string State { get; set; }
+
+            [JsonExtensionData]
+            public IDictionary<string, JToken> Extra { get; set; }
+
+            public sealed class ChargedData
+            {
+                [JsonProperty("amount")]
+                public long? Amount { get; set; }
+
+                [JsonProperty("currency")]
+                public string Currency { get; set; }
 
                 [JsonExtensionData]
                 public IDictionary<string, JToken> Extra { get; set; }

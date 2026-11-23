@@ -780,6 +780,30 @@
       "base"
     ]
   },
+  "CAR_CONDITION_OFF": {
+    "status": 403,
+    "modules": [
+      "pp"
+    ]
+  },
+  "CAR_IN_SERVICE": {
+    "status": 403,
+    "modules": [
+      "pp"
+    ]
+  },
+  "CAR_NEEDS_SERVICE": {
+    "status": 403,
+    "modules": [
+      "pp"
+    ]
+  },
+  "CAR_REPORTS_OFF": {
+    "status": 403,
+    "modules": [
+      "pp"
+    ]
+  },
   "CATEGORY_ALWAYS_ON": {
     "status": 400,
     "modules": [
@@ -1359,6 +1383,12 @@
     "status": 422,
     "modules": [
       "prediction"
+    ]
+  },
+  "CONDITION_INVALID": {
+    "status": 400,
+    "modules": [
+      "pp"
     ]
   },
   "CONFIRM_REQUIRED": {
@@ -2172,7 +2202,8 @@
     "status": 402,
     "modules": [
       "economy",
-      "inventoryx"
+      "inventoryx",
+      "pp"
     ]
   },
   "INTERNAL_ERROR": {
@@ -2896,6 +2927,12 @@
       "publication"
     ]
   },
+  "INVALID_POI": {
+    "status": 400,
+    "modules": [
+      "pp"
+    ]
+  },
   "INVALID_POINTS": {
     "status": 400,
     "modules": [
@@ -3486,7 +3523,8 @@
     "modules": [
       "campaign",
       "economy",
-      "inventoryx"
+      "inventoryx",
+      "pp"
     ]
   },
   "ITEM_NOT_GIFTABLE": {
@@ -3499,7 +3537,8 @@
     "status": 403,
     "modules": [
       "campaign",
-      "economy"
+      "economy",
+      "pp"
     ]
   },
   "ITEM_REQUIRED": {
@@ -5555,10 +5594,52 @@
       "blockworld"
     ]
   },
+  "SERVICE_ALREADY_RUNNING": {
+    "status": 409,
+    "modules": [
+      "pp"
+    ]
+  },
+  "SERVICE_NOT_AVAILABLE": {
+    "status": 409,
+    "modules": [
+      "pp"
+    ]
+  },
   "SERVICE_NOT_FOUND": {
     "status": 404,
     "modules": [
       "economy"
+    ]
+  },
+  "SERVICE_NOT_NEEDED": {
+    "status": 409,
+    "modules": [
+      "pp"
+    ]
+  },
+  "SERVICE_NOT_READY": {
+    "status": 409,
+    "modules": [
+      "pp"
+    ]
+  },
+  "SERVICE_NOT_RUNNING": {
+    "status": 409,
+    "modules": [
+      "pp"
+    ]
+  },
+  "SERVICE_ROUTE_INVALID": {
+    "status": 400,
+    "modules": [
+      "pp"
+    ]
+  },
+  "SERVICE_SLOT_INVALID": {
+    "status": 400,
+    "modules": [
+      "pp"
     ]
   },
   "SESSION_UNAVAILABLE": {
@@ -6533,6 +6614,12 @@
       "publication"
     ]
   },
+  "TOO_MANY_CARS": {
+    "status": 400,
+    "modules": [
+      "pp"
+    ]
+  },
   "TOO_MANY_CODES": {
     "status": 400,
     "modules": [
@@ -6940,6 +7027,12 @@
     "status": 400,
     "modules": [
       "base"
+    ]
+  },
+  "VEHICLE_KEY_REQUIRED": {
+    "status": 400,
+    "modules": [
+      "pp"
     ]
   },
   "VERSION_NOT_FOUND": {
