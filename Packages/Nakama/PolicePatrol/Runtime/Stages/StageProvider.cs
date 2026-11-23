@@ -269,6 +269,7 @@ namespace PolicePatrol.Sdk.Stages
                 StarRules = StarRules(r),
                 ServerSeconds = J.NumOrNull(r, "serverSeconds"),
                 Unlocks = TrophyUnlock.List(r?["trophies"]),
+                CarWear = Cars.CarProvider.Wear(c, (r?["extensions"] as JObject)?["pp_car"]),
             };
         }
 

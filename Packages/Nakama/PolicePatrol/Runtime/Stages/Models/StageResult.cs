@@ -45,6 +45,8 @@ namespace PolicePatrol.Sdk.Stages
 
         public TrophyUnlock[] Unlocks { get; init; } = System.Array.Empty<TrophyUnlock>();
 
+        public Cars.CarWear CarWear { get; init; }
+
         public bool IsRewardLimited => !string.IsNullOrEmpty(RewardLimited);
     }
 }

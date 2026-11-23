@@ -1,0 +1,61 @@
+{
+  "serverTime": "2026-11-23T10:00:00.000Z",
+  "route": "garage",
+  "adopted": true,
+  "cars": [
+    {
+      "vehicleKey": "pp-car-tiggo8",
+      "gameId": "Tiggo8",
+      "itemId": "7d1f8a2e-34b1-4c55-9a70-1b2c3d4e5f60",
+      "equipped": true,
+      "condition": { "health": 42, "fuel": 8, "tire": 77, "oil": 64, "brake": 90, "carWash": 30 },
+      "critical": ["fuel"],
+      "needsCriticalService": true,
+      "inService": true,
+      "repairing": true,
+      "canDrive": false,
+      "parkedPoi": "gas-station-3",
+      "services": [
+        {
+          "serviceId": "c2a3b4d5-0000-4000-8000-000000000001",
+          "slot": "health",
+          "state": "running",
+          "route": "garage",
+          "startedAt": "2026-11-23T09:58:00.000Z",
+          "endsAt": "2026-11-23T10:03:00.000Z",
+          "seconds": 300,
+          "secondsLeft": 180,
+          "gem": 12,
+          "gemToFinish": 8,
+          "charged": { "currency": "coin", "amount": 580 },
+          "skipGem": 0,
+          "source": "player"
+        }
+      ],
+      "quotes": [
+        { "slot": "fuel", "percent": 8, "available": true, "full": false, "coin": 92, "gem": 2, "seconds": 46, "price": { "currency": "coin", "amount": 92 } },
+        { "slot": "tire", "percent": 77, "available": true, "full": false, "coin": 46, "gem": 1, "seconds": 23, "price": { "currency": "coin", "amount": 46 } },
+        { "slot": "oil", "percent": 64, "available": true, "full": false, "coin": 36, "gem": 1, "seconds": 18, "price": { "currency": "coin", "amount": 36 } },
+        { "slot": "brake", "percent": 90, "available": true, "full": false, "coin": 10, "gem": 1, "seconds": 5, "price": { "currency": "coin", "amount": 10 } },
+        { "slot": "carWash", "percent": 30, "available": true, "full": false, "coin": 14, "gem": 0, "seconds": 35, "price": { "currency": "coin", "amount": 14 } },
+        { "slot": "health", "percent": 42, "available": false, "full": false, "coin": 0, "gem": 0, "seconds": 0, "price": { "currency": "", "amount": 0 } }
+      ],
+      "updatedAt": "2026-11-23T09:58:00.000Z"
+    },
+    {
+      "vehicleKey": "pp-car-pride",
+      "gameId": "",
+      "itemId": "8e2f9b3f-45c2-4d66-8b81-2c3d4e5f6071",
+      "equipped": false,
+      "condition": { "health": 100, "fuel": 100, "tire": 100, "oil": 100, "brake": 100, "carWash": 100 },
+      "critical": [],
+      "needsCriticalService": false,
+      "inService": false,
+      "repairing": false,
+      "canDrive": true,
+      "parkedPoi": "",
+      "services": [],
+      "quotes": []
+    }
+  ]
+}

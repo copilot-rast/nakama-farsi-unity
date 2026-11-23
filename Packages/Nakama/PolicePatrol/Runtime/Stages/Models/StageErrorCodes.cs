@@ -16,6 +16,8 @@ namespace PolicePatrol.Sdk.Stages
         public const string ItemNotAllowed = "PROGRESS_STAGE_ITEM_NOT_ALLOWED";
         public const string ItemNotOwned = "PROGRESS_ITEM_NOT_OWNED";
         public const string ServerOwned = "STAGE_SERVER_OWNED";
+        public const string CarNeedsService = "CAR_NEEDS_SERVICE";
+        public const string CarInService = "CAR_IN_SERVICE";
         public const string RewardLimitedCode = "REWARD_LIMITED";
         public const string LimitedCooldown = "cooldown";
         public const string LimitedDaily = "daily_limit";

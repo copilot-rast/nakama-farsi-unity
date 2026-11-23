@@ -1,0 +1,22 @@
+{
+  "stageKey": "level-03",
+  "success": true,
+  "stars": 2,
+  "bestStars": 2,
+  "rewards": [{ "currencyKey": "coin", "amount": 50 }],
+  "xpGained": 10,
+  "xp": 120,
+  "level": 2,
+  "extensions": {
+    "pp_car": {
+      "vehicleKey": "pp-car-tiggo8",
+      "applied": true,
+      "replayed": false,
+      "before": { "health": 100, "fuel": 60, "tire": 90, "oil": 80, "brake": 95, "carWash": 70 },
+      "after": { "health": 81, "fuel": 52, "tire": 87, "oil": 79, "brake": 94, "carWash": 66 },
+      "wear": { "fuel": 8.25, "tire": 2.4, "oil": 1.1, "brake": 0.75, "carWash": 4 },
+      "needsCriticalService": false,
+      "critical": []
+    }
+  }
+}
