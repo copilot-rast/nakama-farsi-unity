@@ -3,9 +3,14 @@ All notable changes to this project are documented below.
 
 The format is based on [keep a changelog](http://keepachangelog.com/) and this project uses [semantic versioning](http://semver.org/).
 
+## [3.23.0-nf.6] - 2026-11-23
+### Added
+- Police Patrol layer 0.9.0: server data that requires a connection (`ASSETS_ONLINE_REQUIRED`, `ASSETS_CACHE_TOO_OLD`), car condition and services (`CarProvider`), car wear on stage results. See `PolicePatrol/CHANGELOG.md`.
+
 ## [3.23.0-nf.5] - 2026-11-23
 ### Added
-- Police Patrol layer 0.8.0: server data that requires a connection (`ASSETS_ONLINE_REQUIRED`, `ASSETS_CACHE_TOO_OLD`), car condition and services (`CarProvider`), car wear on stage results. See `PolicePatrol/CHANGELOG.md`.
+- Farsi layer: wrappers regenerated from every server (339 RPCs); new `pp_backup_list`, `pp_backup_use`, `pp_backup_refund` from the Police Patrol server (`nakama` @ d9c3469d1).
+- Police Patrol layer 0.8.0: backup units (`BackupProvider`), see `PolicePatrol/CHANGELOG.md`.
 
 ## [3.23.0-nf.4] - 2026-11-23
 ### Added

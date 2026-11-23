@@ -17,39 +17,39 @@
   "sources": [
     {
       "name": "nakama-farsi",
-      "commit": "cca66a8d"
+      "commit": "1f46889c"
     },
     {
       "name": "pp",
-      "commit": "b08722eee"
+      "commit": "d9c3469d1"
     },
     {
       "name": "combatrace",
-      "commit": "65c96516"
+      "commit": "7910484f"
     },
     {
       "name": "rakhtkan",
-      "commit": "30ae65c6c"
+      "commit": "2ec6f8c07"
     },
     {
       "name": "soltan",
-      "commit": "db46ad5f"
+      "commit": "43e2ee24"
     },
     {
       "name": "finteen",
-      "commit": "2156dd7c"
+      "commit": "5d193ea7"
     },
     {
       "name": "viralvanguard",
-      "commit": "d60c55a0"
+      "commit": "b9de6b1e"
     },
     {
       "name": "machineirani",
-      "commit": "5dc87e6b"
+      "commit": "3b5a9388"
     },
     {
       "name": "mench",
-      "commit": "4d4fb724"
+      "commit": "11675a4e"
     }
   ],
   "rpcs": [
@@ -21423,6 +21423,506 @@
         "type": "object"
       },
       "errors": [],
+      "projects": [
+        "pp"
+      ]
+    },
+    {
+      "id": "pp_backup_list",
+      "module": "pp",
+      "handler": "rpcBackupList",
+      "source": "integrations/pp/backup.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "attemptId": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "mission": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "attemptId": {
+            "type": "string"
+          },
+          "callsPerMission": {
+            "type": "integer"
+          },
+          "carsOutAtOnce": {
+            "type": "integer"
+          },
+          "debitOn": {
+            "type": "string"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "enforceCap": {
+            "type": "boolean"
+          },
+          "enforceCooldown": {
+            "type": "boolean"
+          },
+          "items": {
+            "items": {
+              "properties": {
+                "callsLeft": {
+                  "nullable": true,
+                  "type": "integer"
+                },
+                "callsPerMission": {
+                  "type": "integer"
+                },
+                "count": {
+                  "type": "integer"
+                },
+                "icon": {
+                  "type": "string"
+                },
+                "key": {
+                  "type": "string"
+                },
+                "kind": {
+                  "type": "string"
+                },
+                "nextCallAt": {
+                  "type": "string"
+                },
+                "secondsBetweenCalls": {
+                  "type": "integer"
+                },
+                "secondsUntilNextCall": {
+                  "type": "integer"
+                },
+                "sort": {
+                  "type": "integer"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "unityIds": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "used": {
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "limitsPer": {
+            "type": "string"
+          },
+          "mission": {
+            "type": "string"
+          },
+          "refundSeconds": {
+            "type": "integer"
+          },
+          "requireRun": {
+            "type": "boolean"
+          },
+          "secondsBetweenCalls": {
+            "type": "integer"
+          },
+          "serverTime": {
+            "type": "string"
+          },
+          "unlimited": {
+            "type": "boolean"
+          },
+          "use": {
+            "nullable": true,
+            "properties": {
+              "at": {
+                "type": "string"
+              },
+              "attemptId": {
+                "type": "string"
+              },
+              "debited": {
+                "type": "integer"
+              },
+              "key": {
+                "type": "string"
+              },
+              "kind": {
+                "type": "string"
+              },
+              "mission": {
+                "type": "string"
+              },
+              "replayed": {
+                "type": "boolean"
+              },
+              "requestId": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "unitId": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [],
+      "projects": [
+        "pp"
+      ]
+    },
+    {
+      "id": "pp_backup_refund",
+      "module": "pp",
+      "handler": "rpcBackupRefund",
+      "source": "integrations/pp/backup.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "lang": {
+            "type": "string"
+          },
+          "requestId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "attemptId": {
+            "type": "string"
+          },
+          "callsPerMission": {
+            "type": "integer"
+          },
+          "carsOutAtOnce": {
+            "type": "integer"
+          },
+          "debitOn": {
+            "type": "string"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "enforceCap": {
+            "type": "boolean"
+          },
+          "enforceCooldown": {
+            "type": "boolean"
+          },
+          "items": {
+            "items": {
+              "properties": {
+                "callsLeft": {
+                  "nullable": true,
+                  "type": "integer"
+                },
+                "callsPerMission": {
+                  "type": "integer"
+                },
+                "count": {
+                  "type": "integer"
+                },
+                "icon": {
+                  "type": "string"
+                },
+                "key": {
+                  "type": "string"
+                },
+                "kind": {
+                  "type": "string"
+                },
+                "nextCallAt": {
+                  "type": "string"
+                },
+                "secondsBetweenCalls": {
+                  "type": "integer"
+                },
+                "secondsUntilNextCall": {
+                  "type": "integer"
+                },
+                "sort": {
+                  "type": "integer"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "unityIds": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "used": {
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "limitsPer": {
+            "type": "string"
+          },
+          "mission": {
+            "type": "string"
+          },
+          "refundSeconds": {
+            "type": "integer"
+          },
+          "requireRun": {
+            "type": "boolean"
+          },
+          "secondsBetweenCalls": {
+            "type": "integer"
+          },
+          "serverTime": {
+            "type": "string"
+          },
+          "unlimited": {
+            "type": "boolean"
+          },
+          "use": {
+            "nullable": true,
+            "properties": {
+              "at": {
+                "type": "string"
+              },
+              "attemptId": {
+                "type": "string"
+              },
+              "debited": {
+                "type": "integer"
+              },
+              "key": {
+                "type": "string"
+              },
+              "kind": {
+                "type": "string"
+              },
+              "mission": {
+                "type": "string"
+              },
+              "replayed": {
+                "type": "boolean"
+              },
+              "requestId": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "unitId": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "BACKUP_REFUND_EXPIRED",
+        "BACKUP_REFUND_OFF",
+        "BACKUP_USE_NOT_FOUND"
+      ],
+      "projects": [
+        "pp"
+      ]
+    },
+    {
+      "id": "pp_backup_use",
+      "module": "pp",
+      "handler": "rpcBackupUse",
+      "source": "integrations/pp/backup.go",
+      "auth": "session",
+      "errorFormat": "envelope",
+      "request": {
+        "properties": {
+          "attemptId": {
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          },
+          "mission": {
+            "type": "string"
+          },
+          "requestId": {
+            "type": "string"
+          },
+          "unitId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "response": {
+        "properties": {
+          "attemptId": {
+            "type": "string"
+          },
+          "callsPerMission": {
+            "type": "integer"
+          },
+          "carsOutAtOnce": {
+            "type": "integer"
+          },
+          "debitOn": {
+            "type": "string"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "enforceCap": {
+            "type": "boolean"
+          },
+          "enforceCooldown": {
+            "type": "boolean"
+          },
+          "items": {
+            "items": {
+              "properties": {
+                "callsLeft": {
+                  "nullable": true,
+                  "type": "integer"
+                },
+                "callsPerMission": {
+                  "type": "integer"
+                },
+                "count": {
+                  "type": "integer"
+                },
+                "icon": {
+                  "type": "string"
+                },
+                "key": {
+                  "type": "string"
+                },
+                "kind": {
+                  "type": "string"
+                },
+                "nextCallAt": {
+                  "type": "string"
+                },
+                "secondsBetweenCalls": {
+                  "type": "integer"
+                },
+                "secondsUntilNextCall": {
+                  "type": "integer"
+                },
+                "sort": {
+                  "type": "integer"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "unityIds": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "used": {
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "limitsPer": {
+            "type": "string"
+          },
+          "mission": {
+            "type": "string"
+          },
+          "refundSeconds": {
+            "type": "integer"
+          },
+          "requireRun": {
+            "type": "boolean"
+          },
+          "secondsBetweenCalls": {
+            "type": "integer"
+          },
+          "serverTime": {
+            "type": "string"
+          },
+          "unlimited": {
+            "type": "boolean"
+          },
+          "use": {
+            "nullable": true,
+            "properties": {
+              "at": {
+                "type": "string"
+              },
+              "attemptId": {
+                "type": "string"
+              },
+              "debited": {
+                "type": "integer"
+              },
+              "key": {
+                "type": "string"
+              },
+              "kind": {
+                "type": "string"
+              },
+              "mission": {
+                "type": "string"
+              },
+              "replayed": {
+                "type": "boolean"
+              },
+              "requestId": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "unitId": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "errors": [
+        "BACKUP_COOLDOWN",
+        "BACKUP_KEY_REQUIRED",
+        "BACKUP_LIMIT",
+        "BACKUP_NOT_FOUND",
+        "BACKUP_NOT_OWNED",
+        "BACKUP_UNIT_NOT_ALLOWED",
+        "INVALID_UNIT_ID",
+        "REQUEST_ID_REUSED",
+        "STAGE_NOT_RUNNING"
+      ],
       "projects": [
         "pp"
       ]

@@ -1,4 +1,4 @@
-# PolicePatrol SDK (`com.policepatrol.sdk`) 0.8
+# PolicePatrol SDK (`com.policepatrol.sdk`) 0.9
 
 Police Patrol client on the nakama-farsi server. The public API of SDK 0.5.21 (namespaces, classes, methods,
 `ApiResult<T>`, error codes) is kept; underneath, every call goes through `com.nakamafarsi.sdk` (Nakama session,
@@ -34,7 +34,7 @@ New: `PolicePatrolAnalytics` (design / progression / resource / business / error
 
 New in 0.7 (guide sections 10–12): stage settings, star rules, criteria and milestone ids (`StageProvider`), the start with a car (`StageProvider.Start(stageKey, vehicleKey, ...)`), the trophy page, claim and the 1501 notification (`StatsProvider.Trophies`, `Claim`, `TrophyStepUnlocked`), split stats (`StatsProvider.Mine(keys, ...)`), design event helpers (`PolicePatrolEvents`), car and part profiles (`InventoryProvider.Get(type, withProfile, ...)`), equip / unequip (`InventoryProvider.Equip`, `Unequip`), and the routing table plus dry run in the Asset Sync window.
 
-New in 0.8:
+New in 0.9:
 
 - Server data can require a connection. The `assets_manifest` answer carries `client.requireOnline` and `client.maxCacheAgeHours`; the SDK saves them with the time of the last online load. When the manifest call fails with a network error or a 5xx, `PolicePatrolAssets.LoadFolder` / `LoadAndApply` fail with `AssetErrorCodes.OnlineRequired` (`ASSETS_ONLINE_REQUIRED`) or `AssetErrorCodes.CacheTooOld` (`ASSETS_CACHE_TOO_OLD`) instead of using the cache; otherwise the cache is used as before. `PolicePatrolAssets.RequireOnline` and `MaxCacheAge` override the server (null = follow the server).
 - Car condition and services: `CarProvider.Condition`, `StartService`, `FinishService` (with `skip`), `Report`, `Adopt`. Count down with `CarService.SecondsLeftAt(localNow)` / `SecondsLeftNow`, not with the device clock against `EndsAt`. Slots in the game enum order: `CarSlots.Of(slot)`, `FromIndex`, `ToIndex`.

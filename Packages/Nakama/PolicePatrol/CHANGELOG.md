@@ -1,8 +1,8 @@
 # Changelog
 
-## 0.8.0 — 2026-11-23 (package `com.nakamafarsi.unity` 3.23.0-nf.5)
+## 0.9.0 — 2026-11-23 (package `com.nakamafarsi.unity` 3.23.0-nf.6)
 
-Typed APIs for two Police Patrol server features: server data that requires a connection, and car condition with services. Every 0.7 call and model keeps working (the `com.policepatrol.sdk` 0.5.21 API is unchanged); new fields are init properties on the same records.
+Typed APIs for two Police Patrol server features: server data that requires a connection, and car condition with services. Every 0.8 call and model keeps working (the `com.policepatrol.sdk` 0.5.21 API is unchanged); new fields are init properties on the same records.
 
 - Online requirement for server data: `AssetProvider.LoadManifest(folder, recursive, [etag,] onComplete)` answers an `AssetManifest` (`Items`, `Etag`, `Client`, `ServerTime`, `NotModified`, `Count`); `AssetClientPolicy` (`RequireOnline`, `MaxCacheAgeHours`, `MaxCacheAge`; `None` when the server sends no `client`). `AssetProvider.Manifest` keeps its signature.
 - After a successful manifest the loader saves the policy, and after a successful load the UTC load time, in the cache: new optional interface `IAssetCacheMeta` (`LoadState`, `SaveState`) with `AssetCacheState` (`Policy`, `LoadedAt`, `ServerTime`), implemented by `FileAssetCache` and `MemoryAssetCache`. Own `IAssetCache` implementations still compile; without `IAssetCacheMeta` they keep the old offline behaviour (unless the SDK overrides below are set).
@@ -14,6 +14,15 @@ Typed APIs for two Police Patrol server features: server data that requires a co
 - `CarProvider.Report(vehicleKey, CarConditionReport, [parkedPoi,] onComplete)` (`pp_car_report`, the server only takes lower values) answers `CarReportResult`. `CarProvider.Adopt(IEnumerable<CarAdoptEntry>, onComplete)` (`pp_car_adopt`, once per player; `CarAdoptTicket.From(slot, startedAtUtc, seconds, gem)` sends .NET ticks) answers `CarAdoptResult` (`Adopted`, `AlreadyAdopted`, `Mode`, `TicketsTrusted`, `Applied`, `Skipped`, `IgnoredServices`, `Cars`).
 - Constants: `CarSlots` (`fuel`, `tire`, `oil`, `brake`, `carWash`, `health`, `repair`; `All`, `FromIndex`, `ToIndex`, `Of(enum)`, `ToEnum<T>`, `Normalize`; index order Fuel, Tire, Oil, Brake, CarWash, Health), `CarRoutes`, `CarServiceStates`, `CarErrorCodes` (`SERVICE_ALREADY_RUNNING`, `SERVICE_NOT_READY`, `SERVICE_NOT_RUNNING`, `SERVICE_NOT_NEEDED`, `SERVICE_NOT_AVAILABLE`, `SERVICE_SLOT_INVALID`, `SERVICE_ROUTE_INVALID`, `CAR_NEEDS_SERVICE`, `CAR_IN_SERVICE`, `CAR_CONDITION_OFF`, `CAR_REPORTS_OFF`, `CONDITION_INVALID`, `VEHICLE_KEY_REQUIRED`, `TOO_MANY_CARS`, `INSUFFICIENT_BALANCE`, `ITEM_NOT_OWNED`, `ITEM_NOT_FOUND`, `REQUEST_ID_REUSED`, `REQUEST_ID_REQUIRED`, `INVALID_POI`). Car calls keep the server codes as they are.
 - Stages: `StageResult.CarWear` (`CarWear`: `VehicleKey`, `Applied`, `Replayed`, `Before`, `After`, `Wear`, `WearOf`, `NeedsCriticalService`, `Critical`) from `extensions.pp_car`. `CarWearFields` (`distanceKm`, `offroadKm`, `brakeKm`, `vehicleCondition`, `Build`, `Add`) for the `fields` of `StageProvider.Complete`. `StageErrorCodes.CarNeedsService` (`CAR_NEEDS_SERVICE`, meta `vehicleKey`, `slots`) and `CarInService` (`CAR_IN_SERVICE`, meta `slot`, `endsAt`, `secondsLeft`) from `StageProvider.Start` when the server car gate is on; other stage codes are unchanged.
+
+## 0.8.0 — 2026-11-23 (package `com.nakamafarsi.unity` 3.23.0-nf.5)
+
+Backup units from the server (Police Patrol server `nakama` @ d9c3469d1). Nothing in 0.7 changed.
+
+- `BackupProvider.List(onComplete)` and `List(attemptId, mission, onComplete)` (`pp_backup_list`) answer a `BackupList`: `Units` (`BackupUnit`: `Key`, `Kind`, `Title`, `Icon`, `Count`, `UnityIds`, `Sort`, `CallsPerMission`, `SecondsBetweenCalls`, `Used`, `CallsLeft`, `NextCallAt`, `SecondsUntilNextCall`, `IsGround`, `IsAir`, `Serves(unityId)`), `Enabled`, `Unlimited`, `DebitOn`, `DebitOnArrival`, `RefundSeconds`, `RequireRun`, `EnforceCap`, `CallsPerMission`, `EnforceCooldown`, `SecondsBetweenCalls`, `CarsOutAtOnce`, `LimitsPer`, `ServerTime`, `Find(key)`, `OfKind(kind)`, `For(kind, unityId)`, `CanCall(unit)`.
+- `BackupProvider.Use(key, attemptId, requestId, onComplete)` and `Use(key, attemptId, requestId, unitId, mission, onComplete)` (`pp_backup_use`, idempotent by `requestId`; an empty one gets `NewRequestId()`) answer the list with `Use` (`BackupUse`: `RequestId`, `Key`, `Kind`, `AttemptId`, `Mission`, `UnitId`, `Debited`, `Status`, `At`, `Replayed`, `Refunded`).
+- `BackupProvider.Refund(requestId, onComplete)` (`pp_backup_refund`, only when the panel takes a unit at the call).
+- Constants `BackupKinds` (`Ground`, `Air`), `BackupDebitModes` (`Arrival`, `Call`), `BackupErrorCodes` (`NotOwned`, `Limit`, `Cooldown`, `NotFound`, `UnitNotAllowed`, `StageNotRunning`, `RefundOff`, `RefundExpired`, `UseNotFound`, `RequestIdReused`). Server codes come back unchanged; `BACKUP_COOLDOWN` fills `ApiError.RetryAfterSeconds`.
 
 ## 0.7.0 — 2026-11-22 (package `com.nakamafarsi.unity` 3.23.0-nf.3)
 

@@ -1,0 +1,12 @@
+{
+  "code": "BACKUP_COOLDOWN",
+  "status": 409,
+  "message": "Backup is not ready yet. Try again in 58 seconds.",
+  "meta": {
+    "retryAfter": 58,
+    "secondsUntilNextCall": 58
+  },
+  "retryAfterSeconds": 58,
+  "field": "key",
+  "lang": "en"
+}
