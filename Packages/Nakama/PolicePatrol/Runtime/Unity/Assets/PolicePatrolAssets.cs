@@ -14,6 +14,20 @@ namespace PolicePatrol.Sdk.Unity
 
         public static bool ApplyInEditor { get; set; }
 
+        public static bool? RequireOnline
+        {
+            get => AssetProvider.RequireOnline;
+            set => AssetProvider.RequireOnline = value;
+        }
+
+        public static TimeSpan? MaxCacheAge
+        {
+            get => AssetProvider.MaxCacheAge;
+            set => AssetProvider.MaxCacheAge = value;
+        }
+
+        public static AssetCacheState LastLoad(string folder) => (Cache as IAssetCacheMeta)?.LoadState(folder);
+
         public static PolicePatrolAssetRegistry Registry
         {
             get => _registry != null ? _registry : _registry = PolicePatrolAssetRegistry.Load();

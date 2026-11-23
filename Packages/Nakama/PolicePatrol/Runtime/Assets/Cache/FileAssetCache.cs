@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace PolicePatrol.Sdk.Assets
 {
-    public sealed class FileAssetCache : IAssetCache
+    public sealed class FileAssetCache : IAssetCache, IAssetCacheMeta
     {
         private readonly string _directory;
 
@@ -27,6 +27,10 @@ namespace PolicePatrol.Sdk.Assets
         public string[] LoadIndex(string folder) => Read<string[]>(AssetCacheKeys.Index(folder));
 
         public void SaveIndex(string folder, string[] assetIds) => Write(AssetCacheKeys.Index(folder), assetIds);
+
+        public AssetCacheState LoadState(string folder) => Read<AssetCacheState>(AssetCacheKeys.State(folder));
+
+        public void SaveState(string folder, AssetCacheState state) => Write(AssetCacheKeys.State(folder), state);
 
         public void Clear()
         {

@@ -7,6 +7,8 @@ namespace PolicePatrol.Sdk.Assets
     {
         public static string Index(string folder) => "index:" + (folder ?? "*");
 
+        public static string State(string folder) => "state:" + (folder ?? "*");
+
         public static string FileName(string key)
         {
             using (var sha = SHA256.Create())
