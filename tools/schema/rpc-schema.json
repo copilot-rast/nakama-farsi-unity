@@ -17,39 +17,39 @@
   "sources": [
     {
       "name": "nakama-farsi",
-      "commit": "3ccde803"
+      "commit": "03c4e1c0"
     },
     {
       "name": "pp",
-      "commit": "172dcc97a"
+      "commit": "4b87bb50e"
     },
     {
       "name": "combatrace",
-      "commit": "1d0fb5fe"
+      "commit": "525441cd"
     },
     {
       "name": "rakhtkan",
-      "commit": "bbcfd8308"
+      "commit": "b95920a0e"
     },
     {
       "name": "soltan",
-      "commit": "e716be5a"
+      "commit": "eb8c7945"
     },
     {
       "name": "finteen",
-      "commit": "09b7402c"
+      "commit": "df41d90a"
     },
     {
       "name": "viralvanguard",
-      "commit": "961e55eb"
+      "commit": "6da8ff1b"
     },
     {
       "name": "machineirani",
-      "commit": "f2ada403"
+      "commit": "384b6684"
     },
     {
       "name": "mench",
-      "commit": "d5ba880c"
+      "commit": "2d937bc1"
     }
   ],
   "rpcs": [
