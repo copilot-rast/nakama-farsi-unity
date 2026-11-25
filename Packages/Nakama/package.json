@@ -1,9 +1,9 @@
 {
     "name": "com.nakamafarsi.unity",
-    "version": "3.23.0-nf.6",
+    "version": "3.23.0-nf.7",
     "unity": "2022.3",
     "displayName": "Nakama Farsi",
-    "description": "Nakama Unity client (Heroic Labs) with the nakama-farsi layer built in: session and socket management, socket-first RPCs with HTTP fallback, typed wrappers for every nakama-farsi RPC, phone login, coins, web gateways, Cafe Bazaar and Myket billing, leaderboards, tasks, chat and stickers. Includes the Police Patrol layer (PolicePatrol.Sdk, the API of com.policepatrol.sdk 0.5.x to 0.9.0), switched on by the POLICEPATROL_SDK symbol.",
+    "description": "Nakama Unity client (Heroic Labs) with the nakama-farsi layer built in: session and socket management, socket-first RPCs with HTTP fallback, typed wrappers for every nakama-farsi RPC, phone login, coins, web gateways, Cafe Bazaar and Myket billing, leaderboards, tasks, chat and stickers. Includes the Police Patrol layer (PolicePatrol.Sdk, the API of com.policepatrol.sdk 0.5.x to 0.9.1), switched on by the POLICEPATROL_SDK symbol.",
     "keywords": [
         "app server",
         "client library",

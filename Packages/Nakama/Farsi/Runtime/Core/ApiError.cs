@@ -42,7 +42,16 @@ namespace NakamaFarsi.Sdk
 
         public bool IsNetworkError => Code == NetworkErrorCode || Code == TimeoutCode;
 
-        public bool IsRetryable => IsNetworkError || Status == 408 || Status == 429 || Status >= 500;
+        public static readonly System.Collections.Generic.HashSet<string> NotRetryableCodes = new System.Collections.Generic.HashSet<string>(StringComparer.Ordinal)
+        {
+            "STORE_CONFIGURATION_REJECTED",
+            "METHOD_UNAVAILABLE",
+            "STORE_MODE_CHANGED",
+        };
+
+        public bool IsNotRetryableCode => NotRetryableCodes.Contains(Code);
+
+        public bool IsRetryable => !IsNotRetryableCode && (IsNetworkError || Status == 408 || Status == 429 || Status >= 500);
 
         public static ApiError Network(string detail) => new ApiError(NetworkErrorCode, 0, string.Empty) { Raw = detail };
 

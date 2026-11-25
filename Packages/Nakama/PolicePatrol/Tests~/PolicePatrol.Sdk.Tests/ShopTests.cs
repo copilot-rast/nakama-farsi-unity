@@ -42,6 +42,17 @@ namespace PolicePatrol.Sdk.Tests
         private static string Catalog(string method, bool subscription = false) =>
             "{\"products\":[{\"id\":\"prod\",\"key\":\"coins\",\"name\":\"Coins\",\"priceToman\":1000,\"finalToman\":800,\"paymentMethods\":[\"" + method + "\"],\"sku\":{\"" + method + "\":\"coins_100\"},\"isSubscription\":" + (subscription ? "true" : "false") + "}]}";
 
+        [Theory]
+        [InlineData("STORE_CONFIGURATION_REJECTED", 503)]
+        [InlineData("METHOD_UNAVAILABLE", 412)]
+        [InlineData("STORE_MODE_CHANGED", 503)]
+        public void StoreSetupErrorsAreNotRetried(string code, int status) =>
+            Assert.False(PaymentPoller.IsRetryable(new ApiError(status, code, null, string.Empty)));
+
+        [Fact]
+        public void StoreUnavailableIsRetried() =>
+            Assert.True(PaymentPoller.IsRetryable(new ApiError(503, PaymentErrorCodes.StoreUnavailable, null, string.Empty)));
+
         private static PaymentPoller Poller() => new PaymentPoller((w, then) => then()) { RewardTimeout = TimeSpan.Zero, Timeout = TimeSpan.Zero };
 
         private static async Task<ShopItem> Item(ProductIAP shop)

@@ -28,7 +28,7 @@ namespace PolicePatrol.Sdk.Payments
         public TimeSpan RewardTimeout { get; set; } = DefaultRewardTimeout;
 
         public static bool IsRetryable(ApiError error) =>
-            error != null && (error.IsNetworkError || error.Status == 429 || error.Status >= 500 || error.Code == PaymentErrorCodes.StoreUnavailable || error.Code == PaymentErrorCodes.StoreModeChanged);
+            error != null && error.Code != PaymentErrorCodes.StoreConfigurationRejected && error.Code != PaymentErrorCodes.StoreModeChanged && error.Code != PaymentErrorCodes.MethodUnavailable && (error.IsNetworkError || error.Status == 429 || error.Status >= 500 || error.Code == PaymentErrorCodes.StoreUnavailable);
 
         public void WaitForResult(string paymentId, Action<ApiResult<Payment>> onComplete, CancellationToken cancellationToken = default) =>
             Repeat(done => PaymentProvider.Get(paymentId, done), result => result.Data?.Status == PaymentStatus.Pending || result.Data?.IsRewardPending == true, Timeout,

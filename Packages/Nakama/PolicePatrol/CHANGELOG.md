@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.9.1 — 2026-11-25 (package `com.nakamafarsi.unity` 3.23.0-nf.7)
+
+- `PaymentPoller.IsRetryable` stops at once on `STORE_CONFIGURATION_REJECTED`, `METHOD_UNAVAILABLE` (new `PaymentErrorCodes.MethodUnavailable`) and `STORE_MODE_CHANGED`, also when the server still answers 503; `STORE_UNAVAILABLE` stays retryable.
+
 ## 0.9.0 — 2026-11-23 (package `com.nakamafarsi.unity` 3.23.0-nf.6)
 
 Typed APIs for two Police Patrol server features: server data that requires a connection, and car condition with services. Every 0.8 call and model keeps working (the `com.policepatrol.sdk` 0.5.21 API is unchanged); new fields are init properties on the same records.

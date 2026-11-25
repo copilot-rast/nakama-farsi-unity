@@ -3,6 +3,14 @@ All notable changes to this project are documented below.
 
 The format is based on [keep a changelog](http://keepachangelog.com/) and this project uses [semantic versioning](http://semver.org/).
 
+## [3.23.0-nf.7] - 2026-11-25
+### Changed
+- Farsi layer: store setup errors stop the purchase flow at once. `PaymentClient.IsRetryable` and `ApiError.IsRetryable` no longer match `STORE_CONFIGURATION_REJECTED`, `METHOD_UNAVAILABLE` or `STORE_MODE_CHANGED` (by code, also when an older server still answers 503 / gRPC 14); `STORE_UNAVAILABLE` and network errors stay retryable. `SubmitAsync`, `ReviewAsync`, `BuyAsync` and `RecoverAsync` return `PurchaseOutcome.Pending` with `PurchaseResult.IsStoreNotReady = true` and the code in `Error`; the store purchase is not consumed, so `RecoverAsync` delivers it on a later start. Servers from nakama-farsi 2026-11-25 answer these codes with gRPC 9 (FAILED_PRECONDITION).
+- Police Patrol layer 0.9.1: `PaymentPoller.IsRetryable` no longer retries `STORE_CONFIGURATION_REJECTED`, `METHOD_UNAVAILABLE` or `STORE_MODE_CHANGED`.
+
+### Added
+- `PurchaseErrors.StoreConfigurationRejected`, `MethodUnavailable`, `PurchaseInvalid`, `TokenAlreadyUsed`, `PaymentAlreadySettled`, `PurchaseErrors.IsStoreNotReady(code)`, `PurchaseResult.IsStoreNotReady`, `ApiError.NotRetryableCodes`, `ApiError.IsNotRetryableCode`; Police Patrol `PaymentErrorCodes.MethodUnavailable`.
+
 ## [3.23.0-nf.6] - 2026-11-23
 ### Added
 - Police Patrol layer 0.9.0: server data that requires a connection (`ASSETS_ONLINE_REQUIRED`, `ASSETS_CACHE_TOO_OLD`), car condition and services (`CarProvider`), car wear on stage results. See `PolicePatrol/CHANGELOG.md`.

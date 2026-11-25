@@ -83,6 +83,61 @@ namespace NakamaFarsi.Sdk.Tests
             Assert.Empty(store.Consumed);
         }
 
+        [Theory]
+        [InlineData("STORE_CONFIGURATION_REJECTED", 503)]
+        [InlineData("STORE_CONFIGURATION_REJECTED", 412)]
+        [InlineData("METHOD_UNAVAILABLE", 503)]
+        [InlineData("STORE_MODE_CHANGED", 400)]
+        public void StoreNotReadyCodesAreNotRetryable(string code, int status)
+        {
+            var error = new ApiError(code, status, string.Empty);
+            Assert.False(PaymentClient.IsRetryable(error));
+            Assert.False(error.IsRetryable);
+            Assert.True(PurchaseErrors.IsStoreNotReady(code));
+        }
+
+        [Fact]
+        public void StoreUnavailableStaysRetryable()
+        {
+            Assert.True(PaymentClient.IsRetryable(new ApiError(PurchaseErrors.StoreUnavailable, 503, string.Empty)));
+            Assert.True(new ApiError(PurchaseErrors.StoreUnavailable, 503, string.Empty).IsRetryable);
+            Assert.True(PaymentClient.IsRetryable(ApiError.Network("down")));
+        }
+
+        [Fact]
+        public async Task StoreConfigurationRejectedStopsAtOnceAndKeepsThePurchase()
+        {
+            _http.Answers.Enqueue("{\"paymentId\":\"p1\",\"status\":\"store\",\"sku\":\"fir_oil_100\",\"developerPayload\":\"p1\"}");
+            _http.Answers.Enqueue(new RpcServerException("STORE_CONFIGURATION_REJECTED", 503));
+            _http.Answers.Enqueue("{\"paymentId\":\"p1\",\"status\":\"success\",\"rewardGranted\":true}");
+            var store = new Store();
+            var payments = Make();
+            payments.SubmitTimeout = TimeSpan.FromMinutes(1);
+            var r = await payments.BuyAsync("prod", PaymentMethods.Bazaar, store);
+            Assert.Equal(PurchaseOutcome.Pending, r.Outcome);
+            Assert.True(r.IsStoreNotReady);
+            Assert.Equal(PurchaseErrors.StoreConfigurationRejected, r.Error);
+            Assert.Equal("p1", r.PaymentId);
+            Assert.Empty(store.Consumed);
+            Assert.Equal(new[] { "economy_purchase_start", "economy_purchase_submit" }, _http.Calls.Select(c => c.Id));
+        }
+
+        [Fact]
+        public async Task ReviewStopsAtOnceOnStoreConfigurationRejected()
+        {
+            var store = new Store();
+            store.Owned.Add(new StorePurchase("fir_oil_100", "tok-1", "p1"));
+            _http.Answers.Enqueue(new RpcServerException("{\"code\":\"STORE_CONFIGURATION_REJECTED\",\"status\":412}", 400));
+            _http.Answers.Enqueue("{\"items\":[]}");
+            var payments = Make();
+            payments.SubmitTimeout = TimeSpan.FromMinutes(1);
+            var results = await payments.RecoverAsync(store);
+            var one = Assert.Single(results);
+            Assert.True(one.IsStoreNotReady);
+            Assert.Empty(store.Consumed);
+            Assert.Equal(new[] { "economy_purchase_review", "economy_payments_mine" }, _http.Calls.Select(c => c.Id));
+        }
+
         [Fact]
         public async Task RecoverFollowsPaymentsWhoseRewardIsPending()
         {

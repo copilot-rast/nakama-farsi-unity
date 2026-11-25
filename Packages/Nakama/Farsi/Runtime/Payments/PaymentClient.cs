@@ -30,6 +30,14 @@ namespace NakamaFarsi.Sdk.Payments
         public const string StoreUnavailable = "STORE_UNAVAILABLE";
         public const string StoreModeChanged = "STORE_MODE_CHANGED";
         public const string SubscriptionNotSupported = "SUBSCRIPTION_NOT_SUPPORTED";
+        public const string StoreConfigurationRejected = "STORE_CONFIGURATION_REJECTED";
+        public const string MethodUnavailable = "METHOD_UNAVAILABLE";
+        public const string PurchaseInvalid = "PURCHASE_INVALID";
+        public const string TokenAlreadyUsed = "TOKEN_ALREADY_USED";
+        public const string PaymentAlreadySettled = "PAYMENT_ALREADY_SETTLED";
+
+        public static bool IsStoreNotReady(string code) =>
+            code == StoreConfigurationRejected || code == MethodUnavailable || code == StoreModeChanged;
     }
 
     public sealed class PurchaseResult
@@ -49,6 +57,8 @@ namespace NakamaFarsi.Sdk.Payments
         public bool IsSuccess => Outcome == PurchaseOutcome.Success;
 
         public bool IsRewardPending => Outcome == PurchaseOutcome.RewardPending;
+
+        public bool IsStoreNotReady => Outcome == PurchaseOutcome.Pending && PurchaseErrors.IsStoreNotReady(Error);
     }
 
     public sealed class PaymentClient
@@ -75,7 +85,7 @@ namespace NakamaFarsi.Sdk.Payments
         public event Action<PurchaseResult> Completed;
 
         public static bool IsRetryable(ApiError error) =>
-            error != null && (error.IsNetworkError || error.Code == ApiError.TimeoutCode || error.Status == 429 || error.Status >= 500 || error.Code == PurchaseErrors.StoreUnavailable || error.Code == PurchaseErrors.StoreModeChanged);
+            error != null && !PurchaseErrors.IsStoreNotReady(error.Code) && (error.IsNetworkError || error.Code == ApiError.TimeoutCode || error.Status == 429 || error.Status >= 500 || error.Code == PurchaseErrors.StoreUnavailable);
 
         public Task<JObject> CatalogAsync(string categoryKey = null, CancellationToken ct = default)
         {
@@ -330,7 +340,7 @@ namespace NakamaFarsi.Sdk.Payments
                 {
                     return new PurchaseResult
                     {
-                        Outcome = IsRetryable(e.Error) ? PurchaseOutcome.Pending : PurchaseOutcome.Failed,
+                        Outcome = IsRetryable(e.Error) || PurchaseErrors.IsStoreNotReady(e.Error.Code) ? PurchaseOutcome.Pending : PurchaseOutcome.Failed,
                         PaymentId = paymentId,
                         Status = "pending",
                         Error = e.Error.Code,
