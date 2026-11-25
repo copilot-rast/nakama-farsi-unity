@@ -30,7 +30,7 @@ Guide sections 1–8: `AuthProvider` (device login, logout, phone OTP / recovery
 `PolicePatrolAssetRegistry`, `PolicePatrolContent`, the store installers and the editor windows (Asset Sync, Shop Cards,
 Stat Cards, Content Publish) with API keys from «ابزار توسعه › کلیدهای API».
 
-New: `PolicePatrolAnalytics` (design / progression / resource / business / error events, context, dimensions).
+New: `PolicePatrolAnalytics` (design / progression / resource / business / error events, context, dimensions). During a stage the server fills the stage, car and car class of each event, so `SetMission` / `SetVehicle` are only needed outside a stage (0.9.2).
 
 New in 0.7 (guide sections 10–12): stage settings, star rules, criteria and milestone ids (`StageProvider`), the start with a car (`StageProvider.Start(stageKey, vehicleKey, ...)`), the trophy page, claim and the 1501 notification (`StatsProvider.Trophies`, `Claim`, `TrophyStepUnlocked`), split stats (`StatsProvider.Mine(keys, ...)`), design event helpers (`PolicePatrolEvents`), car and part profiles (`InventoryProvider.Get(type, withProfile, ...)`), equip / unequip (`InventoryProvider.Equip`, `Unequip`), and the routing table plus dry run in the Asset Sync window.
 

@@ -1,8 +1,17 @@
 # Changelog
 
-## 0.9.1 — 2026-11-25 (package `com.nakamafarsi.unity` 3.23.0-nf.7)
+## 0.9.3 — 2026-11-25 (package `com.nakamafarsi.unity` 3.23.0-nf.9)
 
 - `PaymentPoller.IsRetryable` stops at once on `STORE_CONFIGURATION_REJECTED`, `METHOD_UNAVAILABLE` (new `PaymentErrorCodes.MethodUnavailable`) and `STORE_MODE_CHANGED`, also when the server still answers 503; `STORE_UNAVAILABLE` stays retryable.
+
+## 0.9.2 — 2026-11-25 (package `com.nakamafarsi.unity` 3.23.0-nf.8)
+
+The server fills the stage and the car of every analytics event during a stage. Nothing was removed and every call keeps working.
+
+- During a stage the game does not need `PolicePatrolEvents.SetMission` or `SetVehicle`: the server takes `stage`, `attemptId`, `vehicle` (Unity id such as `Tiggo8`) and `vehicleClass` from the attempt that `StageProvider.Start` opened (the car sent with the start, or the equipped car when the start named none), at the time of each event (`time` is set by the SDK). Old builds that still set them keep working; a value that differs from the server is replaced and the event is flagged on the server (admin settings).
+- New `PolicePatrolEvents.SetMode(mode)` (only `mode`, story or freeride) and `PolicePatrolEvents.ClearVehicle()`. Use `SetVehicle` only outside a stage, for example in the garage.
+- `insights_send` events (`NakamaFarsiRpcs`) need no `mission` or `car` tag during a stage either; the server fills them with the stage key and the car key (such as `tiggo8`).
+- Guide sample `Sections10To12.Snippet0` sets only the gun and the mode (`SetMission(mode)`, which also works on 0.9.0); `Snippet0Garage` sets the car outside a stage and clears it with `SetVehicle(null, null)`. Test `DuringAStageTheGameSendsNoCarOrStage`.
 
 ## 0.9.0 — 2026-11-23 (package `com.nakamafarsi.unity` 3.23.0-nf.6)
 

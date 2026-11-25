@@ -269,9 +269,15 @@ namespace GuideCheck.Sections10To12.S11
 
         public void Snippet0()
         {
-            PolicePatrolEvents.SetVehicle("HyundaiSantafe", "SUV");
             PolicePatrolEvents.SetGun("gun-handgun-mp5", "Handgun");
-            PolicePatrolEvents.SetMission(PolicePatrolEvents.StoryMode, stageKey, attemptId);
+            PolicePatrolEvents.SetMission(PolicePatrolEvents.StoryMode);
+        }
+
+        public void Snippet0Garage()
+        {
+            PolicePatrolEvents.SetVehicle("Tiggo8", "SUV");
+            PolicePatrolEvents.Paint();
+            PolicePatrolEvents.SetVehicle(null, null);
         }
 
         public void Snippet1()

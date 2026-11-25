@@ -375,6 +375,38 @@ namespace PolicePatrol.Sdk.Tests
         }
 
         [Fact]
+        public async Task DuringAStageTheGameSendsNoCarOrStage()
+        {
+            var t = Harness.Start();
+            string sent = null;
+            t.Routes["analytics_track"] = p =>
+            {
+                sent = p;
+                return "{\"batchId\":\"x\",\"stats\":[],\"unlocked\":[]}";
+            };
+            PolicePatrolAnalytics.ClearContext();
+            PolicePatrolEvents.SetGun("gun-handgun-mp5", "Handgun");
+            PolicePatrolEvents.SetMode(PolicePatrolEvents.StoryMode);
+            Assert.True(PolicePatrolEvents.Distance(0.5));
+            Assert.True(await PolicePatrolAnalytics.Client.SendAllAsync());
+            var body = JObject.Parse(sent);
+            var ctx = (JObject)body["context"];
+            Assert.Equal("story", (string)ctx["mode"]);
+            Assert.Null(ctx["vehicle"]);
+            Assert.Null(ctx["vehicleClass"]);
+            Assert.Null(ctx["stage"]);
+            Assert.Null(ctx["attemptId"]);
+            var ev = (JObject)((JArray)body["events"])[0];
+            Assert.False(string.IsNullOrEmpty((string)ev["time"]));
+            PolicePatrolEvents.SetVehicle("Tiggo8", "SUV");
+            PolicePatrolEvents.ClearVehicle();
+            Assert.True(PolicePatrolEvents.Distance(0.1));
+            Assert.True(await PolicePatrolAnalytics.Client.SendAllAsync());
+            Assert.Null(JObject.Parse(sent)["context"]?["vehicle"]);
+            PolicePatrolAnalytics.ClearContext();
+        }
+
+        [Fact]
         public async Task InventoryWithProfileHasCarsPartsSlotsAndStats()
         {
             var t = Harness.Start();
