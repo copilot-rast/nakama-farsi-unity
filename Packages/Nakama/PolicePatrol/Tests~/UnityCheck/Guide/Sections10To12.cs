@@ -270,14 +270,14 @@ namespace GuideCheck.Sections10To12.S11
         public void Snippet0()
         {
             PolicePatrolEvents.SetGun("gun-handgun-mp5", "Handgun");
-            PolicePatrolEvents.SetMode(PolicePatrolEvents.StoryMode);
+            PolicePatrolEvents.SetMission(PolicePatrolEvents.StoryMode);
         }
 
         public void Snippet0Garage()
         {
             PolicePatrolEvents.SetVehicle("Tiggo8", "SUV");
             PolicePatrolEvents.Paint();
-            PolicePatrolEvents.ClearVehicle();
+            PolicePatrolEvents.SetVehicle(null, null);
         }
 
         public void Snippet1()
