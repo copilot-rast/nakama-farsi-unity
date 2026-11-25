@@ -3,6 +3,10 @@ All notable changes to this project are documented below.
 
 The format is based on [keep a changelog](http://keepachangelog.com/) and this project uses [semantic versioning](http://semver.org/).
 
+## [3.23.0-nf.8] - 2026-11-25
+### Changed
+- Police Patrol layer 0.9.2: the server now fills the stage, car, car class and attempt of analytics events from the open stage attempt (nakama-farsi `internal/eventcontext`, pp `nakama` @ 15e9e2cfd). The game no longer needs `SetMission` / `SetVehicle` during a stage; `insights_send` events no longer need the `mission` and `car` tags. Wrappers unchanged (344 RPCs, `tools/generate-all.sh --check` up to date). Version number follows 3.23.0-nf.7 on branch `store-config-errors`.
+
 ## [3.23.0-nf.6] - 2026-11-23
 ### Added
 - Police Patrol layer 0.9.0: server data that requires a connection (`ASSETS_ONLINE_REQUIRED`, `ASSETS_CACHE_TOO_OLD`), car condition and services (`CarProvider`), car wear on stage results. See `PolicePatrol/CHANGELOG.md`.

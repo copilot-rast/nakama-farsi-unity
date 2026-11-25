@@ -28,6 +28,10 @@ namespace PolicePatrol.Sdk.Analytics
 
         public static void ClearMission() => SetMission(null);
 
+        public static void SetMode(string mode) => Set(PolicePatrolContextKeys.Mode, mode);
+
+        public static void ClearVehicle() => SetVehicle(null, null);
+
         public static bool Distance(double km) => Design(PolicePatrolDesignIds.VehicleDistance, km);
 
         public static bool DistanceForward(double km) => Design(PolicePatrolDesignIds.VehicleDistanceForward, km);
