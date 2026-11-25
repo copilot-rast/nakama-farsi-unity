@@ -4,6 +4,8 @@ All notable changes to this project are documented below.
 The format is based on [keep a changelog](http://keepachangelog.com/) and this project uses [semantic versioning](http://semver.org/).
 
 ## [3.23.0-nf.9] - 2026-11-25
+Contains 3.23.0-nf.8. The store fix below was prepared as nf.7 on branch `store-config-errors` and ships as nf.9; there is no nf.7 release.
+
 ### Changed
 - Farsi layer: store setup errors stop the purchase flow at once. `PaymentClient.IsRetryable` and `ApiError.IsRetryable` no longer match `STORE_CONFIGURATION_REJECTED`, `METHOD_UNAVAILABLE` or `STORE_MODE_CHANGED` (by code, also when an older server still answers 503 / gRPC 14); `STORE_UNAVAILABLE` and network errors stay retryable. `SubmitAsync`, `ReviewAsync`, `BuyAsync` and `RecoverAsync` return `PurchaseOutcome.Pending` with `PurchaseResult.IsStoreNotReady = true` and the code in `Error`; the store purchase is not consumed, so `RecoverAsync` delivers it on a later start. Servers from nakama-farsi 2026-11-25 answer these codes with gRPC 9 (FAILED_PRECONDITION).
 - Police Patrol layer 0.9.3: `PaymentPoller.IsRetryable` no longer retries `STORE_CONFIGURATION_REJECTED`, `METHOD_UNAVAILABLE` or `STORE_MODE_CHANGED`.
