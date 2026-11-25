@@ -76,6 +76,7 @@ var web = await NakamaFarsiGateway.BuyAsync(productId, PaymentMethods.ZarinPal);
 - `client.Payments.Completed` fires for every finished purchase.
 - Reward pending: when the server took the money but could not grant the reward yet (`rewardGranted: false`), the result has `Outcome = RewardPending`, `Error = PAYMENT_REWARD_PENDING` and the server code (`REWARD_PENDING`, `PRODUCT_ALREADY_BOUGHT` or `PRIZE_ALREADY_OWNED`) in `ServerError`. It is not a success: show "your purchase is being delivered". The server retries the grant itself; `WaitForRewardAsync(paymentId)` and `RecoverAsync` (it also reads `economy_payments_mine`) follow it up.
 - Consume rule: a store purchase is consumed only after the server verified the receipt (`status: success`, reward granted or pending). Network errors, `STORE_UNAVAILABLE`, `STORE_MODE_CHANGED` and any other answer that is not final leave the purchase in the store, so `RecoverAsync` sends it again later. A rejected receipt (`failed`, `PAYMENT_EXPIRED`, `PAYMENT_CLOSED`) is not consumed either.
+- Store setup errors (`STORE_CONFIGURATION_REJECTED`, `METHOD_UNAVAILABLE`, `STORE_MODE_CHANGED`) are not retried: the call returns at once with `Outcome = Pending`, `IsStoreNotReady = true` and the code in `Error`. Tell the player the purchase is saved; it is delivered by `RecoverAsync` once the server is fixed.
 - Start errors: `PAYMENT_IN_PROGRESS` (an open payment for the same one-time product), `PRODUCT_ALREADY_BOUGHT` (also for Bazaar, Myket and gateways). `PurchaseErrors` has the codes.
 
 ## Chat and notifications
